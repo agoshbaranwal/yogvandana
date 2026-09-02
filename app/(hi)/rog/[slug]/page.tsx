@@ -20,7 +20,8 @@ export async function generateMetadata({
     lang: "hi",
     routeKey: "ailment",
     slug,
-    title: `${t(ailment.titleFull, "hi")} | ${t(ailment.searchTerms, "hi")}`,
+    title: t(ailment.titleFull, "hi"),
+    keywords: t(ailment.searchTerms, "hi"),
     description: t(ailment.metaDescription, "hi"),
     ogKey: `ailment-${slug}`,
   });

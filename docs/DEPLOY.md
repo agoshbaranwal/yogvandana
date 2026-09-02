@@ -42,7 +42,7 @@ Nothing else. There is no Node, no build step and no process to keep alive on th
 ## What to do the day it goes live
 
 1. `npm run content:check` — it must say nothing is left.
-2. `npm run check` — lint, types, both languages, the build, the fourteen credibility rules.
+2. `npm run check` — lint, types, both languages, the build, the sixteen credibility rules.
 3. A one-rupee test payment through the Razorpay link in `content/batches/morning.json`.
 4. Open the site on a phone and send yourself the link on WhatsApp: the preview card should show
    her name, the claim and the saffron image.

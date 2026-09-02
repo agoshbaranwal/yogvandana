@@ -385,7 +385,7 @@ export const FAMILY_COLOUR: Record<Family, { ink: string; tint: string }> = {
   joint: { ink: "#B0304B", tint: "#F8E4E8" },
   metabolic: { ink: "#1A6FA8", tint: "#E4F0F9" },
   mind: { ink: "#5B2A6E", tint: "#EEE3F2" },
-  women: { ink: "#D6336C", tint: "#FBE3EB" },
+  women: { ink: "#D22A65", tint: "#FBE3EB" },
 };
 
 /** Absolute URL for metadata, including the sub-folder a project site lives in. */

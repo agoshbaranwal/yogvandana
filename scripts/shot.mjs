@@ -44,6 +44,15 @@ export async function shot(out, url, width = 1440, height = 2000) {
   const windowWidth = Math.max(width, 520);
   execFileSync(SHOT, [out, shell, String(windowWidth), String(height)], { stdio: "pipe" });
   await trimBottom(out);
+  // The window is never narrower than 520, so a phone shot comes back with
+  // dead space beside it. The page sits at the left edge of the shell.
+  if (windowWidth > width) {
+    const { width: w, height: h } = await sharp(out).metadata();
+    if (w && h && w > width) {
+      const buf = await sharp(out).extract({ left: 0, top: 0, width, height: h }).png().toBuffer();
+      fs.writeFileSync(out, buf);
+    }
+  }
 }
 
 if (process.argv[1] && process.argv[1].endsWith("shot.mjs")) {

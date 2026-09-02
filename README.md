@@ -36,7 +36,7 @@ npm run serve     # serves out/ on http://127.0.0.1:4411
 | `npm run serve` | Serves `out/` the way the real host will |
 | `npm run content:check` | Lists every fact and photo still to be filled in. Fails while any remain |
 | `npm run parity:check` | Fails if a string or a page exists in one language and not the other |
-| `npm run credibility:check` | The fourteen credibility rules over the built site, into `docs/CHECKS.md` |
+| `npm run credibility:check` | The sixteen credibility rules over the built site, into `docs/CHECKS.md` |
 | `npm run media:prepare` | Resizes her photographs from `media-src/` into `public/media/` |
 | `npm run og` | Redraws the link-preview images and the app icon |
 | `npm run screens` | Photographs every page, both widths, both languages, into `docs/screens/` |

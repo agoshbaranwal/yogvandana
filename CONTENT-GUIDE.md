@@ -48,7 +48,8 @@ Kapalbhati, and the review to 90 days with the report."**
 What is in the file: the name and the everyday words people search with (`sub`), the page title,
 the claim line for that condition, the intro paragraph, the counts, the slip (practice, time,
 batch, alongside, review), what the first class holds, what happens in class, three questions,
-and the search terms that go into the page title.
+and the search terms — the words people type, Roman letters and all, which go into the page's
+keywords rather than its title, so the title is never cut off in a search result.
 
 Leave the practice bracketed until she tells you the real asanas. That is the one field where a
 guess would be a lie about what she teaches.

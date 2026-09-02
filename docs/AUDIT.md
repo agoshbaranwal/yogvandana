@@ -35,10 +35,17 @@ On a throttled phone (4× slower CPU, 1.6 Mbps, 150 ms round trip), against the 
 Fonts are 350 KB of that, and they are the floor: Devanagari faces are large, and the site
 loads only the weights the stylesheet actually asks for (it started at 544 KB).
 
-Fourteen credibility rules run over the built pages: **13 pass, 1 waits on her material**
+Sixteen credibility rules run over the built pages: **15 pass, 1 waits on her material**
 (`docs/CHECKS.md`). Both languages match on every string and every route. No page scrolls
 sideways at 390 px or 1440 px. Every page has exactly one `h1`, every image has alt text, every
-placeholder block is labelled for a screen reader.
+placeholder block is labelled for a screen reader. Every text colour the site paints clears 4.5:1 on
+its own background — thirteen pairs, the closest being the small print on the saffron band at 4.62:1,
+and the rule fails the check if a future palette edit drops one below. All 1,670 internal links and
+every same-page anchor resolve.
+
+Driven with the keyboard: the skip link comes first, the focus ring is a dark ring inside a pale one
+so it shows on the saffron band and on the dark buttons alike, and the full-screen menu behaves like
+the dialog it is — focus moves into it, stays inside it, and returns to the menu button on Escape.
 
 Driven in a real browser, not assumed: the language pill keeps the page, the mobile menu opens
 and locks the scroll, the gallery filter narrows 12 photos to 4 and the viewer closes on Escape,
@@ -116,5 +123,6 @@ These are decisions, not omissions.
   a WhatsApp card. Verified live.
 - Tap targets are 44 px or more everywhere except four links inside sentences, which the WCAG
   target-size rule exempts.
-- Light theme only, no colour-scheme query anywhere, as agreed.
+- Light theme only, no colour-scheme query anywhere, as agreed. That rule now reads the built
+  stylesheet and fails if it finds none, rather than passing on an empty look.
 - The 404 is the site's own page, in both languages, with the menu on it.

@@ -1,4 +1,4 @@
-// The twelve credibility rules, run over the built pages, written to
+// The credibility rules, run over the built pages, written to
 // docs/CHECKS.md. A rule that cannot pass until her material arrives is
 // marked "waiting on content" rather than quietly skipped.
 import fs from "node:fs";
@@ -24,6 +24,20 @@ walk(OUT);
 const read = (f) => fs.readFileSync(f, "utf8");
 const rel = (f) => "/" + path.relative(OUT, f).replace(/index\.html$/, "");
 const isHindi = (f) => !rel(f).startsWith("/en/");
+/* The built stylesheet, wherever Next put it. Read once, and never treated as
+   "nothing found means nothing wrong": a rule that gets no CSS fails. */
+const cssFiles = [];
+const walkCss = (dir) => {
+  if (!fs.existsSync(dir)) return;
+  for (const name of fs.readdirSync(dir)) {
+    const full = path.join(dir, name);
+    if (fs.statSync(full).isDirectory()) walkCss(full);
+    else if (name.endsWith(".css")) cssFiles.push(full);
+  }
+};
+walkCss(path.join(OUT, "_next", "static"));
+const CSS = cssFiles.map((f) => fs.readFileSync(f, "utf8")).join("\n");
+
 const text = (html) =>
   html
     .replace(/<script[\s\S]*?<\/script>/g, " ")
@@ -195,15 +209,111 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
 
 /* 14 — light only, and analytics stay off until an id is set -------------- */
 {
-  const css = [];
-  const cssDir = path.join(OUT, "_next", "static", "css");
-  if (fs.existsSync(cssDir))
-    for (const f of fs.readdirSync(cssDir)) css.push(fs.readFileSync(path.join(cssDir, f), "utf8"));
-  const dark = css.some((c) => c.includes("prefers-color-scheme"));
+  const dark = /prefers-color-scheme/.test(CSS);
   const ga = pages.filter((f) => /googletagmanager/.test(read(f))).length;
   const site = JSON.parse(fs.readFileSync(path.join(ROOT, "content", "site.json"), "utf8"));
   const gaOk = site.analyticsId ? ga > 0 : ga === 0;
-  add(14, "Light theme only; analytics load only once an id is set", !dark && gaOk ? "pass" : "fail", `${dark ? "a colour-scheme query is present" : "no colour-scheme query"} · analytics on ${ga} pages, id ${site.analyticsId ? "set" : "empty"}`);
+  const ok = CSS.length > 0 && !dark && gaOk;
+  add(
+    14,
+    "Light theme only; analytics load only once an id is set",
+    ok ? "pass" : "fail",
+    CSS.length === 0
+      ? "no stylesheet found under out/_next/static — nothing was actually checked"
+      : `${(CSS.length / 1024).toFixed(0)} KB of CSS read from ${cssFiles.length} file(s): ${dark ? "a colour-scheme query is present" : "no colour-scheme query"} · analytics on ${ga} pages, id ${site.analyticsId ? "set" : "empty"}`,
+  );
+}
+
+/* 15 — text stands off its background (WCAG AA) --------------------------- */
+{
+  // Read the tokens from the built stylesheet, so a later palette edit is
+  // caught here rather than in someone's eyes.
+  // Tailwind drops a theme variable nothing references, and the condition
+  // families are painted from lib/content.ts, so they are read from there.
+  const families = fs.readFileSync(path.join(ROOT, "lib", "content.ts"), "utf8");
+  const expand = (h) =>
+    h && h.length === 4 ? `#${h[1]}${h[1]}${h[2]}${h[2]}${h[3]}${h[3]}` : h;
+  const token = (name) => {
+    const inCss = CSS.match(new RegExp(`--color-${name}:\\s*(#[0-9a-fA-F]{3,6})\\b`));
+    if (inCss) return expand(inCss[1]).toLowerCase();
+    const inTs = families.match(new RegExp(`${name}:\\s*\\{\\s*ink:\\s*"(#[0-9a-fA-F]{3,6})"`));
+    return inTs ? expand(inTs[1]).toLowerCase() : undefined;
+  };
+  const lin = (c) => (c / 255 <= 0.03928 ? c / 255 / 12.92 : ((c / 255 + 0.055) / 1.055) ** 2.4);
+  const lum = (hex) => {
+    const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+    return 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
+  };
+  const ratio = (a, b) => {
+    const [x, y] = [lum(a), lum(b)].sort((m, n) => n - m);
+    return (x + 0.05) / (y + 0.05);
+  };
+  // Every pair the site actually paints, at body or label size.
+  const pairs = [
+    ["body text", "kohl", "ivory"],
+    ["captions", "muted", "ivory"],
+    ["links", "deep", "ivory"],
+    ["links on the sandal bands", "deep", "sandal"],
+    ["links on the apricot bands", "deep", "apricot"],
+    ["the free band", "kohl", "bhagwa"],
+    ["the band's small print", "deeper", "bhagwa"],
+    ["the hero eyebrow", "deeper", "apricot"],
+    ["body on the hero", "heroink", "sky"],
+    ["condition chips", "joint", "ivory"],
+    ["condition chips", "metabolic", "ivory"],
+    ["condition chips", "mind", "ivory"],
+    ["condition chips", "women", "ivory"],
+  ];
+  const measured = pairs
+    .map(([what, fg, bg]) => ({ what, fg, bg, a: token(fg), b: token(bg) }))
+    .filter((p) => p.a && p.b)
+    .map((p) => ({ ...p, r: ratio(p.a, p.b) }));
+  const low = measured.filter((p) => p.r < 4.5);
+  const worst = measured.slice().sort((x, y) => x.r - y.r)[0];
+  add(
+    15,
+    "Every text colour clears 4.5:1 on its background",
+    measured.length === pairs.length && low.length === 0 ? "pass" : "fail",
+    measured.length !== pairs.length
+      ? `only ${measured.length} of ${pairs.length} pairs could be read from the stylesheet`
+      : low.length
+        ? low.map((p) => `${p.what} ${p.a} on ${p.b} = ${p.r.toFixed(2)}:1`).join(" · ")
+        : `${measured.length} pairs measured, the closest being ${worst.what} at ${worst.r.toFixed(2)}:1`,
+  );
+}
+
+/* 16 — every link on the site goes somewhere ------------------------------ */
+{
+  const has = (href) => {
+    const clean = href.split("#")[0].split("?")[0];
+    if (clean === "" || clean === "/") return fs.existsSync(path.join(OUT, "index.html"));
+    const full = path.join(OUT, clean.replace(/^\//, ""));
+    return (
+      fs.existsSync(full) ||
+      fs.existsSync(path.join(full, "index.html")) ||
+      fs.existsSync(full.replace(/\/$/, "") + ".html")
+    );
+  };
+  const broken = new Set();
+  let count = 0;
+  let dangling = 0;
+  for (const f of pages) {
+    const html = read(f);
+    const ids = new Set([...html.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]));
+    for (const m of html.matchAll(/href="(\/[^"/][^"]*|\/)"/g)) {
+      count += 1;
+      if (!has(m[1])) broken.add(`${rel(f)} → ${m[1]}`);
+    }
+    for (const m of html.matchAll(/href="#([^"]+)"/g)) if (!ids.has(m[1])) dangling += 1;
+  }
+  add(
+    16,
+    "Every internal link and anchor goes somewhere",
+    broken.size === 0 && dangling === 0 ? "pass" : "fail",
+    broken.size || dangling
+      ? `${[...broken].slice(0, 6).join(" · ")}${dangling ? ` · ${dangling} anchors point at nothing` : ""}`
+      : `${count} links across ${pages.length} pages, and every same-page anchor has its target`,
+  );
 }
 
 /* ------------------------------- report ---------------------------------- */

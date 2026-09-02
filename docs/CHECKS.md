@@ -18,6 +18,8 @@ Last run: 2026-09-02 · 42 pages.
 | 11 | Every page has a link-preview title, description and image | pass | 36 preview images, one per page per language |
 | 12 | Canonical and hreflang on every page; nothing indexed until the site goes live | pass | all pages paired · noindex on 42/42 pages, site.live = false |
 | 13 | Every WhatsApp link opens with the message already written | pass | 332 links, 0 without a message |
-| 14 | Light theme only; analytics load only once an id is set | pass | no colour-scheme query · analytics on 0 pages, id empty |
+| 14 | Light theme only; analytics load only once an id is set | pass | 34 KB of CSS read from 1 file(s): no colour-scheme query · analytics on 0 pages, id empty |
+| 15 | Every text colour clears 4.5:1 on its background | pass | 13 pairs measured, the closest being the band's small print at 4.62:1 |
+| 16 | Every internal link and anchor goes somewhere | pass | 1670 links across 42 pages, and every same-page anchor has its target |
 
-13 passed, 0 failed, 1 waiting on her material.
+15 passed, 0 failed, 1 waiting on her material.

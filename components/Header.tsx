@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CloseIcon, MenuIcon, WhatsAppIcon } from "./Icons";
 
 export type NavItem = { label: string; href: string; active: boolean };
@@ -42,15 +42,49 @@ export default function Header({
   onDawn?: boolean;
 }) {
   const [open, setOpen] = useState(false);
+  const panel = useRef<HTMLDivElement>(null);
+  const toggle = useRef<HTMLButtonElement>(null);
 
+  /* The menu covers the whole screen, so it has to behave like one: the
+     keyboard stays inside it while it is open, Escape closes it, and focus
+     goes back to the button that opened it. */
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        return;
+      }
+      if (e.key !== "Tab" || !open || !panel.current) return;
+      const items = panel.current.querySelectorAll<HTMLElement>("a[href], button");
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      const here = document.activeElement;
+      if (e.shiftKey && (here === first || !panel.current.contains(here))) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && here === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
     document.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = "";
       document.removeEventListener("keydown", onKey);
     };
+  }, [open]);
+
+  const opened = useRef(false);
+  useEffect(() => {
+    if (open) {
+      opened.current = true;
+      panel.current?.querySelector<HTMLElement>("button")?.focus();
+    } else if (opened.current) {
+      // only after a menu the visitor actually opened: never on page load
+      toggle.current?.focus({ preventScroll: true });
+    }
   }, [open]);
 
   return (
@@ -118,6 +152,7 @@ export default function Header({
           </Link>
           <button
             type="button"
+            ref={toggle}
             onClick={() => setOpen(true)}
             aria-label={menuLabel}
             aria-expanded={open}
@@ -130,7 +165,13 @@ export default function Header({
       </div>
 
       {open ? (
-        <div className="fixed inset-0 z-50 flex flex-col bg-ivory lg:hidden">
+        <div
+          ref={panel}
+          role="dialog"
+          aria-modal="true"
+          aria-label={menuLabel}
+          className="fixed inset-0 z-50 flex flex-col bg-ivory lg:hidden"
+        >
           <div className="wrap flex items-center justify-between gap-4 py-2.5">
             <span className="brand text-[24px]">
               <span style={{ color: "var(--color-bhagwa)" }}>{brandHi}</span> {brandTail}

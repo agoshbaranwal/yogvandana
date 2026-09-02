@@ -15,6 +15,7 @@ export function pageMeta({
   slug,
   title,
   description,
+  keywords,
   ogKey,
 }: {
   lang: Lang;
@@ -22,6 +23,10 @@ export function pageMeta({
   slug?: string;
   title: string;
   description: string;
+  /* The words people type, in Roman letters as often as not. They sit here
+     rather than in the title: a title past about sixty characters is cut off
+     in the result, and a stuffed one reads as spam to the person choosing. */
+  keywords?: string;
   ogKey?: string;
 }): Metadata {
   const path = href(routeKey, lang, slug);
@@ -32,6 +37,7 @@ export function pageMeta({
     metadataBase: new URL(absolute("/")),
     title: `${title} | ${brand}`,
     description,
+    keywords: keywords ? keywords.split(",").map((k) => k.trim()) : undefined,
     alternates: {
       canonical: absolute(path),
       languages: {

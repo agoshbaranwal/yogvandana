@@ -12,8 +12,8 @@
   --color-apricot: #fff3e3; /* the class row, highlights */
   --color-sandal: #f1e7d6; /* credibility block, batches band, placeholders */
   --color-bhagwa: #ff9933; /* buttons (dark text on it), the mark, the free band */
-  --color-deep: #a85400; /* links, small labels, the ailment claim line */
-  --color-deeper: #7a3d00; /* link hover, eyebrow on the dawn hero */
+  --color-deep: #a05000; /* links, small labels, the ailment claim line */
+  --color-deeper: #6b3500; /* link hover, eyebrow on the dawn hero, band captions */
   --color-kohl: #231a12; /* text, footer, the hero's primary button */
   --color-heroink: #4a3a2a; /* body text on the dawn hero */
   --color-muted: #6e5f4e; /* captions, dates, second lines */
@@ -32,7 +32,7 @@
   --color-metabolic-tint: #e4f0f9;
   --color-mind: #5b2a6e;
   --color-mind-tint: #eee3f2;
-  --color-women: #d6336c;
+  --color-women: #d22a65;
   --color-women-tint: #fbe3eb;
 
   --font-display: var(--font-baloo), "Arial Rounded MT Bold", ui-rounded, sans-serif;
@@ -83,9 +83,13 @@
   a:hover {
     color: var(--color-deeper);
   }
+  /* Two rings, not one: a dark ring with a pale ring inside it. A single
+     colour cannot clear 3:1 on both the saffron band and the dark buttons,
+     and those are the two the keyboard reaches first. */
   :focus-visible {
-    outline: 3px solid var(--color-deep);
+    outline: 3px solid var(--color-kohl);
     outline-offset: 2px;
+    box-shadow: 0 0 0 2px var(--color-ivory);
     border-radius: 4px;
   }
   ::selection {
