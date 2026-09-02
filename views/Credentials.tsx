@@ -115,7 +115,7 @@ export default function Credentials({ lang }: { lang: Lang }) {
                   <Tx>{`${t(c.body, lang)} · ${c.year} · ${t(c.hours, lang)}`}</Tx>
                 </p>
                 {c.verifyUrl ? (
-                  <a href={c.verifyUrl} target="_blank" rel="noopener noreferrer" className="text-[15px] font-bold">
+                  <a href={c.verifyUrl} target="_blank" rel="noopener noreferrer" className="tap text-[15px] font-bold">
                     {t(c.verifyLabel, lang)}
                   </a>
                 ) : (

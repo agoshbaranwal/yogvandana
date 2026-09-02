@@ -62,7 +62,7 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
         <div className="wrap grid gap-5 py-6 md:grid-cols-2 md:gap-12 md:py-10">
           <div className="flex flex-col gap-3">
             <nav aria-label="breadcrumb" className="flex items-center gap-2 text-[14px]">
-              <Link href={href("ailments", lang)} style={{ color: "var(--color-muted)" }}>
+              <Link href={href("ailments", lang)} className="tap" style={{ color: "var(--color-muted)" }}>
                 {ui("cta.backToAilments", lang)}
               </Link>
               <span aria-hidden="true" style={{ color: "var(--color-muted)" }}>

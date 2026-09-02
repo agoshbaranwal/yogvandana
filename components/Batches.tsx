@@ -129,7 +129,7 @@ export function BatchCard({
       <div className="mt-1 flex flex-wrap items-center justify-between gap-3 border-t border-rule pt-3">
         <p className="num text-[22px] md:text-[24px]">
           <Tx>{money}</Tx>{" "}
-          <span className="text-[14px] font-medium" style={{ color: "var(--color-muted)", fontFamily: "var(--font-body)" }}>
+          <span className="text-[14px] font-semibold" style={{ color: "var(--color-muted)", fontFamily: "var(--font-body)" }}>
             {t(batch.priceUnit, lang)}
           </span>
         </p>

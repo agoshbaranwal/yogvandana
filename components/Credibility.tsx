@@ -183,7 +183,7 @@ export function CredibilityBlock({ lang }: { lang: Lang }) {
           <div className="flex flex-col gap-2.5">
             <div className="flex items-baseline justify-between gap-4">
               <p className="label">{ui("home.galleryTitle", lang)}</p>
-              <Link href={href("gallery", lang)} className="text-[15px] font-bold">
+              <Link href={href("gallery", lang)} className="tap text-[15px] font-bold">
                 {ui("cta.allPhotos", lang)}
               </Link>
             </div>

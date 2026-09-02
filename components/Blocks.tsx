@@ -26,7 +26,7 @@ export function SectionHead({
           {title}
         </h2>
         {link ? (
-          <Link href={link.href} className="text-[16px] font-bold md:text-[17px]">
+          <Link href={link.href} className="tap text-[16px] font-bold md:text-[17px]">
             {link.label}
           </Link>
         ) : null}
@@ -63,7 +63,7 @@ export function TeacherLine({ lang }: { lang: Lang }) {
         </div>
         <Link
           href={href("about", lang)}
-          className="ml-auto whitespace-nowrap text-[14px] font-bold md:text-[15px]"
+          className="tap ml-auto whitespace-nowrap text-[14px] font-bold md:text-[15px]"
         >
           {ui("cta.aboutShort", lang)}
         </Link>

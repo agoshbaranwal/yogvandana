@@ -46,7 +46,7 @@ export default function Footer({ lang }: { lang: Lang }) {
               <Link
                 key={l.key}
                 href={href(l.key, lang)}
-                className="no-underline"
+                className="tap no-underline"
                 style={{ color: "var(--color-ivory)" }}
               >
                 {l.label}
@@ -55,7 +55,7 @@ export default function Footer({ lang }: { lang: Lang }) {
           </nav>
           <Link
             href={href("students", lang)}
-            className="text-[14px] font-bold no-underline"
+            className="tap text-[14px] font-bold no-underline"
             style={{ color: "var(--color-bhagwa)" }}
           >
             {ui("nav.students", lang)}

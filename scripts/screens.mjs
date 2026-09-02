@@ -36,11 +36,11 @@ const routes = [
 
 const jobs = [];
 for (const [name, hi, en] of routes) {
-  jobs.push({ file: `${name}-hi-390.png`, url: BASE + hi, w: 390, h: 7200 });
-  jobs.push({ file: `${name}-hi-1440.png`, url: BASE + hi, w: 1440, h: 5200 });
+  jobs.push({ file: `${name}-hi-390.png`, url: BASE + hi, w: 390, h: 9200 });
+  jobs.push({ file: `${name}-hi-1440.png`, url: BASE + hi, w: 1440, h: 6400 });
   if (en) {
-    jobs.push({ file: `${name}-en-390.png`, url: BASE + en, w: 390, h: 7200 });
-    jobs.push({ file: `${name}-en-1440.png`, url: BASE + en, w: 1440, h: 5200 });
+    jobs.push({ file: `${name}-en-390.png`, url: BASE + en, w: 390, h: 9200 });
+    jobs.push({ file: `${name}-en-1440.png`, url: BASE + en, w: 1440, h: 6400 });
   }
 }
 

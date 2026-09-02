@@ -64,7 +64,7 @@ export default function Header({
       <div className="wrap flex items-center justify-between gap-4 py-2.5 md:py-3">
         <Link
           href={home}
-          className="brand text-[24px] no-underline md:text-[28px]"
+          className="brand tap text-[24px] no-underline md:text-[28px]"
           style={{ color: "var(--color-kohl)" }}
         >
           <span style={{ color: onDawn ? "var(--color-deep)" : "var(--color-bhagwa)" }}>
@@ -79,7 +79,7 @@ export default function Header({
               key={item.href}
               href={item.href}
               aria-current={item.active ? "page" : undefined}
-              className="text-[17px] font-semibold no-underline"
+              className="tap text-[17px] font-semibold no-underline"
               style={{ color: item.active ? "var(--color-deep)" : "var(--color-kohl)" }}
             >
               {item.label}
@@ -90,7 +90,7 @@ export default function Header({
             title={switchTitle}
             data-ev="language_switch"
             data-ev-to={switchLabel}
-            className="inline-flex min-h-[40px] items-center rounded-full border px-3.5 text-[14px] font-semibold no-underline"
+            className="inline-flex min-h-[44px] items-center rounded-full border px-3.5 text-[14px] font-semibold no-underline"
             style={{ borderColor: "var(--color-kohl)", color: "var(--color-kohl)" }}
           >
             {switchLabel}
@@ -111,7 +111,7 @@ export default function Header({
             title={switchTitle}
             data-ev="language_switch"
             data-ev-to={switchLabel}
-            className="inline-flex min-h-[36px] items-center rounded-full border px-3 text-[13px] font-semibold no-underline"
+            className="inline-flex min-h-[44px] items-center rounded-full border px-3 text-[13px] font-semibold no-underline"
             style={{ borderColor: "var(--color-kohl)", color: "var(--color-kohl)" }}
           >
             {switchLabel}
