@@ -35,15 +35,21 @@ export default function Contact({ lang }: { lang: Lang }) {
               <WhatsAppIcon size={20} />
               {ui("cta.whatsappMsg", lang)}
             </a>
-            <a
-              href={telHref(site.contact.phone)}
-              data-ev="call_click"
-              data-ev-source="contact-header"
-              className="btn btn-outline"
-            >
-              <PhoneIcon size={18} />
-              {ui("cta.call", lang)}: <Tx>{site.contact.phoneDisplay}</Tx>
-            </a>
+            {site.contact.phone ? (
+              <a
+                href={telHref(site.contact.phone)}
+                data-ev="call_click"
+                data-ev-source="contact-header"
+                className="btn btn-outline"
+              >
+                <PhoneIcon size={18} />
+                {ui("cta.call", lang)}: <Tx>{site.contact.phoneDisplay}</Tx>
+              </a>
+            ) : (
+              <p className="cap self-center">
+                <Tx>{`${ui("cta.call", lang)}: ${site.contact.phoneDisplay}`}</Tx>
+              </p>
+            )}
           </div>
           <p className="cap">
             <Tx>{`${t(site.contact.replyHours, lang)} · ${site.contact.email}`}</Tx>

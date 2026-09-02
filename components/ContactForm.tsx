@@ -169,15 +169,17 @@ export default function ContactForm({
             <WhatsAppIcon size={20} />
             {labels.whatsapp}
           </a>
-          <a
-            href={telHref(phone)}
-            data-ev="call_click"
-            data-ev-source="contact-form"
-            className="btn btn-outline"
-          >
-            <PhoneIcon size={18} />
-            {labels.call}
-          </a>
+          {phone ? (
+            <a
+              href={telHref(phone)}
+              data-ev="call_click"
+              data-ev-source="contact-form"
+              className="btn btn-outline"
+            >
+              <PhoneIcon size={18} />
+              {labels.call}
+            </a>
+          ) : null}
         </div>
       )}
 

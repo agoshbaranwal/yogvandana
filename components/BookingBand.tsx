@@ -149,15 +149,17 @@ export default function BookingBand({
           </a>
 
           <div className="flex gap-2">
-            <a
-              href={telHref(phone)}
-              data-ev="call_click"
-              data-ev-source={source}
-              className="btn btn-ghost btn-sm flex-1"
-            >
-              <PhoneIcon size={18} />
-              {callLabel}
-            </a>
+            {phone ? (
+              <a
+                href={telHref(phone)}
+                data-ev="call_click"
+                data-ev-source={source}
+                className="btn btn-ghost btn-sm flex-1"
+              >
+                <PhoneIcon size={18} />
+                {callLabel}
+              </a>
+            ) : null}
             <a
               href={formHref}
               data-ev="form_open"

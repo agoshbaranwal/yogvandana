@@ -64,7 +64,7 @@ export default function Header({
       <div className="wrap flex items-center justify-between gap-4 py-2.5 md:py-3">
         <Link
           href={home}
-          className="brand tap text-[24px] no-underline md:text-[28px]"
+          className="brand inline-block py-2 text-[24px] no-underline md:text-[28px]"
           style={{ color: "var(--color-kohl)" }}
         >
           <span style={{ color: onDawn ? "var(--color-deep)" : "var(--color-bhagwa)" }}>
