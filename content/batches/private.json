@@ -1,0 +1,59 @@
+{
+  "id": "private",
+  "type": "private",
+  "order": 3,
+  "name": {
+    "hi": "व्यक्तिगत सेशन",
+    "en": "Private session"
+  },
+  "when": {
+    "hi": "एक-से-एक, [अवधि], ज़ूम पर",
+    "en": "One to one, [duration], on Zoom"
+  },
+  "days": {
+    "hi": "[दिन]",
+    "en": "[days]"
+  },
+  "level": {
+    "hi": "आपकी रफ़्तार से",
+    "en": "At your own pace"
+  },
+  "note": {
+    "hi": "किसी खास तकलीफ़ के लिए, या जब आप अपनी रफ़्तार से चलना चाहें। वंदना जी हर सेशन आपके हिसाब से बनाती हैं।",
+    "en": "For a particular condition, or when you want your own pace. She plans each session around you."
+  },
+  "session": [],
+  "price": "[शुल्क]",
+  "priceUnit": {
+    "hi": "प्रति सेशन",
+    "en": "a session"
+  },
+  "perDay": "",
+  "nextStart": {
+    "hi": "",
+    "en": ""
+  },
+  "seats": "",
+  "date": {
+    "hi": "",
+    "en": ""
+  },
+  "joinLink": "",
+  "feeLink": "",
+  "familyDiscount": {
+    "hi": "",
+    "en": ""
+  },
+  "firstMonthOffer": {
+    "hi": "",
+    "en": ""
+  },
+  "refundLine": {
+    "hi": "",
+    "en": ""
+  },
+  "payLine": {
+    "hi": "या व्हाट्सऐप पर समय तय करें।",
+    "en": "Or fix a time on WhatsApp."
+  }
+}

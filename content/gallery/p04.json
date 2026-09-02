@@ -1,0 +1,22 @@
+{
+  "id": "p04",
+  "order": 4,
+  "theme": "shivir",
+  "image": "",
+  "caption": {
+    "hi": "[इस तस्वीर के बारे में एक पंक्ति]",
+    "en": "[one line about this photo]"
+  },
+  "place": {
+    "hi": "[जगह]",
+    "en": "[place]"
+  },
+  "date": {
+    "hi": "[महीना वर्ष]",
+    "en": "[month year]"
+  },
+  "alt": {
+    "hi": "[तस्वीर में क्या है]",
+    "en": "[what the photo shows]"
+  }
+}

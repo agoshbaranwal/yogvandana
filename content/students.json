@@ -1,0 +1,68 @@
+{
+  "holidays": [
+    {
+      "when": {
+        "hi": "[तारीख़]",
+        "en": "[date]"
+      },
+      "what": {
+        "hi": "[त्योहार], क्लास नहीं",
+        "en": "[festival], no class"
+      }
+    },
+    {
+      "when": {
+        "hi": "[तारीख़]",
+        "en": "[date]"
+      },
+      "what": {
+        "hi": "[त्योहार], क्लास नहीं",
+        "en": "[festival], no class"
+      }
+    },
+    {
+      "when": {
+        "hi": "रविवार",
+        "en": "Sunday"
+      },
+      "what": {
+        "hi": "[नियम: रविवार की क्लास है या नहीं]",
+        "en": "[rule: is there a Sunday class]"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "hi": "कैमरा चालू रखिए, ताकि वंदना जी आपको देख सकें।",
+      "en": "Keep your camera on, so she can see you."
+    },
+    {
+      "hi": "सुबह की क्लास खाली पेट। शाम की क्लास खाने के [2] घंटे बाद।",
+      "en": "Morning class on an empty stomach. Evening class [2] hours after eating."
+    },
+    {
+      "hi": "क्लास छूट जाए तो [नियम: उस दिन दूसरे बैच में आ जाइए]।",
+      "en": "If you miss a class, [rule: join the other batch that day]."
+    },
+    {
+      "hi": "फ़ीस हर महीने की [तारीख़] तक।",
+      "en": "Fees by the [date] of each month."
+    },
+    {
+      "hi": "कोई नई तकलीफ़ या रिपोर्ट हो तो क्लास से पहले बताइए।",
+      "en": "If anything new comes up, tell her before class."
+    }
+  ],
+  "linkNote": {
+    "hi": "रोज़ का ज़ूम लिंक आपके बैच के व्हाट्सऐप ग्रुप में क्लास से [15] मिनट पहले आता है।",
+    "en": "The daily Zoom link comes into your batch's WhatsApp group [15] minutes before class."
+  },
+  "slipNote": {
+    "hi": "आपकी पर्ची व्हाट्सऐप पर भेजी गई थी। हर [90] दिन पर रिपोर्ट के साथ जाँच।",
+    "en": "Your slip was sent on WhatsApp. A review with your report every [90] days."
+  },
+  "payNote": {
+    "hi": "यूपीआई, कार्ड या नेट बैंकिंग। रसीद व्हाट्सऐप पर आती है।",
+    "en": "UPI, card or net banking. The receipt comes on WhatsApp."
+  }
+}

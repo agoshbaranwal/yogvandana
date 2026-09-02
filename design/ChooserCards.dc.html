@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Martel:wght@700;800&family=Mukta:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; background: #FBF8F1; color: #231A12; font-family: Mukta, 'Noto Sans', Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #A85400; } a:hover { color: #7A3D00; }
+    .disp { font-family: 'Baloo 2', 'Arial Rounded MT Bold', sans-serif; }
+    h2 { font-family: 'Baloo 2', 'Arial Rounded MT Bold', sans-serif; font-size: 30px; line-height: 1.2; font-weight: 800; margin: 0; }
+    .card { display: flex; flex-direction: column; gap: 10px; padding: 16px 14px 14px; background: #FFFFFF; border-radius: 14px; text-decoration: none; color: #231A12; border: 1px solid #E4D9C7; min-height: 150px; }
+    .card .name { font-family: 'Baloo 2', 'Arial Rounded MT Bold', sans-serif; font-size: 23px; font-weight: 800; line-height: 1.15; }
+    .card .sub { font-size: 13px; color: #6E5F4E; line-height: 1.4; }
+    .ico { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; }
+    p { margin: 0; }
+  </style>
+</helmet>
+<div style="width: 390px; background: #FBF8F1; display: flex; flex-direction: column;">
+  <div style="padding: 28px 16px 10px; display: flex; flex-direction: column; gap: 6px;">
+    <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #A85400;">Chooser, option 1 · cards</div>
+    <h2>आपको क्या तकलीफ़ है?</h2>
+    <p style="font-size: 16px; line-height: 1.6; color: #6E5F4E;">अपनी समस्या चुनिए। हर एक के लिए अलग अभ्यास, अलग पर्ची, और उसी तकलीफ़ वाले विद्यार्थियों की कहानियाँ।</p>
+  </div>
+  <div style="padding: 8px 16px 24px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
+    <a href="#" class="card"><div class="ico" style="background: #F8E4E8;"><svg width="34" height="34" viewBox="0 0 48 48" fill="none" stroke="#B0304B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4c-4 4-4 8 0 12s4 8 0 12-4 8 0 12 4 4 0 8"></path><rect x="19" y="9" width="10" height="5" rx="2.5"></rect><rect x="19" y="21" width="10" height="5" rx="2.5"></rect><rect x="19" y="33" width="10" height="5" rx="2.5"></rect></svg></div><div class="name">कमर दर्द</div><div class="sub">स्लिप डिस्क, साइटिका, अकड़न</div></a>
+    <a href="#" class="card"><div class="ico" style="background: #F8E4E8;"><svg width="34" height="34" viewBox="0 0 48 48" fill="none" stroke="#B0304B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 4v14a6 6 0 0 0 6 6h4"></path><path d="M14 44l6-16"></path><circle cx="22" cy="24" r="5"></circle><path d="M30 24l10 2"></path><path d="M34 44l-4-14"></path></svg></div><div class="name">घुटने का दर्द</div><div class="sub">गठिया, सीढ़ियाँ, उठना-बैठना</div></a>
+    <a href="#" class="card"><div class="ico" style="background: #E4F0F9;"><svg width="34" height="34" viewBox="0 0 48 48" fill="none" stroke="#1A6FA8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5s-12 14-12 22a12 12 0 0 0 24 0c0-8-12-22-12-22z"></path><path d="M18 30a6 6 0 0 0 6 6"></path></svg></div><div class="name">शुगर</div><div class="sub">टाइप-2, प्री-डायबिटीज़</div></a>
+    <a href="#" class="card"><div class="ico" style="background: #E4F0F9;"><svg width="34" height="34" viewBox="0 0 48 48" fill="none" stroke="#1A6FA8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 42S8 32 8 19a8 8 0 0 1 16-4 8 8 0 0 1 16 4c0 13-16 23-16 23z"></path><path d="M10 24h8l3-6 4 12 3-6h10"></path></svg></div><div class="name">बीपी</div><div class="sub">हाई बीपी, दिल की सेहत</div></a>
+    <a href="#" class="card"><div class="ico" style="background: #E4F0F9;"><svg width="34" height="34" viewBox="0 0 48 48" fill="none" stroke="#1A6FA8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 14c-3-7-12-9-16-4s-1 13 6 17c6 3 10 0 10-3"></path><path d="M24 14c3-7 12-9 16-4s1 13-6 17c-6 3-10 0-10-3"></path><path d="M24 8v32"></path></svg></div><div class="name">थायराइड</div><div class="sub">हाइपो और हाइपर, वज़न, थकान</div></a>
+    <a href="#" class="card"><div class="ico" style="background: #E4F0F9;"><svg width="34" height="34" viewBox="0 0 48 48" fill="none" stroke="#1A6FA8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="10" width="32" height="30" rx="4"></rect><path d="M14 22a10 10 0 0 1 20 0"></path><path d="M24 22l4-5"></path><path d="M12 34h24"></path></svg></div><div class="name">मोटापा</div><div class="sub">पेट, वज़न, पाचन</div></a>
+    <a href="#" class="card"><div class="ico" style="background: #EEE3F2;"><svg width="34" height="34" viewBox="0 0 48 48" fill="none" stroke="#5B2A6E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M40 28a16 16 0 1 1-20-20 14 14 0 0 0 20 20z"></path><path d="M30 8l1.5 3 3 1.5-3 1.5-1.5 3-1.5-3-3-1.5 3-1.5z"></path></svg></div><div class="name">नींद और तनाव</div><div class="sub">अनिद्रा, माइग्रेन, बेचैनी</div></a>
+    <a href="#" class="card"><div class="ico" style="background: #FBE3EB;"><svg width="34" height="34" viewBox="0 0 48 48" fill="none" stroke="#D6336C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="17" r="10"></circle><path d="M24 27v16"></path><path d="M17 37h14"></path></svg></div><div class="name">महिलाओं की समस्याएँ</div><div class="sub">पीसीओडी, मासिक धर्म, रजोनिवृत्ति</div></a>
+  </div>
+  <div style="padding: 0 16px 28px; display: flex; flex-direction: column; gap: 10px;">
+    <a href="#" style="font-size: 16px; font-weight: 700; min-height: 44px; display: inline-flex; align-items: center;">और भी: गर्दन, अस्थमा, साइनस, कब्ज़, गठिया</a>
+    <div style="font-size: 14px; color: #6E5F4E; line-height: 1.55;">Every card opens that ailment's page. The second line names what people actually say, so the card catches the words they search.</div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

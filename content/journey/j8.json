@@ -1,0 +1,14 @@
+{
+  "id": "j8",
+  "order": 8,
+  "year": "[वर्ष]",
+  "text": {
+    "hi": "[सम्मान], [संस्था] से।",
+    "en": "[award], from [body]."
+  },
+  "photo": "",
+  "photoAlt": {
+    "hi": "[इस पड़ाव की फ़ोटो]",
+    "en": "[photo from this milestone]"
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "slug": "sugar",
+  "order": 3,
+  "family": "metabolic",
+  "icon": "sugar",
+  "name": {
+    "hi": "शुगर",
+    "en": "Sugar"
+  },
+  "sub": {
+    "hi": "टाइप-2, प्री-डायबिटीज़",
+    "en": "Type 2, pre-diabetes"
+  },
+  "titleFull": {
+    "hi": "शुगर के लिए योग",
+    "en": "Yoga for sugar"
+  },
+  "claimLine": {
+    "hi": "योग से शुगर ठीक हो सकती है।",
+    "en": "Yoga can cure sugar."
+  },
+  "intro": {
+    "hi": "टाइप-2 शुगर में रोज़ का योग तीन चीज़ों पर एक साथ काम करता है: शुगर लेवल, वज़न और तनाव। वंदना जी की क्लास में शुगर वाले विद्यार्थियों के लिए अभ्यास अलग रखा जाता है, और हर [90] दिन पर रिपोर्ट देखी जाती है।",
+    "en": "In type 2 sugar, a daily practice works on three things at once: the sugar level, weight, and stress. In her class the practice for students with sugar is kept separate, and the reports are looked at every [90] days."
+  },
+  "studentCount": "[N]",
+  "storyCount": "[N]",
+  "videoCount": "[N]",
+  "searchTerms": {
+    "hi": "sugar ke liye yoga, diabetes yoga hindi",
+    "en": "yoga for diabetes, type 2 yoga"
+  },
+  "metaDescription": {
+    "hi": "शुगर के लिए लाइव ऑनलाइन योग क्लास, वंदना बरनवाल के साथ। खाली पेट सुबह का बैच, [90] दिन पर जाँच।",
+    "en": "Live online yoga for type 2 sugar with Vandana Baranwal. Morning batch on an empty stomach, review every [90] days."
+  },
+  "slip": {
+    "practice": {
+      "hi": "[आसन 1] · [आसन 2] · [आसन 3] · [प्राणायाम] · [विश्राम]",
+      "en": "[asana 1] · [asana 2] · [asana 3] · [pranayama] · [rest]"
+    },
+    "time": {
+      "hi": "रोज़ सुबह [30] मिनट, खाली पेट",
+      "en": "[30] minutes every morning, empty stomach"
+    },
+    "batch": {
+      "hi": "सुबह [समय] या शाम [समय], ज़ूम पर",
+      "en": "[morning time] or [evening time], on Zoom"
+    },
+    "alongside": {
+      "hi": "[खान-पान की दो बातें, वंदना जी की]",
+      "en": "[two notes on food, from her]"
+    },
+    "review": {
+      "hi": "[90] दिन बाद, अपनी रिपोर्ट के साथ",
+      "en": "After [90] days, with your report"
+    }
+  },
+  "firstClass": [
+    {
+      "strong": {
+        "hi": "[30] मिनट की लाइव क्लास",
+        "en": "A [30] minute live class"
+      },
+      "rest": {
+        "hi": ", शुगर वाले विद्यार्थियों के अभ्यास के साथ।",
+        "en": ", with the practice used for sugar."
+      }
+    },
+    {
+      "strong": {
+        "hi": "फिर [10] मिनट वंदना जी से बात:",
+        "en": "Then [10] minutes with Vandana:"
+      },
+      "rest": {
+        "hi": " आपकी तकलीफ़, दवा, और कौन सा बैच सही रहेगा।",
+        "en": " your condition, your medicine, and which batch suits you."
+      }
+    },
+    {
+      "strong": {
+        "hi": "कोई शुल्क नहीं, कोई दबाव नहीं।",
+        "en": "No fee, no pressure."
+      },
+      "rest": {
+        "hi": " ठीक लगे तो उसी दिन बैच में जुड़िए।",
+        "en": " If it feels right, join a batch the same day."
+      }
+    }
+  ],
+  "classNotes": [
+    {
+      "hi": "पहली क्लास में वंदना जी आपकी रिपोर्ट और दवा के बारे में पूछती हैं।",
+      "en": "In the first class she asks about your reports and your medicines."
+    },
+    {
+      "hi": "अभ्यास आपके स्तर पर शुरू होता है। कुर्सी पर बैठकर भी।",
+      "en": "The practice starts at your level. On a chair, if that is what you need."
+    },
+    {
+      "hi": "ग्रुप छोटा है, [N] लोग, ताकि हर किसी को देखा जा सके।",
+      "en": "The group is small, [N] people, so everyone can be seen."
+    },
+    {
+      "hi": "सुबह का बैच खाली पेट होता है, जो शुगर वालों के लिए बेहतर है।",
+      "en": "The morning batch is on an empty stomach, which suits students with sugar."
+    },
+    {
+      "hi": "व्हाट्सऐप ग्रुप में रोज़ की याद और सवालों के जवाब।",
+      "en": "A daily reminder in the WhatsApp group, and answers to questions."
+    }
+  ],
+  "faq": [
+    {
+      "q": {
+        "hi": "क्या दवा बंद कर दूँ?",
+        "en": "Should I stop my medicine?"
+      },
+      "a": {
+        "hi": "नहीं। दवा अपने डॉक्टर की सलाह से ही घटाएँ। रिपोर्ट सुधरे तो डॉक्टर खुद घटाते हैं। योग साथ-साथ चलता है।",
+        "en": "No. Reduce medicine only on your doctor's advice. When the reports improve, the doctor reduces it. Yoga runs alongside."
+      }
+    },
+    {
+      "q": {
+        "hi": "मेरी उम्र [60] से ऊपर है, घुटने भी दुखते हैं।",
+        "en": "I am over [60] and my knees hurt."
+      },
+      "a": {
+        "hi": "ज़्यादातर अभ्यास कुर्सी पर बैठकर हो सकता है। पहली क्लास में बताइए, वंदना जी उसी हिसाब से शुरू करेंगी।",
+        "en": "Most of the practice can be done sitting on a chair. Say so in the first class and she will start from there."
+      }
+    },
+    {
+      "q": {
+        "hi": "कितने दिन में फ़र्क दिखता है?",
+        "en": "How soon do people feel a difference?"
+      },
+      "a": {
+        "hi": "[वंदना जी का जवाब, उनके अनुभव से।]",
+        "en": "[Her answer, from her own experience.]"
+      }
+    }
+  ],
+  "batchNote": {
+    "hi": "शुगर के लिए बेहतर, खाली पेट",
+    "en": "Better for sugar, on an empty stomach"
+  }
+}

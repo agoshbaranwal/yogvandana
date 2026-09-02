@@ -1,0 +1,72 @@
+{
+  "id": "morning",
+  "type": "group",
+  "order": 1,
+  "name": {
+    "hi": "सुबह का बैच",
+    "en": "Morning batch"
+  },
+  "when": {
+    "hi": "सुबह [समय]",
+    "en": "Morning [time]"
+  },
+  "days": {
+    "hi": "[दिन]",
+    "en": "[days]"
+  },
+  "level": {
+    "hi": "सभी स्तर · शुरुआत करने वाले भी",
+    "en": "All levels, beginners welcome"
+  },
+  "note": {
+    "hi": "शुगर और बीपी के लिए बेहतर, खाली पेट",
+    "en": "Better for sugar and blood pressure, on an empty stomach"
+  },
+  "session": [
+    {
+      "hi": "[10] मिनट वार्म-अप और जोड़ों की गति",
+      "en": "[10] minutes of warm-up and joint movement"
+    },
+    {
+      "hi": "[30] मिनट आसन, आपके स्तर पर",
+      "en": "[30] minutes of asana, at your level"
+    },
+    {
+      "hi": "[10] मिनट प्राणायाम और विश्राम",
+      "en": "[10] minutes of pranayama and rest"
+    }
+  ],
+  "price": "[शुल्क]",
+  "priceUnit": {
+    "hi": "प्रति माह",
+    "en": "a month"
+  },
+  "perDay": "[शुल्क÷30]",
+  "nextStart": {
+    "hi": "[तारीख़]",
+    "en": "[date]"
+  },
+  "seats": "",
+  "date": {
+    "hi": "",
+    "en": ""
+  },
+  "joinLink": "",
+  "feeLink": "",
+  "familyDiscount": {
+    "hi": "[परिवार के दो लोग: छूट]",
+    "en": "[two from one family: discount]"
+  },
+  "firstMonthOffer": {
+    "hi": "",
+    "en": ""
+  },
+  "refundLine": {
+    "hi": "[रिफ़ंड का नियम एक पंक्ति में।]",
+    "en": "[the refund rule in one line]"
+  },
+  "payLine": {
+    "hi": "यूपीआई या कार्ड से।",
+    "en": "Pay by UPI or card."
+  }
+}

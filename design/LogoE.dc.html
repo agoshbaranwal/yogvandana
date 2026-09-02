@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martel:wght@400;600;700;800&family=Mukta:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; background: #FBF8F1; color: #231A12; font-family: Mukta, 'Noto Sans', Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #A85400; } a:hover { color: #7A3D00; }
+    .serif { font-family: Martel, Georgia, serif; }
+    .label { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5F4E; }
+  </style>
+</helmet>
+<div style="width: 720px; height: 440px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: 1fr auto; background: #FBF8F1;">
+  <div style="display: flex; flex-direction: column; justify-content: center; gap: 16px; padding: 32px; border-right: 1px solid #E4D9C7;">
+    <div class="label">Option E · A figure in one line</div>
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <svg width="60" height="60" viewBox="0 0 64 64" fill="none" stroke="#FF9933" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="9" r="5"></circle><path d="M32 15 V 38"></path><path d="M32 22 C 25 19, 19 13, 17 5"></path><path d="M32 22 C 39 19, 45 13, 47 5"></path><path d="M32 38 L 23 60"></path><path d="M32 38 L 41 60"></path></svg>
+      <div style="display: flex; flex-direction: column; gap: 0px;">
+        <div class="serif" style="font-size: 34px; font-weight: 800; line-height: 1.3; white-space: nowrap;">योग वंदना</div>
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #6E5F4E;">Yog Vandana</div>
+      </div>
+    </div>
+  </div>
+  <div style="display: flex; flex-direction: column; justify-content: center; gap: 16px; padding: 32px; background: #231A12; color: #FBF8F1;">
+    <div class="label" style="color: rgba(251,248,241,0.7);">On a dark band</div>
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <svg width="60" height="60" viewBox="0 0 64 64" fill="none" stroke="#FF9933" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="9" r="5"></circle><path d="M32 15 V 38"></path><path d="M32 22 C 25 19, 19 13, 17 5"></path><path d="M32 22 C 39 19, 45 13, 47 5"></path><path d="M32 38 L 23 60"></path><path d="M32 38 L 41 60"></path></svg>
+      <div style="display: flex; flex-direction: column; gap: 0px;">
+        <div class="serif" style="font-size: 34px; font-weight: 800; line-height: 1.3; white-space: nowrap;">योग वंदना</div>
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(251,248,241,0.7);">Yog Vandana</div>
+      </div>
+    </div>
+  </div>
+  <div style="grid-column: 1 / -1; display: flex; align-items: center; gap: 28px; padding: 16px 32px; border-top: 1px solid #E4D9C7;">
+    <div class="label">Small sizes</div>
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <svg width="26" height="26" viewBox="0 0 64 64" fill="none" stroke="#FF9933" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="9" r="5"></circle><path d="M32 15 V 38"></path><path d="M32 22 C 25 19, 19 13, 17 5"></path><path d="M32 22 C 39 19, 45 13, 47 5"></path><path d="M32 38 L 23 60"></path><path d="M32 38 L 41 60"></path></svg>
+      <div class="serif" style="font-size: 22px; font-weight: 800; line-height: 1.3;">योग वंदना</div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <div style="width: 36px; height: 36px; border-radius: 4px; background: #FF9933; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 64 64" fill="none" stroke="#231A12" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="9" r="5"></circle><path d="M32 15 V 38"></path><path d="M32 22 C 25 19, 19 13, 17 5"></path><path d="M32 22 C 39 19, 45 13, 47 5"></path><path d="M32 38 L 23 60"></path><path d="M32 38 L 41 60"></path></svg></div>
+      <div style="width: 18px; height: 18px; border-radius: 2px; background: #FF9933; display: flex; align-items: center; justify-content: center;"><svg width="13" height="13" viewBox="0 0 64 64" fill="none" stroke="#231A12" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="9" r="5"></circle><path d="M32 15 V 38"></path><path d="M32 22 C 25 19, 19 13, 17 5"></path><path d="M32 22 C 39 19, 45 13, 47 5"></path><path d="M32 38 L 23 60"></path><path d="M32 38 L 41 60"></path></svg></div>
+      <div class="label">favicon</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "id": "g1",
+  "order": 1,
+  "name": {
+    "hi": "[गुरु का नाम]",
+    "en": "[teacher's name]"
+  },
+  "where": {
+    "hi": "[संस्था या परंपरा]",
+    "en": "[school or tradition]"
+  },
+  "years": "[वर्ष] से [वर्ष]",
+  "photo": ""
+}

@@ -1,0 +1,14 @@
+{
+  "id": "j5",
+  "order": 5,
+  "year": "[वर्ष]",
+  "text": {
+    "hi": "[संस्था] में सिखाना शुरू।",
+    "en": "Started teaching at [institution]."
+  },
+  "photo": "",
+  "photoAlt": {
+    "hi": "",
+    "en": ""
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "md3",
+  "order": 3,
+  "kind": "logo",
+  "name": {
+    "hi": "[पत्रिका]",
+    "en": "[magazine]"
+  },
+  "date": {
+    "hi": "[तारीख़]",
+    "en": "[date]"
+  },
+  "image": "",
+  "link": ""
+}

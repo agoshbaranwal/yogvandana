@@ -1,0 +1,64 @@
+{
+  "items": [
+    {
+      "q": {
+        "hi": "क्या ऑनलाइन क्लास से सच में फ़र्क पड़ता है?",
+        "en": "Does an online class really make a difference?"
+      },
+      "a": {
+        "hi": "हाँ। ग्रुप छोटा है, कैमरा चालू रहता है, वंदना जी हर किसी को देखती और सुधारती हैं। [N] विद्यार्थी ऑनलाइन ही ठीक हुए हैं।",
+        "en": "Yes. The group is small, cameras stay on, and she watches and corrects everyone. [N] students got better online."
+      }
+    },
+    {
+      "q": {
+        "hi": "समय नहीं मिलता।",
+        "en": "I cannot find the time."
+      },
+      "a": {
+        "hi": "रोज़ [30] मिनट, सुबह या शाम, घर से। पहले 21 दिन हम व्हाट्सऐप पर याद दिलाते हैं।",
+        "en": "[30] minutes a day, morning or evening, from home. For the first 21 days we remind you on WhatsApp."
+      }
+    },
+    {
+      "q": {
+        "hi": "घर पर क्या चाहिए?",
+        "en": "What do I need at home?"
+      },
+      "a": {
+        "hi": "एक मैट, थोड़ी जगह, और फ़ोन या लैपटॉप। बस।",
+        "en": "A mat, a little floor space, and a phone or a laptop. That is all."
+      }
+    },
+    {
+      "q": {
+        "hi": "क्या दवा बंद कर दूँ?",
+        "en": "Should I stop my medicine?"
+      },
+      "a": {
+        "hi": "नहीं। दवा अपने डॉक्टर की सलाह से ही घटाएँ। रिपोर्ट सुधरे तो डॉक्टर खुद घटाते हैं। योग साथ-साथ चलता है।",
+        "en": "No. Reduce medicine only on your doctor's advice. When the reports improve, the doctor reduces it. Yoga runs alongside."
+      }
+    },
+    {
+      "q": {
+        "hi": "क्लास छूट जाए तो?",
+        "en": "What if I miss a class?"
+      },
+      "a": {
+        "hi": "[वंदना जी का नियम। जैसे: उस दिन दूसरे बैच में आ जाइए।]",
+        "en": "[her rule, for example: join the other batch that day]"
+      }
+    },
+    {
+      "q": {
+        "hi": "भुगतान कैसे होगा?",
+        "en": "How do I pay?"
+      },
+      "a": {
+        "hi": "एक लिंक से: यूपीआई, कार्ड या नेट बैंकिंग। उसी दिन ज़ूम लिंक और ग्रुप का न्योता मिल जाता है।",
+        "en": "Through a link: UPI, card or net banking. The Zoom link and the group invite come the same day."
+      }
+    }
+  ]
+}

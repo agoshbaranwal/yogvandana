@@ -1,0 +1,27 @@
+{
+  "id": "ev4",
+  "order": 4,
+  "type": "yoga-day",
+  "typeLabel": {
+    "hi": "अंतर्राष्ट्रीय योग दिवस",
+    "en": "International Yoga Day"
+  },
+  "title": {
+    "hi": "[कार्यक्रम का नाम]",
+    "en": "[event name]"
+  },
+  "organiser": {
+    "hi": "[आयोजक]",
+    "en": "[organiser]"
+  },
+  "place": {
+    "hi": "[शहर]",
+    "en": "[city]"
+  },
+  "date": {
+    "hi": "[महीना वर्ष]",
+    "en": "[month year]"
+  },
+  "photo": "",
+  "link": ""
+}

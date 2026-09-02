@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Khand:wght@600;700&family=Martel:wght@400;700;800&family=Mukta:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; background: #FBF8F1; color: #231A12; font-family: Mukta, 'Noto Sans', Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #A85400; } a:hover { color: #7A3D00; }
+    .serif { font-family: Martel, Georgia, serif; }
+    .disp { font-family: Khand, Impact, 'Arial Narrow', sans-serif; }
+    .label { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5F4E; }
+    .hex { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; color: #6E5F4E; }
+    h2 { font-family: Martel, Georgia, serif; font-size: 22px; line-height: 1.3; font-weight: 700; margin: 0; }
+    .tile { display: flex; flex-direction: column; gap: 8px; padding: 14px 14px 12px; background: #FFFFFF; border: 1px solid #E4D9C7; border-top-width: 4px; border-radius: 4px; min-height: 96px; }
+    .tile .name { font-family: Khand, Impact, 'Arial Narrow', sans-serif; font-size: 24px; font-weight: 700; line-height: 1.15; }
+    .chip { display: inline-flex; align-items: center; font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 999px; color: #FBF8F1; }
+  </style>
+</helmet>
+<div style="width: 1240px; background: #FBF8F1; display: flex; flex-direction: column; gap: 36px; padding: 40px; box-sizing: border-box;">
+
+  <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: start;">
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div class="label" style="color: #A85400;">Direction 4 · the theme</div>
+      <div class="serif" style="font-size: 34px; font-weight: 800; line-height: 1.35;">निरामय <span style="font-weight: 400; color: #6E5F4E;">· free from disease</span></div>
+      <div style="font-size: 16px; line-height: 1.65; max-width: 60ch;">The site is organised around the visitor's illness, not around the teacher. A person arrives with a problem, picks it on the first screen, and everything after that speaks to that problem: what yoga does for it, the daily slip of practice, students who had the same thing, and the batch to join. The teacher's credentials are the reason to trust, placed inside every ailment page. The tone is a yoga shivir's confidence with a clinic's order.</div>
+      <div style="font-size: 16px; line-height: 1.65; max-width: 60ch;">Why this: nine in ten Indians already believe yoga prevents or manages disease, and only about one in ten practises. The site's job is not to convince people that yoga works; it is to remove the reasons they have not started: no teacher, no fixed time, not sure it is for their condition.</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; padding: 24px; background: #231A12; color: #FBF8F1; border-radius: 4px;">
+      <div class="serif" style="font-size: 40px; font-weight: 800; line-height: 1.3;"><span style="color: #FF9933;">योग</span> वंदना</div>
+      <div class="serif" style="font-size: 20px; font-weight: 700; line-height: 1.5; color: #FF9933;">सर्वे सन्तु निरामयाः</div>
+      <div style="font-size: 15px; line-height: 1.6; color: rgba(251,248,241,0.85);">"May all be free from disease." The line from the shanti mantra is the site's motto. A vandana is a prayer; this is the prayer the brand name promises. It sits under the logo in the footer and opens the About page.</div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 14px;">
+    <h2>Four families of ailments, four colours</h2>
+    <div style="font-size: 15px; color: #6E5F4E; max-width: 80ch;">Bhagwa stays the brand: buttons, marks, the claim. Each family of ailments gets one colour, used only on its tiles, chips and slip, so a visitor with knee pain always sees madder, a visitor with sugar always sees peacock blue. Pink and blue survive from the last round, with jobs. Kohl takes the footer.</div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px;">
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="height: 56px; background: #B0304B;"></div>
+        <div class="serif" style="font-size: 18px; font-weight: 700;">हड्डी और जोड़</div>
+        <div class="hex">B0304B · madder</div>
+        <div style="font-size: 14px; line-height: 1.5; color: #6E5F4E;">कमर दर्द, घुटने, गर्दन, गठिया, कंधा</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="height: 56px; background: #1A6FA8;"></div>
+        <div class="serif" style="font-size: 18px; font-weight: 700;">शुगर, बीपी और दिल</div>
+        <div class="hex">1A6FA8 · peacock blue</div>
+        <div style="font-size: 14px; line-height: 1.5; color: #6E5F4E;">शुगर, बीपी, थायराइड, कोलेस्ट्रॉल, मोटापा</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="height: 56px; background: #5B2A6E;"></div>
+        <div class="serif" style="font-size: 18px; font-weight: 700;">मन, नींद और साँस</div>
+        <div class="hex">5B2A6E · plum</div>
+        <div style="font-size: 14px; line-height: 1.5; color: #6E5F4E;">तनाव, नींद, माइग्रेन, अस्थमा, साइनस</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="height: 56px; background: #D6336C;"></div>
+        <div class="serif" style="font-size: 18px; font-weight: 700;">महिलाओं का स्वास्थ्य</div>
+        <div class="hex">D6336C · rani pink</div>
+        <div style="font-size: 14px; line-height: 1.5; color: #6E5F4E;">पीसीओडी, गर्भावस्था, मासिक धर्म, रजोनिवृत्ति</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2>The ailment tiles</h2>
+      <div style="font-size: 15px; color: #6E5F4E;">The first screen after the claim. Everyday Hindi names, one line icon each, the family colour on the top edge. Tap opens the ailment page.</div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+        <div class="tile" style="border-top-color: #B0304B;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B0304B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2 2-2 4 0 6s2 4 0 6-2 4 0 6"></path><circle cx="12" cy="6" r="1.2"></circle><circle cx="12" cy="12" r="1.2"></circle><circle cx="12" cy="18" r="1.2"></circle></svg><div class="name">कमर दर्द</div></div>
+        <div class="tile" style="border-top-color: #B0304B;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B0304B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v7l4 3-3 8"></path><path d="M11 13l6 1"></path><circle cx="11" cy="13" r="2.2"></circle></svg><div class="name">घुटने का दर्द</div></div>
+        <div class="tile" style="border-top-color: #1A6FA8;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1A6FA8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11z"></path></svg><div class="name">शुगर</div></div>
+        <div class="tile" style="border-top-color: #1A6FA8;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1A6FA8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"></path><path d="M6 12h3l1.5-3 2 6 1.5-3h4"></path></svg><div class="name">बीपी</div></div>
+        <div class="tile" style="border-top-color: #1A6FA8;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1A6FA8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8c-1.5-3-5-4-7-2s-1 6 2 8c3 2 5 0 5-1"></path><path d="M12 8c1.5-3 5-4 7-2s1 6-2 8c-3 2-5 0-5-1"></path><path d="M12 6v12"></path></svg><div class="name">थायराइड</div></div>
+        <div class="tile" style="border-top-color: #1A6FA8;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1A6FA8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16"></path><path d="M6 8c0 6 2 9 6 9s6-3 6-9"></path><path d="M9 20h6"></path></svg><div class="name">मोटापा</div></div>
+        <div class="tile" style="border-top-color: #5B2A6E;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#5B2A6E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14a8 8 0 1 1-10-10 7 7 0 0 0 10 10z"></path></svg><div class="name">नींद और तनाव</div></div>
+        <div class="tile" style="border-top-color: #D6336C;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D6336C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"></circle><path d="M12 13v8"></path><path d="M9 18h6"></path></svg><div class="name">महिलाओं की समस्याएँ</div></div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2>The slip: योग की पर्ची</h2>
+      <div style="font-size: 15px; color: #6E5F4E;">Every ailment page carries one. It is the shape every Indian knows from a doctor's pad, used for a daily practice: the practices, the minutes, the batch, when to review. Her name and degree at the top do the credibility work. A design device, not a medical document.</div>
+      <div style="background: #FFFFFF; border: 1px solid #E4D9C7; border-radius: 4px; padding: 0; display: flex; flex-direction: column; box-shadow: none;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; padding: 14px 18px 10px; border-bottom: 2px solid #1A6FA8;">
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <div class="serif" style="font-size: 20px; font-weight: 800; line-height: 1.3;"><span style="color: #FF9933;">योग</span> वंदना</div>
+            <div style="font-size: 12px; color: #6E5F4E;">वंदना बरनवाल, योग में एम.ए. · लखनऊ</div>
+          </div>
+          <span class="chip" style="background: #1A6FA8;">शुगर</span>
+        </div>
+        <div style="padding: 14px 18px; display: grid; grid-template-columns: 96px 1fr; gap: 8px 12px; font-size: 15px; line-height: 1.6;">
+          <div class="label" style="padding-top: 3px;">अभ्यास</div><div>[आसन 1] · [आसन 2] · [आसन 3] · [प्राणायाम]</div>
+          <div class="label" style="padding-top: 3px;">समय</div><div>रोज़ सुबह [30] मिनट</div>
+          <div class="label" style="padding-top: 3px;">बैच</div><div>सुबह [समय] या शाम [समय], ज़ूम पर</div>
+          <div class="label" style="padding-top: 3px;">जाँच</div><div>[90] दिन बाद, अपनी रिपोर्ट के साथ</div>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; padding: 6px 18px 14px;">
+          <div style="width: 120px; height: 40px; background-color: #F1E7D6; background-image: repeating-linear-gradient(135deg, rgba(35,26,18,0.07) 0 8px, transparent 8px 16px); display: flex; align-items: center; justify-content: center; font-size: 11px; color: #6E5F4E;">हस्ताक्षर</div>
+          <div class="serif" style="width: 56px; height: 56px; border-radius: 50%; border: 2px solid #FF9933; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; line-height: 1.2; text-align: center; color: #A85400; transform: rotate(-8deg);">योग<br>वंदना</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2>Type</h2>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div><div class="disp" style="font-size: 56px; line-height: 1.15; font-weight: 700;">योग से हर बीमारी ठीक हो सकती है।</div><div class="hex">Khand 700 · the claim, ailment names, big numbers · poster energy</div></div>
+        <div><div class="serif" style="font-size: 26px; line-height: 1.5; font-weight: 700;">“दवा आधी हो गई, और सीढ़ियाँ बिना रुके।”</div><div class="hex">Martel 700 · the logo, quotes, the motto</div></div>
+        <div><div style="font-size: 18px; line-height: 1.7;">रोज़ सुबह तीस मिनट, छोटे ग्रुप में, वंदना जी की नज़र के सामने। पहली क्लास मुफ़्त।</div><div class="hex">Mukta 400 · everything else · 18px on phones</div></div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2>Parts</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+        <a href="#" style="display: inline-flex; align-items: center; background: #FF9933; color: #231A12; text-decoration: none; font-size: 17px; font-weight: 700; padding: 13px 20px; border-radius: 4px; min-height: 48px; box-sizing: border-box;">फ़्री ट्रायल बुक करें</a>
+        <a href="#" style="display: inline-flex; align-items: center; background: transparent; color: #231A12; border: 2px solid #231A12; text-decoration: none; font-size: 17px; font-weight: 700; padding: 11px 20px; border-radius: 4px; min-height: 48px; box-sizing: border-box;">अपनी तकलीफ़ चुनें</a>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <span class="chip" style="background: #B0304B;">कमर दर्द</span><span class="chip" style="background: #1A6FA8;">शुगर</span><span class="chip" style="background: #5B2A6E;">नींद</span><span class="chip" style="background: #D6336C;">पीसीओडी</span>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: flex-start; padding: 14px; background: #FFFFFF; border: 1px solid #E4D9C7; border-radius: 4px;">
+        <div style="width: 48px; height: 48px; border-radius: 50%; flex: none; background-color: #F1E7D6; background-image: repeating-linear-gradient(135deg, rgba(35,26,18,0.07) 0 8px, transparent 8px 16px);"></div>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div style="display: flex; gap: 8px; align-items: center;"><span style="font-weight: 700;">[पूरा नाम], [शहर]</span><span class="chip" style="background: #1A6FA8; font-size: 12px; padding: 2px 8px;">शुगर</span></div>
+          <div style="font-size: 16px; line-height: 1.6;">“[एक ठोस बदलाव, उनके शब्दों में: रिपोर्ट, दवा, नींद, सीढ़ियाँ।]”</div>
+          <div style="font-size: 13px; color: #6E5F4E;">[वर्ष] से वंदना जी के साथ</div>
+        </div>
+      </div>
+      <div style="font-size: 14px; color: #6E5F4E; line-height: 1.55;">A result card always names the ailment with its chip, so the proof matches the problem the visitor came with.</div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "id": "md1",
+  "order": 1,
+  "kind": "logo",
+  "name": {
+    "hi": "[अख़बार]",
+    "en": "[newspaper]"
+  },
+  "date": {
+    "hi": "[तारीख़]",
+    "en": "[date]"
+  },
+  "image": "",
+  "link": ""
+}

@@ -1,0 +1,149 @@
+{
+  "slug": "mahila",
+  "order": 8,
+  "family": "women",
+  "icon": "women",
+  "name": {
+    "hi": "महिलाओं की समस्याएँ",
+    "en": "Women's health"
+  },
+  "sub": {
+    "hi": "पीसीओडी, मासिक धर्म, रजोनिवृत्ति",
+    "en": "PCOD, periods, menopause"
+  },
+  "titleFull": {
+    "hi": "महिलाओं की समस्याओं के लिए योग",
+    "en": "Yoga for women's health"
+  },
+  "claimLine": {
+    "hi": "योग से महिलाओं की समस्याएँ ठीक हो सकती हैं।",
+    "en": "Yoga can cure women's health troubles."
+  },
+  "intro": {
+    "hi": "पीसीओडी, अनियमित मासिक धर्म और रजोनिवृत्ति की तकलीफ़ें अलग-अलग हैं, पर तीनों में हार्मोन, वज़न और तनाव जुड़े होते हैं। वंदना जी महिलाओं के लिए अभ्यास अलग रखती हैं, और मासिक धर्म के दिनों के लिए अलग सूची देती हैं।",
+    "en": "PCOD, irregular periods and menopause are different troubles, but hormones, weight and stress run through all three. She keeps a separate practice for women, and a separate list for the days of a period."
+  },
+  "studentCount": "[N]",
+  "storyCount": "[N]",
+  "videoCount": "[N]",
+  "searchTerms": {
+    "hi": "pcod ke liye yoga, mahilaon ke liye yoga hindi",
+    "en": "yoga for PCOD, yoga for women"
+  },
+  "metaDescription": {
+    "hi": "महिलाओं की समस्याओं के लिए लाइव ऑनलाइन योग क्लास, वंदना बरनवाल के साथ। पीसीओडी, मासिक धर्म, रजोनिवृत्ति।",
+    "en": "Live online yoga for women's health with Vandana Baranwal. PCOD, periods, menopause."
+  },
+  "slip": {
+    "practice": {
+      "hi": "[आसन 1] · [आसन 2] · [आसन 3] · [प्राणायाम]",
+      "en": "[asana 1] · [asana 2] · [asana 3] · [pranayama]"
+    },
+    "time": {
+      "hi": "रोज़ [30] मिनट",
+      "en": "[30] minutes a day"
+    },
+    "batch": {
+      "hi": "सुबह [समय] या शाम [समय], ज़ूम पर",
+      "en": "[morning time] or [evening time], on Zoom"
+    },
+    "alongside": {
+      "hi": "[मासिक धर्म के दिनों की दो बातें, वंदना जी की]",
+      "en": "[two notes for the days of a period, from her]"
+    },
+    "review": {
+      "hi": "[90] दिन बाद, अपनी रिपोर्ट के साथ",
+      "en": "After [90] days, with your report"
+    }
+  },
+  "firstClass": [
+    {
+      "strong": {
+        "hi": "[30] मिनट की लाइव क्लास",
+        "en": "A [30] minute live class"
+      },
+      "rest": {
+        "hi": ", महिलाओं की समस्याएँ वाले विद्यार्थियों के अभ्यास के साथ।",
+        "en": ", with the practice used for women's health."
+      }
+    },
+    {
+      "strong": {
+        "hi": "फिर [10] मिनट वंदना जी से बात:",
+        "en": "Then [10] minutes with Vandana:"
+      },
+      "rest": {
+        "hi": " आपकी तकलीफ़, दवा, और कौन सा बैच सही रहेगा।",
+        "en": " your condition, your medicine, and which batch suits you."
+      }
+    },
+    {
+      "strong": {
+        "hi": "कोई शुल्क नहीं, कोई दबाव नहीं।",
+        "en": "No fee, no pressure."
+      },
+      "rest": {
+        "hi": " ठीक लगे तो उसी दिन बैच में जुड़िए।",
+        "en": " If it feels right, join a batch the same day."
+      }
+    }
+  ],
+  "classNotes": [
+    {
+      "hi": "पहली क्लास में वंदना जी आपकी रिपोर्ट और दवा के बारे में पूछती हैं।",
+      "en": "In the first class she asks about your reports and your medicines."
+    },
+    {
+      "hi": "अभ्यास आपके स्तर पर शुरू होता है। कुर्सी पर बैठकर भी।",
+      "en": "The practice starts at your level. On a chair, if that is what you need."
+    },
+    {
+      "hi": "ग्रुप छोटा है, [N] लोग, ताकि हर किसी को देखा जा सके।",
+      "en": "The group is small, [N] people, so everyone can be seen."
+    },
+    {
+      "hi": "मासिक धर्म के दिनों के लिए अलग, हल्का अभ्यास दिया जाता है।",
+      "en": "A separate, gentler practice is given for the days of a period."
+    },
+    {
+      "hi": "व्हाट्सऐप ग्रुप में रोज़ की याद और सवालों के जवाब।",
+      "en": "A daily reminder in the WhatsApp group, and answers to questions."
+    }
+  ],
+  "faq": [
+    {
+      "q": {
+        "hi": "क्या दवा बंद कर दूँ?",
+        "en": "Should I stop my medicine?"
+      },
+      "a": {
+        "hi": "नहीं। दवा अपने डॉक्टर की सलाह से ही घटाएँ। रिपोर्ट सुधरे तो डॉक्टर खुद घटाते हैं। योग साथ-साथ चलता है।",
+        "en": "No. Reduce medicine only on your doctor's advice. When the reports improve, the doctor reduces it. Yoga runs alongside."
+      }
+    },
+    {
+      "q": {
+        "hi": "मेरी उम्र [60] से ऊपर है, घुटने भी दुखते हैं।",
+        "en": "I am over [60] and my knees hurt."
+      },
+      "a": {
+        "hi": "ज़्यादातर अभ्यास कुर्सी पर बैठकर हो सकता है। पहली क्लास में बताइए, वंदना जी उसी हिसाब से शुरू करेंगी।",
+        "en": "Most of the practice can be done sitting on a chair. Say so in the first class and she will start from there."
+      }
+    },
+    {
+      "q": {
+        "hi": "कितने दिन में फ़र्क दिखता है?",
+        "en": "How soon do people feel a difference?"
+      },
+      "a": {
+        "hi": "[वंदना जी का जवाब, उनके अनुभव से।]",
+        "en": "[Her answer, from her own experience.]"
+      }
+    }
+  ],
+  "batchNote": {
+    "hi": "दोनों बैच ठीक हैं",
+    "en": "Either batch works"
+  }
+}

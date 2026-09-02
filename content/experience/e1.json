@@ -1,0 +1,13 @@
+{
+  "id": "e1",
+  "order": 1,
+  "institution": {
+    "hi": "[संस्था]",
+    "en": "[institution]"
+  },
+  "role": {
+    "hi": "[भूमिका]",
+    "en": "[role]"
+  },
+  "years": "[वर्ष]"
+}

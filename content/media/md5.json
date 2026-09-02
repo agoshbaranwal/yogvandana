@@ -1,0 +1,15 @@
+{
+  "id": "md5",
+  "order": 5,
+  "kind": "clipping",
+  "name": {
+    "hi": "[अख़बार]",
+    "en": "[newspaper]"
+  },
+  "date": {
+    "hi": "[तारीख़]",
+    "en": "[date]"
+  },
+  "image": "",
+  "link": ""
+}

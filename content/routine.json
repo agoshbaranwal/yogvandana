@@ -1,0 +1,68 @@
+{
+  "note": {
+    "hi": "पहले 21 दिन हम व्हाट्सऐप पर रोज़ याद दिलाते हैं, ताकि आदत बने।",
+    "en": "For the first 21 days we remind you daily on WhatsApp, so it becomes a habit."
+  },
+  "rows": [
+    {
+      "time": {
+        "hi": "[समय]",
+        "en": "[time]"
+      },
+      "strong": {
+        "hi": "",
+        "en": ""
+      },
+      "text": {
+        "hi": "उठिए, एक गिलास पानी।",
+        "en": "Wake up, a glass of water."
+      },
+      "highlight": false
+    },
+    {
+      "time": {
+        "hi": "[समय]",
+        "en": "[time]"
+      },
+      "strong": {
+        "hi": "योग वंदना की सुबह की क्लास।",
+        "en": "The Yog Vandana morning class."
+      },
+      "text": {
+        "hi": "[30] मिनट, ज़ूम पर, वंदना जी की नज़र के सामने।",
+        "en": "[30] minutes on Zoom, with her watching."
+      },
+      "highlight": true
+    },
+    {
+      "time": {
+        "hi": "[समय]",
+        "en": "[time]"
+      },
+      "strong": {
+        "hi": "",
+        "en": ""
+      },
+      "text": {
+        "hi": "नाश्ता, पर्ची की दो बातें ध्यान में रखकर।",
+        "en": "Breakfast, keeping the two notes on your slip in mind."
+      },
+      "highlight": false
+    },
+    {
+      "time": {
+        "hi": "रात",
+        "en": "Night"
+      },
+      "strong": {
+        "hi": "",
+        "en": ""
+      },
+      "text": {
+        "hi": "व्हाट्सऐप ग्रुप में आज का हिसाब। कल फिर।",
+        "en": "Today's count in the WhatsApp group. Again tomorrow."
+      },
+      "highlight": false
+    }
+  ]
+}

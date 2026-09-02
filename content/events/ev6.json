@@ -1,0 +1,27 @@
+{
+  "id": "ev6",
+  "order": 6,
+  "type": "press",
+  "typeLabel": {
+    "hi": "मीडिया",
+    "en": "Press"
+  },
+  "title": {
+    "hi": "[कार्यक्रम का नाम]",
+    "en": "[event name]"
+  },
+  "organiser": {
+    "hi": "[आयोजक]",
+    "en": "[organiser]"
+  },
+  "place": {
+    "hi": "[शहर]",
+    "en": "[city]"
+  },
+  "date": {
+    "hi": "[महीना वर्ष]",
+    "en": "[month year]"
+  },
+  "photo": "",
+  "link": ""
+}

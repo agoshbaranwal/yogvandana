@@ -1,0 +1,59 @@
+{
+  "id": "workshop-1",
+  "type": "workshop",
+  "order": 4,
+  "name": {
+    "hi": "[कार्यशाला का नाम]",
+    "en": "[workshop name]"
+  },
+  "when": {
+    "hi": "[समय] IST",
+    "en": "[time] IST"
+  },
+  "days": {
+    "hi": "",
+    "en": ""
+  },
+  "level": {
+    "hi": "सभी स्तर",
+    "en": "All levels"
+  },
+  "note": {
+    "hi": "[दो पंक्तियाँ: यह किसके लिए है और क्या सीखेंगे।]",
+    "en": "[two lines: who it is for and what you will learn]"
+  },
+  "session": [],
+  "price": "[शुल्क]",
+  "priceUnit": {
+    "hi": "",
+    "en": ""
+  },
+  "perDay": "",
+  "nextStart": {
+    "hi": "",
+    "en": ""
+  },
+  "seats": "[सीटें]",
+  "date": {
+    "hi": "[तारीख़]",
+    "en": "[date]"
+  },
+  "joinLink": "",
+  "feeLink": "",
+  "familyDiscount": {
+    "hi": "",
+    "en": ""
+  },
+  "firstMonthOffer": {
+    "hi": "",
+    "en": ""
+  },
+  "refundLine": {
+    "hi": "",
+    "en": ""
+  },
+  "payLine": {
+    "hi": "",
+    "en": ""
+  }
+}

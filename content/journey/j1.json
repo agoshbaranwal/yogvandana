@@ -1,0 +1,14 @@
+{
+  "id": "j1",
+  "order": 1,
+  "year": "[वर्ष]",
+  "text": {
+    "hi": "अभ्यास की शुरुआत, [जगह]।",
+    "en": "The practice begins, [place]."
+  },
+  "photo": "",
+  "photoAlt": {
+    "hi": "[इस पड़ाव की फ़ोटो]",
+    "en": "[photo from this milestone]"
+  }
+}

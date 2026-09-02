@@ -1,0 +1,14 @@
+{
+  "id": "j3",
+  "order": 3,
+  "year": "[वर्ष]",
+  "text": {
+    "hi": "[प्रमाणपत्र], [संस्था]।",
+    "en": "[certification], [body]."
+  },
+  "photo": "",
+  "photoAlt": {
+    "hi": "",
+    "en": ""
+  }
+}

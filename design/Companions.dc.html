@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martel:wght@400;600;700;800&family=Mukta:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; background: #FBF8F1; color: #231A12; font-family: Mukta, 'Noto Sans', Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #A85400; } a:hover { color: #7A3D00; }
+    .serif { font-family: Martel, Georgia, serif; }
+    .label { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5F4E; }
+    .hex { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; color: #6E5F4E; }
+  </style>
+</helmet>
+<div style="width: 1240px; background: #FBF8F1; display: flex; flex-direction: column; gap: 28px; padding: 36px 40px 40px; box-sizing: border-box;">
+  <div style="display: flex; flex-direction: column; gap: 6px;">
+    <div class="label" style="color: #A85400;">Companion colour</div>
+    <div class="serif" style="font-size: 30px; font-weight: 700; line-height: 1.2;">Three companions for bhagwa, none of them blue-indigo or green</div>
+    <div style="font-size: 16px; color: #6E5F4E; max-width: 70ch;">Bhagwa is now #FF9933. Buttons are bhagwa with dark text, because light text does not read on it. The companion takes the footer, the invite band and small labels. Each card shows the same three parts.</div>
+  </div>
+
+  <div style="display: flex; align-items: center; gap: 14px;">
+    <div class="label">Bhagwa</div>
+    <div style="width: 120px; height: 44px; background: #FF9933;"></div>
+    <div class="hex">FF9933</div>
+    <div class="label" style="margin-left: 16px;">Deep bhagwa, for links</div>
+    <div style="width: 120px; height: 44px; background: #A85400;"></div>
+    <div class="hex">A85400</div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px;">
+
+    <div style="border: 1px solid #E4D9C7; display: flex; flex-direction: column;">
+      <div style="padding: 18px 20px 14px; display: flex; flex-direction: column; gap: 4px;">
+        <div class="serif" style="font-size: 22px; font-weight: 700; line-height: 1.3;">रानी गुलाबी <span style="font-family: Mukta, Arial, sans-serif; font-size: 14px; font-weight: 500; color: #6E5F4E;">Rani pink</span></div>
+        <div class="hex">D6336C · tint FCE7EE</div>
+      </div>
+      <div style="background: #D6336C; color: #FBF8F1; padding: 20px; display: flex; flex-direction: column; gap: 12px;">
+        <div class="serif" style="font-size: 18px; font-weight: 700; line-height: 1.4;">अपने कार्यक्रम में वंदना को आमंत्रित करें</div>
+        <a href="#" style="align-self: flex-start; display: inline-flex; align-items: center; background: #FF9933; color: #231A12; text-decoration: none; font-size: 15px; font-weight: 600; padding: 10px 14px; border-radius: 4px; min-height: 44px; box-sizing: border-box;">प्रोफ़ाइल डाउनलोड करें</a>
+        <div class="serif" style="font-size: 18px; font-weight: 800; line-height: 1.3;"><span style="color: #FF9933;">योग</span> वंदना</div>
+      </div>
+      <div style="background: #FCE7EE; padding: 16px 20px; display: flex; flex-direction: column; gap: 6px;">
+        <div class="label" style="color: #D6336C;">सुबह का बैच</div>
+        <div class="serif" style="font-size: 18px; font-weight: 700; line-height: 1.4;">[समय], [दिन]</div>
+        <div style="font-size: 14px; color: #6E5F4E;">Tint: cards and highlighted rows</div>
+      </div>
+      <div style="padding: 16px 20px; font-size: 15px; line-height: 1.55; color: #6E5F4E;">Marigold and rose, the garland pairing. Alive, warm, festive; reads as health and vitality. Trade-off: some visitors read pink as feminine.</div>
+    </div>
+
+    <div style="border: 1px solid #E4D9C7; display: flex; flex-direction: column;">
+      <div style="padding: 18px 20px 14px; display: flex; flex-direction: column; gap: 4px;">
+        <div class="serif" style="font-size: 22px; font-weight: 700; line-height: 1.3;">मोर नीला <span style="font-family: Mukta, Arial, sans-serif; font-size: 14px; font-weight: 500; color: #6E5F4E;">Peacock blue</span></div>
+        <div class="hex">1A6FA8 · tint E4F0F9</div>
+      </div>
+      <div style="background: #1A6FA8; color: #FBF8F1; padding: 20px; display: flex; flex-direction: column; gap: 12px;">
+        <div class="serif" style="font-size: 18px; font-weight: 700; line-height: 1.4;">अपने कार्यक्रम में वंदना को आमंत्रित करें</div>
+        <a href="#" style="align-self: flex-start; display: inline-flex; align-items: center; background: #FF9933; color: #231A12; text-decoration: none; font-size: 15px; font-weight: 600; padding: 10px 14px; border-radius: 4px; min-height: 44px; box-sizing: border-box;">प्रोफ़ाइल डाउनलोड करें</a>
+        <div class="serif" style="font-size: 18px; font-weight: 800; line-height: 1.3;"><span style="color: #FF9933;">योग</span> वंदना</div>
+      </div>
+      <div style="background: #E4F0F9; padding: 16px 20px; display: flex; flex-direction: column; gap: 6px;">
+        <div class="label" style="color: #1A6FA8;">सुबह का बैच</div>
+        <div class="serif" style="font-size: 18px; font-weight: 700; line-height: 1.4;">[समय], [दिन]</div>
+        <div style="font-size: 14px; color: #6E5F4E;">Tint: cards and highlighted rows</div>
+      </div>
+      <div style="padding: 16px 20px; font-size: 15px; line-height: 1.55; color: #6E5F4E;">A saffron dawn on a blue sky. Calm and trusted; blue is the colour people already associate with health services. Brighter than the indigo you rejected. Trade-off: the coolest of the three.</div>
+    </div>
+
+    <div style="border: 1px solid #E4D9C7; display: flex; flex-direction: column;">
+      <div style="padding: 18px 20px 14px; display: flex; flex-direction: column; gap: 4px;">
+        <div class="serif" style="font-size: 22px; font-weight: 700; line-height: 1.3;">जामुनी <span style="font-family: Mukta, Arial, sans-serif; font-size: 14px; font-weight: 500; color: #6E5F4E;">Plum</span></div>
+        <div class="hex">5B2A6E · tint F0E6F4</div>
+      </div>
+      <div style="background: #5B2A6E; color: #FBF8F1; padding: 20px; display: flex; flex-direction: column; gap: 12px;">
+        <div class="serif" style="font-size: 18px; font-weight: 700; line-height: 1.4;">अपने कार्यक्रम में वंदना को आमंत्रित करें</div>
+        <a href="#" style="align-self: flex-start; display: inline-flex; align-items: center; background: #FF9933; color: #231A12; text-decoration: none; font-size: 15px; font-weight: 600; padding: 10px 14px; border-radius: 4px; min-height: 44px; box-sizing: border-box;">प्रोफ़ाइल डाउनलोड करें</a>
+        <div class="serif" style="font-size: 18px; font-weight: 800; line-height: 1.3;"><span style="color: #FF9933;">योग</span> वंदना</div>
+      </div>
+      <div style="background: #F0E6F4; padding: 16px 20px; display: flex; flex-direction: column; gap: 6px;">
+        <div class="label" style="color: #5B2A6E;">सुबह का बैच</div>
+        <div class="serif" style="font-size: 18px; font-weight: 700; line-height: 1.4;">[समय], [दिन]</div>
+        <div style="font-size: 14px; color: #6E5F4E;">Tint: cards and highlighted rows</div>
+      </div>
+      <div style="padding: 16px 20px; font-size: 15px; line-height: 1.55; color: #6E5F4E;">Orange and purple, the Holi pairing. Calm, a little regal; reads as rest and wellness. Trade-off: the darkest of the three, and the least common in Indian health branding.</div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

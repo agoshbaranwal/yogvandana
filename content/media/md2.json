@@ -1,0 +1,15 @@
+{
+  "id": "md2",
+  "order": 2,
+  "kind": "logo",
+  "name": {
+    "hi": "[टीवी चैनल]",
+    "en": "[TV channel]"
+  },
+  "date": {
+    "hi": "[तारीख़]",
+    "en": "[date]"
+  },
+  "image": "",
+  "link": ""
+}

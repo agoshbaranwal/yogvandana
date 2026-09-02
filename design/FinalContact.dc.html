@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Martel:wght@700;800&family=Mukta:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; background: #231A12; color: #231A12; font-family: Mukta, 'Noto Sans', Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #A85400; } a:hover { color: #7A3D00; }
+    .serif { font-family: Martel, Georgia, serif; }
+    .disp { font-family: 'Baloo 2', 'Arial Rounded MT Bold', sans-serif; }
+    .label { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5F4E; }
+    h2 { font-family: 'Baloo 2', 'Arial Rounded MT Bold', sans-serif; font-size: 28px; line-height: 1.2; font-weight: 800; margin: 0; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .input { background: #FFFFFF; border: 1.5px solid #D9C7A8; border-radius: 12px; padding: 12px 14px; font-size: 17px; min-height: 50px; box-sizing: border-box; color: #6E5F4E; }
+    .pillo { display: inline-flex; align-items: center; text-decoration: none; color: #231A12; border: 1.5px solid #231A12; border-radius: 999px; padding: 7px 14px; font-size: 14px; font-weight: 700; min-height: 40px; white-space: nowrap; }
+    p { margin: 0; }
+  </style>
+</helmet>
+<div style="width: 390px; background: #FBF8F1; display: flex; flex-direction: column;">
+
+  <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 16px; border-bottom: 1px solid #E4D9C7;">
+    <div class="serif" style="font-size: 24px; font-weight: 800; line-height: 1.3;"><span style="color: #FF9933;">योग</span> वंदना</div>
+    <div style="display: flex; align-items: center; gap: 6px;">
+      <a href="#" style="display: inline-flex; align-items: center; font-size: 13px; font-weight: 600; color: #231A12; text-decoration: none; border: 1px solid #231A12; border-radius: 999px; padding: 5px 12px; min-height: 36px; box-sizing: border-box;">English</a>
+      <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; margin-right: -8px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#231A12" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></div>
+    </div>
+  </div>
+
+  <div style="background: linear-gradient(180deg, #EAF2F8 0%, #FBF8F1 100%); padding: 26px 16px 20px; display: flex; flex-direction: column; gap: 12px;">
+    <h1 class="disp" style="margin: 0; font-size: 44px; line-height: 1.05; font-weight: 800;">वंदना जी से बात कीजिए</h1>
+    <p style="font-size: 17px; line-height: 1.7; color: #4A3A2A;">सबसे तेज़ रास्ता व्हाट्सऐप है। अपनी तकलीफ़ लिखिए, जवाब [एक दिन] में आता है।</p>
+    <a href="#" style="display: flex; justify-content: center; align-items: center; gap: 10px; background: #FF9933; color: #231A12; text-decoration: none; font-size: 18px; font-weight: 700; padding: 14px 16px; border-radius: 999px; min-height: 52px; box-sizing: border-box;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#231A12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.2L4 21l1.8-5.4A8 8 0 1 1 21 12z"></path></svg>व्हाट्सऐप पर मैसेज करें</a>
+    <a href="#" style="display: flex; justify-content: center; align-items: center; gap: 10px; background: #FFFFFF; color: #231A12; border: 1.5px solid #231A12; text-decoration: none; font-size: 17px; font-weight: 700; padding: 13px 16px; border-radius: 999px; min-height: 50px; box-sizing: border-box;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#231A12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg>कॉल करें: [फ़ोन]</a>
+    <div style="font-size: 15px; color: #6E5F4E; line-height: 1.5;">जवाब सुबह [समय] से रात [समय] तक · [ईमेल]</div>
+  </div>
+
+  <div style="padding: 20px 16px 8px; display: flex; flex-direction: column; gap: 14px;">
+    <h2>या फ़ॉर्म भरिए</h2>
+    <div class="field"><div class="label">आपका नाम</div><div class="input">[नाम]</div></div>
+    <div class="field"><div class="label">फ़ोन (व्हाट्सऐप)</div><div class="input">+91</div></div>
+    <div class="field"><div class="label">किस बारे में</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <a href="#" class="pillo" style="background: #231A12; color: #FBF8F1;">ग्रुप क्लास</a><a href="#" class="pillo">व्यक्तिगत सेशन</a><a href="#" class="pillo">कार्यशाला</a><a href="#" class="pillo">कार्यक्रम में बुलाना</a>
+      </div>
+    </div>
+    <div class="field"><div class="label">आपकी तकलीफ़</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <a href="#" class="pillo">कमर दर्द</a><a href="#" class="pillo">घुटने</a><a href="#" class="pillo">शुगर</a><a href="#" class="pillo">बीपी</a><a href="#" class="pillo">थायराइड</a><a href="#" class="pillo">मोटापा</a><a href="#" class="pillo">नींद और तनाव</a><a href="#" class="pillo">महिलाओं की समस्याएँ</a><a href="#" class="pillo">कुछ और</a>
+      </div>
+    </div>
+    <div class="field"><div class="label">संदेश</div><div class="input" style="min-height: 110px;">[दो-तीन पंक्तियाँ: कब से तकलीफ़ है, कौन सी दवा चल रही है, कौन सा समय ठीक रहेगा।]</div></div>
+    <a href="#" style="display: flex; justify-content: center; align-items: center; background: #FF9933; color: #231A12; text-decoration: none; font-size: 18px; font-weight: 700; padding: 14px 16px; border-radius: 999px; min-height: 52px; box-sizing: border-box;">भेजें</a>
+    <div style="font-size: 13px; color: #6E5F4E; line-height: 1.55;">आपकी जानकारी सिर्फ़ वंदना जी तक जाती है। [निजता नीति]</div>
+  </div>
+
+  <div style="background: #EAF2F8; padding: 24px 16px; display: flex; flex-direction: column; gap: 10px; margin-top: 20px;">
+    <h2>अपने कार्यक्रम में वंदना जी को बुलाइए</h2>
+    <p style="font-size: 16px; line-height: 1.65; color: #4A3A2A;">मुख्य अतिथि, योग शिविर, कार्यशाला, या आपकी टीम और स्कूल के लिए सत्र। [N] कार्यक्रमों का अनुभव।</p>
+    <a href="#" style="display: flex; justify-content: center; align-items: center; background: #231A12; color: #FF9933; text-decoration: none; font-size: 17px; font-weight: 700; padding: 13px 16px; border-radius: 999px; min-height: 50px; box-sizing: border-box; margin-top: 4px;">प्रोफ़ाइल डाउनलोड करें (पीडीएफ़)</a>
+  </div>
+
+  <div style="padding: 24px 16px; display: flex; flex-direction: column; gap: 8px;">
+    <h2>पता</h2>
+    <p style="font-size: 16px; line-height: 1.65;">[पता], लखनऊ, उत्तर प्रदेश [पिन]</p>
+    <p style="font-size: 15px; line-height: 1.6; color: #6E5F4E;">क्लासेज़ ऑनलाइन होती हैं। [व्यक्तिगत सेशन के लिए, अगर लखनऊ में मिलना संभव हो, एक पंक्ति।]</p>
+    <div style="display: flex; gap: 16px; font-size: 16px; font-weight: 700;"><a href="#">इंस्टाग्राम</a><a href="#">यूट्यूब</a><a href="#">फ़ेसबुक</a></div>
+  </div>
+
+  <div style="background: #231A12; color: #FBF8F1; padding: 26px 16px 32px; display: flex; flex-direction: column; gap: 10px;">
+    <div class="serif" style="font-size: 24px; font-weight: 800; line-height: 1.3;"><span style="color: #FF9933;">योग</span> वंदना</div>
+    <div class="serif" style="font-size: 16px; font-weight: 700; color: #FF9933; line-height: 1.5;">सर्वे सन्तु निरामयाः</div>
+    <div style="font-size: 14px; line-height: 1.6; color: rgba(251,248,241,0.8);">वंदना बरनवाल, योग में एम.ए. · [पता], लखनऊ</div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

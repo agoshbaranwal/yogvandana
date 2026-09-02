@@ -1,0 +1,14 @@
+{
+  "id": "j2",
+  "order": 2,
+  "year": "[वर्ष]",
+  "text": {
+    "hi": "योग में एम.ए., [विश्वविद्यालय]।",
+    "en": "MA in Yoga, [university]."
+  },
+  "photo": "",
+  "photoAlt": {
+    "hi": "",
+    "en": ""
+  }
+}

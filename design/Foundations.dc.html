@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martel:wght@400;600;700&family=Mukta:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; background: #FBF8F1; color: #231A12; font-family: Mukta, 'Noto Sans', Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #B9460F; } a:hover { color: #8F350B; }
+    .serif { font-family: Martel, Georgia, serif; }
+    .ph { background-color: #F1E7D6; background-image: repeating-linear-gradient(135deg, rgba(35,26,18,0.06) 0 8px, transparent 8px 16px); }
+    .label { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5F4E; }
+    .hex { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; color: #6E5F4E; }
+    h2 { font-family: Martel, Georgia, serif; font-size: 22px; line-height: 1.2; font-weight: 700; margin: 0; }
+    table { border-collapse: collapse; width: 100%; font-size: 16px; }
+    th { text-align: left; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5F4E; padding: 8px 16px 8px 0; border-bottom: 1px solid #231A12; }
+    td { padding: 12px 16px 12px 0; border-bottom: 1px solid #E4D9C7; vertical-align: top; }
+  </style>
+</helmet>
+<div style="width: 1240px; background: #FBF8F1; display: flex; flex-direction: column; gap: 40px; padding: 40px; box-sizing: border-box;">
+
+  <div style="display: flex; flex-direction: column; gap: 6px;">
+    <div class="label" style="color: {{bhagwa}};">Foundations</div>
+    <div class="serif" style="font-size: 32px; font-weight: 700; line-height: 1.15;">Colour, type and the parts every page is built from</div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 16px;">
+    <h2>Colour</h2>
+    <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px;">
+      <div style="display: flex; flex-direction: column; gap: 6px;"><div style="height: 64px; background: #FBF8F1; border: 1px solid #E4D9C7;"></div><div style="font-weight: 600;">Ivory</div><div class="hex">FBF8F1</div><div style="font-size: 14px; color: #6E5F4E;">Page background</div></div>
+      <div style="display: flex; flex-direction: column; gap: 6px;"><div style="height: 64px; background: #F1E7D6;"></div><div style="font-weight: 600;">Sandalwood</div><div class="hex">F1E7D6</div><div style="font-size: 14px; color: #6E5F4E;">Bands, cards, photo placeholders</div></div>
+      <div style="display: flex; flex-direction: column; gap: 6px;"><div style="height: 64px; background: #231A12;"></div><div style="font-weight: 600;">Kohl</div><div class="hex">231A12</div><div style="font-size: 14px; color: #6E5F4E;">All text, the wordmark</div></div>
+      <div style="display: flex; flex-direction: column; gap: 6px;"><div style="height: 64px; background: #6E5F4E;"></div><div style="font-weight: 600;">Muted</div><div class="hex">6E5F4E</div><div style="font-size: 14px; color: #6E5F4E;">Captions, dates, second lines</div></div>
+      <div style="display: flex; flex-direction: column; gap: 6px;"><div style="height: 64px; background: #E4D9C7;"></div><div style="font-weight: 600;">Rule</div><div class="hex">E4D9C7</div><div style="font-size: 14px; color: #6E5F4E;">Hairlines, table borders</div></div>
+      <div style="display: flex; flex-direction: column; gap: 6px;"><div style="height: 64px; background: {{bhagwa}};"></div><div style="font-weight: 600;">Bhagwa</div><div class="hex">{{bhagwaHex}}</div><div style="font-size: 14px; color: #6E5F4E;">Buttons with dark text, the mark, labels</div></div>
+      <div style="display: flex; flex-direction: column; gap: 6px;"><div style="height: 64px; background: {{deep}};"></div><div style="font-weight: 600;">Deep bhagwa</div><div class="hex">{{deepHex}}</div><div style="font-size: 14px; color: #6E5F4E;">Links and small text on ivory</div></div>
+      <div style="display: flex; flex-direction: column; gap: 6px;"><div style="height: 64px; background: #FBE9DB;"></div><div style="font-weight: 600;">Bhagwa tint</div><div class="hex">FBE9DB</div><div style="font-size: 14px; color: #6E5F4E;">The free-trial block, highlighted rows</div></div>
+      <div style="display: flex; flex-direction: column; gap: 6px;"><div style="height: 64px; background: #231A12;"></div><div style="font-weight: 600;">Companion</div><div class="hex">to be chosen</div><div style="font-size: 14px; color: #6E5F4E;">Footer and the invite band. Indigo is out; pick from the Companions board.</div></div>
+    </div>
+    <div style="font-size: 15px; color: #6E5F4E;">Saffron is a mark, not a flood. Never bhagwa, green and white together in one composition.</div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px;">
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <h2>Type</h2>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; flex-direction: column; gap: 4px;"><div class="serif" style="font-size: 56px; line-height: 1.1; font-weight: 700; letter-spacing: -0.015em;">Feel stronger.</div><div class="hex">Martel 700 · 56px desktop, 34px phone · headline</div></div>
+        <div style="display: flex; flex-direction: column; gap: 4px;"><div class="serif" style="font-size: 30px; line-height: 1.2; font-weight: 700;">What students say</div><div class="hex">Martel 700 · 30px · section title</div></div>
+        <div style="display: flex; flex-direction: column; gap: 4px;"><div class="serif" style="font-size: 21px; line-height: 1.3; font-weight: 700;">6:30 to 7:30 am, Monday to Friday</div><div class="hex">Martel 700 · 21px · card title</div></div>
+        <div style="display: flex; flex-direction: column; gap: 4px;"><div style="font-size: 19px; line-height: 1.6;">Live online yoga classes with Vandana Baranwal, MA in Yoga. Small groups on Zoom, morning and evening, from Lucknow.</div><div class="hex">Mukta 400 · 19px desktop, 18px phone · body</div></div>
+        <div style="display: flex; flex-direction: column; gap: 4px;"><div class="label" style="color: {{bhagwa}};">Since [year] · MA in Yoga · Lucknow</div><div class="hex">Mukta 600 · 13px · uppercase label</div></div>
+        <div style="display: flex; flex-direction: column; gap: 4px;"><div class="serif" style="font-size: 20px; font-weight: 600; color: {{bhagwa}};">योग वंदना</div><div class="hex">Martel Devanagari · the same family carries Hindi</div></div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <h2>Parts</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+        <a href="#" style="display: inline-flex; align-items: center; background: {{bhagwa}}; color: #231A12; text-decoration: none; font-size: 17px; font-weight: 700; padding: 14px 22px; border-radius: 4px; min-height: 48px; box-sizing: border-box;">फ़्री ट्रायल बुक करें</a>
+        <a href="#" style="display: inline-flex; align-items: center; background: transparent; color: #231A12; border: 1px solid #231A12; text-decoration: none; font-size: 17px; font-weight: 600; padding: 13px 22px; border-radius: 4px; min-height: 48px; box-sizing: border-box;">See classes</a>
+        <a href="#" style="font-size: 17px; font-weight: 500; color: {{deep}};">A text link</a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
+        <div style="border: 1px solid #E4D9C7; border-radius: 4px; padding: 18px; display: flex; flex-direction: column; gap: 8px;">
+          <div class="label" style="color: {{bhagwa}};">Morning batch</div>
+          <div class="serif" style="font-size: 20px; font-weight: 700; line-height: 1.3;">6:30 to 7:30 am, [days]</div>
+          <div style="font-size: 15px; color: #6E5F4E;">A card: hairline, 4px corners, no shadow</div>
+        </div>
+        <div class="ph" style="border: 1px solid #E4D9C7; display: flex; align-items: flex-end; padding: 10px; box-sizing: border-box; font-size: 13px; color: #6E5F4E; min-height: 120px;">Photo: a placeholder until the real one arrives</div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 16px; padding: 14px 18px; background: #231A12; color: #FBF8F1; border-radius: 4px;">
+        <div class="serif" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid {{bhagwa}}; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; line-height: 1; padding-top: 3px; box-sizing: border-box;">व</div>
+        <div style="font-size: 15px; color: rgba(251,248,241,0.85);">Companion band, shown in kohl until you pick a companion colour. Footer and the invite band only.</div>
+      </div>
+      <table>
+        <thead><tr><th>Certification</th><th>Issuing body</th><th>Year</th><th>Verify</th></tr></thead>
+        <tbody>
+          <tr><td style="font-weight: 600;">MA in Yoga</td><td>[University]</td><td>[Year]</td><td><a href="#" style="color: {{deep}};">University record</a></td></tr>
+          <tr><td style="font-weight: 600;">[Certification]</td><td>[Issuing body]</td><td>[Year]</td><td><span style="color: #6E5F4E;">No public registry</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"bhagwa":{"editor":"color","default":"#FF9933","options":["#FF9933","#FF8C1A","#E7641E","#F4A460"],"section":"Colour"},"$preview":{"width":1240,"height":1120}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const b = (this.props.bhagwa || '#FF9933').toUpperCase();
+    const deep = b === '#FF9933' ? '#A85400' : darken(b, 0.34);
+    return { bhagwa: b, bhagwaHex: b.replace('#', ''), deep: deep, deepHex: deep.replace('#', '') };
+  }
+}
+function darken(hex, k) {
+  const m = /^#?([0-9A-F]{6})$/i.exec(hex);
+  if (!m) return '#B9460F';
+  const n = parseInt(m[1], 16);
+  const f = (v) => Math.max(0, Math.round(v * (1 - k)));
+  const r = f((n >> 16) & 255), g = f((n >> 8) & 255), bl = f(n & 255);
+  return '#' + [r, g, bl].map((v) => v.toString(16).padStart(2, '0')).join('').toUpperCase();
+}
+</script>
+</body>
+</html>

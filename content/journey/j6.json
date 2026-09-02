@@ -1,0 +1,14 @@
+{
+  "id": "j6",
+  "order": 6,
+  "year": "[वर्ष]",
+  "text": {
+    "hi": "पहला योग शिविर, [जगह], [N] लोग।",
+    "en": "First yoga camp, [place], [N] people."
+  },
+  "photo": "",
+  "photoAlt": {
+    "hi": "[इस पड़ाव की फ़ोटो]",
+    "en": "[photo from this milestone]"
+  }
+}

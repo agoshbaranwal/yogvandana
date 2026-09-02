@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martel:wght@400;600;700&family=Mukta:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; background: #FBF8F1; color: #231A12; font-family: Mukta, 'Noto Sans', Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #B9460F; } a:hover { color: #8F350B; }
+    .serif { font-family: Martel, Georgia, serif; }
+    .label { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5F4E; }
+  </style>
+</helmet>
+<div style="width: 720px; height: 440px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: 1fr auto; background: #FBF8F1;">
+  <div style="display: flex; flex-direction: column; justify-content: center; gap: 6px; padding: 40px; border-right: 1px solid #E4D9C7;">
+    <div class="label" style="margin-bottom: 18px;">Option A · Wordmark with a bhagwa full stop</div>
+    <div class="serif" style="font-size: 44px; font-weight: 700; line-height: 1.1; letter-spacing: -0.015em;">Yog Vandana<span style="color: #E7641E;">.</span></div>
+    <div class="serif" style="font-size: 18px; font-weight: 600; color: #E7641E; letter-spacing: 0.02em;">योग वंदना</div>
+  </div>
+  <div style="display: flex; flex-direction: column; justify-content: center; gap: 6px; padding: 40px; background: #27314F; color: #FBF8F1;">
+    <div class="label" style="margin-bottom: 18px; color: rgba(251,248,241,0.7);">On the indigo footer</div>
+    <div class="serif" style="font-size: 44px; font-weight: 700; line-height: 1.1; letter-spacing: -0.015em;">Yog Vandana<span style="color: #E7641E;">.</span></div>
+    <div class="serif" style="font-size: 18px; font-weight: 600; color: #E7641E; letter-spacing: 0.02em;">योग वंदना</div>
+  </div>
+  <div style="grid-column: 1 / -1; display: flex; align-items: center; gap: 28px; padding: 18px 40px; border-top: 1px solid #E4D9C7;">
+    <div class="label">Small sizes</div>
+    <div class="serif" style="font-size: 20px; font-weight: 700;">Yog Vandana<span style="color: #E7641E;">.</span></div>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <div style="width: 32px; height: 32px; border-radius: 4px; background: #E7641E; display: flex; align-items: center; justify-content: center;"><div style="width: 10px; height: 10px; border-radius: 50%; background: #FBF8F1;"></div></div>
+      <div style="width: 16px; height: 16px; border-radius: 2px; background: #E7641E; display: flex; align-items: center; justify-content: center;"><div style="width: 5px; height: 5px; border-radius: 50%; background: #FBF8F1;"></div></div>
+      <div class="label">favicon</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

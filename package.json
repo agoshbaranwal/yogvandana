@@ -1,0 +1,38 @@
+{
+  "name": "yogvandana",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "prebuild": "node scripts/media-prepare.mjs",
+    "build": "next build && node scripts/postbuild.mjs",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "media:prepare": "node scripts/media-prepare.mjs",
+    "content:check": "node scripts/content-check.mjs",
+    "parity:check": "node scripts/parity-check.mjs",
+    "credibility:check": "node scripts/credibility-check.mjs",
+    "og": "node scripts/og.mjs",
+    "screens": "node scripts/screens.mjs",
+    "serve": "node scripts/serve.mjs",
+    "check": "npm run lint && npm run typecheck && npm run parity:check && npm run build && npm run credibility:check"
+  },
+  "dependencies": {
+    "next": "16.3.4",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "zod": "^4.5.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.4",
+    "sharp": "^0.34.5",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

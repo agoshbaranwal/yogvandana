@@ -1,0 +1,37 @@
+{
+  "id": "s1",
+  "order": 1,
+  "name": {
+    "hi": "[पूरा नाम]",
+    "en": "[full name]"
+  },
+  "city": {
+    "hi": "[शहर]",
+    "en": "[city]"
+  },
+  "age": "[उम्र]",
+  "ailmentSlug": "sugar",
+  "quote": {
+    "hi": "[रिपोर्ट में क्या बदला, दवा कितनी घटी, कितने महीनों में। उनके शब्दों में।]",
+    "en": "[what changed in the report, how much medicine came down, over how many months, in their words]"
+  },
+  "before": {
+    "hi": "[HbA1c 8.2, दवा दो बार]",
+    "en": "[HbA1c 8.2, medicine twice a day]"
+  },
+  "after": {
+    "hi": "[6.5, दवा आधी]",
+    "en": "[6.5, medicine halved]"
+  },
+  "since": {
+    "hi": "[वर्ष]",
+    "en": "[year]"
+  },
+  "written": {
+    "hi": "[महीना वर्ष]",
+    "en": "[month year]"
+  },
+  "photo": "",
+  "video": "[वीडियो लिंक]",
+  "consent": true
+}

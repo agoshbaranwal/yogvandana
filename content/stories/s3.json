@@ -1,0 +1,37 @@
+{
+  "id": "s3",
+  "order": 3,
+  "name": {
+    "hi": "[पूरा नाम]",
+    "en": "[full name]"
+  },
+  "city": {
+    "hi": "[शहर]",
+    "en": "[city]"
+  },
+  "age": "[उम्र]",
+  "ailmentSlug": "mahila",
+  "quote": {
+    "hi": "[क्या बदला, कितने महीनों में। उनके शब्दों में।]",
+    "en": "[what changed and over how many months, in their words]"
+  },
+  "before": {
+    "hi": "",
+    "en": ""
+  },
+  "after": {
+    "hi": "",
+    "en": ""
+  },
+  "since": {
+    "hi": "[वर्ष]",
+    "en": "[year]"
+  },
+  "written": {
+    "hi": "[महीना वर्ष]",
+    "en": "[month year]"
+  },
+  "photo": "",
+  "video": "",
+  "consent": true
+}

@@ -1,0 +1,27 @@
+{
+  "id": "ev1",
+  "order": 1,
+  "type": "guest-of-honour",
+  "typeLabel": {
+    "hi": "मुख्य अतिथि",
+    "en": "Guest of honour"
+  },
+  "title": {
+    "hi": "[कार्यक्रम का नाम]",
+    "en": "[event name]"
+  },
+  "organiser": {
+    "hi": "[आयोजक]",
+    "en": "[organiser]"
+  },
+  "place": {
+    "hi": "[शहर]",
+    "en": "[city]"
+  },
+  "date": {
+    "hi": "[महीना वर्ष]",
+    "en": "[month year]"
+  },
+  "photo": "",
+  "link": ""
+}

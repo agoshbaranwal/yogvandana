@@ -1,0 +1,149 @@
+{
+  "url": "https://agoshbaranwal.github.io",
+  "live": false,
+  "brand": {
+    "hi": "योग वंदना",
+    "en": "Yog Vandana"
+  },
+  "teacher": {
+    "hi": "वंदना बरनवाल",
+    "en": "Vandana Baranwal"
+  },
+  "credential": {
+    "hi": "योग में एम.ए. · प्रमाणित योग शिक्षिका",
+    "en": "MA in Yoga · Certified Yoga Teacher"
+  },
+  "credentialShort": {
+    "hi": "योग में एम.ए.",
+    "en": "MA in Yoga"
+  },
+  "city": {
+    "hi": "लखनऊ",
+    "en": "Lucknow"
+  },
+  "motto": "सर्वे सन्तु निरामयाः",
+  "mottoGloss": {
+    "hi": "सब रोग-मुक्त हों। यही हमारी वंदना है।",
+    "en": "May all be free from disease. That is our prayer."
+  },
+  "claim": {
+    "hi": "योग से हर बीमारी ठीक हो सकती है।",
+    "en": "Yoga can cure any disease."
+  },
+  "sinceYear": {
+    "hi": "[वर्ष]",
+    "en": "[year]"
+  },
+  "morningTime": {
+    "hi": "[समय]",
+    "en": "[time]"
+  },
+  "eveningTime": {
+    "hi": "[समय]",
+    "en": "[time]"
+  },
+  "classMinutes": "[30]",
+  "talkMinutes": "[10]",
+  "groupSize": "[N]",
+  "reviewDays": "[90]",
+  "numbers": [
+    {
+      "value": "[X]",
+      "label": {
+        "hi": "साल का अनुभव",
+        "en": "years of teaching"
+      },
+      "short": {
+        "hi": "साल का अनुभव",
+        "en": "years"
+      },
+      "basis": {
+        "hi": "[किस वर्ष से गिना गया]",
+        "en": "[counted from which year]"
+      }
+    },
+    {
+      "value": "[Y]",
+      "label": {
+        "hi": "विद्यार्थी, [वर्ष] से",
+        "en": "students since [year]"
+      },
+      "short": {
+        "hi": "विद्यार्थी",
+        "en": "students"
+      },
+      "basis": {
+        "hi": "[कैसे गिना गया]",
+        "en": "[how this was counted]"
+      }
+    },
+    {
+      "value": "[N]",
+      "label": {
+        "hi": "प्रमाणपत्र, हर एक जाँचने योग्य",
+        "en": "certifications, each verifiable"
+      },
+      "short": {
+        "hi": "प्रमाणपत्र",
+        "en": "certifications"
+      },
+      "basis": {
+        "hi": "[योग्यता पन्ने पर पूरी सूची]",
+        "en": "[full list on the credentials page]"
+      }
+    },
+    {
+      "value": "[A]",
+      "label": {
+        "hi": "सम्मान और पुरस्कार",
+        "en": "awards and honours"
+      },
+      "short": {
+        "hi": "सम्मान",
+        "en": "awards"
+      },
+      "basis": {
+        "hi": "[परिचय पन्ने पर पूरी सूची]",
+        "en": "[full list on the about page]"
+      }
+    }
+  ],
+  "google": {
+    "rating": "",
+    "reviews": "",
+    "url": ""
+  },
+  "whatsappGroupCount": "",
+  "contact": {
+    "whatsapp": "",
+    "phone": "",
+    "phoneDisplay": "[फ़ोन नंबर]",
+    "email": "[ईमेल]",
+    "replyHours": {
+      "hi": "जवाब [सुबह] से [रात] तक",
+      "en": "Replies [morning] to [night]"
+    },
+    "address": {
+      "hi": "[पता], लखनऊ, उत्तर प्रदेश [पिन]",
+      "en": "[address], Lucknow, Uttar Pradesh [pin]"
+    },
+    "businessName": {
+      "hi": "[व्यवसाय का नाम]",
+      "en": "[business name]"
+    }
+  },
+  "socials": {
+    "instagram": "",
+    "youtube": "",
+    "facebook": ""
+  },
+  "links": {
+    "formEndpoint": "",
+    "cal": "",
+    "introVideo": "",
+    "profilePdf": ""
+  },
+  "analyticsId": "",
+  "searchConsole": "",
+  "updated": "2026-09-03"
+}

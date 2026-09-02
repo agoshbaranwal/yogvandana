@@ -1,0 +1,27 @@
+{
+  "id": "ev3",
+  "order": 3,
+  "type": "workshop",
+  "typeLabel": {
+    "hi": "कार्यशाला",
+    "en": "Workshop"
+  },
+  "title": {
+    "hi": "[कार्यक्रम का नाम]",
+    "en": "[event name]"
+  },
+  "organiser": {
+    "hi": "[आयोजक]",
+    "en": "[organiser]"
+  },
+  "place": {
+    "hi": "[शहर]",
+    "en": "[city]"
+  },
+  "date": {
+    "hi": "[महीना वर्ष]",
+    "en": "[month year]"
+  },
+  "photo": "",
+  "link": ""
+}

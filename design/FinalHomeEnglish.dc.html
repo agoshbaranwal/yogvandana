@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Martel:wght@700;800&family=Mukta:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; background: #231A12; color: #231A12; font-family: Mukta, 'Noto Sans', Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #A85400; } a:hover { color: #7A3D00; }
+    .serif { font-family: Martel, Georgia, serif; }
+    .disp { font-family: 'Baloo 2', 'Arial Rounded MT Bold', sans-serif; }
+    .ph { background-color: #F1E7D6; background-image: repeating-linear-gradient(135deg, rgba(35,26,18,0.07) 0 8px, transparent 8px 16px); }
+    h2 { font-family: 'Baloo 2', 'Arial Rounded MT Bold', sans-serif; font-size: 30px; line-height: 1.2; font-weight: 800; margin: 0; }
+    .card { background: #FFFFFF; border-radius: 12px; padding: 14px; }
+    .chip { display: inline-flex; align-items: center; font-size: 12px; font-weight: 600; padding: 2px 9px; border-radius: 999px; color: #FBF8F1; }
+    .pillo { text-decoration: none; color: #231A12; border: 1.5px solid #231A12; border-radius: 999px; padding: 8px 14px; font-size: 15px; font-weight: 600; min-height: 40px; display: inline-flex; align-items: center; }
+    .lbl { position: absolute; font-size: 14px; font-weight: 700; line-height: 1.2; color: #231A12; background: #FBF8F1; padding: 2px 4px; }
+    .dot { position: absolute; width: 18px; height: 18px; border-radius: 50%; background: #FF9933; border: 3px solid #FBF8F1; box-shadow: 0 0 0 2px #FF9933; transform: translate(-50%, -50%); }
+    .line { position: absolute; height: 1px; background: #FF9933; }
+    p { margin: 0; }
+  </style>
+</helmet>
+<div style="width: 390px; background: #FBF8F1; display: flex; flex-direction: column;">
+
+  <div style="position: relative; overflow: hidden; background: linear-gradient(180deg, #DDEBF5 0%, #FBE7CF 52%, #FF9933 100%);">
+    <div style="position: absolute; left: 50%; top: 250px; width: 300px; height: 300px; border-radius: 50%; background: #FFE3B8; transform: translateX(-50%); opacity: 0.9;"></div>
+    <div style="position: absolute; left: 0; right: 0; top: 400px; height: 1px; background: rgba(35,26,18,0.25);"></div>
+    <div style="position: relative; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 16px;">
+      <div class="serif" style="font-size: 24px; font-weight: 800; line-height: 1.3;"><span style="color: #A85400;">योग</span> वंदना</div>
+      <div style="display: flex; align-items: center; gap: 6px;">
+        <a href="#" style="display: inline-flex; align-items: center; font-size: 13px; font-weight: 600; color: #231A12; text-decoration: none; border: 1px solid #231A12; border-radius: 999px; padding: 5px 12px; min-height: 36px; box-sizing: border-box;">हिन्दी</a>
+        <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; margin-right: -8px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#231A12" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></div>
+      </div>
+    </div>
+    <div style="position: relative; padding: 36px 16px 28px; display: flex; flex-direction: column; gap: 14px; min-height: 420px; box-sizing: border-box; justify-content: flex-end;">
+      <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: #7A3D00;">Mornings at [time] · Lucknow · since [year]</div>
+      <h1 class="disp" style="margin: 0; font-size: 46px; line-height: 1.1; font-weight: 800;">Yoga can cure any disease.</h1>
+      <p style="font-size: 17px; line-height: 1.65; color: #4A3A2A;">Every morning with Vandana Baranwal, from your home. Small groups on Zoom. Your first class is free.</p>
+      <div style="display: flex; gap: 10px;">
+        <a href="#" style="flex: 1; display: flex; justify-content: center; align-items: center; background: #231A12; color: #FF9933; text-decoration: none; font-size: 17px; font-weight: 700; padding: 13px 14px; border-radius: 999px; min-height: 52px; box-sizing: border-box;">Book a free trial</a>
+        <a href="#" style="flex: 1; display: flex; justify-content: center; align-items: center; background: rgba(255,255,255,0.7); color: #231A12; text-decoration: none; font-size: 17px; font-weight: 700; padding: 13px 14px; border-radius: 999px; min-height: 52px; box-sizing: border-box;">Where does it hurt?</a>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding: 28px 16px 8px; display: flex; flex-direction: column; gap: 6px;">
+    <h2>Where does it hurt? Touch to tell us.</h2>
+    <p style="font-size: 16px; line-height: 1.6; color: #6E5F4E;">A different practice, and a different slip, for each.</p>
+  </div>
+  <div style="position: relative; width: 358px; height: 500px; margin: 0 16px;">
+    <svg viewBox="0 0 300 420" width="358" height="501" style="position: absolute; left: 0; top: 0;" fill="none" stroke="#231A12" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="150" cy="60" r="34"></circle>
+      <path d="M150 94 V 112"></path>
+      <path d="M112 112 C 100 150, 96 210, 104 250 L 196 250 C 204 210, 200 150, 188 112 Z"></path>
+      <path d="M112 118 C 70 150, 50 200, 60 250 C 70 262, 100 268, 118 266"></path>
+      <path d="M188 118 C 230 150, 250 200, 240 250 C 230 262, 200 268, 182 266"></path>
+      <path d="M104 250 C 60 260, 30 290, 40 320 C 60 350, 240 350, 260 320 C 270 290, 240 260, 196 250"></path>
+      <path d="M110 300 C 150 285, 150 285, 190 300"></path>
+      <path d="M150 112 V 250" stroke="#E4D9C7" stroke-dasharray="3 5"></path>
+    </svg>
+    <div class="dot" style="left: 179px; top: 40px;"></div><div class="lbl" style="left: 232px; top: 26px;">Migraine, sleep</div><div class="line" style="left: 190px; top: 40px; width: 40px;"></div>
+    <div class="dot" style="left: 179px; top: 120px;"></div><div class="lbl" style="left: 232px; top: 108px;">Thyroid</div><div class="line" style="left: 190px; top: 120px; width: 40px;"></div>
+    <div class="dot" style="left: 166px; top: 180px;"></div><div class="lbl" style="left: 22px; top: 168px;">BP, heart</div><div class="line" style="left: 92px; top: 180px; width: 64px;"></div>
+    <div class="dot" style="left: 179px; top: 248px;"></div><div class="lbl" style="left: 232px; top: 236px;">Sugar, weight</div><div class="line" style="left: 190px; top: 248px; width: 40px;"></div>
+    <div class="dot" style="left: 132px; top: 282px;"></div><div class="lbl" style="left: 22px; top: 270px;">Back pain</div><div class="line" style="left: 88px; top: 282px; width: 34px;"></div>
+    <div class="dot" style="left: 179px; top: 340px;"></div><div class="lbl" style="left: 232px; top: 328px;">Women's<br>health</div><div class="line" style="left: 190px; top: 340px; width: 40px;"></div>
+    <div class="dot" style="left: 84px; top: 370px;"></div><div class="lbl" style="left: 22px; top: 390px;">Knees</div><div style="position: absolute; left: 60px; top: 372px; width: 1px; height: 18px; background: #FF9933;"></div>
+  </div>
+  <div style="padding: 4px 16px 24px; display: flex; flex-wrap: wrap; gap: 8px;">
+    <a href="#" class="pillo">Back pain</a><a href="#" class="pillo">Knees</a><a href="#" class="pillo">Sugar</a><a href="#" class="pillo">BP</a><a href="#" class="pillo">Thyroid</a><a href="#" class="pillo">Weight</a><a href="#" class="pillo">Sleep and stress</a><a href="#" class="pillo">Women's health</a>
+  </div>
+
+  <div style="background: #EAF2F8; padding: 28px 16px; display: flex; flex-direction: column; gap: 12px;">
+    <h2>How they got better</h2>
+    <div class="card" style="display: flex; gap: 12px; align-items: flex-start;">
+      <div class="ph" style="width: 48px; height: 48px; border-radius: 50%; flex: none;"></div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;"><span style="font-weight: 700;">[Full name], [City]</span><span class="chip" style="background: #1A6FA8;">Sugar</span></div>
+        <div style="font-size: 16px; line-height: 1.6;">“[What changed in the report, how much medicine came down, in their words.]”</div>
+        <div style="font-size: 13px; color: #6E5F4E;">With Vandana since [year]</div>
+      </div>
+    </div>
+    <a href="#" style="font-size: 16px; font-weight: 700; min-height: 44px; display: inline-flex; align-items: center;">All stories, by ailment</a>
+  </div>
+
+  <div style="background: #231A12; color: #FBF8F1; padding: 26px 16px 32px; display: flex; flex-direction: column; gap: 10px;">
+    <div class="serif" style="font-size: 24px; font-weight: 800; line-height: 1.3;"><span style="color: #FF9933;">योग</span> वंदना</div>
+    <div class="serif" style="font-size: 16px; font-weight: 700; color: #FF9933; line-height: 1.5;">सर्वे सन्तु निरामयाः</div>
+    <div style="font-size: 14px; line-height: 1.6; color: rgba(251,248,241,0.8);">May all be free from disease. Vandana Baranwal, MA in Yoga · [Address], Lucknow</div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

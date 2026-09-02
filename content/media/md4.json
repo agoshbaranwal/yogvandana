@@ -1,0 +1,15 @@
+{
+  "id": "md4",
+  "order": 4,
+  "kind": "logo",
+  "name": {
+    "hi": "[रेडियो]",
+    "en": "[radio]"
+  },
+  "date": {
+    "hi": "[तारीख़]",
+    "en": "[date]"
+  },
+  "image": "",
+  "link": ""
+}

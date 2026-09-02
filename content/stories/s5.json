@@ -1,0 +1,37 @@
+{
+  "id": "s5",
+  "order": 5,
+  "name": {
+    "hi": "[पूरा नाम]",
+    "en": "[full name]"
+  },
+  "city": {
+    "hi": "[शहर]",
+    "en": "[city]"
+  },
+  "age": "[उम्र]",
+  "ailmentSlug": "bp",
+  "quote": {
+    "hi": "[रीडिंग में क्या बदला। उनके शब्दों में।]",
+    "en": "[what changed in the readings, in their words]"
+  },
+  "before": {
+    "hi": "",
+    "en": ""
+  },
+  "after": {
+    "hi": "",
+    "en": ""
+  },
+  "since": {
+    "hi": "[वर्ष]",
+    "en": "[year]"
+  },
+  "written": {
+    "hi": "[महीना वर्ष]",
+    "en": "[month year]"
+  },
+  "photo": "",
+  "video": "",
+  "consent": true
+}

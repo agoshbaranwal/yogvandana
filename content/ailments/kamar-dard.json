@@ -1,0 +1,149 @@
+{
+  "slug": "kamar-dard",
+  "order": 1,
+  "family": "joint",
+  "icon": "spine",
+  "name": {
+    "hi": "कमर दर्द",
+    "en": "Back pain"
+  },
+  "sub": {
+    "hi": "स्लिप डिस्क, साइटिका, अकड़न",
+    "en": "Slip disc, sciatica, stiffness"
+  },
+  "titleFull": {
+    "hi": "कमर दर्द के लिए योग",
+    "en": "Yoga for back pain"
+  },
+  "claimLine": {
+    "hi": "योग से कमर दर्द ठीक हो सकता है।",
+    "en": "Yoga can cure back pain."
+  },
+  "intro": {
+    "hi": "कमर का दर्द ज़्यादातर कमज़ोर पीठ, घंटों एक ही तरह बैठने और अकड़न से बढ़ता है। वंदना जी की क्लास में रीढ़ को धीरे-धीरे खोलने और पीठ-पेट की मांसपेशियाँ मज़बूत करने पर काम होता है। जिन्हें झुकने में दिक्कत है, उनके लिए अभ्यास कुर्सी पर बैठकर शुरू होता है।",
+    "en": "Back pain usually grows out of a weak back, hours in one position, and stiffness. In her class the work is to open the spine slowly and strengthen the muscles of the back and belly. For anyone who cannot bend, the practice starts sitting on a chair."
+  },
+  "studentCount": "[N]",
+  "storyCount": "[N]",
+  "videoCount": "[N]",
+  "searchTerms": {
+    "hi": "kamar dard ke liye yoga, back pain yoga hindi",
+    "en": "yoga for back pain, slip disc yoga"
+  },
+  "metaDescription": {
+    "hi": "कमर दर्द के लिए लाइव ऑनलाइन योग क्लास, वंदना बरनवाल के साथ। छोटे ग्रुप, रोज़ [30] मिनट, पहली क्लास मुफ़्त।",
+    "en": "Live online yoga for back pain with Vandana Baranwal. Small groups, [30] minutes a day, first class free."
+  },
+  "slip": {
+    "practice": {
+      "hi": "[आसन 1] · [आसन 2] · [आसन 3] · [प्राणायाम] · [विश्राम]",
+      "en": "[asana 1] · [asana 2] · [asana 3] · [pranayama] · [rest]"
+    },
+    "time": {
+      "hi": "रोज़ सुबह [30] मिनट",
+      "en": "[30] minutes every morning"
+    },
+    "batch": {
+      "hi": "सुबह [समय] या शाम [समय], ज़ूम पर",
+      "en": "[morning time] or [evening time], on Zoom"
+    },
+    "alongside": {
+      "hi": "[बैठने और उठने की दो बातें, वंदना जी की]",
+      "en": "[two notes on sitting and lifting, from her]"
+    },
+    "review": {
+      "hi": "[90] दिन बाद, अपनी हालत के साथ",
+      "en": "After [90] days, with how you feel"
+    }
+  },
+  "firstClass": [
+    {
+      "strong": {
+        "hi": "[30] मिनट की लाइव क्लास",
+        "en": "A [30] minute live class"
+      },
+      "rest": {
+        "hi": ", कमर दर्द वाले विद्यार्थियों के अभ्यास के साथ।",
+        "en": ", with the practice used for back pain."
+      }
+    },
+    {
+      "strong": {
+        "hi": "फिर [10] मिनट वंदना जी से बात:",
+        "en": "Then [10] minutes with Vandana:"
+      },
+      "rest": {
+        "hi": " आपकी तकलीफ़, दवा, और कौन सा बैच सही रहेगा।",
+        "en": " your condition, your medicine, and which batch suits you."
+      }
+    },
+    {
+      "strong": {
+        "hi": "कोई शुल्क नहीं, कोई दबाव नहीं।",
+        "en": "No fee, no pressure."
+      },
+      "rest": {
+        "hi": " ठीक लगे तो उसी दिन बैच में जुड़िए।",
+        "en": " If it feels right, join a batch the same day."
+      }
+    }
+  ],
+  "classNotes": [
+    {
+      "hi": "पहली क्लास में वंदना जी आपकी रिपोर्ट और दवा के बारे में पूछती हैं।",
+      "en": "In the first class she asks about your reports and your medicines."
+    },
+    {
+      "hi": "अभ्यास आपके स्तर पर शुरू होता है। कुर्सी पर बैठकर भी।",
+      "en": "The practice starts at your level. On a chair, if that is what you need."
+    },
+    {
+      "hi": "ग्रुप छोटा है, [N] लोग, ताकि हर किसी को देखा जा सके।",
+      "en": "The group is small, [N] people, so everyone can be seen."
+    },
+    {
+      "hi": "जिन्हें झुकने में दर्द है, उनके लिए अलग विकल्प दिए जाते हैं।",
+      "en": "Anyone who hurts when bending is given a different option."
+    },
+    {
+      "hi": "व्हाट्सऐप ग्रुप में रोज़ की याद और सवालों के जवाब।",
+      "en": "A daily reminder in the WhatsApp group, and answers to questions."
+    }
+  ],
+  "faq": [
+    {
+      "q": {
+        "hi": "क्या दवा बंद कर दूँ?",
+        "en": "Should I stop my medicine?"
+      },
+      "a": {
+        "hi": "नहीं। दवा अपने डॉक्टर की सलाह से ही घटाएँ। रिपोर्ट सुधरे तो डॉक्टर खुद घटाते हैं। योग साथ-साथ चलता है।",
+        "en": "No. Reduce medicine only on your doctor's advice. When the reports improve, the doctor reduces it. Yoga runs alongside."
+      }
+    },
+    {
+      "q": {
+        "hi": "मेरी उम्र [60] से ऊपर है, घुटने भी दुखते हैं।",
+        "en": "I am over [60] and my knees hurt."
+      },
+      "a": {
+        "hi": "ज़्यादातर अभ्यास कुर्सी पर बैठकर हो सकता है। पहली क्लास में बताइए, वंदना जी उसी हिसाब से शुरू करेंगी।",
+        "en": "Most of the practice can be done sitting on a chair. Say so in the first class and she will start from there."
+      }
+    },
+    {
+      "q": {
+        "hi": "कितने दिन में फ़र्क दिखता है?",
+        "en": "How soon do people feel a difference?"
+      },
+      "a": {
+        "hi": "[वंदना जी का जवाब, उनके अनुभव से।]",
+        "en": "[Her answer, from her own experience.]"
+      }
+    }
+  ],
+  "batchNote": {
+    "hi": "कमर के लिए दोनों बैच ठीक हैं",
+    "en": "Either batch suits a bad back"
+  }
+}

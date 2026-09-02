@@ -1,0 +1,149 @@
+{
+  "slug": "neend-tanav",
+  "order": 7,
+  "family": "mind",
+  "icon": "moon",
+  "name": {
+    "hi": "नींद और तनाव",
+    "en": "Sleep and stress"
+  },
+  "sub": {
+    "hi": "अनिद्रा, माइग्रेन, बेचैनी",
+    "en": "Insomnia, migraine, restlessness"
+  },
+  "titleFull": {
+    "hi": "नींद और तनाव के लिए योग",
+    "en": "Yoga for sleep and stress"
+  },
+  "claimLine": {
+    "hi": "योग से नींद और तनाव ठीक हो सकते हैं।",
+    "en": "Yoga can cure sleeplessness and stress."
+  },
+  "intro": {
+    "hi": "नींद न आना अकसर दिन भर की बेचैनी का नतीजा होता है। क्लास में धीमी साँस, गर्दन-कंधों की अकड़न खोलना और लंबा विश्राम रखा जाता है। शाम का बैच इसके लिए ज़्यादा काम आता है।",
+    "en": "Sleeplessness is usually the tail end of a restless day. The class keeps slow breathing, work on the neck and shoulders, and a long rest. The evening batch tends to suit it better."
+  },
+  "studentCount": "[N]",
+  "storyCount": "[N]",
+  "videoCount": "[N]",
+  "searchTerms": {
+    "hi": "neend na aane ka yoga, tanav ke liye yoga hindi",
+    "en": "yoga for sleep, yoga for stress"
+  },
+  "metaDescription": {
+    "hi": "नींद और तनाव के लिए लाइव ऑनलाइन योग क्लास, वंदना बरनवाल के साथ। शाम का बैच, लंबा विश्राम।",
+    "en": "Live online yoga for sleep and stress with Vandana Baranwal. Evening batch, long rest."
+  },
+  "slip": {
+    "practice": {
+      "hi": "[आसन 1] · [आसन 2] · [प्राणायाम] · [योग निद्रा]",
+      "en": "[asana 1] · [asana 2] · [pranayama] · [yoga nidra]"
+    },
+    "time": {
+      "hi": "रोज़ [30] मिनट, सोने से पहले [अभ्यास]",
+      "en": "[30] minutes a day, and [practice] before bed"
+    },
+    "batch": {
+      "hi": "शाम [समय], ज़ूम पर",
+      "en": "[evening time], on Zoom"
+    },
+    "alongside": {
+      "hi": "[स्क्रीन और चाय-कॉफ़ी की दो बातें, वंदना जी की]",
+      "en": "[two notes on screens and tea, from her]"
+    },
+    "review": {
+      "hi": "[90] दिन बाद, नींद के हिसाब के साथ",
+      "en": "After [90] days, with your sleep notes"
+    }
+  },
+  "firstClass": [
+    {
+      "strong": {
+        "hi": "[30] मिनट की लाइव क्लास",
+        "en": "A [30] minute live class"
+      },
+      "rest": {
+        "hi": ", नींद और तनाव वाले विद्यार्थियों के अभ्यास के साथ।",
+        "en": ", with the practice used for sleep and stress."
+      }
+    },
+    {
+      "strong": {
+        "hi": "फिर [10] मिनट वंदना जी से बात:",
+        "en": "Then [10] minutes with Vandana:"
+      },
+      "rest": {
+        "hi": " आपकी तकलीफ़, दवा, और कौन सा बैच सही रहेगा।",
+        "en": " your condition, your medicine, and which batch suits you."
+      }
+    },
+    {
+      "strong": {
+        "hi": "कोई शुल्क नहीं, कोई दबाव नहीं।",
+        "en": "No fee, no pressure."
+      },
+      "rest": {
+        "hi": " ठीक लगे तो उसी दिन बैच में जुड़िए।",
+        "en": " If it feels right, join a batch the same day."
+      }
+    }
+  ],
+  "classNotes": [
+    {
+      "hi": "पहली क्लास में वंदना जी आपकी रिपोर्ट और दवा के बारे में पूछती हैं।",
+      "en": "In the first class she asks about your reports and your medicines."
+    },
+    {
+      "hi": "अभ्यास आपके स्तर पर शुरू होता है। कुर्सी पर बैठकर भी।",
+      "en": "The practice starts at your level. On a chair, if that is what you need."
+    },
+    {
+      "hi": "ग्रुप छोटा है, [N] लोग, ताकि हर किसी को देखा जा सके।",
+      "en": "The group is small, [N] people, so everyone can be seen."
+    },
+    {
+      "hi": "तेज़ साँस वाले अभ्यास शाम को नहीं दिए जाते।",
+      "en": "Fast breathing practices are not given in the evening."
+    },
+    {
+      "hi": "व्हाट्सऐप ग्रुप में रोज़ की याद और सवालों के जवाब।",
+      "en": "A daily reminder in the WhatsApp group, and answers to questions."
+    }
+  ],
+  "faq": [
+    {
+      "q": {
+        "hi": "क्या दवा बंद कर दूँ?",
+        "en": "Should I stop my medicine?"
+      },
+      "a": {
+        "hi": "नहीं। दवा अपने डॉक्टर की सलाह से ही घटाएँ। रिपोर्ट सुधरे तो डॉक्टर खुद घटाते हैं। योग साथ-साथ चलता है।",
+        "en": "No. Reduce medicine only on your doctor's advice. When the reports improve, the doctor reduces it. Yoga runs alongside."
+      }
+    },
+    {
+      "q": {
+        "hi": "मेरी उम्र [60] से ऊपर है, घुटने भी दुखते हैं।",
+        "en": "I am over [60] and my knees hurt."
+      },
+      "a": {
+        "hi": "ज़्यादातर अभ्यास कुर्सी पर बैठकर हो सकता है। पहली क्लास में बताइए, वंदना जी उसी हिसाब से शुरू करेंगी।",
+        "en": "Most of the practice can be done sitting on a chair. Say so in the first class and she will start from there."
+      }
+    },
+    {
+      "q": {
+        "hi": "कितने दिन में फ़र्क दिखता है?",
+        "en": "How soon do people feel a difference?"
+      },
+      "a": {
+        "hi": "[वंदना जी का जवाब, उनके अनुभव से।]",
+        "en": "[Her answer, from her own experience.]"
+      }
+    }
+  ],
+  "batchNote": {
+    "hi": "नींद के लिए शाम का बैच बेहतर",
+    "en": "The evening batch suits sleep better"
+  }
+}

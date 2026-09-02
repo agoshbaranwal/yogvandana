@@ -1,0 +1,14 @@
+{
+  "id": "g2",
+  "order": 2,
+  "name": {
+    "hi": "[विश्वविद्यालय], योग में एम.ए.",
+    "en": "[university], MA in Yoga"
+  },
+  "where": {
+    "hi": "[विषय या शोध]",
+    "en": "[subject or research]"
+  },
+  "years": "[वर्ष] से [वर्ष]",
+  "photo": ""
+}

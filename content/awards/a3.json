@@ -1,0 +1,22 @@
+{
+  "id": "a3",
+  "order": 3,
+  "name": {
+    "hi": "[पुरस्कार का नाम]",
+    "en": "[award name]"
+  },
+  "body": {
+    "hi": "[संस्था]",
+    "en": "[body]"
+  },
+  "place": {
+    "hi": "[शहर]",
+    "en": "[city]"
+  },
+  "year": "[वर्ष]",
+  "forWhat": {
+    "hi": "[एक पंक्ति: किस काम के लिए]",
+    "en": "[one line: what it was for]"
+  },
+  "photo": ""
+}

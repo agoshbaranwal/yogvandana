@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martel:wght@400;600;700;800&family=Mukta:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; background: #FBF8F1; color: #231A12; font-family: Mukta, 'Noto Sans', Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #A85400; } a:hover { color: #7A3D00; }
+    .serif { font-family: Martel, Georgia, serif; }
+    .label { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #6E5F4E; }
+    .sun { position: relative; display: flex; align-items: center; justify-content: center; flex: none; }
+    .sun svg { position: absolute; inset: 0; }
+    .sun span { position: relative; font-family: Martel, Georgia, serif; font-weight: 800; line-height: 1; padding-top: 0.12em; }
+  </style>
+</helmet>
+<div style="width: 720px; height: 440px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: 1fr auto; background: #FBF8F1;">
+  <div style="display: flex; flex-direction: column; justify-content: center; gap: 16px; padding: 32px; border-right: 1px solid #E4D9C7;">
+    <div class="label">Option F · va inside a rising sun</div>
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <div class="sun" style="width: 64px; height: 64px;">
+        <svg viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="#FF9933" stroke-width="2.4" stroke-linecap="round"><circle cx="32" cy="32" r="19"></circle><path d="M57 32 H62 M53.65 44.5 L57.98 47 M44.5 53.65 L47 57.98 M32 57 V62 M19.5 53.65 L17 57.98 M10.35 44.5 L6.02 47 M7 32 H2 M10.35 19.5 L6.02 17 M19.5 10.35 L17 6.02 M32 7 V2 M44.5 10.35 L47 6.02 M53.65 19.5 L57.98 17"></path></svg>
+        <span style="font-size: 26px; color: #231A12;">व</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 0px;">
+        <div class="serif" style="font-size: 34px; font-weight: 800; line-height: 1.3; white-space: nowrap;">योग वंदना</div>
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #6E5F4E;">Yog Vandana</div>
+      </div>
+    </div>
+  </div>
+  <div style="display: flex; flex-direction: column; justify-content: center; gap: 16px; padding: 32px; background: #231A12; color: #FBF8F1;">
+    <div class="label" style="color: rgba(251,248,241,0.7);">On a dark band</div>
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <div class="sun" style="width: 64px; height: 64px;">
+        <svg viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="#FF9933" stroke-width="2.4" stroke-linecap="round"><circle cx="32" cy="32" r="19"></circle><path d="M57 32 H62 M53.65 44.5 L57.98 47 M44.5 53.65 L47 57.98 M32 57 V62 M19.5 53.65 L17 57.98 M10.35 44.5 L6.02 47 M7 32 H2 M10.35 19.5 L6.02 17 M19.5 10.35 L17 6.02 M32 7 V2 M44.5 10.35 L47 6.02 M53.65 19.5 L57.98 17"></path></svg>
+        <span style="font-size: 26px; color: #FBF8F1;">व</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 0px;">
+        <div class="serif" style="font-size: 34px; font-weight: 800; line-height: 1.3; white-space: nowrap;">योग वंदना</div>
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(251,248,241,0.7);">Yog Vandana</div>
+      </div>
+    </div>
+  </div>
+  <div style="grid-column: 1 / -1; display: flex; align-items: center; gap: 28px; padding: 16px 32px; border-top: 1px solid #E4D9C7;">
+    <div class="label">Small sizes</div>
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <div class="sun" style="width: 28px; height: 28px;">
+        <svg viewBox="0 0 64 64" width="28" height="28" fill="none" stroke="#FF9933" stroke-width="3.5" stroke-linecap="round"><circle cx="32" cy="32" r="19"></circle><path d="M57 32 H62 M53.65 44.5 L57.98 47 M44.5 53.65 L47 57.98 M32 57 V62 M19.5 53.65 L17 57.98 M10.35 44.5 L6.02 47 M7 32 H2 M10.35 19.5 L6.02 17 M19.5 10.35 L17 6.02 M32 7 V2 M44.5 10.35 L47 6.02 M53.65 19.5 L57.98 17"></path></svg>
+        <span style="font-size: 12px; color: #231A12;">व</span>
+      </div>
+      <div class="serif" style="font-size: 22px; font-weight: 800; line-height: 1.3;">योग वंदना</div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <div class="sun" style="width: 36px; height: 36px; border-radius: 50%; background: #FF9933;">
+        <svg viewBox="0 0 64 64" width="36" height="36" fill="none" stroke="#231A12" stroke-width="3" stroke-linecap="round"><circle cx="32" cy="32" r="19"></circle></svg>
+        <span style="font-size: 15px; color: #231A12;">व</span>
+      </div>
+      <div class="sun" style="width: 18px; height: 18px; border-radius: 50%; background: #FF9933;">
+        <span style="font-size: 9px; color: #231A12;">व</span>
+      </div>
+      <div class="label">favicon</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

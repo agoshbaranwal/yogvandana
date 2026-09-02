@@ -1,0 +1,149 @@
+{
+  "slug": "ghutne",
+  "order": 2,
+  "family": "joint",
+  "icon": "knee",
+  "name": {
+    "hi": "घुटने का दर्द",
+    "en": "Knee pain"
+  },
+  "sub": {
+    "hi": "गठिया, सीढ़ियाँ, उठना-बैठना",
+    "en": "Arthritis, stairs, getting up"
+  },
+  "titleFull": {
+    "hi": "घुटने के दर्द के लिए योग",
+    "en": "Yoga for knee pain"
+  },
+  "claimLine": {
+    "hi": "योग से घुटने का दर्द ठीक हो सकता है।",
+    "en": "Yoga can cure knee pain."
+  },
+  "intro": {
+    "hi": "घुटने का दर्द सिर्फ़ उम्र से नहीं आता। वज़न, कमज़ोर जाँघें और कम हिलना-डुलना उसे बढ़ाते हैं। क्लास में जोड़ों की गति, जाँघ की ताक़त और संतुलन पर काम होता है, बिना घुटने पर बोझ डाले। ज़्यादातर अभ्यास कुर्सी या दीवार के सहारे किया जा सकता है।",
+    "en": "Knee pain does not come from age alone. Weight, weak thighs and sitting still make it worse. The class works on joint movement, thigh strength and balance, without loading the knee. Most of it can be done with a chair or a wall for support."
+  },
+  "studentCount": "[N]",
+  "storyCount": "[N]",
+  "videoCount": "[N]",
+  "searchTerms": {
+    "hi": "ghutne ke dard ka yoga, knee pain yoga hindi",
+    "en": "yoga for knee pain, arthritis yoga"
+  },
+  "metaDescription": {
+    "hi": "घुटने के दर्द के लिए लाइव ऑनलाइन योग क्लास, वंदना बरनवाल के साथ। कुर्सी पर बैठकर भी। पहली क्लास मुफ़्त।",
+    "en": "Live online yoga for knee pain with Vandana Baranwal. Chair options throughout. First class free."
+  },
+  "slip": {
+    "practice": {
+      "hi": "[आसन 1] · [आसन 2] · [आसन 3] · [प्राणायाम] · [विश्राम]",
+      "en": "[asana 1] · [asana 2] · [asana 3] · [pranayama] · [rest]"
+    },
+    "time": {
+      "hi": "रोज़ [30] मिनट",
+      "en": "[30] minutes a day"
+    },
+    "batch": {
+      "hi": "सुबह [समय] या शाम [समय], ज़ूम पर",
+      "en": "[morning time] or [evening time], on Zoom"
+    },
+    "alongside": {
+      "hi": "[चलने और सीढ़ी की दो बातें, वंदना जी की]",
+      "en": "[two notes on walking and stairs, from her]"
+    },
+    "review": {
+      "hi": "[90] दिन बाद, अपनी हालत के साथ",
+      "en": "After [90] days, with how you feel"
+    }
+  },
+  "firstClass": [
+    {
+      "strong": {
+        "hi": "[30] मिनट की लाइव क्लास",
+        "en": "A [30] minute live class"
+      },
+      "rest": {
+        "hi": ", घुटने का दर्द वाले विद्यार्थियों के अभ्यास के साथ।",
+        "en": ", with the practice used for knee pain."
+      }
+    },
+    {
+      "strong": {
+        "hi": "फिर [10] मिनट वंदना जी से बात:",
+        "en": "Then [10] minutes with Vandana:"
+      },
+      "rest": {
+        "hi": " आपकी तकलीफ़, दवा, और कौन सा बैच सही रहेगा।",
+        "en": " your condition, your medicine, and which batch suits you."
+      }
+    },
+    {
+      "strong": {
+        "hi": "कोई शुल्क नहीं, कोई दबाव नहीं।",
+        "en": "No fee, no pressure."
+      },
+      "rest": {
+        "hi": " ठीक लगे तो उसी दिन बैच में जुड़िए।",
+        "en": " If it feels right, join a batch the same day."
+      }
+    }
+  ],
+  "classNotes": [
+    {
+      "hi": "पहली क्लास में वंदना जी आपकी रिपोर्ट और दवा के बारे में पूछती हैं।",
+      "en": "In the first class she asks about your reports and your medicines."
+    },
+    {
+      "hi": "अभ्यास आपके स्तर पर शुरू होता है। कुर्सी पर बैठकर भी।",
+      "en": "The practice starts at your level. On a chair, if that is what you need."
+    },
+    {
+      "hi": "ग्रुप छोटा है, [N] लोग, ताकि हर किसी को देखा जा सके।",
+      "en": "The group is small, [N] people, so everyone can be seen."
+    },
+    {
+      "hi": "घुटने मोड़ने वाले आसन आपकी हालत देखकर ही दिए जाते हैं।",
+      "en": "Poses that fold the knee are given only after she has seen how yours is."
+    },
+    {
+      "hi": "व्हाट्सऐप ग्रुप में रोज़ की याद और सवालों के जवाब।",
+      "en": "A daily reminder in the WhatsApp group, and answers to questions."
+    }
+  ],
+  "faq": [
+    {
+      "q": {
+        "hi": "क्या दवा बंद कर दूँ?",
+        "en": "Should I stop my medicine?"
+      },
+      "a": {
+        "hi": "नहीं। दवा अपने डॉक्टर की सलाह से ही घटाएँ। रिपोर्ट सुधरे तो डॉक्टर खुद घटाते हैं। योग साथ-साथ चलता है।",
+        "en": "No. Reduce medicine only on your doctor's advice. When the reports improve, the doctor reduces it. Yoga runs alongside."
+      }
+    },
+    {
+      "q": {
+        "hi": "मेरी उम्र [60] से ऊपर है, घुटने भी दुखते हैं।",
+        "en": "I am over [60] and my knees hurt."
+      },
+      "a": {
+        "hi": "ज़्यादातर अभ्यास कुर्सी पर बैठकर हो सकता है। पहली क्लास में बताइए, वंदना जी उसी हिसाब से शुरू करेंगी।",
+        "en": "Most of the practice can be done sitting on a chair. Say so in the first class and she will start from there."
+      }
+    },
+    {
+      "q": {
+        "hi": "कितने दिन में फ़र्क दिखता है?",
+        "en": "How soon do people feel a difference?"
+      },
+      "a": {
+        "hi": "[वंदना जी का जवाब, उनके अनुभव से।]",
+        "en": "[Her answer, from her own experience.]"
+      }
+    }
+  ],
+  "batchNote": {
+    "hi": "घुटनों के लिए दोनों बैच ठीक हैं",
+    "en": "Either batch suits sore knees"
+  }
+}

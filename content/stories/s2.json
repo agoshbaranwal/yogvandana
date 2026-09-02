@@ -1,0 +1,37 @@
+{
+  "id": "s2",
+  "order": 2,
+  "name": {
+    "hi": "[पूरा नाम]",
+    "en": "[full name]"
+  },
+  "city": {
+    "hi": "[शहर]",
+    "en": "[city]"
+  },
+  "age": "[उम्र]",
+  "ailmentSlug": "kamar-dard",
+  "quote": {
+    "hi": "[क्या कर पाते हैं जो पहले नहीं कर पाते थे। उनके शब्दों में।]",
+    "en": "[what they can do now that they could not before, in their words]"
+  },
+  "before": {
+    "hi": "[सीढ़ियाँ नहीं चढ़ पाते थे]",
+    "en": "[could not climb stairs]"
+  },
+  "after": {
+    "hi": "[रोज़ तीन मंज़िल]",
+    "en": "[three floors a day]"
+  },
+  "since": {
+    "hi": "[वर्ष]",
+    "en": "[year]"
+  },
+  "written": {
+    "hi": "[महीना वर्ष]",
+    "en": "[month year]"
+  },
+  "photo": "",
+  "video": "[वीडियो लिंक]",
+  "consent": true
+}

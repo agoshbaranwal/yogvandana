@@ -1,0 +1,862 @@
+{
+  "nav": {
+    "ailments": {
+      "hi": "तकलीफ़",
+      "en": "Conditions"
+    },
+    "batches": {
+      "hi": "बैच",
+      "en": "Batches"
+    },
+    "stories": {
+      "hi": "कहानियाँ",
+      "en": "Stories"
+    },
+    "about": {
+      "hi": "परिचय",
+      "en": "About"
+    },
+    "credentials": {
+      "hi": "योग्यता",
+      "en": "Credentials"
+    },
+    "gallery": {
+      "hi": "गैलरी",
+      "en": "Gallery"
+    },
+    "contact": {
+      "hi": "संपर्क",
+      "en": "Contact"
+    },
+    "students": {
+      "hi": "पुराने विद्यार्थी: फ़ीस भरें",
+      "en": "Students: pay fees"
+    },
+    "menu": {
+      "hi": "मेन्यू",
+      "en": "Menu"
+    },
+    "close": {
+      "hi": "बंद करें",
+      "en": "Close"
+    },
+    "skip": {
+      "hi": "मुख्य सामग्री पर जाएँ",
+      "en": "Skip to content"
+    },
+    "switch": {
+      "hi": "English",
+      "en": "हिन्दी"
+    },
+    "switchLabel": {
+      "hi": "Read this page in English",
+      "en": "यह पन्ना हिन्दी में पढ़ें"
+    },
+    "home": {
+      "hi": "मुख्य पन्ना",
+      "en": "Home"
+    }
+  },
+  "cta": {
+    "trial": {
+      "hi": "फ़्री ट्रायल बुक करें",
+      "en": "Book a free trial"
+    },
+    "chooseAilment": {
+      "hi": "अपनी तकलीफ़ चुनें",
+      "en": "Choose your condition"
+    },
+    "whatsapp": {
+      "hi": "व्हाट्सऐप पर बुक करें",
+      "en": "Book on WhatsApp"
+    },
+    "whatsappMsg": {
+      "hi": "व्हाट्सऐप पर मैसेज करें",
+      "en": "Message on WhatsApp"
+    },
+    "call": {
+      "hi": "कॉल करें",
+      "en": "Call"
+    },
+    "form": {
+      "hi": "फ़ॉर्म भरें",
+      "en": "Use the form"
+    },
+    "join": {
+      "hi": "जुड़ें",
+      "en": "Join"
+    },
+    "joinBatch": {
+      "hi": "इस बैच में जुड़ें",
+      "en": "Join this batch"
+    },
+    "bookSession": {
+      "hi": "सेशन बुक करें",
+      "en": "Book a session"
+    },
+    "pickTime": {
+      "hi": "समय चुनें",
+      "en": "Pick a time"
+    },
+    "reserveSeat": {
+      "hi": "सीट बुक करें",
+      "en": "Reserve a seat"
+    },
+    "payFee": {
+      "hi": "फ़ीस भरें",
+      "en": "Pay the fee"
+    },
+    "pay": {
+      "hi": "भुगतान करें",
+      "en": "Pay"
+    },
+    "send": {
+      "hi": "भेजें",
+      "en": "Send"
+    },
+    "downloadProfile": {
+      "hi": "प्रोफ़ाइल डाउनलोड करें",
+      "en": "Download her profile"
+    },
+    "sharePage": {
+      "hi": "यह पन्ना परिवार को भेजें",
+      "en": "Send this page to family"
+    },
+    "shareStory": {
+      "hi": "यह कहानी परिवार को भेजें",
+      "en": "Send this story to family"
+    },
+    "allStories": {
+      "hi": "सभी कहानियाँ, तकलीफ़ के हिसाब से",
+      "en": "All stories, by condition"
+    },
+    "nextStory": {
+      "hi": "अगली कहानी आपकी: फ़्री ट्रायल बुक करें",
+      "en": "The next story could be yours: book a free trial"
+    },
+    "allAilments": {
+      "hi": "और भी: गर्दन, अस्थमा, साइनस, कब्ज़, गठिया",
+      "en": "More: neck, asthma, sinus, constipation, arthritis"
+    },
+    "allCerts": {
+      "hi": "सभी प्रमाणपत्र और जाँच के लिंक",
+      "en": "All certificates and verify links"
+    },
+    "allEvents": {
+      "hi": "सभी कार्यक्रम, फ़ोटो के साथ",
+      "en": "All events, with photos"
+    },
+    "allPhotos": {
+      "hi": "सभी फ़ोटो",
+      "en": "All photos"
+    },
+    "fullAbout": {
+      "hi": "पूरा परिचय",
+      "en": "Read her story"
+    },
+    "aboutShort": {
+      "hi": "परिचय",
+      "en": "About"
+    },
+    "seeBatches": {
+      "hi": "सभी बैच और शुल्क",
+      "en": "All batches and fees"
+    },
+    "backToAilments": {
+      "hi": "सभी तकलीफ़ें",
+      "en": "All conditions"
+    }
+  },
+  "home": {
+    "ailmentsTitle": {
+      "hi": "आपको क्या तकलीफ़ है?",
+      "en": "What is troubling you?"
+    },
+    "ailmentsLead": {
+      "hi": "अपनी समस्या चुनिए। हर एक के लिए अलग अभ्यास, अलग पर्ची, और उसी तकलीफ़ वाले विद्यार्थियों की कहानियाँ।",
+      "en": "Pick your problem. Each one has its own practice, its own slip, and stories from students who had the same thing."
+    },
+    "stepsTitle": {
+      "hi": "कैसे शुरू करें",
+      "en": "How to start"
+    },
+    "step1": {
+      "hi": "व्हाट्सऐप पर बुक करें",
+      "en": "Book on WhatsApp"
+    },
+    "step1sub": {
+      "hi": "अपनी तकलीफ़ लिखिए, जवाब [एक दिन] में",
+      "en": "Tell her what troubles you; a reply in [a day]"
+    },
+    "step2": {
+      "hi": "फ़्री क्लास लीजिए",
+      "en": "Take the free class"
+    },
+    "step2sub": {
+      "hi": "[30] मिनट लाइव, फिर वंदना जी से [10] मिनट बात",
+      "en": "[30] minutes live, then [10] minutes with her"
+    },
+    "step3": {
+      "hi": "बैच में जुड़ें",
+      "en": "Join a batch"
+    },
+    "step3sub": {
+      "hi": "रोज़ [30] मिनट, छोटे ग्रुप में, पर्ची के साथ",
+      "en": "[30] minutes a day, small group, with your slip"
+    },
+    "resultsTitle": {
+      "hi": "ऐसे ठीक हुए",
+      "en": "How they got better"
+    },
+    "routineTitle": {
+      "hi": "आपकी दिनचर्या, योग के साथ",
+      "en": "Your day, with yoga in it"
+    },
+    "slipTitle": {
+      "hi": "हर रोग की अपनी पर्ची",
+      "en": "Every condition gets its own slip"
+    },
+    "slipLead": {
+      "hi": "क्लास में जो सिखाया जाता है, वही आपकी पर्ची पर: रोज़ का अभ्यास, समय, बैच, और कब जाँच।",
+      "en": "What is taught in class goes onto your slip: the daily practice, the time, the batch, and when to review."
+    },
+    "batchesTitle": {
+      "hi": "बैच",
+      "en": "Batches"
+    },
+    "faqTitle": {
+      "hi": "लोग अक्सर पूछते हैं",
+      "en": "People often ask"
+    },
+    "heroLead": {
+      "hi": "रोज़ सुबह, वंदना बरनवाल के साथ, अपने घर से। छोटे ग्रुप, ज़ूम पर। पहली क्लास मुफ़्त।",
+      "en": "Every morning with Vandana Baranwal, from your home. Small groups on Zoom. Your first class is free."
+    },
+    "googleLine": {
+      "hi": "Google पर",
+      "en": "On Google"
+    },
+    "googleReviews": {
+      "hi": "समीक्षाएँ",
+      "en": "reviews"
+    },
+    "inGroup": {
+      "hi": "विद्यार्थी व्हाट्सऐप ग्रुप में",
+      "en": "students in the WhatsApp group"
+    },
+    "videoNote": {
+      "hi": "वीडियो: [विद्यार्थी का नाम] अपनी कहानी में, 60 सेकंड।",
+      "en": "Video: [student's name] tells her own story, 60 seconds."
+    },
+    "mediaTitle": {
+      "hi": "मीडिया में",
+      "en": "In the media"
+    },
+    "galleryTitle": {
+      "hi": "गैलरी",
+      "en": "Gallery"
+    },
+    "eventsTitle": {
+      "hi": "मुख्य अतिथि, कार्यक्रम और सम्मान",
+      "en": "Guest of honour, events and awards"
+    },
+    "certsTitle": {
+      "hi": "प्रमाणपत्र, हर एक जाँचने योग्य",
+      "en": "Certificates, each one verifiable"
+    }
+  },
+  "band": {
+    "title": {
+      "hi": "पहली क्लास मुफ़्त है।",
+      "en": "Your first class is free."
+    },
+    "lead": {
+      "hi": "[30] मिनट की लाइव क्लास, फिर वंदना जी से [10] मिनट आपकी तकलीफ़ पर बात। कोई शुल्क नहीं, कोई दबाव नहीं।",
+      "en": "A [30] minute live class, then [10] minutes with her about what troubles you. No fee, no pressure."
+    },
+    "step1": {
+      "hi": "1 · आपकी तकलीफ़",
+      "en": "1 · your condition"
+    },
+    "step2": {
+      "hi": "2 · कौन सा समय",
+      "en": "2 · which time"
+    },
+    "morning": {
+      "hi": "सुबह",
+      "en": "Morning"
+    },
+    "evening": {
+      "hi": "शाम",
+      "en": "Evening"
+    },
+    "other": {
+      "hi": "कुछ और",
+      "en": "Something else"
+    },
+    "preview": {
+      "hi": "संदेश पहले से लिखा होगा:",
+      "en": "The message will already say:"
+    },
+    "reply": {
+      "hi": "जवाब [एक दिन] में।",
+      "en": "A reply in [a day]."
+    }
+  },
+  "ailment": {
+    "countLine": {
+      "hi": "इस तकलीफ़ के",
+      "en": "For this condition:"
+    },
+    "students": {
+      "hi": "विद्यार्थी",
+      "en": "students"
+    },
+    "storiesWord": {
+      "hi": "कहानियाँ",
+      "en": "stories"
+    },
+    "videosWord": {
+      "hi": "वीडियो",
+      "en": "videos"
+    },
+    "firstClassTitle": {
+      "hi": "पहली क्लास में क्या होगा",
+      "en": "What happens in the first class"
+    },
+    "slipTitle": {
+      "hi": "आपकी पर्ची",
+      "en": "Your slip"
+    },
+    "slipNote": {
+      "hi": "पर्ची पहली क्लास के बाद मिलती है, आपकी हालत देखकर। ऊपर एक नमूना है।",
+      "en": "You get your slip after the first class, once she has seen how you are. The one above is a sample."
+    },
+    "classTitle": {
+      "hi": "क्लास में क्या होता है",
+      "en": "What happens in class"
+    },
+    "studentsTitle": {
+      "hi": "इसी तकलीफ़ वाले विद्यार्थी",
+      "en": "Students with the same condition"
+    },
+    "batchTitle": {
+      "hi": "कौन सा बैच",
+      "en": "Which batch"
+    },
+    "faqTitle": {
+      "hi": "लोग अक्सर पूछते हैं",
+      "en": "People often ask"
+    },
+    "noStories": {
+      "hi": "इस तकलीफ़ की कहानियाँ जल्द ही जोड़ी जाएँगी।",
+      "en": "Stories for this condition will be added soon."
+    }
+  },
+  "slip": {
+    "practice": {
+      "hi": "अभ्यास",
+      "en": "Practice"
+    },
+    "time": {
+      "hi": "समय",
+      "en": "Time"
+    },
+    "batch": {
+      "hi": "बैच",
+      "en": "Batch"
+    },
+    "alongside": {
+      "hi": "साथ में",
+      "en": "Alongside"
+    },
+    "review": {
+      "hi": "जाँच",
+      "en": "Review"
+    },
+    "signature": {
+      "hi": "हस्ताक्षर",
+      "en": "Signature"
+    },
+    "print": {
+      "hi": "पर्ची प्रिंट करें",
+      "en": "Print this slip"
+    }
+  },
+  "batches": {
+    "title": {
+      "hi": "बैच और शुल्क",
+      "en": "Batches and fees"
+    },
+    "lead": {
+      "hi": "ज़ूम पर लाइव, [N] लोगों के ग्रुप में, ताकि वंदना जी हर किसी को देख सकें। सभी समय IST। पहली क्लास मुफ़्त। घर पर बस एक मैट, थोड़ी जगह और फ़ोन या लैपटॉप।",
+      "en": "Live on Zoom in groups of [N], so she can see everyone. All times IST. The first class is free. At home you need a mat, a little floor space and a phone or laptop."
+    },
+    "group": {
+      "hi": "ग्रुप बैच",
+      "en": "Group batches"
+    },
+    "private": {
+      "hi": "व्यक्तिगत सेशन",
+      "en": "Private sessions"
+    },
+    "workshop": {
+      "hi": "कार्यशालाएँ",
+      "en": "Workshops"
+    },
+    "inSession": {
+      "hi": "एक क्लास में",
+      "en": "In one class"
+    },
+    "nextStart": {
+      "hi": "अगला बैच",
+      "en": "Next batch"
+    },
+    "perDay": {
+      "hi": "यानी रोज़",
+      "en": "that is"
+    },
+    "perDayTail": {
+      "hi": "से कम",
+      "en": "a day or less"
+    },
+    "seats": {
+      "hi": "सीटें",
+      "en": "seats"
+    },
+    "trialTitle": {
+      "hi": "पहली क्लास मुफ़्त है।",
+      "en": "Your first class is free."
+    },
+    "trialLead": {
+      "hi": "एक बार आइए, फिर तय कीजिए। बुक करते समय अपनी तकलीफ़ या चोट ज़रूर बताइए।",
+      "en": "Come once, then decide. When you book, do tell her about any condition or injury."
+    }
+  },
+  "stories": {
+    "title": {
+      "hi": "ऐसे ठीक हुए",
+      "en": "How they got better"
+    },
+    "lead": {
+      "hi": "विद्यार्थियों के अपने शब्द, अपना नाम और शहर। तकलीफ़ के हिसाब से छाँटिए।",
+      "en": "Students in their own words, with their name and city. Filter by condition."
+    },
+    "all": {
+      "hi": "सभी",
+      "en": "All"
+    },
+    "before": {
+      "hi": "पहले",
+      "en": "Before"
+    },
+    "after": {
+      "hi": "अब",
+      "en": "Now"
+    },
+    "with": {
+      "hi": "{y} से वंदना जी के साथ",
+      "en": "With Vandana since {y}"
+    },
+    "consent": {
+      "hi": "हर कहानी विद्यार्थी की अनुमति से, उनके नाम और शहर के साथ। हर व्यक्ति का अनुभव अलग होता है।",
+      "en": "Every story is published with the student's permission, with their name and city. Every person's experience is different."
+    },
+    "videoSeconds": {
+      "hi": "वीडियो, 60 सेकंड",
+      "en": "Video, 60 seconds"
+    },
+    "empty": {
+      "hi": "इस तकलीफ़ की कहानियाँ जल्द ही।",
+      "en": "Stories for this condition, soon."
+    },
+    "nextTitle": {
+      "hi": "अगली कहानी आपकी हो सकती है।",
+      "en": "The next story could be yours."
+    },
+    "nextLead": {
+      "hi": "पहली क्लास मुफ़्त। अपनी तकलीफ़ बताइए, वंदना जी खुद बात करेंगी।",
+      "en": "The first class is free. Tell her what troubles you and she will speak to you herself."
+    }
+  },
+  "about": {
+    "eyebrow": {
+      "hi": "परिचय",
+      "en": "About"
+    },
+    "since": {
+      "hi": "से सिखा रही हैं",
+      "en": "teaching since"
+    },
+    "videoNote": {
+      "hi": "वीडियो: वंदना जी, अपने बारे में और अपनी क्लास के बारे में। 90 सेकंड।",
+      "en": "Video: Vandana on herself and her classes. 90 seconds."
+    },
+    "gurusTitle": {
+      "hi": "मेरे गुरु और मेरी पढ़ाई",
+      "en": "My teachers and my study"
+    },
+    "journeyTitle": {
+      "hi": "सफ़र",
+      "en": "The journey"
+    },
+    "certsTitle": {
+      "hi": "प्रमाणपत्र",
+      "en": "Certificates"
+    },
+    "certsLead": {
+      "hi": "हर एक की जाँच की जा सकती है। जहाँ संस्था का सार्वजनिक रजिस्टर है, वहाँ जाँच का लिंक है।",
+      "en": "Every one can be checked. Where the body keeps a public register, there is a verify link."
+    },
+    "awardsTitle": {
+      "hi": "सम्मान और पुरस्कार",
+      "en": "Awards and honours"
+    },
+    "eventsTitle": {
+      "hi": "मुख्य अतिथि और कार्यक्रम",
+      "en": "Guest of honour and events"
+    },
+    "mediaTitle": {
+      "hi": "मीडिया में",
+      "en": "In the media"
+    },
+    "galleryTitle": {
+      "hi": "गैलरी",
+      "en": "Gallery"
+    },
+    "inviteTitle": {
+      "hi": "अपने कार्यक्रम में वंदना जी को बुलाइए",
+      "en": "Invite Vandana to your event"
+    },
+    "inviteLead": {
+      "hi": "मुख्य अतिथि, योग शिविर, कार्यशाला, या आपकी टीम और स्कूल के लिए सत्र।",
+      "en": "Guest of honour, a yoga camp, a workshop, or sessions for your team or school."
+    },
+    "updated": {
+      "hi": "अपडेट",
+      "en": "Updated"
+    },
+    "firstPersonTitle": {
+      "hi": "मेरी बात",
+      "en": "In her own words"
+    }
+  },
+  "credentials": {
+    "eyebrow": {
+      "hi": "योग्यता",
+      "en": "Credentials"
+    },
+    "title": {
+      "hi": "पढ़ाई, प्रमाणपत्र और सम्मान",
+      "en": "Study, certificates and honours"
+    },
+    "lead": {
+      "hi": "नीचे की हर पंक्ति की जाँच की जा सकती है। जहाँ संस्था का सार्वजनिक रजिस्टर है, वहाँ “जाँचें” का लिंक उनकी प्रविष्टि खोलता है।",
+      "en": "Every line below can be checked. Where the body keeps a public register, the verify link opens her entry."
+    },
+    "colName": {
+      "hi": "प्रमाणपत्र",
+      "en": "Certification"
+    },
+    "colBody": {
+      "hi": "संस्था",
+      "en": "Issuing body"
+    },
+    "colYear": {
+      "hi": "वर्ष",
+      "en": "Year"
+    },
+    "colHours": {
+      "hi": "घंटे",
+      "en": "Hours"
+    },
+    "colImage": {
+      "hi": "प्रमाणपत्र",
+      "en": "Certificate"
+    },
+    "colVerify": {
+      "hi": "जाँचें",
+      "en": "Verify"
+    },
+    "noRegistry": {
+      "hi": "सार्वजनिक रजिस्टर नहीं",
+      "en": "No public registry"
+    },
+    "experience": {
+      "hi": "अनुभव",
+      "en": "Experience"
+    },
+    "memberships": {
+      "hi": "सदस्यता",
+      "en": "Memberships"
+    },
+    "awards": {
+      "hi": "सम्मान और पुरस्कार",
+      "en": "Awards and honours"
+    },
+    "role": {
+      "hi": "भूमिका",
+      "en": "Role"
+    },
+    "years": {
+      "hi": "वर्ष",
+      "en": "Years"
+    },
+    "sinceWord": {
+      "hi": "से",
+      "en": "since"
+    }
+  },
+  "gallery": {
+    "title": {
+      "hi": "गैलरी",
+      "en": "Gallery"
+    },
+    "lead": {
+      "hi": "क्लास, योग शिविर, मंच, प्रमाणपत्र और मीडिया। हर तस्वीर पर जगह और तारीख़।",
+      "en": "Classes, yoga camps, the stage, certificates and press. Every photo carries its place and date."
+    },
+    "all": {
+      "hi": "सभी",
+      "en": "All"
+    },
+    "class": {
+      "hi": "क्लास",
+      "en": "Classes"
+    },
+    "shivir": {
+      "hi": "योग शिविर",
+      "en": "Yoga camps"
+    },
+    "stage": {
+      "hi": "मंच",
+      "en": "On stage"
+    },
+    "certificate": {
+      "hi": "प्रमाणपत्र",
+      "en": "Certificates"
+    },
+    "media": {
+      "hi": "मीडिया",
+      "en": "Press"
+    },
+    "empty": {
+      "hi": "इस हिस्से की तस्वीरें जल्द ही।",
+      "en": "Photos for this section, soon."
+    },
+    "close": {
+      "hi": "बंद करें",
+      "en": "Close"
+    },
+    "prev": {
+      "hi": "पिछली",
+      "en": "Previous"
+    },
+    "next": {
+      "hi": "अगली",
+      "en": "Next"
+    }
+  },
+  "contact": {
+    "title": {
+      "hi": "वंदना जी से बात कीजिए",
+      "en": "Talk to Vandana"
+    },
+    "lead": {
+      "hi": "सबसे तेज़ रास्ता व्हाट्सऐप है। अपनी तकलीफ़ लिखिए।",
+      "en": "WhatsApp is the fastest way. Tell her what troubles you."
+    },
+    "formTitle": {
+      "hi": "या फ़ॉर्म भरिए",
+      "en": "Or use the form"
+    },
+    "name": {
+      "hi": "आपका नाम",
+      "en": "Your name"
+    },
+    "phone": {
+      "hi": "फ़ोन (व्हाट्सऐप)",
+      "en": "Phone (WhatsApp)"
+    },
+    "about": {
+      "hi": "किस बारे में",
+      "en": "What about"
+    },
+    "ailment": {
+      "hi": "आपकी तकलीफ़",
+      "en": "Your condition"
+    },
+    "message": {
+      "hi": "संदेश",
+      "en": "Message"
+    },
+    "messageHint": {
+      "hi": "[दो-तीन पंक्तियाँ: कब से तकलीफ़ है, कौन सी दवा चल रही है, कौन सा समय ठीक रहेगा।]",
+      "en": "[Two or three lines: how long you have had it, what medicine you take, which time suits you.]"
+    },
+    "privacyNote": {
+      "hi": "आपकी जानकारी सिर्फ़ वंदना जी तक जाती है।",
+      "en": "What you write goes only to Vandana."
+    },
+    "formOffline": {
+      "hi": "फ़ॉर्म अभी जुड़ा नहीं है। तब तक व्हाट्सऐप या कॉल सबसे तेज़ है।",
+      "en": "The form is not connected yet. Until then WhatsApp or a call is fastest."
+    },
+    "thanks": {
+      "hi": "धन्यवाद। वंदना जी जल्द जवाब देंगी।",
+      "en": "Thank you. Vandana will reply soon."
+    },
+    "interestGroup": {
+      "hi": "ग्रुप क्लास",
+      "en": "Group classes"
+    },
+    "interestPrivate": {
+      "hi": "व्यक्तिगत सेशन",
+      "en": "A private session"
+    },
+    "interestWorkshop": {
+      "hi": "कार्यशाला",
+      "en": "A workshop"
+    },
+    "interestInvite": {
+      "hi": "कार्यक्रम में बुलाना",
+      "en": "Inviting her to an event"
+    },
+    "addressTitle": {
+      "hi": "पता",
+      "en": "Address"
+    },
+    "addressNote": {
+      "hi": "क्लासेज़ ऑनलाइन होती हैं। [व्यक्तिगत सेशन के लिए मिलने की बात, अगर हो।]",
+      "en": "Classes are online. [About meeting in person for private sessions, if that applies.]"
+    },
+    "socials": {
+      "hi": "सोशल मीडिया",
+      "en": "Social media"
+    }
+  },
+  "students": {
+    "eyebrow": {
+      "hi": "पुराने विद्यार्थियों के लिए",
+      "en": "For current students"
+    },
+    "title": {
+      "hi": "आपका पन्ना",
+      "en": "Your page"
+    },
+    "lead": {
+      "hi": "अगर आप पहले से किसी बैच में हैं, तो फ़ीस, छुट्टियाँ और नियम सब यहाँ हैं।",
+      "en": "If you are already in a batch, the fees, the holidays and the rules are all here."
+    },
+    "newHere": {
+      "hi": "नए हैं?",
+      "en": "New here?"
+    },
+    "feeTitle": {
+      "hi": "इस महीने की फ़ीस",
+      "en": "This month's fee"
+    },
+    "linkTitle": {
+      "hi": "क्लास का लिंक",
+      "en": "The class link"
+    },
+    "holidaysTitle": {
+      "hi": "छुट्टियाँ",
+      "en": "Holidays"
+    },
+    "rulesTitle": {
+      "hi": "बैच के नियम",
+      "en": "Batch rules"
+    },
+    "slipTitle": {
+      "hi": "अपनी पर्ची",
+      "en": "Your slip"
+    },
+    "askAgain": {
+      "hi": "फिर से माँगिए",
+      "en": "ask for it again"
+    },
+    "writeOnWhatsapp": {
+      "hi": "व्हाट्सऐप पर लिखिए",
+      "en": "write on WhatsApp"
+    }
+  },
+  "legal": {
+    "privacy": {
+      "hi": "निजता",
+      "en": "Privacy"
+    },
+    "terms": {
+      "hi": "शर्तें",
+      "en": "Terms"
+    },
+    "refund": {
+      "hi": "रिफ़ंड",
+      "en": "Refunds"
+    },
+    "reviewNote": {
+      "hi": "यह मसौदा है, वंदना जी की जाँच बाकी है।",
+      "en": "This is a draft, still to be checked by Vandana."
+    }
+  },
+  "notFound": {
+    "title": {
+      "hi": "यह पन्ना नहीं मिला।",
+      "en": "This page was not found."
+    },
+    "lead": {
+      "hi": "शायद पता बदल गया है। नीचे से अपनी तकलीफ़ चुनिए, या मुख्य पन्ने पर जाइए।",
+      "en": "The address may have changed. Pick your condition below, or go to the home page."
+    },
+    "english": {
+      "hi": "Read this page in English",
+      "en": "यह पन्ना हिन्दी में पढ़ें"
+    }
+  },
+  "photo": {
+    "teaching": {
+      "hi": "फ़ोटो: वंदना, क्लास में, विद्यार्थियों के साथ",
+      "en": "Photo: Vandana teaching, students in frame"
+    },
+    "portrait": {
+      "hi": "फ़ोटो: वंदना का पोर्ट्रेट",
+      "en": "Photo: Vandana's portrait"
+    },
+    "certificate": {
+      "hi": "प्रमाणपत्र",
+      "en": "Certificate"
+    },
+    "event": {
+      "hi": "कार्यक्रम की फ़ोटो",
+      "en": "Event photo"
+    },
+    "student": {
+      "hi": "विद्यार्थी की फ़ोटो",
+      "en": "Student photo"
+    },
+    "signature": {
+      "hi": "हस्ताक्षर",
+      "en": "Signature"
+    },
+    "logo": {
+      "hi": "लोगो",
+      "en": "Logo"
+    },
+    "clipping": {
+      "hi": "अख़बार की कतरन",
+      "en": "Press clipping"
+    },
+    "video": {
+      "hi": "वीडियो",
+      "en": "Video"
+    },
+    "play": {
+      "hi": "वीडियो चलाएँ",
+      "en": "Play the video"
+    },
+    "comingSoon": {
+      "hi": "फ़ोटो जल्द",
+      "en": "Photo soon"
+    }
+  }
+}

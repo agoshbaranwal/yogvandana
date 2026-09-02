@@ -1,0 +1,15 @@
+{
+  "name": "योग वंदना · Yog Vandana",
+  "short_name": "योग वंदना",
+  "description": "योग से हर बीमारी ठीक हो सकती है। वंदना बरनवाल के साथ लाइव ऑनलाइन योग क्लास, लखनऊ से।",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FBF8F1",
+  "theme_color": "#FF9933",
+  "lang": "hi",
+  "icons": [
+    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
