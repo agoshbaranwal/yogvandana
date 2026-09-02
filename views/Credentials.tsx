@@ -13,6 +13,44 @@ import {
 } from "@/lib/content";
 import type { Lang } from "@/lib/routes";
 
+/* Three states, and the difference matters: a link that opens her entry, the
+   plain words when the body keeps no public register, or a blank that says
+   this has not been filled in yet. Never the second in place of the third. */
+function Verify({
+  credential,
+  lang,
+  small = false,
+}: {
+  credential: (typeof credentials)[number];
+  lang: Lang;
+  small?: boolean;
+}) {
+  if (/^https?:/.test(credential.verifyUrl)) {
+    return (
+      <a
+        href={credential.verifyUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={small ? "tap text-[15px] font-bold" : undefined}
+      >
+        {t(credential.verifyLabel, lang)}
+      </a>
+    );
+  }
+  if (credential.verifyUrl === "none") {
+    return (
+      <span className={small ? "cap" : undefined} style={{ color: "var(--color-muted)" }}>
+        {ui("credentials.noRegistry", lang)}
+      </span>
+    );
+  }
+  return (
+    <span className={small ? "cap" : undefined}>
+      <Tx>{ui("credentials.verifyTodo", lang)}</Tx>
+    </span>
+  );
+}
+
 export default function Credentials({ lang }: { lang: Lang }) {
   const cols = [
     ui("credentials.colName", lang),
@@ -80,15 +118,7 @@ export default function Credentials({ lang }: { lang: Lang }) {
                     />
                   </td>
                   <td className="border-b border-rule px-4 py-4 align-top">
-                    {c.verifyUrl ? (
-                      <a href={c.verifyUrl} target="_blank" rel="noopener noreferrer">
-                        {t(c.verifyLabel, lang)}
-                      </a>
-                    ) : (
-                      <span style={{ color: "var(--color-muted)" }}>
-                        {ui("credentials.noRegistry", lang)}
-                      </span>
-                    )}
+                    <Verify credential={c} lang={lang} />
                   </td>
                 </tr>
               ))}
@@ -114,13 +144,7 @@ export default function Credentials({ lang }: { lang: Lang }) {
                 <p className="cap">
                   <Tx>{`${t(c.body, lang)} · ${c.year} · ${t(c.hours, lang)}`}</Tx>
                 </p>
-                {c.verifyUrl ? (
-                  <a href={c.verifyUrl} target="_blank" rel="noopener noreferrer" className="tap text-[15px] font-bold">
-                    {t(c.verifyLabel, lang)}
-                  </a>
-                ) : (
-                  <p className="cap">{ui("credentials.noRegistry", lang)}</p>
-                )}
+                <Verify credential={c} lang={lang} small />
               </div>
             </li>
           ))}

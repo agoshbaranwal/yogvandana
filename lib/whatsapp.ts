@@ -28,7 +28,7 @@ export function waMessage(opts: {
     const when = time ? (hi ? `${time} के` : `the ${time}`) : hi ? "" : "a";
     parts.push(
       hi
-        ? `${when} फ़्री ट्रायल क्लास के लिए बात करना चाहता/चाहती हूँ।`
+        ? `${when} फ़्री ट्रायल के लिए बात करना चाहता/चाहती हूँ।`
         : `I would like to book ${when} free trial class.`,
     );
   } else if (kind === "batch") {

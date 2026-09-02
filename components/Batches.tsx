@@ -28,13 +28,13 @@ export function BatchRow({
     <div className="card flex items-center justify-between gap-3">
       <div className="flex min-w-0 flex-col gap-0.5">
         <p className="h3">
-          <Tx>{batch.type === "group" ? t(batch.when, lang) : t(batch.name, lang)}</Tx>
+          <Tx>{batch.type === "workshop" ? t(batch.name, lang) : t(batch.when, lang)}</Tx>
         </p>
         <p className="cap">
           <Tx>
             {batch.type === "group"
               ? `${t(batch.days, lang)} · ₹${batch.price} ${t(batch.priceUnit, lang)}`
-              : `${t(batch.when, lang)} · ₹${batch.price} ${t(batch.priceUnit, lang)}`}
+              : `${t(batch.level, lang)} · ₹${batch.price} ${t(batch.priceUnit, lang)}`}
           </Tx>
         </p>
       </div>
@@ -64,7 +64,7 @@ export function BatchCard({
 }) {
   const money = `₹${batch.price}`;
   const perDay = batch.perDay
-    ? `${ui("batches.perDay", lang)} ₹${batch.perDay} ${ui("batches.perDayTail", lang)}`
+    ? `${ui("batches.perDay", lang)} ₹${batch.perDay} ${ui("batches.perDayTail", lang)}${lang === "hi" ? "।" : "."}`
     : "";
   const extras = [
     t(batch.familyDiscount, lang),
@@ -76,7 +76,11 @@ export function BatchCard({
     <article className="card flex flex-col gap-2.5">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p className="label" style={{ color: "var(--color-deep)" }}>
-          {t(batch.name, lang)}
+          {batch.type === "workshop" ? (
+            <Tx>{`${t(batch.date, lang)} · ${t(batch.when, lang)}`}</Tx>
+          ) : (
+            t(batch.name, lang)
+          )}
         </p>
         {t(batch.nextStart, lang).trim() !== "" ? (
           <span
@@ -97,13 +101,8 @@ export function BatchCard({
       </div>
 
       <p className="h3 text-[21px] md:text-[24px]">
-        <Tx>{batch.type === "group" ? t(batch.when, lang) : t(batch.name, lang)}</Tx>
+        <Tx>{batch.type === "workshop" ? t(batch.name, lang) : t(batch.when, lang)}</Tx>
       </p>
-      {batch.type === "workshop" ? (
-        <p className="cap">
-          <Tx>{`${t(batch.date, lang)} · ${t(batch.when, lang)}`}</Tx>
-        </p>
-      ) : null}
       <p className="text-[16px]" style={{ color: "var(--color-muted)" }}>
         <Tx>{t(batch.level, lang)}</Tx>
       </p>

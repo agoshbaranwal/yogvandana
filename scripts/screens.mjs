@@ -68,5 +68,16 @@ const worker = async (queue) => {
 const queue = [...jobs];
 await Promise.all([worker(queue), worker(queue)]);
 server.kill();
-console.log(`screens: ${done} images in docs/screens/`);
+
+/* Kept as WebP: the same picture at a fifth of the weight, so a folder of
+   seventy-odd full-page screenshots does not bloat the repository. */
+const sharp = (await import("sharp")).default;
+let saved = 0;
+for (const file of fs.readdirSync(OUT).filter((f) => f.endsWith(".png"))) {
+  const png = path.join(OUT, file);
+  await sharp(png).webp({ quality: 82 }).toFile(png.replace(/\.png$/, ".webp"));
+  saved += fs.statSync(png).size;
+  fs.rmSync(png);
+}
+console.log(`screens: ${done} images in docs/screens/ (WebP, ${Math.round(saved / 1024 / 1024)} MB of PNG dropped)`);
 process.exit(0);

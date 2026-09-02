@@ -81,8 +81,10 @@ Say: **"Add a story: Sunita Verma, Kanpur, 54, sugar. Before: HbA1c 8.2 and two 
 ## Her record — certificates, awards, events, press, gallery
 
 - `content/credentials/<id>.json` — the certificate, the issuing body, the year, the hours, the
-  scan, and the verify link. **No link means the page says "सार्वजनिक रजिस्टर नहीं" in plain
-  words.** Never put a link that does not open her entry.
+  scan, and `verifyUrl`, which has **three** states and the difference is the whole point:
+  a real `https://…` that opens her entry; the word `none` when you have checked and that body
+  keeps no public register, which prints "सार्वजनिक रजिस्टर नहीं"; or empty, which prints a
+  blank saying the link is still to come. Never write `none` to tidy up an empty field.
 - `content/awards/<id>.json` — the award, who gave it, where, the year, one line on what for.
 - `content/events/<id>.json` — `type` is `guest-of-honour`, `shivir`, `workshop`, `yoga-day` or
   `press`. Organiser, city, month and year, and a photo with the banner in frame if there is one.

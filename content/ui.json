@@ -605,6 +605,10 @@
     "sinceWord": {
       "hi": "से",
       "en": "since"
+    },
+    "verifyTodo": {
+      "hi": "[जाँच का लिंक]",
+      "en": "[verify link]"
     }
   },
   "gallery": {

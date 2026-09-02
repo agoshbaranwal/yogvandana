@@ -6,7 +6,7 @@ Last run: 2026-09-02 · 42 pages.
 | # | Check | Result | What was looked at |
 |---|---|---|---|
 | 1 | No superlative or scarcity language | pass | 14 words checked across 42 pages |
-| 2 | Every certificate has a verify link or says there is no registry | pass | 2 credentials pages |
+| 2 | Every certificate either links to a register, says there is none, or shows a blank still to be filled | pass | 2 credentials pages |
 | 3 | No stock or generated images; empty slots are labelled blocks | pass | 0 images, 0 from other sites, 356 labelled placeholder blocks |
 | 4 | No countdown, no fake scarcity, no pop-up | pass | checked every page |
 | 5 | Every number traces to a content file | waiting on content | Numbers are still [X], [Y], [N], [A] in content/site.json; nothing is hard-coded in the pages. |

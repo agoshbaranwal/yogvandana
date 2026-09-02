@@ -56,7 +56,9 @@ export default function BookingBand({
   source: string;
 }) {
   const all = [...choices, { slug: "other", name: otherLabel }];
-  const [slug, setSlug] = useState(defaultSlug || all[0].slug);
+  // On a page that is not about one condition, nothing is picked for the
+  // visitor: the message then says only that they want the free class.
+  const [slug, setSlug] = useState(defaultSlug || "other");
   const [time, setTime] = useState<"morning" | "evening">("morning");
 
   const chosen = all.find((c) => c.slug === slug) ?? all[0];
