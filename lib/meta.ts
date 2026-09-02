@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
-import { absolute, asset, site, t } from "./content";
+import { absolute, site, t } from "./content";
 import { href, type Lang, type RouteKey } from "./routes";
 
 /* One place for every page's title, description, canonical, hreflang pair and
-   link-preview image. While site.live is false, nothing is indexed. */
+   link-preview image. While site.live is false, nothing is indexed.
+
+   Image URLs are absolute on purpose: Next resolves a relative one against
+   metadataBase, which already carries the sub-folder, and the prefix would
+   land twice. */
 
 export function pageMeta({
   lang,
@@ -46,13 +50,13 @@ export function pageMeta({
       url: absolute(path),
       title: `${title} | ${brand}`,
       description,
-      images: [{ url: asset(`/og/${og}.png`), width: 1200, height: 630, alt: title }],
+      images: [{ url: absolute(`/og/${og}.png`), width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${title} | ${brand}`,
       description,
-      images: [asset(`/og/${og}.png`)],
+      images: [absolute(`/og/${og}.png`)],
     },
     other: site.searchConsole ? { "google-site-verification": site.searchConsole } : undefined,
   };

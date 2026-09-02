@@ -1,4 +1,4 @@
-import { absolute, asset, isTodo, site, t } from "@/lib/content";
+import { absolute, isTodo, site, t } from "@/lib/content";
 import { href, type Lang } from "@/lib/routes";
 
 /* Structured data, with one rule: nothing that is still a placeholder goes in.
@@ -29,7 +29,7 @@ export function personSchema(lang: Lang) {
     name: t(site.teacher, lang),
     jobTitle: t(site.credential, lang),
     url: absolute(href("about", lang)),
-    image: absolute(asset("/og/about-" + lang + ".png")),
+    image: absolute(`/og/about-${lang}.png`),
     telephone: real(site.contact.phone),
     email: real(site.contact.email),
     sameAs: sameAs.length ? sameAs : undefined,
