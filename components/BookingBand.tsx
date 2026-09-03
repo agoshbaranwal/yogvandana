@@ -32,6 +32,7 @@ export default function BookingBand({
   previewLabel,
   replyLine,
   page,
+  pageLabel,
   source,
 }: {
   lang: Lang;
@@ -53,6 +54,7 @@ export default function BookingBand({
   previewLabel: string;
   replyLine: string;
   page: string;
+  pageLabel: string;
   source: string;
 }) {
   const all = [...choices, { slug: "other", name: otherLabel }];
@@ -63,13 +65,14 @@ export default function BookingBand({
 
   const chosen = all.find((c) => c.slug === slug) ?? all[0];
   const timeLabel = time === "morning" ? morningLabel : eveningLabel;
-  const message = waMessage({
+  const args = {
     lang,
-    kind: "talk",
+    kind: "talk" as const,
     ailment: chosen.slug === "other" ? undefined : chosen.name,
     time: timeLabel,
-    page,
-  });
+  };
+  const message = waMessage({ ...args, page });
+  const shown = waMessage({ ...args, pageLabel });
 
   return (
     <section
@@ -87,7 +90,7 @@ export default function BookingBand({
             <Tx>{lead}</Tx>
           </p>
           <p className="hidden leading-relaxed md:block cap" style={{ color: "var(--color-deeper)" }}>
-            {previewLabel} “{message}” <Tx>{replyLine}</Tx>
+            {previewLabel} “{shown}” <Tx>{replyLine}</Tx>
           </p>
         </div>
 
@@ -171,7 +174,7 @@ export default function BookingBand({
           </div>
 
           <p className="leading-relaxed md:hidden cap" style={{ color: "var(--color-deeper)" }}>
-            {previewLabel} “{message}” <Tx>{replyLine}</Tx>
+            {previewLabel} “{shown}” <Tx>{replyLine}</Tx>
           </p>
         </div>
       </div>

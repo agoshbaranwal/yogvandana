@@ -1,4 +1,4 @@
-import { absolute, ailments, site, t, ui } from "@/lib/content";
+import { absolute, ailmentBySlug, ailments, site, t, ui } from "@/lib/content";
 import { href, type Lang, type RouteKey } from "@/lib/routes";
 import BookingBand from "./BookingBand";
 
@@ -17,8 +17,19 @@ export default function Band({
   source: string;
   defaultSlug?: string;
 }) {
+  /* The reader's preview names the page in words; the message she receives
+     carries the address. */
+  const NAV_KEYS: Partial<Record<RouteKey, string>> = {
+    home: "nav.home", ailments: "nav.ailments", batches: "nav.batches", stories: "nav.stories",
+    about: "nav.about", contact: "nav.contact", students: "nav.students",
+  };
+  const pageLabel = slug
+    ? t(ailmentBySlug(slug)?.name ?? { hi: slug, en: slug }, lang)
+    : ui(NAV_KEYS[routeKey] ?? "nav.home", lang);
+
   return (
     <BookingBand
+      pageLabel={pageLabel}
       lang={lang}
       title={ui("band.title", lang)}
       lead={ui("band.lead", lang)}

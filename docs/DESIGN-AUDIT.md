@@ -473,6 +473,12 @@ Agosh answered four questions before Phase 1 began:
   16 px 10% (was 55%), stories 20%, about 17% — the rest is chips and badges that the page phases
   own.
 
+- **Phase 2 · Words — done, 4 September.** Every slip carries typical practices for its condition,
+  marked उदाहरण with a bracket that keeps it on the to-do list until her own list arrives. Age on
+  every story card, between name and city. The band's preview says "(पन्ना: शुगर)" while the
+  message she receives keeps the address. The credential line asks for the certifying body. The
+  guide explains the examples.
+
 ### What this audit did not check, and says so
 
 Real photographs and real numbers change how every card reads; this audit scored the frames, not

@@ -51,8 +51,11 @@ batch, alongside, review), what the first class holds, what happens in class, th
 and the search terms — the words people type, Roman letters and all, which go into the page's
 keywords rather than its title, so the title is never cut off in a search result.
 
-Leave the practice bracketed until she tells you the real asanas. That is the one field where a
-guess would be a lie about what she teaches.
+The practice line shows **typical practices for that condition, marked "उदाहरण"** — कपालभाति,
+अनुलोम-विलोम, मंडूकासन and so on — with a bracket saying her own list is still to come. That is
+Agosh's decision: this audience expects to see named practices, and an honest example says more
+than an empty bracket. When she gives you her real list, say: **"On the sugar page, set the
+practice to Vajrasana, Mandukasana, Kapalbhati"** and the example and its bracket both go.
 
 ---
 

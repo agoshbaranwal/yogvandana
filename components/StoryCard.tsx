@@ -35,7 +35,10 @@ export function StoryCard({
       <div className="flex min-w-0 flex-col gap-1.5">
         <p className="flex flex-wrap items-center gap-2">
           <span className="font-bold">
-            <Tx>{`${t(story.name, lang)}, ${t(story.city, lang)}`}</Tx>
+            {/* A 54-year-old trusts a 54-year-old: age sits between name and city. */}
+            <Tx>
+              {`${t(story.name, lang)}, ${lang === "hi" ? `${story.age} साल` : story.age}, ${t(story.city, lang)}`}
+            </Tx>
           </span>
           {ailment ? (
             <span className="chip" style={{ background: colour.ink }}>

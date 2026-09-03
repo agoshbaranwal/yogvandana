@@ -13,8 +13,11 @@ export function waMessage(opts: {
   time?: string;
   batch?: string;
   page?: string;
+  /* What the preview on the page shows in place of the address. She still
+     receives the full address; the reader sees "(पन्ना: शुगर)". */
+  pageLabel?: string;
 }): string {
-  const { lang, kind, ailment, time, batch, page } = opts;
+  const { lang, kind, ailment, time, batch, page, pageLabel } = opts;
   const hi = lang === "hi";
   const parts: string[] = [];
 
@@ -55,7 +58,8 @@ export function waMessage(opts: {
     parts.push(hi ? "मुझे जानकारी चाहिए।" : "I would like to know more.");
   }
 
-  if (page) parts.push(hi ? `(पन्ना: ${page})` : `(page: ${page})`);
+  const where = pageLabel ?? page;
+  if (where) parts.push(hi ? `(पन्ना: ${where})` : `(page: ${where})`);
   return parts.filter(Boolean).join(" ");
 }
 
