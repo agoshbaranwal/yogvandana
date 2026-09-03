@@ -547,15 +547,15 @@
     {
       "id": "r6-readme",
       "x": 0,
-      "y": -420,
-      "w": 980,
-      "text": "Round 6 · 4 September. The audit found the site correct but not designed: every section was the same weight, and it read as a wellness app to a person who wanted a clinic.\n\nThe person: 25–55, Hindi, a ₹10–15k Android, a disease, Ramdev's frame of yoga as treatment and a doctor's warning in the other hand.\n\nWhat changed, section by section:\n· First screen — her face, her name, the government's word (आयुष / YCB), the promise, a phone number. A clinic board, not a gradient.\n· Diseases — tall rows in their words with the student count, not eight equal tiles. The body-map is beside it as the alternative you liked in Round 2.\n· What happens — a numbered timeline; the money said once; the medicine answer in the same breath, on dark.\n· Proof — the result is the biggest thing: 8.2 → 6.5, दवा आधी, a face, an age, a city.\n· The slip — a real prescription pad: saffron letterhead, ruled paper, her seal, a torn edge, print.\n· Fees — a timetable with the week and the price loud, not cards.\n· Photos are placeholders drawn plain — her real ones replace them.\n\nEverything bracketed is hers to fill. Decisions to take: rows or body for the chooser; the dark medicine panel; the pad; the contact page leading with the number.",
+      "y": -700,
+      "w": 1200,
+      "text": "Round 6 · 4 September. The audit found the site correct but not designed: every section was the same weight, and it read as a wellness app to a person who wanted a clinic.\n\nThe person: 25–55, Hindi, a ₹10–15k Android, a disease, Ramdev's frame of yoga as treatment and a doctor's warning in the other hand.\n\nWhat changed, section by section:\n· First screen — her face, her name, the government's word (आयुष / YCB), the promise, a phone number. A clinic board, not a gradient.\n· Diseases — tall rows in their words with the student count, not eight equal tiles. The body-map sits below it as the alternative from Rounds 4 and 5 (the figure you kept for reference).\n· What happens — a numbered timeline; the money said once; the medicine answer in the same breath, on dark.\n· Proof — the result is the biggest thing: 8.2 → 6.5, दवा आधी, a face, an age, a city.\n· The slip — a real prescription pad: saffron letterhead, ruled paper, her seal, a torn edge, print.\n· Fees — a timetable with the week and the price loud, not cards.\n· Photos are placeholders drawn plain — her real ones replace them.\n\nEverything bracketed is hers to fill. Decisions to take: rows or body for the chooser; the dark medicine panel; the pad; the contact page leading with the number.",
       "page": "page-6"
     },
     {
       "id": "r6-chooser",
       "x": 0,
-      "y": 6560,
+      "y": 6660,
       "w": 500,
       "text": "Two ways in. Rows (on the home board) read fastest on a 6.5-inch screen and carry a count. The body is more memorable and closer to how a person points at pain — but eight labels crowd a phone. Pick one; the other goes.",
       "page": "page-6"
@@ -563,14 +563,14 @@
     {
       "id": "r6-slip",
       "x": 520,
-      "y": 6560,
+      "y": 6660,
       "w": 420,
       "text": "The site's signature, made physical. Letterhead with the government's word, ruled lines, a numbered slip, her seal, a torn edge. Printable, and sendable to family.",
       "page": "page-6"
     },
     {
       "id": "r6-desktop",
-      "x": 520,
+      "x": 1560,
       "y": -180,
       "w": 700,
       "text": "Desktop keeps the same order. Her face takes the left third of the first screen; diseases in two columns beside the steps and the medicine panel; the slip beside the timetable.",
