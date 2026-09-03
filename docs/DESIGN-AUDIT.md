@@ -479,6 +479,13 @@ Agosh answered four questions before Phase 1 began:
   message she receives keeps the address. The credential line asks for the certifying body. The
   guide explains the examples.
 
+- **Phase 3 · Home — done, 4 September.** Her face on the first screen of a phone (an 88 px
+  portrait above the claim; the desktop keeps the full frame) and a phone number under the button
+  the day she has one. The fee sentence under the steps is bold ink. The slip's rows are 16/18, not
+  14/16. Numbers two by two on a phone. The 21-day promise is body ink. Story results are the
+  largest thing on the card, in the "after" colour. Sections breathe at 40 px.
+  **Gate:** home text under 16 px **6%** (was 55%); contrast 0; taps 0.
+
 ### What this audit did not check, and says so
 
 Real photographs and real numbers change how every card reads; this audit scored the frames, not

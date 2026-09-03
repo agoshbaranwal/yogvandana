@@ -10,9 +10,7 @@ export function Routine({ lang }: { lang: Lang }) {
   return (
     <section className="wrap flex flex-col gap-3 py-8 md:py-12">
       <h2 className="h2">{ui("home.routineTitle", lang)}</h2>
-      <p className="cap" style={{ color: "var(--color-muted)" }}>
-        {t(routine.note, lang)}
-      </p>
+      <p className="body max-w-[52ch]">{t(routine.note, lang)}</p>
       <ol className="mt-1 flex flex-col">
         {routine.rows.map((row, i) => (
           <li

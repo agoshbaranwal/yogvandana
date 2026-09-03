@@ -91,7 +91,7 @@ export function NumbersStrip({ lang, long = false }: { lang: Lang; long?: boolea
     <div className="border-b border-rule">
       <div className="wrap py-4 md:py-5">
         <dl
-          className={`grid grid-cols-4 gap-2 ${long ? "md:gap-8" : "md:gap-6"}`}
+          className={`grid grid-cols-2 gap-x-4 gap-y-5 md:grid-cols-4 ${long ? "md:gap-8" : "md:gap-6"}`}
           aria-label={lang === "hi" ? "एक नज़र में" : "At a glance"}
         >
           {shown.map((n) => (
@@ -159,7 +159,7 @@ export function Steps({ lang }: { lang: Lang }) {
         ))}
       </ol>
       {/* The one place the site says what money is involved. */}
-      <p className="cap">{ui("home.stepsNote", lang)}</p>
+      <p className="body font-bold">{ui("home.stepsNote", lang)}</p>
     </section>
   );
 }

@@ -30,7 +30,7 @@ export function StoryCard({
         src={story.photo}
         alt={`${t(story.name, lang)}, ${t(story.city, lang)}`}
         rounded="rounded-full"
-        className="h-12 w-12 flex-none md:h-13 md:w-13"
+        className="h-14 w-14 flex-none"
       />
       <div className="flex min-w-0 flex-col gap-1.5">
         <p className="flex flex-wrap items-center gap-2">
@@ -50,17 +50,19 @@ export function StoryCard({
           “<Tx>{t(story.quote, lang)}</Tx>”
         </blockquote>
 
+        {/* The result is what this audience came to see: the report number,
+            the medicine that came down. It is the largest thing on the card. */}
         {hasBA ? (
           <div className="grid grid-cols-2 gap-2">
-            <div className="rounded-[8px] px-2.5 py-1.5" style={{ background: "var(--color-ivory)" }}>
-              <p className="label">{ui("stories.before", lang)}</p>
-              <p className="font-bold leading-snug cap">
+            <div className="rounded-[10px] px-3 py-2" style={{ background: "var(--color-ivory)" }}>
+              <p className="cap">{ui("stories.before", lang)}</p>
+              <p className="h3 leading-snug">
                 <Tx>{t(story.before, lang)}</Tx>
               </p>
             </div>
-            <div className="rounded-[8px] px-2.5 py-1.5" style={{ background: "var(--color-apricot)" }}>
-              <p className="label">{ui("stories.after", lang)}</p>
-              <p className="font-bold leading-snug cap">
+            <div className="rounded-[10px] px-3 py-2" style={{ background: "var(--color-apricot)" }}>
+              <p className="cap" style={{ color: "var(--color-deeper)" }}>{ui("stories.after", lang)}</p>
+              <p className="h3 leading-snug" style={{ color: "var(--color-deeper)" }}>
                 <Tx>{t(story.after, lang)}</Tx>
               </p>
             </div>

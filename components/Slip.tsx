@@ -34,10 +34,10 @@ export function Slip({ lang, ailment }: { lang: Lang; ailment: Ailment }) {
         </span>
       </div>
 
-      <dl className="grid grid-cols-[74px_1fr] gap-x-3 gap-y-2 px-3.5 py-3 leading-relaxed md:grid-cols-[100px_1fr] md:gap-y-2.5 md:px-5 md:py-4 cap">
+      <dl className="grid grid-cols-[84px_1fr] gap-x-3 gap-y-2.5 px-3.5 py-3.5 md:grid-cols-[110px_1fr] md:gap-y-3 md:px-5 md:py-4 body">
         {rows.map(([label, value], i) => (
           <div key={label} className="contents">
-            <dt className="label slip-row pt-1" style={{ "--row": i } as React.CSSProperties}>
+            <dt className="cap slip-row pt-0.5 font-bold" style={{ "--row": i } as React.CSSProperties}>
               {label}
             </dt>
             <dd className="slip-row" style={{ "--row": i } as React.CSSProperties}>

@@ -10,6 +10,8 @@ import SiteShell from "@/components/SiteShell";
 import { Slip } from "@/components/Slip";
 import { StoryCard } from "@/components/StoryCard";
 import { Tx } from "@/components/Tx";
+import { PhoneIcon } from "@/components/Icons";
+import { telHref } from "@/lib/whatsapp";
 import { Jsonld, faqSchema, personSchema, websiteSchema } from "@/components/Jsonld";
 import { absolute, ailmentBySlug, batches, faq, site, stories, t, ui } from "@/lib/content";
 import { href, type Lang } from "@/lib/routes";
@@ -39,6 +41,18 @@ export default function Home({ lang }: { lang: Lang }) {
         <div className="dawn-horizon top-[420px] md:top-[660px]" aria-hidden="true" />
         <div className="wrap relative grid gap-8 pb-9 pt-[84px] md:min-h-[620px] md:grid-cols-[1fr_460px] md:items-center md:gap-12 md:pb-14 md:pt-[104px]">
           <div className="flex flex-col gap-3.5 md:gap-4 md:self-end md:pb-6">
+            {/* On a phone the big photograph is off-screen, and her face is
+                the strongest thing this audience can be shown. A small one
+                sits above the claim; the desktop keeps the full frame. */}
+            <Photo
+              src=""
+              alt={t(site.teacher, lang)}
+              label={ui("photo.portrait", lang)}
+              ratio="1 / 1"
+              rounded="rounded-full"
+              className="h-[88px] w-[88px] md:hidden"
+              sizes="88px"
+            />
             <p className="cap font-bold" style={{ color: "var(--color-deeper)" }}>
               <Tx>
                 {`${ui("band.morning", lang)} ${t(site.morningTime, lang)} · ${t(site.city, lang)} · ${t(site.sinceYear, lang)} ${lang === "hi" ? "से" : "onwards"} · ${t(site.credentialShort, lang)}`}
@@ -57,6 +71,19 @@ export default function Home({ lang }: { lang: Lang }) {
             >
               {ui("cta.talk", lang)}
             </Link>
+            {/* An older reader looks for a number before a button. */}
+            {site.contact.phone ? (
+              <a
+                href={telHref(site.contact.phone)}
+                className="tap body inline-flex items-center gap-2 self-start font-bold no-underline"
+                style={{ color: "var(--color-kohl)" }}
+                data-ev="call_click"
+                data-ev-source="hero"
+              >
+                <PhoneIcon size={20} />
+                {ui("nav.call", lang)}: {site.contact.phoneDisplay || site.contact.phone}
+              </a>
+            ) : null}
           </div>
           <Photo
             src=""
@@ -103,7 +130,7 @@ export default function Home({ lang }: { lang: Lang }) {
 
       {/* 6 · the proof, in one place ------------------------------------ */}
       <section style={{ background: "var(--color-sky)" }}>
-        <div className="wrap flex flex-col gap-8 py-9 md:gap-12 md:py-14">
+        <div className="wrap flex flex-col gap-8 section-pad md:gap-12">
           <div className="flex flex-col gap-4">
             <SectionHead
               title={ui("home.resultsTitle", lang)}
@@ -124,7 +151,7 @@ export default function Home({ lang }: { lang: Lang }) {
       </section>
 
       {/* 7 · what it costs ---------------------------------------------- */}
-      <section className="wrap flex flex-col gap-4 py-9 md:py-14">
+      <section className="wrap flex flex-col gap-4 section-pad">
         <SectionHead
           title={ui("home.batchesTitle", lang)}
           link={{ label: ui("cta.seeBatches", lang), href: href("batches", lang) }}
@@ -142,7 +169,7 @@ export default function Home({ lang }: { lang: Lang }) {
 
       {/* 8 · my questions ----------------------------------------------- */}
       <section style={{ background: "var(--color-sandal)" }}>
-        <div className="wrap flex flex-col gap-3 py-9 md:py-14">
+        <div className="wrap flex flex-col gap-3 section-pad">
           <h2 className="h2">{ui("home.faqTitle", lang)}</h2>
           <FaqList items={faq.slice(0, 4)} lang={lang} columns />
         </div>
