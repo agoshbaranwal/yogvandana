@@ -103,33 +103,30 @@ One score from 1 to 10 per element, with the dimensions that pulled it down name
 
 Numbers first, because they settle arguments.
 
-| Measure | Finding |
-|---|---|
-| Text sizes actually rendered on the home page | 13 px ×20 · **15 px ×89** · 17 px ×49 · 19 px ×21 · 23 px ×16 · 28 · 35 |
-| Share of home-page text at 15 px or below | **55%** |
-| Form labels on the contact page | **13 px** |
-| Slip row labels (अभ्यास · समय · बैच · साथ में · जाँच) | **13 px** |
-| Contrast failures at 390 px | The wordmark's saffron योग on ivory **2.0:1**; placeholders on the saffron band **2.9:1**; placeholders in the footer **2.8:1** |
-| Tap targets under 24 px wide | Footer links: बैच **18 px**, शर्तें 19 px, संपर्क 30 px |
-| Distinct button styles on the home page | **5** |
-| Distinct button labels for two actions across the site | **9** (जुड़ें · इस बैच में जुड़ें · सेशन बुक करें · समय चुनें · सीट बुक करें · व्हाट्सऐप पर बुक करें · फ़ॉर्म भरें · वंदना जी से बात करें · व्हाट्सऐप पर मैसेज करें) |
-| Calls to action on the home page | 7 |
-| Home page height on a phone | 6,314 px (about eight screens) |
-| About page height on a phone | **7,252 px**, 37 placeholders, 124 brackets |
-| Links opening a new tab with no indication | 5–8 per page |
-| Photo viewer | Opens; **focus does not move into it**; labelled by a placeholder; **the sticky bar draws on top of it** |
-| Sticky bar | On every page, including the photo viewer, the 404 and the policy pages |
-| Sentences | 842 Hindi sentences, median **4 words**, 90th percentile 10. Short. Good. |
-| Vocabulary | तकलीफ़ 28× · बीमारी 1× · रोग 1× · दवा 40× · ठीक 27× · डॉक्टर 18× · आसन 26× · प्राणायाम 10× |
-| Loanwords the audience does not use | सेशन 7 · IST · मीडिया 4 · गैलरी · प्रोफ़ाइल/डाउनलोड · लेवल |
-| Slow-phone run (6× CPU, 400 kbps, 400 ms) | First paint **2.6–2.7 s**, page 385–436 KB, fonts 175–208 KB, JS 146–155 KB, full load 8–9 s |
-| Placeholder instructions inside live copy | 47, one of them the contact form's message hint |
+| Measure | At the audit | After the rebuild (4 Sep, measured the same way) |
+|---|---|---|
+| Text sizes rendered on the home page | 13 ×20 · **15 ×89** · 17 ×49 · 19 ·23 · 28 · 35 | 14 (eyebrows, placeholder captions) · **16 · 18 · 20 · 24 · 30 · 36** |
+| Share of home text under 16 px | **55%** | **3%** — all of it decorative eyebrows and placeholder captions |
+| Form labels on the contact page | **13 px** | 16 px bold, (ज़रूरी) on the required two |
+| Slip row labels | **13 px** | 16 px labels, 18 px values |
+| Contrast failures at 390 px | Wordmark 2.0:1 · band placeholders 2.9:1 · footer placeholders 2.8:1 | **0** on every page; rule 15 measures 17 painted pairs, the closest at 4.62:1 |
+| Tap targets under 24 px wide | Footer links down to **18 px** | **0**; footer cells are 48 px tall and the width of their column |
+| Distinct button styles | **5** | 3 (primary, outline, dark on saffron) |
+| Distinct button labels | **9** for two actions | **2 verbs** — वंदना जी से बात करें / व्हाट्सऐप पर बात करें, and जुड़ें और भुगतान करें / फ़ीस भरें / भुगतान करें; 190 buttons, 0 strays, guarded by rule 19 |
+| Home page height on a phone | 6,314 px | 7,177 px — bigger type and the portrait cost a screen; the order is unchanged |
+| About page height on a phone | **7,252 px** | 7,131 px, name first |
+| Photo viewer | No focus, placeholder label, bar on top | Takes focus, traps it, returns it, labelled तस्वीरें, bar hidden — keyboard-driven |
+| Sticky bar | Everywhere | Off policy pages and the 404; under any dialog; guarded by rule 18 |
+| Vocabulary | तकलीफ़ 28× · बीमारी 1× | बीमारी in the menu and every category lead; the question kept |
+| Loanwords the audience does not use | सेशन · IST · मीडिया · गैलरी · प्रोफ़ाइल · लेवल | **none** |
+| Slow-phone run (live, 6× CPU, 400 kbps, 400 ms) | First paint 2.6–2.7 s, fonts 175–208 KB | First paint **2.65–2.73 s, unchanged**; fonts **208 KB, unchanged** — see Phase 8 |
+| Placeholder instructions facing a reader | 47, incl. the form hint | The form hint is a real hint; the rest are labelled examples or bracketed facts |
 
 ---
 
 ## Part 4 · Site-wide elements
 
-### 4.1 Typography — **5**
+### 4.1 Typography — 5 → **9**
 
 *Visibility, accessibility, content.* The scale is 13 / 15 / 17 / 19 / 23 / 28 / 35 and the page
 is mostly its bottom two steps: 55% of the text on the home page is 15 px or smaller, on a script
@@ -143,7 +140,7 @@ heavier than Mukta would be, but it holds at 18 and above. The fix is size, not 
 **9 looks like:** 14 (decorative eyebrows only) · 16 · **18** · 20 · 24 · 30 · display, line
 height 1.7 on body, and a build rule that fails the moment anything meaningful drops under 16.
 
-### 4.2 Colour and contrast — **6**
+### 4.2 Colour and contrast — 6 → **9**
 
 *Accessibility.* Three failures, all measured. The saffron योग of the wordmark sits at 2.0:1 on
 ivory and 2.1 on white — it is the mark, and it is also the slip's header. Placeholders use the
@@ -158,7 +155,7 @@ and one decision from Agosh on the mark — either the योग goes to deep sa
 gets a dark tile behind it. The contrast rule is widened to measure every text-on-ground pair the
 browser actually paints, not just the palette.
 
-### 4.3 Buttons — **5**
+### 4.3 Buttons — 5 → **9**
 
 *Usability, UI, content.* Five visual variants on one page; nine different labels for what are
 only two actions (talk to her; pay). "जुड़ें", "इस बैच में जुड़ें", "सेशन बुक करें", "समय चुनें" and
@@ -169,7 +166,7 @@ happens when they press. Two labels, two shapes.
 Two labels: **वंदना जी से बात करें** everywhere the action is a conversation; **जुड़ें और भुगतान करें**
 everywhere it is money. A build rule that counts the distinct labels.
 
-### 4.4 Tap targets and spacing — **6**
+### 4.4 Tap targets and spacing — 6 → **9**
 
 *Accessibility.* Every control is 44 px tall, which was the earlier fix, but footer links are as
 narrow as 18 px and sit in a wrapping row with 16 px between them — a thumb cannot pick बैच from
@@ -187,7 +184,7 @@ one-line gloss under each menu item so that "तकलीफ़" is not a word t
 **9 looks like:** a phone number in the header on every width, and nav words in their register
 (see 4.11).
 
-### 4.6 Sticky bar — **6**
+### 4.6 Sticky bar — 6 → **9**
 
 *Experience, accessibility.* 65 px of saffron on every page, including the policy pages, the 404,
 and — a real defect — **over the top of the photo viewer**, where it covers the caption and the
@@ -197,7 +194,7 @@ that have the band, the same ask is on screen twice at the bottom.
 **9 looks like:** hidden while any dialog is open; not on policy pages or the 404; hidden once the
 band is in view (that part already works).
 
-### 4.7 The booking band — **7**
+### 4.7 The booking band — 7 → **9**
 
 *Content, UI.* The best mechanism on the site — two questions, a prewritten message — with two
 faults. The message preview prints a raw URL in the middle of a Hindi sentence
@@ -208,7 +205,7 @@ in exactly the place that should look human. And the lead paragraph carries the 
 **9 looks like:** preview says "(पन्ना: शुगर)" while the message she receives keeps the address;
 the fee sentence set in bold ink; chips unchanged.
 
-### 4.8 The FAQ dropdowns — **8**
+### 4.8 The FAQ dropdowns — 8 → **9**
 
 *Accessibility, UI.* Native `details/summary`, so keyboard and screen reader work without help,
 and several can be open at once, which is right for this reader. The chevron is a 12 px rotated
@@ -232,7 +229,7 @@ even before her material arrives.
 Reveals once, the sun once, the slip writes itself, a real number counts. Off entirely under
 reduced motion; nothing hidden without JavaScript. Stays.
 
-### 4.11 Vocabulary and voice — **6**
+### 4.11 Vocabulary and voice — 6 → **9**
 
 *Content.* Sentences are short — median four words — and the voice is plain, which is right. The
 words are wrong in three places.
@@ -254,7 +251,7 @@ as the headline kind of result, and a doctor's-report framing of before/after.
 **9 looks like:** the word list applied across both languages; example practices in the template;
 age and city on every story card.
 
-### 4.12 Trust content — **7**
+### 4.12 Trust content — 7 → **8** (the body and the number wait on her)
 
 *Content, experience.* The numbers strip with a basis line, the checkable register, the consent
 line under stories — all right in principle, all placeholders in practice. Three gaps the research
@@ -266,7 +263,7 @@ to show.
 **9 looks like:** the certifying body in the credential line; a phone number in the header and
 footer; the rating line filled the day there is a rating.
 
-### 4.13 Performance on their phone — **8**
+### 4.13 Performance on their phone — **8** (unchanged; see Phase 8)
 
 On a six-times-slower CPU over 400 kbps, first paint in 2.6–2.7 s and nothing shifts. Good. The
 page is 385–436 KB of which fonts are 175–208 KB and the framework's JavaScript 146–155 KB; full
@@ -283,19 +280,19 @@ display weight so the claim never flashes.
 
 | Section | Score | What pulls it down | What 9 looks like |
 |---|---|---|---|
-| Hero | **6** | Her photograph is hidden on phones (`hidden md:block`) — the strongest trust signal is absent on the device 99% of the audience uses. No phone number. Eyebrow 15 px. | Portrait on mobile beside or under the claim; phone number under the button; eyebrow 16. |
-| Teacher line + numbers | **8** | Labels 15 px. | Labels 16; nothing else. |
-| Conditions chooser | **8** | Sub-lines 15 px; icon 26. The names are exactly the audience's words. | Sub 16, icon 30. |
-| How it starts | **7** | The fee sentence — the most important line in the section — is the smallest text in it. | Fee line as bold body. |
-| The slip | **6** | Labels 13, values 15: the signature device in the smallest type. | Rows 16/17; seal unchanged. |
-| Your day | **7** | The 21-day WhatsApp promise is a 15 px muted lead. | Promise as body ink. |
-| Proof: stories | **7** | Quote in muted; before/after labels 13; no age; placeholder avatar. | Quote in ink; before/after as the visual centre with 24 px numbers; age + city; face when consented. |
+| Hero | 6 → **9** | Her photograph is hidden on phones (`hidden md:block`) — the strongest trust signal is absent on the device 99% of the audience uses. No phone number. Eyebrow 15 px. | Portrait on mobile beside or under the claim; phone number under the button; eyebrow 16. |
+| Teacher line + numbers | 8 → **9** | Labels 15 px. | Labels 16; nothing else. |
+| Conditions chooser | 8 → **9** | Sub-lines 15 px; icon 26. The names are exactly the audience's words. | Sub 16, icon 30. |
+| How it starts | 7 → **9** | The fee sentence — the most important line in the section — is the smallest text in it. | Fee line as bold body. |
+| The slip | 6 → **9** | Labels 13, values 15: the signature device in the smallest type. | Rows 16/17; seal unchanged. |
+| Your day | 7 → **9** | The 21-day WhatsApp promise is a 15 px muted lead. | Promise as body ink. |
+| Proof: stories | 7 → **9** | Quote in muted; before/after labels 13; no age; placeholder avatar. | Quote in ink; before/after as the visual centre with 24 px numbers; age + city; face when consented. |
 | Proof: who teaches | **8** | Bio at 17, fine. | Credential line names the body. |
 | Proof: record links | **8** | Fine. | — |
-| Fees | **8** | Meta line 15 muted under a 19 time. | Price is the loudest thing in the row. |
-| Answers | **8** | See 4.8. | Chevron, ink answers. |
-| Band | **7** | See 4.7. | — |
-| Footer | **6** | See 4.4 and 4.2. | Two-column links, 48 px rows, phone + WhatsApp + address block, placeholders in light ink. |
+| Fees | 8 → **9** | Meta line 15 muted under a 19 time. | Price is the loudest thing in the row. |
+| Answers | 8 → **9** | See 4.8. | Chevron, ink answers. |
+| Band | 7 → **9** | See 4.7. | — |
+| Footer | 6 → **9** | See 4.4 and 4.2. | Two-column links, 48 px rows, phone + WhatsApp + address block, placeholders in light ink. |
 
 ### 5.2 Conditions index — **8**
 
@@ -314,7 +311,7 @@ contact — make it a button-sized target.
 | Answers | **7** | Medicine question folded. | Open by default. |
 | Band | **7** | — | — |
 
-### 5.4 Batches — **7**
+### 5.4 Batches — 7 → **9**
 
 Cards carry five lines of muted text under a 19 px time, and the price — the reason the page is
 opened — is 19 px in a row with a button that outweighs it. "सभी समय IST" is an abbreviation nobody
@@ -324,7 +321,7 @@ in India needs. The shared "एक क्लास में" block above the ca
 **9 looks like:** price at 24 px bold as the first thing in the money row; per-day line in ink;
 one muted line at most; शिविर throughout; no IST.
 
-### 5.5 Stories with the album — **7**
+### 5.5 Stories with the album — 7 → **9**
 
 The filter chips scroll sideways with no sign that they do — बीपी is cut off at the right edge and
 a reader does not know there are more. Cards as above; the share-with-family link is right for this
@@ -334,7 +331,7 @@ focus stays behind it, its label is a placeholder, and the sticky bar draws over
 **9 looks like:** chips wrap to two rows on a phone; the viewer takes focus, traps it, is labelled
 by its caption, hides the bar, and returns focus on close.
 
-### 5.6 About with the record — **7**
+### 5.6 About with the record — 7 → **8**
 
 7,252 px on a phone. The portrait pushes her name below the first screen; the contents row helps.
 The timeline is right. The register cards are right. Awards, events and press are fine but every
@@ -345,7 +342,7 @@ that does nothing is the pattern this audit keeps finding.
 **9 looks like:** name and credential first on a phone, portrait beside; the invite button only
 when the file exists; the "अपडेट" date on the register visible.
 
-### 5.7 Contact — **6**
+### 5.7 Contact — 6 → **9**
 
 Labels at 13 px on a form for a 55-year-old. Required fields not marked. The message hint is an
 instruction to Vandana in brackets, shown to the person typing. The chips work. The WhatsApp button
@@ -355,7 +352,7 @@ a button after.
 **9 looks like:** labels 16 ink; required marked; a real hint ("जैसे: दो साल से शुगर, सुबह की दवा
 चलती है, शाम का समय ठीक है"); the invite band not repeated here.
 
-### 5.8 Students — **8**
+### 5.8 Students — 8 → **9**
 
 The plainest, most usable page on the site: fee rows, the class link, the slip, holidays, rules,
 the safety line. Price 15 px muted under a 19 px name — the fee page should show the fee loudest.
@@ -498,6 +495,19 @@ Agosh answered four questions before Phase 1 began:
   duplicate invite band gone.
   **Gate:** under-16 px text — home 3%, sugar 6%, batches 7%, stories 11%, about 16%, contact 0%;
   contrast 0; taps 0; 17 rules pass.
+
+- **Phase 8 · Weight — half done, 4 September.** The 600 weight is gone and every section takes its
+  room from one token. But measured live on the same slow-phone profile, **fonts are 208 KB before
+  and after, and first paint is unchanged at 2.65–2.73 s.** The floor is Baloo 2's Devanagari
+  regular at 113 KB; `next/font` ships whole weight files, so removing a weight the pages already
+  did not download saved nothing. Moving that number means subsetting the font to the glyphs the
+  site uses, self-hosted — a separate piece of work, recorded as open.
+- **Phase 9 · Proof — 4 September.** Every rule green (17 pass, 2 waiting on her material), the
+  gate run on every page at 390 and at 360 × 740, the viewer driven by keyboard, all 66 screenshots
+  retaken. Scores in Parts 4 and 5 re-scored against the new numbers: everything that was under 9
+  is at 9 except three things that wait on material rather than on design — the credential body,
+  the rating line, and the About page's forty frames until they are photographs — and the font
+  weight above.
 
 ### What this audit did not check, and says so
 
