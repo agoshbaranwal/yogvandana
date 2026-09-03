@@ -20,46 +20,34 @@ not have, and buys almost nothing at her volume. Do it later, if ever.
 
 ---
 
-## Everything, in one table
+## The decision, in one table
 
-Rates change; check them on the day. "GST" below means the 18% that is charged on the gateway's
-fee, not on her classes.
+Rows that were the same down every column have been taken out — they cannot decide anything. What
+is left is only what differs. Rates change; check them on the day.
 
 | | UPI QR / her UPI ID | Payment link | Hosted payment page | Checkout on the site | Auto-debit |
 |---|---|---|---|---|---|
-| **What it is** | Student scans a code and pays her | She sends a link on WhatsApp | One branded page listing her batches | Student pays without leaving the page | The fee is pulled every month |
-| **Code needed** | None | None | None | A server — a serverless function | None; setup in the dashboard |
-| **Fits the site as built** | No slot for it | **Yes** — `joinLink` and `feeLink` | Yes — same two fields | No | Yes, as a link |
-| **Setup fee** | ₹0 | ₹0 | ₹0 | ₹0 | ₹0 |
-| **Monthly or annual fee** | ₹0 | ₹0 | ₹0 | ₹0 | ₹0 |
-| **Fee when they pay by UPI** | ₹0 | usually 0% | usually 0% | usually 0% | usually 0%, sometimes a charge per mandate |
-| **Fee when they pay by card** | — | ~2% + GST | ~2% + GST | ~2% + GST | ~2% + GST |
-| **Money reaches her** | Instantly | 2–3 working days | 2–3 working days | 2–3 working days | 2–3 working days |
-| **Where card details go** | No cards involved | The gateway's own page | The gateway's own page | The gateway's frame, not our server | The gateway |
-| **Refunds** | By hand, from her account | A button | A button | A button | A button |
-| **If she does not deliver** | **No recourse** — like cash | A dispute process | A dispute process | A dispute process | Cancel the mandate, then dispute |
-| **Fake-screenshot fraud** | **Real** — she must check her bank app, never a screenshot | Not possible | Not possible | Not possible | Not possible |
-| **Chargeback risk to her** | None | Small, on cards | Small | Small | Small |
-| **Biggest risk** | No record and no recourse | Account frozen if disputes spike | Same, plus two places to keep in step | Our own bugs, and a secret key in a public repo | Mandates fail silently |
-| **Her effort to set up** | Minutes | A day, mostly KYC | A day, plus dashboard work | Days of building | A day, plus mandate setup |
-| **Her effort each month** | High — matching names to a bank statement | Low — send one link | Low | Low | Lowest, once it runs |
-| **Student's effort** | Scan, PIN | Tap, PIN | Tap, PIN | PIN, no page change | Approve once, then nothing |
-| **What the student is left holding** | A line in their bank app | An SMS and email with an order number | The same | The same | The same, plus a notice before each charge |
-| **Trust — someone who knows her** | Fine, even friendly | Fine | Fine | Fine | Poor |
-| **Trust — a stranger from search** | **Poor** — it is the shape of every UPI scam they have been warned about | **Best** — a page they recognise, a business name, a receipt | Best | Weaker than a redirect: a card form on an unfamiliar site reads as suspicious | Worst — standing permission before any result |
-| **Right when** | The first few students, all people she knows | **Now, and probably the next year** | Five or six batches and she is tired of making links | Drop-off at the hand-off proves it is worth the work | Chasing payments costs her an evening a month |
+| **What it is** | She sends a QR; they scan and pay her | She sends a link on WhatsApp | One page of hers listing every batch | They pay without leaving the site | The fee is pulled every month |
+| **She can take money** | Today | In a few days, once KYC clears | In a few days | Two weeks or more | Two weeks or more |
+| **Who does the work** | Her, alone | Her, alone | Her, plus dashboard setup | Me, days of building | Her, plus setup help |
+| **Cost on ₹45,000 a month** | **₹0** | **about ₹210** | about ₹210 | about ₹210 | about ₹210, plus mandate charges |
+| **Her work every month** | Hours — matching names to a bank statement | Minutes — send one link | Minutes | Minutes | None, once it runs |
+| **When a refund is needed** | She sends money back by hand | A button | A button | A button | A button |
+| **If she cannot deliver** | The student has **no recourse** — it is cash | A dispute process, both sides protected | Same | Same | Same |
+| **What can go wrong** | Fake payment screenshots; no record of who paid for what | Account frozen if disputes spike — rare | Same, plus two places to keep in step | Our own bugs, and a secret key in a public repo | Mandates fail silently and you find out late |
+| **To a stranger who found her online** | **Looks like a scam** — the exact pattern they are warned about | **Most convincing** — a page they know, a business name, a receipt | Most convincing | Less convincing than a redirect: a card form on an unknown site | Least convincing — asks permission before any result |
+| **Easy to leave later** | Yes | Yes | Yes | Code has to be unpicked | Every student must re-approve |
+| **Verdict** | **Keep as a second option** for people who already know her | **Do this** | Later, if she gets tired of making links | **No** — not until drop-off proves it is worth it | **Not yet** |
 
-**The verdict.** Payment links. Safest, because they are the only option where both sides have
-recourse. Free to open and free to keep. Least work for her. Most convincing to a stranger. The only
-thing they lose to a UPI QR is about 2% on the minority who pay by card, and that 2% buys the
-receipt, the record and the refund button. Keep the UPI QR as a second option for people who already
-know her.
+**Read the money row twice.** The 2% card fee sounds like the reason to avoid a gateway, and it is
+not: on thirty students at ₹1,500, with eight in ten paying by UPI where the fee is nil, a payment
+link costs her about **₹210 a month**. That ₹210 buys a receipt for every student, a record of who
+paid for what, a refund button, and a page a stranger is willing to type their card into.
 
-Her real blended cost will be far under 2%, because most of her students will pay by UPI, where the
-fee is nil. If nine in ten pay that way, she is paying about a quarter of one per cent overall.
-
-And the thing that matters more than any of this: **money is only asked for after she has spoken to
-them.** The site works that way now. That does more for trust than the choice of rail.
+Two things that are true of every column, so they are not in the table: **no provider should charge
+her a setup fee or an annual fee** (Razorpay and Cashfree do not; if one asks, walk), and **money
+reaches her bank in two to three working days** in every option except the UPI QR, where it is
+instant.
 
 ## 1. The three routes, and what each one costs you
 
