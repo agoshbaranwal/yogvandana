@@ -645,6 +645,10 @@
     "addressNote": {
       "hi": "क्लासेज़ ऑनलाइन होती हैं। [एक-से-एक क्लास के लिए मिलने की बात, अगर हो।]",
       "en": "Classes are online. [About meeting in person for one-to-one classes, if that applies.]"
+    },
+    "required": {
+      "hi": "(ज़रूरी)",
+      "en": "(required)"
     }
   },
   "students": {

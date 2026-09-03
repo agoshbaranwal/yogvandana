@@ -47,7 +47,7 @@ export default function Home({ lang }: { lang: Lang }) {
             <Photo
               src=""
               alt={t(site.teacher, lang)}
-              label={ui("photo.portrait", lang)}
+              label=""
               ratio="1 / 1"
               rounded="rounded-full"
               className="h-[88px] w-[88px] md:hidden"

@@ -24,23 +24,40 @@ export default function About({ lang }: { lang: Lang }) {
       {/* who she is ----------------------------------------------------- */}
       <header style={{ background: "linear-gradient(180deg, var(--color-sky) 0%, var(--color-ivory) 100%)" }}>
         <div className="wrap grid gap-6 py-8 md:grid-cols-[420px_1fr] md:items-center md:gap-14 md:py-12">
-          <div className="flex flex-col gap-2.5">
+          {/* On a phone the full portrait pushed her name below the first
+              screen. The name leads now, with a small portrait beside it;
+              the desktop keeps the full frame on the left. */}
+          <div className="hidden flex-col gap-2.5 md:flex">
             <Photo
               src=""
               alt={t(site.teacher, lang)}
               label={ui("photo.portrait", lang)}
               ratio="4 / 5"
               rounded="rounded-[18px]"
-              sizes="(min-width: 768px) 420px, 100vw"
+              sizes="420px"
               priority
             />
           </div>
 
           <div className="flex flex-col gap-3.5">
-            <p className="label" style={{ color: "var(--color-deep)" }}>
-              {ui("about.eyebrow", lang)}
-            </p>
-            <h1 className="page-title">{t(site.teacher, lang)}</h1>
+            <div className="flex items-center gap-4 md:block">
+              <Photo
+                src=""
+                alt={t(site.teacher, lang)}
+                label=""
+                ratio="1 / 1"
+                rounded="rounded-full"
+                className="h-24 w-24 flex-none md:hidden"
+                sizes="96px"
+                priority
+              />
+              <div className="flex flex-col gap-1">
+                <p className="label" style={{ color: "var(--color-deep)" }}>
+                  {ui("about.eyebrow", lang)}
+                </p>
+                <h1 className="page-title">{t(site.teacher, lang)}</h1>
+              </div>
+            </div>
             <p className="body" style={{ color: "var(--color-heroink)" }}>
               <Tx>
                 {`${t(site.credential, lang)} · ${t(site.city, lang)} · ${t(site.sinceYear, lang)} ${lang === "hi" ? "से सिखा रही हैं" : "teaching since"}`}

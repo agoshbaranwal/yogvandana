@@ -74,7 +74,10 @@ export default function ContactForm({
 
       <div className="flex flex-col gap-1.5">
         <label className="cap font-bold" htmlFor="cf-name" style={{ color: "var(--color-kohl)" }}>
-          {labels.name}
+          {labels.name}{" "}
+          <span className="font-normal" style={{ color: "var(--color-muted)" }}>
+            {labels.required}
+          </span>
         </label>
         <input
           id="cf-name"
@@ -88,7 +91,10 @@ export default function ContactForm({
 
       <div className="flex flex-col gap-1.5">
         <label className="cap font-bold" htmlFor="cf-phone" style={{ color: "var(--color-kohl)" }}>
-          {labels.phone}
+          {labels.phone}{" "}
+          <span className="font-normal" style={{ color: "var(--color-muted)" }}>
+            {labels.required}
+          </span>
         </label>
         <input
           id="cf-phone"
@@ -104,7 +110,7 @@ export default function ContactForm({
       </div>
 
       <fieldset className="flex flex-col gap-2">
-        <legend className="label mb-1">{labels.about}</legend>
+        <legend className="cap mb-1 font-bold" style={{ color: "var(--color-kohl)" }}>{labels.about}</legend>
         <div className="flex flex-wrap gap-1.5">
           {interests.map((i) => (
             <button
@@ -121,7 +127,7 @@ export default function ContactForm({
       </fieldset>
 
       <fieldset className="flex flex-col gap-2">
-        <legend className="label mb-1">{labels.ailment}</legend>
+        <legend className="cap mb-1 font-bold" style={{ color: "var(--color-kohl)" }}>{labels.ailment}</legend>
         <div className="flex flex-wrap gap-1.5">
           {ailments.map((a) => (
             <button

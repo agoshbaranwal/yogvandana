@@ -142,11 +142,11 @@ export function BatchCard({
       <p className="h3">
         <Tx>{batch.type === "workshop" ? t(batch.name, lang) : t(batch.when, lang)}</Tx>
       </p>
-      <p className="body" style={{ color: "var(--color-muted)" }}>
+      <p className="cap">
         <Tx>{t(batch.level, lang)}</Tx>
       </p>
       {t(batch.note, lang).trim() !== "" ? (
-        <p className="body" style={{ color: "var(--color-muted)" }}>
+        <p className="body">
           <Tx>{t(batch.note, lang)}</Tx>
         </p>
       ) : null}
@@ -165,9 +165,10 @@ export function BatchCard({
       ) : null}
 
       <div className="mt-1 flex flex-wrap items-center justify-between gap-3 border-t border-rule pt-3">
-        <p className="num h3">
+        {/* The reason the page was opened. Larger than the button beside it. */}
+        <p className="num h2">
           <Tx>{money}</Tx>{" "}
-          <span className="font-semibold cap" style={{ color: "var(--color-muted)" }}>
+          <span className="cap font-semibold" style={{ color: "var(--color-muted)" }}>
             {t(batch.priceUnit, lang)}
           </span>
         </p>
@@ -191,7 +192,7 @@ export function BatchCard({
       {join.pays ? <p className="cap">{ui("pay.note", lang)}</p> : null}
 
       {perDay || extras.length > 0 || t(batch.payLine, lang) ? (
-        <p className="cap">
+        <p className="body">
           {perDay ? (
             <>
               <Tx>{perDay}</Tx>{" "}

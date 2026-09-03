@@ -486,6 +486,19 @@ Agosh answered four questions before Phase 1 began:
   largest thing on the card, in the "after" colour. Sections breathe at 40 px.
   **Gate:** home text under 16 px **6%** (was 55%); contrast 0; taps 0.
 
+- **Phases 4–7 · Condition pages, batches and students, stories and about, contact — done,
+  4 September.** The medicine question opens already answered on every condition page; the FAQ
+  chevron is a 40 px saffron circle and answers are ink. The price is the largest thing on a batch
+  card and on the fee page; one muted line per card. Filter chips wrap instead of scrolling off the
+  edge. The photo viewer is a dialog in fact: focus moves to its close button, Tab stays inside,
+  Escape returns focus to the thumbnail, and the sticky bar hides while it is open and comes back
+  after — driven by keyboard and verified. Its label is "तस्वीरें", never a placeholder. Condition
+  badges at 16. On a phone her name leads the About page with a small portrait beside it. Contact:
+  labels 16 bold, (ज़रूरी) on the two required fields, a hint that speaks to the person typing, the
+  duplicate invite band gone.
+  **Gate:** under-16 px text — home 3%, sugar 6%, batches 7%, stories 11%, about 16%, contact 0%;
+  contrast 0; taps 0; 17 rules pass.
+
 ### What this audit did not check, and says so
 
 Real photographs and real numbers change how every card reads; this audit scored the frames, not

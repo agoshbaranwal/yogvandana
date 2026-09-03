@@ -36,9 +36,12 @@ export default function Students({ lang }: { lang: Lang }) {
             .map((b) => (
               <li key={b.id} className="card flex items-center justify-between gap-3">
                 <div className="flex flex-col gap-0.5">
-                  <p className="h3">{t(b.name, lang)}</p>
-                  <p className="cap">
-                    <Tx>{`₹${b.price} ${t(b.priceUnit, lang)}`}</Tx>
+                  <p className="body font-bold">{t(b.name, lang)}</p>
+                  <p className="num h3">
+                    <Tx>{`₹${b.price}`}</Tx>{" "}
+                    <span className="cap font-semibold" style={{ color: "var(--color-muted)" }}>
+                      {t(b.priceUnit, lang)}
+                    </span>
                   </p>
                 </div>
                 <PayOrWrite batch={b} lang={lang} wa={wa} />

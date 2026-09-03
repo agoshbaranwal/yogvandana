@@ -29,12 +29,12 @@ export default function Filter({
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="strip" role="group">
+      <div className="flex flex-wrap gap-2" role="group">
         {all.map((c) => (
           <button
             key={c.slug}
             type="button"
-            className="tchip flex-none"
+            className="tchip"
             aria-pressed={c.slug === active}
             data-ev={event}
             data-ev-filter={c.slug}

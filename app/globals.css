@@ -315,10 +315,12 @@
     border-radius: var(--radius-card);
     padding: 16px;
   }
+  /* A condition badge on a story card carries meaning, so it is not set in
+     the decorative step. */
   .chip {
     display: inline-flex;
     align-items: center;
-    font-size: var(--step-label);
+    font-size: var(--step-cap);
     font-weight: 600;
     padding: 2px 10px;
     border-radius: 999px;
@@ -486,25 +488,31 @@
   .faq-item > summary::-webkit-details-marker {
     display: none;
   }
+  /* The chevron sits in a 40 px saffron circle: the old one was a 12 px
+     rotated border a thumb had to hunt for. Answers are ink — the question
+     was bold and the answer muted, which inverted their importance. */
   .faq-item > summary::after {
     content: "";
     flex: none;
-    width: 12px;
-    height: 12px;
-    margin-top: 7px;
-    border-right: 2px solid var(--color-deep);
-    border-bottom: 2px solid var(--color-deep);
-    transform: rotate(45deg);
+    width: 40px;
+    height: 40px;
+    margin-top: -4px;
+    border-radius: 50%;
+    background: var(--color-apricot);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a05000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-size: 22px;
+    background-repeat: no-repeat;
+    background-position: center;
     transition: transform 0.15s ease;
   }
   .faq-item[open] > summary::after {
-    transform: rotate(-135deg);
+    transform: rotate(180deg);
   }
   .faq-answer {
-    padding: 0 0 16px;
-    color: var(--color-muted);
+    padding: 0 0 18px;
+    color: var(--color-kohl);
     font-size: var(--step-body);
-    line-height: 1.65;
+    line-height: 1.7;
     max-width: 66ch;
   }
 

@@ -34,6 +34,7 @@ export function GallerySection({ lang }: { lang: Lang }) {
           prevLabel={ui("gallery.prev", lang)}
           nextLabel={ui("gallery.next", lang)}
           photoLabel={ui("photo.comingSoon", lang)}
+          viewerLabel={ui("gallery.title", lang)}
         />
       </div>
     </section>

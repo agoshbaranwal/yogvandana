@@ -79,7 +79,8 @@ export default function Contact({ lang }: { lang: Lang }) {
               formOffline: ui("contact.formOffline", lang),
               whatsapp: ui("cta.whatsappTalk", lang),
               call: ui("cta.call", lang),
-            }}
+              required: ui("contact.required", lang),
+          }}
             interests={[
               { key: "group", label: ui("contact.interestGroup", lang) },
               { key: "private", label: ui("contact.interestPrivate", lang) },
@@ -91,26 +92,6 @@ export default function Contact({ lang }: { lang: Lang }) {
         </section>
 
         <div className="flex flex-col gap-8">
-          <section
-            className="flex flex-col gap-3 rounded-[16px] p-5 md:p-6"
-            style={{ background: "var(--color-sky)" }}
-          >
-            <h2 className="h2">{ui("about.inviteTitle", lang)}</h2>
-            <p className="body" style={{ color: "var(--color-heroink)" }}>
-              {ui("about.inviteLead", lang)}
-            </p>
-            {site.links.profilePdf ? (
-            <a
-              href={site.links.profilePdf}
-              className="link-strong body self-start"
-              style={{ color: "var(--color-kohl)" }}
-              data-ev="profile_download"
-              data-ev-source="contact"
-            >
-              {ui("cta.downloadProfile", lang)}
-            </a>
-          ) : null}
-          </section>
 
           <section className="flex flex-col gap-2">
             <h2 className="h2">{ui("contact.addressTitle", lang)}</h2>

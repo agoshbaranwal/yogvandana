@@ -198,7 +198,7 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
       {/* questions ------------------------------------------------------ */}
       <section className="wrap flex flex-col gap-3 pb-9 md:pb-12">
         <h2 className="h2">{ui("ailment.faqTitle", lang)}</h2>
-        <FaqList items={ailment.faq} lang={lang} columns />
+        <FaqList items={ailment.faq} lang={lang} columns  openFirst />
       </section>
 
       <Band
