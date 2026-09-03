@@ -65,7 +65,7 @@ export default function BookingBand({
   const timeLabel = time === "morning" ? morningLabel : eveningLabel;
   const message = waMessage({
     lang,
-    kind: "trial",
+    kind: "talk",
     ailment: chosen.slug === "other" ? undefined : chosen.name,
     time: timeLabel,
     page,
@@ -83,10 +83,10 @@ export default function BookingBand({
           <h2 id="booking-band-title" className="page-title">
             {title}
           </h2>
-          <p className="text-[17px] leading-relaxed md:text-[18px]">
+          <p className="body">
             <Tx>{lead}</Tx>
           </p>
-          <p className="hidden text-[13px] leading-relaxed md:block" style={{ color: "var(--color-deeper)" }}>
+          <p className="hidden leading-relaxed md:block cap" style={{ color: "var(--color-deeper)" }}>
             {previewLabel} “{message}” <Tx>{replyLine}</Tx>
           </p>
         </div>
@@ -170,7 +170,7 @@ export default function BookingBand({
             </a>
           </div>
 
-          <p className="text-[13px] leading-relaxed md:hidden" style={{ color: "var(--color-deeper)" }}>
+          <p className="leading-relaxed md:hidden cap" style={{ color: "var(--color-deeper)" }}>
             {previewLabel} “{message}” <Tx>{replyLine}</Tx>
           </p>
         </div>

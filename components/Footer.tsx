@@ -24,24 +24,24 @@ export default function Footer({ lang }: { lang: Lang }) {
     >
       <div className="wrap flex flex-col gap-5 py-8 md:flex-row md:items-end md:justify-between md:gap-10 md:py-10">
         <div className="flex flex-col gap-1.5">
-          <div className="brand text-[24px] md:text-[26px]">
+          <div className="brand h2">
             <span style={{ color: "var(--color-bhagwa)" }}>योग</span> वंदना
           </div>
           <div
-            className="quote text-[16px]"
+            className="quote body"
             style={{ color: "var(--color-bhagwa)" }}
             lang="sa"
           >
             {site.motto}
           </div>
-          <p className="max-w-[40ch] text-[14px] leading-relaxed" style={{ color: "rgba(251,248,241,0.8)" }}>
+          <p className="max-w-[40ch] leading-relaxed cap" style={{ color: "rgba(251,248,241,0.8)" }}>
             {t(site.teacher, lang)}, {t(site.credentialShort, lang)} ·{" "}
             <Tx>{t(site.contact.address, lang)}</Tx>
           </p>
         </div>
 
         <div className="flex flex-col gap-3 md:items-end">
-          <nav className="flex flex-wrap gap-x-4 gap-y-2 text-[14px] md:justify-end" aria-label={ui("nav.menu", lang)}>
+          <nav className="flex flex-wrap gap-x-4 gap-y-2 md:justify-end cap" aria-label={ui("nav.menu", lang)}>
             {links.map((l) => (
               <Link
                 key={l.key}
@@ -55,7 +55,7 @@ export default function Footer({ lang }: { lang: Lang }) {
           </nav>
           <Link
             href={href("students", lang)}
-            className="tap text-[14px] font-bold no-underline"
+            className="tap font-bold no-underline cap"
             style={{ color: "var(--color-bhagwa)" }}
           >
             {ui("nav.students", lang)}

@@ -10,11 +10,11 @@ import { WhatsAppIcon } from "./Icons";
 export default function StickyCta({
   label,
   href,
-  freeLabel,
+  noteLabel,
 }: {
   label: string;
   href: string;
-  freeLabel: string;
+  noteLabel: string;
 }) {
   const [show, setShow] = useState(false);
 
@@ -59,7 +59,7 @@ export default function StickyCta({
         className="flex items-center gap-3 border-t px-4 py-2.5"
         style={{ background: "var(--color-bhagwa)", borderColor: "rgba(35,26,18,0.15)" }}
       >
-        <span className="flex-1 text-[14px] font-bold leading-tight">{freeLabel}</span>
+        <span className="flex-1 font-bold leading-tight cap">{noteLabel}</span>
         <a
           href={href}
           target="_blank"

@@ -26,13 +26,13 @@ export function SectionHead({
           {title}
         </h2>
         {link ? (
-          <Link href={link.href} className="tap text-[16px] font-bold md:text-[17px]">
+          <Link href={link.href} className="tap font-bold body">
             {link.label}
           </Link>
         ) : null}
       </div>
       {lead ? (
-        <p className="max-w-[68ch] text-[16px] leading-relaxed" style={{ color: "var(--color-muted)" }}>
+        <p className="max-w-[68ch] body" style={{ color: "var(--color-muted)" }}>
           <Tx>{lead}</Tx>
         </p>
       ) : null}
@@ -53,7 +53,7 @@ export function TeacherLine({ lang }: { lang: Lang }) {
           className="h-14 w-14 flex-none md:h-16 md:w-16"
         />
         <div className="flex min-w-0 flex-col">
-          <span className="text-[16px] font-bold leading-tight md:text-[17px]">
+          <span className="font-bold leading-tight body">
             {t(site.teacher, lang)}
           </span>
           <span className="cap">
@@ -63,7 +63,7 @@ export function TeacherLine({ lang }: { lang: Lang }) {
         </div>
         <Link
           href={href("about", lang)}
-          className="tap ml-auto whitespace-nowrap text-[14px] font-bold md:text-[15px]"
+          className="tap ml-auto whitespace-nowrap font-bold cap"
         >
           {ui("cta.aboutShort", lang)}
         </Link>
@@ -73,6 +73,13 @@ export function TeacherLine({ lang }: { lang: Lang }) {
 }
 
 /* ------------------------------ numbers strip ---------------------------- */
+
+/** `1,200+` counts; `[Y]` does not. */
+function countAttrs(value: string) {
+  const m = value.trim().match(/^([\d,]+)(\+?)$/);
+  if (!m) return {};
+  return { "data-count": m[1].replace(/,/g, ""), "data-count-suffix": m[2] };
+}
 
 export function NumbersStrip({ lang, long = false }: { lang: Lang; long?: boolean }) {
   const shown = site.numbers.filter((n) => n.value.trim() !== "");
@@ -92,10 +99,12 @@ export function NumbersStrip({ lang, long = false }: { lang: Lang; long?: boolea
               key={n.short.en}
               className="flex flex-col items-center text-center md:flex-row md:items-baseline md:gap-2.5 md:text-left"
             >
-              <dd className="num text-[26px] md:text-[40px]">
+              {/* A real number counts up once. A number still to come is
+                  a dotted blank and stays perfectly still. */}
+              <dd className="num h2" {...countAttrs(n.value)}>
                 <Tx>{n.value}</Tx>
               </dd>
-              <dt className="text-[12px] leading-tight md:text-[15px]" style={{ color: "var(--color-muted)" }}>
+              <dt className="leading-tight cap" style={{ color: "var(--color-muted)" }}>
                 <span className="md:hidden">{t(n.short, lang)}</span>
                 <span className="hidden md:inline">
                   <Tx>{t(long ? n.label : n.short, lang)}</Tx>
@@ -132,14 +141,16 @@ export function Steps({ lang }: { lang: Lang }) {
   return (
     <section className="wrap flex flex-col gap-4 py-8 md:py-12">
       <h2 className="h2">{ui("home.stepsTitle", lang)}</h2>
-      <ol className="grid grid-cols-3 gap-2 md:gap-5">
+      {/* Three columns on a phone squeezed every step into four wrapped
+         lines. One per row until there is room for three. */}
+      <ol className="grid gap-2 md:grid-cols-3 md:gap-5">
         {steps.map((s) => (
-          <li key={s.n} className="card flex flex-col gap-1 p-3 md:flex-row md:items-start md:gap-4 md:p-5">
-            <span className="num text-[28px] md:text-[40px]" style={{ color: "var(--color-deep)" }}>
+          <li key={s.n} className="card flex items-start gap-3.5 p-3.5 md:gap-4 md:p-5">
+            <span className="num h2" style={{ color: "var(--color-deep)" }}>
               {s.n}
             </span>
             <span className="flex flex-col gap-0.5">
-              <span className="text-[15px] font-bold leading-tight md:text-[18px]">{s.title}</span>
+              <span className="body font-bold leading-tight">{s.title}</span>
               <span className="cap">
                 <Tx>{s.sub}</Tx>
               </span>
@@ -147,6 +158,8 @@ export function Steps({ lang }: { lang: Lang }) {
           </li>
         ))}
       </ol>
+      {/* The one place the site says what money is involved. */}
+      <p className="cap">{ui("home.stepsNote", lang)}</p>
     </section>
   );
 }
@@ -207,7 +220,7 @@ export function ShareLink({
       rel="noopener noreferrer"
       data-ev="share_click"
       data-ev-source={source}
-      className="link-strong self-start text-[15px]"
+      className="link-strong self-start cap"
     >
       <ShareIcon size={18} />
       {label}
@@ -221,10 +234,10 @@ export function MottoLine({ lang }: { lang: Lang }) {
   return (
     <div className="border-b border-rule">
       <div className="wrap flex flex-col gap-1 py-5 md:flex-row md:items-baseline md:gap-5">
-        <p className="quote text-[20px] md:text-[24px]" style={{ color: "var(--color-deep)" }} lang="sa">
+        <p className="quote h3" style={{ color: "var(--color-deep)" }} lang="sa">
           {site.motto}
         </p>
-        <p className="text-[15px] md:text-[16px]" style={{ color: "var(--color-muted)" }}>
+        <p className="cap" style={{ color: "var(--color-muted)" }}>
           {t(site.mottoGloss, lang)}
         </p>
       </div>

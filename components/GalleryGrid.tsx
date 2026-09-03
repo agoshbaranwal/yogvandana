@@ -86,7 +86,7 @@ export default function GalleryGrid({
       </div>
 
       {shown.length === 0 ? (
-        <p className="text-[16px]" style={{ color: "var(--color-muted)" }}>
+        <p className="body" style={{ color: "var(--color-muted)" }}>
           {emptyLabel}
         </p>
       ) : (
@@ -114,7 +114,7 @@ export default function GalleryGrid({
                     className="h-full w-full object-cover"
                   />
                 ) : (
-                  <span className="ph flex h-full w-full items-end p-1.5 text-[10px] leading-tight">
+                  <span className="ph flex h-full w-full items-end p-1.5 leading-tight label">
                     {photoLabel}
                   </span>
                 )}
@@ -133,7 +133,7 @@ export default function GalleryGrid({
           aria-label={current.alt || photoLabel}
         >
           <div className="flex items-center justify-between gap-4 px-4 py-3">
-            <span className="text-[14px]" style={{ color: "rgba(251,248,241,0.75)" }}>
+            <span className="cap" style={{ color: "rgba(251,248,241,0.75)" }}>
               {open! + 1} / {shown.length}
             </span>
             <button
@@ -160,7 +160,7 @@ export default function GalleryGrid({
                 className="ph flex w-full max-w-[560px] items-end justify-start rounded-[10px] p-4"
                 style={{ aspectRatio: "4 / 3" }}
               >
-                <span className="text-[13px]">{photoLabel}</span>
+                <span className="cap">{photoLabel}</span>
               </div>
             )}
           </div>
@@ -174,7 +174,7 @@ export default function GalleryGrid({
             >
               ‹
             </button>
-            <p className="flex-1 text-center text-[14px] leading-relaxed" style={{ color: "var(--color-ivory)" }}>
+            <p className="flex-1 text-center leading-relaxed cap" style={{ color: "var(--color-ivory)" }}>
               {current.caption}
               <span className="block" style={{ color: "rgba(251,248,241,0.7)" }}>
                 {[current.place, current.date].filter(Boolean).join(" · ")}

@@ -20,7 +20,7 @@ export default function Students({ lang }: { lang: Lang }) {
             {ui("students.eyebrow", lang)}
           </p>
           <h1 className="page-title">{ui("students.title", lang)}</h1>
-          <p className="lead max-w-[58ch]" style={{ color: "var(--color-heroink)" }}>
+          <p className="body max-w-[58ch]" style={{ color: "var(--color-heroink)" }}>
             {ui("students.lead", lang)} {ui("students.newHere", lang)}{" "}
             <Link href={href("home", lang)}>{ui("band.title", lang)}</Link>
           </p>
@@ -61,7 +61,7 @@ export default function Students({ lang }: { lang: Lang }) {
       <div className="wrap grid gap-8 pb-8 md:grid-cols-2 md:gap-14 md:pb-12">
         <section className="flex flex-col gap-2.5">
           <h2 className="h2">{ui("students.linkTitle", lang)}</h2>
-          <p className="text-[16px] leading-relaxed md:text-[17px]">
+          <p className="body">
             <Tx>{t(students.linkNote, lang)}</Tx>{" "}
             <a href={wa} target="_blank" rel="noopener noreferrer" data-ev="whatsapp_click" data-ev-source="students">
               {ui("students.writeOnWhatsapp", lang)}
@@ -69,7 +69,7 @@ export default function Students({ lang }: { lang: Lang }) {
           </p>
 
           <h2 className="h2 mt-4">{ui("students.slipTitle", lang)}</h2>
-          <p className="text-[16px] leading-relaxed md:text-[17px]">
+          <p className="body">
             <Tx>{t(students.slipNote, lang)}</Tx>{" "}
             <a href={wa} target="_blank" rel="noopener noreferrer" data-ev="whatsapp_click" data-ev-source="students-slip">
               {ui("students.askAgain", lang)}
@@ -83,11 +83,9 @@ export default function Students({ lang }: { lang: Lang }) {
             {students.holidays.map((h, i) => (
               <li
                 key={i}
-                className={`grid grid-cols-[110px_1fr] gap-3 border-t border-rule py-2.5 text-[16px] ${
-                  i === students.holidays.length - 1 ? "border-b" : ""
-                }`}
+                className={`grid grid-cols-[110px_1fr] gap-3 border-t border-rule py-2.5 ${ i === students.holidays.length - 1 ? "border-b" : "" } body`}
               >
-                <span className="num text-[18px]" style={{ color: "var(--color-deep)" }}>
+                <span className="num body" style={{ color: "var(--color-deep)" }}>
                   <Tx>{t(h.when, lang)}</Tx>
                 </span>
                 <span>
@@ -101,7 +99,7 @@ export default function Students({ lang }: { lang: Lang }) {
 
       <section className="wrap flex flex-col gap-2.5 pb-10 md:pb-14">
         <h2 className="h2">{ui("students.rulesTitle", lang)}</h2>
-        <ul className="ml-5 flex list-disc flex-col gap-1.5 text-[16px] leading-relaxed md:max-w-[70ch] md:text-[17px]">
+        <ul className="ml-5 flex list-disc flex-col gap-1.5 leading-relaxed md:max-w-[70ch] body">
           {students.rules.map((r, i) => (
             <li key={i}>
               <Tx>{t(r, lang)}</Tx>

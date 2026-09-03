@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { AilmentCards } from "@/components/AilmentCards";
 import Band from "@/components/Band";
-import { BatchCard } from "@/components/Batches";
+import { BatchCard, SharedSession, sharedSession } from "@/components/Batches";
 import { FaqList } from "@/components/Faq";
 import SiteShell from "@/components/SiteShell";
 import { Tx } from "@/components/Tx";
@@ -17,14 +17,14 @@ export function AilmentsIndex({ lang }: { lang: Lang }) {
       <header style={{ background: "linear-gradient(180deg, var(--color-sky) 0%, var(--color-ivory) 100%)" }}>
         <div className="wrap flex flex-col gap-2.5 py-8 md:py-12">
           <h1 className="page-title">{ui("home.ailmentsTitle", lang)}</h1>
-          <p className="lead max-w-[62ch]" style={{ color: "var(--color-heroink)" }}>
+          <p className="body max-w-[62ch]" style={{ color: "var(--color-heroink)" }}>
             {ui("home.ailmentsLead", lang)}
           </p>
         </div>
       </header>
       <section className="wrap flex flex-col gap-4 py-8 md:py-12">
         <AilmentCards lang={lang} columns="grid-cols-2 md:grid-cols-4" />
-        <p className="text-[16px]" style={{ color: "var(--color-muted)" }}>
+        <p className="body" style={{ color: "var(--color-muted)" }}>
           <Tx>{ui("cta.allAilments", lang)}</Tx>{" "}
           <Link href={href("contact", lang)}>{ui("nav.contact", lang)}</Link>
         </p>
@@ -50,7 +50,7 @@ export function BatchesPage({ lang }: { lang: Lang }) {
       <header style={{ background: "linear-gradient(180deg, var(--color-sky) 0%, var(--color-ivory) 100%)" }}>
         <div className="wrap flex flex-col gap-2.5 py-8 md:py-12">
           <h1 className="page-title">{ui("batches.title", lang)}</h1>
-          <p className="lead max-w-[62ch]" style={{ color: "var(--color-heroink)" }}>
+          <p className="body max-w-[62ch]" style={{ color: "var(--color-heroink)" }}>
             <Tx>{ui("batches.lead", lang)}</Tx>
           </p>
         </div>
@@ -59,13 +59,15 @@ export function BatchesPage({ lang }: { lang: Lang }) {
       {(["group", "private", "workshop"] as const).map((type) => {
         const list = batches.filter((b) => b.type === type);
         if (list.length === 0) return null;
+        const shared = sharedSession(list, lang);
         return (
           <section key={type} className="wrap flex flex-col gap-4 py-6 md:py-9">
             <h2 className="h2">{groups[type]}</h2>
+            {shared ? <SharedSession rows={shared} lang={lang} /> : null}
             <ul className={`grid gap-2.5 md:gap-5 ${type === "group" ? "md:grid-cols-2" : ""}`}>
               {list.map((b) => (
                 <li key={b.id}>
-                  <BatchCard batch={b} lang={lang} page={page} />
+                  <BatchCard batch={b} lang={lang} page={page} hideSession={Boolean(shared)} />
                 </li>
               ))}
             </ul>
@@ -111,7 +113,7 @@ export function LegalPage({
           <section key={i} className="flex flex-col gap-2">
             <h2 className="h3">{s.heading}</h2>
             {s.body.map((p, j) => (
-              <p key={j} className="text-[16px] leading-relaxed md:text-[17px]">
+              <p key={j} className="body">
                 <Tx>{p}</Tx>
               </p>
             ))}
@@ -133,8 +135,8 @@ export function NotFoundPage({ lang }: { lang: Lang }) {
     <SiteShell lang={lang} routeKey="home">
       <section className="wrap flex flex-col gap-4 py-12 md:py-20">
         <h1 className="page-title">{ui("notFound.title", lang)}</h1>
-        <p className="lead max-w-[62ch]">{ui("notFound.lead", lang)}</p>
-        <p className="text-[16px]" style={{ color: "var(--color-muted)" }}>
+        <p className="body max-w-[62ch]">{ui("notFound.lead", lang)}</p>
+        <p className="body" style={{ color: "var(--color-muted)" }}>
           {ui("notFound.title", lang === "hi" ? "en" : "hi")}{" "}
           <Link href={href("home", lang === "hi" ? "en" : "hi")}>
             {ui("notFound.english", lang)}

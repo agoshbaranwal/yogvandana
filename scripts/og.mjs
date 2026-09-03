@@ -69,12 +69,12 @@ function html(lang, list) {
   return `<!doctype html><html lang="${lang}"><head><meta charset="utf-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Martel:wght@700;800&family=Mukta:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Montserrat:wght@400;600;800&display=swap">
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;background:#fff}
 .card{width:${W}px;height:${H}px;position:relative;overflow:hidden;background:#FBF8F1;
-  font-family:Mukta,sans-serif;color:#231A12}
+  font-family:${lang === "en" ? '"Montserrat","Baloo 2",sans-serif' : '"Baloo 2",sans-serif'};color:#231A12}
 .sky{position:absolute;inset:0 0 auto 0;height:180px;
   background:linear-gradient(180deg,#DDEBF5 0%,#FBE7CF 60%,#FF9933 100%)}
 .card::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;background:#FF9933}
@@ -83,16 +83,16 @@ html,body{margin:0;padding:0;background:#fff}
 /* The title sits between the dawn band and the footer rule: an auto margin
    above the title and above the footer splits the free space evenly, instead
    of pinning everything to the bottom edge. */
-.brand{position:absolute;top:44px;left:64px;font-family:Martel,serif;font-weight:800;font-size:34px;line-height:1.2}
+.brand{position:absolute;top:44px;left:64px;font-weight:800;font-size:34px;line-height:1.2;word-spacing:0.16em}
 .brand span{color:#A05000}
-h1{font-family:"Baloo 2",sans-serif;font-weight:800;font-size:62px;line-height:1.12;margin:auto 0 0;
+h1{font-weight:800;font-size:62px;line-height:1.12;margin:auto 0 0;
   letter-spacing:-0.01em;max-width:15ch}
 .kick{margin:0;font-size:24px;line-height:1.5;color:#6E5F4E;max-width:44ch;
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .foot{display:flex;justify-content:space-between;align-items:baseline;gap:24px;
   border-top:1px solid #E4D9C7;padding-top:18px;margin-top:auto}
 .who{font-size:21px;color:#231A12;font-weight:600}
-.motto{font-family:Martel,serif;font-weight:700;font-size:21px;color:#A05000;white-space:nowrap}
+.motto{font-weight:600;font-size:21px;color:#A05000;white-space:nowrap}
 </style></head><body>${body}</body></html>`;
 }
 
@@ -120,9 +120,9 @@ const iconPage = path.join(tmp, "icon.html");
 fs.writeFileSync(
   iconPage,
   `<!doctype html><meta charset="utf-8">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martel:wght@800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&display=swap">
 <style>html,body{margin:0}div{width:512px;height:512px;background:#FF9933;display:flex;
-align-items:center;justify-content:center;font-family:Martel,serif;font-weight:800;
+align-items:center;justify-content:center;font-family:"Baloo 2",sans-serif;font-weight:800;
 font-size:210px;color:#231A12;line-height:1;padding-top:18px;box-sizing:border-box}</style>
 <div>योग</div>`,
 );

@@ -14,8 +14,8 @@ export default function Header({
   switchLabel,
   switchTitle,
   switchHref,
-  trialLabel,
-  trialHref,
+  talkLabel,
+  talkHref,
   menuLabel,
   closeLabel,
   studentsLabel,
@@ -31,8 +31,8 @@ export default function Header({
   switchLabel: string;
   switchTitle: string;
   switchHref: string;
-  trialLabel: string;
-  trialHref: string;
+  talkLabel: string;
+  talkHref: string;
   menuLabel: string;
   closeLabel: string;
   studentsLabel: string;
@@ -98,7 +98,7 @@ export default function Header({
       <div className="wrap flex items-center justify-between gap-4 py-2.5 md:py-3">
         <Link
           href={home}
-          className="brand inline-block py-2 text-[24px] no-underline md:text-[28px]"
+          className="brand inline-block py-2 no-underline h2"
           style={{ color: "var(--color-kohl)" }}
         >
           <span style={{ color: onDawn ? "var(--color-deep)" : "var(--color-bhagwa)" }}>
@@ -113,7 +113,7 @@ export default function Header({
               key={item.href}
               href={item.href}
               aria-current={item.active ? "page" : undefined}
-              className="tap text-[17px] font-semibold no-underline"
+              className="tap font-semibold no-underline body"
               style={{ color: item.active ? "var(--color-deep)" : "var(--color-kohl)" }}
             >
               {item.label}
@@ -124,18 +124,18 @@ export default function Header({
             title={switchTitle}
             data-ev="language_switch"
             data-ev-to={switchLabel}
-            className="inline-flex min-h-[44px] items-center rounded-full border px-3.5 text-[14px] font-semibold no-underline"
+            className="inline-flex min-h-[44px] items-center rounded-full border px-3.5 font-semibold no-underline cap"
             style={{ borderColor: "var(--color-kohl)", color: "var(--color-kohl)" }}
           >
             {switchLabel}
           </Link>
           <Link
-            href={trialHref}
-            data-ev="trial_cta"
+            href={talkHref}
+            data-ev="talk_cta"
             data-ev-source="header"
             className={`btn btn-sm ${onDawn ? "btn-dark" : "btn-primary"}`}
           >
-            {trialLabel}
+            {talkLabel}
           </Link>
         </nav>
 
@@ -145,7 +145,7 @@ export default function Header({
             title={switchTitle}
             data-ev="language_switch"
             data-ev-to={switchLabel}
-            className="inline-flex min-h-[44px] items-center rounded-full border px-3 text-[13px] font-semibold no-underline"
+            className="inline-flex min-h-[44px] items-center rounded-full border px-3 font-semibold no-underline cap"
             style={{ borderColor: "var(--color-kohl)", color: "var(--color-kohl)" }}
           >
             {switchLabel}
@@ -173,7 +173,7 @@ export default function Header({
           className="fixed inset-0 z-50 flex flex-col bg-ivory lg:hidden"
         >
           <div className="wrap flex items-center justify-between gap-4 py-2.5">
-            <span className="brand text-[24px]">
+            <span className="brand h2">
               <span style={{ color: "var(--color-bhagwa)" }}>{brandHi}</span> {brandTail}
             </span>
             <button
@@ -204,20 +204,20 @@ export default function Header({
             <Link
               href={studentsHref}
               onClick={() => setOpen(false)}
-              className="border-b border-rule py-3.5 text-[16px] font-bold no-underline"
+              className="border-b border-rule py-3.5 font-bold no-underline body"
               style={{ color: "var(--color-deep)" }}
             >
               {studentsLabel}
             </Link>
             <div className="mt-5 flex flex-col gap-2.5">
               <Link
-                href={trialHref}
+                href={talkHref}
                 onClick={() => setOpen(false)}
-                data-ev="trial_cta"
+                data-ev="talk_cta"
                 data-ev-source="menu"
                 className="btn btn-primary w-full"
               >
-                {trialLabel}
+                {talkLabel}
               </Link>
               <a
                 href={whatsappHref}

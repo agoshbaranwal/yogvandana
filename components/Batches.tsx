@@ -53,14 +53,46 @@ export function BatchRow({
   );
 }
 
+/* Every group batch runs to the same shape — ten minutes of warm-up, thirty of
+   asana, ten of breath. Printed on each card it is the same paragraph charged
+   to the reader three times, so it is said once above them instead. */
+export function sharedSession(list: Batch[], lang: Lang): string[] | null {
+  const withRows = list.filter((b) => b.session.length > 0);
+  if (withRows.length < 2) return null;
+  const first = withRows[0].session.map((r) => t(r, lang));
+  const same = withRows.every(
+    (b) =>
+      b.session.length === first.length &&
+      b.session.every((r, i) => t(r, lang) === first[i]),
+  );
+  return same ? first : null;
+}
+
+export function SharedSession({ rows, lang }: { rows: string[]; lang: Lang }) {
+  return (
+    <div className="flex flex-col gap-1">
+      <p className="label">{ui("batches.inSession", lang)}</p>
+      <ul className="ml-5 flex list-disc flex-wrap gap-x-8 gap-y-0.5 body">
+        {rows.map((row, i) => (
+          <li key={i}>
+            <Tx>{row}</Tx>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export function BatchCard({
   batch,
   lang,
   page,
+  hideSession = false,
 }: {
   batch: Batch;
   lang: Lang;
   page: string;
+  hideSession?: boolean;
 }) {
   const money = `₹${batch.price}`;
   const perDay = batch.perDay
@@ -84,7 +116,7 @@ export function BatchCard({
         </p>
         {t(batch.nextStart, lang).trim() !== "" ? (
           <span
-            className="rounded-full px-2.5 py-1 text-[12px] font-bold"
+            className="rounded-full px-2.5 py-1 font-bold cap"
             style={{ background: "var(--color-apricot)" }}
           >
             {ui("batches.nextStart", lang)} <Tx>{t(batch.nextStart, lang)}</Tx>
@@ -92,7 +124,7 @@ export function BatchCard({
         ) : null}
         {batch.seats ? (
           <span
-            className="rounded-full px-2.5 py-1 text-[12px] font-bold"
+            className="rounded-full px-2.5 py-1 font-bold cap"
             style={{ background: "var(--color-apricot)" }}
           >
             <Tx>{batch.seats}</Tx> {ui("batches.seats", lang)}
@@ -100,22 +132,22 @@ export function BatchCard({
         ) : null}
       </div>
 
-      <p className="h3 text-[21px] md:text-[24px]">
+      <p className="h3">
         <Tx>{batch.type === "workshop" ? t(batch.name, lang) : t(batch.when, lang)}</Tx>
       </p>
-      <p className="text-[16px]" style={{ color: "var(--color-muted)" }}>
+      <p className="body" style={{ color: "var(--color-muted)" }}>
         <Tx>{t(batch.level, lang)}</Tx>
       </p>
       {t(batch.note, lang).trim() !== "" ? (
-        <p className="text-[16px] leading-relaxed" style={{ color: "var(--color-muted)" }}>
+        <p className="body" style={{ color: "var(--color-muted)" }}>
           <Tx>{t(batch.note, lang)}</Tx>
         </p>
       ) : null}
 
-      {batch.session.length > 0 ? (
+      {batch.session.length > 0 && !hideSession ? (
         <div className="flex flex-col gap-1">
           <p className="label">{ui("batches.inSession", lang)}</p>
-          <ul className="ml-5 list-disc text-[16px] leading-relaxed">
+          <ul className="ml-5 list-disc body">
             {batch.session.map((row, i) => (
               <li key={i}>
                 <Tx>{t(row, lang)}</Tx>
@@ -126,9 +158,9 @@ export function BatchCard({
       ) : null}
 
       <div className="mt-1 flex flex-wrap items-center justify-between gap-3 border-t border-rule pt-3">
-        <p className="num text-[22px] md:text-[24px]">
+        <p className="num h3">
           <Tx>{money}</Tx>{" "}
-          <span className="text-[14px] font-semibold" style={{ color: "var(--color-muted)", fontFamily: "var(--font-body)" }}>
+          <span className="font-semibold cap" style={{ color: "var(--color-muted)" }}>
             {t(batch.priceUnit, lang)}
           </span>
         </p>

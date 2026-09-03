@@ -43,21 +43,21 @@ export function StoryCard({
             </span>
           ) : null}
         </p>
-        <blockquote className="text-[16px] leading-relaxed">
+        <blockquote className="body">
           “<Tx>{t(story.quote, lang)}</Tx>”
         </blockquote>
 
         {hasBA ? (
           <div className="grid grid-cols-2 gap-2">
             <div className="rounded-[8px] px-2.5 py-1.5" style={{ background: "var(--color-ivory)" }}>
-              <p className="label text-[11px]">{ui("stories.before", lang)}</p>
-              <p className="text-[15px] font-bold leading-snug">
+              <p className="label">{ui("stories.before", lang)}</p>
+              <p className="font-bold leading-snug cap">
                 <Tx>{t(story.before, lang)}</Tx>
               </p>
             </div>
             <div className="rounded-[8px] px-2.5 py-1.5" style={{ background: "var(--color-apricot)" }}>
-              <p className="label text-[11px]">{ui("stories.after", lang)}</p>
-              <p className="text-[15px] font-bold leading-snug">
+              <p className="label">{ui("stories.after", lang)}</p>
+              <p className="font-bold leading-snug cap">
                 <Tx>{t(story.after, lang)}</Tx>
               </p>
             </div>

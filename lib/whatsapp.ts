@@ -4,7 +4,7 @@ import type { Lang } from "./routes";
    naming the page the visitor came from and, where the page has one, the
    ailment. She then knows why they are writing before she says hello. */
 
-export type MsgKind = "trial" | "batch" | "private" | "workshop" | "general" | "students";
+export type MsgKind = "talk" | "batch" | "private" | "workshop" | "general" | "students";
 
 export function waMessage(opts: {
   lang: Lang;
@@ -24,12 +24,12 @@ export function waMessage(opts: {
     parts.push(hi ? `मुझे ${ailment} है।` : `I have ${ailment}.`);
   }
 
-  if (kind === "trial") {
-    const when = time ? (hi ? `${time} के` : `the ${time}`) : hi ? "" : "a";
+  if (kind === "talk") {
+    const when = time ? (hi ? `${time} के बैच` : `the ${time} batch`) : hi ? "क्लास" : "your classes";
     parts.push(
       hi
-        ? `${when} फ़्री ट्रायल के लिए बात करना चाहता/चाहती हूँ।`
-        : `I would like to book ${when} free trial class.`,
+        ? `${when} के बारे में बात करनी है।`
+        : `I would like to talk about ${when}.`,
     );
   } else if (kind === "batch") {
     parts.push(

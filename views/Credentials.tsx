@@ -31,7 +31,7 @@ function Verify({
         href={credential.verifyUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className={small ? "tap text-[15px] font-bold" : undefined}
+        className={small ? "tap cap font-bold" : undefined}
       >
         {t(credential.verifyLabel, lang)}
       </a>
@@ -69,7 +69,7 @@ export default function Credentials({ lang }: { lang: Lang }) {
             {ui("credentials.eyebrow", lang)}
           </p>
           <h1 className="page-title">{ui("credentials.title", lang)}</h1>
-          <p className="lead max-w-[62ch]" style={{ color: "var(--color-heroink)" }}>
+          <p className="body max-w-[62ch]" style={{ color: "var(--color-heroink)" }}>
             {ui("credentials.lead", lang)}
           </p>
         </div>
@@ -78,7 +78,7 @@ export default function Credentials({ lang }: { lang: Lang }) {
       {/* the register: a table on a desktop, cards on a phone ------------- */}
       <section className="wrap py-7 md:py-11">
         <div className="hidden overflow-x-auto md:block">
-          <table className="w-full border-collapse overflow-hidden rounded-[14px] text-[16px]">
+          <table className="w-full border-collapse overflow-hidden rounded-[14px] body">
             <thead>
               <tr>
                 {cols.map((c) => (
@@ -155,14 +155,12 @@ export default function Credentials({ lang }: { lang: Lang }) {
       <section style={{ background: "var(--color-sandal)" }}>
         <div className="wrap grid gap-8 py-9 md:grid-cols-2 md:gap-12 md:py-12">
           <div className="card flex flex-col gap-3">
-            <h2 className="h2 text-[26px]">{ui("credentials.experience", lang)}</h2>
+            <h2 className="h2">{ui("credentials.experience", lang)}</h2>
             <ul className="flex flex-col">
               {experience.map((e, i) => (
                 <li
                   key={e.id}
-                  className={`grid grid-cols-[1.4fr_1fr_0.7fr] gap-3 border-t border-rule py-3 text-[16px] ${
-                    i === experience.length - 1 ? "border-b" : ""
-                  }`}
+                  className={`grid grid-cols-[1.4fr_1fr_0.7fr] gap-3 border-t border-rule py-3 ${ i === experience.length - 1 ? "border-b" : "" } body`}
                 >
                   <span className="font-bold">
                     <Tx>{t(e.institution, lang)}</Tx>
@@ -178,14 +176,12 @@ export default function Credentials({ lang }: { lang: Lang }) {
             </ul>
           </div>
           <div className="card flex flex-col gap-3">
-            <h2 className="h2 text-[26px]">{ui("credentials.memberships", lang)}</h2>
+            <h2 className="h2">{ui("credentials.memberships", lang)}</h2>
             <ul className="flex flex-col">
               {memberships.map((m, i) => (
                 <li
                   key={m.id}
-                  className={`grid grid-cols-[1.4fr_1fr] gap-3 border-t border-rule py-3 text-[16px] ${
-                    i === memberships.length - 1 ? "border-b" : ""
-                  }`}
+                  className={`grid grid-cols-[1.4fr_1fr] gap-3 border-t border-rule py-3 ${ i === memberships.length - 1 ? "border-b" : "" } body`}
                 >
                   <span className="font-bold">
                     <Tx>{t(m.body, lang)}</Tx>

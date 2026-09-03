@@ -4,6 +4,7 @@ import { waHref, waMessage } from "@/lib/whatsapp";
 import Analytics from "./Analytics";
 import Footer from "./Footer";
 import Header from "./Header";
+import Motion from "./Motion";
 import StickyCta from "./StickyCta";
 
 export default function SiteShell({
@@ -31,7 +32,7 @@ export default function SiteShell({
     site.contact.whatsapp,
     waMessage({
       lang,
-      kind: "trial",
+      kind: "talk",
       ailment: ailmentName,
       page: absolute(href(routeKey, lang, slug)),
     }),
@@ -50,8 +51,8 @@ export default function SiteShell({
         switchLabel={ui("nav.switch", lang)}
         switchTitle={ui("nav.switchLabel", lang)}
         switchHref={href(routeKey, lang === "hi" ? "en" : "hi", slug)}
-        trialLabel={ui("cta.trial", lang)}
-        trialHref={`${href(routeKey, lang, slug)}#booking-band`}
+        talkLabel={ui("cta.talk", lang)}
+        talkHref={`${href(routeKey, lang, slug)}#booking-band`}
         menuLabel={ui("nav.menu", lang)}
         closeLabel={ui("nav.close", lang)}
         studentsLabel={ui("nav.students", lang)}
@@ -64,10 +65,11 @@ export default function SiteShell({
         {children}
       </main>
       <Footer lang={lang} />
+      <Motion />
       <StickyCta
         label={ui("cta.whatsapp", lang)}
         href={wa}
-        freeLabel={ui("band.title", lang)}
+        noteLabel={ui("band.title", lang)}
       />
       <Analytics id={site.analyticsId} />
     </>

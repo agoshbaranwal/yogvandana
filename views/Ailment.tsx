@@ -64,7 +64,7 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
       >
         <div className="wrap grid gap-5 py-6 md:grid-cols-2 md:gap-12 md:py-10">
           <div className="flex flex-col gap-3">
-            <nav aria-label="breadcrumb" className="flex items-center gap-2 text-[14px]">
+            <nav aria-label="breadcrumb" className="flex items-center gap-2 cap">
               <Link href={href("ailments", lang)} className="tap" style={{ color: "var(--color-muted)" }}>
                 {ui("cta.backToAilments", lang)}
               </Link>
@@ -90,21 +90,21 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
             <p className="cap">
               {ui("ailment.countLine", lang)} <Tx>{counts}</Tx>
             </p>
-            <p className="h3 text-[22px] md:text-[26px]" style={{ color: "var(--color-deep)" }}>
+            <p className="h3" style={{ color: "var(--color-deep)" }}>
               {t(ailment.claimLine, lang)}
             </p>
-            <p className="text-[17px] leading-relaxed md:text-[18px]" style={{ color: "var(--color-heroink)" }}>
+            <p className="body" style={{ color: "var(--color-heroink)" }}>
               <Tx>{t(ailment.intro, lang)}</Tx>
             </p>
             <div className="flex flex-col items-start gap-2">
               <Link
                 href="#booking-band"
-                data-ev="trial_cta"
+                data-ev="talk_cta"
                 data-ev-source="ailment-header"
                 data-ev-slug={ailment.slug}
                 className="btn btn-primary w-full sm:w-auto"
               >
-                {ui("cta.trial", lang)}
+                {ui("cta.talk", lang)}
               </Link>
               <ShareLink
                 label={ui("cta.sharePage", lang)}
@@ -116,38 +116,38 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
           </div>
 
           <div className="flex flex-col gap-2">
-            <h2 className="h3 md:text-[24px]">{ui("ailment.slipTitle", lang)}</h2>
+            <h2 className="h3">{ui("ailment.slipTitle", lang)}</h2>
             <Slip lang={lang} ailment={ailment} />
             <p className="cap">{ui("ailment.slipNote", lang)}</p>
           </div>
         </div>
       </header>
 
-      {/* what the first class is ---------------------------------------- */}
-      <section className="wrap flex flex-col gap-3 py-8 md:py-11">
+      {/* one section, not two: the first class, then how a class runs --- */}
+      <section className="wrap flex flex-col gap-4 py-8 md:py-11">
         <h2 className="h2">{ui("ailment.firstClassTitle", lang)}</h2>
-        <ul className="card flex flex-col gap-2 md:max-w-[70ch]">
-          {ailment.firstClass.map((row, i) => (
-            <li key={i} className="text-[16px] leading-relaxed md:text-[17px]">
-              <strong>
-                <Tx>{t(row.strong, lang)}</Tx>
-              </strong>
-              <Tx>{t(row.rest, lang)}</Tx>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      {/* what happens in class ------------------------------------------ */}
-      <section className="wrap flex flex-col gap-3 pb-8 md:pb-11">
-        <h2 className="h2">{ui("ailment.classTitle", lang)}</h2>
-        <ul className="ml-5 flex list-disc flex-col gap-1.5 text-[16px] leading-relaxed md:max-w-[70ch] md:text-[17px]">
-          {ailment.classNotes.map((note, i) => (
-            <li key={i}>
-              <Tx>{t(note, lang)}</Tx>
-            </li>
-          ))}
-        </ul>
+        <div className="grid gap-4 md:grid-cols-2 md:gap-8">
+          <ul className="card flex flex-col gap-2">
+            {ailment.firstClass.map((row, i) => (
+              <li key={i} className="body">
+                <strong>
+                  <Tx>{t(row.strong, lang)}</Tx>
+                </strong>
+                <Tx>{t(row.rest, lang)}</Tx>
+              </li>
+            ))}
+          </ul>
+          <div className="flex flex-col gap-2">
+            <p className="label">{ui("ailment.classTitle", lang)}</p>
+            <ul className="ml-5 flex list-disc flex-col gap-1.5 body">
+              {ailment.classNotes.map((note, i) => (
+                <li key={i}>
+                  <Tx>{t(note, lang)}</Tx>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </section>
 
       {/* students with the same condition -------------------------------- */}
@@ -166,7 +166,7 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
               ))}
             </ul>
           ) : (
-            <p className="text-[16px]" style={{ color: "var(--color-muted)" }}>
+            <p className="body" style={{ color: "var(--color-muted)" }}>
               {ui("ailment.noStories", lang)}
             </p>
           )}

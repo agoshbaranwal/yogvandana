@@ -21,7 +21,7 @@ export default function Gallery({ lang }: { lang: Lang }) {
       <header style={{ background: "linear-gradient(180deg, var(--color-sky) 0%, var(--color-ivory) 100%)" }}>
         <div className="wrap flex flex-col gap-2.5 py-8 md:py-12">
           <h1 className="page-title">{ui("gallery.title", lang)}</h1>
-          <p className="lead max-w-[62ch]" style={{ color: "var(--color-heroink)" }}>
+          <p className="body max-w-[62ch]" style={{ color: "var(--color-heroink)" }}>
             {ui("gallery.lead", lang)}
           </p>
         </div>

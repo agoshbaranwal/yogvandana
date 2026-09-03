@@ -58,9 +58,9 @@
     }
   },
   "cta": {
-    "trial": {
-      "hi": "फ़्री ट्रायल बुक करें",
-      "en": "Book a free trial"
+    "talk": {
+      "hi": "वंदना जी से बात करें",
+      "en": "Talk to Vandana"
     },
     "chooseAilment": {
       "hi": "अपनी तकलीफ़ चुनें",
@@ -131,8 +131,8 @@
       "en": "All stories, by condition"
     },
     "nextStory": {
-      "hi": "अगली कहानी आपकी: फ़्री ट्रायल बुक करें",
-      "en": "The next story could be yours: book a free trial"
+      "hi": "अगली कहानी आपकी: वंदना जी से बात करें",
+      "en": "The next story could be yours: talk to Vandana"
     },
     "allAilments": {
       "hi": "और भी: गर्दन, अस्थमा, साइनस, कब्ज़, गठिया",
@@ -173,36 +173,36 @@
       "en": "What is troubling you?"
     },
     "ailmentsLead": {
-      "hi": "अपनी समस्या चुनिए। हर एक के लिए अलग अभ्यास, अलग पर्ची, और उसी तकलीफ़ वाले विद्यार्थियों की कहानियाँ।",
-      "en": "Pick your problem. Each one has its own practice, its own slip, and stories from students who had the same thing."
+      "hi": "हर एक का अपना अभ्यास, अपनी पर्ची, और उन्हीं लोगों की कहानियाँ।",
+      "en": "Each one has its own practice, its own slip, and stories from people who had it."
     },
     "stepsTitle": {
-      "hi": "कैसे शुरू करें",
-      "en": "How to start"
+      "hi": "कैसे शुरू होता है",
+      "en": "How it starts"
     },
     "step1": {
-      "hi": "व्हाट्सऐप पर बुक करें",
-      "en": "Book on WhatsApp"
+      "hi": "व्हाट्सऐप पर लिखिए",
+      "en": "Write on WhatsApp"
     },
     "step1sub": {
       "hi": "अपनी तकलीफ़ लिखिए, जवाब [एक दिन] में",
       "en": "Tell her what troubles you; a reply in [a day]"
     },
     "step2": {
-      "hi": "फ़्री क्लास लीजिए",
-      "en": "Take the free class"
+      "hi": "वंदना जी से बात कीजिए",
+      "en": "Talk to Vandana"
     },
     "step2sub": {
-      "hi": "[30] मिनट लाइव, फिर वंदना जी से [10] मिनट बात",
-      "en": "[30] minutes live, then [10] minutes with her"
+      "hi": "[10] मिनट, बिना शुल्क: तकलीफ़, दवा, और कौन सा बैच",
+      "en": "[10] minutes, no fee: your trouble, your medicine, which batch"
     },
     "step3": {
       "hi": "बैच में जुड़ें",
       "en": "Join a batch"
     },
     "step3sub": {
-      "hi": "रोज़ [30] मिनट, छोटे ग्रुप में, पर्ची के साथ",
-      "en": "[30] minutes a day, small group, with your slip"
+      "hi": "रोज़ [30] मिनट, छोटे ग्रुप में, अपनी पर्ची के साथ",
+      "en": "[30] minutes a day, small group, with your own slip"
     },
     "resultsTitle": {
       "hi": "ऐसे ठीक हुए",
@@ -213,12 +213,12 @@
       "en": "Your day, with yoga in it"
     },
     "slipTitle": {
-      "hi": "हर रोग की अपनी पर्ची",
-      "en": "Every condition gets its own slip"
+      "hi": "आप अपनी पर्ची लेकर जाते हैं",
+      "en": "You leave with your own slip"
     },
     "slipLead": {
-      "hi": "क्लास में जो सिखाया जाता है, वही आपकी पर्ची पर: रोज़ का अभ्यास, समय, बैच, और कब जाँच।",
-      "en": "What is taught in class goes onto your slip: the daily practice, the time, the batch, and when to review."
+      "hi": "क्लास में जो वंदना जी सिखाती हैं वही आपकी पर्ची पर लिखा जाता है — रोज़ का अभ्यास, समय, और कब जाँच। फ़्रिज पर चिपका लीजिए।",
+      "en": "What she teaches you is written onto your slip — the daily practice, the time, and when to review. Stick it on the fridge."
     },
     "batchesTitle": {
       "hi": "बैच",
@@ -229,8 +229,8 @@
       "en": "People often ask"
     },
     "heroLead": {
-      "hi": "रोज़ सुबह, वंदना बरनवाल के साथ, अपने घर से। छोटे ग्रुप, ज़ूम पर। पहली क्लास मुफ़्त।",
-      "en": "Every morning with Vandana Baranwal, from your home. Small groups on Zoom. Your first class is free."
+      "hi": "रोज़ सुबह, वंदना बरनवाल के साथ, अपने घर से। छोटे ग्रुप, ज़ूम पर।",
+      "en": "Every morning with Vandana Baranwal, from your home. Small groups on Zoom."
     },
     "googleLine": {
       "hi": "Google पर",
@@ -263,16 +263,40 @@
     "certsTitle": {
       "hi": "प्रमाणपत्र, हर एक जाँचने योग्य",
       "en": "Certificates, each one verifiable"
+    },
+    "recordTitle": {
+      "hi": "उनका पूरा रिकॉर्ड",
+      "en": "Her full record"
+    },
+    "recordCerts": {
+      "hi": "प्रमाणपत्र, हर एक की जाँच के लिंक के साथ",
+      "en": "Certificates, each with a link to check it"
+    },
+    "recordEvents": {
+      "hi": "सम्मान, पुरस्कार और मुख्य अतिथि के कार्यक्रम",
+      "en": "Awards, honours and guest-of-honour events"
+    },
+    "recordPhotos": {
+      "hi": "क्लास, शिविर और मंच की तस्वीरें",
+      "en": "Photos from classes, camps and the stage"
+    },
+    "whoTitle": {
+      "hi": "सिखाती कौन हैं",
+      "en": "Who teaches you"
+    },
+    "stepsNote": {
+      "hi": "बात करने का कोई शुल्क नहीं। फ़ीस तभी, जब आप बैच में जुड़ें।",
+      "en": "Talking costs nothing. The fee starts only when you join a batch."
     }
   },
   "band": {
     "title": {
-      "hi": "पहली क्लास मुफ़्त है।",
-      "en": "Your first class is free."
+      "hi": "पहले बात कीजिए। बिना शुल्क।",
+      "en": "Talk to her first. No fee for that."
     },
     "lead": {
-      "hi": "[30] मिनट की लाइव क्लास, फिर वंदना जी से [10] मिनट आपकी तकलीफ़ पर बात। कोई शुल्क नहीं, कोई दबाव नहीं।",
-      "en": "A [30] minute live class, then [10] minutes with her about what troubles you. No fee, no pressure."
+      "hi": "वंदना जी से [10] मिनट: आपकी तकलीफ़, आपकी दवा, और कौन सा बैच सही रहेगा। इसका कोई शुल्क नहीं। क्लास की फ़ीस बैच में जुड़ने पर।",
+      "en": "[10] minutes with Vandana: what troubles you, what medicine you take, and which batch suits you. That costs nothing. The fee starts when you join a batch."
     },
     "step1": {
       "hi": "1 · आपकी तकलीफ़",
@@ -322,7 +346,7 @@
     },
     "firstClassTitle": {
       "hi": "पहली क्लास में क्या होगा",
-      "en": "What happens in the first class"
+      "en": "What happens in your first class"
     },
     "slipTitle": {
       "hi": "आपकी पर्ची",
@@ -389,8 +413,8 @@
       "en": "Batches and fees"
     },
     "lead": {
-      "hi": "ज़ूम पर लाइव, [N] लोगों के ग्रुप में, ताकि वंदना जी हर किसी को देख सकें। सभी समय IST। पहली क्लास मुफ़्त। घर पर बस एक मैट, थोड़ी जगह और फ़ोन या लैपटॉप।",
-      "en": "Live on Zoom in groups of [N], so she can see everyone. All times IST. The first class is free. At home you need a mat, a little floor space and a phone or laptop."
+      "hi": "ज़ूम पर लाइव, [N] लोगों के ग्रुप में, ताकि वंदना जी हर किसी को देख सकें। सभी समय IST। घर पर बस एक मैट, थोड़ी जगह और फ़ोन या लैपटॉप।",
+      "en": "Live on Zoom in groups of [N], so she can see everyone. All times IST. At home you need a mat, a little floor space and a phone or laptop."
     },
     "group": {
       "hi": "ग्रुप बैच",
@@ -424,13 +448,13 @@
       "hi": "सीटें",
       "en": "seats"
     },
-    "trialTitle": {
-      "hi": "पहली क्लास मुफ़्त है।",
-      "en": "Your first class is free."
+    "talkTitle": {
+      "hi": "पहले बात कीजिए। बिना शुल्क।",
+      "en": "Talk to her first. No fee for that."
     },
-    "trialLead": {
-      "hi": "एक बार आइए, फिर तय कीजिए। बुक करते समय अपनी तकलीफ़ या चोट ज़रूर बताइए।",
-      "en": "Come once, then decide. When you book, do tell her about any condition or injury."
+    "talkLead": {
+      "hi": "जुड़ने से पहले वंदना जी से बात कीजिए। अपनी तकलीफ़ या चोट ज़रूर बताइए — बैच वही तय करती हैं।",
+      "en": "Talk to her before you join. Do tell her about any condition or injury; that is what decides the batch."
     }
   },
   "stories": {
@@ -475,8 +499,8 @@
       "en": "The next story could be yours."
     },
     "nextLead": {
-      "hi": "पहली क्लास मुफ़्त। अपनी तकलीफ़ बताइए, वंदना जी खुद बात करेंगी।",
-      "en": "The first class is free. Tell her what troubles you and she will speak to you herself."
+      "hi": "अपनी तकलीफ़ बताइए। वंदना जी खुद बात करेंगी, बिना शुल्क।",
+      "en": "Tell her what troubles you. She will speak to you herself, and that costs nothing."
     }
   },
   "about": {

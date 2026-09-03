@@ -1,5 +1,6 @@
 import { type Ailment, FAMILY_COLOUR, site, t, ui } from "@/lib/content";
 import type { Lang } from "@/lib/routes";
+import type React from "react";
 import { Photo } from "./Photo";
 import { Tx } from "./Tx";
 
@@ -21,10 +22,10 @@ export function Slip({ lang, ailment }: { lang: Lang; ailment: Ailment }) {
     <div className="slip" style={{ ["--slip-accent" as string]: colour.ink }}>
       <div className="slip-head">
         <div className="flex flex-col gap-0.5">
-          <div className="brand text-[18px] md:text-[22px]">
+          <div className="brand h3">
             <span style={{ color: "var(--color-bhagwa)" }}>योग</span> वंदना
           </div>
-          <p className="text-[12px] md:text-[13px]" style={{ color: "var(--color-muted)" }}>
+          <p className="cap" style={{ color: "var(--color-muted)" }}>
             {t(site.teacher, lang)}, {t(site.credentialShort, lang)} · {t(site.city, lang)}
           </p>
         </div>
@@ -33,11 +34,13 @@ export function Slip({ lang, ailment }: { lang: Lang; ailment: Ailment }) {
         </span>
       </div>
 
-      <dl className="grid grid-cols-[74px_1fr] gap-x-3 gap-y-2 px-3.5 py-3 text-[15px] leading-relaxed md:grid-cols-[100px_1fr] md:gap-y-2.5 md:px-5 md:py-4 md:text-[16px]">
-        {rows.map(([label, value]) => (
+      <dl className="grid grid-cols-[74px_1fr] gap-x-3 gap-y-2 px-3.5 py-3 leading-relaxed md:grid-cols-[100px_1fr] md:gap-y-2.5 md:px-5 md:py-4 cap">
+        {rows.map(([label, value], i) => (
           <div key={label} className="contents">
-            <dt className="label pt-1">{label}</dt>
-            <dd>
+            <dt className="label slip-row pt-1" style={{ "--row": i } as React.CSSProperties}>
+              {label}
+            </dt>
+            <dd className="slip-row" style={{ "--row": i } as React.CSSProperties}>
               <Tx>{value}</Tx>
             </dd>
           </div>

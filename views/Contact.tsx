@@ -20,7 +20,7 @@ export default function Contact({ lang }: { lang: Lang }) {
       <header style={{ background: "linear-gradient(180deg, var(--color-sky) 0%, var(--color-ivory) 100%)" }}>
         <div className="wrap flex flex-col gap-3 py-8 md:py-12">
           <h1 className="page-title">{ui("contact.title", lang)}</h1>
-          <p className="lead max-w-[58ch]" style={{ color: "var(--color-heroink)" }}>
+          <p className="body max-w-[58ch]" style={{ color: "var(--color-heroink)" }}>
             {ui("contact.lead", lang)}
           </p>
           <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
@@ -96,7 +96,7 @@ export default function Contact({ lang }: { lang: Lang }) {
             style={{ background: "var(--color-sky)" }}
           >
             <h2 className="h2">{ui("about.inviteTitle", lang)}</h2>
-            <p className="text-[16px] leading-relaxed md:text-[17px]" style={{ color: "var(--color-heroink)" }}>
+            <p className="body" style={{ color: "var(--color-heroink)" }}>
               {ui("about.inviteLead", lang)}
             </p>
             <a
@@ -113,14 +113,14 @@ export default function Contact({ lang }: { lang: Lang }) {
 
           <section className="flex flex-col gap-2">
             <h2 className="h2">{ui("contact.addressTitle", lang)}</h2>
-            <p className="text-[16px] leading-relaxed md:text-[17px]">
+            <p className="body">
               <Tx>{t(site.contact.address, lang)}</Tx>
             </p>
             <p className="cap">
               <Tx>{ui("contact.addressNote", lang)}</Tx>
             </p>
             {socials.length > 0 ? (
-              <p className="mt-1 flex flex-wrap gap-4 text-[16px] font-bold">
+              <p className="mt-1 flex flex-wrap gap-4 font-bold body">
                 {socials.map((s) => (
                   <a key={s.label} href={s.url} target="_blank" rel="noopener noreferrer">
                     {s.label}

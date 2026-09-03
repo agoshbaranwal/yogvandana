@@ -117,7 +117,7 @@ export const site: Site = one(SiteSchema, "site.json");
 type UiTree = { [k: string]: Text | UiTree };
 const uiRaw = readJson(path.join(ROOT, "ui.json")) as UiTree;
 
-/** ui("cta.trial", lang) — a missing key throws at build, never at run time. */
+/** ui("cta.talk", lang) — a missing key throws at build, never at run time. */
 export function ui(key: string, lang: Lang): string {
   const value = key.split(".").reduce<unknown>((node, part) => {
     if (node && typeof node === "object" && part in (node as object)) {

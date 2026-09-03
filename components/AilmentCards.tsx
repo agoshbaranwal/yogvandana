@@ -40,7 +40,7 @@ export function AilmentCards({
                 <AilmentIcon name={a.icon} size={compact ? 24 : 26} />
               </span>
               <span className="flex flex-col gap-0.5">
-                <span className="h3 text-[20px] md:text-[22px]">{t(a.name, lang)}</span>
+                <span className="h3">{t(a.name, lang)}</span>
                 <span className="cap">{t(a.sub, lang)}</span>
               </span>
             </Link>
@@ -64,12 +64,12 @@ export function AilmentChooser({
     <section id={id} className="wrap flex flex-col gap-4 py-8 md:py-12">
       <div className="flex flex-col gap-1.5">
         <h2 className="h2">{ui("home.ailmentsTitle", lang)}</h2>
-        <p className="max-w-[68ch] text-[16px] leading-relaxed" style={{ color: "var(--color-muted)" }}>
+        <p className="max-w-[68ch] body" style={{ color: "var(--color-muted)" }}>
           {ui("home.ailmentsLead", lang)}
         </p>
       </div>
       <AilmentCards lang={lang} columns={columns} />
-      <Link href={href("ailments", lang)} className="link-strong self-start text-[16px]">
+      <Link href={href("ailments", lang)} className="link-strong self-start body">
         <Tx>{ui("cta.allAilments", lang)}</Tx>
       </Link>
     </section>

@@ -45,7 +45,7 @@ export default function Filter({
         ))}
       </div>
       {shown.length === 0 ? (
-        <p className="text-[16px]" style={{ color: "var(--color-muted)" }}>
+        <p className="body" style={{ color: "var(--color-muted)" }}>
           {emptyLabel}
         </p>
       ) : (

@@ -1,7 +1,14 @@
 import type { SVGProps } from "react";
 
-/* One line-drawn icon per condition, on a 48px grid, stroke only, so every one
-   recolours with its family and stays legible at 26px. */
+/* One drawing per condition, all on the same 48px grid, all stroke-only at the
+   same weight, so a row of them reads as one set and each still recolours with
+   its family.
+
+   These were redrawn on 3 September 2026. The first set were shapes that
+   suggested the idea to whoever drew them and to nobody else: the knee was an
+   assembly of lines, the thyroid had a stroke running the whole height of the
+   figure, and the spine was a squiggle with three pills beside it. Each one
+   here is built from the thing itself. */
 
 type P = SVGProps<SVGSVGElement> & { size?: number };
 
@@ -13,7 +20,7 @@ function S({ size = 28, children, ...rest }: P) {
       viewBox="0 0 48 48"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2.4}
+      strokeWidth={2.2}
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
@@ -26,61 +33,68 @@ function S({ size = 28, children, ...rest }: P) {
 }
 
 export const AILMENT_ICONS: Record<string, (p: P) => React.ReactElement> = {
+  /* कमर दर्द — five vertebrae down a lumbar curve, each with its process */
   spine: (p) => (
     <S {...p}>
-      <path d="M24 4c-4 4-4 8 0 12s4 8 0 12-4 8 0 12 4 4 0 8" />
-      <rect x="19" y="9" width="10" height="5" rx="2.5" />
-      <rect x="19" y="21" width="10" height="5" rx="2.5" />
-      <rect x="19" y="33" width="10" height="5" rx="2.5" />
+      <path d="M25.5 5.5c-2.6 3.4-3.4 7.2-2.4 11.4 1 4.2.8 8-.6 11.4-1.2 3-1.3 6.2-.3 9.6l1.3 4.6" />
+      <path d="M20.6 11.2h8.6" />
+      <path d="M20.2 18.6h9" />
+      <path d="M19.6 26h9" />
+      <path d="M19.8 33.4h8.8" />
     </S>
   ),
+  /* घुटने का दर्द — thigh bone, kneecap, shin, foot */
   knee: (p) => (
     <S {...p}>
-      <path d="M18 4v14a6 6 0 0 0 6 6h4" />
-      <path d="M14 44l6-16" />
-      <circle cx="22" cy="24" r="5" />
-      <path d="M30 24l10 2" />
-      <path d="M34 44l-4-14" />
+      <path d="M16.5 5v10.6c0 3 .9 5.3 3 7" />
+      <circle cx="24.5" cy="24.5" r="5.5" />
+      <path d="M28.6 28.6c1.6 1.8 2.4 3.8 2.4 6V43" />
+      <path d="M26.5 43h10" />
     </S>
   ),
+  /* शुगर — a blood drop, with the light on its shoulder */
   sugar: (p) => (
     <S {...p}>
-      <path d="M24 5s-12 14-12 22a12 12 0 0 0 24 0c0-8-12-22-12-22z" />
-      <path d="M18 30a6 6 0 0 0 6 6" />
+      <path d="M24 5.5c0 0-12.5 13.7-12.5 21.8A12.5 12.5 0 0 0 36.5 27.3C36.5 19.2 24 5.5 24 5.5z" />
+      <path d="M17.6 28.2a6.4 6.4 0 0 0 6.4 6.4" />
     </S>
   ),
+  /* बीपी — the heart, and the reading it gives, side by side not on top */
   heart: (p) => (
     <S {...p}>
-      <path d="M24 42S8 32 8 19a8 8 0 0 1 16-4 8 8 0 0 1 16 4c0 13-16 23-16 23z" />
-      <path d="M10 24h8l3-6 4 12 3-6h10" />
+      <path d="M24 30.5s-11.5-7.4-11.5-14.2A5.8 5.8 0 0 1 24 13.4a5.8 5.8 0 0 1 11.5 2.9C35.5 23.1 24 30.5 24 30.5z" />
+      <path d="M7 38.5h7.5l2.6-5 4.4 10 2.8-5H41" />
     </S>
   ),
+  /* थायराइड — the gland's two lobes joined at the isthmus, under the throat */
   thyroid: (p) => (
     <S {...p}>
-      <path d="M24 14c-3-7-12-9-16-4s-1 13 6 17c6 3 10 0 10-3" />
-      <path d="M24 14c3-7 12-9 16-4s1 13-6 17c-6 3-10 0-10-3" />
-      <path d="M24 8v32" />
+      <path d="M23 17.5c-2.6-3.6-7-4.8-10.2-2.2-3.6 3-3.4 10.4.4 14.6 2.8 3.2 6.8 3 8.6-.4 1-1.9 1.4-4.4 1.4-7z" />
+      <path d="M25 17.5c2.6-3.6 7-4.8 10.2-2.2 3.6 3 3.4 10.4-.4 14.6-2.8 3.2-6.8 3-8.6-.4-1-1.9-1.4-4.4-1.4-7z" />
+      <path d="M21.5 24h5" />
     </S>
   ),
+  /* मोटापा — a bathroom scale, seen from above */
   weight: (p) => (
     <S {...p}>
-      <rect x="8" y="10" width="32" height="30" rx="4" />
-      <path d="M14 22a10 10 0 0 1 20 0" />
-      <path d="M24 22l4-5" />
-      <path d="M12 34h24" />
+      <rect x="8" y="8" width="32" height="32" rx="6.5" />
+      <path d="M14.5 30.5a9.5 9.5 0 0 1 19 0" />
+      <path d="M24 30.5l6.5-7" />
     </S>
   ),
+  /* नींद और तनाव — the crescent, and one star to say it is night */
   moon: (p) => (
     <S {...p}>
-      <path d="M40 28a16 16 0 1 1-20-20 14 14 0 0 0 20 20z" />
-      <path d="M30 8l1.5 3 3 1.5-3 1.5-1.5 3-1.5-3-3-1.5 3-1.5z" />
+      <path d="M39 28.5A15.5 15.5 0 1 1 19.5 9a12.4 12.4 0 0 0 19.5 19.5z" />
+      <path d="M33 8.5l1.4 3.1 3.1 1.4-3.1 1.4-1.4 3.1-1.4-3.1-3.1-1.4 3.1-1.4z" />
     </S>
   ),
+  /* महिलाओं की समस्याएँ — the sign, drawn to the same grid as the rest */
   women: (p) => (
     <S {...p}>
-      <circle cx="24" cy="17" r="10" />
-      <path d="M24 27v16" />
-      <path d="M17 37h14" />
+      <circle cx="24" cy="17.5" r="9" />
+      <path d="M24 26.5V42" />
+      <path d="M17.5 35.5h13" />
     </S>
   ),
 };
@@ -100,7 +114,7 @@ function U({ size = 20, children, ...rest }: P) {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth={1.9}
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
@@ -112,44 +126,56 @@ function U({ size = 20, children, ...rest }: P) {
   );
 }
 
-export const WhatsAppIcon = (p: P) => (
-  <U {...p}>
-    <path d="M21 12a8 8 0 0 1-11.6 7.2L4 21l1.8-5.4A8 8 0 1 1 21 12z" />
-  </U>
+/* The mark people actually recognise. Every path on this site leads to
+   WhatsApp, and the old drawing — an empty speech bubble — asked the reader
+   to guess. */
+export const WhatsAppIcon = ({ size = 20, ...rest }: P) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    aria-hidden="true"
+    focusable="false"
+    {...rest}
+  >
+    <path d="M12.04 2.02c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22.02l5.2-1.36a9.9 9.9 0 0 0 4.84 1.26h.01c5.5 0 9.96-4.46 9.96-9.96s-4.47-9.94-9.97-9.94zm0 18.24h-.01a8.3 8.3 0 0 1-4.22-1.16l-.3-.18-3.13.82.84-3.05-.2-.31a8.24 8.24 0 0 1-1.27-4.4 8.28 8.28 0 1 1 8.29 8.28zm4.54-6.2c-.25-.13-1.47-.72-1.7-.8-.23-.09-.4-.13-.56.12-.17.25-.64.8-.79.97-.14.16-.29.19-.54.06-.25-.12-1.05-.38-2-1.23a7.5 7.5 0 0 1-1.38-1.72c-.15-.25-.02-.38.11-.5.11-.12.25-.29.37-.44.13-.15.17-.25.25-.42.09-.16.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.9 2.4 1.02 2.57c.12.16 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.15-1.19-.06-.1-.23-.16-.48-.29z" />
+  </svg>
 );
+
 export const PhoneIcon = (p: P) => (
   <U {...p}>
-    <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
+    <path d="M6.4 3.5h2.9l1.6 4-2 1.3a10.6 10.6 0 0 0 4.8 4.8l1.3-2 4 1.6v2.9a1.9 1.9 0 0 1-2.1 1.9A14.9 14.9 0 0 1 4.5 5.6a1.9 1.9 0 0 1 1.9-2.1z" />
   </U>
 );
 export const ShareIcon = (p: P) => (
   <U {...p}>
-    <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7" />
-    <path d="M12 15V3" />
-    <path d="M8 7l4-4 4 4" />
+    <path d="M4 13v6.2c0 .7.6 1.3 1.3 1.3h13.4c.7 0 1.3-.6 1.3-1.3V13" />
+    <path d="M12 15.5V3.6" />
+    <path d="M7.9 7.6L12 3.5l4.1 4.1" />
   </U>
 );
 export const MenuIcon = (p: P) => (
   <U {...p}>
-    <path d="M4 7h16M4 12h16M4 17h16" />
+    <path d="M3.8 7h16.4M3.8 12h16.4M3.8 17h16.4" />
   </U>
 );
 export const CloseIcon = (p: P) => (
   <U {...p}>
-    <path d="M6 6l12 12M18 6L6 18" />
+    <path d="M6.2 6.2l11.6 11.6M17.8 6.2L6.2 17.8" />
   </U>
 );
 export const ArrowIcon = (p: P) => (
   <U {...p}>
-    <path d="M5 12h14" />
-    <path d="M13 6l6 6-6 6" />
+    <path d="M4.5 12h14" />
+    <path d="M12.8 6.3L18.5 12l-5.7 5.7" />
   </U>
 );
 export const PrintIcon = (p: P) => (
   <U {...p}>
-    <path d="M7 9V3h10v6" />
-    <path d="M7 18H5a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
-    <path d="M7 14h10v7H7z" />
+    <path d="M7 8.5V3.5h10v5" />
+    <path d="M7 18.5H5.2a1.9 1.9 0 0 1-1.9-1.9v-4.7a1.9 1.9 0 0 1 1.9-1.9h13.6a1.9 1.9 0 0 1 1.9 1.9v4.7a1.9 1.9 0 0 1-1.9 1.9H17" />
+    <path d="M7 14.2h10v6.3H7z" />
   </U>
 );
 export const StarIcon = ({ size = 16, ...rest }: P) => (
@@ -162,7 +188,7 @@ export const StarIcon = ({ size = 16, ...rest }: P) => (
     focusable="false"
     {...rest}
   >
-    <path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z" />
+    <path d="M12 2.6l2.85 5.78 6.38.93-4.62 4.5 1.09 6.35L12 17.16l-5.7 3-1.09-6.35-4.62-4.5 6.38-.93z" />
   </svg>
 );
 export const PlayIcon = ({ size = 22, ...rest }: P) => (
@@ -175,6 +201,6 @@ export const PlayIcon = ({ size = 22, ...rest }: P) => (
     focusable="false"
     {...rest}
   >
-    <path d="M8 5v14l11-7z" />
+    <path d="M8.5 5.4a.7.7 0 0 1 1.06-.6l9.1 6.6a.7.7 0 0 1 0 1.2l-9.1 6.6a.7.7 0 0 1-1.06-.6z" />
   </svg>
 );

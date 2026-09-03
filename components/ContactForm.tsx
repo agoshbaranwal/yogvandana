@@ -34,12 +34,12 @@ export default function ContactForm({
   const chosenAilment = ailments.find((a) => a.slug === ailment)?.label;
   const wa = waHref(
     whatsappNumber,
-    waMessage({ lang, kind: "trial", ailment: chosenAilment, page }),
+    waMessage({ lang, kind: "talk", ailment: chosenAilment, page }),
   );
 
   if (sent) {
     return (
-      <p className="card text-[17px]" role="status">
+      <p className="card body" role="status">
         {labels.thanks}
       </p>
     );
@@ -81,7 +81,7 @@ export default function ContactForm({
           name="name"
           required
           autoComplete="name"
-          className="min-h-[50px] rounded-[12px] border-[1.5px] px-3.5 py-3 text-[17px]"
+          className="min-h-[50px] rounded-[12px] border-[1.5px] px-3.5 py-3 body"
           style={{ borderColor: "#D9C7A8", background: "var(--color-paper)" }}
         />
       </div>
@@ -98,7 +98,7 @@ export default function ContactForm({
           required
           autoComplete="tel"
           placeholder="+91"
-          className="min-h-[50px] rounded-[12px] border-[1.5px] px-3.5 py-3 text-[17px]"
+          className="min-h-[50px] rounded-[12px] border-[1.5px] px-3.5 py-3 body"
           style={{ borderColor: "#D9C7A8", background: "var(--color-paper)" }}
         />
       </div>
@@ -146,7 +146,7 @@ export default function ContactForm({
           name="message"
           rows={4}
           placeholder={labels.messageHint}
-          className="min-h-[110px] rounded-[12px] border-[1.5px] px-3.5 py-3 text-[17px]"
+          className="min-h-[110px] rounded-[12px] border-[1.5px] px-3.5 py-3 body"
           style={{ borderColor: "#D9C7A8", background: "var(--color-paper)" }}
         />
       </div>

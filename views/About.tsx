@@ -52,22 +52,22 @@ export default function About({ lang }: { lang: Lang }) {
               {ui("about.eyebrow", lang)}
             </p>
             <h1 className="page-title">{t(site.teacher, lang)}</h1>
-            <p className="lead" style={{ color: "var(--color-heroink)" }}>
+            <p className="body" style={{ color: "var(--color-heroink)" }}>
               <Tx>
                 {`${t(site.credential, lang)} · ${t(site.city, lang)} · ${t(site.sinceYear, lang)} ${lang === "hi" ? "से सिखा रही हैं" : "teaching since"}`}
               </Tx>
             </p>
-            <p className="quote text-[22px] md:text-[26px]" style={{ color: "var(--color-deep)" }} lang="sa">
+            <p className="quote h3" style={{ color: "var(--color-deep)" }} lang="sa">
               {site.motto}
             </p>
-            <p className="max-w-[42em] text-[17px] leading-relaxed md:text-[18px]">
+            <p className="max-w-[42em] body">
               <Tx>
                 {lang === "hi"
                   ? "सब रोग-मुक्त हों। यही मेरी वंदना है, और यही इस नाम का मतलब। [X] साल से मैं यही देख रही हूँ: सही तरीके से, रोज़, किसी की नज़र के सामने किया गया योग हर बीमारी को ठीक कर सकता है।"
                   : "May all be free from disease. That is my prayer, and that is what this name means. For [X] years I have seen the same thing: yoga done properly, every day, with someone watching, can cure any disease."}
               </Tx>
             </p>
-            <p className="max-w-[42em] text-[17px] leading-relaxed md:text-[18px]">
+            <p className="max-w-[42em] body">
               <Tx>
                 {lang === "hi"
                   ? "[उनके अपने शब्दों में दो-तीन पंक्तियाँ: वे क्यों सिखाती हैं, और किस तरह के लोगों के साथ काम करना उन्हें सबसे अच्छा लगता है।]"
@@ -138,10 +138,10 @@ export default function About({ lang }: { lang: Lang }) {
                     rounded="rounded-[10px]"
                   />
                 ) : null}
-                <p className="num text-[22px] md:text-[24px]" style={{ color: "var(--color-deep)" }}>
+                <p className="num h3" style={{ color: "var(--color-deep)" }}>
                   <Tx>{j.year}</Tx>
                 </p>
-                <p className="text-[16px] leading-relaxed">
+                <p className="body">
                   <Tx>{t(j.text, lang)}</Tx>
                 </p>
               </li>
@@ -299,7 +299,7 @@ export default function About({ lang }: { lang: Lang }) {
         <div className="wrap flex flex-col gap-3 py-8 md:flex-row md:items-center md:justify-between md:gap-10 md:py-11">
           <div className="flex flex-col gap-2">
             <h2 className="page-title">{ui("about.inviteTitle", lang)}</h2>
-            <p className="text-[17px] leading-relaxed md:text-[18px]">
+            <p className="body">
               {ui("about.inviteLead", lang)}
             </p>
           </div>

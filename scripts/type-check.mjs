@@ -1,0 +1,61 @@
+// The type scale, guarded.
+//
+// This site had seventeen font sizes in its components and a dozen more in the
+// stylesheet, which is why every section looked equally important. The scale is
+// seven steps now, declared once in app/globals.css. This fails the build if a
+// component sets a size of its own again, or if the stylesheet grows a pixel
+// size outside the scale.
+import fs from "node:fs";
+import path from "node:path";
+
+const ROOT = process.cwd();
+const files = [];
+const walk = (dir) => {
+  for (const name of fs.readdirSync(dir)) {
+    if (name === "node_modules" || name === ".next" || name === "out") continue;
+    const full = path.join(dir, name);
+    if (fs.statSync(full).isDirectory()) walk(full);
+    else if (/\.(tsx|ts)$/.test(name)) files.push(full);
+  }
+};
+for (const dir of ["components", "views", "app", "lib"]) {
+  const full = path.join(ROOT, dir);
+  if (fs.existsSync(full)) walk(full);
+}
+
+const problems = [];
+
+for (const file of files) {
+  const lines = fs.readFileSync(file, "utf8").split("\n");
+  lines.forEach((line, i) => {
+    for (const m of line.matchAll(/(?:md:|sm:|lg:)?text-\[[^\]]+\]/g)) {
+      problems.push(`${path.relative(ROOT, file)}:${i + 1}  ${m[0]} — use claim / page-title / h2 / h3 / body / cap / label`);
+    }
+    for (const m of line.matchAll(/fontSize:/g)) {
+      problems.push(`${path.relative(ROOT, file)}:${i + 1}  ${m[0]} — the scale lives in globals.css`);
+    }
+    for (const m of line.matchAll(/fontFamily:/g)) {
+      problems.push(`${path.relative(ROOT, file)}:${i + 1}  ${m[0]} — two faces only, both set on <body>`);
+    }
+  });
+}
+
+const css = fs.readFileSync(path.join(ROOT, "app", "globals.css"), "utf8");
+const stepNames = new Set([...css.matchAll(/--step-([a-z]+):/g)].map((m) => m[1]));
+for (const m of css.matchAll(/font-size:\s*([^;]+);/g)) {
+  const value = m[1].trim();
+  if (!value.startsWith("var(--step-")) {
+    problems.push(`app/globals.css  font-size: ${value} — every size comes from a --step- token`);
+  }
+}
+const families = [...css.matchAll(/font-family:\s*([^;]+);/g)].map((m) => m[1].trim());
+const strayFamily = families.find((f) => !/var\(--font-(hindi|english)\)/.test(f));
+if (strayFamily) problems.push(`app/globals.css  font-family: ${strayFamily} — Baloo 2 and Montserrat only`);
+
+if (problems.length) {
+  console.error(`type: ${problems.length} problem(s)\n  ` + problems.join("\n  "));
+  process.exit(1);
+}
+console.log(
+  `type: ${files.length} files clean · ${stepNames.size} steps (${[...stepNames].join(", ")}) · ${families.length} font-family declarations, both from the two faces`,
+);
