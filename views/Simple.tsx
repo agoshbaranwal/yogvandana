@@ -78,6 +78,10 @@ export function BatchesPage({ lang }: { lang: Lang }) {
       <section className="wrap flex flex-col gap-3 py-8 md:py-12">
         <h2 className="h2">{ui("home.faqTitle", lang)}</h2>
         <FaqList items={faq} lang={lang} columns />
+        {/* Said on the page where money is decided, not buried in a policy. */}
+        <p className="cap mt-2 max-w-[70ch]" style={{ color: "var(--color-kohl)" }}>
+          {ui("pay.safety", lang)}
+        </p>
       </section>
 
       <Band lang={lang} routeKey="batches" source="batches" />

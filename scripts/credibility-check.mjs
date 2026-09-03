@@ -327,6 +327,51 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
   );
 }
 
+/* 17 — every link that takes money is one we meant --------------------- */
+{
+  const PAY_HOSTS = [
+    "razorpay.com", "rzp.io", "cashfree.com", "cf-pg.com", "phonepe.com",
+    "paytm.in", "paytm.com", "instamojo.com", "payu.in",
+  ];
+  const site = JSON.parse(fs.readFileSync(path.join(ROOT, "content", "site.json"), "utf8"));
+  const ownHost = "pay.yogvandana.com";
+  const bad = [];
+  let money = 0;
+  let tagged = 0;
+  for (const f of pages) {
+    const html = read(f);
+    /* Anything the page marks as taking money. If a link is a payment link it
+       must say so in the markup, and if it says so it must be a real one. */
+    for (const m of html.matchAll(/<a\b[^>]*data-ev="pay_click"[^>]*>/g)) {
+      money += 1;
+      const href = (m[0].match(/href="([^"]*)"/) || [])[1] ?? "";
+      const url = href.replace(/&amp;/g, "&");
+      let ok = false;
+      try {
+        const u = new URL(url);
+        ok =
+          u.protocol === "https:" &&
+          (u.hostname === ownHost || PAY_HOSTS.some((h) => u.hostname === h || u.hostname.endsWith(`.${h}`)));
+        if (ok && u.searchParams.get("batch")) tagged += 1;
+      } catch {
+        ok = false;
+      }
+      if (!ok) bad.push(`${rel(f)} → ${url || "(no href)"}`);
+    }
+  }
+  const set = site.links.paymentPage.trim() !== "";
+  add(
+    17,
+    "Every link that takes money is https, on a payment provider's domain, and says which batch",
+    !set ? "waiting" : bad.length === 0 && tagged === money ? "pass" : "fail",
+    !set
+      ? "No payment page in content/site.json yet, so every button still opens WhatsApp."
+      : bad.length
+        ? bad.slice(0, 4).join(" · ")
+        : `${money} payment links across ${pages.length} pages, all on ${site.links.paymentPage.replace(/^https:\/\//, "").split("/")[0]}, every one carrying its batch`,
+  );
+}
+
 /* ------------------------------- report ---------------------------------- */
 const pass = results.filter((r) => r.status === "pass").length;
 const fail = results.filter((r) => r.status === "fail");

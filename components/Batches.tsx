@@ -1,17 +1,22 @@
 import { type Batch, site, t, ui } from "@/lib/content";
+import { payHref } from "@/lib/pay";
 import type { Lang } from "@/lib/routes";
 import { waHref, waMessage } from "@/lib/whatsapp";
 import { Tx } from "./Tx";
 
 /* A price a person can weigh: the month, and what that comes to in a day. */
 
-function joinHref(batch: Batch, lang: Lang, page: string) {
-  if (batch.joinLink) return batch.joinLink;
+/* The payment page if she has one, and WhatsApp until she does. `pays` tells
+   the button which of the two it turned out to be, because a link that takes
+   money should not look like a link that opens a chat. */
+function joinHref(batch: Batch, lang: Lang, page: string): { href: string; pays: boolean } {
+  const pay = payHref({ batchId: batch.id, own: batch.joinLink, kind: "join" });
+  if (pay) return { href: pay, pays: true };
   const kind = batch.type === "workshop" ? "workshop" : batch.type === "private" ? "private" : "batch";
-  return waHref(
-    site.contact.whatsapp,
-    waMessage({ lang, kind, batch: t(batch.name, lang), page }),
-  );
+  return {
+    href: waHref(site.contact.whatsapp, waMessage({ lang, kind, batch: t(batch.name, lang), page })),
+    pays: false,
+  };
 }
 
 export function BatchRow({
@@ -24,6 +29,7 @@ export function BatchRow({
   page: string;
 }) {
   const isPrivate = batch.type !== "group";
+  const join = joinHref(batch, lang, page);
   return (
     <div className="card flex items-center justify-between gap-3">
       <div className="flex min-w-0 flex-col gap-0.5">
@@ -39,15 +45,15 @@ export function BatchRow({
         </p>
       </div>
       <a
-        href={joinHref(batch, lang, page)}
-        target={batch.joinLink ? undefined : "_blank"}
-        rel={batch.joinLink ? undefined : "noopener noreferrer"}
-        data-ev="batch_join_click"
+        href={join.href}
+        target={join.pays ? undefined : "_blank"}
+        rel={join.pays ? "noopener" : "noopener noreferrer"}
+        data-ev={join.pays ? "pay_click" : "batch_join_click"}
         data-ev-batch={batch.id}
         data-ev-source="home"
         className={`btn btn-sm whitespace-nowrap ${isPrivate ? "btn-outline" : "btn-primary"}`}
       >
-        {isPrivate ? ui("cta.bookSession", lang) : ui("cta.join", lang)}
+        {join.pays ? ui("cta.pay", lang) : isPrivate ? ui("cta.bookSession", lang) : ui("cta.join", lang)}
       </a>
     </div>
   );
@@ -98,6 +104,7 @@ export function BatchCard({
   const perDay = batch.perDay
     ? `${ui("batches.perDay", lang)} ₹${batch.perDay} ${ui("batches.perDayTail", lang)}${lang === "hi" ? "।" : "."}`
     : "";
+  const join = joinHref(batch, lang, page);
   const extras = [
     t(batch.familyDiscount, lang),
     t(batch.firstMonthOffer, lang),
@@ -165,21 +172,27 @@ export function BatchCard({
           </span>
         </p>
         <a
-          href={joinHref(batch, lang, page)}
-          target={batch.joinLink ? undefined : "_blank"}
-          rel={batch.joinLink ? undefined : "noopener noreferrer"}
-          data-ev="batch_join_click"
+          href={join.href}
+          target={join.pays ? undefined : "_blank"}
+          rel={join.pays ? "noopener" : "noopener noreferrer"}
+          data-ev={join.pays ? "pay_click" : "batch_join_click"}
           data-ev-batch={batch.id}
           data-ev-source="batches"
           className={`btn btn-sm ${batch.type === "private" ? "btn-outline" : "btn-primary"}`}
         >
-          {batch.type === "workshop"
-            ? ui("cta.reserveSeat", lang)
-            : batch.type === "private"
-              ? ui("cta.pickTime", lang)
-              : ui("cta.joinBatch", lang)}
+          {join.pays
+            ? batch.type === "group"
+              ? ui("cta.payJoin", lang)
+              : ui("cta.pay", lang)
+            : batch.type === "workshop"
+              ? ui("cta.reserveSeat", lang)
+              : batch.type === "private"
+                ? ui("cta.pickTime", lang)
+                : ui("cta.joinBatch", lang)}
         </a>
       </div>
+      {/* What the button is about to do, said before it is pressed. */}
+      {join.pays ? <p className="cap">{ui("pay.note", lang)}</p> : null}
 
       {perDay || extras.length > 0 || t(batch.payLine, lang) ? (
         <p className="cap">

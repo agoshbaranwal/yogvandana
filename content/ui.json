@@ -137,6 +137,10 @@
     "backToAilments": {
       "hi": "सभी तकलीफ़ें",
       "en": "All conditions"
+    },
+    "payJoin": {
+      "hi": "जुड़ें और भुगतान करें",
+      "en": "Join and pay"
     }
   },
   "home": {
@@ -777,6 +781,16 @@
     "comingSoon": {
       "hi": "फ़ोटो जल्द",
       "en": "Photo soon"
+    }
+  },
+  "pay": {
+    "note": {
+      "hi": "सुरक्षित भुगतान पेज पर — यूपीआई, कार्ड या नेटबैंकिंग से।",
+      "en": "On a secure payment page — UPI, card or netbanking."
+    },
+    "safety": {
+      "hi": "वंदना जी कभी आपका यूपीआई पिन, ओटीपी या कार्ड नंबर नहीं माँगेंगी। पैसे लेने के लिए पिन कभी नहीं लगता — पिन सिर्फ़ भेजने के लिए होता है।",
+      "en": "Vandana will never ask for your UPI PIN, an OTP, or a card number. You never need a PIN to receive money — a PIN is only for sending."
     }
   }
 }

@@ -64,8 +64,32 @@ Say: **"Morning batch: 6:30 to 7:30, Monday to Saturday, ₹1,500 a month, next 
 The per-day price is a field, not a calculation, so you can round it the way you would say it out
 loud. The "next batch" chip and the family and first-month lines hide themselves when empty.
 
-`joinLink` is the Razorpay payment page. `feeLink` is the one existing students use on their own
-page. Leave them empty and every button falls back to WhatsApp with the message already written.
+## Turning the payment buttons on — `content/site.json`
+
+This is the whole job, and it is one line.
+
+Build one payment page in the gateway's dashboard with her batches on it, then say:
+**"Set the payment page to https://pay.yogvandana.com/fees."**
+
+That one URL turns every "जुड़ें और भुगतान करें" on the batches page, every "भुगतान करें" on the home
+page, and every "फ़ीस भरें" on the students' page into a real payment. Until it is set, all of them
+open WhatsApp with the message already written, which is the right behaviour and needs no change.
+
+Three things the site does for you once it is set:
+
+- **It refuses a bad link.** The URL must be `https` and on a payment company's domain, or on her
+  own `pay.` subdomain. A `http://`, a shortener, or a lookalike like `razorpay.com.something.io`
+  fails the build rather than reaching a student.
+- **It says which batch.** Each button adds `?batch=morning&for=join` to the URL. If you add a
+  field named `batch` to the payment page, the gateway fills it in and every payment record says
+  which class it was for — which is the difference between ten minutes of reconciliation a month
+  and an hour. If you do not add the field, the parameter is ignored and nothing breaks.
+- **It says what the button does** before it is pressed, and repeats the one safety rule that
+  matters: she will never ask for a PIN or an OTP.
+
+`joinLink` on a batch and `feeLink` on the students' page override the site-wide page, if she ever
+wants a separate payment page per batch. Leave them empty — one page is easier for her to keep
+right.
 
 ---
 

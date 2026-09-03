@@ -68,6 +68,44 @@ const NumberStat = z.object({
   basis: Text,
 });
 
+/* A payment URL is the one field on this site where a typo costs money. It must
+   be empty, or https, and on a payment company's own domain — not http, not a
+   shortener, not a link somebody pasted out of a chat. The build fails
+   otherwise, which is the point. */
+const PAY_HOSTS = [
+  "razorpay.com",
+  "rzp.io",
+  "cashfree.com",
+  "cf-pg.com",
+  "payments.cashfree.com",
+  "phonepe.com",
+  "paytm.in",
+  "paytm.com",
+  "instamojo.com",
+  "payu.in",
+];
+
+export function payHostOk(url: string): boolean {
+  try {
+    const u = new URL(url);
+    if (u.protocol !== "https:") return false;
+    return PAY_HOSTS.some((h) => u.hostname === h || u.hostname.endsWith(`.${h}`)) || u.hostname === PAY_OWN_HOST;
+  } catch {
+    return false;
+  }
+}
+
+/* Razorpay's domain linking can put the payment page on her own domain, which
+   is the point of doing this at all, so her host is allowed too. */
+const PAY_OWN_HOST = process.env.NEXT_PUBLIC_PAY_HOST ?? "pay.yogvandana.com";
+
+const payUrl = z
+  .string()
+  .refine((v) => v === "" || payHostOk(v), {
+    message:
+      "a payment URL must be https and on a payment provider's domain (or her own pay. subdomain)",
+  });
+
 const SiteSchema = z.object({
   url: z.string(),
   live: z.boolean(),
@@ -104,6 +142,10 @@ const SiteSchema = z.object({
     cal: z.string(),
     introVideo: z.string(),
     profilePdf: z.string(),
+    /* The one hosted payment page every "join" and "pay the fee" button opens.
+       Empty until she has an account, and every button falls back to WhatsApp
+       until then. A batch can override it with its own joinLink. */
+    paymentPage: payUrl,
   }),
   analyticsId: z.string(),
   searchConsole: z.string(),
@@ -188,8 +230,8 @@ const BatchSchema = z.object({
   nextStart: Text,
   seats: z.string(),
   date: Text,
-  joinLink: z.string(),
-  feeLink: z.string(),
+  joinLink: payUrl,
+  feeLink: payUrl,
   familyDiscount: Text,
   firstMonthOffer: Text,
   refundLine: Text,

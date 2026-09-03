@@ -286,8 +286,11 @@ gateway's job.
 4. Open the account with the documents in section 7.
 5. Have her **read the terms, refund and privacy pages** and tell you what to change.
 6. Build a **payment page** in the dashboard with her batches on it, ask support to enable
-   **domain linking** so it sits on her own domain, and paste its URL into `joinLink` in
-   `content/batches/<id>.json` and into `feeLink` for the students' page.
+   **domain linking** so it sits on her own domain, add a field named `batch` to it, and paste the
+   URL into `links.paymentPage` in `content/site.json`. **That is the only edit.** Everything on
+   this side is already built and tested: one URL switches every button on the home page, the
+   batches page and the students' page from WhatsApp to payment, each carrying the batch it is for.
+   The build refuses the URL if it is not https on a payment provider's domain.
 7. Take **one real ₹1 payment** yourself, end to end, and refund it.
 8. Only then tell her the buttons are live.
 

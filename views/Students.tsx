@@ -1,7 +1,8 @@
 import Link from "next/link";
 import SiteShell from "@/components/SiteShell";
 import { Tx } from "@/components/Tx";
-import { absolute, batches, site, students, t, ui } from "@/lib/content";
+import { absolute, type Batch, batches, site, students, t, ui } from "@/lib/content";
+import { payHref } from "@/lib/pay";
 import { href, type Lang } from "@/lib/routes";
 import { waHref, waMessage } from "@/lib/whatsapp";
 
@@ -40,21 +41,16 @@ export default function Students({ lang }: { lang: Lang }) {
                     <Tx>{`₹${b.price} ${t(b.priceUnit, lang)}`}</Tx>
                   </p>
                 </div>
-                <a
-                  href={b.feeLink || wa}
-                  target={b.feeLink ? undefined : "_blank"}
-                  rel={b.feeLink ? undefined : "noopener noreferrer"}
-                  data-ev="fee_pay_click"
-                  data-ev-batch={b.id}
-                  className="btn btn-sm btn-primary whitespace-nowrap"
-                >
-                  {b.type === "group" ? ui("cta.payFee", lang) : ui("cta.pay", lang)}
-                </a>
+                <PayOrWrite batch={b} lang={lang} wa={wa} />
               </li>
             ))}
         </ul>
         <p className="cap">
           <Tx>{t(students.payNote, lang)}</Tx>
+        </p>
+        {/* Said where the money is asked for, not buried in a policy page. */}
+        <p className="cap max-w-[70ch]" style={{ color: "var(--color-kohl)" }}>
+          {ui("pay.safety", lang)}
         </p>
       </section>
 
@@ -108,5 +104,27 @@ export default function Students({ lang }: { lang: Lang }) {
         </ul>
       </section>
     </SiteShell>
+  );
+}
+
+/* The fee button: the payment page once she has one, WhatsApp until then. */
+function PayOrWrite({ batch, lang, wa }: { batch: Batch; lang: Lang; wa: string }) {
+  const pay = payHref({ batchId: batch.id, own: batch.feeLink, kind: "fee" });
+  return (
+    <a
+      href={pay ?? wa}
+      target={pay ? undefined : "_blank"}
+      rel={pay ? "noopener" : "noopener noreferrer"}
+      data-ev={pay ? "pay_click" : "fee_write_click"}
+      data-ev-batch={batch.id}
+      data-ev-source="students"
+      className="btn btn-sm btn-primary whitespace-nowrap"
+    >
+      {pay
+        ? batch.type === "group"
+          ? ui("cta.payFee", lang)
+          : ui("cta.pay", lang)
+        : ui("cta.whatsappMsg", lang)}
+    </a>
   );
 }
