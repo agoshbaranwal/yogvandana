@@ -26,10 +26,10 @@ On a throttled phone (4× slower CPU, 1.6 Mbps, 150 ms round trip), against the 
 
 | | Home | A condition page | Target |
 |---|---|---|---|
-| Largest contentful paint | 1.56 s | 1.33 s | under 2.5 s |
-| Cumulative layout shift | 0.008 | 0.025 | under 0.1 |
-| Fully loaded | 3.8 s | 3.3 s | — |
-| Transferred | 618 KB | 572 KB | — |
+| Largest contentful paint | 1.31 s | 1.31 s | under 2.5 s |
+| Cumulative layout shift | 0.009 | 0.028 | under 0.1 |
+| Fully loaded | 3.1 s | 3.2 s | — |
+| Transferred | 622 KB | 588 KB | — |
 | HTML, compressed | 22 KB | 16 KB | — |
 
 Fonts are 350 KB of that, and they are the floor: Devanagari faces are large, and the site
@@ -126,3 +126,10 @@ These are decisions, not omissions.
 - Light theme only, no colour-scheme query anywhere, as agreed. That rule now reads the built
   stylesheet and fails if it finds none, rather than passing on an empty look.
 - The 404 is the site's own page, in both languages, with the menu on it.
+- Every page title now fits in a search result — the longest is 45 characters. The Hinglish search
+  terms people actually type sit in `keywords`, where nobody has to read them, instead of trailing
+  off the end of the title.
+- The layouts that swap between phone and desktop keep both versions in the HTML, which looks like
+  a screen reader would hear everything twice. It does not: the copy for the other width is
+  `display: none`, so it is out of the accessibility tree and out of the tab order. Checked at both
+  widths rather than assumed.

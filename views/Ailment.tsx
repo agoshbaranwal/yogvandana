@@ -55,7 +55,10 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
       <header
         className="border-t-[6px]"
         style={{
-          borderColor: colour.ink,
+          /* The bar across the top stays the brand's saffron. The condition's
+             own colour is a chip and an icon, at chip size, which is where it
+             was meant to live. */
+          borderColor: "var(--color-bhagwa)",
           background: "linear-gradient(180deg, var(--color-sky) 0%, var(--color-ivory) 100%)",
         }}
       >

@@ -9,6 +9,7 @@ Hindi is the site. English is one tap away. Every page exists twice.
 - **What it should look like:** `design/*.dc.html` and the canvas at
   https://claude.ai/code/artifact/4d5a08d2-9e93-4ad0-903c-31dca96c0a11
 - **The specification:** `BUILD-PROMPT.md` · **the order of work:** `EXECUTION-PLAN.md`
+- **What was built, measured and left undone:** `docs/AUDIT.md`
 
 Nothing about her is invented. Every fact still to come is written `[like this]` and shows on
 the page as a dotted blank. `npm run content:check` lists every one of them.
@@ -68,8 +69,10 @@ then write `"<folder>/<name>.jpg"` into the `photo` or `image` field of the cont
 needs it. Every photo needs `alt` and a caption with the place and the date.
 
 **One certificate** — `content/credentials/<id>.json`, with the issuing body, the year, the hours,
-the scan, and a `verifyUrl` if the body keeps a public register. If it does not, leave the URL
-empty: the page then says so in plain words rather than pretending.
+the scan, and a `verifyUrl` that has three states: the `https://…` that opens her entry; the word
+`none` when you have checked and that body keeps no public register; or empty, which prints a blank
+saying the link is still to come. Never write `none` just to tidy an empty field — the difference
+between "there is no register" and "we have not looked yet" is the whole point of the page.
 
 ## Going live
 

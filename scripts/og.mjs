@@ -79,15 +79,18 @@ html,body{margin:0;padding:0;background:#fff}
   background:linear-gradient(180deg,#DDEBF5 0%,#FBE7CF 60%,#FF9933 100%)}
 .card::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;background:#FF9933}
 .inner{position:relative;height:100%;display:flex;flex-direction:column;gap:14px;
-  padding:56px 64px 44px;justify-content:flex-end}
+  padding:212px 64px 44px}
+/* The title sits between the dawn band and the footer rule: an auto margin
+   above the title and above the footer splits the free space evenly, instead
+   of pinning everything to the bottom edge. */
 .brand{position:absolute;top:44px;left:64px;font-family:Martel,serif;font-weight:800;font-size:34px;line-height:1.2}
 .brand span{color:#A05000}
-h1{font-family:"Baloo 2",sans-serif;font-weight:800;font-size:62px;line-height:1.12;margin:0;
+h1{font-family:"Baloo 2",sans-serif;font-weight:800;font-size:62px;line-height:1.12;margin:auto 0 0;
   letter-spacing:-0.01em;max-width:15ch}
 .kick{margin:0;font-size:24px;line-height:1.5;color:#6E5F4E;max-width:44ch;
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .foot{display:flex;justify-content:space-between;align-items:baseline;gap:24px;
-  border-top:1px solid #E4D9C7;padding-top:18px;margin-top:6px}
+  border-top:1px solid #E4D9C7;padding-top:18px;margin-top:auto}
 .who{font-size:21px;color:#231A12;font-weight:600}
 .motto{font-family:Martel,serif;font-weight:700;font-size:21px;color:#A05000;white-space:nowrap}
 </style></head><body>${body}</body></html>`;
