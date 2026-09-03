@@ -246,8 +246,8 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    min-height: 52px;
-    padding: 13px 24px;
+    min-height: 56px;
+    padding: 15px 24px;
     border-radius: 999px;
     font-size: var(--step-body);
     font-weight: 700;
@@ -282,7 +282,7 @@
     color: var(--color-bhagwa);
   }
   .btn-sm {
-    min-height: 46px;
+    min-height: 48px;
     padding: 10px 18px;
     font-size: var(--step-cap);
   }
@@ -521,6 +521,19 @@
   /* A section below the fold starts a little low and faded; the observer in
      components/Motion.tsx lifts it once. Nothing here runs if the reader has
      asked for less motion — the base layer switches every duration off. */
+  /* A slow phone lays out only what is near the screen. The first two
+     sections of a page are on screen at load; the rest wait for the scroll.
+     Anchors inside them still work: the browser renders a section it is
+     asked to scroll to. */
+  main > section:nth-child(n + 3) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 720px;
+  }
+  @media print {
+    main > section {
+      content-visibility: visible;
+    }
+  }
   .reveal {
     opacity: 0;
     translate: 0 14px;

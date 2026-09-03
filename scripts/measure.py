@@ -72,18 +72,39 @@ def main():
     ap.add_argument("--route", default=None)
     ap.add_argument("--base", default="http://127.0.0.1:4411")
     ap.add_argument("--json", action="store_true")
+    ap.add_argument("--slow", action="store_true", help="a ₹10,000 Android on a weak signal: 6x CPU, 400 kbps, 400 ms")
+    ap.add_argument("--live", action="store_true", help="measure the deployed site instead of the local build")
     a = ap.parse_args()
+    if a.live:
+        a.base = "https://agoshbaranwal.github.io/yogvandana"
     routes = [r for r in ROUTES if not a.route or r[1] == a.route]
     results = {}
+    PERF = """window.__m={lcp:0,cls:0,fcp:0};
+new PerformanceObserver(l=>{for(const e of l.getEntries()) window.__m.lcp=e.startTime;}).observe({type:'largest-contentful-paint',buffered:true});
+new PerformanceObserver(l=>{for(const e of l.getEntries()) if(!e.hadRecentInput) window.__m.cls+=e.value;}).observe({type:'layout-shift',buffered:true});
+new PerformanceObserver(l=>{for(const e of l.getEntries()) if(e.name==='first-contentful-paint') window.__m.fcp=e.startTime;}).observe({type:'paint',buffered:true});"""
     for name, path in routes:
         c = Chrome(width=a.width, height=a.height)
         try:
-            c.goto(a.base + path, settle=1.6)
+            if a.slow:
+                c.send("Page.enable"); c.send("Network.enable")
+                c.send("Page.addScriptToEvaluateOnNewDocument", source=PERF)
+                c.send("Emulation.setCPUThrottlingRate", rate=6)
+                c.send("Network.emulateNetworkConditions", offline=False, latency=400,
+                       downloadThroughput=int(400 * 1024 / 8), uploadThroughput=int(200 * 1024 / 8))
+            c.goto(a.base + path, settle=10.0 if a.slow else 1.6)
+            if a.slow:
+                perf = json.loads(c.eval("""const nav=performance.getEntriesByType('navigation')[0]; const res=performance.getEntriesByType('resource');
+                  const bytes=res.reduce((s,r)=>s+(r.transferSize||0),0)+(nav.transferSize||0);
+                  const fonts=res.filter(r=>/\\.woff2?$/.test(r.name)).reduce((s,r)=>s+(r.transferSize||0),0);
+                  return JSON.stringify({fcp:Math.round(window.__m.fcp), lcp:Math.round(window.__m.lcp), cls:+window.__m.cls.toFixed(3), kb:Math.round(bytes/1024), fontKb:Math.round(fonts/1024)});"""))
             c.eval("window.scrollTo(0,document.body.scrollHeight);return 1")
             time.sleep(0.8)
             c.eval("window.scrollTo(0,0);return 1")
             time.sleep(0.3)
             results[name] = json.loads(c.eval(JS))
+            if a.slow:
+                results[name]["perf"] = perf
         finally:
             c.close()
     if a.json:
@@ -93,8 +114,10 @@ def main():
     for name, v in results.items():
         share = round(100 * v["under16"] / max(1, v["textNodes"]))
         worst = max(worst, share)
+        perf = v.get("perf")
+        tail = f" · paint {perf['lcp']/1000:.2f}s cls {perf['cls']} {perf['kb']}KB fonts {perf['fontKb']}KB" if perf else ""
         print(f"{name:11} h={v['height']:5} text nodes={v['textNodes']:4} under 16px={v['under16']:3} ({share}%) "
-              f"low-contrast={len(v['lowContrast']):2} taps<size={len(v['tapsUnderSize']):2} ctas={v['ctaCount']} labels={len(v['ctaLabels'])}")
+              f"low-contrast={len(v['lowContrast']):2} taps<size={len(v['tapsUnderSize']):2} ctas={v['ctaCount']} labels={len(v['ctaLabels'])}{tail}")
         for l in v["lowContrast"][:6]:
             print("    !! contrast", l)
         for t in v["tapsUnderSize"][:6]:

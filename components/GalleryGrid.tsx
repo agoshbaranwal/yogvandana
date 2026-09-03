@@ -200,7 +200,7 @@ export default function GalleryGrid({
               />
             ) : (
               <div
-                className="ph flex w-full max-w-[560px] items-end justify-start rounded-[10px] p-4"
+                className="ph flex w-full md:max-w-[560px] items-end justify-start rounded-[10px] p-4"
                 style={{ aspectRatio: "4 / 3" }}
               >
                 <span className="cap">{photoLabel}</span>
