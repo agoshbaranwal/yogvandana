@@ -50,9 +50,11 @@ logo, colours, her batches, an amount field — and it lives at a URL of its own
 button links to it.** The student taps a button on her site and lands somewhere that looks like a
 continuation of it, run by a regulated company. This is the recommendation.
 
-**6. A payment button embedded in her page.** One line of code puts the gateway's button inside her
-page; the payment opens in a layer on top without leaving the site. Slightly better than 5 for
-not losing people at the hand-off, slightly worse in that the button is styled by them, not by us.
+**6. A payment button embedded in her page.** A snippet of code puts *the gateway's own button*
+inside her page. Clicking it still sends the student to the gateway to pay — Razorpay's
+documentation is explicit: "when customers click on the Pay button, they will be redirected to the
+Razorpay Payment Gateway to complete the payment." So this is not a way to keep anyone on her site;
+it only changes who draws the button. See section 3a.
 
 **7. A checkout built into the site.** The card form is ours, the whole flow never leaves the page.
 This needs a **server** to decide the amount and verify the payment, which a static site on GitHub
@@ -81,16 +83,52 @@ UPI. "Scam-look" is how it reads to a stranger in India who found her online and
 | 3 | UPI ID + QR **on her website** | ₹0 | Today | Instant, final | None, but she is identifiable | Fairly common | Medium | Hours |
 | 4 | Payment link sent per student | ~₹1,060, or ₹0 on an intro offer | Days | Escrow at an RBI-licensed aggregator | Real: disputes, refunds | Very common — for **bills**, not first purchases | **High** — the warned-about pattern | Minutes |
 | 5 | **Her button → branded payment page** | ~₹1,060, or ₹0 on an intro offer | Days | Same | Same | **The norm for buying online** | **Low** | Minutes |
-| 6 | Gateway button embedded in her page | Same | Days + half a day of my work | Same | Same | The norm | **Lowest** | Minutes |
+| 6 | Gateway button embedded in her page | Same | Days + half a day of my work | Same | Same | The norm | Low — same as 5 | Minutes |
 | 7 | Custom checkout on our own server | Same, plus hosting | Weeks | Same | Same | The norm for large brands | Lowest | Minutes |
 | 8 | Auto-debit (UPI AutoPay / e-mandate) | Same, plus mandate costs | Weeks | Same | Strong on paper | Normal for Netflix, SIPs, insurance | **Highest** — permission before any result | None, when it works |
 | 9 | All-in-one coaching platform | Their fee **plus** the gateway cut | Days | Held by the platform | Whatever the platform allows | Common among Indian coaches | Low — but it is their brand | Minutes |
 | 10 | A marketplace | A large cut of every fee | Days | Held by them | Theirs | Common | Low | None |
 
-Short verdicts: **5 is the answer.** 3 stays, free, for people who already know her. 6 is a later
-upgrade if the hand-off is measured to lose people. 4 only for someone who explicitly asks. 8 when
-chasing payments costs her an evening a month. 9 if she wants scheduling and reminders more than she
-wants her own site. 1, 2, 7 and 10 are no.
+Short verdicts: **5 is the answer.** 3 stays, free, for people who already know her. 4 only for
+someone who explicitly asks. 6 is not an upgrade over 5 — section 3a explains why. 8 when chasing
+payments costs her an evening a month. 9 if she wants scheduling and reminders more than she wants
+her own site. 1, 2, 7 and 10 are no.
+
+## 3a. Options 5 and 6, since they look like the same thing
+
+They are not, and the difference is smaller and in the opposite direction to what I first wrote.
+
+**A payment page (5)** is a page the gateway hosts and she builds in their dashboard by dragging
+things around — her logo, her colours, a description, her batches, an amount. It gets a URL of its
+own. By default that is `pages.razorpay.com/yogvandana`; Razorpay also has **domain linking**, an
+on-request beta, which puts the same page at `pay.yogvandana.com` or `yogvandana.com/fees`, so the
+student never sees a stranger's domain at all. On her site, the thing that links to it is **an
+ordinary link of ours** — `<a class="btn btn-primary">फ़ीस भरें</a>` — in her type, her saffron, her
+corner radius. Nothing of theirs runs on her site.
+
+**A payment button (6)** is a snippet from their dashboard that renders **their button** inside her
+page. It loads their script, which draws a button we do not control, and when it is clicked the
+student is **redirected to the gateway anyway** — their documentation says so in as many words.
+
+So the honest comparison:
+
+| | 5 · payment page | 6 · embedded button |
+|---|---|---|
+| What sits on her page | Our own link, styled by us | Their button, styled by them |
+| Extra code on her page | **None** | **184 KB of third-party JavaScript** (56 KB compressed), measured |
+| Where the student pays | The gateway's page | The gateway's page — the same place |
+| Whose domain they land on | Hers, with domain linking | Theirs |
+| What can break | A URL that is wrong | A script that is blocked, slow, or changed under us |
+| My work | Paste a URL into a content file | A snippet per batch, plus arguing with their styles |
+| Effect on the site's speed | Nothing | A third more weight on every page that carries one |
+
+**5 wins on every line.** The one advantage 6 seemed to have — not sending the student away — does
+not exist. The only way to genuinely keep the payment inside her page is option 7, the full
+integration, and that needs a server this site does not have. That is the real trade, and it is not
+worth making for thirty students.
+
+One consequence worth stating: **with 5, nothing of the gateway's runs on her website.** No
+third-party script, no tracking, no dependency, no weight. The site stays the 486 KB it is now.
 
 ## 3. Why not a payment link on WhatsApp
 
@@ -147,7 +185,7 @@ UPI line is the one that matters because that is how most of her students will p
 
 | Provider | UPI | Cards / netbanking | Notable |
 |---|---|---|---|
-| **Cashfree** | 1.95% | 1.95% | **0% up to ₹20 lakh of takings** for new merchants signing up 21 Jul 2026 – 31 Mar 2027 |
+| **Cashfree** | 1.95% | 1.95% | **0% up to ₹20 lakh of takings** for new merchants signing up 21 Jul 2026 – 31 Mar 2027. Has the same no-code hosted pages, under "Payment Forms" |
 | **Razorpay** | **2% platform fee** — zero MDR does not mean zero cost | 2% | 0% for 90 days or ₹5 lakh for merchants activating after 1 Jul 2026. Best no-code tools |
 | **PhonePe** | Advertised 0% on UPI | 1.99% standard | Largest UPI app in the country, ~46% share |
 | **Paytm** | Advertised 0% standard on UPI | ~2% | Interchange may apply on wallet-funded UPI over ₹2,000 |
@@ -247,8 +285,9 @@ gateway's job.
 3. Get her **Udyam registration** (free, online) if she has no GST certificate.
 4. Open the account with the documents in section 7.
 5. Have her **read the terms, refund and privacy pages** and tell you what to change.
-6. Build a **payment page** in the dashboard with her batches on it, and paste its URL into
-   `joinLink` in `content/batches/<id>.json` and into `feeLink` for the students' page.
+6. Build a **payment page** in the dashboard with her batches on it, ask support to enable
+   **domain linking** so it sits on her own domain, and paste its URL into `joinLink` in
+   `content/batches/<id>.json` and into `feeLink` for the students' page.
 7. Take **one real ₹1 payment** yourself, end to end, and refund it.
 8. Only then tell her the buttons are live.
 
@@ -267,6 +306,10 @@ Checked 3 September 2026. Rates and rules move; re-check before acting.
 - Cashfree's rates and the ₹20 lakh offer — [Cashfree pricing FAQs](https://www.cashfree.com/docs/help/account/pricing)
 - PhonePe gateway pricing — [PhonePe for Business](https://www.phonepe.com/business-solutions/payment-gateway/pricing/)
 - Payment links vs pages vs buttons — [Razorpay](https://razorpay.com/blog/payment-links-vs-checkout-pages-vs-storefronts/)
+- The embedded button redirects rather than staying on the page — [Razorpay docs](https://razorpay.com/docs/payments/payment-button/how-it-works/)
+- Payment page URLs and domain linking — [Razorpay docs](https://razorpay.com/docs/payments/payment-pages/domain-linking/?preferred-country=IN)
+- Cashfree's no-code hosted forms and pages — [Cashfree docs](https://www.cashfree.com/docs/payments/no-code/payment-forms)
+- Checkout script weight — measured directly from `checkout.razorpay.com/v1/checkout.js`, 3 Sep 2026
 - Escrow requirement and aggregator authorisation — [Business Standard](https://www.business-standard.com/companies/news/razorpay-cashfree-receive-final-rbi-nod-for-payment-aggregator-biz-123121901296_1.html), [India Briefing](https://www.india-briefing.com/news/indias-central-bank-grants-in-principle-license-to-50-payment-aggregators-key-details-27239.html/)
 - Collect-request, QR and fake-screenshot scams, and the "PIN is only for sending" rule — [PhonePe for Business](https://business.phonepe.com/articles/fake-upi-payment-scams-how-to-identify-and-prevent-fraud), [Ujjivan SFB](https://www.ujjivansfb.bank.in/banking-blogs/personal-finance/common-upi-scams-in-india-and-how-to-avoid-them)
 - E-mandate framework 2026, ₹15,000 without OTP, 24-hour pre-debit notice — [Outlook Business](https://www.outlookbusiness.com/ampstories/news/rbi-e-mandate-framework-2026-new-rules-for-auto-pay-upi-cards-wallets), [Razorpay](https://razorpay.com/blog/master-recurring-payments-upi-autopay-guide/)
