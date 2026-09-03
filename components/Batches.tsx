@@ -168,7 +168,7 @@ export function BatchCard({
         {/* The reason the page was opened. Larger than the button beside it. */}
         <p className="num h2">
           <Tx>{money}</Tx>{" "}
-          <span className="cap font-semibold" style={{ color: "var(--color-muted)" }}>
+          <span className="cap font-bold" style={{ color: "var(--color-muted)" }}>
             {t(batch.priceUnit, lang)}
           </span>
         </p>

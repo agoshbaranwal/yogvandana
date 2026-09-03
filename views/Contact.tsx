@@ -18,7 +18,7 @@ export default function Contact({ lang }: { lang: Lang }) {
   return (
     <SiteShell lang={lang} routeKey="contact" hasBand={false}>
       <header style={{ background: "linear-gradient(180deg, var(--color-sky) 0%, var(--color-ivory) 100%)" }}>
-        <div className="wrap flex flex-col gap-3 py-8 md:py-12">
+        <div className="wrap flex flex-col gap-3 section-pad">
           <h1 className="page-title">{ui("contact.title", lang)}</h1>
           <p className="body max-w-[58ch]" style={{ color: "var(--color-heroink)" }}>
             {ui("contact.lead", lang)}

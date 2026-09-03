@@ -9,20 +9,21 @@ import { Baloo_2, Montserrat } from "next/font/google";
    third family or a special class.
 
    Bundled at build time; no request ever goes to Google when a page loads.
-   Three weights each. A Devanagari weight is 60 to 110 KB and most of her
-   students open this on mobile data, so hierarchy comes from 400 / 600 / 800
-   rather than from more faces. */
+   Two weights each. A Devanagari weight is 60 to 110 KB and most of her
+   students open this on mobile data, so hierarchy is 400 against 800 and
+   nothing in between — the 600 went when it turned out to carry nothing
+   the 800 could not. */
 
 export const baloo = Baloo_2({
   subsets: ["latin", "devanagari"],
-  weight: ["400", "600", "800"],
+  weight: ["400", "800"],
   variable: "--font-hi",
   display: "swap",
 });
 
 export const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["400", "600", "800"],
+  weight: ["400", "800"],
   variable: "--font-en",
   display: "swap",
 });

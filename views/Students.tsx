@@ -16,7 +16,7 @@ export default function Students({ lang }: { lang: Lang }) {
   return (
     <SiteShell lang={lang} routeKey="students" hasBand={false}>
       <header style={{ background: "linear-gradient(180deg, var(--color-sky) 0%, var(--color-ivory) 100%)" }}>
-        <div className="wrap flex flex-col gap-2.5 py-8 md:py-11">
+        <div className="wrap flex flex-col gap-2.5 section-pad">
           <p className="label" style={{ color: "var(--color-deep)" }}>
             {ui("students.eyebrow", lang)}
           </p>
@@ -28,7 +28,7 @@ export default function Students({ lang }: { lang: Lang }) {
         </div>
       </header>
 
-      <section className="wrap flex flex-col gap-3.5 py-7 md:py-10">
+      <section className="wrap flex flex-col gap-3.5 section-pad">
         <h2 className="h2">{ui("students.feeTitle", lang)}</h2>
         <ul className="grid gap-2.5 md:grid-cols-3 md:gap-5">
           {batches
@@ -39,7 +39,7 @@ export default function Students({ lang }: { lang: Lang }) {
                   <p className="body font-bold">{t(b.name, lang)}</p>
                   <p className="num h3">
                     <Tx>{`₹${b.price}`}</Tx>{" "}
-                    <span className="cap font-semibold" style={{ color: "var(--color-muted)" }}>
+                    <span className="cap font-bold" style={{ color: "var(--color-muted)" }}>
                       {t(b.priceUnit, lang)}
                     </span>
                   </p>

@@ -55,7 +55,7 @@ export function CertificateRegister({ lang }: { lang: Lang }) {
   ];
 
   return (
-    <section id="yogyata" className="wrap flex flex-col gap-4 py-8 md:py-12">
+    <section id="yogyata" className="wrap flex flex-col gap-4 section-pad">
       <h2 className="h2">{ui("credentials.title", lang)}</h2>
       <p className="body max-w-[62ch]" style={{ color: "var(--color-muted)" }}>
         {ui("credentials.lead", lang)}

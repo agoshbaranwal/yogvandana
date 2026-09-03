@@ -118,7 +118,7 @@ export default function Header({
               key={item.href}
               href={item.href}
               aria-current={item.active ? "page" : undefined}
-              className="tap font-semibold no-underline body"
+              className="tap font-bold no-underline body"
               style={{ color: item.active ? "var(--color-deep)" : "var(--color-kohl)" }}
             >
               {item.label}
@@ -138,7 +138,7 @@ export default function Header({
             title={switchTitle}
             data-ev="language_switch"
             data-ev-to={switchLabel}
-            className="inline-flex min-h-[44px] items-center rounded-full border px-3.5 font-semibold no-underline cap"
+            className="inline-flex min-h-[44px] items-center rounded-full border px-3.5 font-bold no-underline cap"
             style={{ borderColor: "var(--color-kohl)", color: "var(--color-kohl)" }}
           >
             {switchLabel}
@@ -159,7 +159,7 @@ export default function Header({
             title={switchTitle}
             data-ev="language_switch"
             data-ev-to={switchLabel}
-            className="inline-flex min-h-[44px] items-center rounded-full border px-3 font-semibold no-underline cap"
+            className="inline-flex min-h-[44px] items-center rounded-full border px-3 font-bold no-underline cap"
             style={{ borderColor: "var(--color-kohl)", color: "var(--color-kohl)" }}
           >
             {switchLabel}

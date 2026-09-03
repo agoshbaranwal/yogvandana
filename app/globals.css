@@ -198,7 +198,7 @@
   }
   .label {
     font-size: var(--step-label);
-    font-weight: 600;
+    font-weight: 800;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--color-muted);
@@ -221,7 +221,7 @@
     word-spacing: 0.16em;
   }
   .quote {
-    font-weight: 600;
+    font-weight: 800;
     line-height: 1.5;
   }
   /* Numbers take their size from the step beside them; this only makes the
@@ -321,7 +321,7 @@
     display: inline-flex;
     align-items: center;
     font-size: var(--step-cap);
-    font-weight: 600;
+    font-weight: 800;
     padding: 2px 10px;
     border-radius: 999px;
     color: var(--color-ivory);

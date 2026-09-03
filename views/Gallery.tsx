@@ -20,7 +20,7 @@ export function GallerySection({ lang }: { lang: Lang }) {
 
   return (
     <section id="gallery" style={{ background: "var(--color-sky)" }}>
-      <div className="wrap flex flex-col gap-4 py-9 md:py-14">
+      <div className="wrap flex flex-col gap-4 section-pad">
         <h2 className="h2">{ui("gallery.title", lang)}</h2>
         <p className="body max-w-[62ch]" style={{ color: "var(--color-muted)" }}>
           {ui("gallery.lead", lang)}

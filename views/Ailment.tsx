@@ -128,7 +128,7 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
       </header>
 
       {/* one section, not two: the first class, then how a class runs --- */}
-      <section className="wrap flex flex-col gap-4 py-8 md:py-11">
+      <section className="wrap flex flex-col gap-4 section-pad">
         <h2 className="h2">{ui("ailment.firstClassTitle", lang)}</h2>
         <div className="grid gap-4 md:grid-cols-2 md:gap-8">
           <ul className="card flex flex-col gap-2">
@@ -156,7 +156,7 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
 
       {/* students with the same condition -------------------------------- */}
       <section style={{ background: "var(--color-sky)" }}>
-        <div className="wrap flex flex-col gap-4 py-8 md:py-12">
+        <div className="wrap flex flex-col gap-4 section-pad">
           <SectionHead
             title={ui("ailment.studentsTitle", lang)}
             link={{ label: ui("cta.allStories", lang), href: href("stories", lang) }}
@@ -180,7 +180,7 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
       </section>
 
       {/* which batch ---------------------------------------------------- */}
-      <section className="wrap flex flex-col gap-4 py-8 md:py-12">
+      <section className="wrap flex flex-col gap-4 section-pad">
         <SectionHead
           title={ui("ailment.batchTitle", lang)}
           lead={t(ailment.batchNote, lang)}

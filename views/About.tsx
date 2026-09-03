@@ -145,7 +145,7 @@ export default function About({ lang }: { lang: Lang }) {
 
       {/* the journey ----------------------------------------------------- */}
       <section style={{ background: "var(--color-sandal)" }}>
-        <div className="wrap flex flex-col gap-5 py-9 md:py-14">
+        <div className="wrap flex flex-col gap-5 section-pad">
           <h2 className="h2">{ui("about.journeyTitle", lang)}</h2>
           {/* A four-column grid left entries with photographs standing a head
               taller than the ones without, so the years did not line up with

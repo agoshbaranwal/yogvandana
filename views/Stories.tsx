@@ -14,7 +14,7 @@ export default function Stories({ lang }: { lang: Lang }) {
   return (
     <SiteShell lang={lang} routeKey="stories">
       <header style={{ background: "linear-gradient(180deg, var(--color-sky) 0%, var(--color-ivory) 100%)" }}>
-        <div className="wrap flex flex-col gap-2.5 py-8 md:py-12">
+        <div className="wrap flex flex-col gap-2.5 section-pad">
           <h1 className="page-title">{ui("stories.title", lang)}</h1>
           <p className="body max-w-[62ch]" style={{ color: "var(--color-heroink)" }}>
             {ui("stories.lead", lang)}
@@ -22,7 +22,7 @@ export default function Stories({ lang }: { lang: Lang }) {
         </div>
       </header>
 
-      <section className="wrap flex flex-col gap-4 py-7 md:py-11">
+      <section className="wrap flex flex-col gap-4 section-pad">
         <Filter
           event="stories_filter"
           allLabel={ui("stories.all", lang)}

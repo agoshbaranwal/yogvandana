@@ -139,7 +139,7 @@ export function Steps({ lang }: { lang: Lang }) {
     { n: "3", title: ui("home.step3", lang), sub: ui("home.step3sub", lang) },
   ];
   return (
-    <section className="wrap flex flex-col gap-4 py-8 md:py-12">
+    <section className="wrap flex flex-col gap-4 section-pad">
       <h2 className="h2">{ui("home.stepsTitle", lang)}</h2>
       {/* Three columns on a phone squeezed every step into four wrapped
          lines. One per row until there is room for three. */}

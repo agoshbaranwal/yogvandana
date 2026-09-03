@@ -15,14 +15,14 @@ export function AilmentsIndex({ lang }: { lang: Lang }) {
   return (
     <SiteShell lang={lang} routeKey="ailments">
       <header style={{ background: "linear-gradient(180deg, var(--color-sky) 0%, var(--color-ivory) 100%)" }}>
-        <div className="wrap flex flex-col gap-2.5 py-8 md:py-12">
+        <div className="wrap flex flex-col gap-2.5 section-pad">
           <h1 className="page-title">{ui("home.ailmentsTitle", lang)}</h1>
           <p className="body max-w-[62ch]" style={{ color: "var(--color-heroink)" }}>
             {ui("home.ailmentsLead", lang)}
           </p>
         </div>
       </header>
-      <section className="wrap flex flex-col gap-4 py-8 md:py-12">
+      <section className="wrap flex flex-col gap-4 section-pad">
         <AilmentCards lang={lang} columns="grid-cols-2 md:grid-cols-4" />
         <p className="body" style={{ color: "var(--color-muted)" }}>
           <Tx>{ui("cta.allAilments", lang)}</Tx>{" "}
@@ -48,7 +48,7 @@ export function BatchesPage({ lang }: { lang: Lang }) {
           .map((b) => courseSchema(lang, t(b.name, lang), t(b.note, lang)))}
       />
       <header style={{ background: "linear-gradient(180deg, var(--color-sky) 0%, var(--color-ivory) 100%)" }}>
-        <div className="wrap flex flex-col gap-2.5 py-8 md:py-12">
+        <div className="wrap flex flex-col gap-2.5 section-pad">
           <h1 className="page-title">{ui("batches.title", lang)}</h1>
           <p className="body max-w-[62ch]" style={{ color: "var(--color-heroink)" }}>
             <Tx>{ui("batches.lead", lang)}</Tx>
@@ -61,7 +61,7 @@ export function BatchesPage({ lang }: { lang: Lang }) {
         if (list.length === 0) return null;
         const shared = sharedSession(list, lang);
         return (
-          <section key={type} className="wrap flex flex-col gap-4 py-6 md:py-9">
+          <section key={type} className="wrap flex flex-col gap-4 section-pad">
             <h2 className="h2">{groups[type]}</h2>
             {shared ? <SharedSession rows={shared} lang={lang} /> : null}
             <ul className={`grid gap-2.5 md:gap-5 ${type === "group" ? "md:grid-cols-2" : ""}`}>
@@ -75,7 +75,7 @@ export function BatchesPage({ lang }: { lang: Lang }) {
         );
       })}
 
-      <section className="wrap flex flex-col gap-3 py-8 md:py-12">
+      <section className="wrap flex flex-col gap-3 section-pad">
         <h2 className="h2">{ui("home.faqTitle", lang)}</h2>
         <FaqList items={faq} lang={lang} columns />
         {/* Said on the page where money is decided, not buried in a policy. */}
@@ -105,14 +105,14 @@ export function LegalPage({
   return (
     <SiteShell lang={lang} routeKey={routeKey} hasBand={false} quiet>
       <header className="border-b border-rule">
-        <div className="wrap flex flex-col gap-2 py-8 md:py-11">
+        <div className="wrap flex flex-col gap-2 section-pad">
           <h1 className="page-title">{title}</h1>
           <p className="cap">
             {ui("legal.reviewNote", lang)} · {ui("about.updated", lang)} {site.updated}
           </p>
         </div>
       </header>
-      <div className="wrap flex max-w-[68ch] flex-col gap-6 py-8 md:py-12">
+      <div className="wrap flex max-w-[68ch] flex-col gap-6 section-pad">
         {sections.map((s, i) => (
           <section key={i} className="flex flex-col gap-2">
             <h2 className="h3">{s.heading}</h2>

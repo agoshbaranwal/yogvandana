@@ -61,7 +61,7 @@ export function AilmentChooser({
   columns?: string;
 }) {
   return (
-    <section id={id} className="wrap flex flex-col gap-4 py-8 md:py-12">
+    <section id={id} className="wrap flex flex-col gap-4 section-pad">
       <div className="flex flex-col gap-1.5">
         <h2 className="h2">{ui("home.ailmentsTitle", lang)}</h2>
         <p className="max-w-[68ch] body" style={{ color: "var(--color-muted)" }}>
