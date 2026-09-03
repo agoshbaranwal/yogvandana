@@ -233,7 +233,13 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
   const families = fs.readFileSync(path.join(ROOT, "lib", "content.ts"), "utf8");
   const expand = (h) =>
     h && h.length === 4 ? `#${h[1]}${h[1]}${h[2]}${h[2]}${h[3]}${h[3]}` : h;
+  /* Until Phase 1 lands, a placeholder is painted in `muted` on every ground
+     and the wordmark's योग in `bhagwa`; these aliases make the rule measure
+     what is actually on screen, and fail. When the tokens exist, they win. */
+  const ALIAS = { "todo-on-bhagwa": "muted", "todo-on-kohl": "muted", mark: "bhagwa" };
   const token = (name) => {
+    const own = CSS.match(new RegExp(`--color-${name}:\\s*(#[0-9a-fA-F]{3,6})\\b`));
+    if (!own && ALIAS[name]) name = ALIAS[name];
     const inCss = CSS.match(new RegExp(`--color-${name}:\\s*(#[0-9a-fA-F]{3,6})\\b`));
     if (inCss) return expand(inCss[1]).toLowerCase();
     const inTs = families.match(new RegExp(`${name}:\\s*\\{\\s*ink:\\s*"(#[0-9a-fA-F]{3,6})"`));
@@ -263,6 +269,12 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
     ["condition chips", "metabolic", "ivory"],
     ["condition chips", "mind", "ivory"],
     ["condition chips", "women", "ivory"],
+    /* Pairs the site paints today that the palette list missed. Found by
+       measuring the rendered page, not the tokens. */
+    ["placeholders on the saffron band", "todo-on-bhagwa", "bhagwa"],
+    ["placeholders in the footer", "todo-on-kohl", "kohl"],
+    ["the wordmark on ivory", "mark", "ivory"],
+    ["the wordmark on white", "mark", "paper"],
   ];
   const measured = pairs
     .map(([what, fg, bg]) => ({ what, fg, bg, a: token(fg), b: token(bg) }))
@@ -369,6 +381,64 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
       : bad.length
         ? bad.slice(0, 4).join(" · ")
         : `${money} payment links across ${pages.length} pages, all on ${site.links.paymentPage.replace(/^https:\/\//, "").split("/")[0]}, every one carrying its batch`,
+  );
+}
+
+/* 18 — the sticky bar knows its place ------------------------------------- */
+{
+  const stickyPages = pages.filter((f) => /data-sticky-cta/.test(read(f)));
+  const quiet = stickyPages.filter((f) => /\/(privacy|terms|refund|nahin-mila)\/$|404\.html$/.test(rel(f)));
+  const sticky = fs.readFileSync(path.join(ROOT, "components", "StickyCta.tsx"), "utf8");
+  const viewer = fs.readFileSync(path.join(ROOT, "components", "GalleryGrid.tsx"), "utf8");
+  const z = (src) => Number((src.match(/\bz-(\d+)\b/) || [])[1] ?? 0);
+  const zOk = z(viewer) > z(sticky);
+  /* A reveal animation that keeps its end state leaves `translate` on every
+     section, and a translate makes a fixed dialog inside it position against
+     the section and stack inside it — under the bar. Only `backwards` leaves
+     the section clean once it has risen. */
+  const reveal = (CSS.match(/section\.in\{animation:[^}]*\}/) || [""])[0];
+  const fillOk = reveal !== "" && !/\b(both|forwards)\b/.test(reveal);
+  add(
+    18,
+    "The sticky bar is absent on policy and 404 pages and can never cover a dialog",
+    quiet.length === 0 && zOk && fillOk ? "pass" : "fail",
+    [
+      quiet.length ? `on ${quiet.map(rel).join(", ")}` : `absent on ${pages.length - stickyPages.length} quiet pages`,
+      zOk ? `viewer z-${z(viewer)} above bar z-${z(sticky)}` : `viewer z-${z(viewer)} not above bar z-${z(sticky)}`,
+      fillOk ? "reveal leaves no transform behind" : "reveal keeps its transform (fill-mode both/forwards), which traps a dialog under the bar",
+    ].join(" · "),
+  );
+}
+
+/* 19 — two verbs on every button --------------------------------------- */
+{
+  /* A person deciding should meet the same two actions everywhere: talk to
+     her, or pay. Any other verb on a button is a third thing to work out. */
+  const ui = JSON.parse(fs.readFileSync(path.join(ROOT, "content", "ui.json"), "utf8"));
+  const pick = (k) => k.split(".").reduce((o, p) => (o ? o[p] : undefined), ui);
+  const allowedKeys = ["cta.talk", "cta.whatsappTalk", "cta.payJoin", "cta.payFee", "cta.pay", "cta.form"];
+  const allowed = new Set();
+  for (const k of allowedKeys) {
+    const v = pick(k);
+    if (v) allowed.add(v.hi).add(v.en);
+  }
+  const strays = new Map();
+  let buttons = 0;
+  for (const f of pages) {
+    for (const m of read(f).matchAll(/<(?:a|button)\b[^>]*class="[^"]*\bbtn\b[^"]*"[^>]*>([\s\S]*?)<\/(?:a|button)>/g)) {
+      const label = text(m[1]).trim();
+      if (!label) continue;
+      buttons += 1;
+      if (!allowed.has(label)) strays.set(label, (strays.get(label) || 0) + 1);
+    }
+  }
+  add(
+    19,
+    "Every button says one of two things: talk to her, or pay",
+    strays.size === 0 ? "pass" : "fail",
+    strays.size
+      ? `${strays.size} other label(s): ${[...strays.entries()].map(([l, n]) => `"${l}" ×${n}`).join(" · ")}`
+      : `${buttons} buttons, every one from the allowed set`,
   );
 }
 

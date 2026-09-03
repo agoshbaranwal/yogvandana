@@ -442,14 +442,17 @@ About four and a half days of work, in two or three sittings. Phases 3 to 7 are 
 each other once 1 and 2 have landed, so they can go in any order and any one of them can be reviewed
 on its own.
 
-### The two decisions before Phase 1
+### The decisions — taken 4 September 2026
 
-1. **The saffron योग of the wordmark on light grounds.** Keep bhagwa (2.0:1, fails) as a deliberate
-   brand exception; move it to deep saffron on light grounds only (passes, still saffron, the icon
-   and footer keep bhagwa); or set the mark on a dark tile. My recommendation is the second.
-2. **The menu word for the conditions page.** तकलीफ़ (gentle, today's), बीमारी (the everyday word,
-   matches the claim), or रोग (the Ramdev-register word, matches the motto). My recommendation is
-   बीमारी.
+Agosh answered four questions before Phase 1 began:
+
+1. **The wordmark.** योग goes to deep saffron (#A05000) on light grounds — 5.4:1, still saffron.
+   The icon, the footer and the saffron band keep the full bhagwa, where it already passes.
+2. **The menu word.** **बीमारी.** The question "आपको क्या तकलीफ़ है?" stays as the question.
+3. **Tone.** Plainer and bolder within the dawn world: bigger type, bolder saffron, results in large
+   numbers, fewer thin captions and nested cards. Not a poster.
+4. **Practices on the slip.** Typical practices per condition, clearly marked उदाहरण, until she
+   confirms the real list.
 
 ### What this audit did not check, and says so
 

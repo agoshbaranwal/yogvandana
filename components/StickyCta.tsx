@@ -50,6 +50,7 @@ export default function StickyCta({
 
   return (
     <div
+      data-sticky-cta=""
       className={`no-print fixed inset-x-0 bottom-0 z-40 lg:hidden ${
         show ? "translate-y-0" : "translate-y-full"
       } transition-transform duration-200`}

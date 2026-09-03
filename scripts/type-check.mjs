@@ -42,6 +42,25 @@ for (const file of files) {
 
 const css = fs.readFileSync(path.join(ROOT, "app", "globals.css"), "utf8");
 const stepNames = new Set([...css.matchAll(/--step-([a-z]+):/g)].map((m) => m[1]));
+
+/* The floors. Hindi needs 16 px for anything a person has to read, and this
+   audience reads it on a 720p screen; 18 for body, 1.7 line height so the
+   matras have room. The first value of each token is the phone value. */
+const FLOOR = { label: 14, cap: 16, body: 18 };
+for (const [name, min] of Object.entries(FLOOR)) {
+  const m = css.match(new RegExp(`--step-${name}:\\s*([\\d.]+)px`));
+  const px = m ? parseFloat(m[1]) : NaN;
+  if (!(px >= min)) problems.push(`app/globals.css  --step-${name} is ${px}px — the floor for this audience is ${min}px`);
+}
+const bodyLh = css.match(/\n\s*body\s*\{[^}]*line-height:\s*([\d.]+)/);
+if (!bodyLh || parseFloat(bodyLh[1]) < 1.7) problems.push(`app/globals.css  body line-height is ${bodyLh ? bodyLh[1] : "unset"} — Hindi wants 1.7`);
+// a form label or a table header is something a person must read: never the smallest step
+for (const file of files) {
+  const src = fs.readFileSync(file, "utf8");
+  for (const m of src.matchAll(/<(label|th)\b[^>]*className="([^"]*)"/g)) {
+    if (/\blabel\b/.test(m[2])) problems.push(`${path.relative(ROOT, file)}  <${m[1]}> uses the "label" step — a form label or table header is read, not glanced at; use cap or body`);
+  }
+}
 for (const m of css.matchAll(/font-size:\s*([^;]+);/g)) {
   const value = m[1].trim();
   if (!value.startsWith("var(--step-")) {
