@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;800&amp;display=swap">
+  <style>
+    body { margin: 0; background: #FBF8F1; color: #231A12; font-family: 'Baloo 2', 'Arial Rounded MT Bold', ui-rounded, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #A05000; text-decoration: none; } a:hover { color: #6B3500; }
+    p, h1, h2, h3 { margin: 0; }
+    .lbl { font-size: 14px; font-weight: 800; letter-spacing: 0.04em; color: #6E5F4E; }
+    .cap { font-size: 16px; line-height: 1.5; color: #6E5F4E; }
+    .body { font-size: 18px; line-height: 1.7; }
+    .h2 { font-size: 26px; line-height: 1.2; font-weight: 800; }
+    .btn { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; border-radius: 999px; font-size: 18px; font-weight: 800; text-decoration: none; padding: 0 22px; }
+    .btn-p { background: #FF9933; color: #231A12; }
+    .btn-o { border: 2px solid #231A12; color: #231A12; }
+    .card { background: #FFFFFF; border: 1px solid #E4D9C7; border-radius: 14px; }
+    .todo { color: #6E5F4E; text-decoration: underline dotted; text-underline-offset: 3px; }
+    .num { font-variant-numeric: tabular-nums; }
+    .day { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 800; }
+    .on { background: #231A12; color: #FF9933; }
+    .off { background: #F1E7D6; color: #6E5F4E; }
+  </style>
+</helmet>
+<div style="width: 390px; background: #FBF8F1; display: flex; flex-direction: column;">
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid #E4D9C7;">
+    <div style="font-size: 26px; font-weight: 800; line-height: 1.2; word-spacing: 0.16em;"><span style="color: #A05000;">योग</span> वंदना</div>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#231A12" stroke-width="2" stroke-linecap="round"><path d="M3.8 7h16.4M3.8 12h16.4M3.8 17h16.4"/></svg>
+  </div>
+
+  <div style="padding: 24px 16px 20px; background: linear-gradient(180deg, #EAF2F8 0%, #FBF8F1 100%); display: flex; flex-direction: column; gap: 8px;">
+    <h1 style="font-size: 34px; line-height: 1.12; font-weight: 800;">बैच और फ़ीस</h1>
+    <p class="body" style="color: #4A3A2A;">ज़ूम पर लाइव, <span class="todo">[8–10]</span> लोगों के ग्रुप में। घर पर बस एक चटाई, थोड़ी जगह और फ़ोन।</p>
+  </div>
+
+  <!-- the timetable: a week, two times, one fee -->
+  <div style="padding: 8px 16px 0; display: flex; flex-direction: column; gap: 12px;">
+    <div class="card" style="overflow: hidden;">
+      <div style="padding: 16px 16px 12px; display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; background: #FFF3E3;">
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+          <div style="font-size: 28px; font-weight: 800; line-height: 1.05;">सुबह का बैच</div>
+          <div class="num" style="font-size: 22px; font-weight: 800; color: #A05000; line-height: 1.2;"><span class="todo">[6:30 – 7:15]</span></div>
+        </div>
+        <div style="text-align: right;"><div class="num" style="font-size: 30px; font-weight: 800; line-height: 1;">₹<span class="todo">[1500]</span></div><div class="cap">प्रति माह</div></div>
+      </div>
+      <div style="padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #E4D9C7;">
+        <div class="day on">सो</div><div class="day on">मं</div><div class="day on">बु</div><div class="day on">गु</div><div class="day on">शु</div><div class="day on">श</div><div class="day off">र</div>
+      </div>
+      <div style="padding: 12px 16px; border-top: 1px solid #E4D9C7; display: flex; flex-direction: column; gap: 6px;">
+        <p class="body">खाली पेट। <span style="font-weight: 800;">शुगर, बीपी, थायराइड</span> के लिए यही बैच।</p>
+        <p class="cap">अगला बैच <span class="todo">[तारीख़]</span> से · <span class="todo">[N]</span> सीटें बची</p>
+      </div>
+      <div style="padding: 0 16px 16px;"><a class="btn btn-p" href="#">इस बैच के बारे में बात करें</a></div>
+    </div>
+
+    <div class="card" style="overflow: hidden;">
+      <div style="padding: 16px 16px 12px; display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; background: #EAF2F8;">
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+          <div style="font-size: 28px; font-weight: 800; line-height: 1.05;">शाम का बैच</div>
+          <div class="num" style="font-size: 22px; font-weight: 800; color: #A05000; line-height: 1.2;"><span class="todo">[6:30 – 7:15]</span></div>
+        </div>
+        <div style="text-align: right;"><div class="num" style="font-size: 30px; font-weight: 800; line-height: 1;">₹<span class="todo">[1500]</span></div><div class="cap">प्रति माह</div></div>
+      </div>
+      <div style="padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #E4D9C7;">
+        <div class="day on">सो</div><div class="day on">मं</div><div class="day on">बु</div><div class="day on">गु</div><div class="day on">शु</div><div class="day on">श</div><div class="day off">र</div>
+      </div>
+      <div style="padding: 12px 16px; border-top: 1px solid #E4D9C7; display: flex; flex-direction: column; gap: 6px;">
+        <p class="body">दफ़्तर के बाद। <span style="font-weight: 800;">कमर, गर्दन, नींद</span> के लिए अच्छा।</p>
+        <p class="cap">अगला बैच <span class="todo">[तारीख़]</span> से</p>
+      </div>
+      <div style="padding: 0 16px 16px;"><a class="btn btn-o" href="#">इस बैच के बारे में बात करें</a></div>
+    </div>
+
+    <div class="card" style="padding: 16px; display: flex; flex-direction: column; gap: 8px;">
+      <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;">
+        <div style="font-size: 24px; font-weight: 800; line-height: 1.1;">एक-से-एक क्लास</div>
+        <div style="text-align: right;"><div class="num" style="font-size: 24px; font-weight: 800; line-height: 1;">₹<span class="todo">[शुल्क]</span></div><div class="cap">प्रति क्लास</div></div>
+      </div>
+      <p class="body">किसी ख़ास तकलीफ़ के लिए, या जब आप अपनी रफ़्तार से चलना चाहें। समय आप तय करते हैं।</p>
+    </div>
+  </div>
+
+  <!-- one class, and the money, said once -->
+  <div style="padding: 28px 16px 0; display: flex; flex-direction: column; gap: 12px;">
+    <h2 class="h2">एक क्लास में</h2>
+    <div style="display: flex; align-items: stretch; border-radius: 14px; overflow: hidden; border: 1px solid #E4D9C7;">
+      <div style="flex: 1; padding: 12px 10px; background: #FFF3E3; display: flex; flex-direction: column; gap: 2px;"><div class="num" style="font-size: 26px; font-weight: 800; line-height: 1;"><span class="todo">[10]</span></div><div class="cap">मिनट वार्म-अप, जोड़</div></div>
+      <div style="flex: 3; padding: 12px 10px; background: #FF9933; display: flex; flex-direction: column; gap: 2px;"><div class="num" style="font-size: 26px; font-weight: 800; line-height: 1;"><span class="todo" style="color: #6B3500;">[30]</span></div><div class="cap" style="color: #6B3500;">मिनट आसन, आपके स्तर पर</div></div>
+      <div style="flex: 1; padding: 12px 10px; background: #FFF3E3; display: flex; flex-direction: column; gap: 2px;"><div class="num" style="font-size: 26px; font-weight: 800; line-height: 1;"><span class="todo">[10]</span></div><div class="cap">मिनट प्राणायाम, विश्राम</div></div>
+    </div>
+    <div style="display: flex; flex-direction: column; border-top: 1px solid #E4D9C7;">
+      <div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid #E4D9C7;"><span class="body">रोज़ का हिसाब</span><span class="body" style="font-weight: 800;">₹<span class="todo">[50]</span> से कम</span></div>
+      <div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid #E4D9C7;"><span class="body">एक घर के दो लोग</span><span class="body" style="font-weight: 800;"><span class="todo">[छूट]</span></span></div>
+      <div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid #E4D9C7;"><span class="body">फ़ीस कैसे</span><span class="body" style="font-weight: 800;">यूपीआई या कार्ड</span></div>
+      <div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid #E4D9C7;"><span class="body">क्लास छूट जाए</span><span class="body" style="font-weight: 800;"><span class="todo">[उस दिन दूसरे बैच में]</span></span></div>
+      <div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0;"><span class="body">रिफ़ंड</span><span class="body" style="font-weight: 800;"><span class="todo">[एक पंक्ति में नियम]</span></span></div>
+    </div>
+    <p class="cap" style="padding-bottom: 8px;">वंदना जी कभी आपका यूपीआई पिन या ओटीपी नहीं माँगेंगी। पैसे लेने के लिए पिन कभी नहीं लगता।</p>
+  </div>
+
+  <div style="padding: 28px 16px 36px; background: #FF9933; display: flex; flex-direction: column; gap: 12px; margin-top: 12px;">
+    <h2 style="font-size: 30px; line-height: 1.15; font-weight: 800;">कौन सा बैच? पहले बात कीजिए।</h2>
+    <p class="body">बीमारी के हिसाब से वंदना जी बताती हैं — सुबह या शाम। बिना शुल्क।</p>
+    <a class="btn" href="#" style="background: #231A12; color: #FF9933;">व्हाट्सऐप पर बात करें</a>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

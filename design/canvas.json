@@ -1,26 +1,4 @@
 {
-  "pages": [
-    {
-      "id": "page-5",
-      "name": "Round 5 · the site, every page"
-    },
-    {
-      "id": "page-4",
-      "name": "Round 4 · theme worlds and type"
-    },
-    {
-      "id": "page-3",
-      "name": "Round 3 · निरामय, the theme"
-    },
-    {
-      "id": "page-1",
-      "name": "Round 2 · logo, colour, direction"
-    },
-    {
-      "id": "page-2",
-      "name": "Round 1 · first pass"
-    }
-  ],
   "artboards": [
     {
       "file": "FinalTheme.dc.html",
@@ -363,6 +341,78 @@
       "h": 1620,
       "title": "Credentials · desktop (round 1)",
       "page": "page-2"
+    },
+    {
+      "file": "R6Home.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 6600,
+      "title": "Home · phone · Round 6",
+      "page": "page-6"
+    },
+    {
+      "file": "R6HomeDesktop.dc.html",
+      "x": 520,
+      "y": 0,
+      "w": 1440,
+      "h": 3900,
+      "title": "Home · desktop · Round 6",
+      "page": "page-6"
+    },
+    {
+      "file": "R6ChooserBody.dc.html",
+      "x": 0,
+      "y": 6800,
+      "w": 390,
+      "h": 1040,
+      "title": "Chooser · the body (alternative)",
+      "page": "page-6"
+    },
+    {
+      "file": "R6Slip.dc.html",
+      "x": 520,
+      "y": 6800,
+      "w": 390,
+      "h": 960,
+      "title": "The slip · a prescription pad",
+      "page": "page-6"
+    },
+    {
+      "file": "R6Sugar.dc.html",
+      "x": 1040,
+      "y": 6800,
+      "w": 390,
+      "h": 4500,
+      "title": "शुगर page · phone",
+      "page": "page-6"
+    },
+    {
+      "file": "R6Batches.dc.html",
+      "x": 1560,
+      "y": 6800,
+      "w": 390,
+      "h": 2100,
+      "title": "बैच और फ़ीस · phone",
+      "page": "page-6"
+    },
+    {
+      "file": "R6About.dc.html",
+      "x": 2080,
+      "y": 6800,
+      "w": 390,
+      "h": 3700,
+      "title": "परिचय · phone",
+      "page": "page-6"
+    },
+    {
+      "file": "R6Contact.dc.html",
+      "x": 2600,
+      "y": 6800,
+      "w": 390,
+      "h": 1700,
+      "title": "संपर्क · phone",
+      "page": "page-6"
     }
   ],
   "annotations": [
@@ -493,10 +543,68 @@
       "w": 360,
       "page": "page-5",
       "text": "The plan files in ~/Game/yoga-site match these boards. Next: a session with Opus that reads BUILD-PROMPT.md and EXECUTION-PLAN.md and builds."
+    },
+    {
+      "id": "r6-readme",
+      "x": 0,
+      "y": -420,
+      "w": 980,
+      "text": "Round 6 · 4 September. The audit found the site correct but not designed: every section was the same weight, and it read as a wellness app to a person who wanted a clinic.\n\nThe person: 25–55, Hindi, a ₹10–15k Android, a disease, Ramdev's frame of yoga as treatment and a doctor's warning in the other hand.\n\nWhat changed, section by section:\n· First screen — her face, her name, the government's word (आयुष / YCB), the promise, a phone number. A clinic board, not a gradient.\n· Diseases — tall rows in their words with the student count, not eight equal tiles. The body-map is beside it as the alternative you liked in Round 2.\n· What happens — a numbered timeline; the money said once; the medicine answer in the same breath, on dark.\n· Proof — the result is the biggest thing: 8.2 → 6.5, दवा आधी, a face, an age, a city.\n· The slip — a real prescription pad: saffron letterhead, ruled paper, her seal, a torn edge, print.\n· Fees — a timetable with the week and the price loud, not cards.\n· Photos are placeholders drawn plain — her real ones replace them.\n\nEverything bracketed is hers to fill. Decisions to take: rows or body for the chooser; the dark medicine panel; the pad; the contact page leading with the number.",
+      "page": "page-6"
+    },
+    {
+      "id": "r6-chooser",
+      "x": 0,
+      "y": 6560,
+      "w": 500,
+      "text": "Two ways in. Rows (on the home board) read fastest on a 6.5-inch screen and carry a count. The body is more memorable and closer to how a person points at pain — but eight labels crowd a phone. Pick one; the other goes.",
+      "page": "page-6"
+    },
+    {
+      "id": "r6-slip",
+      "x": 520,
+      "y": 6560,
+      "w": 420,
+      "text": "The site's signature, made physical. Letterhead with the government's word, ruled lines, a numbered slip, her seal, a torn edge. Printable, and sendable to family.",
+      "page": "page-6"
+    },
+    {
+      "id": "r6-desktop",
+      "x": 520,
+      "y": -180,
+      "w": 700,
+      "text": "Desktop keeps the same order. Her face takes the left third of the first screen; diseases in two columns beside the steps and the medicine panel; the slip beside the timetable.",
+      "page": "page-6"
     }
   ],
   "launch": {
     "view": "canvas",
-    "page": "page-5"
-  }
+    "page": "page-6"
+  },
+  "pages": [
+    {
+      "id": "page-6",
+      "name": "Round 6 · plainer and bolder, every section"
+    },
+    {
+      "id": "page-5",
+      "name": "Round 5 · the site, every page"
+    },
+    {
+      "id": "page-4",
+      "name": "Round 4 · theme worlds and type"
+    },
+    {
+      "id": "page-3",
+      "name": "Round 3 · निरामय, the theme"
+    },
+    {
+      "id": "page-1",
+      "name": "Round 2 · logo, colour, direction"
+    },
+    {
+      "id": "page-2",
+      "name": "Round 1 · first pass"
+    }
+  ]
 }

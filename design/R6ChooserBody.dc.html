@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;800&amp;display=swap">
+  <style>
+    body { margin: 0; background: #FBF8F1; color: #231A12; font-family: 'Baloo 2', 'Arial Rounded MT Bold', ui-rounded, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #A05000; text-decoration: none; } a:hover { color: #6B3500; }
+    p, h1, h2, h3 { margin: 0; }
+    .cap { font-size: 16px; line-height: 1.5; color: #6E5F4E; }
+    .body { font-size: 18px; line-height: 1.7; }
+    .h2 { font-size: 26px; line-height: 1.2; font-weight: 800; }
+    .tag { position: absolute; display: flex; align-items: center; gap: 8px; text-decoration: none; color: #231A12; }
+    .dot { width: 30px; height: 30px; border-radius: 50%; background: #FF9933; border: 3px solid #FBF8F1; box-shadow: 0 0 0 2px #231A12; flex: none; }
+    .nm { font-size: 18px; font-weight: 800; line-height: 1.1; background: #FBF8F1; padding: 4px 10px; border-radius: 999px; border: 1.5px solid #231A12; white-space: nowrap; }
+    .nm.on { background: #231A12; color: #FF9933; }
+  </style>
+</helmet>
+<div style="width: 390px; background: #FBF8F1; display: flex; flex-direction: column; padding-bottom: 28px;">
+  <div style="padding: 24px 16px 6px; display: flex; flex-direction: column; gap: 4px;">
+    <h2 class="h2">कहाँ तकलीफ़ है?</h2>
+    <p class="cap">जगह पर छुइए। हर एक की अपनी पर्ची और अपने लोग।</p>
+  </div>
+
+  <!-- the body as the front door: one plain figure, eight places -->
+  <div style="position: relative; height: 640px; margin: 8px 0 0;">
+    <svg viewBox="0 0 390 640" width="390" height="640" aria-hidden="true" style="position: absolute; inset: 0;">
+      <g fill="#F1E7D6" stroke="#231A12" stroke-width="2.4" stroke-linejoin="round">
+        <circle cx="195" cy="66" r="40"/>
+        <path d="M181 104 L209 104 L212 128 L178 128 Z"/>
+        <path d="M120 150 C150 128 240 128 270 150 C288 165 296 200 298 245 L296 300 L272 300 L266 236 L262 330 L266 430 L250 430 L238 340 L228 300 L208 300 L204 350 L212 460 L214 560 L236 596 L206 606 L184 606 L154 596 L176 560 L178 460 L186 350 L182 300 L162 300 L152 340 L140 430 L124 430 L128 330 L124 236 L118 300 L94 300 L92 245 C94 200 102 165 120 150 Z"/>
+      </g>
+      <g fill="none" stroke="#B5A08A" stroke-width="2" stroke-linecap="round">
+        <path d="M172 178 C184 190 206 190 218 178"/>
+        <path d="M195 200 L195 262"/>
+        <path d="M150 300 L240 300"/>
+      </g>
+    </svg>
+
+    <a class="tag" href="#" style="left: 28px; top: 40px;"><span class="nm">नींद और तनाव</span><span class="dot"></span></a>
+    <svg style="position: absolute; left: 172px; top: 52px;" width="24" height="2"><rect width="24" height="2" fill="#231A12"/></svg>
+
+    <a class="tag" href="#" style="left: 206px; top: 104px;"><span class="dot"></span><span class="nm">थायराइड</span></a>
+
+    <a class="tag" href="#" style="left: 78px; top: 170px;"><span class="nm">बीपी</span><span class="dot"></span></a>
+
+    <a class="tag" href="#" style="left: 210px; top: 218px;"><span class="dot"></span><span class="nm on">शुगर</span></a>
+
+    <a class="tag" href="#" style="left: 16px; top: 268px;"><span class="nm">मोटापा</span><span class="dot"></span></a>
+
+    <a class="tag" href="#" style="left: 214px; top: 296px;"><span class="dot"></span><span class="nm">कमर दर्द</span></a>
+
+    <a class="tag" href="#" style="left: 30px; top: 356px;"><span class="nm">महिलाओं की समस्याएँ</span><span class="dot"></span></a>
+
+    <a class="tag" href="#" style="left: 226px; top: 452px;"><span class="dot"></span><span class="nm">घुटने का दर्द</span></a>
+  </div>
+
+  <div style="padding: 8px 16px 0; display: flex; flex-direction: column; gap: 10px;">
+    <div style="background: #FFFFFF; border: 1px solid #E4D9C7; border-radius: 14px; padding: 14px 16px; display: flex; align-items: center; gap: 12px;">
+      <div style="width: 52px; height: 52px; border-radius: 14px; background: #E4F0F9; color: #1A6FA8; display: flex; align-items: center; justify-content: center; flex: none;"><svg width="30" height="30" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5.5c0 0-12.5 13.7-12.5 21.8A12.5 12.5 0 0 0 36.5 27.3C36.5 19.2 24 5.5 24 5.5z"/><path d="M17.6 28.2a6.4 6.4 0 0 0 6.4 6.4"/></svg></div>
+      <div style="display: flex; flex-direction: column; gap: 2px; flex: 1;">
+        <div style="font-size: 22px; font-weight: 800; line-height: 1.15;">शुगर</div>
+        <div class="cap">टाइप-2, प्री-डायबिटीज़ · <span style="color: #6E5F4E; text-decoration: underline dotted;">[N]</span> विद्यार्थी</div>
+      </div>
+      <a href="#" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; background: #FF9933; color: #231A12; font-size: 16px; font-weight: 800;">देखें</a>
+    </div>
+    <p class="cap">और भी: गर्दन, अस्थमा, साइनस, कब्ज़, गठिया — <a href="#" style="font-weight: 800; text-decoration: underline; text-underline-offset: 3px;">पूछिए</a></p>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>
