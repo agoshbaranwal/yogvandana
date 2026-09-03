@@ -586,6 +586,25 @@
   .no-print {
     display: none !important;
   }
+  /* "Print this slip" prints the slip, not the page around it. */
+  body[data-print="slip"] * {
+    visibility: hidden;
+  }
+  body[data-print="slip"] .slip,
+  body[data-print="slip"] .slip * {
+    visibility: visible;
+  }
+  body[data-print="slip"] .slip {
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    animation: none !important;
+  }
+  body[data-print="slip"] .slip-row,
+  body[data-print="slip"] .slip-seal {
+    animation: none !important;
+    opacity: 1 !important;
+  }
   body {
     background: #fff;
   }

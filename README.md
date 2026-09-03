@@ -10,6 +10,8 @@ Hindi is the site. English is one tap away. Every page exists twice.
   https://claude.ai/code/artifact/4d5a08d2-9e93-4ad0-903c-31dca96c0a11
 - **The specification:** `BUILD-PROMPT.md` · **the order of work:** `EXECUTION-PLAN.md`
 - **What was built, measured and left undone:** `docs/AUDIT.md`
+- **Why the pages are laid out this way:** `docs/CONTENT-AUDIT.md`
+- **Taking money on it:** `docs/PAYMENTS.md`
 
 Nothing about her is invented. Every fact still to come is written `[like this]` and shows on
 the page as a dotted blank. `npm run content:check` lists every one of them.
@@ -37,6 +39,7 @@ npm run serve     # serves out/ on http://127.0.0.1:4411
 | `npm run serve` | Serves `out/` the way the real host will |
 | `npm run content:check` | Lists every fact and photo still to be filled in. Fails while any remain |
 | `npm run parity:check` | Fails if a string or a page exists in one language and not the other |
+| `npm run type:check` | Fails if a component sets a font size of its own. Seven sizes, two faces, no more |
 | `npm run credibility:check` | The sixteen credibility rules over the built site, into `docs/CHECKS.md` |
 | `npm run media:prepare` | Resizes her photographs from `media-src/` into `public/media/` |
 | `npm run og` | Redraws the link-preview images and the app icon |
@@ -88,3 +91,9 @@ between "there is no register" and "we have not looked yet" is the whole point o
 Next.js 16 with the App Router, TypeScript and Tailwind 4, exported as static files. No server,
 no database, no login. Hindi pages live at `/`, English under `/en/`, sharing the same
 components through a `lang` prop, so the two can never drift apart.
+
+Two typefaces and seven sizes, all declared in `app/globals.css`: **Baloo 2** carries Devanagari
+and **Montserrat** carries Latin, one per language, with the Devanagari brand and motto falling
+through to Baloo 2 on the English pages. Hierarchy is weight and colour, not a new size for every
+occasion. Pick one of `claim`, `page-title`, `h2`, `h3`, `body`, `cap`, `label` — never a pixel
+value; `npm run type:check` enforces it.

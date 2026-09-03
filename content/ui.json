@@ -62,10 +62,6 @@
       "hi": "वंदना जी से बात करें",
       "en": "Talk to Vandana"
     },
-    "chooseAilment": {
-      "hi": "अपनी तकलीफ़ चुनें",
-      "en": "Choose your condition"
-    },
     "whatsapp": {
       "hi": "व्हाट्सऐप पर बुक करें",
       "en": "Book on WhatsApp"
@@ -130,10 +126,6 @@
       "hi": "सभी कहानियाँ, तकलीफ़ के हिसाब से",
       "en": "All stories, by condition"
     },
-    "nextStory": {
-      "hi": "अगली कहानी आपकी: वंदना जी से बात करें",
-      "en": "The next story could be yours: talk to Vandana"
-    },
     "allAilments": {
       "hi": "और भी: गर्दन, अस्थमा, साइनस, कब्ज़, गठिया",
       "en": "More: neck, asthma, sinus, constipation, arthritis"
@@ -141,10 +133,6 @@
     "allCerts": {
       "hi": "सभी प्रमाणपत्र और जाँच के लिंक",
       "en": "All certificates and verify links"
-    },
-    "allEvents": {
-      "hi": "सभी कार्यक्रम, फ़ोटो के साथ",
-      "en": "All events, with photos"
     },
     "allPhotos": {
       "hi": "सभी फ़ोटो",
@@ -243,26 +231,6 @@
     "inGroup": {
       "hi": "विद्यार्थी व्हाट्सऐप ग्रुप में",
       "en": "students in the WhatsApp group"
-    },
-    "videoNote": {
-      "hi": "वीडियो: [विद्यार्थी का नाम] अपनी कहानी में, 60 सेकंड।",
-      "en": "Video: [student's name] tells her own story, 60 seconds."
-    },
-    "mediaTitle": {
-      "hi": "मीडिया में",
-      "en": "In the media"
-    },
-    "galleryTitle": {
-      "hi": "गैलरी",
-      "en": "Gallery"
-    },
-    "eventsTitle": {
-      "hi": "मुख्य अतिथि, कार्यक्रम और सम्मान",
-      "en": "Guest of honour, events and awards"
-    },
-    "certsTitle": {
-      "hi": "प्रमाणपत्र, हर एक जाँचने योग्य",
-      "en": "Certificates, each one verifiable"
     },
     "recordTitle": {
       "hi": "उनका पूरा रिकॉर्ड",
@@ -447,14 +415,6 @@
     "seats": {
       "hi": "सीटें",
       "en": "seats"
-    },
-    "talkTitle": {
-      "hi": "पहले बात कीजिए। बिना शुल्क।",
-      "en": "Talk to her first. No fee for that."
-    },
-    "talkLead": {
-      "hi": "जुड़ने से पहले वंदना जी से बात कीजिए। अपनी तकलीफ़ या चोट ज़रूर बताइए — बैच वही तय करती हैं।",
-      "en": "Talk to her before you join. Do tell her about any condition or injury; that is what decides the batch."
     }
   },
   "stories": {
@@ -493,24 +453,12 @@
     "empty": {
       "hi": "इस तकलीफ़ की कहानियाँ जल्द ही।",
       "en": "Stories for this condition, soon."
-    },
-    "nextTitle": {
-      "hi": "अगली कहानी आपकी हो सकती है।",
-      "en": "The next story could be yours."
-    },
-    "nextLead": {
-      "hi": "अपनी तकलीफ़ बताइए। वंदना जी खुद बात करेंगी, बिना शुल्क।",
-      "en": "Tell her what troubles you. She will speak to you herself, and that costs nothing."
     }
   },
   "about": {
     "eyebrow": {
       "hi": "परिचय",
       "en": "About"
-    },
-    "since": {
-      "hi": "से सिखा रही हैं",
-      "en": "teaching since"
     },
     "videoNote": {
       "hi": "वीडियो: वंदना जी, अपने बारे में और अपनी क्लास के बारे में। 90 सेकंड।",
@@ -559,10 +507,6 @@
     "updated": {
       "hi": "अपडेट",
       "en": "Updated"
-    },
-    "firstPersonTitle": {
-      "hi": "मेरी बात",
-      "en": "In her own words"
     }
   },
   "credentials": {
@@ -617,14 +561,6 @@
     "awards": {
       "hi": "सम्मान और पुरस्कार",
       "en": "Awards and honours"
-    },
-    "role": {
-      "hi": "भूमिका",
-      "en": "Role"
-    },
-    "years": {
-      "hi": "वर्ष",
-      "en": "Years"
     },
     "sinceWord": {
       "hi": "से",
@@ -757,10 +693,6 @@
     "addressNote": {
       "hi": "क्लासेज़ ऑनलाइन होती हैं। [व्यक्तिगत सेशन के लिए मिलने की बात, अगर हो।]",
       "en": "Classes are online. [About meeting in person for private sessions, if that applies.]"
-    },
-    "socials": {
-      "hi": "सोशल मीडिया",
-      "en": "Social media"
     }
   },
   "students": {
@@ -858,10 +790,6 @@
       "hi": "कार्यक्रम की फ़ोटो",
       "en": "Event photo"
     },
-    "student": {
-      "hi": "विद्यार्थी की फ़ोटो",
-      "en": "Student photo"
-    },
     "signature": {
       "hi": "हस्ताक्षर",
       "en": "Signature"
@@ -877,10 +805,6 @@
     "video": {
       "hi": "वीडियो",
       "en": "Video"
-    },
-    "play": {
-      "hi": "वीडियो चलाएँ",
-      "en": "Play the video"
     },
     "comingSoon": {
       "hi": "फ़ोटो जल्द",

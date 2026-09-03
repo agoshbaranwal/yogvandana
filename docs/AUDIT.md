@@ -3,6 +3,13 @@
 Written after the build, by the person who built it, looking for what is missing or weak.
 Dated 3 September 2026. The site is live at **https://agoshbaranwal.github.io/yogvandana/**
 
+> **A second pass followed the same day.** Agosh read the site and said it was easy to navigate
+> but hard to take anything away from, and set five other changes besides. What was wrong with the
+> content, and what changed, is in **`docs/CONTENT-AUDIT.md`**; the offer, the typography, the
+> illustrations and the movement all changed with it. Sections 1 and 2 below still describe the
+> site, with the home page now nine blocks rather than fifteen and the type down to seven sizes in
+> two faces.
+
 ---
 
 ## 1. What is there

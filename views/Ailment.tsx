@@ -5,6 +5,7 @@ import { SectionHead, ShareLink, VideoSlot } from "@/components/Blocks";
 import { FaqList } from "@/components/Faq";
 import { AilmentIcon } from "@/components/Icons";
 import SiteShell from "@/components/SiteShell";
+import PrintSlip from "@/components/PrintSlip";
 import { Slip } from "@/components/Slip";
 import { StoryCard } from "@/components/StoryCard";
 import { Tx } from "@/components/Tx";
@@ -118,7 +119,10 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
           <div className="flex flex-col gap-2">
             <h2 className="h3">{ui("ailment.slipTitle", lang)}</h2>
             <Slip lang={lang} ailment={ailment} />
-            <p className="cap">{ui("ailment.slipNote", lang)}</p>
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <p className="cap">{ui("ailment.slipNote", lang)}</p>
+              <PrintSlip label={ui("slip.print", lang)} />
+            </div>
           </div>
         </div>
       </header>
