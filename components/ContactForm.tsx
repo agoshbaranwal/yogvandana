@@ -73,7 +73,7 @@ export default function ContactForm({
       />
 
       <div className="flex flex-col gap-1.5">
-        <label className="label" htmlFor="cf-name">
+        <label className="cap font-bold" htmlFor="cf-name" style={{ color: "var(--color-kohl)" }}>
           {labels.name}
         </label>
         <input
@@ -87,7 +87,7 @@ export default function ContactForm({
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <label className="label" htmlFor="cf-phone">
+        <label className="cap font-bold" htmlFor="cf-phone" style={{ color: "var(--color-kohl)" }}>
           {labels.phone}
         </label>
         <input
@@ -138,7 +138,7 @@ export default function ContactForm({
       </fieldset>
 
       <div className="flex flex-col gap-1.5">
-        <label className="label" htmlFor="cf-message">
+        <label className="cap font-bold" htmlFor="cf-message" style={{ color: "var(--color-kohl)" }}>
           {labels.message}
         </label>
         <textarea

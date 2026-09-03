@@ -53,7 +53,7 @@ export function BatchRow({
         data-ev-source="home"
         className={`btn btn-sm whitespace-nowrap ${isPrivate ? "btn-outline" : "btn-primary"}`}
       >
-        {join.pays ? ui("cta.pay", lang) : isPrivate ? ui("cta.bookSession", lang) : ui("cta.join", lang)}
+        {join.pays ? ui("cta.pay", lang) : ui("cta.talk", lang)}
       </a>
     </div>
   );
@@ -184,11 +184,7 @@ export function BatchCard({
             ? batch.type === "group"
               ? ui("cta.payJoin", lang)
               : ui("cta.pay", lang)
-            : batch.type === "workshop"
-              ? ui("cta.reserveSeat", lang)
-              : batch.type === "private"
-                ? ui("cta.pickTime", lang)
-                : ui("cta.joinBatch", lang)}
+            : ui("cta.talk", lang)}
         </a>
       </div>
       {/* What the button is about to do, said before it is pressed. */}

@@ -454,6 +454,25 @@ Agosh answered four questions before Phase 1 began:
 4. **Practices on the slip.** Typical practices per condition, clearly marked उदाहरण, until she
    confirms the real list.
 
+### Progress
+
+- **Phase 0 · Guardrails — done, 4 September.** Four rules written and proven red on the audited
+  site: type floors (14/16/18, line height 1.7, no label-step on form labels or table headers),
+  contrast on the four painted pairs the palette list had missed, the sticky bar's place (absent on
+  quiet pages, beneath dialogs, reveal animation leaves no transform), and two verbs on every button.
+  `scripts/measure.py` is the phase gate.
+- **Phase 1 · Foundations — done, 4 September.** Scale 14 / 16 / 18 / 20 / 24 / 30 / display, body
+  19 on desktop, line height 1.7. The mark's योग in deep saffron on light grounds, bhagwa on the
+  footer, band and icon. Placeholders paint in a per-ground ink. Three button shapes, 52 px, no
+  ghost; every button one of two verbs (190 buttons, zero strays). बीमारी in the menu and the
+  category leads; the question kept. The loanword list applied: एक-से-एक क्लास, योग शिविर, अख़बार
+  और टीवी में, तस्वीरें, परिचय-पत्र, no IST. The contact hint speaks to the person typing. Footer
+  rebuilt as a two-column list, 48 px cells, phone and WhatsApp when known. Sticky bar off the
+  policy and 404 pages and hidden under any dialog; the reveal keeps no transform.
+  **Gate:** 17 rules pass; contrast failures 0 on every page; tap failures 0; home text under
+  16 px 10% (was 55%), stories 20%, about 17% — the rest is chips and badges that the page phases
+  own.
+
 ### What this audit did not check, and says so
 
 Real photographs and real numbers change how every card reads; this audit scored the frames, not

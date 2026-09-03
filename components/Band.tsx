@@ -30,7 +30,7 @@ export default function Band({
       morningLabel={ui("band.morning", lang)}
       eveningLabel={ui("band.evening", lang)}
       whatsappNumber={site.contact.whatsapp}
-      whatsappLabel={ui("cta.whatsapp", lang)}
+      whatsappLabel={ui("cta.whatsappTalk", lang)}
       phone={site.contact.phone}
       callLabel={ui("cta.call", lang)}
       formHref={`${href("contact", lang)}#form`}

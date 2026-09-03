@@ -23,7 +23,7 @@ export function Slip({ lang, ailment }: { lang: Lang; ailment: Ailment }) {
       <div className="slip-head">
         <div className="flex flex-col gap-0.5">
           <div className="brand h3">
-            <span style={{ color: "var(--color-bhagwa)" }}>योग</span> वंदना
+            <span>योग</span> वंदना
           </div>
           <p className="cap" style={{ color: "var(--color-muted)" }}>
             {t(site.teacher, lang)}, {t(site.credentialShort, lang)} · {t(site.city, lang)}

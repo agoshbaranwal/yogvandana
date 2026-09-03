@@ -124,7 +124,7 @@ function PayOrWrite({ batch, lang, wa }: { batch: Batch; lang: Lang; wa: string 
         ? batch.type === "group"
           ? ui("cta.payFee", lang)
           : ui("cta.pay", lang)
-        : ui("cta.whatsappMsg", lang)}
+        : ui("cta.whatsappTalk", lang)}
     </a>
   );
 }

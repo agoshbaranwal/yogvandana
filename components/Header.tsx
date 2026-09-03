@@ -22,6 +22,8 @@ export default function Header({
   studentsHref,
   whatsappLabel,
   whatsappHref,
+  phoneHref,
+  phoneLabel,
   onDawn = false,
 }: {
   brandHi: string;
@@ -39,6 +41,9 @@ export default function Header({
   studentsHref: string;
   whatsappLabel: string;
   whatsappHref: string;
+  /* An older person looks for a number before a button. Shown once she has one. */
+  phoneHref: string;
+  phoneLabel: string;
   onDawn?: boolean;
 }) {
   const [open, setOpen] = useState(false);
@@ -101,7 +106,7 @@ export default function Header({
           className="brand inline-block py-2 no-underline h2"
           style={{ color: "var(--color-kohl)" }}
         >
-          <span style={{ color: onDawn ? "var(--color-deep)" : "var(--color-bhagwa)" }}>
+          <span>
             {brandHi}
           </span>{" "}
           {brandTail}
@@ -119,6 +124,15 @@ export default function Header({
               {item.label}
             </Link>
           ))}
+          {phoneHref ? (
+
+            <a href={phoneHref} className="tap body font-bold no-underline" style={{ color: "var(--color-kohl)" }} data-ev="call_click" data-ev-source="header">
+
+              {phoneLabel}
+
+            </a>
+
+          ) : null}
           <Link
             href={switchHref}
             title={switchTitle}
@@ -174,7 +188,7 @@ export default function Header({
         >
           <div className="wrap flex items-center justify-between gap-4 py-2.5">
             <span className="brand h2">
-              <span style={{ color: "var(--color-bhagwa)" }}>{brandHi}</span> {brandTail}
+              <span>{brandHi}</span> {brandTail}
             </span>
             <button
               type="button"

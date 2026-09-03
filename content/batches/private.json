@@ -3,7 +3,7 @@
   "type": "private",
   "order": 3,
   "name": {
-    "hi": "व्यक्तिगत सेशन",
+    "hi": "एक-से-एक क्लास",
     "en": "Private session"
   },
   "when": {
@@ -19,13 +19,13 @@
     "en": "At your own pace"
   },
   "note": {
-    "hi": "किसी खास तकलीफ़ के लिए, या जब आप अपनी रफ़्तार से चलना चाहें। वंदना जी हर सेशन आपके हिसाब से बनाती हैं।",
+    "hi": "किसी खास तकलीफ़ के लिए, या जब आप अपनी रफ़्तार से चलना चाहें। वंदना जी हर क्लास आपके हिसाब से बनाती हैं।",
     "en": "For a particular condition, or when you want your own pace. She plans each session around you."
   },
   "session": [],
   "price": "[शुल्क]",
   "priceUnit": {
-    "hi": "प्रति सेशन",
+    "hi": "प्रति क्लास",
     "en": "a session"
   },
   "perDay": "",

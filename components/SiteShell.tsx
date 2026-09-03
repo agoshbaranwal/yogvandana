@@ -1,6 +1,6 @@
 import { absolute, site, ui } from "@/lib/content";
 import { href, type Lang, NAV, type RouteKey } from "@/lib/routes";
-import { waHref, waMessage } from "@/lib/whatsapp";
+import { telHref, waHref, waMessage } from "@/lib/whatsapp";
 import Analytics from "./Analytics";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -11,6 +11,7 @@ export default function SiteShell({
   lang,
   routeKey,
   hasBand = true,
+  quiet = false,
   slug,
   onDawn = false,
   ailmentName,
@@ -22,6 +23,8 @@ export default function SiteShell({
      It used to jump to #booking-band on every page, which on six of them was
      a button that did nothing. */
   hasBand?: boolean;
+  /* Policy pages and the 404 carry no sticky bar: nothing there is a decision. */
+  quiet?: boolean;
   slug?: string;
   onDawn?: boolean;
   ailmentName?: string;
@@ -62,7 +65,9 @@ export default function SiteShell({
         closeLabel={ui("nav.close", lang)}
         studentsLabel={ui("nav.students", lang)}
         studentsHref={href("students", lang)}
-        whatsappLabel={ui("cta.whatsappMsg", lang)}
+        whatsappLabel={ui("cta.whatsappTalk", lang)}
+        phoneHref={site.contact.phone ? telHref(site.contact.phone) : ""}
+        phoneLabel={site.contact.phoneDisplay || ""}
         whatsappHref={wa}
         onDawn={onDawn}
       />
@@ -71,11 +76,13 @@ export default function SiteShell({
       </main>
       <Footer lang={lang} />
       <Motion />
+      {quiet ? null : (
       <StickyCta
-        label={ui("cta.whatsapp", lang)}
+        label={ui("cta.whatsappTalk", lang)}
         href={wa}
         noteLabel={ui("band.title", lang)}
       />
+      )}
       <Analytics id={site.analyticsId} />
     </>
   );

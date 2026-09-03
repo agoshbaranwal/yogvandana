@@ -48,6 +48,8 @@ export default function GalleryGrid({
 
   useEffect(() => {
     if (open === null) return;
+    if (open !== null) document.body.dataset.dialog = "1";
+    else delete document.body.dataset.dialog;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(null);
       if (e.key === "ArrowRight") move(1);
@@ -169,7 +171,7 @@ export default function GalleryGrid({
             <button
               type="button"
               onClick={() => move(-1)}
-              className="btn btn-sm btn-ghost"
+              className="btn btn-sm btn-outline"
               aria-label={prevLabel}
             >
               ‹
@@ -183,7 +185,7 @@ export default function GalleryGrid({
             <button
               type="button"
               onClick={() => move(1)}
-              className="btn btn-sm btn-ghost"
+              className="btn btn-sm btn-outline"
               aria-label={nextLabel}
             >
               ›

@@ -69,7 +69,7 @@ export function CertificateRegister({ lang }: { lang: Lang }) {
                   <th
                     key={c}
                     scope="col"
-                    className="label border-b-2 px-4 py-3.5 text-left"
+                    className="cap border-b-2 px-4 py-3.5 text-left font-bold"
                     style={{ background: "var(--color-apricot)", borderColor: "var(--color-kohl)" }}
                   >
                     {c}

@@ -1,7 +1,7 @@
 {
   "nav": {
     "ailments": {
-      "hi": "तकलीफ़",
+      "hi": "बीमारी",
       "en": "Conditions"
     },
     "batches": {
@@ -47,20 +47,16 @@
     "home": {
       "hi": "मुख्य पन्ना",
       "en": "Home"
+    },
+    "call": {
+      "hi": "कॉल करें",
+      "en": "Call"
     }
   },
   "cta": {
     "talk": {
       "hi": "वंदना जी से बात करें",
       "en": "Talk to Vandana"
-    },
-    "whatsapp": {
-      "hi": "व्हाट्सऐप पर बुक करें",
-      "en": "Book on WhatsApp"
-    },
-    "whatsappMsg": {
-      "hi": "व्हाट्सऐप पर मैसेज करें",
-      "en": "Message on WhatsApp"
     },
     "call": {
       "hi": "कॉल करें",
@@ -69,26 +65,6 @@
     "form": {
       "hi": "फ़ॉर्म भरें",
       "en": "Use the form"
-    },
-    "join": {
-      "hi": "जुड़ें",
-      "en": "Join"
-    },
-    "joinBatch": {
-      "hi": "इस बैच में जुड़ें",
-      "en": "Join this batch"
-    },
-    "bookSession": {
-      "hi": "सेशन बुक करें",
-      "en": "Book a session"
-    },
-    "pickTime": {
-      "hi": "समय चुनें",
-      "en": "Pick a time"
-    },
-    "reserveSeat": {
-      "hi": "सीट बुक करें",
-      "en": "Reserve a seat"
     },
     "payFee": {
       "hi": "फ़ीस भरें",
@@ -103,8 +79,8 @@
       "en": "Send"
     },
     "downloadProfile": {
-      "hi": "प्रोफ़ाइल डाउनलोड करें",
-      "en": "Download her profile"
+      "hi": "परिचय-पत्र (PDF)",
+      "en": "Her profile (PDF)"
     },
     "sharePage": {
       "hi": "यह पन्ना परिवार को भेजें",
@@ -115,7 +91,7 @@
       "en": "Send this story to family"
     },
     "allStories": {
-      "hi": "सभी कहानियाँ, तकलीफ़ के हिसाब से",
+      "hi": "सभी कहानियाँ, बीमारी के हिसाब से",
       "en": "All stories, by condition"
     },
     "allAilments": {
@@ -135,12 +111,16 @@
       "en": "All batches and fees"
     },
     "backToAilments": {
-      "hi": "सभी तकलीफ़ें",
+      "hi": "सभी बीमारियाँ",
       "en": "All conditions"
     },
     "payJoin": {
       "hi": "जुड़ें और भुगतान करें",
       "en": "Join and pay"
+    },
+    "whatsappTalk": {
+      "hi": "व्हाट्सऐप पर बात करें",
+      "en": "Talk on WhatsApp"
     }
   },
   "home": {
@@ -285,7 +265,7 @@
   },
   "ailment": {
     "countLine": {
-      "hi": "इस तकलीफ़ के",
+      "hi": "इस बीमारी के",
       "en": "For this condition:"
     },
     "students": {
@@ -317,7 +297,7 @@
       "en": "What happens in class"
     },
     "studentsTitle": {
-      "hi": "इसी तकलीफ़ वाले विद्यार्थी",
+      "hi": "इसी बीमारी वाले विद्यार्थी",
       "en": "Students with the same condition"
     },
     "batchTitle": {
@@ -329,7 +309,7 @@
       "en": "People often ask"
     },
     "noStories": {
-      "hi": "इस तकलीफ़ की कहानियाँ जल्द ही जोड़ी जाएँगी।",
+      "hi": "इस बीमारी की कहानियाँ जल्द ही जोड़ी जाएँगी।",
       "en": "Stories for this condition will be added soon."
     }
   },
@@ -369,20 +349,20 @@
       "en": "Batches and fees"
     },
     "lead": {
-      "hi": "ज़ूम पर लाइव, [N] लोगों के ग्रुप में, ताकि वंदना जी हर किसी को देख सकें। सभी समय IST। घर पर बस एक मैट, थोड़ी जगह और फ़ोन या लैपटॉप।",
-      "en": "Live on Zoom in groups of [N], so she can see everyone. All times IST. At home you need a mat, a little floor space and a phone or laptop."
+      "hi": "ज़ूम पर लाइव, [N] लोगों के ग्रुप में, ताकि वंदना जी हर किसी को देख सकें। घर पर बस एक मैट, थोड़ी जगह और फ़ोन या लैपटॉप।",
+      "en": "Live on Zoom in groups of [N], so she can see everyone. At home you need a mat, a little floor space and a phone or laptop."
     },
     "group": {
       "hi": "ग्रुप बैच",
       "en": "Group batches"
     },
     "private": {
-      "hi": "व्यक्तिगत सेशन",
-      "en": "Private sessions"
+      "hi": "एक-से-एक क्लास",
+      "en": "One-to-one classes"
     },
     "workshop": {
-      "hi": "कार्यशालाएँ",
-      "en": "Workshops"
+      "hi": "योग शिविर",
+      "en": "Yoga camps"
     },
     "inSession": {
       "hi": "एक क्लास में",
@@ -411,7 +391,7 @@
       "en": "How they got better"
     },
     "lead": {
-      "hi": "विद्यार्थियों के अपने शब्द, अपना नाम और शहर। तकलीफ़ के हिसाब से छाँटिए।",
+      "hi": "विद्यार्थियों के अपने शब्द, अपना नाम और शहर। बीमारी के हिसाब से छाँटिए।",
       "en": "Students in their own words, with their name and city. Filter by condition."
     },
     "all": {
@@ -439,7 +419,7 @@
       "en": "Video, 60 seconds"
     },
     "empty": {
-      "hi": "इस तकलीफ़ की कहानियाँ जल्द ही।",
+      "hi": "इस बीमारी की कहानियाँ जल्द ही।",
       "en": "Stories for this condition, soon."
     }
   },
@@ -469,16 +449,16 @@
       "en": "Guest of honour and events"
     },
     "mediaTitle": {
-      "hi": "मीडिया में",
-      "en": "In the media"
+      "hi": "अख़बार और टीवी में",
+      "en": "In the papers and on TV"
     },
     "inviteTitle": {
       "hi": "अपने कार्यक्रम में वंदना जी को बुलाइए",
       "en": "Invite Vandana to your event"
     },
     "inviteLead": {
-      "hi": "मुख्य अतिथि, योग शिविर, कार्यशाला, या आपकी टीम और स्कूल के लिए सत्र।",
-      "en": "Guest of honour, a yoga camp, a workshop, or sessions for your team or school."
+      "hi": "मुख्य अतिथि, योग शिविर, या आपकी टीम और स्कूल के लिए क्लास।",
+      "en": "Guest of honour, a yoga camp, or classes for your team or school."
     },
     "updated": {
       "hi": "अपडेट",
@@ -545,11 +525,11 @@
   },
   "gallery": {
     "title": {
-      "hi": "गैलरी",
-      "en": "Gallery"
+      "hi": "तस्वीरें",
+      "en": "Photos"
     },
     "lead": {
-      "hi": "क्लास, योग शिविर, मंच, प्रमाणपत्र और मीडिया। हर तस्वीर पर जगह और तारीख़।",
+      "hi": "क्लास, योग शिविर, मंच, प्रमाणपत्र और अख़बार। हर तस्वीर पर जगह और तारीख़।",
       "en": "Classes, yoga camps, the stage, certificates and press. Every photo carries its place and date."
     },
     "all": {
@@ -627,8 +607,8 @@
       "en": "Message"
     },
     "messageHint": {
-      "hi": "[दो-तीन पंक्तियाँ: कब से तकलीफ़ है, कौन सी दवा चल रही है, कौन सा समय ठीक रहेगा।]",
-      "en": "[Two or three lines: how long you have had it, what medicine you take, which time suits you.]"
+      "hi": "जैसे: दो साल से शुगर है, सुबह की दवा चलती है, शाम का समय ठीक रहेगा।",
+      "en": "For example: diabetes for two years, one tablet in the morning, evenings suit me."
     },
     "privacyNote": {
       "hi": "आपकी जानकारी सिर्फ़ वंदना जी तक जाती है।",
@@ -647,12 +627,12 @@
       "en": "Group classes"
     },
     "interestPrivate": {
-      "hi": "व्यक्तिगत सेशन",
-      "en": "A private session"
+      "hi": "एक-से-एक क्लास",
+      "en": "A one-to-one class"
     },
     "interestWorkshop": {
-      "hi": "कार्यशाला",
-      "en": "A workshop"
+      "hi": "योग शिविर",
+      "en": "A yoga camp"
     },
     "interestInvite": {
       "hi": "कार्यक्रम में बुलाना",
@@ -663,8 +643,8 @@
       "en": "Address"
     },
     "addressNote": {
-      "hi": "क्लासेज़ ऑनलाइन होती हैं। [व्यक्तिगत सेशन के लिए मिलने की बात, अगर हो।]",
-      "en": "Classes are online. [About meeting in person for private sessions, if that applies.]"
+      "hi": "क्लासेज़ ऑनलाइन होती हैं। [एक-से-एक क्लास के लिए मिलने की बात, अगर हो।]",
+      "en": "Classes are online. [About meeting in person for one-to-one classes, if that applies.]"
     }
   },
   "students": {
@@ -737,7 +717,7 @@
       "en": "This page was not found."
     },
     "lead": {
-      "hi": "शायद पता बदल गया है। नीचे से अपनी तकलीफ़ चुनिए, या मुख्य पन्ने पर जाइए।",
+      "hi": "शायद पता बदल गया है। नीचे से अपनी बीमारी चुनिए, या मुख्य पन्ने पर जाइए।",
       "en": "The address may have changed. Pick your condition below, or go to the home page."
     },
     "english": {

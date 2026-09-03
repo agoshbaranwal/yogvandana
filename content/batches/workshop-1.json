@@ -3,12 +3,12 @@
   "type": "workshop",
   "order": 4,
   "name": {
-    "hi": "[कार्यशाला का नाम]",
+    "hi": "[योग शिविर का नाम]",
     "en": "[workshop name]"
   },
   "when": {
-    "hi": "[समय] IST",
-    "en": "[time] IST"
+    "hi": "[समय]",
+    "en": "[time]"
   },
   "days": {
     "hi": "",

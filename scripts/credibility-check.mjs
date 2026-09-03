@@ -155,7 +155,7 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
 
 /* 10 — standard words in the menu ----------------------------------------- */
 {
-  const HI = ["तकलीफ़", "बैच", "कहानियाँ", "परिचय", "संपर्क"];
+  const HI = ["बीमारी", "बैच", "कहानियाँ", "परिचय", "संपर्क"];
   const EN = ["Conditions", "Batches", "Stories", "About", "Contact"];
   const bad = [];
   for (const f of pages) {

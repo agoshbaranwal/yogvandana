@@ -74,7 +74,7 @@ export default function BookingBand({
   return (
     <section
       id="booking-band"
-      className="no-print"
+      className="no-print on-bhagwa"
       style={{ background: "var(--color-bhagwa)" }}
       aria-labelledby="booking-band-title"
     >
@@ -154,7 +154,7 @@ export default function BookingBand({
                 href={telHref(phone)}
                 data-ev="call_click"
                 data-ev-source={source}
-                className="btn btn-ghost btn-sm flex-1"
+                className="btn btn-outline btn-sm flex-1"
               >
                 <PhoneIcon size={18} />
                 {callLabel}
@@ -164,7 +164,7 @@ export default function BookingBand({
               href={formHref}
               data-ev="form_open"
               data-ev-source={source}
-              className="btn btn-ghost btn-sm flex-1"
+              className="btn btn-outline btn-sm flex-1"
             >
               {formLabel}
             </a>

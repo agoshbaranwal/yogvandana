@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { NumbersStrip, VideoSlot } from "@/components/Blocks";
 import { Photo } from "@/components/Photo";
 import SiteShell from "@/components/SiteShell";
@@ -16,7 +15,7 @@ import {
   t,
   ui,
 } from "@/lib/content";
-import { href, type Lang } from "@/lib/routes";
+import type { Lang } from "@/lib/routes";
 
 export default function About({ lang }: { lang: Lang }) {
   return (
@@ -285,14 +284,17 @@ export default function About({ lang }: { lang: Lang }) {
               {ui("about.inviteLead", lang)}
             </p>
           </div>
-          <Link
-            href={href("contact", lang)}
-            data-ev="profile_download"
-            data-ev-source="about"
-            className="btn btn-dark self-start whitespace-nowrap"
-          >
-            {ui("cta.downloadProfile", lang)}
-          </Link>
+          {site.links.profilePdf ? (
+            <a
+              href={site.links.profilePdf}
+              className="link-strong body self-start"
+              style={{ color: "var(--color-kohl)" }}
+              data-ev="profile_download"
+              data-ev-source="about"
+            >
+              {ui("cta.downloadProfile", lang)}
+            </a>
+          ) : null}
         </div>
       </section>
     </SiteShell>

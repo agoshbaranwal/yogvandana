@@ -33,7 +33,7 @@ export default function Contact({ lang }: { lang: Lang }) {
               className="btn btn-primary"
             >
               <WhatsAppIcon size={20} />
-              {ui("cta.whatsappMsg", lang)}
+              {ui("cta.whatsappTalk", lang)}
             </a>
             {site.contact.phone ? (
               <a
@@ -77,7 +77,7 @@ export default function Contact({ lang }: { lang: Lang }) {
               thanks: ui("contact.thanks", lang),
               privacyNote: ui("contact.privacyNote", lang),
               formOffline: ui("contact.formOffline", lang),
-              whatsapp: ui("cta.whatsappMsg", lang),
+              whatsapp: ui("cta.whatsappTalk", lang),
               call: ui("cta.call", lang),
             }}
             interests={[
@@ -99,16 +99,17 @@ export default function Contact({ lang }: { lang: Lang }) {
             <p className="body" style={{ color: "var(--color-heroink)" }}>
               {ui("about.inviteLead", lang)}
             </p>
+            {site.links.profilePdf ? (
             <a
-              href={site.links.profilePdf || wa}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={site.links.profilePdf}
+              className="link-strong body self-start"
+              style={{ color: "var(--color-kohl)" }}
               data-ev="profile_download"
               data-ev-source="contact"
-              className="btn btn-dark self-start"
             >
               {ui("cta.downloadProfile", lang)}
             </a>
+          ) : null}
           </section>
 
           <section className="flex flex-col gap-2">

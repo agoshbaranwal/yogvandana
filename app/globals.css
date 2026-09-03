@@ -18,6 +18,14 @@
   --color-heroink: #4a3a2a; /* body text on the dawn hero */
   --color-muted: #6e5f4e; /* captions, dates, second lines */
   --color-rule: #e4d9c7; /* hairlines, card borders */
+  /* The wordmark's योग on a light ground. Bhagwa itself is 2:1 on ivory, so
+     the mark uses the deep saffron here and keeps full bhagwa only on the
+     icon, the footer and the saffron band, where it passes. Agosh's call. */
+  --color-mark: #a05000;
+  /* What a still-to-be-filled fact is painted in on the two grounds where
+     the muted ink fails: the saffron band and the dark footer. */
+  --color-todo-on-bhagwa: #6b3500;
+  --color-todo-on-kohl: #d9cfbf;
   --color-paper: #ffffff; /* cards */
 
   /* dawn sky */
@@ -53,21 +61,24 @@
    fails the build if a raw pixel size appears in a component again.
 --------------------------------------------------------------------------- */
 :root {
-  --step-label: 13px;
-  --step-cap: 15px;
-  --step-body: 17px;
-  --step-sub: 19px;
-  --step-head: 23px;
-  --step-title: 28px;
-  --step-display: clamp(34px, 9vw, 42px);
+  --step-label: 14px;
+  --step-cap: 16px;
+  --step-body: 18px;
+  --step-sub: 20px;
+  --step-head: 24px;
+  --step-title: 30px;
+  --step-display: clamp(36px, 9.4vw, 44px);
+  /* room between sections on a phone: a thumb scans by gaps */
+  --section-pad: 40px;
 }
 @media (min-width: 768px) {
   :root {
-    --step-body: 18px;
-    --step-sub: 20px;
-    --step-head: 26px;
-    --step-title: 36px;
-    --step-display: clamp(46px, 4.4vw, 60px);
+    --step-body: 19px;
+    --step-sub: 21px;
+    --step-head: 28px;
+    --step-title: 38px;
+    --step-display: clamp(48px, 4.6vw, 64px);
+    --section-pad: 64px;
   }
 }
 
@@ -95,7 +106,7 @@
     color: var(--color-kohl);
     font-family: var(--font-hindi);
     font-size: var(--step-body);
-    line-height: 1.65;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     overflow-wrap: break-word;
   }
@@ -135,6 +146,10 @@
 /* ----------------------------- components -------------------------------- */
 
 @layer components {
+  .section-pad {
+    padding-top: var(--section-pad);
+    padding-bottom: var(--section-pad);
+  }
   .wrap {
     width: 100%;
     max-width: 1200px;
@@ -174,7 +189,7 @@
   }
   .body {
     font-size: var(--step-body);
-    line-height: 1.65;
+    line-height: 1.7;
   }
   .cap {
     font-size: var(--step-cap);
@@ -190,6 +205,13 @@
   }
   /* The wordmark. It sets no size: pair it with a step, `brand page-title` in
      the header, `brand h3` on the slip. */
+  .brand span {
+    color: var(--color-mark);
+  }
+  footer .brand span,
+  .on-dark .brand span {
+    color: var(--color-bhagwa);
+  }
   .brand {
     font-weight: 800;
     line-height: 1.25;
@@ -212,7 +234,7 @@
 
   /* a fact still to be filled in: reads as deliberate, not broken */
   .todo {
-    color: var(--color-muted);
+    color: var(--todo-ink, var(--color-muted));
     text-decoration: underline dotted;
     text-decoration-thickness: 1px;
     text-underline-offset: 3px;
@@ -224,8 +246,8 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    min-height: 50px;
-    padding: 12px 22px;
+    min-height: 52px;
+    padding: 13px 24px;
     border-radius: 999px;
     font-size: var(--step-body);
     font-weight: 700;
@@ -250,14 +272,6 @@
     background: #382a1c;
     color: var(--color-bhagwa);
   }
-  .btn-ghost {
-    background: rgba(255, 255, 255, 0.72);
-    color: var(--color-kohl);
-  }
-  .btn-ghost:hover {
-    background: #ffffff;
-    color: var(--color-kohl);
-  }
   .btn-outline {
     background: transparent;
     color: var(--color-kohl);
@@ -268,9 +282,13 @@
     color: var(--color-bhagwa);
   }
   .btn-sm {
-    min-height: 44px;
-    padding: 10px 16px;
+    min-height: 46px;
+    padding: 10px 18px;
     font-size: var(--step-cap);
+  }
+  /* on the saffron band the outline is drawn in ink, not saffron */
+  .on-bhagwa .btn-outline {
+    background: rgba(251, 248, 241, 0.55);
   }
   /* A text link a thumb can still hit. Never put this on something whose
      children are separated by a space: an inline-flex box drops a
@@ -370,6 +388,15 @@
     line-height: 1.35;
     max-height: calc(100% - 16px);
     overflow: hidden;
+  }
+
+  /* placeholder ink follows the ground it sits on */
+  footer,
+  .on-dark {
+    --todo-ink: var(--color-todo-on-kohl);
+  }
+  .on-bhagwa {
+    --todo-ink: var(--color-todo-on-bhagwa);
   }
 
   /* the dawn sky ---------------------------------------------------------- */
@@ -490,8 +517,10 @@
     opacity: 0;
     translate: 0 14px;
   }
+  /* `backwards`, never `both`: once a section has risen it must hold no
+     transform, or a fixed dialog inside it stacks under the sticky bar. */
   section.in {
-    animation: rise 0.55s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    animation: rise 0.55s cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
   }
   @keyframes rise {
     from {
@@ -547,6 +576,11 @@
       opacity: 1;
       scale: 1;
     }
+  }
+
+  /* while any dialog is open the bar stays out of the way */
+  body[data-dialog] [data-sticky-cta] {
+    display: none !important;
   }
 
   /* a button that answers the thumb */
