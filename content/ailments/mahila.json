@@ -23,6 +23,24 @@
     "hi": "पीसीओडी, अनियमित मासिक धर्म और रजोनिवृत्ति की तकलीफ़ें अलग-अलग हैं, पर तीनों में हार्मोन, वज़न और तनाव जुड़े होते हैं। वंदना जी महिलाओं के लिए अभ्यास अलग रखती हैं, और मासिक धर्म के दिनों के लिए अलग सूची देती हैं।",
     "en": "PCOD, irregular periods and menopause are different troubles, but hormones, weight and stress run through all three. She keeps a separate practice for women, and a separate list for the days of a period."
   },
+  "works": [
+    {
+      "hi": "पीसीओडी और पीरियड — पेट और कूल्हे के आसन, नियमित।",
+      "en": "PCOD and periods — asanas for the belly and hips, regularly."
+    },
+    {
+      "hi": "मेनोपॉज़ — गर्मी, नींद, मन; धीमी साँस और विश्राम।",
+      "en": "Menopause — the heat, sleep, mood; slow breath and relaxation."
+    },
+    {
+      "hi": "वज़न और थकान — रोज़ का अभ्यास, घर के काम के बीच।",
+      "en": "Weight and tiredness — a daily practice, between the housework."
+    }
+  ],
+  "medicine": {
+    "hi": "जो दवा चल रही है, चलती रहे। पीरियड के दिनों में अभ्यास बदलता है — यह क्लास में बताया जाता है।",
+    "en": "Whatever medicine you are on continues. On period days the practice changes — this is explained in class."
+  },
   "studentCount": "[N]",
   "storyCount": "[N]",
   "videoCount": "[N]",
@@ -56,38 +74,35 @@
       "en": "After [90] days, with your report"
     }
   },
-  "firstClass": [
-    {
-      "strong": {
-        "hi": "[30] मिनट की लाइव क्लास",
-        "en": "A [30] minute live class"
+  "firstClass": {
+    "rows": [
+      {
+        "minutes": "[10]",
+        "text": {
+          "hi": "सूक्ष्म व्यायाम और जोड़ों की गति — आपकी रफ़्तार से, कुर्सी पर भी।",
+          "en": "Gentle warm-up and joint movement — at your pace, on a chair if needed."
+        }
       },
-      "rest": {
-        "hi": ", महिलाओं की समस्याएँ वाले विद्यार्थियों के अभ्यास के साथ।",
-        "en": ", with the practice used for women's health."
-      }
-    },
-    {
-      "strong": {
-        "hi": "फिर [10] मिनट वंदना जी से बात:",
-        "en": "Then [10] minutes with Vandana:"
+      {
+        "minutes": "[30]",
+        "text": {
+          "hi": "महिलाओं के आसन और प्राणायाम। कैमरा चालू, वंदना जी देखती हैं।",
+          "en": "The asanas and pranayama used for women. Camera on, Vandana watches."
+        }
       },
-      "rest": {
-        "hi": " आपकी तकलीफ़, दवा, और कौन सा बैच सही रहेगा।",
-        "en": " your condition, your medicine, and which batch suits you."
+      {
+        "minutes": "[10]",
+        "text": {
+          "hi": "विश्राम, और आपकी पर्ची — घर पर रोज़ क्या करना है।",
+          "en": "Relaxation, and your slip — what to do at home every day."
+        }
       }
-    },
-    {
-      "strong": {
-        "hi": "कोई शुल्क नहीं, कोई दबाव नहीं।",
-        "en": "No fee, no pressure."
-      },
-      "rest": {
-        "hi": " ठीक लगे तो उसी दिन बैच में जुड़िए।",
-        "en": " If it feels right, join a batch the same day."
-      }
+    ],
+    "note": {
+      "hi": "क्लास से पहले वंदना जी से बात होती है — आपकी रिपोर्ट, आपकी दवा। उसका कोई शुल्क नहीं।",
+      "en": "Before the class you talk with Vandana — your reports, your medicine. That costs nothing."
     }
-  ],
+  },
   "classNotes": [
     {
       "hi": "पहली क्लास में वंदना जी आपकी रिपोर्ट और दवा के बारे में पूछती हैं।",
@@ -145,5 +160,10 @@
   "batchNote": {
     "hi": "दोनों बैच ठीक हैं",
     "en": "Either batch works"
+  },
+  "bestBatch": "",
+  "bestBatchWhy": {
+    "hi": "",
+    "en": ""
   }
 }

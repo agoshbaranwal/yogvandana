@@ -15,14 +15,23 @@
     "hi": "[क्या बदला। उनके शब्दों में।]",
     "en": "[what changed, in their words]"
   },
-  "before": {
+  "metric": {
     "hi": "",
     "en": ""
+  },
+  "before": {
+    "hi": "[सीढ़ियाँ पकड़कर, एक-एक]",
+    "en": "[stairs one at a time, holding the rail]"
   },
   "after": {
+    "hi": "[बिना सहारे, बाज़ार तक पैदल]",
+    "en": "[without support, walking to the market]"
+  },
+  "change": {
     "hi": "",
     "en": ""
   },
+  "months": "[5]",
   "since": {
     "hi": "[वर्ष]",
     "en": "[year]"

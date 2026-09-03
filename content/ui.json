@@ -91,8 +91,8 @@
       "en": "Send this story to family"
     },
     "allStories": {
-      "hi": "सभी कहानियाँ, बीमारी के हिसाब से",
-      "en": "All stories, by condition"
+      "hi": "सभी कहानियाँ",
+      "en": "All stories"
     },
     "allAilments": {
       "hi": "और भी: गर्दन, अस्थमा, साइनस, कब्ज़, गठिया",
@@ -107,7 +107,7 @@
       "en": "About"
     },
     "seeBatches": {
-      "hi": "सभी बैच और शुल्क",
+      "hi": "सभी बैच और फ़ीस",
       "en": "All batches and fees"
     },
     "backToAilments": {
@@ -121,48 +121,56 @@
     "whatsappTalk": {
       "hi": "व्हाट्सऐप पर बात करें",
       "en": "Talk on WhatsApp"
+    },
+    "more": {
+      "hi": "और भी: गर्दन, अस्थमा, साइनस, कब्ज़ — पूछिए",
+      "en": "Also: neck, asthma, sinus, constipation — ask"
+    },
+    "see": {
+      "hi": "देखें",
+      "en": "See"
     }
   },
   "home": {
     "ailmentsTitle": {
-      "hi": "आपको क्या तकलीफ़ है?",
-      "en": "What is troubling you?"
+      "hi": "आपको कौन सी बीमारी है?",
+      "en": "Which disease do you have?"
     },
     "ailmentsLead": {
-      "hi": "हर एक का अपना अभ्यास, अपनी पर्ची, और उन्हीं लोगों की कहानियाँ।",
-      "en": "Each one has its own practice, its own slip, and stories from people who had it."
+      "hi": "हर एक का अपना अभ्यास, अपनी पर्ची, और उसी बीमारी वाले लोगों की कहानियाँ।",
+      "en": "Each has its own practice, its own slip, and the stories of people with the same disease."
     },
     "stepsTitle": {
-      "hi": "कैसे शुरू होता है",
-      "en": "How it starts"
+      "hi": "आगे क्या होगा",
+      "en": "What happens next"
     },
     "step1": {
       "hi": "व्हाट्सऐप पर लिखिए",
       "en": "Write on WhatsApp"
     },
     "step1sub": {
-      "hi": "अपनी तकलीफ़ लिखिए, जवाब [एक दिन] में",
-      "en": "Tell her what troubles you; a reply in [a day]"
+      "hi": "अपनी बीमारी और दवा लिखिए। जवाब [एक दिन] में।",
+      "en": "Write your disease and your medicine. A reply within [a day]."
     },
     "step2": {
-      "hi": "वंदना जी से बात कीजिए",
-      "en": "Talk to Vandana"
+      "hi": "वंदना जी से [10] मिनट बात",
+      "en": "[10] minutes with Vandana"
     },
     "step2sub": {
-      "hi": "[10] मिनट, बिना शुल्क: तकलीफ़, दवा, और कौन सा बैच",
-      "en": "[10] minutes, no fee: your trouble, your medicine, which batch"
+      "hi": "आपकी रिपोर्ट, आपकी दवा, कौन सा बैच। इसका कोई शुल्क नहीं।",
+      "en": "Your reports, your medicine, which batch. No charge for this."
     },
     "step3": {
-      "hi": "बैच में जुड़ें",
+      "hi": "बैच में जुड़िए",
       "en": "Join a batch"
     },
     "step3sub": {
-      "hi": "रोज़ [30] मिनट, छोटे ग्रुप में, अपनी पर्ची के साथ",
-      "en": "[30] minutes a day, small group, with your own slip"
+      "hi": "[50] मिनट की क्लास रोज़, छोटा ग्रुप, अपनी पर्ची के साथ। फ़ीस ₹[शुल्क] प्रति माह।",
+      "en": "A [50] minute class every day, a small group, your own slip. Fee ₹[fee] a month."
     },
     "resultsTitle": {
-      "hi": "ऐसे ठीक हुए",
-      "en": "How they got better"
+      "hi": "इन्हें फ़र्क पड़ा",
+      "en": "These people felt the difference"
     },
     "routineTitle": {
       "hi": "आपकी दिनचर्या, योग के साथ",
@@ -173,20 +181,20 @@
       "en": "You leave with your own slip"
     },
     "slipLead": {
-      "hi": "क्लास में जो वंदना जी सिखाती हैं वही आपकी पर्ची पर लिखा जाता है — रोज़ का अभ्यास, समय, और कब जाँच। फ़्रिज पर चिपका लीजिए।",
-      "en": "What she teaches you is written onto your slip — the daily practice, the time, and when to review. Stick it on the fridge."
+      "hi": "डॉक्टर की पर्ची की तरह — आपकी बीमारी का रोज़ का अभ्यास, समय, और कब जाँच। फ़्रिज पर चिपकाइए।",
+      "en": "Like a doctor's slip: the daily practice for your disease, the time, and when to check. Stick it on the fridge."
     },
     "batchesTitle": {
-      "hi": "बैच",
-      "en": "Batches"
+      "hi": "बैच और फ़ीस",
+      "en": "Batches and fees"
     },
     "faqTitle": {
       "hi": "लोग अक्सर पूछते हैं",
       "en": "People often ask"
     },
     "heroLead": {
-      "hi": "रोज़ सुबह, वंदना बरनवाल के साथ, अपने घर से। छोटे ग्रुप, ज़ूम पर।",
-      "en": "Every morning with Vandana Baranwal, from your home. Small groups on Zoom."
+      "hi": "रोज़ सुबह या शाम, वंदना जी के सामने, अपने घर से। छोटा ग्रुप, ज़ूम पर। दवा डॉक्टर की सलाह से ही घटती है।",
+      "en": "Every morning or evening, in front of Vandana, from your own home. A small group, on Zoom. Medicine comes down only on your doctor's advice."
     },
     "googleLine": {
       "hi": "Google पर",
@@ -205,24 +213,40 @@
       "en": "Her full record"
     },
     "recordCerts": {
-      "hi": "प्रमाणपत्र, हर एक की जाँच के लिंक के साथ",
-      "en": "Certificates, each with a link to check it"
+      "hi": "{body} प्रमाणपत्र, जाँच के लिंक के साथ",
+      "en": "{body} certificate, with a link to check it"
     },
     "recordEvents": {
-      "hi": "सम्मान, पुरस्कार और मुख्य अतिथि के कार्यक्रम",
-      "en": "Awards, honours and guest-of-honour events"
+      "hi": "{n} सम्मान और मुख्य अतिथि के कार्यक्रम",
+      "en": "{n} honours and chief-guest events"
     },
     "recordPhotos": {
-      "hi": "क्लास, शिविर और मंच की तस्वीरें",
-      "en": "Photos from classes, camps and the stage"
+      "hi": "अख़बार और टीवी में",
+      "en": "In the papers and on TV"
     },
     "whoTitle": {
       "hi": "सिखाती कौन हैं",
       "en": "Who teaches you"
     },
     "stepsNote": {
-      "hi": "बात करने का कोई शुल्क नहीं। फ़ीस तभी, जब आप बैच में जुड़ें।",
-      "en": "Talking costs nothing. The fee starts only when you join a batch."
+      "hi": "बात करने का कोई शुल्क नहीं। फ़ीस बैच में जुड़ने पर।",
+      "en": "Talking costs nothing. The fee is only when you join a batch."
+    },
+    "heroNote": {
+      "hi": "बात करने का कोई शुल्क नहीं। फ़ीस बैच में जुड़ने पर।",
+      "en": "Talking costs nothing. The fee is only when you join a batch."
+    },
+    "whichBatch": {
+      "hi": "सुबह या शाम — पहले बात कीजिए",
+      "en": "Morning or evening: talk first"
+    },
+    "fullDetail": {
+      "hi": "पूरा विवरण",
+      "en": "Full details"
+    },
+    "whoLine": {
+      "hi": "{cred}, {uni}। {x} साल से {city} में और ऑनलाइन।",
+      "en": "{cred}, {uni}. {x} years in {city} and online."
     }
   },
   "band": {
@@ -231,16 +255,16 @@
       "en": "Talk to her first. No fee for that."
     },
     "lead": {
-      "hi": "वंदना जी से [10] मिनट: आपकी तकलीफ़, आपकी दवा, और कौन सा बैच सही रहेगा। इसका कोई शुल्क नहीं। क्लास की फ़ीस बैच में जुड़ने पर।",
-      "en": "[10] minutes with Vandana: what troubles you, what medicine you take, and which batch suits you. That costs nothing. The fee starts when you join a batch."
+      "hi": "वंदना जी से [10] मिनट: आपकी बीमारी, आपकी दवा, कौन सा बैच। फ़ीस बैच में जुड़ने पर।",
+      "en": "[10] minutes with Vandana: your disease, your medicine, which batch. The fee is only when you join a batch."
     },
     "step1": {
-      "hi": "1 · आपकी तकलीफ़",
-      "en": "1 · your condition"
+      "hi": "आपकी बीमारी",
+      "en": "Your disease"
     },
     "step2": {
-      "hi": "2 · कौन सा समय",
-      "en": "2 · which time"
+      "hi": "कौन सा समय",
+      "en": "Which time"
     },
     "morning": {
       "hi": "सुबह",
@@ -281,28 +305,28 @@
       "en": "videos"
     },
     "firstClassTitle": {
-      "hi": "पहली क्लास में क्या होगा",
-      "en": "What happens in your first class"
+      "hi": "पहली क्लास कैसी होगी",
+      "en": "What the first class is like"
     },
     "slipTitle": {
-      "hi": "आपकी पर्ची",
-      "en": "Your slip"
+      "hi": "{x} की पर्ची",
+      "en": "The {x} slip"
     },
     "slipNote": {
-      "hi": "पर्ची पहली क्लास के बाद मिलती है, आपकी हालत देखकर। ऊपर एक नमूना है।",
-      "en": "You get your slip after the first class, once she has seen how you are. The one above is a sample."
+      "hi": "नमूना। आपकी असली पर्ची पहली क्लास के बाद, आपकी हालत देखकर।",
+      "en": "A sample. Your real slip comes after the first class, once she has seen your condition."
     },
     "classTitle": {
       "hi": "क्लास में क्या होता है",
       "en": "What happens in class"
     },
     "studentsTitle": {
-      "hi": "इसी बीमारी वाले विद्यार्थी",
-      "en": "Students with the same condition"
+      "hi": "{x} वाले, जिन्हें फ़र्क पड़ा",
+      "en": "People with {x} who felt the difference"
     },
     "batchTitle": {
-      "hi": "कौन सा बैच",
-      "en": "Which batch"
+      "hi": "{x} के लिए {batch}",
+      "en": "The {batch} for {x}"
     },
     "faqTitle": {
       "hi": "लोग अक्सर पूछते हैं",
@@ -311,6 +335,34 @@
     "noStories": {
       "hi": "इस बीमारी की कहानियाँ जल्द ही जोड़ी जाएँगी।",
       "en": "Stories for this condition will be added soon."
+    },
+    "min": {
+      "hi": "मि.",
+      "en": "min"
+    },
+    "reviewEvery": {
+      "hi": "हर {d} दिन पर रिपोर्ट देखी जाती है।",
+      "en": "The reports are looked at every {d} days."
+    },
+    "sameDisease": {
+      "hi": "{n} विद्यार्थी इसी बीमारी के।",
+      "en": "{n} students with this same disease."
+    },
+    "talkAbout": {
+      "hi": "{x} के बारे में बात करें",
+      "en": "Talk about {x}"
+    },
+    "anyBatch": {
+      "hi": "सुबह या शाम, दोनों चलते हैं — बात करके तय होगा।",
+      "en": "Morning or evening, both work — decided when you talk."
+    },
+    "bandTitle": {
+      "hi": "{x} के बारे में बात कीजिए। बिना शुल्क।",
+      "en": "Talk about {x}. No charge."
+    },
+    "bandLead": {
+      "hi": "वंदना जी से [10] मिनट: आपकी रिपोर्ट, आपकी दवा, कौन सा बैच।",
+      "en": "[10] minutes with Vandana: your reports, your medicine, which batch."
     }
   },
   "slip": {
@@ -341,6 +393,62 @@
     "print": {
       "hi": "पर्ची प्रिंट करें",
       "en": "Print this slip"
+    },
+    "title": {
+      "hi": "योग की पर्ची",
+      "en": "The yoga slip"
+    },
+    "lead": {
+      "hi": "पहली क्लास के बाद, आपकी हालत देखकर, वंदना जी की लिखी हुई। यह नमूना है।",
+      "en": "Written by Vandana after the first class, having seen your condition. This one is a sample."
+    },
+    "word": {
+      "hi": "पर्ची",
+      "en": "Slip"
+    },
+    "no": {
+      "hi": "नं.",
+      "en": "No."
+    },
+    "date": {
+      "hi": "[तारीख़]",
+      "en": "[date]"
+    },
+    "name": {
+      "hi": "नाम",
+      "en": "Name"
+    },
+    "sampleName": {
+      "hi": "[विद्यार्थी का नाम]",
+      "en": "[student's name]"
+    },
+    "disease": {
+      "hi": "बीमारी",
+      "en": "Disease"
+    },
+    "home": {
+      "hi": "घर पर",
+      "en": "At home"
+    },
+    "medicine": {
+      "hi": "दवा",
+      "en": "Medicine"
+    },
+    "medicineLine": {
+      "hi": "चलती रहे। डॉक्टर की सलाह से ही बदलाव।",
+      "en": "Continues. Any change only on the doctor's advice."
+    },
+    "printSample": {
+      "hi": "नमूना पर्ची प्रिंट करें",
+      "en": "Print the sample slip"
+    },
+    "share": {
+      "hi": "परिवार को भेजें",
+      "en": "Send to family"
+    },
+    "sample": {
+      "hi": "नमूना",
+      "en": "Sample"
     }
   },
   "batches": {
@@ -349,8 +457,8 @@
       "en": "Batches and fees"
     },
     "lead": {
-      "hi": "ज़ूम पर लाइव, [N] लोगों के ग्रुप में, ताकि वंदना जी हर किसी को देख सकें। घर पर बस एक मैट, थोड़ी जगह और फ़ोन या लैपटॉप।",
-      "en": "Live on Zoom in groups of [N], so she can see everyone. At home you need a mat, a little floor space and a phone or laptop."
+      "hi": "ज़ूम पर लाइव, {n} लोगों के ग्रुप में। घर पर बस एक चटाई, थोड़ी जगह और फ़ोन।",
+      "en": "Live on Zoom, in a group of {n}. At home you need a mat, a little space and a phone."
     },
     "group": {
       "hi": "ग्रुप बैच",
@@ -383,12 +491,96 @@
     "seats": {
       "hi": "सीटें",
       "en": "seats"
+    },
+    "perMonth": {
+      "hi": "प्रति माह",
+      "en": "a month"
+    },
+    "colBatch": {
+      "hi": "बैच",
+      "en": "Batch"
+    },
+    "colDays": {
+      "hi": "दिन",
+      "en": "Days"
+    },
+    "colFee": {
+      "hi": "फ़ीस",
+      "en": "Fee"
+    },
+    "minutes": {
+      "hi": "{m} मिनट",
+      "en": "{m} minutes"
+    },
+    "atTime": {
+      "hi": "{t} बजे",
+      "en": "{t}"
+    },
+    "dayLetters": {
+      "hi": "सो मं बु गु शु श र",
+      "en": "M T W T F S S"
+    },
+    "dayNames": {
+      "hi": "सोमवार मंगलवार बुधवार गुरुवार शुक्रवार शनिवार रविवार",
+      "en": "Monday Tuesday Wednesday Thursday Friday Saturday Sunday"
+    },
+    "talkAboutBatch": {
+      "hi": "इस बैच के बारे में बात करें",
+      "en": "Talk about this batch"
+    },
+    "nextFrom": {
+      "hi": "अगला बैच {d} से",
+      "en": "Next batch from {d}"
+    },
+    "seatsLeft": {
+      "hi": "{n} सीटें बची",
+      "en": "{n} seats left"
+    },
+    "perDayRow": {
+      "hi": "रोज़ का हिसाब",
+      "en": "Per day"
+    },
+    "perDayValue": {
+      "hi": "₹{r} से कम",
+      "en": "under ₹{r}"
+    },
+    "familyRow": {
+      "hi": "एक घर के दो लोग",
+      "en": "Two from one home"
+    },
+    "howRow": {
+      "hi": "फ़ीस कैसे",
+      "en": "How to pay"
+    },
+    "howValue": {
+      "hi": "यूपीआई या कार्ड",
+      "en": "UPI or card"
+    },
+    "missedRow": {
+      "hi": "क्लास छूट जाए",
+      "en": "If you miss a class"
+    },
+    "refundRow": {
+      "hi": "रिफ़ंड",
+      "en": "Refund"
+    },
+    "whichTitle": {
+      "hi": "कौन सा बैच? पहले बात कीजिए।",
+      "en": "Which batch? Talk first."
+    },
+    "whichLead": {
+      "hi": "बीमारी के हिसाब से वंदना जी बताती हैं — सुबह या शाम। बिना शुल्क।",
+      "en": "Vandana tells you by your disease: morning or evening. No charge."
+    },
+    "youChoose": {
+      "hi": "समय आप तय करते हैं।",
+      "en": "You choose the time."
     }
   },
   "stories": {
     "title": {
-      "hi": "ऐसे ठीक हुए",
-      "en": "How they got better"
+      "hi": "इन्हें फ़र्क पड़ा",
+      "en": "These people felt the difference"
     },
     "lead": {
       "hi": "विद्यार्थियों के अपने शब्द, अपना नाम और शहर। बीमारी के हिसाब से छाँटिए।",
@@ -415,12 +607,20 @@
       "en": "Every story is published with the student's permission, with their name and city. Every person's experience is different."
     },
     "videoSeconds": {
-      "hi": "वीडियो, 60 सेकंड",
-      "en": "Video, 60 seconds"
+      "hi": "[60] सेकंड का वीडियो",
+      "en": "A [60] second video"
     },
     "empty": {
       "hi": "इस बीमारी की कहानियाँ जल्द ही।",
       "en": "Stories for this condition, soon."
+    },
+    "months": {
+      "hi": "{n} महीनों में",
+      "en": "in {n} months"
+    },
+    "withSince": {
+      "hi": "{y} से वंदना जी के साथ",
+      "en": "With Vandana since {y}"
     }
   },
   "about": {
@@ -467,6 +667,46 @@
     "onThisPage": {
       "hi": "इस पन्ने पर",
       "en": "On this page"
+    },
+    "teachingSince": {
+      "hi": "{y} से सिखा रही हैं",
+      "en": "Teaching since {y}"
+    },
+    "certTitle": {
+      "hi": "{body} का प्रमाणपत्र",
+      "en": "The {body} certificate"
+    },
+    "certScan": {
+      "hi": "[प्रमाणपत्र का स्कैन]",
+      "en": "[scan of the certificate]"
+    },
+    "checkOnBoard": {
+      "hi": "बोर्ड की साइट पर जाँचें",
+      "en": "Check on the board's site"
+    },
+    "studyTitle": {
+      "hi": "पढ़ाई और प्रमाणपत्र",
+      "en": "Study and certificates"
+    },
+    "check": {
+      "hi": "जाँचें",
+      "en": "Check"
+    },
+    "noRegister": {
+      "hi": "सार्वजनिक रजिस्टर नहीं",
+      "en": "No public register"
+    },
+    "stageTitle": {
+      "hi": "मंच, सम्मान, शिविर",
+      "en": "Stage, honours, camps"
+    },
+    "allHonours": {
+      "hi": "सभी {n} सम्मान और कार्यक्रम",
+      "en": "All {n} honours and events"
+    },
+    "certsWithScan": {
+      "hi": "प्रमाणपत्र, स्कैन के साथ",
+      "en": "certificates, with scans"
     }
   },
   "credentials": {
@@ -579,12 +819,12 @@
       "en": "Talk to Vandana"
     },
     "lead": {
-      "hi": "सबसे तेज़ रास्ता व्हाट्सऐप है। अपनी तकलीफ़ लिखिए।",
-      "en": "WhatsApp is the fastest way. Tell her what troubles you."
+      "hi": "अपनी बीमारी और दवा बताइए। [10] मिनट की बात का कोई शुल्क नहीं।",
+      "en": "Tell her your disease and your medicine. The [10] minute talk costs nothing."
     },
     "formTitle": {
-      "hi": "या फ़ॉर्म भरिए",
-      "en": "Or use the form"
+      "hi": "या यहाँ लिखिए",
+      "en": "Or write here"
     },
     "name": {
       "hi": "आपका नाम",
@@ -603,8 +843,8 @@
       "en": "Your condition"
     },
     "message": {
-      "hi": "संदेश",
-      "en": "Message"
+      "hi": "कब से, और कौन सी दवा",
+      "en": "Since when, and which medicine"
     },
     "messageHint": {
       "hi": "जैसे: दो साल से शुगर है, सुबह की दवा चलती है, शाम का समय ठीक रहेगा।",
@@ -643,12 +883,28 @@
       "en": "Address"
     },
     "addressNote": {
-      "hi": "क्लासेज़ ऑनलाइन होती हैं। [एक-से-एक क्लास के लिए मिलने की बात, अगर हो।]",
-      "en": "Classes are online. [About meeting in person for one-to-one classes, if that applies.]"
+      "hi": "क्लास ऑनलाइन होती है।",
+      "en": "Classes are online."
     },
     "required": {
       "hi": "(ज़रूरी)",
       "en": "(required)"
+    },
+    "replyLine": {
+      "hi": "जवाब {h}",
+      "en": "Replies {h}"
+    },
+    "prewritten": {
+      "hi": "संदेश पहले से लिखा होगा — बस भेजना है।",
+      "en": "The message is already written — you only send it."
+    },
+    "namePlaceholder": {
+      "hi": "[सुनीता वर्मा]",
+      "en": "[Sunita Verma]"
+    },
+    "phonePlaceholder": {
+      "hi": "[+91 98765 43210]",
+      "en": "[+91 98765 43210]"
     }
   },
   "students": {
@@ -775,6 +1031,20 @@
     "safety": {
       "hi": "वंदना जी कभी आपका यूपीआई पिन, ओटीपी या कार्ड नंबर नहीं माँगेंगी। पैसे लेने के लिए पिन कभी नहीं लगता — पिन सिर्फ़ भेजने के लिए होता है।",
       "en": "Vandana will never ask for your UPI PIN, an OTP, or a card number. You never need a PIN to receive money — a PIN is only for sending."
+    },
+    "safetyShort": {
+      "hi": "वंदना जी कभी आपका यूपीआई पिन या ओटीपी नहीं माँगेंगी। पैसे लेने के लिए पिन कभी नहीं लगता।",
+      "en": "Vandana will never ask for your UPI PIN or an OTP. Receiving money never needs a PIN."
+    }
+  },
+  "medicine": {
+    "title": {
+      "hi": "डॉक्टर की दवा?",
+      "en": "The doctor's medicine?"
+    },
+    "body": {
+      "hi": "बंद नहीं। योग साथ-साथ चलता है। रिपोर्ट सुधरे तो दवा डॉक्टर ही घटाते हैं — और घटती है।",
+      "en": "Not stopped. Yoga runs alongside. When the reports improve, the doctor reduces the medicine — and it does come down."
     }
   }
 }

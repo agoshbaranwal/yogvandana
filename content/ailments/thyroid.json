@@ -23,6 +23,24 @@
     "hi": "थायराइड के साथ आम शिकायतें हैं थकान, वज़न और मन का उतार-चढ़ाव। क्लास में गले के आसपास काम करने वाले आसन, धीमी साँस और नियमित विश्राम पर ज़ोर रहता है। हाइपो और हाइपर के लिए अभ्यास अलग होता है, इसलिए पहली क्लास में रिपोर्ट देखी जाती है।",
     "en": "With thyroid trouble the usual complaints are tiredness, weight and mood. The class leans on poses that work around the throat, slow breathing and regular rest. Hypo and hyper need different practices, so the report is looked at in the first class."
   },
+  "works": [
+    {
+      "hi": "गले की ग्रंथि — गर्दन के आसन और उज्जायी साँस।",
+      "en": "The gland in the throat — neck asanas and ujjayi breath."
+    },
+    {
+      "hi": "वज़न और थकान — रोज़ का अभ्यास, धीरे-धीरे बढ़ता हुआ।",
+      "en": "Weight and tiredness — a daily practice that builds slowly."
+    },
+    {
+      "hi": "तनाव और नींद — जो थायराइड को बिगाड़ते हैं। विश्राम।",
+      "en": "Stress and sleep — which upset the thyroid. Relaxation."
+    }
+  ],
+  "medicine": {
+    "hi": "बंद नहीं। थायराइड की गोली डॉक्टर की जाँच के हिसाब से ही बदलती है। हर [90] दिन पर रिपोर्ट।",
+    "en": "Not stopped. The thyroid tablet changes only with the doctor's tests. A report every [90] days."
+  },
   "studentCount": "[N]",
   "storyCount": "[N]",
   "videoCount": "[N]",
@@ -56,38 +74,35 @@
       "en": "After [90] days, with your report"
     }
   },
-  "firstClass": [
-    {
-      "strong": {
-        "hi": "[30] मिनट की लाइव क्लास",
-        "en": "A [30] minute live class"
+  "firstClass": {
+    "rows": [
+      {
+        "minutes": "[10]",
+        "text": {
+          "hi": "सूक्ष्म व्यायाम और जोड़ों की गति — आपकी रफ़्तार से, कुर्सी पर भी।",
+          "en": "Gentle warm-up and joint movement — at your pace, on a chair if needed."
+        }
       },
-      "rest": {
-        "hi": ", थायराइड वाले विद्यार्थियों के अभ्यास के साथ।",
-        "en": ", with the practice used for thyroid."
-      }
-    },
-    {
-      "strong": {
-        "hi": "फिर [10] मिनट वंदना जी से बात:",
-        "en": "Then [10] minutes with Vandana:"
+      {
+        "minutes": "[30]",
+        "text": {
+          "hi": "थायराइड वालों के आसन और प्राणायाम। कैमरा चालू, वंदना जी देखती हैं।",
+          "en": "The asanas and pranayama used for thyroid. Camera on, Vandana watches."
+        }
       },
-      "rest": {
-        "hi": " आपकी तकलीफ़, दवा, और कौन सा बैच सही रहेगा।",
-        "en": " your condition, your medicine, and which batch suits you."
+      {
+        "minutes": "[10]",
+        "text": {
+          "hi": "विश्राम, और आपकी पर्ची — घर पर रोज़ क्या करना है।",
+          "en": "Relaxation, and your slip — what to do at home every day."
+        }
       }
-    },
-    {
-      "strong": {
-        "hi": "कोई शुल्क नहीं, कोई दबाव नहीं।",
-        "en": "No fee, no pressure."
-      },
-      "rest": {
-        "hi": " ठीक लगे तो उसी दिन बैच में जुड़िए।",
-        "en": " If it feels right, join a batch the same day."
-      }
+    ],
+    "note": {
+      "hi": "क्लास से पहले वंदना जी से बात होती है — आपकी रिपोर्ट, आपकी दवा। उसका कोई शुल्क नहीं।",
+      "en": "Before the class you talk with Vandana — your reports, your medicine. That costs nothing."
     }
-  ],
+  },
   "classNotes": [
     {
       "hi": "पहली क्लास में वंदना जी आपकी रिपोर्ट और दवा के बारे में पूछती हैं।",
@@ -145,5 +160,10 @@
   "batchNote": {
     "hi": "थायराइड के लिए दोनों बैच ठीक हैं",
     "en": "Either batch suits thyroid"
+  },
+  "bestBatch": "morning",
+  "bestBatchWhy": {
+    "hi": "शाम का बैच भी है, पर थायराइड में खाली पेट का अभ्यास ज़्यादा काम करता है।",
+    "en": "There is an evening batch too, but for thyroid the empty-stomach practice does more."
   }
 }

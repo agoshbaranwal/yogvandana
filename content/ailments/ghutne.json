@@ -23,6 +23,24 @@
     "hi": "घुटने का दर्द सिर्फ़ उम्र से नहीं आता। वज़न, कमज़ोर जाँघें और कम हिलना-डुलना उसे बढ़ाते हैं। क्लास में जोड़ों की गति, जाँघ की ताक़त और संतुलन पर काम होता है, बिना घुटने पर बोझ डाले। ज़्यादातर अभ्यास कुर्सी या दीवार के सहारे किया जा सकता है।",
     "en": "Knee pain does not come from age alone. Weight, weak thighs and sitting still make it worse. The class works on joint movement, thigh strength and balance, without loading the knee. Most of it can be done with a chair or a wall for support."
   },
+  "works": [
+    {
+      "hi": "घुटने के आसपास की मांसपेशियाँ — कुर्सी पर बैठकर मज़बूत।",
+      "en": "The muscles around the knee — strengthened sitting on a chair."
+    },
+    {
+      "hi": "जोड़ की गति — बिना बोझ डाले, रोज़ थोड़ी।",
+      "en": "The joint's movement — a little every day, without loading it."
+    },
+    {
+      "hi": "वज़न — हर किलो घुटने पर बोझ है। पेट के आसन।",
+      "en": "Weight — every kilo is a load on the knee. Asanas for the belly."
+    }
+  ],
+  "medicine": {
+    "hi": "दर्द की गोली रोज़ न खानी पड़े — यही लक्ष्य है। ऑपरेशन की सलाह मिली हो तो डॉक्टर से पूछकर ही अभ्यास।",
+    "en": "Not needing a painkiller every day — that is the goal. If an operation has been advised, practise only after asking the doctor."
+  },
   "studentCount": "[N]",
   "storyCount": "[N]",
   "videoCount": "[N]",
@@ -56,38 +74,35 @@
       "en": "After [90] days, with how you feel"
     }
   },
-  "firstClass": [
-    {
-      "strong": {
-        "hi": "[30] मिनट की लाइव क्लास",
-        "en": "A [30] minute live class"
+  "firstClass": {
+    "rows": [
+      {
+        "minutes": "[10]",
+        "text": {
+          "hi": "सूक्ष्म व्यायाम और जोड़ों की गति — आपकी रफ़्तार से, कुर्सी पर भी।",
+          "en": "Gentle warm-up and joint movement — at your pace, on a chair if needed."
+        }
       },
-      "rest": {
-        "hi": ", घुटने का दर्द वाले विद्यार्थियों के अभ्यास के साथ।",
-        "en": ", with the practice used for knee pain."
-      }
-    },
-    {
-      "strong": {
-        "hi": "फिर [10] मिनट वंदना जी से बात:",
-        "en": "Then [10] minutes with Vandana:"
+      {
+        "minutes": "[30]",
+        "text": {
+          "hi": "घुटने वालों के आसन और प्राणायाम। कैमरा चालू, वंदना जी देखती हैं।",
+          "en": "The asanas and pranayama used for knees. Camera on, Vandana watches."
+        }
       },
-      "rest": {
-        "hi": " आपकी तकलीफ़, दवा, और कौन सा बैच सही रहेगा।",
-        "en": " your condition, your medicine, and which batch suits you."
+      {
+        "minutes": "[10]",
+        "text": {
+          "hi": "विश्राम, और आपकी पर्ची — घर पर रोज़ क्या करना है।",
+          "en": "Relaxation, and your slip — what to do at home every day."
+        }
       }
-    },
-    {
-      "strong": {
-        "hi": "कोई शुल्क नहीं, कोई दबाव नहीं।",
-        "en": "No fee, no pressure."
-      },
-      "rest": {
-        "hi": " ठीक लगे तो उसी दिन बैच में जुड़िए।",
-        "en": " If it feels right, join a batch the same day."
-      }
+    ],
+    "note": {
+      "hi": "क्लास से पहले वंदना जी से बात होती है — आपकी रिपोर्ट, आपकी दवा। उसका कोई शुल्क नहीं।",
+      "en": "Before the class you talk with Vandana — your reports, your medicine. That costs nothing."
     }
-  ],
+  },
   "classNotes": [
     {
       "hi": "पहली क्लास में वंदना जी आपकी रिपोर्ट और दवा के बारे में पूछती हैं।",
@@ -145,5 +160,10 @@
   "batchNote": {
     "hi": "घुटनों के लिए दोनों बैच ठीक हैं",
     "en": "Either batch suits sore knees"
+  },
+  "bestBatch": "",
+  "bestBatchWhy": {
+    "hi": "",
+    "en": ""
   }
 }

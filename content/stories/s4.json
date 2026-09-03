@@ -15,14 +15,23 @@
     "hi": "[नींद कैसी थी और अब कैसी है। उनके शब्दों में।]",
     "en": "[how sleep was and how it is now, in their words]"
   },
-  "before": {
+  "metric": {
     "hi": "",
     "en": ""
+  },
+  "before": {
+    "hi": "[रात दो बजे तक जागते थे]",
+    "en": "[awake till two at night]"
   },
   "after": {
-    "hi": "",
-    "en": ""
+    "hi": "[ग्यारह बजे नींद]",
+    "en": "[asleep by eleven]"
   },
+  "change": {
+    "hi": "[नींद की गोली बंद, डॉक्टर की सलाह से]",
+    "en": "[sleeping pill stopped, on the doctor's advice]"
+  },
+  "months": "[3]",
   "since": {
     "hi": "[वर्ष]",
     "en": "[year]"

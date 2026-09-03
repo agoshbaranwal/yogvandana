@@ -7,20 +7,26 @@
     "en": "Private session"
   },
   "when": {
-    "hi": "एक-से-एक, [अवधि], ज़ूम पर",
-    "en": "One to one, [duration], on Zoom"
+    "hi": "एक-से-एक, ज़ूम पर",
+    "en": "One to one, on Zoom"
   },
+  "start": {
+    "hi": "",
+    "en": ""
+  },
+  "minutes": "[60]",
   "days": {
     "hi": "[दिन]",
     "en": "[days]"
   },
+  "daysOn": [],
   "level": {
     "hi": "आपकी रफ़्तार से",
     "en": "At your own pace"
   },
   "note": {
-    "hi": "किसी खास तकलीफ़ के लिए, या जब आप अपनी रफ़्तार से चलना चाहें। वंदना जी हर क्लास आपके हिसाब से बनाती हैं।",
-    "en": "For a particular condition, or when you want your own pace. She plans each session around you."
+    "hi": "किसी ख़ास तकलीफ़ के लिए, या जब आप अपनी रफ़्तार से चलना चाहें। समय आप तय करते हैं।",
+    "en": "For a particular problem, or when you want to go at your own pace. You choose the time."
   },
   "session": [],
   "price": "[शुल्क]",

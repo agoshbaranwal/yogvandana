@@ -10,10 +10,16 @@
     "hi": "[समय]",
     "en": "[time]"
   },
+  "start": {
+    "hi": "",
+    "en": ""
+  },
+  "minutes": "",
   "days": {
     "hi": "",
     "en": ""
   },
+  "daysOn": [],
   "level": {
     "hi": "सभी स्तर",
     "en": "All levels"

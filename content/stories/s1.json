@@ -15,14 +15,23 @@
     "hi": "[रिपोर्ट में क्या बदला, दवा कितनी घटी, कितने महीनों में। उनके शब्दों में।]",
     "en": "[what changed in the report, how much medicine came down, over how many months, in their words]"
   },
+  "metric": {
+    "hi": "HbA1c",
+    "en": "HbA1c"
+  },
   "before": {
-    "hi": "[HbA1c 8.2, दवा दो बार]",
-    "en": "[HbA1c 8.2, medicine twice a day]"
+    "hi": "[8.2]",
+    "en": "[8.2]"
   },
   "after": {
-    "hi": "[6.5, दवा आधी]",
-    "en": "[6.5, medicine halved]"
+    "hi": "[6.5]",
+    "en": "[6.5]"
   },
+  "change": {
+    "hi": "[दवा आधी]",
+    "en": "[medicine halved]"
+  },
+  "months": "[7]",
   "since": {
     "hi": "[वर्ष]",
     "en": "[year]"

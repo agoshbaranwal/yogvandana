@@ -13,6 +13,14 @@
     "hi": "योग में एम.ए. · [प्रमाणन संस्था] प्रमाणित योग शिक्षिका",
     "en": "MA in Yoga · Certified Yoga Teacher ([certifying body])"
   },
+  "certifyingBody": {
+    "hi": "[प्रमाणन संस्था]",
+    "en": "[certifying body]"
+  },
+  "university": {
+    "hi": "[विश्वविद्यालय]",
+    "en": "[university]"
+  },
   "credentialShort": {
     "hi": "योग में एम.ए.",
     "en": "MA in Yoga"
@@ -42,10 +50,15 @@
     "hi": "[समय]",
     "en": "[time]"
   },
-  "classMinutes": "[30]",
+  "classMinutes": "[50]",
+  "homeMinutes": "[30]",
   "talkMinutes": "[10]",
   "groupSize": "[N]",
   "reviewDays": "[90]",
+  "missedClass": {
+    "hi": "[उस दिन दूसरे बैच में]",
+    "en": "[join the other batch that day]"
+  },
   "numbers": [
     {
       "value": "[X]",
@@ -80,16 +93,16 @@
     {
       "value": "[N]",
       "label": {
-        "hi": "प्रमाणपत्र, हर एक जाँचने योग्य",
-        "en": "certifications, each verifiable"
+        "hi": "प्रमाणपत्र, स्कैन के साथ",
+        "en": "certificates, with scans"
       },
       "short": {
         "hi": "प्रमाणपत्र",
         "en": "certifications"
       },
       "basis": {
-        "hi": "[योग्यता पन्ने पर पूरी सूची]",
-        "en": "[full list on the credentials page]"
+        "hi": "[परिचय पन्ने पर पूरी सूची]",
+        "en": "[full list on the about page]"
       }
     },
     {

@@ -23,6 +23,24 @@
     "hi": "कमर का दर्द ज़्यादातर कमज़ोर पीठ, घंटों एक ही तरह बैठने और अकड़न से बढ़ता है। वंदना जी की क्लास में रीढ़ को धीरे-धीरे खोलने और पीठ-पेट की मांसपेशियाँ मज़बूत करने पर काम होता है। जिन्हें झुकने में दिक्कत है, उनके लिए अभ्यास कुर्सी पर बैठकर शुरू होता है।",
     "en": "Back pain usually grows out of a weak back, hours in one position, and stiffness. In her class the work is to open the spine slowly and strengthen the muscles of the back and belly. For anyone who cannot bend, the practice starts sitting on a chair."
   },
+  "works": [
+    {
+      "hi": "कमर की मांसपेशियाँ — धीरे-धीरे मज़बूत, बिना झटके के।",
+      "en": "The back muscles — strengthened slowly, without jerks."
+    },
+    {
+      "hi": "रीढ़ की लचक — रोज़ की गति, जितनी आपसे हो।",
+      "en": "The spine's flexibility — daily movement, as much as you can."
+    },
+    {
+      "hi": "बैठने-उठने का ढंग — जो दर्द लौटाता है। सही तरीका सिखाया जाता है।",
+      "en": "How you sit and stand — what brings the pain back. The right way is taught."
+    }
+  ],
+  "medicine": {
+    "hi": "दर्द की गोली रोज़ न खानी पड़े — यही लक्ष्य है। फ़िज़ियो या डॉक्टर की सलाह साथ चलती है।",
+    "en": "Not needing a painkiller every day — that is the goal. Your physio's or doctor's advice runs alongside."
+  },
   "studentCount": "[N]",
   "storyCount": "[N]",
   "videoCount": "[N]",
@@ -56,38 +74,35 @@
       "en": "After [90] days, with how you feel"
     }
   },
-  "firstClass": [
-    {
-      "strong": {
-        "hi": "[30] मिनट की लाइव क्लास",
-        "en": "A [30] minute live class"
+  "firstClass": {
+    "rows": [
+      {
+        "minutes": "[10]",
+        "text": {
+          "hi": "सूक्ष्म व्यायाम और जोड़ों की गति — आपकी रफ़्तार से, कुर्सी पर भी।",
+          "en": "Gentle warm-up and joint movement — at your pace, on a chair if needed."
+        }
       },
-      "rest": {
-        "hi": ", कमर दर्द वाले विद्यार्थियों के अभ्यास के साथ।",
-        "en": ", with the practice used for back pain."
-      }
-    },
-    {
-      "strong": {
-        "hi": "फिर [10] मिनट वंदना जी से बात:",
-        "en": "Then [10] minutes with Vandana:"
+      {
+        "minutes": "[30]",
+        "text": {
+          "hi": "कमर दर्द वालों के आसन और प्राणायाम। कैमरा चालू, वंदना जी देखती हैं।",
+          "en": "The asanas and pranayama used for back pain. Camera on, Vandana watches."
+        }
       },
-      "rest": {
-        "hi": " आपकी तकलीफ़, दवा, और कौन सा बैच सही रहेगा।",
-        "en": " your condition, your medicine, and which batch suits you."
+      {
+        "minutes": "[10]",
+        "text": {
+          "hi": "विश्राम, और आपकी पर्ची — घर पर रोज़ क्या करना है।",
+          "en": "Relaxation, and your slip — what to do at home every day."
+        }
       }
-    },
-    {
-      "strong": {
-        "hi": "कोई शुल्क नहीं, कोई दबाव नहीं।",
-        "en": "No fee, no pressure."
-      },
-      "rest": {
-        "hi": " ठीक लगे तो उसी दिन बैच में जुड़िए।",
-        "en": " If it feels right, join a batch the same day."
-      }
+    ],
+    "note": {
+      "hi": "क्लास से पहले वंदना जी से बात होती है — आपकी रिपोर्ट, आपकी दवा। उसका कोई शुल्क नहीं।",
+      "en": "Before the class you talk with Vandana — your reports, your medicine. That costs nothing."
     }
-  ],
+  },
   "classNotes": [
     {
       "hi": "पहली क्लास में वंदना जी आपकी रिपोर्ट और दवा के बारे में पूछती हैं।",
@@ -145,5 +160,10 @@
   "batchNote": {
     "hi": "कमर के लिए दोनों बैच ठीक हैं",
     "en": "Either batch suits a bad back"
+  },
+  "bestBatch": "evening",
+  "bestBatchWhy": {
+    "hi": "सुबह का बैच भी है, पर दिन भर की अकड़न के बाद शाम का अभ्यास कमर को ज़्यादा खोलता है।",
+    "en": "There is a morning batch too, but after a day's stiffness the evening practice opens the back more."
   }
 }

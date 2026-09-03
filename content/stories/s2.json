@@ -15,6 +15,10 @@
     "hi": "[क्या कर पाते हैं जो पहले नहीं कर पाते थे। उनके शब्दों में।]",
     "en": "[what they can do now that they could not before, in their words]"
   },
+  "metric": {
+    "hi": "",
+    "en": ""
+  },
   "before": {
     "hi": "[सीढ़ियाँ नहीं चढ़ पाते थे]",
     "en": "[could not climb stairs]"
@@ -23,6 +27,11 @@
     "hi": "[रोज़ तीन मंज़िल]",
     "en": "[three floors a day]"
   },
+  "change": {
+    "hi": "",
+    "en": ""
+  },
+  "months": "[4]",
   "since": {
     "hi": "[वर्ष]",
     "en": "[year]"

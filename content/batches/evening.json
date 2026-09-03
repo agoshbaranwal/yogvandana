@@ -10,30 +10,36 @@
     "hi": "शाम [समय]",
     "en": "Evening [time]"
   },
-  "days": {
-    "hi": "[दिन]",
-    "en": "[days]"
+  "start": {
+    "hi": "[6:30]",
+    "en": "[6:30]"
   },
+  "minutes": "[50]",
+  "days": {
+    "hi": "[सोम–शनि]",
+    "en": "[Mon–Sat]"
+  },
+  "daysOn": [],
   "level": {
     "hi": "सभी स्तर · दफ़्तर के बाद",
     "en": "All levels, after work"
   },
   "note": {
-    "hi": "कमर, गर्दन और नींद के लिए बेहतर",
-    "en": "Better for the back, the neck and sleep"
+    "hi": "दफ़्तर के बाद। कमर, गर्दन, नींद के लिए अच्छा।",
+    "en": "After office. Good for the back, neck and sleep."
   },
   "session": [
     {
-      "hi": "[10] मिनट वार्म-अप और जोड़ों की गति",
-      "en": "[10] minutes of warm-up and joint movement"
+      "hi": "[10] मिनट सूक्ष्म व्यायाम और जोड़ों की गति",
+      "en": "[10] minutes gentle warm-up and joint movement"
     },
     {
       "hi": "[30] मिनट आसन, आपके स्तर पर",
-      "en": "[30] minutes of asana, at your level"
+      "en": "[30] minutes asanas, at your level"
     },
     {
       "hi": "[10] मिनट प्राणायाम और विश्राम",
-      "en": "[10] minutes of pranayama and rest"
+      "en": "[10] minutes pranayama and relaxation"
     }
   ],
   "price": "[शुल्क]",
@@ -54,8 +60,8 @@
   "joinLink": "",
   "feeLink": "",
   "familyDiscount": {
-    "hi": "[परिवार के दो लोग: छूट]",
-    "en": "[two from one family: discount]"
+    "hi": "एक घर के दो लोग: [छूट]",
+    "en": "Two from one home: [discount]"
   },
   "firstMonthOffer": {
     "hi": "",

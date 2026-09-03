@@ -15,14 +15,23 @@
     "hi": "[रीडिंग में क्या बदला। उनके शब्दों में।]",
     "en": "[what changed in the readings, in their words]"
   },
+  "metric": {
+    "hi": "बीपी",
+    "en": "BP"
+  },
   "before": {
-    "hi": "",
-    "en": ""
+    "hi": "[160/100]",
+    "en": "[160/100]"
   },
   "after": {
-    "hi": "",
-    "en": ""
+    "hi": "[130/85]",
+    "en": "[130/85]"
   },
+  "change": {
+    "hi": "[एक दवा कम]",
+    "en": "[one medicine fewer]"
+  },
+  "months": "[5]",
   "since": {
     "hi": "[वर्ष]",
     "en": "[year]"

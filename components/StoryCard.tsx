@@ -55,7 +55,9 @@ export function StoryCard({
         {hasBA ? (
           <div className="grid grid-cols-2 gap-2">
             <div className="rounded-[10px] px-3 py-2" style={{ background: "var(--color-ivory)" }}>
-              <p className="cap">{ui("stories.before", lang)}</p>
+              <p className="cap">
+                <Tx>{[t(story.metric, lang), ui("stories.before", lang)].filter(Boolean).join(" ")}</Tx>
+              </p>
               <p className="h3 leading-snug">
                 <Tx>{t(story.before, lang)}</Tx>
               </p>
@@ -67,6 +69,18 @@ export function StoryCard({
               </p>
             </div>
           </div>
+        ) : null}
+        {hasBA && (t(story.change, lang) || story.months) ? (
+          <p className="cap font-bold" style={{ color: "var(--color-deeper)" }}>
+            <Tx>
+              {[
+                t(story.change, lang),
+                story.months ? ui("stories.months", lang).replace("{n}", story.months) : "",
+              ]
+                .filter(Boolean)
+                .join(" · ")}
+            </Tx>
+          </p>
         ) : null}
 
         {story.video && showVideo ? (

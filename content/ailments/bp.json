@@ -23,6 +23,24 @@
     "hi": "हाई बीपी में साँस और तनाव का हिस्सा बड़ा होता है। क्लास में धीमी साँस, हल्के आसन और विश्राम पर ज़ोर रहता है; सिर नीचे करने वाले और साँस रोकने वाले अभ्यास हटा दिए जाते हैं। रीडिंग रोज़ लिखने को कहा जाता है।",
     "en": "In high blood pressure, breath and stress carry a lot of the weight. The class leans on slow breathing, gentle poses and rest; head-down poses and breath holds are taken out. You are asked to write your readings down daily."
   },
+  "works": [
+    {
+      "hi": "बीपी — धीमी, लंबी साँस का अभ्यास रोज़; कपालभाति नहीं।",
+      "en": "BP — slow, long breathing every day; no kapalbhati."
+    },
+    {
+      "hi": "दिल और नसों पर बोझ — हल्के आसन, बिना झटके के।",
+      "en": "The load on the heart and vessels — gentle asanas, no jerks."
+    },
+    {
+      "hi": "तनाव और नींद — जो बीपी को ऊपर रखते हैं। विश्राम, ध्यान।",
+      "en": "Stress and sleep — which keep BP up. Relaxation, meditation."
+    }
+  ],
+  "medicine": {
+    "hi": "बंद नहीं। बीपी की दवा अचानक छोड़ना ख़तरनाक है। रीडिंग सुधरे तो डॉक्टर ही घटाते हैं — यहाँ [N] लोगों की घटी है।",
+    "en": "Not stopped. Dropping BP medicine suddenly is dangerous. When the readings improve the doctor reduces it — here it has come down for [N] people."
+  },
   "studentCount": "[N]",
   "storyCount": "[N]",
   "videoCount": "[N]",
@@ -56,38 +74,35 @@
       "en": "After [90] days, with your readings"
     }
   },
-  "firstClass": [
-    {
-      "strong": {
-        "hi": "[30] मिनट की लाइव क्लास",
-        "en": "A [30] minute live class"
+  "firstClass": {
+    "rows": [
+      {
+        "minutes": "[10]",
+        "text": {
+          "hi": "सूक्ष्म व्यायाम और जोड़ों की गति — आपकी रफ़्तार से, कुर्सी पर भी।",
+          "en": "Gentle warm-up and joint movement — at your pace, on a chair if needed."
+        }
       },
-      "rest": {
-        "hi": ", बीपी वाले विद्यार्थियों के अभ्यास के साथ।",
-        "en": ", with the practice used for blood pressure."
-      }
-    },
-    {
-      "strong": {
-        "hi": "फिर [10] मिनट वंदना जी से बात:",
-        "en": "Then [10] minutes with Vandana:"
+      {
+        "minutes": "[30]",
+        "text": {
+          "hi": "बीपी वालों के आसन और प्राणायाम। कैमरा चालू, वंदना जी देखती हैं।",
+          "en": "The asanas and pranayama used for BP. Camera on, Vandana watches."
+        }
       },
-      "rest": {
-        "hi": " आपकी तकलीफ़, दवा, और कौन सा बैच सही रहेगा।",
-        "en": " your condition, your medicine, and which batch suits you."
+      {
+        "minutes": "[10]",
+        "text": {
+          "hi": "विश्राम, और आपकी पर्ची — घर पर रोज़ क्या करना है।",
+          "en": "Relaxation, and your slip — what to do at home every day."
+        }
       }
-    },
-    {
-      "strong": {
-        "hi": "कोई शुल्क नहीं, कोई दबाव नहीं।",
-        "en": "No fee, no pressure."
-      },
-      "rest": {
-        "hi": " ठीक लगे तो उसी दिन बैच में जुड़िए।",
-        "en": " If it feels right, join a batch the same day."
-      }
+    ],
+    "note": {
+      "hi": "क्लास से पहले वंदना जी से बात होती है — आपकी रिपोर्ट, आपकी दवा। उसका कोई शुल्क नहीं।",
+      "en": "Before the class you talk with Vandana — your reports, your medicine. That costs nothing."
     }
-  ],
+  },
   "classNotes": [
     {
       "hi": "पहली क्लास में वंदना जी आपकी रिपोर्ट और दवा के बारे में पूछती हैं।",
@@ -145,5 +160,10 @@
   "batchNote": {
     "hi": "बीपी के लिए दोनों बैच ठीक हैं",
     "en": "Either batch suits blood pressure"
+  },
+  "bestBatch": "morning",
+  "bestBatchWhy": {
+    "hi": "शाम का बैच भी है, पर बीपी में सुबह का शांत अभ्यास बेहतर बैठता है।",
+    "en": "There is an evening batch too, but for BP the calm morning practice sits better."
   }
 }

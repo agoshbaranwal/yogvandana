@@ -23,6 +23,24 @@
     "hi": "टाइप-2 शुगर में रोज़ का योग तीन चीज़ों पर एक साथ काम करता है: शुगर लेवल, वज़न और तनाव। वंदना जी की क्लास में शुगर वाले विद्यार्थियों के लिए अभ्यास अलग रखा जाता है, और हर [90] दिन पर रिपोर्ट देखी जाती है।",
     "en": "In type 2 sugar, a daily practice works on three things at once: the sugar level, weight, and stress. In her class the practice for students with sugar is kept separate, and the reports are looked at every [90] days."
   },
+  "works": [
+    {
+      "hi": "शुगर लेवल — खाली पेट का अभ्यास और प्राणायाम, रोज़।",
+      "en": "Sugar level — an empty-stomach practice and pranayama, every day."
+    },
+    {
+      "hi": "वज़न — पेट और कमर पर काम करने वाले आसन।",
+      "en": "Weight — asanas that work on the belly and waist."
+    },
+    {
+      "hi": "तनाव — जो शुगर को ऊपर रखता है। धीमी साँस, नींद।",
+      "en": "Stress — which keeps sugar up. Slow breath, sleep."
+    }
+  ],
+  "medicine": {
+    "hi": "बंद नहीं। पहली क्लास में वंदना जी आपकी रिपोर्ट और दवा पूछती हैं। रिपोर्ट सुधरे तो दवा डॉक्टर ही घटाते हैं — यहाँ [N] लोगों की घटी है।",
+    "en": "Not stopped. In the first class Vandana asks about your reports and your medicine. When the reports improve the doctor reduces it — here it has come down for [N] people."
+  },
   "studentCount": "[N]",
   "storyCount": "[N]",
   "videoCount": "[N]",
@@ -56,38 +74,35 @@
       "en": "After [90] days, with your report"
     }
   },
-  "firstClass": [
-    {
-      "strong": {
-        "hi": "[30] मिनट की लाइव क्लास",
-        "en": "A [30] minute live class"
+  "firstClass": {
+    "rows": [
+      {
+        "minutes": "[10]",
+        "text": {
+          "hi": "सूक्ष्म व्यायाम और जोड़ों की गति — आपकी रफ़्तार से, कुर्सी पर भी।",
+          "en": "Gentle warm-up and joint movement — at your pace, on a chair if needed."
+        }
       },
-      "rest": {
-        "hi": ", शुगर वाले विद्यार्थियों के अभ्यास के साथ।",
-        "en": ", with the practice used for sugar."
-      }
-    },
-    {
-      "strong": {
-        "hi": "फिर [10] मिनट वंदना जी से बात:",
-        "en": "Then [10] minutes with Vandana:"
+      {
+        "minutes": "[30]",
+        "text": {
+          "hi": "शुगर वालों के आसन और प्राणायाम। कैमरा चालू, वंदना जी देखती हैं।",
+          "en": "The asanas and pranayama used for sugar. Camera on, Vandana watches."
+        }
       },
-      "rest": {
-        "hi": " आपकी तकलीफ़, दवा, और कौन सा बैच सही रहेगा।",
-        "en": " your condition, your medicine, and which batch suits you."
+      {
+        "minutes": "[10]",
+        "text": {
+          "hi": "विश्राम, और आपकी पर्ची — घर पर रोज़ क्या करना है।",
+          "en": "Relaxation, and your slip — what to do at home every day."
+        }
       }
-    },
-    {
-      "strong": {
-        "hi": "कोई शुल्क नहीं, कोई दबाव नहीं।",
-        "en": "No fee, no pressure."
-      },
-      "rest": {
-        "hi": " ठीक लगे तो उसी दिन बैच में जुड़िए।",
-        "en": " If it feels right, join a batch the same day."
-      }
+    ],
+    "note": {
+      "hi": "क्लास से पहले वंदना जी से बात होती है — आपकी रिपोर्ट, आपकी दवा। उसका कोई शुल्क नहीं।",
+      "en": "Before the class you talk with Vandana — your reports, your medicine. That costs nothing."
     }
-  ],
+  },
   "classNotes": [
     {
       "hi": "पहली क्लास में वंदना जी आपकी रिपोर्ट और दवा के बारे में पूछती हैं।",
@@ -145,5 +160,10 @@
   "batchNote": {
     "hi": "शुगर के लिए बेहतर, खाली पेट",
     "en": "Better for sugar, on an empty stomach"
+  },
+  "bestBatch": "morning",
+  "bestBatchWhy": {
+    "hi": "शाम का बैच भी है, पर शुगर में खाली पेट का अभ्यास ज़्यादा काम करता है।",
+    "en": "There is an evening batch too, but for sugar the empty-stomach practice does more."
   }
 }

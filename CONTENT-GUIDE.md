@@ -150,6 +150,31 @@ Every label on the site, in both languages. Say: **"Change the trial button to '
 
 ---
 
+## New since Round 6 — the fields the redesign reads
+
+**Conditions** (`content/ailments/<slug>.json`): `works` is three lines, the three things the
+practice works on for that disease — say **"for sugar, the three lines are…"**. `medicine` is the
+one paragraph under "डॉक्टर की दवा?" for that disease. `firstClass.rows` is the [10] + [30] + [10]
+of the first class; the first class is a **paid** class, the talk before it is what is free.
+`bestBatch` is `morning`, `evening` or empty (either), and `bestBatchWhy` is the one line that
+says why — say **"put thyroid in the morning batch because…"**.
+
+**Stories** (`content/stories/<id>.json`): a result is `metric` (HbA1c, बीपी, वज़न, or empty),
+`before`, `after`, `change` (what happened to the medicine) and `months`. Say **"Sunita's HbA1c
+went from 8.2 to 6.5 in seven months and her medicine was halved."** Leave `metric` empty for a
+then-and-now in words (could not climb stairs → three floors a day).
+
+**Batches** (`content/batches/<id>.json`): `start` is the clock time ("6:30"), `minutes` the
+length of a class, `daysOn` the weekdays as numbers, Monday = 0 … Sunday = 6, so Monday to
+Saturday is `[0,1,2,3,4,5]`. Until you give `daysOn` the timetable shows seven blank days — it
+does not guess a week.
+
+**Her facts** (`content/site.json`): `certifyingBody` is the body that certified her, spelled
+the way it appears on the certificate (say **"Yoga Certification Board, Ministry of AYUSH"** if
+that is what it is); `university` is where the MA is from; `classMinutes` is the class ([50]),
+`homeMinutes` what she writes on the slip for home ([30]); `missedClass` is the one line on what
+happens when someone misses a class.
+
 ## When nothing is left
 
 `npm run content:check` prints "Nothing left." Then set `"live": true` in `content/site.json`,

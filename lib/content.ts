@@ -112,6 +112,9 @@ const SiteSchema = z.object({
   brand: Text,
   teacher: Text,
   credential: Text,
+  /* The body that certified her, named: "certified" with no body is a claim. */
+  certifyingBody: Text,
+  university: Text,
   credentialShort: Text,
   city: Text,
   motto: z.string(),
@@ -120,10 +123,13 @@ const SiteSchema = z.object({
   sinceYear: Text,
   morningTime: Text,
   eveningTime: Text,
+  /* A class is [50] minutes; what she writes on the slip for home is [30]. */
   classMinutes: z.string(),
+  homeMinutes: z.string(),
   talkMinutes: z.string(),
   groupSize: z.string(),
   reviewDays: z.string(),
+  missedClass: Text,
   numbers: z.array(NumberStat),
   google: z.object({ rating: z.string(), reviews: z.string(), url: z.string() }),
   whatsappGroupCount: z.string(),
@@ -188,6 +194,10 @@ const AilmentSchema = z.object({
   titleFull: Text,
   claimLine: Text,
   intro: Text,
+  /* The three things the practice works on for this disease, one line each. */
+  works: z.array(Text).length(3),
+  /* What happens to the doctor's medicine, in this disease's own terms. */
+  medicine: Text,
   studentCount: z.string(),
   storyCount: z.string(),
   videoCount: z.string(),
@@ -200,10 +210,18 @@ const AilmentSchema = z.object({
     alongside: Text,
     review: Text,
   }),
-  firstClass: z.array(z.object({ strong: Text, rest: Text })),
+  /* The first class is a paid class: [10] + [30] + [10] minutes. The talk
+     before it is what costs nothing. */
+  firstClass: z.object({
+    rows: z.array(z.object({ minutes: z.string(), text: Text })),
+    note: Text,
+  }),
   classNotes: z.array(Text),
   faq: z.array(z.object({ q: Text, a: Text })),
   batchNote: Text,
+  /* Which batch she would put this disease in, and why; "" means either. */
+  bestBatch: z.enum(["morning", "evening", ""]),
+  bestBatchWhy: Text,
 });
 export type Ailment = z.infer<typeof AilmentSchema>;
 export const ailments: Ailment[] = many(AilmentSchema, "ailments").sort(
@@ -220,7 +238,13 @@ const BatchSchema = z.object({
   order: z.number(),
   name: Text,
   when: Text,
+  /* The clock time and the length, kept apart so the timetable can draw them. */
+  start: Text,
+  minutes: z.string(),
   days: Text,
+  /* 0 = Monday … 6 = Sunday. Empty until she confirms; the timetable then
+     shows seven blank days rather than inventing a week. */
+  daysOn: z.array(z.number().int().min(0).max(6)),
   level: Text,
   note: Text,
   session: z.array(Text),
@@ -253,8 +277,14 @@ const StorySchema = z.object({
   age: z.string(),
   ailmentSlug: z.string(),
   quote: Text,
+  /* The result, in the report's own terms: the metric ("HbA1c", "बीपी", or
+     none), the before and after, what happened to the medicine, and over how
+     many months. before/after alone still read as a plain then-and-now. */
+  metric: Text,
   before: Text,
   after: Text,
+  change: Text,
+  months: z.string(),
   since: Text,
   written: Text,
   photo: z.string(),

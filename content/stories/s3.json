@@ -15,14 +15,23 @@
     "hi": "[क्या बदला, कितने महीनों में। उनके शब्दों में।]",
     "en": "[what changed and over how many months, in their words]"
   },
-  "before": {
+  "metric": {
     "hi": "",
     "en": ""
+  },
+  "before": {
+    "hi": "[पीरियड तीन महीने में एक बार]",
+    "en": "[a period once in three months]"
   },
   "after": {
+    "hi": "[हर महीने, समय पर]",
+    "en": "[every month, on time]"
+  },
+  "change": {
     "hi": "",
     "en": ""
   },
+  "months": "[6]",
   "since": {
     "hi": "[वर्ष]",
     "en": "[year]"

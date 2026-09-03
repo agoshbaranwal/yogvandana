@@ -131,16 +131,21 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
       <section className="wrap flex flex-col gap-4 section-pad">
         <h2 className="h2">{ui("ailment.firstClassTitle", lang)}</h2>
         <div className="grid gap-4 md:grid-cols-2 md:gap-8">
-          <ul className="card flex flex-col gap-2">
-            {ailment.firstClass.map((row, i) => (
-              <li key={i} className="body">
-                <strong>
-                  <Tx>{t(row.strong, lang)}</Tx>
-                </strong>
-                <Tx>{t(row.rest, lang)}</Tx>
-              </li>
-            ))}
-          </ul>
+          <div className="card flex flex-col gap-3">
+            <ol className="flex flex-col gap-2">
+              {ailment.firstClass.rows.map((row, i) => (
+                <li key={i} className="flex gap-3 body">
+                  <span className="num h3 w-[64px] flex-none" style={{ color: "var(--color-deep)" }}>
+                    <Tx>{`${row.minutes} ${ui("ailment.min", lang)}`}</Tx>
+                  </span>
+                  <Tx>{t(row.text, lang)}</Tx>
+                </li>
+              ))}
+            </ol>
+            <p className="cap">
+              <Tx>{t(ailment.firstClass.note, lang)}</Tx>
+            </p>
+          </div>
           <div className="flex flex-col gap-2">
             <p className="label">{ui("ailment.classTitle", lang)}</p>
             <ul className="ml-5 flex list-disc flex-col gap-1.5 body">
