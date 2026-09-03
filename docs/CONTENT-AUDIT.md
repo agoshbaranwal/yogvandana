@@ -95,7 +95,32 @@ about what troubles you. Every button, every prewritten message, every FAQ and e
 description now says that, in both languages. The internal name for the action changed from "trial"
 to "talk", so the code says what the site says.
 
-## 6. Illustrations
+## 6. Two pages folded into two others
+
+Seven items in the menu was two too many, and two of the seven were halves of pages that already
+existed.
+
+- **Credentials joined About.** Her story and her record are the same argument; splitting them meant
+  the About page carried a strip of certificate thumbnails whose only job was to send you to the
+  page with the real table on it. The register, the experience and the memberships now sit on
+  `/parichay/`, with a contents row at the top because the page took in a second one. The awards
+  section appeared on both pages; there is one now.
+- **Gallery joined Stories.** Photographs of classes, camps and the stage prove the same thing the
+  students' words prove. They are the lower half of `/kahaniyan/` now, with their own filter intact.
+- The journey block was a four-column grid, so entries that had a photograph stood a head taller
+  than the ones that did not and the years lined up with nothing. It is a timeline: year, what
+  happened, then the picture if there is one.
+
+The menu is five items. Links that pointed at the two pages now point at the sections that replaced
+them, through `sectionHref()` in `lib/routes.ts`, so a link to the register still lands on the
+register.
+
+**One defect fell out of the merge.** The header's main button linked to `#booking-band` on the page
+you were reading — and six pages have no booking band, so on those it was a button that did nothing.
+It goes to the contact form on those pages now, and check 16 was widened to follow a hash across
+pages, which is how it was caught.
+
+## 7. Illustrations
 
 Ten of the drawings were placeholders in all but name: the knee did not read as a knee, the thyroid
 had a line through the whole figure, and — the expensive one — the WhatsApp mark was a plain speech

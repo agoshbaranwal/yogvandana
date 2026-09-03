@@ -16,15 +16,15 @@ Dated 3 September 2026. The site is live at **https://agoshbaranwal.github.io/yo
 
 | | |
 |---|---|
-| Pages built | 41, every one in Hindi and English |
+| Pages built | 37, every one in Hindi and English |
 | Conditions | 8, each a page of its own, generated from one file each |
 | Content files | 72 small JSON files, 764 bilingual strings |
 | Components and views | 21 components, 9 page views, one design system |
 | Checks | `content:check`, `parity:check`, `credibility:check`, lint, types |
 | Screenshots | every page, phone and desktop, both languages, in `docs/screens/` |
 
-Routes: home · all conditions · one page per condition · batches · stories · about ·
-credentials · gallery · contact · students · privacy · terms · refunds · 404. In Hindi at the
+Routes: home · all conditions · one page per condition · batches · stories (with the album) ·
+about (with her record) · contact · students · privacy · terms · refunds · 404. In Hindi at the
 root, in English under `/en/`, with a pill in the header that keeps the page you are on.
 
 ## 2. Measured, not asserted

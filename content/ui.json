@@ -16,14 +16,6 @@
       "hi": "परिचय",
       "en": "About"
     },
-    "credentials": {
-      "hi": "योग्यता",
-      "en": "Credentials"
-    },
-    "gallery": {
-      "hi": "गैलरी",
-      "en": "Gallery"
-    },
     "contact": {
       "hi": "संपर्क",
       "en": "Contact"
@@ -129,14 +121,6 @@
     "allAilments": {
       "hi": "और भी: गर्दन, अस्थमा, साइनस, कब्ज़, गठिया",
       "en": "More: neck, asthma, sinus, constipation, arthritis"
-    },
-    "allCerts": {
-      "hi": "सभी प्रमाणपत्र और जाँच के लिंक",
-      "en": "All certificates and verify links"
-    },
-    "allPhotos": {
-      "hi": "सभी फ़ोटो",
-      "en": "All photos"
     },
     "fullAbout": {
       "hi": "पूरा परिचय",
@@ -472,14 +456,6 @@
       "hi": "सफ़र",
       "en": "The journey"
     },
-    "certsTitle": {
-      "hi": "प्रमाणपत्र",
-      "en": "Certificates"
-    },
-    "certsLead": {
-      "hi": "हर एक की जाँच की जा सकती है। जहाँ संस्था का सार्वजनिक रजिस्टर है, वहाँ जाँच का लिंक है।",
-      "en": "Every one can be checked. Where the body keeps a public register, there is a verify link."
-    },
     "awardsTitle": {
       "hi": "सम्मान और पुरस्कार",
       "en": "Awards and honours"
@@ -492,10 +468,6 @@
       "hi": "मीडिया में",
       "en": "In the media"
     },
-    "galleryTitle": {
-      "hi": "गैलरी",
-      "en": "Gallery"
-    },
     "inviteTitle": {
       "hi": "अपने कार्यक्रम में वंदना जी को बुलाइए",
       "en": "Invite Vandana to your event"
@@ -507,16 +479,16 @@
     "updated": {
       "hi": "अपडेट",
       "en": "Updated"
+    },
+    "onThisPage": {
+      "hi": "इस पन्ने पर",
+      "en": "On this page"
     }
   },
   "credentials": {
-    "eyebrow": {
-      "hi": "योग्यता",
-      "en": "Credentials"
-    },
     "title": {
-      "hi": "पढ़ाई, प्रमाणपत्र और सम्मान",
-      "en": "Study, certificates and honours"
+      "hi": "प्रमाणपत्र",
+      "en": "Certificates"
     },
     "lead": {
       "hi": "नीचे की हर पंक्ति की जाँच की जा सकती है। जहाँ संस्था का सार्वजनिक रजिस्टर है, वहाँ “जाँचें” का लिंक उनकी प्रविष्टि खोलता है।",
@@ -557,10 +529,6 @@
     "memberships": {
       "hi": "सदस्यता",
       "en": "Memberships"
-    },
-    "awards": {
-      "hi": "सम्मान और पुरस्कार",
-      "en": "Awards and honours"
     },
     "sinceWord": {
       "hi": "से",

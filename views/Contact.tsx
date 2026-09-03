@@ -16,7 +16,7 @@ export default function Contact({ lang }: { lang: Lang }) {
   ].filter((s) => s.url);
 
   return (
-    <SiteShell lang={lang} routeKey="contact">
+    <SiteShell lang={lang} routeKey="contact" hasBand={false}>
       <header style={{ background: "linear-gradient(180deg, var(--color-sky) 0%, var(--color-ivory) 100%)" }}>
         <div className="wrap flex flex-col gap-3 py-8 md:py-12">
           <h1 className="page-title">{ui("contact.title", lang)}</h1>

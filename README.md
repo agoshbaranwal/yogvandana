@@ -3,7 +3,9 @@
 The website for **Vandana Baranwal**, a yoga teacher in Lucknow who sells live online classes
 to people who want to fix their diseases with yoga.
 
-Hindi is the site. English is one tap away. Every page exists twice.
+Hindi is the site. English is one tap away. Every page exists twice. Five things in the menu:
+conditions, batches, stories, about, contact — her record sits on the about page and the album sits
+under the stories.
 
 - **Live preview:** https://agoshbaranwal.github.io/yogvandana/
 - **What it should look like:** `design/*.dc.html` and the canvas at

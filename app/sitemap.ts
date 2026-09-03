@@ -10,8 +10,6 @@ const PAGES: RouteKey[] = [
   "batches",
   "stories",
   "about",
-  "credentials",
-  "gallery",
   "contact",
   "privacy",
   "terms",

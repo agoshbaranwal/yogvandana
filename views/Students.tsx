@@ -13,7 +13,7 @@ export default function Students({ lang }: { lang: Lang }) {
   const wa = waHref(site.contact.whatsapp, waMessage({ lang, kind: "students", page }));
 
   return (
-    <SiteShell lang={lang} routeKey="students">
+    <SiteShell lang={lang} routeKey="students" hasBand={false}>
       <header style={{ background: "linear-gradient(180deg, var(--color-sky) 0%, var(--color-ivory) 100%)" }}>
         <div className="wrap flex flex-col gap-2.5 py-8 md:py-11">
           <p className="label" style={{ color: "var(--color-deep)" }}>

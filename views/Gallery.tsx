@@ -1,11 +1,13 @@
-import Band from "@/components/Band";
 import GalleryGrid, { type Shot } from "@/components/GalleryGrid";
-import SiteShell from "@/components/SiteShell";
-import { gallery, GALLERY_THEMES, t, ui } from "@/lib/content";
+import { GALLERY_THEMES, gallery, t, ui } from "@/lib/content";
 import { picture } from "@/lib/media";
 import type { Lang } from "@/lib/routes";
 
-export default function Gallery({ lang }: { lang: Lang }) {
+/* The album, as a section rather than a page. Photographs of classes, camps
+   and the stage are evidence of the same thing the stories are evidence of,
+   so they live on the same page, under it. */
+
+export function GallerySection({ lang }: { lang: Lang }) {
   const shots: Shot[] = gallery.map((g) => ({
     id: g.id,
     theme: g.theme,
@@ -17,17 +19,12 @@ export default function Gallery({ lang }: { lang: Lang }) {
   }));
 
   return (
-    <SiteShell lang={lang} routeKey="gallery">
-      <header style={{ background: "linear-gradient(180deg, var(--color-sky) 0%, var(--color-ivory) 100%)" }}>
-        <div className="wrap flex flex-col gap-2.5 py-8 md:py-12">
-          <h1 className="page-title">{ui("gallery.title", lang)}</h1>
-          <p className="body max-w-[62ch]" style={{ color: "var(--color-heroink)" }}>
-            {ui("gallery.lead", lang)}
-          </p>
-        </div>
-      </header>
-
-      <section className="wrap py-7 md:py-11">
+    <section id="gallery" style={{ background: "var(--color-sky)" }}>
+      <div className="wrap flex flex-col gap-4 py-9 md:py-14">
+        <h2 className="h2">{ui("gallery.title", lang)}</h2>
+        <p className="body max-w-[62ch]" style={{ color: "var(--color-muted)" }}>
+          {ui("gallery.lead", lang)}
+        </p>
         <GalleryGrid
           shots={shots}
           themes={GALLERY_THEMES.map((th) => ({ slug: th, label: ui(`gallery.${th}`, lang) }))}
@@ -38,9 +35,7 @@ export default function Gallery({ lang }: { lang: Lang }) {
           nextLabel={ui("gallery.next", lang)}
           photoLabel={ui("photo.comingSoon", lang)}
         />
-      </section>
-
-      <Band lang={lang} routeKey="gallery" source="gallery" />
-    </SiteShell>
+      </div>
+    </section>
   );
 }

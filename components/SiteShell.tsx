@@ -10,6 +10,7 @@ import StickyCta from "./StickyCta";
 export default function SiteShell({
   lang,
   routeKey,
+  hasBand = true,
   slug,
   onDawn = false,
   ailmentName,
@@ -17,6 +18,10 @@ export default function SiteShell({
 }: {
   lang: Lang;
   routeKey: RouteKey;
+  /* Pages without a booking band send the header button to the contact page.
+     It used to jump to #booking-band on every page, which on six of them was
+     a button that did nothing. */
+  hasBand?: boolean;
   slug?: string;
   onDawn?: boolean;
   ailmentName?: string;
@@ -52,7 +57,7 @@ export default function SiteShell({
         switchTitle={ui("nav.switchLabel", lang)}
         switchHref={href(routeKey, lang === "hi" ? "en" : "hi", slug)}
         talkLabel={ui("cta.talk", lang)}
-        talkHref={`${href(routeKey, lang, slug)}#booking-band`}
+        talkHref={hasBand ? `${href(routeKey, lang, slug)}#booking-band` : `${href("contact", lang)}#form`}
         menuLabel={ui("nav.menu", lang)}
         closeLabel={ui("nav.close", lang)}
         studentsLabel={ui("nav.students", lang)}

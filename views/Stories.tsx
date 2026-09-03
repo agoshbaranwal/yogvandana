@@ -3,6 +3,7 @@ import { ShareLink } from "@/components/Blocks";
 import Filter from "@/components/Filter";
 import SiteShell from "@/components/SiteShell";
 import { StoryCard } from "@/components/StoryCard";
+import { GallerySection } from "./Gallery";
 import { absolute, ailments, stories, t, ui } from "@/lib/content";
 import { href, type Lang } from "@/lib/routes";
 
@@ -51,6 +52,9 @@ export default function Stories({ lang }: { lang: Lang }) {
         />
         <p className="cap max-w-[68ch]">{ui("stories.consent", lang)}</p>
       </section>
+
+      {/* the album, on the same page: photographs prove the same thing */}
+      <GallerySection lang={lang} />
 
       <Band lang={lang} routeKey="stories" source="stories" />
     </SiteShell>

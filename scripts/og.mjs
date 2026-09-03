@@ -39,8 +39,6 @@ function cards(lang) {
     { key: "batches", title: u("batches.title"), kicker: u("band.title") },
     { key: "stories", title: u("stories.title"), kicker: u("stories.lead") },
     { key: "about", title: site.teacher[lang], kicker: site.credential[lang] },
-    { key: "credentials", title: u("credentials.title"), kicker: u("credentials.lead") },
-    { key: "gallery", title: u("gallery.title"), kicker: u("gallery.lead") },
     { key: "contact", title: u("contact.title"), kicker: u("contact.lead") },
     { key: "students", title: u("students.title"), kicker: u("students.lead") },
     { key: "legal", title: site.brand[lang], kicker: site.mottoGloss[lang] },

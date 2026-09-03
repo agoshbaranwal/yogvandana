@@ -148,15 +148,15 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
 
 /* 9 — the updated date shows where a record is kept ----------------------- */
 {
-  const files = pages.filter((f) => /\/(parichay|about|yogyata|credentials)\//.test(rel(f)));
+  const files = pages.filter((f) => /\/(parichay|about)\/$/.test(rel(f)));
   const missing = files.filter((f) => !/अपडेट|Updated/.test(text(read(f))));
-  add(9, "About and Credentials show when they were last updated", missing.length === 0 ? "pass" : "fail", missing.map(rel).join("; ") || `${files.length} pages`);
+  add(9, "The page that carries her record shows when it was last updated", missing.length === 0 ? "pass" : "fail", missing.map(rel).join("; ") || `${files.length} pages`);
 }
 
 /* 10 — standard words in the menu ----------------------------------------- */
 {
-  const HI = ["तकलीफ़", "बैच", "कहानियाँ", "परिचय", "योग्यता", "गैलरी", "संपर्क"];
-  const EN = ["Conditions", "Batches", "Stories", "About", "Credentials", "Gallery", "Contact"];
+  const HI = ["तकलीफ़", "बैच", "कहानियाँ", "परिचय", "संपर्क"];
+  const EN = ["Conditions", "Batches", "Stories", "About", "Contact"];
   const bad = [];
   for (const f of pages) {
     if (rel(f) === "/404" || f.endsWith("404.html")) continue;
@@ -294,15 +294,26 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
       fs.existsSync(full.replace(/\/$/, "") + ".html")
     );
   };
+  const idsOf = new Map();
+  for (const f of pages) idsOf.set(rel(f), new Set([...read(f).matchAll(/\sid="([^"]+)"/g)].map((m) => m[1])));
+  /* A hash on another page has to exist on that page. This is how the header
+     button was found jumping to a booking band six pages did not have. */
+  const hasAnchor = (target, frag) => {
+    const key = target.endsWith("/") ? target : `${target}/`;
+    const ids = idsOf.get(key);
+    return ids ? ids.has(frag) : true;
+  };
   const broken = new Set();
   let count = 0;
   let dangling = 0;
   for (const f of pages) {
     const html = read(f);
-    const ids = new Set([...html.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]));
+    const ids = idsOf.get(rel(f));
     for (const m of html.matchAll(/href="(\/[^"/][^"]*|\/)"/g)) {
       count += 1;
+      const [target, frag] = m[1].split("#");
       if (!has(m[1])) broken.add(`${rel(f)} → ${m[1]}`);
+      else if (frag && !hasAnchor(target, frag)) broken.add(`${rel(f)} → ${m[1]} (no #${frag} there)`);
     }
     for (const m of html.matchAll(/href="#([^"]+)"/g)) if (!ids.has(m[1])) dangling += 1;
   }

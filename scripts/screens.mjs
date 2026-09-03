@@ -26,8 +26,6 @@ const routes = [
   ["batches", "/batch/", "/en/batches/"],
   ["stories", "/kahaniyan/", "/en/stories/"],
   ["about", "/parichay/", "/en/about/"],
-  ["credentials", "/yogyata/", "/en/credentials/"],
-  ["gallery", "/gallery/", "/en/gallery/"],
   ["contact", "/sampark/", "/en/contact/"],
   ["students", "/vidyarthi/", "/en/students/"],
   ["privacy", "/privacy/", "/en/privacy/"],

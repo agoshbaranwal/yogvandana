@@ -1,14 +1,13 @@
 import Link from "next/link";
-import { NumbersStrip, SectionHead, VideoSlot } from "@/components/Blocks";
+import { NumbersStrip, VideoSlot } from "@/components/Blocks";
 import { Photo } from "@/components/Photo";
 import SiteShell from "@/components/SiteShell";
+import { CertificateRegister, ExperienceAndMemberships } from "./Credentials";
 import { Tx } from "@/components/Tx";
 import { Jsonld, personSchema } from "@/components/Jsonld";
 import {
   awards,
-  credentials,
   events,
-  gallery,
   gurus,
   journey,
   mediaClippings,
@@ -20,10 +19,8 @@ import {
 import { href, type Lang } from "@/lib/routes";
 
 export default function About({ lang }: { lang: Lang }) {
-  const shots = gallery.slice(0, 8);
-
   return (
-    <SiteShell lang={lang} routeKey="about">
+    <SiteShell lang={lang} routeKey="about" hasBand={false}>
       <Jsonld data={personSchema(lang)} />
       {/* who she is ----------------------------------------------------- */}
       <header style={{ background: "linear-gradient(180deg, var(--color-sky) 0%, var(--color-ivory) 100%)" }}>
@@ -38,13 +35,6 @@ export default function About({ lang }: { lang: Lang }) {
               sizes="(min-width: 768px) 420px, 100vw"
               priority
             />
-            <ul className="grid grid-cols-4 gap-2">
-              {shots.slice(0, 4).map((g) => (
-                <li key={g.id}>
-                  <Photo src={g.image} alt={t(g.alt, lang)} ratio="1 / 1" rounded="rounded-[10px]" />
-                </li>
-              ))}
-            </ul>
           </div>
 
           <div className="flex flex-col gap-3.5">
@@ -94,6 +84,21 @@ export default function About({ lang }: { lang: Lang }) {
 
       <NumbersStrip lang={lang} long />
 
+      {/* This page took in the whole register, so it says where things are. */}
+      <nav className="wrap flex flex-wrap items-baseline gap-x-5 gap-y-1 py-4 md:py-5" aria-label={ui("about.onThisPage", lang)}>
+        <span className="label">{ui("about.onThisPage", lang)}</span>
+        {[
+          { hash: "#yogyata", label: ui("credentials.title", lang) },
+          { hash: "#sammaan", label: ui("about.awardsTitle", lang) },
+          { hash: "#karyakram", label: ui("about.eventsTitle", lang) },
+          { hash: "#media", label: ui("about.mediaTitle", lang) },
+        ].map((item) => (
+          <a key={item.hash} href={item.hash} className="tap cap font-bold">
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
       {/* video + teachers ------------------------------------------------ */}
       <div className="wrap grid gap-8 py-8 md:grid-cols-2 md:gap-14 md:py-12">
         <VideoSlot lang={lang} note={ui("about.videoNote", lang)} />
@@ -126,9 +131,24 @@ export default function About({ lang }: { lang: Lang }) {
       <section style={{ background: "var(--color-sandal)" }}>
         <div className="wrap flex flex-col gap-5 py-9 md:py-14">
           <h2 className="h2">{ui("about.journeyTitle", lang)}</h2>
-          <ol className="grid gap-5 md:grid-cols-4 md:gap-6">
-            {journey.map((j) => (
-              <li key={j.id} className="flex flex-col gap-2">
+          {/* A four-column grid left entries with photographs standing a head
+              taller than the ones without, so the years did not line up with
+              anything. A timeline reads in one direction: year, then what
+              happened, then the picture if there is one. */}
+          <ol className="flex flex-col">
+            {journey.map((j, i) => (
+              <li
+                key={j.id}
+                className={`grid grid-cols-[64px_1fr] items-start gap-3 border-t border-rule py-3.5 md:grid-cols-[110px_1fr_200px] md:gap-6 md:py-4 ${
+                  i === journey.length - 1 ? "border-b" : ""
+                }`}
+              >
+                <span className="num h3" style={{ color: "var(--color-deep)" }}>
+                  <Tx>{j.year}</Tx>
+                </span>
+                <span className="body max-w-[54ch]">
+                  <Tx>{t(j.text, lang)}</Tx>
+                </span>
                 {t(j.photoAlt, lang) ? (
                   <Photo
                     src={j.photo}
@@ -136,48 +156,23 @@ export default function About({ lang }: { lang: Lang }) {
                     label={t(j.photoAlt, lang)}
                     ratio="3 / 2"
                     rounded="rounded-[10px]"
+                    className="col-span-2 md:col-span-1"
                   />
-                ) : null}
-                <p className="num h3" style={{ color: "var(--color-deep)" }}>
-                  <Tx>{j.year}</Tx>
-                </p>
-                <p className="body">
-                  <Tx>{t(j.text, lang)}</Tx>
-                </p>
+                ) : (
+                  <span aria-hidden="true" className="hidden md:block" />
+                )}
               </li>
             ))}
           </ol>
         </div>
       </section>
 
-      {/* certificates ---------------------------------------------------- */}
-      <section className="wrap flex flex-col gap-4 py-8 md:py-12">
-        <SectionHead
-          title={ui("about.certsTitle", lang)}
-          lead={ui("about.certsLead", lang)}
-          link={{ label: ui("cta.allCerts", lang), href: href("credentials", lang) }}
-        />
-        <ul className="grid grid-cols-3 gap-2.5 md:grid-cols-6 md:gap-4">
-          {credentials.map((c) => (
-            <li key={c.id} className="flex flex-col gap-1.5">
-              <Photo
-                src={c.image}
-                alt={`${t(c.name, lang)} — ${t(c.body, lang)}`}
-                label={ui("photo.certificate", lang)}
-                ratio="3 / 4"
-                rounded="rounded-[8px]"
-                className="border border-rule"
-              />
-              <p className="cap">
-                <Tx>{`${t(c.name, lang)}, ${t(c.body, lang)} · ${c.year}`}</Tx>
-              </p>
-            </li>
-          ))}
-        </ul>
-      </section>
+      {/* her record, which used to be a page of its own ------------------ */}
+      <CertificateRegister lang={lang} />
+      <ExperienceAndMemberships lang={lang} />
 
       {/* awards and events ----------------------------------------------- */}
-      <section style={{ background: "var(--color-sky)" }}>
+      <section id="sammaan" style={{ background: "var(--color-sky)" }}>
         <div className="wrap grid gap-8 py-9 md:grid-cols-2 md:gap-14 md:py-14">
           <div className="flex flex-col gap-3.5">
             <h2 className="h2">{ui("about.awardsTitle", lang)}</h2>
@@ -208,7 +203,7 @@ export default function About({ lang }: { lang: Lang }) {
             </ul>
           </div>
 
-          <div className="flex flex-col gap-3.5">
+          <div id="karyakram" className="flex flex-col gap-3.5">
             <div className="flex flex-wrap items-baseline justify-between gap-3">
               <h2 className="h2">{ui("about.eventsTitle", lang)}</h2>
               <p className="cap">
@@ -244,9 +239,9 @@ export default function About({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      {/* press and gallery ----------------------------------------------- */}
-      <div className="wrap grid gap-8 py-8 md:grid-cols-[1fr_1.4fr] md:gap-14 md:py-12">
-        <section className="flex flex-col gap-3.5">
+      {/* press ------------------------------------------------------------ */}
+      <div className="wrap grid gap-8 py-8 md:gap-14 md:py-12">
+        <section id="media" className="flex flex-col gap-3.5">
           <h2 className="h2">{ui("about.mediaTitle", lang)}</h2>
           <ul className="grid grid-cols-2 gap-2.5">
             {mediaLogos.map((m) => (
@@ -279,19 +274,6 @@ export default function About({ lang }: { lang: Lang }) {
           </ul>
         </section>
 
-        <section className="flex flex-col gap-3.5">
-          <SectionHead
-            title={ui("about.galleryTitle", lang)}
-            link={{ label: ui("cta.allPhotos", lang), href: href("gallery", lang) }}
-          />
-          <ul className="grid grid-cols-4 gap-2.5">
-            {shots.map((g) => (
-              <li key={g.id}>
-                <Photo src={g.image} alt={t(g.alt, lang)} ratio="1 / 1" rounded="rounded-[10px]" />
-              </li>
-            ))}
-          </ul>
-        </section>
       </div>
 
       {/* invite ---------------------------------------------------------- */}

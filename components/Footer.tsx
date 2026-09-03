@@ -9,8 +9,6 @@ export default function Footer({ lang }: { lang: Lang }) {
     { key: "batches", label: ui("nav.batches", lang) },
     { key: "stories", label: ui("nav.stories", lang) },
     { key: "about", label: ui("nav.about", lang) },
-    { key: "credentials", label: ui("nav.credentials", lang) },
-    { key: "gallery", label: ui("nav.gallery", lang) },
     { key: "contact", label: ui("nav.contact", lang) },
     { key: "privacy", label: ui("legal.privacy", lang) },
     { key: "terms", label: ui("legal.terms", lang) },

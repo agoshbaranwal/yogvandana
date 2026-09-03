@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { routine, site, t, ui } from "@/lib/content";
-import { href, type Lang } from "@/lib/routes";
+import { href, sectionHref, type Lang } from "@/lib/routes";
 import { Photo } from "./Photo";
 import { Tx } from "./Tx";
 
@@ -80,9 +80,9 @@ export function TeacherBio({ lang }: { lang: Lang }) {
 
 export function RecordLinks({ lang }: { lang: Lang }) {
   const rows: { label: string; href: string }[] = [
-    { label: ui("home.recordCerts", lang), href: href("credentials", lang) },
-    { label: ui("home.recordEvents", lang), href: href("about", lang) },
-    { label: ui("home.recordPhotos", lang), href: href("gallery", lang) },
+    { label: ui("home.recordCerts", lang), href: sectionHref("register", lang) },
+    { label: ui("home.recordEvents", lang), href: sectionHref("awards", lang) },
+    { label: ui("home.recordPhotos", lang), href: sectionHref("gallery", lang) },
   ];
   return (
     <div className="flex max-w-[64ch] flex-col gap-1.5">

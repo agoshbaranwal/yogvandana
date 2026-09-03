@@ -99,7 +99,7 @@ export function LegalPage({
   sections: { heading: string; body: string[] }[];
 }) {
   return (
-    <SiteShell lang={lang} routeKey={routeKey}>
+    <SiteShell lang={lang} routeKey={routeKey} hasBand={false}>
       <header className="border-b border-rule">
         <div className="wrap flex flex-col gap-2 py-8 md:py-11">
           <h1 className="page-title">{title}</h1>
@@ -132,7 +132,7 @@ export function LegalPage({
 
 export function NotFoundPage({ lang }: { lang: Lang }) {
   return (
-    <SiteShell lang={lang} routeKey="home">
+    <SiteShell lang={lang} routeKey="home" hasBand={false}>
       <section className="wrap flex flex-col gap-4 py-12 md:py-20">
         <h1 className="page-title">{ui("notFound.title", lang)}</h1>
         <p className="body max-w-[62ch]">{ui("notFound.lead", lang)}</p>

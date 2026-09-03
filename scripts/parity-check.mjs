@@ -62,8 +62,6 @@ const ROUTES = [
   ["/batch/", "/en/batches/"],
   ["/kahaniyan/", "/en/stories/"],
   ["/parichay/", "/en/about/"],
-  ["/yogyata/", "/en/credentials/"],
-  ["/gallery/", "/en/gallery/"],
   ["/sampark/", "/en/contact/"],
   ["/vidyarthi/", "/en/students/"],
   ["/privacy/", "/en/privacy/"],
