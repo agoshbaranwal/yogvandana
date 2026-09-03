@@ -33,14 +33,19 @@ On a throttled phone (4× slower CPU, 1.6 Mbps, 150 ms round trip), against the 
 
 | | Home | A condition page | Target |
 |---|---|---|---|
-| Largest contentful paint | 1.31 s | 1.31 s | under 2.5 s |
-| Cumulative layout shift | 0.009 | 0.028 | under 0.1 |
-| Fully loaded | 3.1 s | 3.2 s | — |
-| Transferred | 622 KB | 588 KB | — |
+| Largest contentful paint | 0.93 s | 0.98 s | under 2.5 s |
+| Cumulative layout shift | 0.009 | 0.000 | under 0.1 |
+| Fully loaded | 2.3 s | 2.2 s | — |
+| Transferred | 486 KB | 422 KB | — |
 | HTML, compressed | 22 KB | 16 KB | — |
 
-Fonts are 350 KB of that, and they are the floor: Devanagari faces are large, and the site
-loads only the weights the stylesheet actually asks for (it started at 544 KB).
+Measured again after the second pass. Everything improved, and the reason is the type: two faces at
+three weights each is 208 KB where three faces were 350 KB, and the home page carries a third of the
+images it did.
+
+Fonts are 208 KB of that and are the floor: a Devanagari weight is 60 to 110 KB on its own. The
+site loads Baloo 2 at three weights and Montserrat at three, and nothing else — it started at
+544 KB across three families.
 
 Sixteen credibility rules run over the built pages: **15 pass, 1 waits on her material**
 (`docs/CHECKS.md`). Both languages match on every string and every route. No page scrolls
