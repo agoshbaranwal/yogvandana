@@ -64,16 +64,18 @@ export function FirstScreen({ lang }: { lang: Lang }) {
           )}
           <div className="first-fade md:hidden" aria-hidden="true" />
           {/* her name on the picture, the way a clinic board reads */}
-          <div className="on-dark absolute inset-x-4 bottom-4 flex h-[92px] flex-col gap-1 overflow-hidden md:hidden" style={{ color: "var(--color-ivory)" }} data-on-photo="">
+          <div className="on-dark absolute inset-x-4 bottom-4 flex h-[116px] flex-col gap-1 overflow-hidden md:hidden" style={{ color: "var(--color-ivory)" }} data-on-photo="">
             <p className="page-title">{t(site.teacher, lang)}</p>
-            {/* The block has a fixed height and the name sits at its top, so a
-                caption that re-wraps when the font arrives moves nothing. */}
+            {/* The block has a fixed height and the name sits at its top; the
+                caption is two short lines that each fit whatever font is
+                showing, so nothing re-wraps or moves when Baloo 2 arrives. */}
             <p className="cap" style={{ color: "var(--color-ivory)", opacity: 0.92 }}>
               <Tx>{`${t(site.credentialShort, lang)} · `}</Tx>
               <strong>
                 <Tx>{certified}</Tx>
               </strong>
-              <Tx>{` · ${t(site.city, lang)} · ${since}`}</Tx>
+              <br />
+              <Tx>{`${t(site.city, lang)} · ${since}`}</Tx>
             </p>
           </div>
           {!pic ? (
