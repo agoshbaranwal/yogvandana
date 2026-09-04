@@ -20,6 +20,7 @@
   --color-heroink: #3a3630; /* body text that sits a shade back */
   --color-muted: #6e6a64; /* metadata only: dates, counts, consent lines */
   --color-rule: #e6e3de; /* hairlines and card borders */
+  --color-field: #d6d2ca; /* the edge of an input, a shade stronger than a hairline */
   /* The wordmark's योग on a light ground. Bhagwa itself is 2:1 on ivory, so
      the mark uses the deep saffron here and keeps full bhagwa only on the
      icon, the footer and the saffron band, where it passes. Agosh's call. */

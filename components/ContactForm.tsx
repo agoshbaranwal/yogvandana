@@ -48,7 +48,7 @@ export default function ContactForm({
   }
 
   const field = "min-h-[56px] rounded-[12px] border-[1.5px] px-3.5 py-3";
-  const fieldStyle = { borderColor: "#D9C7A8", background: "var(--color-paper)" };
+  const fieldStyle = { borderColor: "var(--color-field)", background: "var(--color-paper)" };
 
   return (
     <form

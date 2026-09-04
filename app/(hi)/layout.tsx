@@ -14,7 +14,9 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#FF9933",
+  /* the browser chrome takes the page colour, so the toolbar and the page
+     read as one surface */
+  themeColor: "#fcfcfb",
   colorScheme: "light",
   viewportFit: "cover",
 };

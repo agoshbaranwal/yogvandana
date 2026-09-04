@@ -63,6 +63,29 @@ for (const f of ["app/(hi)/layout.tsx", "app/(en)/layout.tsx"]) {
   if (px < 56) problems.push(`app/globals.css  .btn min-height is ${px}px — 56 on a phone`);
 }
 
+/* 7 — colour lives in one place ------------------------------------------- */
+/* A hex typed into a component is a colour outside the system, and it is how
+   an old palette survives a redesign: the browser-chrome colour still carried
+   the previous brand orange for a whole round after the palette changed.
+   The two layouts are the one exception, because <meta name="theme-color">
+   cannot take a CSS variable — so there the hex must equal the page token. */
+{
+  const page = (css.match(/--color-ivory:\s*(#[0-9a-fA-F]{3,8})/) || [])[1];
+  for (const file of files) {
+    const rel = path.relative(ROOT, file);
+    const isLayout = /^app\/\(..\)\/layout\.tsx$/.test(rel);
+    const src = fs.readFileSync(file, "utf8");
+    for (const m of src.matchAll(/#[0-9a-fA-F]{6}\b/g)) {
+      if (isLayout && page && m[0].toLowerCase() === page.toLowerCase()) continue;
+      problems.push(
+        isLayout
+          ? `${rel}  themeColor ${m[0]} does not match the page colour ${page}`
+          : `${rel}  ${m[0]} — every colour comes from a --color- token in globals.css`,
+      );
+    }
+  }
+}
+
 /* 6 — no section is allowed to paint late ---------------------------------- */
 /* This rule used to demand content-visibility: auto. It shipped a bug: every
    section past the second rendered as an empty coloured slab until scrolled
