@@ -1,188 +1,190 @@
 <!doctype html>
-<html lang="hi">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=390">
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>रास्ता क — पर्ची</title>
-<link rel="stylesheet" href="./board.css">
-<style>
-  body { background:#FBF8F1; }
-  .w { width:390px; margin:0 auto; }
-  .p { padding-left:20px; padding-right:20px; }
-  /* the system */
-  .lbl  { font-size:15px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#8A7862; }
-  .body { font-size:18px; line-height:1.65; color:#231A12; }
-  .meta { font-size:16px; line-height:1.5; color:#6E5F4E; }
-  .h2   { font-size:26px; font-weight:800; line-height:1.2; }
-  .h3   { font-size:20px; font-weight:700; line-height:1.3; }
-  .num  { font-variant-numeric:tabular-nums; font-weight:800; letter-spacing:-.01em; }
-  .todo { background:#EFE7D8; color:#6E5F4E; font-weight:400; border-radius:5px; padding:0 5px; }
-  .rule { border-top:1px solid #E4D9C7; }
-  .btn  { display:flex; align-items:center; justify-content:center; gap:10px; min-height:54px;
-          border-radius:999px; font-size:18px; font-weight:700; text-decoration:none; }
-  .sec  { padding-top:38px; padding-bottom:38px; }
-</style>
-</head>
-<body>
-<div style="background:#231A12;color:#FBF8F1;padding:14px 20px;font-family:'Baloo 2',sans-serif;">
-  <p style="font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#FF9933;">Mockup · not live</p>
-  <p style="font-size:19px;font-weight:800;margin-top:4px;">Direction A — “The prescription”</p>
-  <p style="font-size:15px;line-height:1.5;margin-top:4px;color:#D9CFBF;">Quiet and dense with ink. Headline 42px. Colour appears three times on the whole page: the WhatsApp button, the arrow in the result, and the dark medicine panel. Sections in order: promise · her photo frame · which disease · the medicine answer · proof · what you get and what it costs · the ask.</p>
-  <p style="font-size:14px;margin-top:8px;"><a href="./index.html" style="color:#FF9933;font-weight:700;">‹ back to all boards</a></p>
+<title>Direction A — “The prescription”</title><style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap');
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:#EDE7DC;color:#231A12;font-family:'Baloo 2','Noto Sans Devanagari',sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p,ul,ol,li{margin:0;padding:0;list-style:none}
+a{text-decoration:none;color:inherit}
+/* review chrome ---------------------------------------------------------- */
+.bar{background:#231A12;color:#FBF8F1;padding:16px 22px}
+.bar .tag{font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#FF9933}
+.bar h1{font-size:21px;font-weight:800;margin-top:4px}
+.bar p{font-size:15px;line-height:1.55;margin-top:6px;color:#D9CFBF;max-width:70ch}
+.bar .back{display:inline-block;margin-top:10px;font-size:14px;font-weight:700;color:#FF9933}
+.view{padding:26px 22px 34px}
+.viewH{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#6E5F4E;margin-bottom:12px}
+.phoneFrame{width:390px;background:#FBF8F1;border:1px solid #CFC2AB;border-radius:18px;overflow:hidden}
+.deskWrap{border:1px solid #CFC2AB;border-radius:12px;overflow:auto;background:#FBF8F1;width:807px;max-width:100%}
+.desk{width:1440px;background:#FBF8F1;zoom:.56}
+.trans{font-size:14px;line-height:1.55;color:#6E5F4E;font-style:italic;margin-top:12px;max-width:78ch}
+.trans b{font-style:normal;font-weight:800;color:#3B2E22}
+/* the proposed design system -------------------------------------------- */
+.ink{color:#231A12}
+.meta{font-size:16px;line-height:1.5;color:#6E5F4E}
+.body{font-size:18px;line-height:1.65;color:#231A12}
+.lbl{font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8A7862}
+.num{font-variant-numeric:tabular-nums;font-weight:800;letter-spacing:-.01em}
+.todo{background:#EFE7D8;color:#6E5F4E;font-weight:400;border-radius:5px;padding:0 5px}
+.card{background:#fff;border:1px solid #E4D9C7;border-radius:12px}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:54px;border-radius:999px;font-size:18px;font-weight:700}
+.btnP{background:#FF9933;color:#231A12}
+.btnO{border:1.5px solid #231A12;color:#231A12}
+.btnD{background:#231A12;color:#FF9933}
+.rule{border-top:1px solid #E4D9C7}
+table.t{width:100%;border-collapse:collapse}
+table.t th{font-size:15px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#8A7862;text-align:left;padding:12px 14px;background:#F6F1E7}
+table.t td{padding:15px 14px;border-top:1px solid #E4D9C7;font-size:18px}
+</style></head><body>
+<div class="bar">
+  <p class="tag">Whole site · direction A</p>
+  <h1>Direction A — “The prescription”</h1>
+  <p>Quiet and dense with ink. Headline 42px on a phone, 60px on a desktop. Colour appears three times on the whole page: the WhatsApp button, the arrow inside the result, and the dark medicine panel. Reads like a doctor’s document — more credible, less arresting.</p>
+  <a class="back" href="./index.html">‹ back to all boards</a>
 </div>
-<div class="w">
-
-  <!-- header -->
-  <div class="p" style="display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;">
-    <span style="font-size:24px;font-weight:800;word-spacing:.16em;"><span style="color:#A05000">योग</span> वंदना</span>
-    <span class="meta" style="border:1px solid #231A12;border-radius:999px;padding:7px 13px;color:#231A12;font-weight:700;">
-      <span class="todo">फ़ोन नंबर</span></span>
-  </div>
-
-  <!-- 1 · the promise. Ink, big, and nothing else competing. -->
-  <div class="p" style="padding-top:26px;padding-bottom:32px;">
-    <p class="meta" style="color:#6E5F4E;">वंदना बरनवाल · योग में एम.ए. · <span class="todo">प्रमाणन संस्था</span> प्रमाणित · लखनऊ</p>
-    <h1 style="font-size:42px;font-weight:800;line-height:1.14;letter-spacing:-.015em;margin-top:10px;">
-      योग से हर बीमारी<br>ठीक हो सकती है।
-    </h1>
-    <p class="body" style="margin-top:14px;">
-      रोज़ सुबह या शाम, वंदना जी के सामने, अपने घर से। छोटा ग्रुप, ज़ूम पर।
-    </p>
-    <a class="btn" style="background:#FF9933;color:#231A12;margin-top:20px;">व्हाट्सऐप पर बात करें</a>
-    <a class="btn" style="border:1.5px solid #231A12;color:#231A12;margin-top:10px;">
-      कॉल करें · <span class="todo">फ़ोन नंबर</span></a>
-    <p class="meta" style="text-align:center;margin-top:12px;">पहली बात का कोई शुल्क नहीं।</p>
-  </div>
-
-  <!-- her photograph: a real frame that says what goes in it -->
-  <div class="p">
-    <div style="border:1px solid #E4D9C7;border-radius:12px;background:#fff;aspect-ratio:4/3;display:grid;place-items:center;">
-      <div style="text-align:center;color:#8A7862;">
-        <div style="font-size:26px;">▤</div>
-        <p class="meta" style="margin-top:4px;">वंदना जी की फ़ोटो, क्लास में</p>
-      </div>
+<div class="view">
+  <p class="viewH">On a phone — 390 px, actual size</p>
+  <div class="phoneFrame"><div style="background:linear-gradient(180deg,#DDEBF5 0%,#FBE7CF 55%,#FFB866 100%)"><div style="display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:1px solid #E4D9C7">
+      <span style="font-size:23px;font-weight:800;word-spacing:.16em"><span style="color:#A05000">योग</span> वंदना</span>
+      <span style="border:1px solid #231A12;border-radius:999px;padding:6px 12px;font-size:15px;font-weight:700"><span class="todo">फ़ोन नंबर</span></span>
     </div>
-  </div>
-
-  <!-- 2 · which disease. Names large, detail in ink, count muted. -->
-  <div class="sec">
-    <div class="p"><h2 class="h2">आपको कौन सी बीमारी है?</h2></div><p style="font-size:14px;line-height:1.5;color:#8A7862;font-style:italic;padding:0 20px;margin-top:-6px;">Which disease do you have?</p><div class="p"></div>
-    <div style="margin-top:16px;border-top:1px solid #E4D9C7;">
-      <div class="p" style="display:flex;align-items:center;gap:14px;padding-top:16px;padding-bottom:16px;border-bottom:1px solid #E4D9C7;">
-        <span style="flex:1">
-          <span style="display:block;font-size:23px;font-weight:800;line-height:1.15;">शुगर</span>
-          <span class="body" style="display:block;font-size:17px;">टाइप-2, प्री-डायबिटीज़</span>
-          <span class="meta" style="display:block;"><span class="todo">N</span> विद्यार्थी</span>
-        </span><span style="color:#A05000;font-size:22px">›</span>
-      </div>
-      <div class="p" style="display:flex;align-items:center;gap:14px;padding-top:16px;padding-bottom:16px;border-bottom:1px solid #E4D9C7;">
-        <span style="flex:1">
-          <span style="display:block;font-size:23px;font-weight:800;line-height:1.15;">बीपी</span>
-          <span class="body" style="display:block;font-size:17px;">हाई बीपी, दिल की सेहत</span>
-          <span class="meta" style="display:block;"><span class="todo">N</span> विद्यार्थी</span>
-        </span><span style="color:#A05000;font-size:22px">›</span>
-      </div>
-      <div class="p" style="display:flex;align-items:center;gap:14px;padding-top:16px;padding-bottom:16px;border-bottom:1px solid #E4D9C7;">
-        <span style="flex:1">
-          <span style="display:block;font-size:23px;font-weight:800;line-height:1.15;">कमर दर्द</span>
-          <span class="body" style="display:block;font-size:17px;">स्लिप डिस्क, साइटिका, अकड़न</span>
-          <span class="meta" style="display:block;"><span class="todo">N</span> विद्यार्थी</span>
-        </span><span style="color:#A05000;font-size:22px">›</span>
-      </div>
-      <div class="p" style="display:flex;align-items:center;gap:14px;padding-top:16px;padding-bottom:16px;border-bottom:1px solid #E4D9C7;">
-        <span style="flex:1">
-          <span style="display:block;font-size:23px;font-weight:800;line-height:1.15;">घुटने का दर्द</span>
-          <span class="body" style="display:block;font-size:17px;">गठिया, सीढ़ियाँ, उठना-बैठना</span>
-          <span class="meta" style="display:block;"><span class="todo">N</span> विद्यार्थी</span>
-        </span><span style="color:#A05000;font-size:22px">›</span>
-      </div>
-    </div>
-    <div class="p"><p class="meta" style="margin-top:14px;">और भी: थायराइड, मोटापा, नींद, महिलाओं की समस्याएँ —
-      <a href="#" style="color:#A05000;font-weight:700;">पूछिए</a></p></div>
-  </div>
-
-  <!-- the medicine answer: the one dark thing on the page -->
-  <div class="p">
-    <div style="background:#231A12;color:#FBF8F1;border-radius:12px;padding:20px;">
-      <p style="font-size:20px;font-weight:800;color:#FF9933;">डॉक्टर की दवा?</p>
-      <p style="font-size:18px;line-height:1.6;margin-top:6px;">बंद नहीं। योग साथ-साथ चलता है।
-        रिपोर्ट सुधरे तो दवा डॉक्टर ही घटाते हैं — और घटती है।</p>
-    </div>
-  </div>
-
-  <!-- 3 · the proof. The number is the loudest thing here. -->
-  <div class="sec">
-    <div class="p">
-      <h2 class="h2">इन्हें फ़र्क़ पड़ा</h2></div><p style="font-size:14px;line-height:1.5;color:#8A7862;font-style:italic;padding:0 20px;margin-top:-6px;">These people felt the difference</p><div class="p">
-      <div style="border:1px solid #E4D9C7;border-radius:12px;background:#fff;padding:18px;margin-top:16px;">
-        <p class="lbl">HbA1c</p>
-        <p class="num" style="font-size:46px;line-height:1.05;margin-top:2px;">
-          <span class="todo" style="font-size:34px;">8.2</span>
-          <span style="color:#A05000;">→</span> 6.5
-        </p>
-        <p class="body" style="margin-top:6px;"><strong style="font-weight:700">दवा आधी</strong>,
-          <span class="todo">7</span> महीनों में।</p>
-        <div class="rule" style="margin:14px 0 12px;"></div>
-        <p class="body"><span class="todo">पूरा नाम</span>, <span class="todo">54</span> साल ·
-          <span class="todo">शहर</span> · शुगर</p>
-        <p class="body" style="margin-top:8px;color:#3B2E22;">“<span class="todo">रिपोर्ट में क्या बदला, उनके शब्दों में</span>”</p>
-      </div>
-
-      <div style="border:1px solid #E4D9C7;border-radius:12px;background:#fff;padding:18px;margin-top:12px;">
-        <p class="lbl">घुटने</p>
-        <p style="font-size:24px;font-weight:800;line-height:1.3;margin-top:4px;">
-          <span class="todo" style="font-weight:400">सीढ़ियाँ नहीं चढ़ पाते थे</span><br>
-          <span style="color:#A05000;">→</span> रोज़ तीन मंज़िल
-        </p>
-        <p class="body" style="margin-top:6px;"><span class="todo">4</span> महीनों में।</p>
-        <div class="rule" style="margin:14px 0 12px;"></div>
-        <p class="body"><span class="todo">पूरा नाम</span>, <span class="todo">61</span> साल ·
-          <span class="todo">शहर</span></p>
-      </div>
-      <p class="meta" style="margin-top:14px;">हर कहानी विद्यार्थी की अनुमति से। हर व्यक्ति का अनुभव अलग होता है।</p>
-    </div>
-  </div>
-
-  <!-- 4 · what you get and what it costs -->
-  <div class="sec" style="border-top:1px solid #E4D9C7;">
-    <div class="p">
-      <h2 class="h2">आपको क्या मिलेगा</h2></div><p style="font-size:14px;line-height:1.5;color:#8A7862;font-style:italic;padding:0 20px;margin-top:-6px;">What you will get — first talk free · consultation and your slip ₹200 · batch ₹1500 a month</p><div class="p">
-      <ol style="margin-top:18px;">
-        <li style="padding-bottom:18px;border-bottom:1px solid #E4D9C7;">
-          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;">
-            <span class="h3">पहली बात</span><span class="num" style="font-size:20px;">मुफ़्त</span>
-          </div>
-          <p class="body" style="margin-top:4px;">अपनी तकलीफ़ बताइए। योग से इसमें क्या हो सकता है, वंदना जी बताएँगी।</p>
-        </li>
-        <li style="padding:18px 0;border-bottom:1px solid #E4D9C7;">
-          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;">
-            <span class="h3">परामर्श और आपकी पर्ची</span><span class="num" style="font-size:26px;">₹200</span>
-          </div>
-          <p class="body" style="margin-top:4px;">आपकी रिपोर्ट और दवा देखकर — क्या खाना है, क्या सावधानी,
-            दिनचर्या, कौन से प्राणायाम और आसन, और किस समय।</p>
-        </li>
-        <li style="padding-top:18px;">
-          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;">
-            <span class="h3">बैच</span><span class="num" style="font-size:26px;">₹<span class="todo" style="font-size:20px">1500</span></span>
-          </div>
-          <p class="body" style="margin-top:4px;">रोज़ की लाइव क्लास, छोटे ग्रुप में। हर <span class="todo">90</span> दिन जाँच।</p>
-        </li>
-      </ol>
-    </div>
-  </div>
-
-  <!-- 5 · the ask -->
-  <div style="background:#FF9933;padding:34px 0;">
-    <div class="p">
-      <h2 style="font-size:30px;font-weight:800;line-height:1.18;">पहले बात कीजिए।<br>पहली बात मुफ़्त।</h2>
-      <p class="body" style="margin-top:10px;">वंदना जी से बात: आपकी तकलीफ़ क्या है, और योग से इसमें क्या हो सकता है।</p>
-      <a class="btn" style="background:#231A12;color:#FF9933;margin-top:18px;">व्हाट्सऐप पर बात करें</a>
-      <a class="btn" style="border:1.5px solid #231A12;color:#231A12;background:rgba(251,248,241,.5);margin-top:10px;">
-        कॉल करें · <span style="background:#E8933A;border-radius:5px;padding:0 5px;color:#4A2C00">फ़ोन नंबर</span></a>
-    </div>
-  </div>
-
+      <div style="padding:24px 20px 30px">
+        <p style="font-size:16px;color:#5C4C3B">वंदना बरनवाल · योग में एम.ए. · <span class="todo">प्रमाणन संस्था</span> प्रमाणित · लखनऊ</p>
+        <h1 style="font-size:42px;font-weight:800;line-height:1.14;letter-spacing:-.015em;margin-top:10px">योग से हर बीमारी<br>ठीक हो सकती है।</h1>
+        <p class="body" style="margin-top:14px;color:#3B2E22">रोज़ सुबह या शाम, वंदना जी के सामने, अपने घर से। छोटा ग्रुप, ज़ूम पर।</p>
+        <a class="btn btnP" style="margin-top:20px">व्हाट्सऐप पर बात करें</a>
+        <a class="btn btnO" style="margin-top:10px">कॉल करें · <span class="todo">फ़ोन नंबर</span></a>
+        <p class="meta" style="text-align:center;margin-top:12px">पहली बात का कोई शुल्क नहीं।</p>
+      </div></div>
+      <div style="padding:20px"><div style="border:1px solid #E4D9C7;border-radius:12px;background:#fff;aspect-ratio:4/3;display:grid;place-items:center"><div style="text-align:center;color:#8A7862"><div style="font-size:26px">▤</div><p style="font-size:15px;margin-top:4px">वंदना जी की फ़ोटो, क्लास में</p></div></div></div>
+      <div style="padding:30px 0 26px">
+        <div style="padding:0 20px"><h2 style="font-size:26px;font-weight:800">आपको कौन सी बीमारी है?</h2></div>
+        <div style="margin-top:16px;border-top:1px solid #E4D9C7">
+          <a style="display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid #E4D9C7">
+            <span style="flex:1"><span style="display:block;font-size:23px;font-weight:800;line-height:1.15">शुगर</span>
+            <span style="display:block;font-size:17px">टाइप-2, प्री-डायबिटीज़</span>
+            <span style="display:block;font-size:16px;color:#6E5F4E"><span class="todo">N</span> विद्यार्थी</span></span>
+            <span style="color:#A05000;font-size:22px">›</span></a><a style="display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid #E4D9C7">
+            <span style="flex:1"><span style="display:block;font-size:23px;font-weight:800;line-height:1.15">बीपी</span>
+            <span style="display:block;font-size:17px">हाई बीपी, दिल की सेहत</span>
+            <span style="display:block;font-size:16px;color:#6E5F4E"><span class="todo">N</span> विद्यार्थी</span></span>
+            <span style="color:#A05000;font-size:22px">›</span></a><a style="display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid #E4D9C7">
+            <span style="flex:1"><span style="display:block;font-size:23px;font-weight:800;line-height:1.15">कमर दर्द</span>
+            <span style="display:block;font-size:17px">स्लिप डिस्क, साइटिका</span>
+            <span style="display:block;font-size:16px;color:#6E5F4E"><span class="todo">N</span> विद्यार्थी</span></span>
+            <span style="color:#A05000;font-size:22px">›</span></a>
+        </div></div>
+      <div style="padding:0 20px 26px"><div style="background:#231A12;color:#FBF8F1;border-radius:12px;padding:20px">
+        <p style="font-size:20px;font-weight:800;color:#FF9933">डॉक्टर की दवा?</p>
+        <p style="font-size:18px;line-height:1.6;margin-top:6px">बंद नहीं। योग साथ-साथ चलता है। रिपोर्ट सुधरे तो दवा डॉक्टर ही घटाते हैं — और घटती है।</p></div></div>
+      <div style="padding:6px 20px 30px">
+        <h2 style="font-size:26px;font-weight:800">इन्हें फ़र्क़ पड़ा</h2>
+        <div class="card" style="padding:18px;margin-top:14px">
+          <p class="lbl">HbA1c</p>
+          <p class="num" style="font-size:46px;line-height:1.05;margin-top:2px"><span class="todo" style="font-size:34px">8.2</span> <span style="color:#A05000">→</span> 6.5</p>
+          <p class="body" style="margin-top:6px"><strong style="font-weight:700">दवा आधी</strong>, <span class="todo">7</span> महीनों में।</p>
+          <div class="rule" style="margin:14px 0 12px"></div>
+          <p class="body"><span class="todo">पूरा नाम</span>, <span class="todo">54</span> साल · <span class="todo">शहर</span> · शुगर</p></div></div>
+      <div style="border-top:1px solid #E4D9C7;padding:30px 20px">
+        <h2 style="font-size:26px;font-weight:800">आपको क्या मिलेगा</h2>
+        <div style="margin-top:16px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:14px;border-bottom:1px solid #E4D9C7">
+            <span style="font-size:20px;font-weight:700">पहली बात</span><span class="num" style="font-size:20px">मुफ़्त</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid #E4D9C7">
+            <span style="font-size:20px;font-weight:700">परामर्श और आपकी पर्ची</span><span class="num" style="font-size:26px">₹200</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-top:14px">
+            <span style="font-size:20px;font-weight:700">बैच, हर महीने</span><span class="num" style="font-size:26px">₹<span class="todo" style="font-size:20px">1500</span></span></div>
+        </div></div>
+      <div style="background:#FF9933;padding:32px 20px">
+        <h2 style="font-size:30px;font-weight:800;line-height:1.18">पहले बात कीजिए।<br>पहली बात मुफ़्त।</h2>
+        <a class="btn btnD" style="margin-top:18px">व्हाट्सऐप पर बात करें</a></div></div>
+  <p class="trans"><b>Translation, top to bottom.</b> “Vandana Baranwal · MA in Yoga · [certifying body] certified · Lucknow” · “Yoga can cure any disease.” · “Every morning or evening, in front of Vandana, from your own home. A small group, on Zoom.” · “Talk on WhatsApp” / “Call · [phone]” / “The first conversation costs nothing.” · “Which disease do you have?” · “The doctor’s medicine? Not stopped. Yoga runs alongside. When the reports improve the doctor reduces it — and it does come down.” · “These people felt the difference” · “What you will get: first talk free / consultation and your slip ₹200 / batch ₹1500 a month” · “Talk to her first. The first conversation is free.”</p>
 </div>
-</body>
-</html>
+<div class="view" style="background:#E4DCCD">
+  <p class="viewH">On a desktop — 1440 px, shown at 56%</p>
+  <div class="deskWrap"><div class="desk"><div style="display:flex;align-items:center;justify-content:space-between;padding:16px 60px;border-bottom:1px solid #E4D9C7">
+      <span style="font-size:26px;font-weight:800;word-spacing:.16em"><span style="color:#A05000">योग</span> वंदना</span>
+      <span style="display:flex;gap:30px;font-size:18px;font-weight:700">
+        <span>बीमारी</span><span>बैच</span><span>कहानियाँ</span><span>परिचय</span><span>संपर्क</span></span>
+      <span style="border:1px solid #231A12;border-radius:999px;padding:8px 15px;font-size:16px;font-weight:700"><span class="todo">फ़ोन नंबर</span></span>
+    </div>
+    <div style="background:linear-gradient(180deg,#DDEBF5 0%,#FBE7CF 55%,#FFB866 100%)">
+      <div style="max-width:1120px;margin:0 auto;padding:56px 40px;display:grid;grid-template-columns:1fr 380px;gap:64px;align-items:center">
+        <div>
+          <p style="font-size:18px;font-weight:700;color:#6B3500">वंदना बरनवाल · योग में एम.ए. · <span class="todo">प्रमाणन संस्था</span> प्रमाणित · लखनऊ</p>
+          <h1 style="font-size:60px;font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-top:14px;max-width:13ch">योग से हर बीमारी ठीक हो सकती है।</h1>
+          <p class="body" style="margin-top:18px;font-size:20px;color:#3B2E22;max-width:44ch">रोज़ सुबह या शाम, वंदना जी के सामने, अपने घर से। छोटा ग्रुप, ज़ूम पर।</p>
+          <div style="display:flex;gap:14px;margin-top:24px">
+            <a class="btn btnD" style="padding:0 28px">व्हाट्सऐप पर बात करें</a>
+            <a class="btn btnO" style="padding:0 28px">कॉल करें · <span class="todo">फ़ोन नंबर</span></a></div>
+          <p class="meta" style="margin-top:12px">पहली बात का कोई शुल्क नहीं।</p></div>
+        <div style="border:1px solid #E4D9C7;border-radius:12px;background:#fff;aspect-ratio:4/5;display:grid;place-items:center"><div style="text-align:center;color:#8A7862"><div style="font-size:26px">▤</div><p style="font-size:15px;margin-top:4px">वंदना जी की फ़ोटो, क्लास में</p></div></div>
+      </div></div>
+    <div style="max-width:1120px;margin:0 auto;padding:52px 40px">
+      <h2 style="font-size:34px;font-weight:800">आपको कौन सी बीमारी है?</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 44px;margin-top:20px;border-top:1px solid #E4D9C7"><a style="display:flex;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid #E4D9C7">
+      <span style="flex:1"><span style="display:block;font-size:25px;font-weight:800;line-height:1.15">शुगर</span>
+      <span style="display:block;font-size:17px">टाइप-2, प्री-डायबिटीज़</span>
+      <span style="display:block;font-size:16px;color:#6E5F4E"><span class="todo">N</span> विद्यार्थी</span></span>
+      <span style="color:#A05000;font-size:22px">›</span></a><a style="display:flex;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid #E4D9C7">
+      <span style="flex:1"><span style="display:block;font-size:25px;font-weight:800;line-height:1.15">बीपी</span>
+      <span style="display:block;font-size:17px">हाई बीपी, दिल की सेहत</span>
+      <span style="display:block;font-size:16px;color:#6E5F4E"><span class="todo">N</span> विद्यार्थी</span></span>
+      <span style="color:#A05000;font-size:22px">›</span></a><a style="display:flex;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid #E4D9C7">
+      <span style="flex:1"><span style="display:block;font-size:25px;font-weight:800;line-height:1.15">कमर दर्द</span>
+      <span style="display:block;font-size:17px">स्लिप डिस्क, साइटिका</span>
+      <span style="display:block;font-size:16px;color:#6E5F4E"><span class="todo">N</span> विद्यार्थी</span></span>
+      <span style="color:#A05000;font-size:22px">›</span></a><a style="display:flex;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid #E4D9C7">
+      <span style="flex:1"><span style="display:block;font-size:25px;font-weight:800;line-height:1.15">घुटने का दर्द</span>
+      <span style="display:block;font-size:17px">गठिया, सीढ़ियाँ</span>
+      <span style="display:block;font-size:16px;color:#6E5F4E"><span class="todo">N</span> विद्यार्थी</span></span>
+      <span style="color:#A05000;font-size:22px">›</span></a><a style="display:flex;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid #E4D9C7">
+      <span style="flex:1"><span style="display:block;font-size:25px;font-weight:800;line-height:1.15">थायराइड</span>
+      <span style="display:block;font-size:17px">हाइपो और हाइपर</span>
+      <span style="display:block;font-size:16px;color:#6E5F4E"><span class="todo">N</span> विद्यार्थी</span></span>
+      <span style="color:#A05000;font-size:22px">›</span></a><a style="display:flex;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid #E4D9C7">
+      <span style="flex:1"><span style="display:block;font-size:25px;font-weight:800;line-height:1.15">मोटापा</span>
+      <span style="display:block;font-size:17px">पेट, वज़न, पाचन</span>
+      <span style="display:block;font-size:16px;color:#6E5F4E"><span class="todo">N</span> विद्यार्थी</span></span>
+      <span style="color:#A05000;font-size:22px">›</span></a></div>
+      <div style="background:#231A12;color:#FBF8F1;border-radius:12px;padding:24px 28px;margin-top:34px">
+        <p style="font-size:22px;font-weight:800;color:#FF9933">डॉक्टर की दवा?</p>
+        <p style="font-size:19px;line-height:1.6;margin-top:6px">बंद नहीं। योग साथ-साथ चलता है। रिपोर्ट सुधरे तो दवा डॉक्टर ही घटाते हैं — और घटती है।</p></div>
+    </div>
+    <div style="background:#EAF2F8"><div style="max-width:1120px;margin:0 auto;padding:52px 40px">
+      <h2 style="font-size:34px;font-weight:800">इन्हें फ़र्क़ पड़ा</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px">
+        <div class="card" style="padding:20px">
+          <p class="lbl">HbA1c</p>
+          <p class="num" style="font-size:42px;line-height:1.05;margin-top:2px"><span class="todo" style="font-size:30px">8.2</span> <span style="color:#A05000">→</span> 6.5</p>
+          <p class="body" style="margin-top:6px"><strong style="font-weight:700">दवा आधी</strong>, <span class="todo">7</span> महीनों में।</p>
+          <div class="rule" style="margin:14px 0 10px"></div>
+          <p class="body"><span class="todo">पूरा नाम</span>, <span class="todo">54</span> साल · <span class="todo">शहर</span></p></div><div class="card" style="padding:20px">
+          <p class="lbl">बीपी</p>
+          <p class="num" style="font-size:42px;line-height:1.05;margin-top:2px"><span class="todo" style="font-size:30px">160/100</span> <span style="color:#A05000">→</span> 130/85</p>
+          <p class="body" style="margin-top:6px">एक दवा कम, <span class="todo">5</span> महीनों में।</p>
+          <div class="rule" style="margin:14px 0 10px"></div>
+          <p class="body"><span class="todo">पूरा नाम</span>, <span class="todo">48</span> साल · <span class="todo">शहर</span></p></div><div class="card" style="padding:20px">
+          <p class="lbl">घुटने</p>
+          <p class="num" style="font-size:42px;line-height:1.05;margin-top:2px"><span class="todo" style="font-size:30px">सीढ़ी नहीं</span> <span style="color:#A05000">→</span> तीन मंज़िल</p>
+          <p class="body" style="margin-top:6px"><span class="todo">4</span> महीनों में।</p>
+          <div class="rule" style="margin:14px 0 10px"></div>
+          <p class="body"><span class="todo">पूरा नाम</span>, <span class="todo">61</span> साल · <span class="todo">शहर</span></p></div>
+      </div></div></div>
+    <div style="max-width:860px;margin:0 auto;padding:52px 40px">
+      <h2 style="font-size:34px;font-weight:800">आपको क्या मिलेगा</h2>
+      <div style="margin-top:20px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:16px;border-bottom:1px solid #E4D9C7">
+          <span style="font-size:22px;font-weight:700">पहली बात</span><span class="num" style="font-size:22px">मुफ़्त</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-bottom:1px solid #E4D9C7">
+          <span style="font-size:22px;font-weight:700">परामर्श और आपकी पर्ची</span><span class="num" style="font-size:30px">₹200</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding-top:16px">
+          <span style="font-size:22px;font-weight:700">बैच, हर महीने</span><span class="num" style="font-size:30px">₹<span class="todo" style="font-size:22px">1500</span></span></div>
+      </div></div>
+    <div style="background:#FF9933"><div style="max-width:620px;margin:0 auto;padding:52px 40px;text-align:left">
+      <h2 style="font-size:36px;font-weight:800;line-height:1.16">पहले बात कीजिए। पहली बात मुफ़्त।</h2>
+      <a class="btn btnD" style="margin-top:22px">व्हाट्सऐप पर बात करें</a></div></div></div></div>
+</div>
+</body></html>

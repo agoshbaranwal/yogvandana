@@ -2,373 +2,136 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=1180">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Yog Vandana — design mockups, round 7</title>
-<link rel="stylesheet" href="./board.css">
 <style>
-  /* ---- the current site's treatment, reproduced exactly, for fair comparison */
-  .old-todo { color:#6E5F4E; text-decoration:underline dotted; text-underline-offset:3px; }
-  .old-lbl { font-size:16px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; color:#6E5F4E; }
-
-  /* ---- the proposed system ------------------------------------------- */
-  .n-meta  { color:#6E5F4E; font-size:16px; }
-  .n-body  { font-size:18px; line-height:1.65; color:#231A12; font-weight:400; }
-  .n-h     { font-size:24px; font-weight:800; line-height:1.2; }
-  .n-sub   { font-size:19px; font-weight:700; line-height:1.3; }
-  .n-lbl   { font-size:15px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#8A7862; }
-  .n-num   { font-variant-numeric:tabular-nums; font-weight:800; letter-spacing:-.01em; }
-  .n-todo  { background:#EFE7D8; color:#6E5F4E; font-weight:400; border-radius:5px; padding:0 5px; }
-  .n-card  { background:#fff; border:1px solid #E4D9C7; border-radius:12px; padding:18px; }
-  .n-btn   { display:inline-flex; align-items:center; justify-content:center; min-height:52px;
-             padding:0 22px; border-radius:999px; font-size:18px; font-weight:700; }
-  .n-rule  { border-top:1px solid #E4D9C7; }
-  .swatch  { height:56px; border-radius:10px; border:1px solid rgba(35,26,18,.12); }
-
-  /* ---- clear English labelling for review ---------------------------- */
-  .stamp { display:inline-block; font-size:12px; font-weight:800; letter-spacing:.09em;
-           text-transform:uppercase; padding:5px 10px; border-radius:6px; }
-  .stamp-now  { background:#F2DADA; color:#96302F; }
-  .stamp-opt  { background:#DDE9DE; color:#26603D; }
-  .pick { font-size:14px; font-weight:800; color:#26603D; letter-spacing:.04em;
-          text-transform:uppercase; margin-top:10px; }
-  .en { font-size:15px; line-height:1.5; color:#6E5F4E; font-style:italic; margin-top:8px; }
-  .why { font-size:15px; line-height:1.6; color:#3B2E22; margin-top:12px; }
-  .why b { font-weight:800; }
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;700;800&display=swap');
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:#EDE7DC;color:#231A12;font-family:'Baloo 2','Noto Sans Devanagari',sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p,ul,li{margin:0;padding:0;list-style:none}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:900px;margin:0 auto;padding:40px 22px 70px}
+.kick{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#8A7862}
+h1{font-size:38px;font-weight:800;line-height:1.12;margin-top:8px}
+.lede{font-size:19px;line-height:1.65;max-width:64ch;margin-top:14px;color:#3B2E22}
+h2{font-size:26px;font-weight:800;margin-top:52px}
+.sub{font-size:17px;line-height:1.6;color:#5C4C3B;margin-top:6px;max-width:64ch}
+.list{margin-top:18px;display:grid;gap:12px}
+.item{display:block;background:#FBF8F1;border:1px solid #D9CBB4;border-radius:12px;padding:18px 20px}
+.item .n{font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#26603D;background:#DDE9DE;border-radius:6px;padding:4px 9px;display:inline-block}
+.item h3{font-size:21px;font-weight:800;margin-top:10px}
+.item p{font-size:16px;line-height:1.6;color:#4A3A2A;margin-top:6px}
+.item .go{font-size:15px;font-weight:800;color:#A05000;margin-top:12px;display:block}
+.pick{background:#DDE9DE;color:#26603D;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;padding:4px 9px;display:inline-block}
+table{width:100%;border-collapse:collapse;margin-top:16px;background:#FBF8F1;border:1px solid #D9CBB4;border-radius:12px;overflow:hidden}
+th{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#8A7862;text-align:left;padding:11px 14px}
+td{padding:12px 14px;border-top:1px solid #E4D9C7;font-size:16px;line-height:1.5}
+td.n{font-variant-numeric:tabular-nums;font-weight:800;white-space:nowrap}
 </style>
 </head>
 <body>
-<div class="page">
+<div class="wrap">
 
-  <p class="kicker">Yog Vandana · design mockups · round 7</p>
-  <h1 class="boardTitle">Making the important thing the loudest thing</h1>
+  <p class="kick">Yog Vandana · design mockups · round 7</p>
+  <h1>Making the important thing the loudest thing</h1>
   <p class="lede">
-    Nothing here is live. These are boards to look at and choose from.
-    The interface examples stay in Hindi because that is the real content and Devanagari
-    behaves differently from Latin at the same size — but every label and explanation is in English,
-    with a translation under each example.
+    Nothing here is live. Every option below is its own page, shown at real phone width and again at
+    desktop width. Labels and explanations are in English; the interface stays in Hindi because that is
+    the real content, and there is an English translation under each one.
   </p>
 
-  <!-- ================================================================= -->
-  <section class="sec">
-    <h2 class="secH">1 · What I measured first</h2>
-    <p class="secP">Counted in the browser across five live pages and 646 blocks of text. This is the whole of what you have been describing.</p>
-    <table class="n">
-      <tr><th>What</th><th>Now</th><th>What it means</th></tr>
-      <tr>
-        <td>Text at the heaviest weight (800)</td>
-        <td class="num">39%</td>
-        <td>Two words in every five are at maximum weight, so weight has stopped signalling anything at all</td>
-      </tr>
-      <tr>
-        <td>Text in the muted brown rather than ink</td>
-        <td class="num">53%</td>
-        <td>The <em>default</em> reading colour is the faded one. Only 29% is in full ink</td>
-      </tr>
-      <tr>
-        <td>Placeholders as heavy as the real words beside them</td>
-        <td class="num">240 of 240</td>
-        <td>Plus a dotted underline on top — so <span class="old-todo">[full name]</span> pulls the eye harder than a real name would</td>
-      </tr>
-      <tr>
-        <td>Anything larger than 38px</td>
-        <td class="num">2 nodes</td>
-        <td>The result and the price — the two things that sell — have no room to dominate</td>
-      </tr>
-    </table>
-  </section>
+  <h2>What I measured first</h2>
+  <p class="sub">Counted in the browser across five live pages and 646 blocks of text. This is the whole of the problem.</p>
+  <table>
+    <tr><th>What</th><th>Now</th><th>What it means</th></tr>
+    <tr><td>Text at the heaviest weight (800)</td><td class="n">39%</td>
+        <td>Two words in every five are at maximum weight, so weight has stopped signalling anything</td></tr>
+    <tr><td>Text in faded brown rather than ink</td><td class="n">53%</td>
+        <td>The default reading colour is the faded one. Only 29% is in full ink</td></tr>
+    <tr><td>Placeholders as heavy as the real words</td><td class="n">240 of 240</td>
+        <td>Plus a dotted underline, so a blank pulls the eye harder than a real name</td></tr>
+    <tr><td>Anything larger than 38px</td><td class="n">2 nodes</td>
+        <td>The result and the price — the two things that sell — have no room to dominate</td></tr>
+  </table>
 
-  <!-- ================================================================= -->
-  <section class="sec">
-    <h2 class="secH">2 · The three rules I want to apply everywhere</h2>
-    <p class="secP">Everything below follows from these.</p>
+  <h2>1 · The whole site — pick a temperament</h2>
+  <p class="sub">Same three rules in both: ink by default, weight reserved for one thing per block, blanks quieter than their neighbours. The difference is how loud the site is.</p>
+  <div class="list">
+    <a class="item" href="./home-a.html">
+      <span class="n">Direction A</span>
+      <h3>“The prescription” — quiet, ink-dense</h3>
+      <p>Headline 42px on a phone, 60px on a desktop. Colour appears three times on the whole page.
+         Reads like a doctor’s document: more credible, less arresting.</p>
+      <span class="go">Open — phone and desktop ›</span>
+    </a>
+    <a class="item" href="./home-b.html">
+      <span class="n">Direction B</span>
+      <h3>“Big” — large, high contrast</h3>
+      <p>Headline 54px on a phone and 80px on a desktop, the result number up to 104px, a solid dark band
+         introducing her. Unmissable at arm’s length, but edges towards advertising.</p>
+      <span class="go">Open — phone and desktop ›</span>
+    </a>
+  </div>
 
-    <div class="grid g3">
-      <div class="opt">
-        <div class="optH"><span class="optN">Rule 1</span><span class="optT">Ink by default</span></div>
-        <p class="n-body">Every word a person actually reads is in full ink. The faded brown is reserved for
-          true metadata — a date, a count, a consent line. Ten uses a page, not fifty.</p>
-        <div style="display:flex; gap:10px; margin-top:14px;">
-          <div style="flex:1"><div class="swatch" style="background:#231A12"></div><p class="n-lbl" style="margin-top:6px">Reading</p></div>
-          <div style="flex:1"><div class="swatch" style="background:#6E5F4E"></div><p class="n-lbl" style="margin-top:6px">Metadata only</p></div>
-        </div>
-      </div>
+  <h2>2 · The batch cards — pick one</h2>
+  <p class="sub">All three carry the same facts. Today the seven heavy day-discs are the loudest thing on the card while saying only “Mon–Sat”.</p>
+  <div class="list">
+    <a class="item" href="./batch-a.html">
+      <span class="n">Option A</span>
+      <h3>A card each, price led</h3>
+      <p>One card per batch, the fee heaviest, the day-discs replaced by four plain words. Each card keeps its own button.</p>
+      <span class="go">Open — phone and desktop ›</span>
+    </a>
+    <a class="item" href="./batch-b.html">
+      <span class="n">Option B</span>
+      <h3>Both batches in one table</h3>
+      <p>The least furniture, and it answers the real question — which of the two suits me — at a glance.
+         Cost: no per-batch button, so one ask sits underneath.</p>
+      <span class="go">Open — phone and desktop ›</span>
+    </a>
+    <a class="item" href="./batch-c.html">
+      <span class="n">Option C</span>
+      <h3>A card each, week as small dots</h3>
+      <p>Keeps the shape of the week visible as seven 9px dots instead of heavy discs. A middle path.</p>
+      <span class="go">Open — phone and desktop ›</span>
+    </a>
+  </div>
 
-      <div class="opt">
-        <div class="optH"><span class="optN">Rule 2</span><span class="optT">Weight means rank</span></div>
-        <p class="n-body">The heaviest weight goes to the page title and to the single most important thing
-          in a block — the result, or the price. Nothing else. Target: under 10%, not 39%.</p>
-        <p style="margin-top:14px; font-size:26px; font-weight:800;">8.2 → 6.5</p>
-        <p class="n-body" style="margin-top:2px;">Everything else reads like this — plain, but in full ink.</p>
-        <p class="n-meta" style="margin-top:2px;">And detail sits back like this.</p>
-      </div>
+  <h2>3 · The disease list — pick one</h2>
+  <p class="sub">The front door: eight rows, one per condition.</p>
+  <div class="list">
+    <a class="item" href="./list-a.html">
+      <span class="n">Option A</span>
+      <h3>Name bigger, detail in ink</h3>
+      <p>Disease at 24px and the “is this me?” line in full ink instead of faded brown. Drops the eight coloured tiles.</p>
+      <span class="go">Open — phone and desktop ›</span>
+    </a>
+    <a class="item" href="./list-b.html">
+      <span class="n">Option B</span>
+      <h3>Names only, very large</h3>
+      <p>Just the name at 27px and an arrow. Fastest to scan and much shorter, but the detail line goes.</p>
+      <span class="go">Open — phone and desktop ›</span>
+    </a>
+    <a class="item" href="./list-c.html">
+      <span class="n">Option C</span>
+      <h3>Keep a tile, in one neutral colour</h3>
+      <p>Keeps a visual anchor beside each name, but in one quiet neutral rather than four hues.</p>
+      <span class="go">Open — phone and desktop ›</span>
+    </a>
+  </div>
 
-      <div class="opt">
-        <div class="optH"><span class="optN">Rule 3</span><span class="optT">Blanks go quiet</span></div>
-        <p class="n-body">A fact you have not given me yet should be <em>quieter</em> than the words around
-          it, not louder. A soft tinted chip instead of a dotted underline.</p>
-        <p style="margin-top:14px; font-size:17px;">
-          Now: <span class="old-todo">[पूरा नाम]</span>, <span class="old-todo">[उम्र]</span> साल
-        </p>
-        <p style="margin-top:8px; font-size:17px;">
-          Proposed: <span class="n-todo">पूरा नाम</span>, <span class="n-todo">उम्र</span> साल
-        </p>
-        <p class="en">“full name, age years”</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================================= -->
-  <section class="sec">
-    <h2 class="secH">3 · Student result card <span style="font-size:17px;font-weight:400;color:#5C4C3B">— you chose A and C</span></h2>
-    <p class="secP">Shown for completeness. A goes on the home page and the condition pages; C becomes the stories page.</p>
-
-    <div class="grid g2" style="align-items:start">
-      <div class="opt bad">
-        <span class="stamp stamp-now">Now — live today</span>
-        <div style="background:#fff;border:1px solid #E4D9C7;border-radius:12px;padding:16px;margin-top:14px;">
-          <div style="display:flex; align-items:center; gap:12px;">
-            <div style="width:60px;height:60px;border-radius:50%;border:1px solid #E4D9C7;background:#fff;flex:none"></div>
-            <div>
-              <p style="font-size:19px;font-weight:800;line-height:1.25;">
-                <span class="old-todo">[पूरा नाम]</span>, <span class="old-todo">[उम्र]</span> साल</p>
-              <p style="font-size:16px;color:#6E5F4E;margin-top:2px;"><span class="old-todo">[शहर]</span>
-                <span style="display:inline-flex;background:#1A6FA8;color:#FBF8F1;font-size:16px;font-weight:800;padding:2px 10px;border-radius:999px;margin-left:6px;">शुगर</span></p>
-            </div>
-          </div>
-          <div style="background:#FBF8F1;border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap;">
-            <div><p class="old-lbl">HbA1c पहले</p><p style="font-size:30px;font-weight:800;color:#6E5F4E;">[8.2]</p></div>
-            <span style="color:#A05000;font-size:22px;">→</span>
-            <div><p class="old-lbl" style="color:#6B3500">अब</p><p style="font-size:30px;font-weight:800;color:#6B3500;">[6.5]</p></div>
-          </div>
-          <p style="font-size:18px;line-height:1.65;color:#4A3A2A;margin-top:12px;">“<span class="old-todo">[रिपोर्ट में क्या बदला]</span>”</p>
-        </div>
-        <p class="why"><b>The problem:</b> name, label, number, chip and pill are all at the same heavy weight.
-          The strongest colour on the card is the blue “शुगर” chip — the least important item. The result,
-          which is the entire point, sits in faded brown.</p>
-      </div>
-
-      <div class="opt">
-        <span class="stamp stamp-opt">Option A — the number leads</span>
-        <div class="n-card" style="margin-top:14px;">
-          <p class="n-lbl">HbA1c</p>
-          <p class="n-num" style="font-size:44px; line-height:1.05; margin-top:2px;">
-            <span class="n-todo" style="font-size:34px;">8.2</span>
-            <span style="color:#A05000;">→</span> 6.5</p>
-          <p class="n-body" style="margin-top:6px;">
-            <strong style="font-weight:700;">दवा आधी</strong>, <span class="n-todo">7</span> महीनों में।</p>
-          <div class="n-rule" style="margin:14px 0 12px;"></div>
-          <p class="n-body"><span class="n-todo">पूरा नाम</span>, <span class="n-todo">54</span> साल ·
-            <span class="n-todo">शहर</span> · शुगर</p>
-          <p class="n-body" style="margin-top:8px; color:#3B2E22;">“<span class="n-todo">उनके शब्दों में</span>”</p>
-        </div>
-        <p class="en">“HbA1c · 8.2 → 6.5 · medicine halved, in 7 months · full name, 54 years · city · sugar”</p>
-        <p class="pick">✓ Your choice — home and condition pages</p>
-      </div>
-
-      <div class="opt">
-        <span class="stamp stamp-opt">Option C — record rows, no cards</span>
-        <table class="n" style="background:#fff;border:1px solid #E4D9C7;border-radius:12px;overflow:hidden;margin-top:14px;">
-          <tr><th>Who</th><th>Disease</th><th>Before → after</th><th>Time</th></tr>
-          <tr><td><span class="n-todo">नाम</span>, <span class="n-todo">54</span></td><td>शुगर</td><td class="num"><span class="n-todo">8.2</span> → 6.5</td><td><span class="n-todo">7</span> माह</td></tr>
-          <tr><td><span class="n-todo">नाम</span>, <span class="n-todo">61</span></td><td>घुटने</td><td>सीढ़ी नहीं → रोज़ तीन मंज़िल</td><td><span class="n-todo">4</span> माह</td></tr>
-          <tr><td><span class="n-todo">नाम</span>, <span class="n-todo">48</span></td><td>बीपी</td><td class="num"><span class="n-todo">160/100</span> → 130/85</td><td><span class="n-todo">5</span> माह</td></tr>
-        </table>
-        <p class="en">Rows read: sugar · knees (“couldn’t climb stairs → three floors a day”) · BP</p>
-        <p class="pick">✓ Your choice — the stories page</p>
-      </div>
-
-      <div class="opt">
-        <span class="stamp stamp-opt">Option B — their words lead (not chosen)</span>
-        <div class="n-card" style="margin-top:14px;">
-          <p style="font-size:22px; line-height:1.5; font-weight:400;">“<span class="n-todo" style="font-size:20px;">दो साल से शुगर थी, अब रिपोर्ट ठीक आती है</span>”</p>
-          <p class="n-body" style="margin-top:12px; font-weight:700;">— <span class="n-todo">पूरा नाम</span>, <span class="n-todo">54</span> साल</p>
-          <p class="n-meta" style="margin-top:4px;"><span class="n-todo">शहर</span> · शुगर · HbA1c <span class="n-todo">8.2</span> → <span class="n-todo">6.5</span></p>
-        </div>
-        <p class="en">“I had sugar for two years, now the report comes back fine”</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================================= -->
-  <section class="sec">
-    <h2 class="secH">4 · The two batches <span style="font-size:17px;font-weight:400;color:#5C4C3B">— pick one by looking</span></h2>
-    <p class="secP">Every option shows the same facts: morning batch, 6:30 for 50 minutes, Monday to Saturday, ₹1500 a month, best for sugar / BP / thyroid.</p>
-
-    <div class="grid g2" style="align-items:start">
-      <div class="opt bad">
-        <span class="stamp stamp-now">Now — live today</span>
-        <div style="background:#fff;border:1px solid #E4D9C7;border-radius:12px;overflow:hidden;margin-top:14px;">
-          <div style="background:#FFF3E3;padding:16px;display:flex;justify-content:space-between;align-items:flex-start;">
-            <div><p style="font-size:26px;font-weight:800;">सुबह का बैच</p>
-              <p style="font-size:19px;font-weight:800;color:#A05000;"><span class="old-todo">[6:30]</span> · <span class="old-todo">[50]</span> मिनट</p></div>
-            <div style="text-align:right"><p style="font-size:30px;font-weight:800;">₹<span class="old-todo">[शुल्क]</span></p><p style="font-size:16px;color:#6E5F4E">प्रति माह</p></div>
-          </div>
-          <div style="padding:12px 16px;display:flex;justify-content:space-between;border-top:1px solid #E4D9C7;">
-            <span style="width:36px;height:36px;border-radius:50%;background:#231A12;color:#FF9933;display:grid;place-items:center;font-weight:800;font-size:16px">सो</span>
-            <span style="width:36px;height:36px;border-radius:50%;background:#231A12;color:#FF9933;display:grid;place-items:center;font-weight:800;font-size:16px">मं</span>
-            <span style="width:36px;height:36px;border-radius:50%;background:#231A12;color:#FF9933;display:grid;place-items:center;font-weight:800;font-size:16px">बु</span>
-            <span style="width:36px;height:36px;border-radius:50%;background:#231A12;color:#FF9933;display:grid;place-items:center;font-weight:800;font-size:16px">गु</span>
-            <span style="width:36px;height:36px;border-radius:50%;background:#231A12;color:#FF9933;display:grid;place-items:center;font-weight:800;font-size:16px">शु</span>
-            <span style="width:36px;height:36px;border-radius:50%;background:#231A12;color:#FF9933;display:grid;place-items:center;font-weight:800;font-size:16px">श</span>
-            <span style="width:36px;height:36px;border-radius:50%;background:#E4D9C7;color:#4A3A2A;display:grid;place-items:center;font-weight:800;font-size:16px">र</span>
-          </div>
-          <div style="padding:12px 16px;border-top:1px solid #E4D9C7;"><p style="font-size:18px;">खाली पेट। शुगर, बीपी, थायराइड के लिए यही बैच।</p></div>
-        </div>
-        <p class="why"><b>The problem:</b> the name and the price fight each other at the same weight, and the
-          seven heavy discs are the visually loudest thing on the card while saying only “Mon–Sat”.</p>
-      </div>
-
-      <div class="opt">
-        <span class="stamp stamp-opt">Option A — price led, days as plain text</span>
-        <div class="n-card" style="margin-top:14px;">
-          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:14px;">
-            <p class="n-h">सुबह</p>
-            <p class="n-num" style="font-size:32px;">₹<span class="n-todo" style="font-size:26px;">1500</span></p>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-top:2px;">
-            <p class="n-body"><span class="n-todo">6:30</span> – <span class="n-todo">7:20</span> · सोम–शनि</p>
-            <p class="n-meta">प्रति माह</p>
-          </div>
-          <div class="n-rule" style="margin:14px 0 12px;"></div>
-          <p class="n-body">खाली पेट। <strong style="font-weight:700;">शुगर, बीपी, थायराइड</strong> के लिए यही बैच।</p>
-          <a class="n-btn" style="background:#FF9933;color:#231A12;margin-top:14px;width:100%;">सुबह के बैच के बारे में बात करें</a>
-        </div>
-        <p class="en">“Morning · ₹1500 a month · 6:30–7:20, Mon–Sat · Empty stomach. This is the batch for sugar, BP, thyroid. · Talk about the morning batch”</p>
-        <p class="why">Keeps a card per batch. Price is the heaviest thing, which is what people came to find.
-          The seven discs become four words.</p>
-      </div>
-
-      <div class="opt">
-        <span class="stamp stamp-opt">Option B — both batches, one table</span>
-        <table class="n" style="background:#fff;border:1px solid #E4D9C7;border-radius:12px;overflow:hidden;margin-top:14px;">
-          <tr><th>Batch</th><th>Time</th><th>Days</th><th style="text-align:right">Fee</th></tr>
-          <tr><td style="font-weight:700">सुबह</td><td><span class="n-todo">6:30</span></td><td>सोम–शनि</td><td class="num" style="text-align:right">₹<span class="n-todo">1500</span></td></tr>
-          <tr><td style="font-weight:700">शाम</td><td><span class="n-todo">6:30</span></td><td>सोम–शनि</td><td class="num" style="text-align:right">₹<span class="n-todo">1500</span></td></tr>
-        </table>
-        <p class="n-body" style="margin-top:12px;">सुबह खाली पेट — शुगर, बीपी, थायराइड। शाम दफ़्तर के बाद — कमर, गर्दन, नींद।</p>
-        <p class="en">Rows: morning / evening. Below: “Morning on an empty stomach — sugar, BP, thyroid.
-          Evening after office — back, neck, sleep.”</p>
-        <p class="why">The least furniture of the three, and it answers the actual question — <b>which of the
-          two suits me</b> — in a single glance. Costs you the per-batch button; the ask moves to one button below.</p>
-      </div>
-
-      <div class="opt">
-        <span class="stamp stamp-opt">Option C — cards, week as small dots</span>
-        <div class="n-card" style="margin-top:14px;">
-          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:14px;">
-            <p class="n-h">सुबह का बैच</p>
-            <p class="n-num" style="font-size:32px;">₹<span class="n-todo" style="font-size:26px;">1500</span></p>
-          </div>
-          <p class="n-body" style="margin-top:2px;"><span class="n-todo">6:30</span> बजे · <span class="n-todo">50</span> मिनट</p>
-          <div style="display:flex;gap:6px;align-items:center;margin-top:12px;">
-            <span style="width:9px;height:9px;border-radius:50%;background:#231A12"></span>
-            <span style="width:9px;height:9px;border-radius:50%;background:#231A12"></span>
-            <span style="width:9px;height:9px;border-radius:50%;background:#231A12"></span>
-            <span style="width:9px;height:9px;border-radius:50%;background:#231A12"></span>
-            <span style="width:9px;height:9px;border-radius:50%;background:#231A12"></span>
-            <span style="width:9px;height:9px;border-radius:50%;background:#231A12"></span>
-            <span style="width:9px;height:9px;border-radius:50%;background:#DDD2BE"></span>
-            <span class="n-meta" style="margin-left:8px;">सोम–शनि, रविवार छुट्टी</span>
-          </div>
-          <div class="n-rule" style="margin:14px 0 12px;"></div>
-          <p class="n-body">खाली पेट। शुगर, बीपी, थायराइड के लिए यही बैच।</p>
-        </div>
-        <p class="en">“Morning batch · ₹1500 a month · at 6:30 · 50 minutes · Mon–Sat, Sunday off”</p>
-        <p class="why">Keeps the shape of the week visible without letting it dominate. A middle path between A and B.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================================= -->
-  <section class="sec">
-    <h2 class="secH">5 · The disease list <span style="font-size:17px;font-weight:400;color:#5C4C3B">— pick one by looking</span></h2>
-    <p class="secP">This is the front door: eight rows, one per condition. Shown here with “Sugar — type 2, pre-diabetes — N students”.</p>
-
-    <div class="grid g3" style="align-items:start">
-      <div class="opt bad">
-        <span class="stamp stamp-now">Now — live today</span>
-        <div style="background:#fff;border-top:1px solid #E4D9C7;border-bottom:1px solid #E4D9C7;margin-top:14px;">
-          <div style="display:flex;align-items:center;gap:14px;padding:16px;">
-            <span style="width:52px;height:52px;border-radius:12px;background:#EAF2F8;flex:none;display:grid;place-items:center;color:#A05000;font-size:22px">◍</span>
-            <span style="flex:1">
-              <span style="display:block;font-size:19px;font-weight:800;">शुगर</span>
-              <span style="display:block;font-size:16px;color:#6E5F4E;">टाइप-2, प्री-डायबिटीज़ · <span class="old-todo">[N]</span> विद्यार्थी</span>
-            </span><span style="color:#A05000">›</span>
-          </div>
-        </div>
-        <p class="why"><b>The problem:</b> the detail line that tells a visitor “this is me” is in faded brown,
-          so half the information is skipped. The icon tile is decoration.</p>
-      </div>
-
-      <div class="opt">
-        <span class="stamp stamp-opt">Option A — name bigger, detail in ink</span>
-        <div style="background:#fff;border-top:1px solid #E4D9C7;border-bottom:1px solid #E4D9C7;margin-top:14px;">
-          <div style="display:flex;align-items:center;gap:16px;padding:18px 16px;">
-            <span style="flex:1">
-              <span style="display:block;font-size:24px;font-weight:800;line-height:1.15;">शुगर</span>
-              <span style="display:block;font-size:17px;color:#231A12;margin-top:2px;">टाइप-2, प्री-डायबिटीज़</span>
-              <span style="display:block;font-size:16px;color:#6E5F4E;margin-top:2px;"><span class="n-todo">N</span> विद्यार्थी</span>
-            </span><span style="color:#A05000;font-size:22px">›</span>
-          </div>
-        </div>
-        <p class="en">“Sugar / type 2, pre-diabetes / N students”</p>
-        <p class="why">Keeps the “is this me?” line and puts it in full ink. Drops the eight coloured tiles.</p>
-      </div>
-
-      <div class="opt">
-        <span class="stamp stamp-opt">Option B — names only, very large</span>
-        <div style="background:#fff;border:1px solid #E4D9C7;border-radius:12px;padding:6px 16px;margin-top:14px;">
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid #EFE7D8">
-            <span style="font-size:26px;font-weight:800;">शुगर</span><span style="color:#A05000">›</span></div>
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid #EFE7D8">
-            <span style="font-size:26px;font-weight:800;">बीपी</span><span style="color:#A05000">›</span></div>
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 0;">
-            <span style="font-size:26px;font-weight:800;">कमर दर्द</span><span style="color:#A05000">›</span></div>
-        </div>
-        <p class="en">“Sugar / BP / Back pain”</p>
-        <p class="why">Fastest to scan, shortest list. The visitor loses the detail line until they tap through.</p>
-      </div>
-
-      <div class="opt">
-        <span class="stamp stamp-opt">Option C — keep a tile, one colour</span>
-        <div style="background:#fff;border-top:1px solid #E4D9C7;border-bottom:1px solid #E4D9C7;margin-top:14px;">
-          <div style="display:flex;align-items:center;gap:14px;padding:18px 16px;">
-            <span style="width:48px;height:48px;border-radius:12px;background:#EFE7D8;flex:none;display:grid;place-items:center;color:#8A7862;font-size:20px">◍</span>
-            <span style="flex:1">
-              <span style="display:block;font-size:23px;font-weight:800;line-height:1.15;">शुगर</span>
-              <span style="display:block;font-size:17px;color:#231A12;">टाइप-2, प्री-डायबिटीज़</span>
-            </span><span style="color:#A05000;font-size:22px">›</span>
-          </div>
-        </div>
-        <p class="en">Same words as A, with a quiet neutral tile kept.</p>
-        <p class="why">A looks bare to some eyes; this keeps a visual anchor without the rainbow.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================================= -->
-  <section class="sec">
-    <h2 class="secH">6 · Two temperaments for the whole site</h2>
-    <p class="secP">Same three rules in both. The difference is how loud the site is. Open each at phone width.</p>
-    <div class="grid g2">
-      <a class="opt" href="./home-a.html" style="text-decoration:none">
-        <span class="stamp stamp-opt">Direction A — “The prescription”</span>
-        <p class="n-body" style="margin-top:14px;">Ink on paper. Headline 42px. Colour appears three times on the
-          whole page: one button, one arrow, one dark warning panel. Reads like a doctor’s document.</p>
-        <p class="why"><b>Trade-off:</b> more credible and calmer, but less arresting — a fast scroller may not stop.</p>
-        <p style="margin-top:12px;font-weight:800;color:#A05000">Open Direction A ›</p>
-      </a>
-      <a class="opt" href="./home-b.html" style="text-decoration:none">
-        <span class="stamp stamp-opt">Direction B — “Big”</span>
-        <p class="n-body" style="margin-top:14px;">Headline 54px, disease names 28px, the result number 64px, and
-          a solid dark band introducing her. Far fewer things per screen, each much larger.</p>
-        <p class="why"><b>Trade-off:</b> unmissable at arm’s length on a cheap phone, which is your audience —
-          but it edges towards advertising rather than clinic.</p>
-        <p style="margin-top:12px;font-weight:800;color:#A05000">Open Direction B ›</p>
-      </a>
-    </div>
-  </section>
+  <h2>4 · Already decided</h2>
+  <div class="list">
+    <a class="item" href="./home-a.html">
+      <span class="pick">✓ Your choice</span>
+      <h3>Student result card — the number leads, and record rows</h3>
+      <p>“Option A” (HbA1c 8.2 → 6.5 at 44px, name and city plain underneath) on the home and condition pages;
+         “Option C” (a table of name, disease, before → after, months) becomes the stories page.
+         Both are built into the two direction mockups above.</p>
+      <span class="go">See it inside Direction A ›</span>
+    </a>
+  </div>
 
 </div>
 </body>
