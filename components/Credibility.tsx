@@ -15,7 +15,7 @@ export function Routine({ lang }: { lang: Lang }) {
             key={i}
             className={`grid grid-cols-[72px_1fr] gap-3 border-t border-rule py-2.5 md:grid-cols-[110px_1fr] md:py-3 ${
               i === routine.rows.length - 1 ? "border-b" : ""
-            } ${row.highlight ? "-mx-4 rounded-[12px] px-4 md:-mx-4" : ""}`}
+            } ${row.highlight ? "rounded-[var(--radius-sm)] px-3" : ""}`}
             style={row.highlight ? { background: "var(--color-apricot)" } : undefined}
           >
             <span className="num h3" style={{ color: "var(--color-deep)" }}>

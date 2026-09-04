@@ -1141,9 +1141,20 @@
   /* Split down the middle: what it was, in the support tint and the quiet ink,
      against what it is now, on the card's own white and in full ink. No new
      colours — the halves are the two grounds the card already had. */
+  /* The before/after block asks how much room IT has, not how wide the window
+     is. In three columns on a desktop a card is 278px and each half is 139px,
+     where "HbA1c 8.2" at the title step does not fit and the word was cut in
+     half; the same card in two columns has room to spare. A media query cannot
+     tell those apart, a container query can.
+
+     The containment lives here and not on the card, because container-type
+     also applies layout containment — putting it on the card stopped the card
+     participating in the subgrid, and the rows silently fell out of line
+     again. */
   .ba {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    container-type: inline-size;
   }
   .ba > div {
     padding: 16px 16px 18px;
@@ -1162,6 +1173,7 @@
   }
   .ba .val {
     font-size: var(--step-title);
+    overflow-wrap: anywhere;
     line-height: 1.18;
     margin-top: 9px;
     /* a long result in words — "सीढ़ियाँ नहीं चढ़ पाते थे" — is set a step
@@ -1570,6 +1582,17 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+  }
+  @container (max-width: 330px) {
+    .ba .val {
+      font-size: var(--step-head);
+    }
+    .ba .val.long {
+      font-size: var(--step-sub);
+    }
+    .ba > div {
+      padding: 13px 13px 15px;
+    }
   }
   .storycard-body {
     flex: 1;

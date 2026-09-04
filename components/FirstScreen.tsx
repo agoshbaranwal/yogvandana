@@ -33,7 +33,7 @@ export function FirstScreen({ lang }: { lang: Lang }) {
 
   return (
     <section className="hero-warm first">
-      <div className="wrap grid gap-7 pb-11 pt-5 md:grid-cols-[minmax(0,1fr)_minmax(0,360px)] md:items-center md:gap-10 md:pb-20 md:pt-12 lg:gap-14">
+      <div className="wrap grid gap-7 pb-11 pt-5 md:grid-cols-[minmax(0,1fr)_minmax(0,360px)] md:items-center md:gap-14 md:pb-20 md:pt-12 lg:gap-20">
         <div className="flex flex-col items-start gap-4">
           <span className="badge">
             <Tx>{eyebrow}</Tx>
@@ -45,9 +45,9 @@ export function FirstScreen({ lang }: { lang: Lang }) {
             {ui("home.heroLead", lang)}
           </p>
 
-          <div className="flex w-full flex-wrap gap-2.5 sm:flex-nowrap">
+          <div className="flex w-full flex-wrap gap-2.5">
             <a
-              className="btn btn-wa sm:whitespace-nowrap"
+              className="btn btn-wa"
               href={wa}
               target="_blank"
               rel="noopener noreferrer"
@@ -58,7 +58,7 @@ export function FirstScreen({ lang }: { lang: Lang }) {
               {ui("cta.whatsappTalk", lang)}
             </a>
             <a
-              className="btn btn-white sm:whitespace-nowrap"
+              className="btn btn-white"
               href={telHref(PHONE)}
               data-ev="call_click"
               data-ev-source="hero"

@@ -1,4 +1,4 @@
-import { groupBatches, site, t, ui } from "@/lib/content";
+import { groupBatches, site, ui } from "@/lib/content";
 import type { Lang } from "@/lib/routes";
 import { Tx } from "./Tx";
 

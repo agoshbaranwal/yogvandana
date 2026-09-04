@@ -14,6 +14,10 @@ Needs `node scripts/serve.mjs 4471 out` running.
 """
 import sys
 sys.path.insert(0, "/Users/agosh/Game/Climate Change/tools")
+sys.path.insert(0, "scripts")
+from fresh import require_fresh
+
+require_fresh()
 from cdp import Chrome
 
 W = 360
@@ -39,15 +43,52 @@ return (() => {
         : '');
     const text = (el.textContent || '').trim().slice(0, 30);
 
-    /* content wider than its own box, with no way to scroll to it */
-    const clipped = el.scrollWidth - el.clientWidth > 1 &&
-      cs.overflowX !== 'auto' && cs.overflowX !== 'scroll' && el.children.length === 0;
-    if (clipped) out.push({ kind: 'clipped', label, text, by: el.scrollWidth - el.clientWidth });
+    /* Content wider than its own box, with no way to scroll to it.
+
+       This used to skip any element that had child elements, on the theory
+       that only a leaf can clip text. That is wrong, and it is why a card
+       whose contents were 31px wider than the card reported clean while the
+       word "HbA1c" was visibly cut in half. A container clips too. */
+    if (el.scrollWidth - el.clientWidth > 1 &&
+        cs.overflowX !== 'auto' && cs.overflowX !== 'scroll')
+      out.push({ kind: 'clipped', label, text, by: el.scrollWidth - el.clientWidth });
 
     /* sticking out past the right edge of the page */
     if (r.right > doc.clientWidth + 1 && cs.position !== 'fixed')
       out.push({ kind: 'sideways', label, text, by: Math.round(r.right - doc.clientWidth) });
   }
+  /* Two asks must not land on top of each other.
+
+     Five were placed down the home page by counting sections rather than by
+     reading it, and two of them ended up separated by a single panel — the
+     same block twice within a screen, which reads as pestering rather than as
+     being available. A screen apart is the floor. */
+  const asks = [...document.querySelectorAll('.askrow')].map(
+    (a) => a.getBoundingClientRect().top + window.scrollY,
+  );
+  for (let i = 1; i < asks.length; i++) {
+    const gap = Math.round(asks[i] - asks[i - 1]);
+    if (gap < window.innerHeight)
+      out.push({ kind: 'asks-close', label: 'two asks within one screen', text: `${gap}px apart`, by: gap });
+  }
+
+  /* cards in one row of a grid must line up band for band */
+  document.querySelectorAll('.cardgrid').forEach((g) => {
+    const rows = {};
+    g.querySelectorAll(':scope > li').forEach((li) => {
+      if (getComputedStyle(li).display === 'none') return;
+      const strip = li.querySelector('.took');
+      if (!strip) return;
+      const top = Math.round(li.getBoundingClientRect().top);
+      (rows[top] = rows[top] || []).push(Math.round(strip.getBoundingClientRect().top));
+    });
+    for (const [top, tops] of Object.entries(rows)) {
+      const spread = Math.max(...tops) - Math.min(...tops);
+      if (spread > 1)
+        out.push({ kind: 'unaligned', label: `${tops.length} cards in a row`, text: `y=${top}`, by: spread });
+    }
+  });
+
   return out;
 })()
 """

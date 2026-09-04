@@ -18,6 +18,10 @@ Needs `node scripts/serve.mjs 4471 out` running.
 """
 import sys, json, collections
 sys.path.insert(0, "/Users/agosh/Game/Climate Change/tools")
+sys.path.insert(0, "scripts")
+from fresh import require_fresh
+
+require_fresh()
 from cdp import Chrome
 
 FLOOR = 7.0

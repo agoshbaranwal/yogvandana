@@ -51,7 +51,6 @@ export default function Home({ lang }: { lang: Lang }) {
       <section>
         <div className="wrap flex flex-col gap-7 section-pad">
           <DiseaseRows lang={lang} />
-          <AskRow lang={lang} note={ui("home.askAfterChooser", lang)} source="after-chooser" proof={false} />
         </div>
       </section>
 
@@ -90,7 +89,7 @@ export default function Home({ lang }: { lang: Lang }) {
             <>
               <ul className="cardgrid grid gap-3 md:grid-cols-3 md:gap-5 [&>li]:min-w-0">
                 {shown.map((s, i) => (
-                  <li key={s.id} className={i === 2 ? "hidden md:block" : ""}>
+                  <li key={s.id} className={i === 2 ? "hidden md:grid" : ""}>
                     <ResultCard story={s} lang={lang} />
                   </li>
                 ))}
@@ -116,7 +115,6 @@ export default function Home({ lang }: { lang: Lang }) {
             <h2 className="h2">{ui("home.stepsTitle", lang)}</h2>
           </div>
           <Steps lang={lang} />
-          <AskRow lang={lang} note={ui("home.askAfterSteps", lang)} source="after-steps" />
           {/* The left column used to hold a heading and one line beside a tall
               slip, which left most of a screen empty. It now carries the five
               things a month actually includes — strings that already existed
@@ -172,7 +170,6 @@ export default function Home({ lang }: { lang: Lang }) {
             <p className="cap">{ui("batches.rollingLead", lang)}</p>
           </div>
           <Schedule lang={lang} />
-          <AskRow lang={lang} note={ui("home.askAfterSchedule", lang)} source="after-schedule" proof={false} />
         </div>
       </section>
 

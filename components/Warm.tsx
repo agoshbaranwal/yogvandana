@@ -109,8 +109,13 @@ export function PhotoBadges({ lang }: { lang: Lang }) {
   const body = t(site.certifyingBody, lang);
   return (
     <>
+      {/* Both badges hug the photograph's outer edge. The rating used to sit
+          bottom-LEFT, which on a desktop put a white pill with a shadow
+          directly against the call button in the column beside it — two of the
+          same shape touching across the gutter, which reads as one overlapping
+          the other even though neither leaves its box. */}
       {rating ? (
-        <span className="badge absolute bottom-3.5 left-3">
+        <span className="badge absolute bottom-3.5 right-3 max-w-[90%]">
           {/* One star, not five. Five filled stars beside "4.2" reads as five
               out of five and overstates her rating — on a site whose whole
               argument is that its numbers can be checked, that is the last
