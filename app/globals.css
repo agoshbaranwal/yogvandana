@@ -572,6 +572,20 @@
     background: var(--color-rule);
     margin-top: 6px;
   }
+  /* a small numbered dot beside a line: what the practice works on */
+  .n-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-kohl);
+    color: var(--color-bhagwa);
+    display: grid;
+    place-items: center;
+    font-size: var(--step-cap);
+    font-weight: 800;
+    flex: none;
+    margin-top: 2px;
+  }
   /* the medicine panel: the one thing said in the dark */
   .panel-dark {
     background: var(--color-kohl);

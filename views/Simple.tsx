@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { AilmentCards } from "@/components/AilmentCards";
+import { DiseaseRows } from "@/components/DiseaseRows";
 import Band from "@/components/Band";
 import { BatchCard, SharedSession, sharedSession } from "@/components/Batches";
 import { FaqList } from "@/components/Faq";
@@ -14,20 +14,10 @@ import { href, type Lang } from "@/lib/routes";
 export function AilmentsIndex({ lang }: { lang: Lang }) {
   return (
     <SiteShell lang={lang} routeKey="ailments">
-      <header style={{ background: "linear-gradient(180deg, var(--color-sky) 0%, var(--color-ivory) 100%)" }}>
-        <div className="wrap flex flex-col gap-2.5 section-pad">
-          <h1 className="page-title">{ui("home.ailmentsTitle", lang)}</h1>
-          <p className="body max-w-[62ch]" style={{ color: "var(--color-heroink)" }}>
-            {ui("home.ailmentsLead", lang)}
-          </p>
+      <section>
+        <div className="wrap py-6 md:max-w-[960px] md:py-14">
+          <DiseaseRows lang={lang} heading="h1" />
         </div>
-      </header>
-      <section className="wrap flex flex-col gap-4 section-pad">
-        <AilmentCards lang={lang} columns="grid-cols-2 md:grid-cols-4" />
-        <p className="body" style={{ color: "var(--color-muted)" }}>
-          <Tx>{ui("cta.allAilments", lang)}</Tx>{" "}
-          <Link href={href("contact", lang)}>{ui("nav.contact", lang)}</Link>
-        </p>
       </section>
       <Band lang={lang} routeKey="ailments" source="ailments" />
     </SiteShell>
@@ -155,7 +145,7 @@ export function NotFoundPage({ lang }: { lang: Lang }) {
           </Link>
         </div>
         <div className="mt-4">
-          <AilmentCards lang={lang} columns="grid-cols-2 md:grid-cols-4" compact />
+          <DiseaseRows lang={lang} id="nahin-mila-rog" askHref={href("contact", lang)} />
         </div>
       </section>
     </SiteShell>

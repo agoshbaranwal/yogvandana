@@ -12,15 +12,22 @@ export function DiseaseRows({
   lang,
   id = "ailments",
   askHref = "#booking-band",
+  heading = "h2",
 }: {
   lang: Lang;
   id?: string;
   askHref?: string;
+  /* the conditions page makes the question its own title */
+  heading?: "h1" | "h2";
 }) {
   return (
     <div id={id} className="flex flex-col gap-3 pt-2 md:pt-0">
       <div className="flex flex-col gap-1">
-        <h2 className="h2">{ui("home.ailmentsTitle", lang)}</h2>
+        {heading === "h1" ? (
+          <h1 className="page-title">{ui("home.ailmentsTitle", lang)}</h1>
+        ) : (
+          <h2 className="h2">{ui("home.ailmentsTitle", lang)}</h2>
+        )}
         <p className="cap">{ui("home.ailmentsLead", lang)}</p>
       </div>
       <ul className="rows bleed md:grid md:grid-cols-2 md:gap-x-6">
