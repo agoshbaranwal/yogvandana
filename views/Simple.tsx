@@ -2,6 +2,7 @@ import Link from "next/link";
 import { DiseaseRows } from "@/components/DiseaseRows";
 import Band from "@/components/Band";
 import { FeeFacts, GroupBatchCard, SessionBar, SmallBatchCard } from "@/components/Batches";
+import { PriceLine } from "@/components/WhatYouGet";
 import { FaqList } from "@/components/Faq";
 import SiteShell from "@/components/SiteShell";
 import { Tx } from "@/components/Tx";
@@ -43,6 +44,7 @@ export function BatchesPage({ lang }: { lang: Lang }) {
           <p className="body max-w-[52ch]" style={{ color: "var(--color-heroink)" }}>
             <Tx>{ui("batches.lead", lang).replace("{n}", site.groupSize)}</Tx>
           </p>
+          <PriceLine lang={lang} />
         </div>
       </header>
 

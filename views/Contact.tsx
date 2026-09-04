@@ -2,6 +2,7 @@ import ContactForm from "@/components/ContactForm";
 import { WhatsAppIcon } from "@/components/Icons";
 import SiteShell from "@/components/SiteShell";
 import { Tx } from "@/components/Tx";
+import { PriceLine } from "@/components/WhatYouGet";
 import { absolute, ailments, PHONE, phoneShown, site, t, ui } from "@/lib/content";
 import { href, type Lang } from "@/lib/routes";
 import { telHref, waHref, waMessage } from "@/lib/whatsapp";
@@ -38,6 +39,7 @@ export default function Contact({ lang }: { lang: Lang }) {
             <p className="body max-w-[44ch]" style={{ color: "var(--color-heroink)" }}>
               <Tx>{ui("contact.lead", lang)}</Tx>
             </p>
+            <PriceLine lang={lang} />
           </div>
           <div className="flex flex-col gap-3">
             {PHONE ? (

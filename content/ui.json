@@ -1187,6 +1187,10 @@
     "onlyThis": {
       "hi": "इसके अलावा कुछ नहीं लगता।",
       "en": "Nothing else is charged."
+    },
+    "line": {
+      "hi": "पहली बात मुफ़्त · परामर्श और पर्ची ₹{p} · बैच ₹{f} {u}",
+      "en": "First conversation free · Consultation and slip ₹{p} · Batch ₹{f} {u}"
     }
   }
 }

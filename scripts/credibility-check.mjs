@@ -184,7 +184,12 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
   } else {
     const shown = `₹${price}`;
     const names = (body) => /परामर्श|consultation/i.test(body);
-    const must = pages.filter((f) => /^\/(rog|en\/conditions)\/[^/]+\/$/.test(rel(f)) || rel(f) === "/" || rel(f) === "/en/");
+    /* Every page a person uses BEFORE they have paid: home, the condition
+       pages, the page about money, and the page where they make contact. */
+    const BEFORE = ["/", "/en/", "/batch/", "/en/batches/", "/sampark/", "/en/contact/"];
+    const must = pages.filter(
+      (f) => /^\/(rog|en\/conditions)\/[^/]+\/$/.test(rel(f)) || BEFORE.includes(rel(f)),
+    );
     const bad = [];
     for (const f of pages) {
       const body = text(read(f));

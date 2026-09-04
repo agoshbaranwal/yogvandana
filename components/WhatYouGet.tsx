@@ -77,3 +77,19 @@ export function WhatYouGet({ lang }: { lang: Lang }) {
     </div>
   );
 }
+
+/* The same three prices in one line, for pages that already talk about money
+   or are where a conversation starts. Nobody should meet the ₹200 for the
+   first time at the moment they are asked to pay it. */
+export function PriceLine({ lang }: { lang: Lang }) {
+  const group = batches.find((b) => b.type === "group");
+  const line = ui("get.line", lang)
+    .replace("{p}", site.consultation.price)
+    .replace("{f}", group ? group.price : "")
+    .replace("{u}", group ? t(group.priceUnit, lang) : "");
+  return (
+    <p className="body font-bold">
+      <Tx>{line}</Tx>
+    </p>
+  );
+}
