@@ -628,6 +628,26 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
   );
 }
 
+/* 22 — no template hole reaches a reader ---------------------------------- */
+/* A string like "{x} का हल" is filled in by whatever renders it, and when a
+   caller forgets the .replace() the page ships the braces. It did: every
+   condition page, in both languages, printed "योग और प्राणायाम द्वारा {x} का
+   हल बताया जाएगा" and nothing here noticed. Anything still shaped like a
+   placeholder in the rendered text is a build failure. */
+{
+  const holes = [];
+  for (const f of pages) {
+    for (const h of new Set(text(read(f)).match(/\{[a-zA-Z][a-zA-Z0-9]*\}/g) || []))
+      holes.push(`${rel(f)} ${h}`);
+  }
+  add(
+    22,
+    "No page shows an unfilled {placeholder}",
+    holes.length === 0 ? "pass" : "fail",
+    holes.slice(0, 8).join("; ") || `${pages.length} pages`,
+  );
+}
+
 /* ------------------------------- report ---------------------------------- */
 const pass = results.filter((r) => r.status === "pass").length;
 const fail = results.filter((r) => r.status === "fail");

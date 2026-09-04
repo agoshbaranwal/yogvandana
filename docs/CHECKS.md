@@ -28,5 +28,6 @@ Last run: 2026-09-04 · 38 pages.
 | 17 | Every link that takes money is https, on a payment provider's domain, and says which batch | waiting on content | No payment page in content/site.json yet, so every button still opens WhatsApp. |
 | 18 | The sticky bar is absent on policy and 404 pages and can never cover a dialog | pass | absent on 8 quiet pages · viewer z-50 above bar z-40 · reveal leaves no transform behind |
 | 19 | Every button says one of two things: talk to her, or pay | pass | 120 buttons, every one from the allowed set |
+| 22 | No page shows an unfilled {placeholder} | pass | 38 pages |
 
-21 passed, 0 failed, 2 waiting on her material.
+22 passed, 0 failed, 2 waiting on her material.

@@ -273,7 +273,7 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
         source={`ailment-${ailment.slug}`}
         defaultSlug={ailment.slug}
         title={ui("ailment.bandTitle", lang).replace("{x}", name)}
-        lead={ui("ailment.bandLead", lang)}
+        lead={ui("ailment.bandLead", lang).replace("{x}", name)}
       />
     </SiteShell>
   );
