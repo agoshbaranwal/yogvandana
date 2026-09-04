@@ -16,8 +16,8 @@ const pages = [];
 const walk = (dir) => {
   for (const name of fs.readdirSync(dir)) {
     const full = path.join(dir, name);
-    /* out/r7 holds design proposals shown for review, not pages of the site */
-    if ((name === "r7" || name === "r8") && dir === OUT) continue;
+    /* out/r7, r8, r10 hold design proposals shown for review, not pages of the site */
+    if (/^r\d+$/.test(name) && dir === OUT) continue;
     if (fs.statSync(full).isDirectory()) walk(full);
     else if (name === "index.html" || name === "404.html") pages.push(full);
   }
