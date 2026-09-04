@@ -3,6 +3,7 @@ import { ChevronIcon, WhatsAppIcon } from "@/components/Icons";
 import { Jsonld, personSchema } from "@/components/Jsonld";
 import { Photo } from "@/components/Photo";
 import SiteShell from "@/components/SiteShell";
+import { PendingNote } from "@/components/Pending";
 import { Tx } from "@/components/Tx";
 import {
   absolute,
@@ -17,6 +18,7 @@ import {
   mediaClippings,
   mediaLogos,
   memberships,
+  pending,
   site,
   t,
   ui,
@@ -66,7 +68,12 @@ export default function About({ lang }: { lang: Lang }) {
   const page = absolute(href("about", lang));
   const pic = picture(site.photos.portrait);
   const primary = credentials.find((c) => c.id === site.primaryCredential) ?? credentials[0];
-  const rest = credentials.filter((c) => c !== primary);
+  const rest = pending(credentials.filter((c) => c !== primary), (c) => t(c.name, lang));
+  const teachers = pending(gurus, (g) => t(g.name, lang));
+  const posts = pending(experience, (e) => t(e.institution, lang));
+  const bodies = pending(memberships, (m) => t(m.body, lang));
+  const logos = pending(mediaLogos, (m) => t(m.name, lang));
+  const clippings = pending(mediaClippings, (m) => t(m.name, lang));
   const certified = lang === "hi" ? `${t(site.certifyingBody, lang)} प्रमाणित` : `${t(site.certifyingBody, lang)} certified`;
   const wa = waHref(site.contact.whatsapp, waMessage({ lang, kind: "general", page }));
 
@@ -85,6 +92,9 @@ export default function About({ lang }: { lang: Lang }) {
     tiles.push({ key: a.id, title: t(a.name, lang), sub: `${t(a.body, lang)} · ${a.year}`, photo: a.photo });
   }
   const honours = awards.length + events.length;
+  const stage = pending(tiles, (x) => x.title);
+  const honourList = pending(awards, (a) => t(a.name, lang));
+  const eventList = pending(events, (e) => t(e.title, lang));
 
   return (
     <SiteShell lang={lang} routeKey="about" hasBand={false}>
@@ -169,21 +179,17 @@ export default function About({ lang }: { lang: Lang }) {
             )}
             <p className="cap">{t(site.teacher, lang)}</p>
           </div>
+          <div className="pt-3">
+            <NumberCards lang={lang} />
+          </div>
         </div>
       </section>
 
-      {/* 3 · the numbers, two by two --------------------------------------- */}
-      <section>
-        <div className="wrap py-6 md:max-w-[880px] md:py-8">
-          <NumberCards lang={lang} />
-        </div>
-      </section>
-
-      {/* 4 · the government certificate, large, with the check button ----- */}
+      {/* 3 · her record: the certificate that proves it, then the rest ----- */}
       {primary ? (
-        <section id="yogyata">
+        <section id="yogyata" className="border-t border-rule">
           <div className="wrap flex flex-col gap-3 pb-2 pt-6 md:max-w-[880px] md:pt-10">
-            <h2 className="h2">{ui("about.certTitle", lang).replace("{body}", t(site.certifyingBody, lang))}</h2>
+            <h2 className="h2">{ui("about.studyTitle", lang)}</h2>
             <div className="card overflow-hidden p-0 md:grid md:grid-cols-[300px_1fr]">
               <Photo
                 src={primary.image}
@@ -212,12 +218,11 @@ export default function About({ lang }: { lang: Lang }) {
         </section>
       ) : null}
 
-      {/* 5 · the rest of the register: one list ----------------------------- */}
-      <section>
-        <div className="wrap flex flex-col gap-1 pb-4 pt-6 md:max-w-[880px]">
-          <h2 className="h2 pb-2">{ui("about.studyTitle", lang)}</h2>
+      {/* the rest of the register: the same idea, so not a new section */}
+      <div>
+        <div className="wrap flex flex-col gap-1 pb-4 md:max-w-[880px]">
           <ul className="flex flex-col border-b border-rule">
-            {rest.map((c) => (
+            {rest.shown.map((c) => (
               <li key={c.id} className="flex items-center gap-3.5 border-t border-rule py-3.5">
                 <Photo
                   src={c.image}
@@ -238,12 +243,13 @@ export default function About({ lang }: { lang: Lang }) {
               </li>
             ))}
           </ul>
+          <PendingNote lang={lang} n={rest.hidden} />
 
           {gurus.length > 0 ? (
             <>
               <h3 className="h3 pt-6">{ui("about.gurusTitle", lang)}</h3>
               <ul className="flex flex-col border-b border-rule">
-                {gurus.map((g) => (
+                {teachers.shown.map((g) => (
                   <li key={g.id} className="flex items-center gap-3.5 border-t border-rule py-3">
                     <Photo src={g.photo} alt={t(g.name, lang)} rounded="rounded-full" className="h-14 w-14 flex-none" />
                     <div className="flex min-w-0 flex-col gap-0.5">
@@ -257,6 +263,7 @@ export default function About({ lang }: { lang: Lang }) {
                   </li>
                 ))}
               </ul>
+              <PendingNote lang={lang} n={teachers.hidden} />
             </>
           ) : null}
 
@@ -264,7 +271,7 @@ export default function About({ lang }: { lang: Lang }) {
             <>
               <h3 className="h3 pt-6">{ui("about.expTitle", lang)}</h3>
               <ul className="flex flex-col border-b border-rule">
-                {experience.map((e) => (
+                {posts.shown.map((e) => (
                   <li key={e.id} className="flex items-baseline justify-between gap-3 border-t border-rule py-3">
                     <span className="body">
                       <strong>
@@ -277,7 +284,7 @@ export default function About({ lang }: { lang: Lang }) {
                     </span>
                   </li>
                 ))}
-                {memberships.map((m) => (
+                {bodies.shown.map((m) => (
                   <li key={m.id} className="flex items-baseline justify-between gap-3 border-t border-rule py-3">
                     <span className="body font-bold">
                       <Tx>{t(m.body, lang)}</Tx>
@@ -288,14 +295,15 @@ export default function About({ lang }: { lang: Lang }) {
                   </li>
                 ))}
               </ul>
+              <PendingNote lang={lang} n={posts.hidden + bodies.hidden} />
             </>
           ) : null}
         </div>
-      </section>
+      </div>
 
       {/* 6 · the journey ---------------------------------------------------- */}
       {journey.length > 0 ? (
-        <section style={{ background: "var(--color-sandal)" }}>
+        <section className="border-t border-rule">
           <div className="wrap flex flex-col gap-3 section-pad md:max-w-[880px]">
             <h2 className="h2">{ui("about.journeyTitle", lang)}</h2>
             <ol className="flex flex-col border-b border-rule">
@@ -322,7 +330,7 @@ export default function About({ lang }: { lang: Lang }) {
         <div className="wrap flex flex-col gap-3.5 section-pad md:max-w-[880px]">
           <h2 className="h2">{ui("about.stageTitle", lang)}</h2>
           <ul className="grid grid-cols-2 gap-2.5 md:grid-cols-4 md:gap-4">
-            {tiles.map((tile) => (
+            {stage.shown.map((tile) => (
               <li key={tile.key} className="flex flex-col gap-1.5">
                 <Photo src={tile.photo} alt={tile.title} label={ui("photo.event", lang)} ratio="4 / 3" rounded="rounded-[12px]" />
                 <p className="cap font-bold leading-snug" style={{ color: "var(--color-kohl)" }}>
@@ -334,13 +342,14 @@ export default function About({ lang }: { lang: Lang }) {
               </li>
             ))}
           </ul>
+          <PendingNote lang={lang} n={stage.hidden} />
           <details className="faq-item border-b border-rule">
             <summary>{ui("about.fullList", lang).replace("{n}", String(honours))}</summary>
             <div className="flex flex-col gap-5 pb-4">
               <div className="flex flex-col gap-1">
                 <h3 className="h3">{ui("about.awardsTitle", lang)}</h3>
                 <ul className="flex flex-col">
-                  {awards.map((a) => (
+                  {honourList.shown.map((a) => (
                     <li key={a.id} className="flex flex-col gap-0.5 border-t border-rule py-2.5">
                       <p className="body font-bold leading-snug">
                         <Tx>{t(a.name, lang)}</Tx>
@@ -351,6 +360,7 @@ export default function About({ lang }: { lang: Lang }) {
                     </li>
                   ))}
                 </ul>
+                <PendingNote lang={lang} n={honourList.hidden} />
               </div>
               <div id="karyakram" className="flex flex-col gap-1">
                 <div className="flex flex-wrap items-baseline justify-between gap-3">
@@ -360,7 +370,7 @@ export default function About({ lang }: { lang: Lang }) {
                   </p>
                 </div>
                 <ul className="flex flex-col">
-                  {events.map((e) => (
+                  {eventList.shown.map((e) => (
                     <li key={e.id} className="flex flex-col gap-0.5 border-t border-rule py-2.5">
                       <p className="body font-bold leading-snug">
                         <Tx>{`${t(e.typeLabel, lang)} · ${t(e.title, lang)}`}</Tx>
@@ -371,6 +381,7 @@ export default function About({ lang }: { lang: Lang }) {
                     </li>
                   ))}
                 </ul>
+                <PendingNote lang={lang} n={eventList.hidden} />
               </div>
             </div>
           </details>
@@ -383,15 +394,16 @@ export default function About({ lang }: { lang: Lang }) {
           <h2 className="h2">{ui("about.mediaTitle", lang)}</h2>
           {mediaLogos.length > 0 ? (
             <ul className="grid grid-cols-3 gap-2.5">
-              {mediaLogos.map((m) => (
+              {logos.shown.map((m) => (
                 <li key={m.id}>
                   <Photo src={m.image} alt={t(m.name, lang)} label={ui("photo.logo", lang)} rounded="rounded-[10px]" className="h-14 w-full" />
                 </li>
               ))}
             </ul>
           ) : null}
+          <PendingNote lang={lang} n={logos.hidden} />
           <ul className="grid grid-cols-3 gap-2.5 md:grid-cols-4">
-            {mediaClippings.map((m) => (
+            {clippings.shown.map((m) => (
               <li key={m.id} className="flex flex-col gap-1.5">
                 <Photo src={m.image} alt={t(m.name, lang)} label={ui("photo.clipping", lang)} ratio="3 / 4" rounded="rounded-[8px]" />
                 <p className="cap">
@@ -400,6 +412,7 @@ export default function About({ lang }: { lang: Lang }) {
               </li>
             ))}
           </ul>
+          <PendingNote lang={lang} n={clippings.hidden} />
         </div>
       </section>
 

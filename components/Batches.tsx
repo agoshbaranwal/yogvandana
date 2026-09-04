@@ -20,6 +20,7 @@ export function joinHref(batch: Batch, lang: Lang, page: string): { href: string
 
 function JoinButton({ batch, lang, page, outline = false }: { batch: Batch; lang: Lang; page: string; outline?: boolean }) {
   const join = joinHref(batch, lang, page);
+  const talk = ui("batches.talkAboutNamed", lang).replace("{x}", t(batch.name, lang));
   return (
     <a
       href={join.href}
@@ -30,7 +31,7 @@ function JoinButton({ batch, lang, page, outline = false }: { batch: Batch; lang
       data-ev-source="batches"
       className={`btn w-full ${outline ? "btn-outline" : "btn-primary"}`}
     >
-      {join.pays ? ui("cta.payJoin", lang) : ui("batches.talkAboutBatch", lang)}
+      {join.pays ? ui("cta.payJoin", lang) : talk}
     </a>
   );
 }

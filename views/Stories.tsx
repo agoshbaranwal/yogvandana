@@ -4,7 +4,7 @@ import Filter from "@/components/Filter";
 import SiteShell from "@/components/SiteShell";
 import { StoryCard } from "@/components/StoryCard";
 import { GallerySection } from "./Gallery";
-import { absolute, ailments, stories, t, ui } from "@/lib/content";
+import { absolute, ailments, site, stories, t, ui } from "@/lib/content";
 import { href, type Lang } from "@/lib/routes";
 
 export default function Stories({ lang }: { lang: Lang }) {
@@ -38,19 +38,19 @@ export default function Stories({ lang }: { lang: Lang }) {
                 story={s}
                 lang={lang}
                 showVideo
-                share={
-                  <ShareLink
-                    label={ui("cta.shareStory", lang)}
-                    title={`${t(s.name, lang)}, ${t(s.city, lang)} — ${ui("stories.title", lang)}`}
-                    url={page}
-                    source="story"
-                  />
-                }
               />
             ),
           }))}
         />
-        <p className="cap max-w-[68ch]">{ui("stories.consent", lang)}</p>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <p className="cap max-w-[52ch]">{ui("stories.consent", lang)}</p>
+          <ShareLink
+            label={ui("cta.shareStory", lang)}
+            title={`${ui("stories.title", lang)} — ${t(site.brand, lang)}`}
+            url={page}
+            source="stories"
+          />
+        </div>
       </section>
 
       {/* the album, on the same page: photographs prove the same thing */}

@@ -150,6 +150,13 @@ Every label on the site, in both languages. Say: **"Change the trial button to '
 
 ---
 
+## Rows you have not filled in yet collapse on their own
+
+If five certificates all read "[प्रमाणपत्र]", the site shows one and says "and 4 more, once she
+sends them". The moment you give real names they all appear, in order, with no change needed. Only
+*identical* blanks collapse: a line with real words in it keeps its place even when a date inside
+it is still a blank.
+
 ## The slip is not filled in on the website — on purpose
 
 The website shows a **blank** prescription: the rows are named (food, precautions, daily routine,

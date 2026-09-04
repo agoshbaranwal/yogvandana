@@ -114,3 +114,40 @@ That, and every other "बिना शुल्क" attached to the consultatio
 first conversation is free — so nothing promises away what is being charged for. `WhatYouGet` is a
 three-tier ladder carrying all three prices; the home timeline is four steps, not three. Rule 6c
 makes the price mandatory on any page that names the consultation (proven red, then green).
+
+## The calm pass — "too chaotic, crowded and confusing" (4 September 2026)
+
+Measured before cutting, with `scripts/density.py` at 360 px: it counts screens, sections, boxes
+(a container with a fill or four borders — a hairline divider is not a box), how many times the
+ground colour changes, buttons, chips and any visible string repeated on a page.
+
+**What was actually wrong**, in the order it mattered:
+
+1. **The ground changed seven times on home**, six on About and on every condition page. Every
+   section had its own tint, so nothing read as a break and nothing read as rest.
+2. **Walls of identical blanks.** Stories drew "फ़ोटो जल्द" twelve times; About drew
+   "[कार्यक्रम का नाम]" nine times, "[जाँच का लिंक]" six, "[प्रमाणपत्र]" five. It reads as broken
+   rather than unfinished.
+3. **The same thing said twice.** Home explained the steps twice — "आगे क्या होगा" and
+   "आपको क्या मिलेगा" two screens apart — and repeated the batch price in a timetable the ladder
+   already carried. Condition pages repeated home's whole three-tier ladder. Four identical batch
+   buttons; six identical share links.
+
+**What shipped:** three grounds per page and hairlines everywhere else (**rule 6d**, proven red);
+`pending()` collapses only *identical* blank rows to one example plus a count, so a row with real
+words keeps its place and everything returns the moment she fills it in; home lost the duplicate
+timetable and one of its two step explanations; condition pages lost the duplicated ladder and one
+of two identical asks; About folded its numbers and its certificate into the sections they belong
+to; the empty gallery became one sentence; each batch button names its own batch.
+
+| | Before | After |
+|---|---|---|
+| Boxes across 8 pages | 179 | **147** |
+| Sections | 40 | **37** |
+| Home | 9.1 screens, 7 grounds | **7.5 screens, 3 grounds** |
+| शुगर | 8.9 screens, 6 grounds | **7.7 screens, 3 grounds** |
+| About | 8.3 screens, 9 sections | **7.6 screens, 7 sections** |
+| Stories | 45 boxes, 28 chips | **29 boxes, 22 chips** |
+
+Text under 16 px, contrast failures, tap failures and sideways overflow all stayed at their
+post-Round-6 values, so none of this was bought with legibility.

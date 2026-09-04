@@ -7,8 +7,7 @@ import SiteShell from "@/components/SiteShell";
 import { SlipPad } from "@/components/SlipPad";
 import { WhatYouGet } from "@/components/WhatYouGet";
 import { ResultCard } from "@/components/StoryCard";
-import { NextSteps } from "@/components/Timeline";
-import { Timetable } from "@/components/Timetable";
+import { MedicinePanel } from "@/components/Timeline";
 import { WhoTeaches } from "@/components/WhoTeaches";
 import { stories, ui } from "@/lib/content";
 import { href, type Lang } from "@/lib/routes";
@@ -33,7 +32,9 @@ export default function Home({ lang }: { lang: Lang }) {
       <section>
         <div className="wrap flex flex-col gap-2 py-6 md:grid md:grid-cols-[1.3fr_1fr] md:gap-14 md:py-16">
           <DiseaseRows lang={lang} />
-          <NextSteps lang={lang} />
+          <div className="pt-2 md:pt-12">
+            <MedicinePanel lang={lang} />
+          </div>
         </div>
       </section>
 
@@ -58,7 +59,7 @@ export default function Home({ lang }: { lang: Lang }) {
       </section>
 
       {/* 4 · what you get, and the slip at the head of it ---------------- */}
-      <section>
+      <section className="border-t border-rule">
         <div className="wrap grid gap-6 section-pad md:grid-cols-2 md:items-start md:gap-14">
           <div className="flex flex-col gap-5">
             <WhatYouGet lang={lang} />
@@ -73,27 +74,14 @@ export default function Home({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      {/* 5 · the timetable and the fee ------------------------------------ */}
-      <section style={{ background: "var(--color-apricot)" }}>
-        <div className="wrap flex flex-col gap-3.5 section-pad md:max-w-[880px]">
-          <div className="flex items-baseline justify-between gap-3">
-            <h2 className="h2">{ui("home.batchesTitle", lang)}</h2>
-            <Link href={href("batches", lang)} className="tap whitespace-nowrap font-bold cap">
-              {ui("home.fullDetail", lang)}
-            </Link>
-          </div>
-          <Timetable lang={lang} />
-        </div>
-      </section>
-
-      {/* 6 · who teaches ---------------------------------------------------- */}
-      <section>
+      {/* 5 · who teaches ---------------------------------------------------- */}
+      <section className="border-t border-rule">
         <div className="wrap section-pad">
           <WhoTeaches lang={lang} />
         </div>
       </section>
 
-      {/* 7 · the one ask ---------------------------------------------------- */}
+      {/* 6 · the one ask ---------------------------------------------------- */}
       <Band lang={lang} routeKey="home" source="home" />
     </SiteShell>
   );

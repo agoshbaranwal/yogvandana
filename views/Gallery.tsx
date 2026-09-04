@@ -8,6 +8,9 @@ import type { Lang } from "@/lib/routes";
    so they live on the same page, under it. */
 
 export function GallerySection({ lang }: { lang: Lang }) {
+  /* Until a single photograph exists, a grid of a dozen identical empty
+     frames is noise. One sentence says the same thing and takes a line. */
+  const anyPhoto = gallery.some((g) => picture(g.image));
   const shots: Shot[] = gallery.map((g) => ({
     id: g.id,
     theme: g.theme,
@@ -25,6 +28,7 @@ export function GallerySection({ lang }: { lang: Lang }) {
         <p className="body max-w-[62ch]" style={{ color: "var(--color-muted)" }}>
           {ui("gallery.lead", lang)}
         </p>
+        {anyPhoto ? (
         <GalleryGrid
           shots={shots}
           themes={GALLERY_THEMES.map((th) => ({ slug: th, label: ui(`gallery.${th}`, lang) }))}
@@ -36,6 +40,9 @@ export function GallerySection({ lang }: { lang: Lang }) {
           photoLabel={ui("photo.comingSoon", lang)}
           viewerLabel={ui("gallery.title", lang)}
         />
+        ) : (
+          <p className="cap">{ui("pending.photos", lang)}</p>
+        )}
       </div>
     </section>
   );

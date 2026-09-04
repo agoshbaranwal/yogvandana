@@ -202,6 +202,27 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
   }
 }
 
+/* 6d — a page rests on three grounds, not seven ---------------------------- */
+{
+  /* A tint should mark a real change of subject. When every section gets its
+     own, the eye is re-oriented a dozen times on the way down and the page
+     reads as chaos. Three grounds: the page itself, one accent that carries
+     the proof, and the saffron the final ask sits on. */
+  const bad = [];
+  for (const f of pages) {
+    const html = read(f);
+    const grounds = new Set();
+    /* the ground a section paints itself, however the build wrote it */
+    for (const m of html.matchAll(/<section[^>]*style="[^"]*background:\s*([^;"]+)/g))
+      grounds.add(m[1].trim().replace(/\s+/g, ""));
+    for (const m of html.matchAll(/<section[^>]*class="[^"]*\b(first|dawn)\b/g)) grounds.add(m[1]);
+    if (grounds.size > 3) bad.push(`${rel(f)}: ${grounds.size} (${[...grounds].join(", ")})`);
+  }
+  add("6d", "A page rests on at most three grounds: the page, one accent, and the ask",
+    bad.length === 0 ? "pass" : "fail",
+    bad.slice(0, 6).join("; ") || `${pages.length} pages checked`);
+}
+
 /* 7 — the claim, word for word -------------------------------------------- */
 {
   const HI = "योग से हर बीमारी ठीक हो सकती है।";

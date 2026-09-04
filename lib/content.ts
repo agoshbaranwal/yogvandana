@@ -19,6 +19,38 @@ export function t(text: Text | undefined, lang: Lang): string {
   return text[lang] ?? "";
 }
 
+/** Items whose label is still a bracketed blank collapse to one example and a
+ *  count. Five identical "[प्रमाणपत्र]" rows read as a broken page; one row and
+ *  "and 4 more once she sends them" reads as work in progress. Anything real
+ *  always shows, in its own order, and the moment she fills these in they all
+ *  come back on their own. */
+export function pending<T>(
+  items: T[],
+  label: (item: T) => string,
+): { shown: T[]; hidden: number } {
+  /* Only rows that are indistinguishable collapse: the same blank label twice
+     or more. A row with real words keeps its place even if a date inside it is
+     still a blank, because it is telling the reader something. */
+  const counts = new Map<string, number>();
+  for (const i of items) {
+    const l = label(i);
+    counts.set(l, (counts.get(l) ?? 0) + 1);
+  }
+  const repeated = new Set(
+    [...counts].filter(([l, n]) => n > 1 && isTodo(l)).map(([l]) => l),
+  );
+  if (repeated.size === 0) return { shown: items, hidden: 0 };
+  const kept = new Set<string>();
+  const shown = items.filter((i) => {
+    const l = label(i);
+    if (!repeated.has(l)) return true;
+    if (kept.has(l)) return false;
+    kept.add(l);
+    return true;
+  });
+  return { shown, hidden: items.length - shown.length };
+}
+
 /** A value that is still to be filled in reads as "[...]". */
 export function isTodo(value: string): boolean {
   return /\[[^\]]+\]/.test(value);

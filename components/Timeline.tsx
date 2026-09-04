@@ -54,7 +54,7 @@ export function MedicinePanel({ lang, body }: { lang: Lang; body?: string }) {
    own apricot band, from a tablet up they take the right-hand column. */
 export function NextSteps({ lang }: { lang: Lang }) {
   return (
-    <div className="bleed flex flex-col gap-4 px-4 py-8 md:mx-0 md:bg-transparent md:p-0" style={{ background: "var(--color-apricot)" }}>
+    <div className="flex flex-col gap-4 pt-6 md:pt-0">
       <h2 className="h2">{ui("home.stepsTitle", lang)}</h2>
       <Timeline lang={lang} />
       <MedicinePanel lang={lang} />

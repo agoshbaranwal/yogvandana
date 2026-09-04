@@ -6,7 +6,7 @@ import { AilmentIcon } from "@/components/Icons";
 import { breadcrumbSchema, courseSchema, faqSchema, Jsonld } from "@/components/Jsonld";
 import SiteShell from "@/components/SiteShell";
 import { SlipPad } from "@/components/SlipPad";
-import { WhatYouGet } from "@/components/WhatYouGet";
+import { PriceLine } from "@/components/WhatYouGet";
 import { ResultCard } from "@/components/StoryCard";
 import { MedicinePanel } from "@/components/Timeline";
 import { Tx } from "@/components/Tx";
@@ -163,30 +163,21 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
       </section>
 
       {/* 3 · what you get for this disease, and the slip at the head ----- */}
-      <section style={{ background: "var(--color-sky)" }}>
-        <div className="wrap grid gap-6 section-pad md:grid-cols-2 md:items-start md:gap-14">
-          <div className="flex flex-col gap-5">
-            <WhatYouGet lang={lang} />
-            <Link
-              href="#booking-band"
-              data-ev="talk_cta"
-              data-ev-source="what-you-get"
-              data-ev-slug={ailment.slug}
-              className="btn btn-primary self-start"
-            >
-              {ui("ailment.talkAbout", lang).replace("{x}", name)}
-            </Link>
+      <section className="border-t border-rule">
+        <div className="wrap grid gap-5 section-pad md:grid-cols-2 md:items-center md:gap-14">
+          <div className="flex flex-col gap-3">
+            <h2 className="h2">{ui("ailment.slipTitle", lang).replace("{x}", name)}</h2>
+            <p className="body max-w-[44ch]" style={{ color: "var(--color-heroink)" }}>
+              {ui("ailment.slipNote", lang)}
+            </p>
+            <PriceLine lang={lang} />
           </div>
-          <div className="flex flex-col gap-2.5">
-            <h2 className="h3">{ui("ailment.slipTitle", lang).replace("{x}", name)}</h2>
-            <SlipPad lang={lang} disease={`${name} · ${t(ailment.sub, lang)}`} edge="var(--color-sky)" />
-            <p className="cap">{ui("ailment.slipNote", lang)}</p>
-          </div>
+          <SlipPad lang={lang} disease={`${name} · ${t(ailment.sub, lang)}`} edge="var(--color-ivory)" />
         </div>
       </section>
 
       {/* 4 · the first class, as a clock ------------------------------------ */}
-      <section>
+      <section className="border-t border-rule">
         <div className="wrap flex flex-col gap-3 section-pad md:max-w-[880px]">
           <h2 className="h2">{ui("ailment.firstClassTitle", lang)}</h2>
           <ol className="flex flex-col border-t border-rule">
@@ -208,7 +199,7 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
       </section>
 
       {/* 5 · people with this, who felt the difference ---------------------- */}
-      <section style={{ background: "var(--color-apricot)" }}>
+      <section style={{ background: "var(--color-sky)" }}>
         <div className="wrap flex flex-col gap-3 section-pad">
           <div className="flex items-baseline justify-between gap-3">
             <h2 className="h2">{ui("ailment.studentsTitle", lang).replace("{x}", name)}</h2>
@@ -234,7 +225,7 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
       </section>
 
       {/* 6 · which batch, in one line --------------------------------------- */}
-      <section>
+      <section className="border-t border-rule">
         <div className="wrap flex flex-col gap-3 section-pad md:max-w-[880px]">
           <h2 className="h2">
             {ui("ailment.batchTitle", lang)
@@ -265,7 +256,7 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
       </section>
 
       {/* 7 · questions ------------------------------------------------------ */}
-      <section>
+      <section className="border-t border-rule">
         <div className="wrap flex flex-col gap-2 pb-10 md:max-w-[880px]">
           <h2 className="h2 pb-2">{ui("ailment.faqTitle", lang)}</h2>
           <FaqList items={ailment.faq} lang={lang} openFirst />
