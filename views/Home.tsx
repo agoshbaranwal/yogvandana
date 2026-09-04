@@ -49,7 +49,7 @@ export default function Home({ lang }: { lang: Lang }) {
               {ui("cta.allStories", lang)}
             </Link>
           </div>
-          <ul className="grid gap-3 md:grid-cols-3 md:gap-5">
+          <ul className="grid gap-3 md:grid-cols-3 md:gap-5 [&>li]:min-w-0">
             {shown.map((s, i) => (
               <li key={s.id} className={i === 2 ? "hidden md:block" : ""}>
                 <ResultCard story={s} lang={lang} showVideo={i === 0} />

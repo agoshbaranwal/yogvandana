@@ -13,7 +13,7 @@ export default function Filter({
   items,
   allLabel,
   emptyLabel,
-  className = "grid gap-2.5 md:grid-cols-2 md:gap-5",
+  className = "grid gap-2.5 md:grid-cols-2 md:gap-5 [&>li]:min-w-0",
   event,
 }: {
   chips: { slug: string; label: string }[];

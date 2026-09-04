@@ -56,15 +56,15 @@ export function ResultCard({
       </div>
 
       {hasResult && metric ? (
-        <div className="flex items-center gap-3 rounded-[12px] px-3.5 py-3" style={{ background: "var(--color-ivory)" }}>
-          <div className="flex flex-col">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-[12px] px-3.5 py-3" style={{ background: "var(--color-ivory)" }}>
+          <div className="flex min-w-0 flex-col">
             <p className="label normal-case">{`${metric} ${ui("stories.before", lang)}`}</p>
             <p className="num page-title" style={{ color: "var(--color-muted)" }}>
               <Tx>{before}</Tx>
             </p>
           </div>
           <LongArrowIcon size={30} style={{ color: "var(--color-deep)" }} />
-          <div className="flex flex-col">
+          <div className="flex min-w-0 flex-col">
             <p className="label" style={{ color: "var(--color-deeper)" }}>
               {ui("stories.after", lang)}
             </p>
@@ -74,6 +74,7 @@ export function ResultCard({
           </div>
           {tail.length > 0 ? (
             <div className="ml-auto flex flex-col items-end gap-1 text-right">
+              {/* wraps under the numbers when the card is narrow */}
               {change ? (
                 <span className="result-pill">
                   <Tx>{change}</Tx>

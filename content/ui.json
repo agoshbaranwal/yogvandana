@@ -653,8 +653,8 @@
       "en": "Video: Vandana on herself and her classes. 90 seconds."
     },
     "gurusTitle": {
-      "hi": "मेरे गुरु और मेरी पढ़ाई",
-      "en": "My teachers and my study"
+      "hi": "मेरे गुरु",
+      "en": "My teachers"
     },
     "journeyTitle": {
       "hi": "सफ़र",
@@ -727,6 +727,22 @@
     "certsWithScan": {
       "hi": "प्रमाणपत्र, स्कैन के साथ",
       "en": "certificates, with scans"
+    },
+    "certNo": {
+      "hi": "प्रमाणपत्र नं. {n}",
+      "en": "Certificate no. {n}"
+    },
+    "expTitle": {
+      "hi": "अनुभव और सदस्यता",
+      "en": "Experience and memberships"
+    },
+    "since": {
+      "hi": "{y} से",
+      "en": "since {y}"
+    },
+    "fullList": {
+      "hi": "सभी {n} सम्मान और कार्यक्रम",
+      "en": "All {n} honours and events"
     }
   },
   "credentials": {
@@ -929,6 +945,14 @@
     "phoneTodo": {
       "hi": "[फ़ोन नंबर]",
       "en": "[phone number]"
+    },
+    "safety": {
+      "hi": "वे कभी आपका यूपीआई पिन या ओटीपी नहीं माँगेंगी।",
+      "en": "She will never ask for your UPI PIN or an OTP."
+    },
+    "callTitle": {
+      "hi": "कॉल करें",
+      "en": "Call"
     }
   },
   "students": {

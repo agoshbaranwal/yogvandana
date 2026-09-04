@@ -1,7 +1,7 @@
 import { site, t, ui } from "@/lib/content";
 import type { Lang } from "@/lib/routes";
 import { shareHref } from "@/lib/whatsapp";
-import { PlayIcon, ShareIcon, StarIcon } from "./Icons";
+import { PlayIcon, ShareIcon } from "./Icons";
 import { Tx } from "./Tx";
 
 /* ------------------------------ numbers strip ---------------------------- */
@@ -13,52 +13,24 @@ function countAttrs(value: string) {
   return { "data-count": m[1].replace(/,/g, ""), "data-count-suffix": m[2] };
 }
 
-export function NumbersStrip({ lang, long = false }: { lang: Lang; long?: boolean }) {
+export function NumberCards({ lang }: { lang: Lang }) {
   const shown = site.numbers.filter((n) => n.value.trim() !== "");
   if (shown.length === 0) return null;
-  const g = site.google;
-  const hasGoogle = g.rating.trim() !== "";
-
   return (
-    <div className="border-b border-rule">
-      <div className="wrap py-4 md:py-5">
-        <dl
-          className={`grid grid-cols-2 gap-x-4 gap-y-5 md:grid-cols-4 ${long ? "md:gap-8" : "md:gap-6"}`}
-          aria-label={lang === "hi" ? "एक नज़र में" : "At a glance"}
-        >
-          {shown.map((n) => (
-            <div
-              key={n.short.en}
-              className="flex flex-col items-center text-center md:flex-row md:items-baseline md:gap-2.5 md:text-left"
-            >
-              {/* A real number counts up once. A number still to come is
-                  a dotted blank and stays perfectly still. */}
-              <dd className="num h2" {...countAttrs(n.value)}>
-                <Tx>{n.value}</Tx>
-              </dd>
-              <dt className="leading-tight cap" style={{ color: "var(--color-muted)" }}>
-                <span className="md:hidden">{t(n.short, lang)}</span>
-                <span className="hidden md:inline">
-                  <Tx>{t(long ? n.label : n.short, lang)}</Tx>
-                </span>
-              </dt>
-            </div>
-          ))}
-        </dl>
-        {hasGoogle ? (
-          <p className="cap mt-2.5 text-center md:text-right">
-            {ui("home.googleLine", lang)}{" "}
-            <span className="font-bold" style={{ color: "var(--color-deep)" }}>
-              <StarIcon size={13} /> {g.rating}
-            </span>
-            {g.reviews ? ` · ${g.reviews} ${ui("home.googleReviews", lang)}` : ""}
-            {site.whatsappGroupCount
-              ? ` · ${site.whatsappGroupCount} ${ui("home.inGroup", lang)}`
-              : ""}
+    <ul className="grid grid-cols-2 gap-2.5 md:grid-cols-4 md:gap-4" aria-label={lang === "hi" ? "एक नज़र में" : "At a glance"}>
+      {shown.map((n) => (
+        <li key={n.short.en} className="card flex flex-col gap-0.5 md:px-5 md:py-4">
+          {/* A real number counts up once. A number still to come is a dotted
+              blank and stays perfectly still. */}
+          <p className="num page-title" {...countAttrs(n.value)}>
+            <Tx>{n.value}</Tx>
           </p>
-        ) : null}
-      </div>
-    </div>
+          <p className="cap">
+            <Tx>{t(n.label, lang)}</Tx>
+          </p>
+        </li>
+      ))}
+    </ul>
   );
 }
 

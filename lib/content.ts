@@ -119,6 +119,8 @@ const SiteSchema = z.object({
   city: Text,
   motto: z.string(),
   mottoGloss: Text,
+  /* the about page's two paragraphs: what the name means, and her own words */
+  about: z.object({ intro: Text, words: Text }),
   claim: Text,
   sinceYear: Text,
   morningTime: Text,
@@ -156,6 +158,8 @@ const SiteSchema = z.object({
        until then. A batch can override it with its own joinLink. */
     paymentPage: payUrl,
   }),
+  /* the id of the certificate the certifying body issued: shown large on the about page */
+  primaryCredential: z.string(),
   analyticsId: z.string(),
   searchConsole: z.string(),
   updated: z.string(),
@@ -333,6 +337,8 @@ const CredentialSchema = z.object({
   name: Text,
   body: Text,
   year: z.string(),
+  /* the certificate number as printed; "" until she reads it off the paper */
+  number: z.string(),
   hours: Text,
   image: z.string(),
   verifyUrl: z.string(),

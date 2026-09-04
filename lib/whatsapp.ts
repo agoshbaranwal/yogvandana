@@ -12,16 +12,20 @@ export function waMessage(opts: {
   ailment?: string;
   time?: string;
   batch?: string;
+  /* the contact form: who is writing, and what they typed */
+  name?: string;
+  note?: string;
   page?: string;
   /* What the preview on the page shows in place of the address. She still
      receives the full address; the reader sees "(पन्ना: शुगर)". */
   pageLabel?: string;
 }): string {
-  const { lang, kind, ailment, time, batch, page, pageLabel } = opts;
+  const { lang, kind, ailment, time, batch, name, note, page, pageLabel } = opts;
   const hi = lang === "hi";
   const parts: string[] = [];
 
   parts.push(hi ? "नमस्ते वंदना जी," : "Hello Vandana ji,");
+  if (name) parts.push(hi ? `मैं ${name} हूँ।` : `I am ${name}.`);
 
   if (ailment) {
     parts.push(hi ? `मुझे ${ailment} है।` : `I have ${ailment}.`);
@@ -58,6 +62,7 @@ export function waMessage(opts: {
     parts.push(hi ? "मुझे जानकारी चाहिए।" : "I would like to know more.");
   }
 
+  if (note) parts.push(note.trim());
   const where = pageLabel ?? page;
   if (where) parts.push(hi ? `(पन्ना: ${where})` : `(page: ${where})`);
   return parts.filter(Boolean).join(" ");

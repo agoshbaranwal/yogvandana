@@ -2,40 +2,42 @@
 
 import { useState } from "react";
 import type { Lang } from "@/lib/routes";
-import { telHref, waHref, waMessage } from "@/lib/whatsapp";
-import { PhoneIcon, WhatsAppIcon } from "./Icons";
+import { waHref, waMessage } from "@/lib/whatsapp";
+import { WhatsAppIcon } from "./Icons";
 
-/* Plain HTML that posts to a form service. Until a key is set the form still
-   shows, so the page is complete, and the buttons hand over to WhatsApp. */
+/* Plain HTML that posts to a form service when there is one. Until then the
+   same form writes the WhatsApp message for the visitor: name, disease and
+   what they typed, so nothing they filled in is lost. */
 
 export default function ContactForm({
   lang,
   endpoint,
   whatsappNumber,
-  phone,
   page,
+  pageLabel,
   labels,
-  interests,
   ailments,
 }: {
   lang: Lang;
   endpoint: string;
   whatsappNumber: string;
-  phone: string;
   page: string;
+  pageLabel: string;
   labels: Record<string, string>;
-  interests: { key: string; label: string }[];
   ailments: { slug: string; label: string }[];
 }) {
-  const [interest, setInterest] = useState(interests[0]?.key ?? "");
   const [ailment, setAilment] = useState("");
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
   const [sent, setSent] = useState(false);
 
-  const chosenAilment = ailments.find((a) => a.slug === ailment)?.label;
+  const all = [...ailments, { slug: "other", label: labels.other }];
+  const chosen = ailments.find((a) => a.slug === ailment)?.label;
   const wa = waHref(
     whatsappNumber,
-    waMessage({ lang, kind: "talk", ailment: chosenAilment, page }),
+    waMessage({ lang, kind: "talk", ailment: chosen, name: name.trim() || undefined, note: message, page }),
   );
+  void pageLabel;
 
   if (sent) {
     return (
@@ -45,6 +47,9 @@ export default function ContactForm({
     );
   }
 
+  const field = "min-h-[56px] rounded-[12px] border-[1.5px] px-3.5 py-3";
+  const fieldStyle = { borderColor: "#D9C7A8", background: "var(--color-paper)" };
+
   return (
     <form
       id="form"
@@ -53,6 +58,7 @@ export default function ContactForm({
       onSubmit={(e) => {
         if (!endpoint) {
           e.preventDefault();
+          window.open(wa, "_blank", "noopener");
           return;
         }
         setSent(true);
@@ -61,16 +67,8 @@ export default function ContactForm({
     >
       <input type="hidden" name="_subject" value="Yog Vandana — website enquiry" />
       <input type="hidden" name="page" value={page} />
-      <input type="hidden" name="interest" value={interest} />
       <input type="hidden" name="ailment" value={ailment} />
-      <input
-        type="text"
-        name="_gotcha"
-        tabIndex={-1}
-        autoComplete="off"
-        className="hidden"
-        aria-hidden="true"
-      />
+      <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
 
       <div className="flex flex-col gap-1.5">
         <label className="cap font-bold" htmlFor="cf-name" style={{ color: "var(--color-kohl)" }}>
@@ -84,8 +82,11 @@ export default function ContactForm({
           name="name"
           required
           autoComplete="name"
-          className="min-h-[50px] rounded-[12px] border-[1.5px] px-3.5 py-3 body"
-          style={{ borderColor: "#D9C7A8", background: "var(--color-paper)" }}
+          enterKeyHint="next"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className={`${field} body`}
+          style={fieldStyle}
         />
       </div>
 
@@ -103,33 +104,19 @@ export default function ContactForm({
           inputMode="tel"
           required
           autoComplete="tel"
+          enterKeyHint="next"
           placeholder="+91"
-          className="min-h-[50px] rounded-[12px] border-[1.5px] px-3.5 py-3 body"
-          style={{ borderColor: "#D9C7A8", background: "var(--color-paper)" }}
+          className={`${field} body`}
+          style={fieldStyle}
         />
       </div>
 
       <fieldset className="flex flex-col gap-2">
-        <legend className="cap mb-1 font-bold" style={{ color: "var(--color-kohl)" }}>{labels.about}</legend>
-        <div className="flex flex-wrap gap-1.5">
-          {interests.map((i) => (
-            <button
-              key={i.key}
-              type="button"
-              className="tchip"
-              aria-pressed={i.key === interest}
-              onClick={() => setInterest(i.key)}
-            >
-              {i.label}
-            </button>
-          ))}
-        </div>
-      </fieldset>
-
-      <fieldset className="flex flex-col gap-2">
-        <legend className="cap mb-1 font-bold" style={{ color: "var(--color-kohl)" }}>{labels.ailment}</legend>
-        <div className="flex flex-wrap gap-1.5">
-          {ailments.map((a) => (
+        <legend className="cap mb-1.5 font-bold" style={{ color: "var(--color-kohl)" }}>
+          {labels.ailment}
+        </legend>
+        <div className="flex flex-wrap gap-2">
+          {all.map((a) => (
             <button
               key={a.slug}
               type="button"
@@ -152,44 +139,36 @@ export default function ContactForm({
           name="message"
           rows={4}
           placeholder={labels.messageHint}
-          className="min-h-[110px] rounded-[12px] border-[1.5px] px-3.5 py-3 body"
-          style={{ borderColor: "#D9C7A8", background: "var(--color-paper)" }}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          className={`${field} body min-h-[110px]`}
+          style={fieldStyle}
         />
       </div>
 
       {endpoint ? (
-        <button type="submit" data-ev="form_submit" data-ev-source="contact" className="btn btn-primary">
+        <button type="submit" data-ev="form_submit" data-ev-source="contact" className="btn btn-dark">
           {labels.send}
         </button>
       ) : (
-        <div className="flex flex-col gap-2.5">
-          <p className="cap">{labels.formOffline}</p>
-          <a
-            href={wa}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-ev="whatsapp_click"
-            data-ev-source="contact-form"
-            className="btn btn-primary"
-          >
-            <WhatsAppIcon size={20} />
-            {labels.whatsapp}
-          </a>
-          {phone ? (
-            <a
-              href={telHref(phone)}
-              data-ev="call_click"
-              data-ev-source="contact-form"
-              className="btn btn-outline"
-            >
-              <PhoneIcon size={18} />
-              {labels.call}
-            </a>
-          ) : null}
-        </div>
+        /* no form service yet: the same button sends it on WhatsApp, with
+           everything typed above already in the message */
+        <a
+          href={wa}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-ev="whatsapp_click"
+          data-ev-source="contact-form"
+          className="btn btn-dark"
+        >
+          <WhatsAppIcon size={22} />
+          {labels.whatsapp}
+        </a>
       )}
 
-      <p className="cap">{labels.privacyNote}</p>
+      <p className="cap">
+        {labels.privacyNote} {labels.safety}
+      </p>
     </form>
   );
 }

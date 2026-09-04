@@ -169,6 +169,11 @@ length of a class, `daysOn` the weekdays as numbers, Monday = 0 … Sunday = 6, 
 Saturday is `[0,1,2,3,4,5]`. Until you give `daysOn` the timetable shows seven blank days — it
 does not guess a week.
 
+**The about page** (`content/site.json`): `about.intro` is the paragraph under the motto,
+`about.words` her own two or three lines; `primaryCredential` is the id of the certificate the
+certifying body issued (it is shown large, with its check link); each certificate in
+`content/credentials/` can carry its `number` as printed.
+
 **Her facts** (`content/site.json`): `certifyingBody` is the body that certified her, spelled
 the way it appears on the certificate (say **"Yoga Certification Board, Ministry of AYUSH"** if
 that is what it is); `university` is where the MA is from; `classMinutes` is the class ([50]),

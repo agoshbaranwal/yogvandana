@@ -217,7 +217,7 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
             </Link>
           </div>
           {stories.length > 0 ? (
-            <ul className="grid gap-3 md:grid-cols-2 md:gap-5">
+            <ul className="grid gap-3 md:grid-cols-2 md:gap-5 [&>li]:min-w-0">
               {stories.map((s, i) => (
                 <li key={s.id}>
                   <ResultCard story={s} lang={lang} showVideo={i === 0} />

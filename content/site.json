@@ -31,8 +31,18 @@
   },
   "motto": "सर्वे सन्तु निरामयाः",
   "mottoGloss": {
-    "hi": "सब रोग-मुक्त हों। यही हमारी वंदना है।",
-    "en": "May all be free from disease. That is our prayer."
+    "hi": "सब रोग-मुक्त हों।",
+    "en": "May all be free from disease."
+  },
+  "about": {
+    "intro": {
+      "hi": "यही मेरी वंदना है, और यही इस नाम का मतलब। [X] साल से मैं यही देख रही हूँ: सही तरीके से, रोज़, किसी की नज़र के सामने किया गया योग हर बीमारी को ठीक कर सकता है।",
+      "en": "That is my prayer, and that is what this name means. For [X] years I have seen the same thing: yoga done properly, every day, with someone watching, can cure any disease."
+    },
+    "words": {
+      "hi": "[उनके अपने शब्दों में दो-तीन पंक्तियाँ: वे क्यों सिखाती हैं, और किस तरह के लोगों के साथ काम करना उन्हें सबसे अच्छा लगता है।]",
+      "en": "[Two or three lines in her own words: why she teaches, and the kind of students she most likes to work with.]"
+    }
   },
   "claim": {
     "hi": "योग से हर बीमारी ठीक हो सकती है।",
@@ -164,5 +174,6 @@
   },
   "analyticsId": "",
   "searchConsole": "",
-  "updated": "2026-09-03"
+  "updated": "2026-09-03",
+  "primaryCredential": "c2"
 }

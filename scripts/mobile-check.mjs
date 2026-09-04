@@ -35,7 +35,8 @@ for (const file of files) {
 
 /* 2 — a field never asks a phone to zoom ---------------------------------- */
 for (const file of files) {
-  const src = fs.readFileSync(file, "utf8");
+  /* an arrow function inside an attribute has a ">" in it; read past it */
+  const src = fs.readFileSync(file, "utf8").replace(/=>/g, "→");
   for (const m of src.matchAll(/<(input|textarea|select)\b([^>]*)>/g)) {
     if (/type="hidden"/.test(m[2]) || /className="hidden"/.test(m[2])) continue;
     if (!/\b(body|cap|h3|h2)\b/.test(m[2]))
