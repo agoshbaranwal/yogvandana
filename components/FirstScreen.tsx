@@ -27,8 +27,10 @@ export function FirstScreen({ lang }: { lang: Lang }) {
 
   return (
     <section className="first">
-      {/* the phone: her photograph is the screen, her name reads off it ---- */}
-      <div className="relative h-[340px] overflow-hidden md:hidden">
+      {/* the phone: her photograph is the screen, her name reads off it. With
+          no photograph there is nothing to read off, so the block is not
+          rendered at all and her name moves into the words below. */}
+      <div className={`relative h-[340px] overflow-hidden md:hidden ${pic ? "" : "hidden"}`}>
         {pic ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -66,7 +68,7 @@ export function FirstScreen({ lang }: { lang: Lang }) {
       {/* the promise, on both --------------------------------------------- */}
       <div className="wrap wrap-wide md:grid md:min-h-[560px] md:grid-cols-[1fr_380px] md:items-center md:gap-16">
         <div className="flex flex-col gap-3.5 pb-7 pt-5 md:gap-5 md:py-16">
-          <p className="hidden font-bold body md:block" style={{ color: "var(--color-deeper)" }}>
+          <p className={`font-bold body ${pic ? "hidden md:block" : "block"}`} style={{ color: "var(--color-deep)" }}>
             <Tx>{`${t(site.teacher, lang)} · ${t(site.credentialShort, lang)} · ${certified} · ${t(site.city, lang)}`}</Tx>
           </p>
           <h1 className="claim md:max-w-[13ch]">{t(site.claim, lang)}</h1>
@@ -98,15 +100,16 @@ export function FirstScreen({ lang }: { lang: Lang }) {
           <p className="cap text-center sm:text-left">{ui("home.heroNote", lang)}</p>
         </div>
 
-        {/* the desktop portrait: a frame that says what belongs in it */}
-        <div className="hidden md:block">
+        {/* the portrait: a frame that says what belongs in it. On a phone it
+            appears only when there is no photograph to bleed off the top. */}
+        <div className={pic ? "hidden md:block" : "block"}>
           <Photo
             src={site.photos.portrait}
             alt={t(site.teacher, lang)}
             label={ui("photo.first", lang)}
             ratio="4 / 5"
             rounded="rounded-[12px]"
-            className="w-full"
+            className="w-full max-h-[300px] md:max-h-none"
             sizes="380px"
             priority
           />

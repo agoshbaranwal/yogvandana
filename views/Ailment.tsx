@@ -102,7 +102,7 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
                 {ui("cta.backToAilments", lang)}
               </Link>
               <span aria-hidden="true">›</span>
-              <span className="chip" style={{ background: colour.ink }}>
+              <span className="chip">
                 {name}
               </span>
             </nav>

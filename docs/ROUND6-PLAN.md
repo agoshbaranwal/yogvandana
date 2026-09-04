@@ -223,3 +223,33 @@ words, at 16 px: "वंदना जी की फ़ोटो, क्लास
 small for words (avatars, logos) show the icon and keep the words for a screen reader. And an
 affordance is never drawn for something that does not exist: the "[60] सेकंड का वीडियो" pill on a
 story card only appears once the video link is real.
+
+## Round 8 — the foundation, rebuilt (4 September 2026)
+
+Agosh rejected two rounds of component options: *“None of these land. And I feel it’s also about the font,
+colours and layout… first we need to fix colours, layout and fonts.”* He was right — every round until then
+rearranged components inside a foundation that was itself the problem.
+
+**Measured, across five pages and 646 blocks of text:** 39% of all text at weight 800, so weight signalled
+nothing; 53% in the muted brown rather than ink, so the default reading colour was the faded one; all 240
+placeholders at the same weight as the words beside them, with a dotted underline on top; and only two nodes
+on the whole site larger than 38 px.
+
+Three complete foundations were built at `/r8/` — typeface, palette and layout together, applied to identical
+content at phone and desktop. **He chose Foundation 2, “Modern”.**
+
+| | Before | Now |
+|---|---|---|
+| Typeface | Baloo 2 + Montserrat | **Anek Devanagari alone**, variable, both scripts, one file |
+| Page / ink | #FBF8F1 cream / #231A12 brown-black | **#FCFCFB / #14120F** |
+| The action | #FF9933 neon saffron | **#E8730D**, and ink on it reads 6.2:1 |
+| Support tints | apricot + sandal + sky + paper-cream | **one**, #F4F1EC |
+| Text at weight 800 | **39%** | **3%** |
+| A blank | dotted underline, same weight as real words | a soft chip at normal weight, **and the brackets are no longer printed** |
+| Condition badges | four saturated family hues | one neutral badge |
+| The hero | a dawn gradient with an empty half | the page’s own paper; the header only floats when there is a photograph to float over |
+
+Two bugs the change exposed and fixed: with no portrait the phone hero reserved 340 px of near-blank paper and
+the absolutely-positioned header landed on top of her name; and rule 6 compared page text against content that
+still carried its brackets. Both are covered by the checks now. Every gate is green: 21 credibility rules, zero
+contrast failures on ten pages, 1% of text under 16 px.

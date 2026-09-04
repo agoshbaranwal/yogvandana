@@ -122,8 +122,16 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
     fs.readdirSync(path.join(ROOT, "content", "ailments")).filter((f) => f.endsWith(".json"))
       .map((f) => { const a = JSON.parse(fs.readFileSync(path.join(ROOT, "content", "ailments", f), "utf8")); return [a.slug, a]; }),
   );
-  /* an apostrophe comes out of the build as an entity; compare plain text */
-  const norm = (s) => s.replace(/&#x27;|&#39;|&rsquo;|’/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, "&").replace(/\s+/g, " ");
+  /* An apostrophe comes out of the build as an entity, and a fact still to be
+     filled in is written "[like this]" in the content but rendered as a chip
+     without its brackets — so both sides are compared on the words alone. */
+  const norm = (s) =>
+    s
+      .replace(/&#x27;|&#39;|&rsquo;|’/g, "'")
+      .replace(/&quot;/g, '"')
+      .replace(/&amp;/g, "&")
+      .replace(/[[\]]/g, "")
+      .replace(/\s+/g, " ");
   const should = pages.filter((f) => /^\/(rog|en\/conditions)\/[^/]+\/$/.test(rel(f)) || rel(f) === "/" || rel(f) === "/en/");
   const missing = should.filter((f) => {
     const body = norm(text(read(f)));
@@ -394,7 +402,7 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
     ["links", "deep", "ivory"],
     ["links on the apricot bands", "deep", "apricot"],
     ["the free band", "kohl", "bhagwa"],
-    ["the band's small print", "deeper", "bhagwa"],
+    ["the band's small print", "kohl", "bhagwa"],
     ["the hero eyebrow", "deeper", "apricot"],
     ["body on the hero", "heroink", "sky"],
     ["condition chips", "joint", "ivory"],

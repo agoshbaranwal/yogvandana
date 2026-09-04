@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "../globals.css";
-import { englishFontClass } from "@/lib/fonts-en";
+import { englishFontClass } from "@/lib/fonts";
 import { absolute, site, t } from "@/lib/content";
 
 export const metadata: Metadata = {

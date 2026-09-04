@@ -150,6 +150,13 @@ Every label on the site, in both languages. Say: **"Change the trial button to '
 
 ---
 
+## The look of the site, in one place
+
+The whole site is set in **Anek Devanagari** — one typeface for Hindi and English, with weight and size
+doing every job. Colours live in `app/globals.css` at the top: the page, the card, the reading ink, one
+muted grey for metadata, one support tint, one link colour and **one action colour** (the amber on the
+WhatsApp buttons). If you ever want to change the look, change those tokens and the whole site follows.
+
 ## Rows you have not filled in yet collapse on their own
 
 If five certificates all read "[प्रमाणपत्र]", the site shows one and says "and 4 more, once she

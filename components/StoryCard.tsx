@@ -1,4 +1,4 @@
-import { ailmentBySlug, FAMILY_COLOUR, isTodo, type Story, t, ui } from "@/lib/content";
+import { ailmentBySlug, isTodo, type Story, t, ui } from "@/lib/content";
 import type { Lang } from "@/lib/routes";
 import { LongArrowIcon, PlayIcon } from "./Icons";
 import { Photo } from "./Photo";
@@ -21,7 +21,6 @@ export function ResultCard({
   share?: React.ReactNode;
 }) {
   const ailment = ailmentBySlug(story.ailmentSlug);
-  const colour = ailment ? FAMILY_COLOUR[ailment.family] : FAMILY_COLOUR.metabolic;
   const metric = t(story.metric, lang).trim();
   const before = t(story.before, lang).trim();
   const after = t(story.after, lang).trim();
@@ -49,7 +48,7 @@ export function ResultCard({
           <p className="cap flex flex-wrap items-center gap-2">
             <Tx>{t(story.city, lang)}</Tx>
             {ailment ? (
-              <span className="chip" style={{ background: colour.ink }}>
+              <span className="chip">
                 {t(ailment.name, lang)}
               </span>
             ) : null}

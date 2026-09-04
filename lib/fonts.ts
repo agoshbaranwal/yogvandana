@@ -1,27 +1,23 @@
-import { Baloo_2 } from "next/font/google";
+import { Anek_Devanagari } from "next/font/google";
 
-/* Two faces, and only two: one for Devanagari, one for Latin.
+/* One typeface for the whole site, in both languages.
 
-   Baloo 2 carries both scripts, so a Hindi page sets everything — including
-   the English words inside it, like Zoom and WhatsApp — in one face. On the
-   English pages Montserrat leads and Baloo 2 sits behind it in the stack, so
-   the brand and the motto, which stay in Devanagari, pick it up without a
-   third family or a special class.
+   It used to be two: Baloo 2 for Devanagari and Montserrat for Latin. Baloo 2
+   is a rounded display face, and it was setting body copy, numbers and every
+   label — soft terminals, a blobby heaviest weight, and a Devanagari that
+   reads informal, which is the wrong register for a site about treating
+   disease. Agosh chose to replace it (round 8, "Modern").
 
-   Bundled at build time; no request ever goes to Google when a page loads.
-   Two weights each. A Devanagari weight is 60 to 110 KB and most of her
-   students open this on mobile data, so hierarchy is 400 against 800 and
-   nothing in between — the 600 went when it turned out to carry nothing
-   the 800 could not. */
+   Anek Devanagari was drawn this decade for Indian scripts and carries Latin
+   too, so a Hindi page and an English page use the same face and hierarchy is
+   made by weight and size alone. It is a variable font: one file covers every
+   weight we use, which is fewer bytes than the two static weights it replaces. */
 
-export const baloo = Baloo_2({
-  subsets: ["latin", "devanagari"],
-  weight: ["400", "800"],
+export const anek = Anek_Devanagari({
+  subsets: ["devanagari", "latin"],
   variable: "--font-hi",
   display: "swap",
 });
 
-/* Montserrat lives in lib/fonts-en.ts. next/font preloads every face a
-   module declares, so the English face must not be declared here: a Hindi
-   page imports this module and would otherwise fetch Montserrat for nothing. */
-export const hindiFontClass = baloo.variable;
+export const hindiFontClass = anek.variable;
+export const englishFontClass = anek.variable;

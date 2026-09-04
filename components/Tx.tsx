@@ -10,8 +10,10 @@ export function Tx({ children }: { children: string }) {
     <>
       {parts.map((part, i) =>
         part.startsWith("[") && part.endsWith("]") ? (
+          /* the chip itself says "not filled in yet", so the brackets that
+             mark it in the content file are not repeated on screen */
           <span className="todo" key={i}>
-            {part}
+            {part.slice(1, -1)}
           </span>
         ) : (
           <Fragment key={i}>{part}</Fragment>

@@ -92,7 +92,7 @@ export default function BookingBand({
 
         <div className="flex flex-col gap-3.5">
           <div className="flex flex-col gap-2">
-            <p className="label" style={{ color: "var(--color-deeper)" }}>
+            <p className="label" style={{ color: "var(--color-kohl)" }}>
               {step1}
             </p>
             <div className="flex flex-wrap gap-2">
@@ -112,7 +112,7 @@ export default function BookingBand({
 
           {showTime ? (
             <div className="flex flex-col gap-2">
-              <p className="label" style={{ color: "var(--color-deeper)" }}>
+              <p className="label" style={{ color: "var(--color-kohl)" }}>
                 {step2}
               </p>
               <div className="flex flex-wrap gap-2">
@@ -153,7 +153,7 @@ export default function BookingBand({
             <PhoneIcon size={20} />
             <Tx>{`${callLabel} · ${phoneShown}`}</Tx>
           </a>
-          <p className="cap" style={{ color: "var(--color-deeper)" }}>
+          <p className="cap" style={{ color: "var(--color-kohl)" }}>
             {previewLabel} “{shown}”
           </p>
         </div>

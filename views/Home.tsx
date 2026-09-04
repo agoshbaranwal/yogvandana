@@ -10,6 +10,8 @@ import { ResultCard } from "@/components/StoryCard";
 import { MedicinePanel } from "@/components/Timeline";
 import { WhoTeaches } from "@/components/WhoTeaches";
 import { stories, ui } from "@/lib/content";
+import { picture } from "@/lib/media";
+import { site } from "@/lib/content";
 import { href, type Lang } from "@/lib/routes";
 
 /* The home page, in the order a person with a disease decides: her face and
@@ -22,7 +24,7 @@ export default function Home({ lang }: { lang: Lang }) {
   const shown = stories.slice(0, 3);
 
   return (
-    <SiteShell lang={lang} routeKey="home" overlay>
+    <SiteShell lang={lang} routeKey="home" overlay={Boolean(picture(site.photos.portrait))}>
       <Jsonld data={[websiteSchema(lang), personSchema(lang)]} />
 
       {/* 1 · her face, the promise, a number ------------------------------ */}

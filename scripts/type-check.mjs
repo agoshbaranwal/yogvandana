@@ -70,12 +70,12 @@ for (const m of css.matchAll(/font-size:\s*([^;]+);/g)) {
 }
 const families = [...css.replace(/@font-face\s*\{[^}]*\}/g, "").matchAll(/font-family:\s*([^;]+);/g) /* an @font-face that DEFINES a fallback face is not a third family in use */].map((m) => m[1].trim());
 const strayFamily = families.find((f) => !/var\(--font-(hindi|english)\)/.test(f));
-if (strayFamily) problems.push(`app/globals.css  font-family: ${strayFamily} — Baloo 2 and Montserrat only`);
+if (strayFamily) problems.push(`app/globals.css  font-family: ${strayFamily} — Anek Devanagari is the only face`);
 
 if (problems.length) {
   console.error(`type: ${problems.length} problem(s)\n  ` + problems.join("\n  "));
   process.exit(1);
 }
 console.log(
-  `type: ${files.length} files clean · ${stepNames.size} steps (${[...stepNames].join(", ")}) · ${families.length} font-family declarations, both from the two faces`,
+  `type: ${files.length} files clean · ${stepNames.size} steps (${[...stepNames].join(", ")}) · ${families.length} font-family declarations, all from the one face`,
 );
