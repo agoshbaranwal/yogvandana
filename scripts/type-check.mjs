@@ -68,7 +68,7 @@ for (const m of css.matchAll(/font-size:\s*([^;]+);/g)) {
     problems.push(`app/globals.css  font-size: ${value} — every size comes from a --step- token`);
   }
 }
-const families = [...css.matchAll(/font-family:\s*([^;]+);/g)].map((m) => m[1].trim());
+const families = [...css.replace(/@font-face\s*\{[^}]*\}/g, "").matchAll(/font-family:\s*([^;]+);/g) /* an @font-face that DEFINES a fallback face is not a third family in use */].map((m) => m[1].trim());
 const strayFamily = families.find((f) => !/var\(--font-(hindi|english)\)/.test(f));
 if (strayFamily) problems.push(`app/globals.css  font-family: ${strayFamily} — Baloo 2 and Montserrat only`);
 

@@ -45,8 +45,8 @@
 
   /* One face per script. Montserrat has no Devanagari, so on an English page
      the brand and the motto fall through to Baloo 2 on their own. */
-  --font-hindi: var(--font-hi), "Noto Sans Devanagari", sans-serif;
-  --font-english: var(--font-en), var(--font-hi), "Helvetica Neue", Arial, sans-serif;
+  --font-hindi: var(--font-hi), "Baloo 2 Devanagari Fallback", "Noto Sans Devanagari", sans-serif;
+  --font-english: var(--font-en), var(--font-hi), "Baloo 2 Devanagari Fallback", "Helvetica Neue", Arial, sans-serif;
 
   --radius-card: 12px;
   --radius-panel: 20px;
@@ -86,6 +86,29 @@
     --step-display: clamp(48px, 4.6vw, 64px);
     --section-pad: 64px;
   }
+}
+
+/* ---------------------- the Devanagari fallback ------------------------- */
+/* Until Baloo 2 arrives the phone draws its own Devanagari face. Measured
+   against Baloo 2 at 18 px, Noto Sans Devanagari (Android) sets the same
+   sentence 1.4% narrower, Kohinoor (iPhone) 6.5% wider, Devanagari Sangam
+   1.2% wider; sized to match, the text keeps its line breaks when the real
+   font swaps in, and the page does not jump. The last rule whose local font
+   exists is the one used, so Android's sits last. */
+@font-face {
+  font-family: "Baloo 2 Devanagari Fallback";
+  src: local("Devanagari Sangam MN");
+  size-adjust: 98.8%;
+}
+@font-face {
+  font-family: "Baloo 2 Devanagari Fallback";
+  src: local("Kohinoor Devanagari");
+  size-adjust: 93.9%;
+}
+@font-face {
+  font-family: "Baloo 2 Devanagari Fallback";
+  src: local("Noto Sans Devanagari");
+  size-adjust: 101.4%;
 }
 
 /* ------------------------------- base ----------------------------------- */

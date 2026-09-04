@@ -111,13 +111,12 @@ export default function About({ lang }: { lang: Lang }) {
               <Silhouette />
             )}
             <div className="first-fade md:hidden" aria-hidden="true" />
-            <div className="on-dark absolute inset-x-4 bottom-5 flex flex-col gap-1.5 md:hidden" style={{ color: "var(--color-ivory)" }} data-on-photo="">
+            <div className="on-dark absolute inset-x-4 bottom-5 flex h-[150px] flex-col gap-1.5 overflow-hidden md:hidden" style={{ color: "var(--color-ivory)" }} data-on-photo="">
               <p className="label" style={{ color: "var(--color-bhagwa)" }}>
                 {ui("about.eyebrow", lang)}
               </p>
               <h1 className="page-title">{t(site.teacher, lang)}</h1>
-              {/* three lines of room, so the name holds still while the font loads */}
-              <p className="cap min-h-[75px]" style={{ color: "var(--color-ivory)", opacity: 0.94 }}>
+              <p className="cap" style={{ color: "var(--color-ivory)", opacity: 0.94 }}>
                 <Tx>{`${t(site.credentialShort, lang)} · `}</Tx>
                 <strong>
                   <Tx>{certified}</Tx>
