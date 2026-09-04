@@ -34,7 +34,7 @@ export function WhoTeaches({ lang }: { lang: Lang }) {
             sizes="(min-width: 768px) 200px, 112px"
           />
           <div className="flex min-w-0 flex-col gap-1.5">
-            <p className="h3">{t(site.teacher, lang)}</p>
+            <p className="point-sm">{t(site.teacher, lang)}</p>
             <p className="body" style={{ color: "var(--color-heroink)" }}>
               <Tx>{line}</Tx>
             </p>

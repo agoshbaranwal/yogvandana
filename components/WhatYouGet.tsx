@@ -57,7 +57,7 @@ export function WhatYouGet({ lang }: { lang: Lang }) {
                 <span className="h3 pt-0.5">{step.title}</span>
               </div>
               <div className="flex-none text-right">
-                <p className="num h3">
+                <p className="num point-sm">
                   <Tx>{step.price}</Tx>
                 </p>
                 {step.unit ? <p className="cap">{step.unit}</p> : null}

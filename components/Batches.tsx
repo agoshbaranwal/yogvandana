@@ -57,7 +57,7 @@ export function GroupBatchCard({ batch, lang, page, first = false }: { batch: Ba
           </p>
         </div>
         <div className="flex-none text-right">
-          <p className="num page-title">
+          <p className="num point">
             <Tx>{`₹${batch.price}`}</Tx>
           </p>
           <p className="cap">{t(batch.priceUnit, lang)}</p>
@@ -111,7 +111,7 @@ export function SmallBatchCard({ batch, lang, page }: { batch: Batch; lang: Lang
           </h2>
         </div>
         <div className="flex-none text-right">
-          <p className="num h2">
+          <p className="num point-sm">
             <Tx>{`₹${batch.price}`}</Tx>
           </p>
           <p className="cap">{t(batch.priceUnit, lang) || (batch.seats ? ui("batches.workshopSeats", lang).replace("{n}", batch.seats) : "")}</p>

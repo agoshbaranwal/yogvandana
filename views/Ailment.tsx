@@ -114,7 +114,7 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
               >
                 <AilmentIcon name={ailment.icon} size={34} />
               </span>
-              <h1 className="page-title">{t(ailment.titleFull, lang)}</h1>
+              <h1 className="claim">{t(ailment.titleFull, lang)}</h1>
             </div>
             <p className="h3" style={{ color: "var(--color-deep)" }}>
               {t(ailment.claimLine, lang)}
@@ -185,7 +185,7 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
           <ol className="flex flex-col border-t border-rule">
             {ailment.firstClass.rows.map((row, i) => (
               <li key={i} className="flex items-start gap-3.5 border-b border-rule py-3.5">
-                <span className="num h3 w-[72px] flex-none" style={{ color: "var(--color-deep)" }}>
+                <span className="num point-sm w-[92px] flex-none" style={{ color: "var(--color-deep)" }}>
                   <Tx>{`${row.minutes} ${ui("ailment.min", lang)}`}</Tx>
                 </span>
                 <p className="body">

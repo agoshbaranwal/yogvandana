@@ -258,10 +258,14 @@
     letter-spacing: -0.005em;
     font-size: var(--step-title);
   }
+  /* A section heading was 26px while its body was 18px — a jump so small that
+     nothing on the page was louder than anything else, and nine of thirteen
+     sections had nothing bigger than 26px in them at all. Every heading now
+     starts at the title step. */
   .h2 {
     font-weight: 700;
-    line-height: 1.22;
-    font-size: var(--step-head);
+    line-height: 1.18;
+    font-size: var(--step-title);
   }
   .h3 {
     font-weight: 700;
@@ -530,7 +534,8 @@
     --todo-ink: var(--color-todo-on-kohl);
     --quiet-ink: rgba(251, 248, 241, 0.86);
   }
-  .on-bhagwa {
+  .on-bhagwa,
+  .took {
     --todo-ink: var(--color-todo-on-bhagwa);
     --quiet-ink: var(--color-kohl);
   }
@@ -1066,6 +1071,84 @@
     animation-delay: calc(var(--i, 0) * 55ms + 60ms);
   }
 
+
+  /* The point of a section, set so it is the thing you see first.
+
+     One per section: the price, the count, the result. It is the difference
+     between a page that informs and a page that sells, and it is what was
+     missing everywhere — the success stories, which are the product, had
+     nothing on them bigger than 20px. */
+  .point {
+    font-size: var(--step-display);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+  .point-sm {
+    font-size: var(--step-title);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  /* the before-and-after card ---------------------------------------------- */
+  /* Split down the middle: what it was, in the support tint and the quiet ink,
+     against what it is now, on the card's own white and in full ink. No new
+     colours — the halves are the two grounds the card already had. */
+  .ba {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .ba > div {
+    padding: 16px 16px 18px;
+  }
+  .ba .was {
+    background: var(--color-apricot);
+    border-right: 1px solid var(--color-rule);
+  }
+  .ba .lab {
+    font-size: var(--step-fine);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1;
+  }
+  .ba .val {
+    font-size: var(--step-title);
+    line-height: 1.18;
+    margin-top: 9px;
+    /* a long result in words — "सीढ़ियाँ नहीं चढ़ पाते थे" — is set a step
+       down, because at the title size it takes five lines in half a phone */
+    text-wrap: balance;
+  }
+  .ba .val.long {
+    font-size: var(--step-head);
+  }
+  .ba .was .lab {
+    color: var(--color-muted);
+  }
+  .ba .was .val {
+    color: var(--color-muted);
+  }
+  .ba .now .lab {
+    color: var(--color-deep);
+  }
+  .ba .now .val {
+    font-weight: 700;
+    color: var(--color-kohl);
+  }
+  /* how long it took, across the full width, in the one action colour */
+  .took {
+    background: var(--color-bhagwa);
+    color: var(--color-kohl);
+    font-size: var(--step-cap);
+    font-weight: 700;
+    text-align: center;
+    padding: 9px 16px;
+  }
+  @media (min-width: 768px) {
+    .ba > div {
+      padding: 20px 20px 22px;
+    }
+  }
 
   /* a record: label on the left, value on the right, one shape a line ------ */
   /* No rules between the rows. They were tried and removed: four hairlines a

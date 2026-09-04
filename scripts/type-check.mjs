@@ -97,6 +97,37 @@ if (strayFamily) problems.push(`app/globals.css  font-family: ${strayFamily} —
   }
 }
 
+/* — a section heading outranks its body by enough to be seen ---------------- */
+/* Nine of thirteen sections once had nothing in them bigger than 26px against
+   an 18px body — a 1.4x jump, which reads as no hierarchy at all: the eye has
+   nowhere to land and the page informs instead of selling. Headings start at
+   the title step and the one element carrying a section's point at the display
+   step. scripts/hierarchy.py measures the rendered result; this guards the two
+   rules it depends on, so they cannot be quietly turned back. */
+{
+  const step = (name) => {
+    const m = css.match(new RegExp(`--step-${name}:\\s*([^;]+);`));
+    return m ? parseInt(m[1], 10) : 0;
+  };
+  const sizeOf = (cls) => {
+    const m = css.match(new RegExp(`\\.${cls}\\s*\\{[^}]*font-size:\\s*var\\(--step-([a-z]+)\\)`));
+    return m ? m[1] : null;
+  };
+  const body = step("body");
+  for (const [cls, min] of [["h2", 1.6], ["point", 2.2], ["point-sm", 1.6]]) {
+    const named = sizeOf(cls);
+    if (!named) {
+      problems.push(`app/globals.css  .${cls} has no font-size from the type scale`);
+      continue;
+    }
+    const px = step(named);
+    if (px < body * min)
+      problems.push(
+        `app/globals.css  .${cls} is ${px}px against an ${body}px body — needs ${Math.ceil(body * min)}px to read as a level of its own`,
+      );
+  }
+}
+
 if (problems.length) {
   console.error(`type: ${problems.length} problem(s)\n  ` + problems.join("\n  "));
   process.exit(1);

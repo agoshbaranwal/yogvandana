@@ -4,32 +4,23 @@ import { PlayIcon } from "./Icons";
 import { Photo } from "./Photo";
 import { Tx } from "./Tx";
 
-/* A student's result, led by their photograph and read as a record.
+/* A student's result, sold rather than listed.
 
-   The photograph is first and largest, because a face is what makes a claim
-   believable to this audience — a number on its own is a number.
+   The card is split down the middle: what it was on the left in the support
+   tint and the quiet ink, what it is now on the right on the card's own white
+   and in full ink, with a strip across the two carrying how long it took. Then
+   their words, then their face and name.
 
-   Under it the facts are LABELLED ROWS, not a run of sentences. The card used
-   to print "HbA1c पहले" over "8.2 → 6.5" and then a bolded fragment, so a
-   reader met every number before being told what it meant, and three different
-   bold things competed for the eye. Now every line is the same shape — the
-   word on the left says what the value on the right is — and only one line,
-   "अब", carries the payoff. A result with a measurement and a result told in
-   plain words take the same shape, so the column reads as one thing. */
+   The version before this printed the same facts as a label/value table —
+   पहले / अब / समय / और, every line the same size. It was legible and it sold
+   nothing: the largest thing in the whole section was 20px, so a reader
+   scrolling past had nowhere to look. Agosh: "Think how marketing people do it
+   if they are selling something. Success stories is a part of our USP, it's a
+   part of the product."
 
-function Row({ label, value, strong = false }: { label: string; value: string; strong?: boolean }) {
-  if (!value) return null;
-  return (
-    <>
-      <dt className="cap" style={{ color: "var(--color-muted)" }}>
-        {label}
-      </dt>
-      <dd className={strong ? "h3" : "body"}>
-        <Tx>{value}</Tx>
-      </dd>
-    </>
-  );
-}
+   The same shape carries a lab number and a sentence — "HbA1c 8.2" against
+   "HbA1c 6.5", or "सीढ़ियाँ नहीं चढ़ पाते थे" against "रोज़ तीन मंज़िल" —
+   because five of the eight conditions have no number to show. */
 
 export function ResultCard({
   story,
@@ -48,70 +39,91 @@ export function ResultCard({
   const after = t(story.after, lang).trim();
   const change = t(story.change, lang).trim();
   const months = story.months.trim();
-  /* the unit goes INSIDE the blank while the age is still missing, or the card
-     reads "उम्र साल" — a muted word followed by a bold one, which looks like a
-     broken sentence rather than a fact not filled in yet */
+  const withMetric = (v: string) => (v && metric ? `${metric} ${v}` : v);
+  /* a lab reading is three characters and can be shouted; a sentence cannot */
+  const longResult = Math.max(before.length, after.length) > 16;
+  const val = `val${longResult ? " long" : ""}`;
+
+  /* the unit goes inside the blank while the age is missing, or the line reads
+     "उम्र साल" — a muted word then a bold one, which looks broken rather than
+     unfinished */
   const age = isTodo(story.age)
     ? story.age.replace(/\]$/, lang === "hi" ? " साल]" : " years]")
     : lang === "hi"
       ? `${story.age} साल`
       : story.age;
 
-  /* a measurement names itself on the value, so the label column stays the
-     same four words on every card in the row */
-  const withMetric = (v: string) => (v && metric ? `${metric} ${v}` : v);
+  const took = [
+    months ? ui("stories.months", lang).replace("{n}", months) : "",
+    change,
+  ]
+    .filter(Boolean)
+    .join(" · ");
 
   return (
-    <article className="card flex h-full flex-col gap-3 p-0">
-      <Photo
-        src={story.photo}
-        alt={`${t(story.name, lang)}, ${t(story.city, lang)}`}
-        label={ui("photo.student", lang)}
-        ratio="4 / 3"
-        rounded="rounded-none"
-        className="w-full rounded-t-[12px]"
-        sizes="(min-width: 768px) 340px, 100vw"
-      />
-
-      <div className="flex flex-1 flex-col gap-3 px-4 pb-4">
-        <div className="flex flex-col gap-1">
-          <p className="h3">
-            <Tx>{`${t(story.name, lang)}, ${age}`}</Tx>
-          </p>
-          <p className="cap flex flex-wrap items-center gap-2">
-            <Tx>{t(story.city, lang)}</Tx>
-            {ailment ? <span className="chip">{t(ailment.name, lang)}</span> : null}
-          </p>
+    <article className="card flex h-full flex-col overflow-hidden p-0">
+      {before || after ? (
+        <div className="ba">
+          <div className="was">
+            <div className="lab">{ui("stories.before", lang)}</div>
+            <div className={val}>
+              <Tx>{withMetric(before)}</Tx>
+            </div>
+          </div>
+          <div className="now">
+            <div className="lab">{ui("stories.after", lang)}</div>
+            <div className={val}>
+              <Tx>{withMetric(after)}</Tx>
+            </div>
+          </div>
         </div>
+      ) : null}
 
-        {before || after || months || change ? (
-          <dl className="rec grid grid-cols-[auto_1fr] items-baseline gap-y-2">
-            <Row label={ui("stories.before", lang)} value={withMetric(before)} />
-            <Row label={ui("stories.after", lang)} value={withMetric(after)} strong />
-            <Row
-              label={ui("stories.timeLabel", lang)}
-              value={months ? ui("stories.months", lang).replace("{n}", months) : ""}
-            />
-            <Row label={ui("stories.alsoLabel", lang)} value={change} />
-          </dl>
-        ) : null}
+      {took ? (
+        <p className="took">
+          <Tx>{took}</Tx>
+        </p>
+      ) : null}
 
-        <blockquote className="body" style={{ color: "var(--color-heroink)" }}>
+      <div className="flex flex-1 flex-col gap-4 p-4 md:p-5">
+        <blockquote className="body">
           “<Tx>{t(story.quote, lang)}</Tx>”
         </blockquote>
 
-        <div className="mt-auto flex flex-wrap items-center gap-x-3 gap-y-2">
-          {showVideo && story.video && !isTodo(story.video) ? (
-            <span className="tap-pill" role="img" aria-label={ui("photo.video", lang)}>
-              <PlayIcon size={16} />
-              <Tx>{ui("stories.videoSeconds", lang)}</Tx>
+        <div className="mt-auto flex flex-col gap-3">
+          <div className="flex items-center gap-3">
+            <Photo
+              src={story.photo}
+              alt={`${t(story.name, lang)}, ${t(story.city, lang)}`}
+              label={ui("photo.student", lang)}
+              ratio="1 / 1"
+              rounded="rounded-full"
+              className="w-[52px] flex-none"
+              compact
+              sizes="52px"
+            />
+            <p className="cap">
+              <span className="h3 block" style={{ color: "var(--color-kohl)" }}>
+                <Tx>{`${t(story.name, lang)}, ${age}`}</Tx>
+              </span>
+              <Tx>{t(story.city, lang)}</Tx>
+              {ailment ? ` · ${t(ailment.name, lang)}` : ""}
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+            {showVideo && story.video && !isTodo(story.video) ? (
+              <span className="tap-pill" role="img" aria-label={ui("photo.video", lang)}>
+                <PlayIcon size={16} />
+                <Tx>{ui("stories.videoSeconds", lang)}</Tx>
+              </span>
+            ) : null}
+            <span className="cap">
+              <Tx>{ui("stories.withSince", lang).replace("{y}", t(story.since, lang))}</Tx>
             </span>
-          ) : null}
-          <span className="cap">
-            <Tx>{ui("stories.withSince", lang).replace("{y}", t(story.since, lang))}</Tx>
-          </span>
+          </div>
+          {share}
         </div>
-        {share}
       </div>
     </article>
   );

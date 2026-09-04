@@ -163,11 +163,13 @@ export default function About({ lang }: { lang: Lang }) {
       {/* 2 · her own words, and the motto --------------------------------- */}
       <section>
         <div className="wrap flex flex-col gap-3 pb-2 pt-6 md:pt-12">
-          <p className="h3" lang="sa" style={{ color: "var(--color-deep)" }}>
-            {site.motto}{" "}
-            <span className="body font-normal" style={{ color: "var(--color-muted)" }} lang={lang}>
-              — {t(site.mottoGloss, lang)}
-            </span>
+          {/* the motto is the point of this section — it is the name's meaning
+              and the whole reason she gives for teaching, so it leads */}
+          <p className="point-sm" lang="sa" style={{ color: "var(--color-deep)" }}>
+            {site.motto}
+          </p>
+          <p className="body" style={{ color: "var(--color-muted)" }} lang={lang}>
+            — {t(site.mottoGloss, lang)}
           </p>
           <p className="body">
             <Tx>{t(site.about.intro, lang)}</Tx>
