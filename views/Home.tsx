@@ -3,15 +3,14 @@ import Band from "@/components/Band";
 import { DiseaseRows } from "@/components/DiseaseRows";
 import { FirstScreen } from "@/components/FirstScreen";
 import { Jsonld, personSchema, websiteSchema } from "@/components/Jsonld";
-import PrintSlip from "@/components/PrintSlip";
-import ShareSlip from "@/components/ShareSlip";
 import SiteShell from "@/components/SiteShell";
 import { SlipPad } from "@/components/SlipPad";
+import { WhatYouGet } from "@/components/WhatYouGet";
 import { ResultCard } from "@/components/StoryCard";
 import { NextSteps } from "@/components/Timeline";
 import { Timetable } from "@/components/Timetable";
 import { WhoTeaches } from "@/components/WhoTeaches";
-import { absolute, ailmentBySlug, site, stories, t, ui } from "@/lib/content";
+import { stories, ui } from "@/lib/content";
 import { href, type Lang } from "@/lib/routes";
 
 /* The home page, in the order a person with a disease decides: her face and
@@ -21,8 +20,6 @@ import { href, type Lang } from "@/lib/routes";
    phone, each one thing. */
 
 export default function Home({ lang }: { lang: Lang }) {
-  const page = absolute(href("home", lang));
-  const sample = ailmentBySlug("sugar");
   const shown = stories.slice(0, 3);
 
   return (
@@ -60,40 +57,21 @@ export default function Home({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      {/* 4 · the slip they leave with -------------------------------------- */}
-      {sample ? (
-        <section>
-          <div className="wrap grid gap-4 section-pad md:grid-cols-2 md:items-center md:gap-14">
-            <div className="flex flex-col gap-3">
-              <h2 className="h2">{ui("home.slipTitle", lang)}</h2>
-              <p className="body max-w-[46ch]" style={{ color: "var(--color-heroink)" }}>
-                {ui("home.slipLead", lang)}
-              </p>
-              <div className="hidden flex-wrap items-center gap-x-6 gap-y-2 md:flex">
-                <PrintSlip label={ui("slip.printSample", lang)} />
-                <ShareSlip
-                  label={ui("slip.share", lang)}
-                  title={`${ui("slip.title", lang)} — ${t(site.brand, lang)}`}
-                  url={page}
-                  source="home-slip"
-                />
-              </div>
-            </div>
-            <div className="flex flex-col gap-3">
-              <SlipPad lang={lang} ailment={sample} compact edge="var(--color-ivory)" />
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 md:hidden">
-                <PrintSlip label={ui("slip.printSample", lang)} />
-                <ShareSlip
-                  label={ui("slip.share", lang)}
-                  title={`${ui("slip.title", lang)} — ${t(site.brand, lang)}`}
-                  url={page}
-                  source="home-slip"
-                />
-              </div>
-            </div>
+      {/* 4 · what you get, and the slip at the head of it ---------------- */}
+      <section>
+        <div className="wrap grid gap-6 section-pad md:grid-cols-2 md:items-start md:gap-14">
+          <div className="flex flex-col gap-5">
+            <WhatYouGet lang={lang} />
+            <Link href="#booking-band" data-ev="talk_cta" data-ev-source="what-you-get" className="btn btn-primary self-start">
+              {ui("cta.talk", lang)}
+            </Link>
           </div>
-        </section>
-      ) : null}
+          <div className="flex flex-col gap-2.5">
+            <SlipPad lang={lang} compact edge="var(--color-ivory)" />
+            <p className="cap">{ui("slip.afterTalk", lang)}</p>
+          </div>
+        </div>
+      </section>
 
       {/* 5 · the timetable and the fee ------------------------------------ */}
       <section style={{ background: "var(--color-apricot)" }}>

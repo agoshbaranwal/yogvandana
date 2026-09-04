@@ -25,16 +25,16 @@
   },
   "works": [
     {
-      "hi": "पीसीओडी और पीरियड — पेट और कूल्हे के आसन, नियमित।",
-      "en": "PCOD and periods — asanas for the belly and hips, regularly."
+      "hi": "पीरियड — समय पर, और कम तकलीफ़ के साथ।",
+      "en": "Periods — on time, and with less trouble."
     },
     {
-      "hi": "मेनोपॉज़ — गर्मी, नींद, मन; धीमी साँस और विश्राम।",
-      "en": "Menopause — the heat, sleep, mood; slow breath and relaxation."
+      "hi": "मेनोपॉज़ की तकलीफ़ें — हल्की पड़ती हैं।",
+      "en": "The trouble of menopause — it eases."
     },
     {
-      "hi": "वज़न और थकान — रोज़ का अभ्यास, घर के काम के बीच।",
-      "en": "Weight and tiredness — a daily practice, between the housework."
+      "hi": "वज़न और थकान — दोनों कम होते हैं।",
+      "en": "Weight and tiredness — both come down."
     }
   ],
   "medicine": {
@@ -51,28 +51,6 @@
   "metaDescription": {
     "hi": "महिलाओं की समस्याओं के लिए लाइव ऑनलाइन योग क्लास, वंदना बरनवाल के साथ। पीसीओडी, मासिक धर्म, रजोनिवृत्ति।",
     "en": "Live online yoga for women's health with Vandana Baranwal. PCOD, periods, menopause."
-  },
-  "slip": {
-    "practice": {
-      "hi": "उदाहरण: बद्धकोणासन · तितली आसन · भुजंगासन · अनुलोम-विलोम · शवासन [वंदना जी की सूची आने तक]",
-      "en": "Example: Baddha Konasana · Butterfly · Bhujangasana · Anulom-Vilom · Shavasana [until her own list arrives]"
-    },
-    "time": {
-      "hi": "रोज़ [30] मिनट",
-      "en": "[30] minutes a day"
-    },
-    "batch": {
-      "hi": "सुबह [समय] या शाम [समय], ज़ूम पर",
-      "en": "[morning time] or [evening time], on Zoom"
-    },
-    "alongside": {
-      "hi": "[मासिक धर्म के दिनों की दो बातें, वंदना जी की]",
-      "en": "[two notes for the days of a period, from her]"
-    },
-    "review": {
-      "hi": "[90] दिन बाद, अपनी रिपोर्ट के साथ",
-      "en": "After [90] days, with your report"
-    }
   },
   "firstClass": {
     "rows": [

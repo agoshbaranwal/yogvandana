@@ -25,16 +25,16 @@
   },
   "works": [
     {
-      "hi": "कमर की मांसपेशियाँ — धीरे-धीरे मज़बूत, बिना झटके के।",
-      "en": "The back muscles — strengthened slowly, without jerks."
+      "hi": "दर्द — रोज़ का, कम होता जाता है।",
+      "en": "The pain — the everyday kind, it lessens."
     },
     {
-      "hi": "रीढ़ की लचक — रोज़ की गति, जितनी आपसे हो।",
-      "en": "The spine's flexibility — daily movement, as much as you can."
+      "hi": "कमर की ताक़त — लौटती है, बिना झटके के।",
+      "en": "Strength in the back — it returns, without any jerking."
     },
     {
-      "hi": "बैठने-उठने का ढंग — जो दर्द लौटाता है। सही तरीका सिखाया जाता है।",
-      "en": "How you sit and stand — what brings the pain back. The right way is taught."
+      "hi": "उठना-बैठना, झुकना — फिर से आसान।",
+      "en": "Standing, sitting, bending — easy again."
     }
   ],
   "medicine": {
@@ -51,28 +51,6 @@
   "metaDescription": {
     "hi": "कमर दर्द के लिए लाइव ऑनलाइन योग क्लास, वंदना बरनवाल के साथ। छोटे ग्रुप, रोज़ [30] मिनट।",
     "en": "Live online yoga for back pain with Vandana Baranwal. Small groups, [30] minutes a day."
-  },
-  "slip": {
-    "practice": {
-      "hi": "उदाहरण: मकरासन · भुजंगासन · मार्जरी आसन · शलभासन · शवासन [वंदना जी की सूची आने तक]",
-      "en": "Example: Makarasana · Bhujangasana · Marjariasana · Shalabhasana · Shavasana [until her own list arrives]"
-    },
-    "time": {
-      "hi": "रोज़ सुबह [30] मिनट",
-      "en": "[30] minutes every morning"
-    },
-    "batch": {
-      "hi": "सुबह [समय] या शाम [समय], ज़ूम पर",
-      "en": "[morning time] or [evening time], on Zoom"
-    },
-    "alongside": {
-      "hi": "[बैठने और उठने की दो बातें, वंदना जी की]",
-      "en": "[two notes on sitting and lifting, from her]"
-    },
-    "review": {
-      "hi": "[90] दिन बाद, अपनी हालत के साथ",
-      "en": "After [90] days, with how you feel"
-    }
   },
   "firstClass": {
     "rows": [

@@ -25,16 +25,16 @@
   },
   "works": [
     {
-      "hi": "बीपी — धीमी, लंबी साँस का अभ्यास रोज़; कपालभाति नहीं।",
-      "en": "BP — slow, long breathing every day; no kapalbhati."
+      "hi": "बीपी — रीडिंग नीचे आती है, और टिकती है।",
+      "en": "BP — the reading comes down, and holds."
     },
     {
-      "hi": "दिल और नसों पर बोझ — हल्के आसन, बिना झटके के।",
-      "en": "The load on the heart and vessels — gentle asanas, no jerks."
+      "hi": "दिल और नसों पर बोझ — हल्का होता है।",
+      "en": "The load on the heart and vessels — it eases."
     },
     {
-      "hi": "तनाव और नींद — जो बीपी को ऊपर रखते हैं। विश्राम, ध्यान।",
-      "en": "Stress and sleep — which keep BP up. Relaxation, meditation."
+      "hi": "तनाव और नींद — जो बीपी को ऊपर रखते हैं।",
+      "en": "Stress and sleep — which keep BP high."
     }
   ],
   "medicine": {
@@ -51,28 +51,6 @@
   "metaDescription": {
     "hi": "बीपी के लिए लाइव ऑनलाइन योग क्लास, वंदना बरनवाल के साथ। धीमी साँस और विश्राम पर ज़ोर। पहले बात कीजिए, बिना शुल्क।",
     "en": "Live online yoga for blood pressure with Vandana Baranwal. Slow breath and rest. Talk to her first, no fee."
-  },
-  "slip": {
-    "practice": {
-      "hi": "उदाहरण: अनुलोम-विलोम · भ्रामरी · वज्रासन · शवासन · धीमी गहरी साँस [वंदना जी की सूची आने तक]",
-      "en": "Example: Anulom-Vilom · Bhramari · Vajrasana · Shavasana · slow deep breathing [until her own list arrives]"
-    },
-    "time": {
-      "hi": "रोज़ [30] मिनट",
-      "en": "[30] minutes a day"
-    },
-    "batch": {
-      "hi": "सुबह [समय] या शाम [समय], ज़ूम पर",
-      "en": "[morning time] or [evening time], on Zoom"
-    },
-    "alongside": {
-      "hi": "[नमक और नींद की दो बातें, वंदना जी की]",
-      "en": "[two notes on salt and sleep, from her]"
-    },
-    "review": {
-      "hi": "[90] दिन बाद, रीडिंग की कॉपी के साथ",
-      "en": "After [90] days, with your readings"
-    }
   },
   "firstClass": {
     "rows": [

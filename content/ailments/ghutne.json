@@ -25,16 +25,16 @@
   },
   "works": [
     {
-      "hi": "घुटने के आसपास की मांसपेशियाँ — कुर्सी पर बैठकर मज़बूत।",
-      "en": "The muscles around the knee — strengthened sitting on a chair."
+      "hi": "घुटने का दर्द — सीढ़ी और बाज़ार फिर मुमकिन।",
+      "en": "Knee pain — stairs and the market become possible again."
     },
     {
-      "hi": "जोड़ की गति — बिना बोझ डाले, रोज़ थोड़ी।",
-      "en": "The joint's movement — a little every day, without loading it."
+      "hi": "जोड़ की ताक़त — कुर्सी पर बैठकर भी बनती है।",
+      "en": "Strength in the joint — it builds even sitting on a chair."
     },
     {
-      "hi": "वज़न — हर किलो घुटने पर बोझ है। पेट के आसन।",
-      "en": "Weight — every kilo is a load on the knee. Asanas for the belly."
+      "hi": "वज़न — हर किलो घुटने पर बोझ है, वह घटता है।",
+      "en": "Weight — every kilo is a load on the knee, and it comes off."
     }
   ],
   "medicine": {
@@ -51,28 +51,6 @@
   "metaDescription": {
     "hi": "घुटने के दर्द के लिए लाइव ऑनलाइन योग क्लास, वंदना बरनवाल के साथ। कुर्सी पर बैठकर भी। पहले बात कीजिए, बिना शुल्क।",
     "en": "Live online yoga for knee pain with Vandana Baranwal. Chair options throughout. Talk to her first, no fee."
-  },
-  "slip": {
-    "practice": {
-      "hi": "उदाहरण: सूक्ष्म व्यायाम · ताड़ासन · सेतुबंधासन · कुर्सी पर आसन · अनुलोम-विलोम [वंदना जी की सूची आने तक]",
-      "en": "Example: Joint movements · Tadasana · Setu Bandhasana · chair asanas · Anulom-Vilom [until her own list arrives]"
-    },
-    "time": {
-      "hi": "रोज़ [30] मिनट",
-      "en": "[30] minutes a day"
-    },
-    "batch": {
-      "hi": "सुबह [समय] या शाम [समय], ज़ूम पर",
-      "en": "[morning time] or [evening time], on Zoom"
-    },
-    "alongside": {
-      "hi": "[चलने और सीढ़ी की दो बातें, वंदना जी की]",
-      "en": "[two notes on walking and stairs, from her]"
-    },
-    "review": {
-      "hi": "[90] दिन बाद, अपनी हालत के साथ",
-      "en": "After [90] days, with how you feel"
-    }
   },
   "firstClass": {
     "rows": [

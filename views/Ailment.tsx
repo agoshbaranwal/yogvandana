@@ -4,10 +4,9 @@ import { ShareLink } from "@/components/Blocks";
 import { FaqList } from "@/components/Faq";
 import { AilmentIcon } from "@/components/Icons";
 import { breadcrumbSchema, courseSchema, faqSchema, Jsonld } from "@/components/Jsonld";
-import PrintSlip from "@/components/PrintSlip";
-import ShareSlip from "@/components/ShareSlip";
 import SiteShell from "@/components/SiteShell";
 import { SlipPad } from "@/components/SlipPad";
+import { WhatYouGet } from "@/components/WhatYouGet";
 import { ResultCard } from "@/components/StoryCard";
 import { MedicinePanel } from "@/components/Timeline";
 import { Tx } from "@/components/Tx";
@@ -73,7 +72,6 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
   const stories = storiesFor(ailment.slug);
   const best = groupBatches.find((b) => b.id === ailment.bestBatch);
   const ailmentFaq = faqSchema(ailment.faq.map((f) => ({ q: t(f.q, lang), a: t(f.a, lang) })));
-  const slipTitle = `${ui("slip.title", lang)} — ${name} — ${t(site.brand, lang)}`;
 
   return (
     <SiteShell lang={lang} routeKey="ailment" slug={ailment.slug} ailmentName={name}>
@@ -164,23 +162,25 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
         </div>
       </section>
 
-      {/* 3 · the slip for this disease -------------------------------------- */}
+      {/* 3 · what you get for this disease, and the slip at the head ----- */}
       <section style={{ background: "var(--color-sky)" }}>
-        <div className="wrap flex flex-col gap-3 section-pad md:grid md:grid-cols-2 md:items-start md:gap-14">
-          <div className="flex flex-col gap-1.5">
-            <h2 className="h2">{ui("ailment.slipTitle", lang).replace("{x}", name)}</h2>
-            <p className="cap">{ui("ailment.slipNote", lang)}</p>
-            <div className="hidden flex-wrap items-center gap-x-6 gap-y-2 pt-3 md:flex">
-              <PrintSlip label={ui("slip.print", lang)} />
-              <ShareSlip label={ui("slip.share", lang)} title={slipTitle} url={page} source={`slip-${ailment.slug}`} />
-            </div>
+        <div className="wrap grid gap-6 section-pad md:grid-cols-2 md:items-start md:gap-14">
+          <div className="flex flex-col gap-5">
+            <WhatYouGet lang={lang} />
+            <Link
+              href="#booking-band"
+              data-ev="talk_cta"
+              data-ev-source="what-you-get"
+              data-ev-slug={ailment.slug}
+              className="btn btn-primary self-start"
+            >
+              {ui("ailment.talkAbout", lang).replace("{x}", name)}
+            </Link>
           </div>
-          <div className="flex flex-col gap-3">
-            <SlipPad lang={lang} ailment={ailment} edge="var(--color-sky)" />
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 md:hidden">
-              <PrintSlip label={ui("slip.print", lang)} />
-              <ShareSlip label={ui("slip.share", lang)} title={slipTitle} url={page} source={`slip-${ailment.slug}`} />
-            </div>
+          <div className="flex flex-col gap-2.5">
+            <h2 className="h3">{ui("ailment.slipTitle", lang).replace("{x}", name)}</h2>
+            <SlipPad lang={lang} disease={`${name} · ${t(ailment.sub, lang)}`} edge="var(--color-sky)" />
+            <p className="cap">{ui("ailment.slipNote", lang)}</p>
           </div>
         </div>
       </section>

@@ -25,16 +25,16 @@
   },
   "works": [
     {
-      "hi": "गले की ग्रंथि — गर्दन के आसन और उज्जायी साँस।",
-      "en": "The gland in the throat — neck asanas and ujjayi breath."
+      "hi": "रिपोर्ट — जाँच में फ़र्क दिखता है।",
+      "en": "The report — the tests show a difference."
     },
     {
-      "hi": "वज़न और थकान — रोज़ का अभ्यास, धीरे-धीरे बढ़ता हुआ।",
-      "en": "Weight and tiredness — a daily practice that builds slowly."
+      "hi": "वज़न और थकान — दोनों कम होते हैं।",
+      "en": "Weight and tiredness — both come down."
     },
     {
-      "hi": "तनाव और नींद — जो थायराइड को बिगाड़ते हैं। विश्राम।",
-      "en": "Stress and sleep — which upset the thyroid. Relaxation."
+      "hi": "नींद और मन — शांत होते हैं।",
+      "en": "Sleep and mood — they settle."
     }
   ],
   "medicine": {
@@ -51,28 +51,6 @@
   "metaDescription": {
     "hi": "थायराइड के लिए लाइव ऑनलाइन योग क्लास, वंदना बरनवाल के साथ। हाइपो और हाइपर के लिए अलग अभ्यास।",
     "en": "Live online yoga for thyroid with Vandana Baranwal. Different practice for hypo and hyper."
-  },
-  "slip": {
-    "practice": {
-      "hi": "उदाहरण: उज्जायी · भुजंगासन · मत्स्यासन · सेतुबंधासन · अनुलोम-विलोम [वंदना जी की सूची आने तक]",
-      "en": "Example: Ujjayi · Bhujangasana · Matsyasana · Setu Bandhasana · Anulom-Vilom [until her own list arrives]"
-    },
-    "time": {
-      "hi": "रोज़ [30] मिनट",
-      "en": "[30] minutes a day"
-    },
-    "batch": {
-      "hi": "सुबह [समय] या शाम [समय], ज़ूम पर",
-      "en": "[morning time] or [evening time], on Zoom"
-    },
-    "alongside": {
-      "hi": "[खान-पान और नींद की दो बातें, वंदना जी की]",
-      "en": "[two notes on food and sleep, from her]"
-    },
-    "review": {
-      "hi": "[90] दिन बाद, अपनी रिपोर्ट के साथ",
-      "en": "After [90] days, with your report"
-    }
   },
   "firstClass": {
     "rows": [

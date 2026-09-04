@@ -76,3 +76,23 @@ Real photographs and her facts still gate the last mile; the build carries drawn
 brackets until then. English stays a faithful translation, not a rewrite for the second buyer.
 Nobody from the audience has used it yet — the mobile checklist in Phase 9 is written so that the
 first person who does can be watched.
+
+## After Round 6 — the practice comes off the website (4 September 2026)
+
+Agosh: *"Don't give too much info. Lock it behind paywall maybe. The goal is that the website
+shows clearly and unequivocally what this teacher is capable of and what the user will get. This
+gets much higher priority."*
+
+The site was publishing eight complete prescriptions — the exact asanas and pranayama for each
+disease, on a public page, free. That is the thing a student consults her for.
+
+| | Before | Now |
+|---|---|---|
+| The slip | A filled sample, with the practice named for each of eight diseases | A blank prescription: rows named, values sealed and **not present in the page source** |
+| Condition pages | "what yoga does for it", part method | The change a person sees — the outcome, never the technique |
+| The offer | Implied across the page | `WhatYouGet`: the consultation, the slip, the daily class, the WhatsApp support, the review — stated in one block on home and every condition page |
+| The guard | None | Rule 6b: a named asana or pranayama anywhere on the built site fails the build (proven red, then green) |
+
+The order the site now argues in: what she can do → what you get → talk to her → she writes your
+slip → you join a batch. The conversation still costs nothing; `site.consultation.price` is the
+single field that changes that if he wants it paid.

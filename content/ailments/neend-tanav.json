@@ -25,16 +25,16 @@
   },
   "works": [
     {
-      "hi": "नींद — शाम का धीमा अभ्यास और साँस, सोने से पहले।",
-      "en": "Sleep — a slow evening practice and breath, before bed."
+      "hi": "नींद — जल्दी आती है, और पूरी होती है।",
+      "en": "Sleep — it comes sooner, and it completes."
     },
     {
-      "hi": "बेचैनी और माइग्रेन — अनुलोम-विलोम, भ्रामरी, विश्राम।",
-      "en": "Restlessness and migraine — anulom-vilom, bhramari, relaxation."
+      "hi": "बेचैनी और माइग्रेन — कम होते हैं।",
+      "en": "Restlessness and migraine — they lessen."
     },
     {
-      "hi": "दिन का तनाव — जो रात में जागता है। ध्यान, रोज़ दस मिनट।",
-      "en": "The day's stress — which wakes at night. Meditation, ten minutes a day."
+      "hi": "दिन का तनाव — रात में जागता नहीं।",
+      "en": "The day's stress — it stops waking you at night."
     }
   ],
   "medicine": {
@@ -51,28 +51,6 @@
   "metaDescription": {
     "hi": "नींद और तनाव के लिए लाइव ऑनलाइन योग क्लास, वंदना बरनवाल के साथ। शाम का बैच, लंबा विश्राम।",
     "en": "Live online yoga for sleep and stress with Vandana Baranwal. Evening batch, long rest."
-  },
-  "slip": {
-    "practice": {
-      "hi": "उदाहरण: भ्रामरी · अनुलोम-विलोम · बालासन · योग निद्रा · शवासन [वंदना जी की सूची आने तक]",
-      "en": "Example: Bhramari · Anulom-Vilom · Balasana · Yoga Nidra · Shavasana [until her own list arrives]"
-    },
-    "time": {
-      "hi": "रोज़ [30] मिनट, सोने से पहले [अभ्यास]",
-      "en": "[30] minutes a day, and [practice] before bed"
-    },
-    "batch": {
-      "hi": "शाम [समय], ज़ूम पर",
-      "en": "[evening time], on Zoom"
-    },
-    "alongside": {
-      "hi": "[स्क्रीन और चाय-कॉफ़ी की दो बातें, वंदना जी की]",
-      "en": "[two notes on screens and tea, from her]"
-    },
-    "review": {
-      "hi": "[90] दिन बाद, नींद के हिसाब के साथ",
-      "en": "After [90] days, with your sleep notes"
-    }
   },
   "firstClass": {
     "rows": [

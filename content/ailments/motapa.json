@@ -25,12 +25,12 @@
   },
   "works": [
     {
-      "hi": "पेट और कमर — पेट पर काम करने वाले आसन, रोज़।",
-      "en": "Belly and waist — asanas that work on the belly, every day."
+      "hi": "वज़न — पेट और कमर से जाता है, टिकाऊ तरीके से।",
+      "en": "Weight — it comes off the belly and waist, in a way that lasts."
     },
     {
-      "hi": "पाचन — कपालभाति, अग्निसार; खाली पेट।",
-      "en": "Digestion — kapalbhati, agnisar; on an empty stomach."
+      "hi": "पाचन — दुरुस्त होता है।",
+      "en": "Digestion — it comes right."
     },
     {
       "hi": "खान-पान की आदत — छोटी बातें, जो टिकती हैं।",
@@ -51,28 +51,6 @@
   "metaDescription": {
     "hi": "मोटापे के लिए लाइव ऑनलाइन योग क्लास, वंदना बरनवाल के साथ। रोज़ [30] मिनट, छोटे ग्रुप में।",
     "en": "Live online yoga for weight with Vandana Baranwal. [30] minutes a day in a small group."
-  },
-  "slip": {
-    "practice": {
-      "hi": "उदाहरण: सूर्य नमस्कार · कपालभाति · त्रिकोणासन · नौकासन · धीमी चाल [वंदना जी की सूची आने तक]",
-      "en": "Example: Surya Namaskar · Kapalbhati · Trikonasana · Naukasana · a slow walk [until her own list arrives]"
-    },
-    "time": {
-      "hi": "रोज़ [30] मिनट",
-      "en": "[30] minutes a day"
-    },
-    "batch": {
-      "hi": "सुबह [समय] या शाम [समय], ज़ूम पर",
-      "en": "[morning time] or [evening time], on Zoom"
-    },
-    "alongside": {
-      "hi": "[खान-पान की दो बातें, वंदना जी की]",
-      "en": "[two notes on food, from her]"
-    },
-    "review": {
-      "hi": "[90] दिन बाद, वज़न और नाप के साथ",
-      "en": "After [90] days, with weight and measurements"
-    }
   },
   "firstClass": {
     "rows": [

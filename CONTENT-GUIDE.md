@@ -150,10 +150,26 @@ Every label on the site, in both languages. Say: **"Change the trial button to '
 
 ---
 
+## The slip is not filled in on the website — on purpose
+
+The website shows a **blank** prescription: the rows are named (food, precautions, daily routine,
+pranayama, asanas, timing) and the values are sealed. Those values are never sent to the page at
+all, so nobody can read them by looking at the page source. What she writes on a real slip after
+talking to a student is the thing students come to her for, and it is not published.
+
+`npm run credibility:check` rule 6b fails the build if a named asana or pranayama appears anywhere
+on the site. Category words — आसन, प्राणायाम, सूक्ष्म व्यायाम — describe what a class contains and
+are fine. A named technique attached to a disease is a prescription and is not.
+
+**If you want the consultation to be paid**, put the amount in `content/site.json` under
+`consultation.price` — say **"the consultation is ₹500"**. Leave it empty and every page keeps
+saying the conversation costs nothing, which is what it says today. That is the only field that
+decides it.
+
 ## New since Round 6 — the fields the redesign reads
 
-**Conditions** (`content/ailments/<slug>.json`): `works` is three lines, the three things the
-practice works on for that disease — say **"for sugar, the three lines are…"**. `medicine` is the
+**Conditions** (`content/ailments/<slug>.json`): `works` is three lines, **the change a person
+sees** in that disease — never the technique that gets them there — say **"for sugar, the three lines are…"**. `medicine` is the
 one paragraph under "डॉक्टर की दवा?" for that disease. `firstClass.rows` is the [10] + [30] + [10]
 of the first class; the first class is a **paid** class, the talk before it is what is free.
 `bestBatch` is `morning`, `evening` or empty (either), and `bestBatchWhy` is the one line that

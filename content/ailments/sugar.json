@@ -25,16 +25,16 @@
   },
   "works": [
     {
-      "hi": "शुगर लेवल — खाली पेट का अभ्यास और प्राणायाम, रोज़।",
-      "en": "Sugar level — an empty-stomach practice and pranayama, every day."
+      "hi": "शुगर लेवल — रोज़ के अभ्यास से नीचे आता है, और नीचे रहता है।",
+      "en": "Sugar level — comes down with daily practice, and stays down."
     },
     {
-      "hi": "वज़न — पेट और कमर पर काम करने वाले आसन।",
-      "en": "Weight — asanas that work on the belly and waist."
+      "hi": "वज़न — पेट और कमर से घटता है, धीरे-धीरे।",
+      "en": "Weight — comes off the belly and waist, slowly."
     },
     {
-      "hi": "तनाव — जो शुगर को ऊपर रखता है। धीमी साँस, नींद।",
-      "en": "Stress — which keeps sugar up. Slow breath, sleep."
+      "hi": "तनाव — जो शुगर को ऊपर रखता है। नींद सुधरती है।",
+      "en": "Stress — which keeps sugar high. Sleep improves."
     }
   ],
   "medicine": {
@@ -51,28 +51,6 @@
   "metaDescription": {
     "hi": "शुगर के लिए लाइव ऑनलाइन योग क्लास, वंदना बरनवाल के साथ। खाली पेट सुबह का बैच, [90] दिन पर जाँच।",
     "en": "Live online yoga for type 2 sugar with Vandana Baranwal. Morning batch on an empty stomach, review every [90] days."
-  },
-  "slip": {
-    "practice": {
-      "hi": "उदाहरण: कपालभाति · अनुलोम-विलोम · मंडूकासन · पश्चिमोत्तानासन · शवासन [वंदना जी की सूची आने तक]",
-      "en": "Example: Kapalbhati · Anulom-Vilom · Mandukasana · Paschimottanasana · Shavasana [until her own list arrives]"
-    },
-    "time": {
-      "hi": "रोज़ सुबह [30] मिनट, खाली पेट",
-      "en": "[30] minutes every morning, empty stomach"
-    },
-    "batch": {
-      "hi": "सुबह [समय] या शाम [समय], ज़ूम पर",
-      "en": "[morning time] or [evening time], on Zoom"
-    },
-    "alongside": {
-      "hi": "[खान-पान की दो बातें, वंदना जी की]",
-      "en": "[two notes on food, from her]"
-    },
-    "review": {
-      "hi": "[90] दिन बाद, अपनी रिपोर्ट के साथ",
-      "en": "After [90] days, with your report"
-    }
   },
   "firstClass": {
     "rows": [

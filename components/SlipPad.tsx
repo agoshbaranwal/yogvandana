@@ -1,45 +1,50 @@
-import type React from "react";
-import { type Ailment, site, t, ui } from "@/lib/content";
+import { LockIcon } from "./Icons";
+import { site, t, ui } from "@/lib/content";
 import type { Lang } from "@/lib/routes";
 import { Tx } from "./Tx";
 
-/* योग की पर्ची as a prescription pad: the letterhead every Indian knows from
-   a doctor's desk, ruled paper, a signature line, a seal and a torn edge. The
-   rows are what she actually writes after the first class. `compact` is the
-   home page's glance; the condition page shows the whole pad. The torn edge
-   is cut in the colour of the ground it sits on. */
+/* योग की पर्ची — the prescription pad every Indian knows from a doctor's desk,
+   and, like a doctor's, blank until you have been seen.
+
+   What she writes on it is the thing a student pays for: what to eat, what to
+   avoid, the daily routine, which pranayama and asanas, at what time. So the
+   rows are named here and the values are not merely hidden — they are not in
+   this page at all. There is nothing to read in the markup, nothing to unblur,
+   nothing to copy. A person sees the shape of what they will be given. */
+
+type Row = { label: string; width: string; open?: string };
 
 export function SlipPad({
   lang,
-  ailment,
+  disease,
   compact = false,
   edge = "var(--color-sky)",
 }: {
   lang: Lang;
-  ailment: Ailment;
+  /* the one line the visitor already told us: which disease they came with */
+  disease?: string;
   compact?: boolean;
   edge?: string;
 }) {
-  const name = t(ailment.name, lang);
-  const rows: [string, string, boolean][] = compact
+  /* The widths differ so the sealed lines read as writing of different
+     lengths, the way a filled prescription looks from across a room. */
+  const sealed: Row[] = compact
     ? [
-        [ui("slip.name", lang), `${ui("slip.sampleName", lang)} · ${name}`, true],
-        [ui("slip.practice", lang), t(ailment.slip.practice, lang), false],
-        [ui("slip.home", lang), t(ailment.slip.time, lang), false],
-        [ui("slip.alongside", lang), t(ailment.slip.alongside, lang), false],
-        [ui("slip.review", lang), t(ailment.slip.review, lang), false],
+        { label: ui("slip.diet", lang), width: "72%" },
+        { label: ui("slip.pranayam", lang), width: "88%" },
+        { label: ui("slip.asana", lang), width: "94%" },
+        { label: ui("slip.timeRow", lang), width: "46%" },
       ]
     : [
-        [ui("slip.name", lang), ui("slip.sampleName", lang), true],
-        [ui("slip.disease", lang), `${name} · ${t(ailment.sub, lang)}`, true],
-        [ui("slip.practice", lang), t(ailment.slip.practice, lang), false],
-        [ui("slip.home", lang), t(ailment.slip.time, lang), false],
-        [ui("slip.batch", lang), t(ailment.slip.batch, lang), false],
-        [ui("slip.alongside", lang), t(ailment.slip.alongside, lang), false],
-        [ui("slip.medicine", lang), ui("slip.medicineLine", lang), false],
-        [ui("slip.review", lang), t(ailment.slip.review, lang), false],
+        { label: ui("slip.diet", lang), width: "76%" },
+        { label: ui("slip.precautions", lang), width: "60%" },
+        { label: ui("slip.routine", lang), width: "84%" },
+        { label: ui("slip.pranayam", lang), width: "90%" },
+        { label: ui("slip.asana", lang), width: "96%" },
+        { label: ui("slip.timeRow", lang), width: "48%" },
       ];
-  const certified = lang === "hi" ? `${t(site.certifyingBody, lang)} प्रमाणित` : `${t(site.certifyingBody, lang)} certified`;
+  const certified =
+    lang === "hi" ? `${t(site.certifyingBody, lang)} प्रमाणित` : `${t(site.certifyingBody, lang)} certified`;
 
   return (
     <div className="slip pad">
@@ -55,26 +60,51 @@ export function SlipPad({
         </div>
         <div className="flex flex-none flex-col items-end text-right">
           <p className="label">{ui("slip.word", lang)}</p>
-          <p className="cap font-bold" style={{ color: "var(--color-kohl)" }}>
-            <Tx>{ui("slip.date", lang)}</Tx>
-          </p>
-          {compact ? null : (
-            <p className="cap">
-              <Tx>{`${ui("slip.no", lang)} ${ui("slip.sampleNo", lang)}`}</Tx>
-            </p>
-          )}
+          <p className="cap">{ui("slip.blank", lang)}</p>
         </div>
       </div>
 
       <dl className="pad-rules">
-        {rows.map(([label, value, strong], i) => (
-          <div key={label} className="slip-row flex gap-3" style={{ "--row": i } as React.CSSProperties}>
-            <dt className="label w-[76px] flex-none pt-1.5">{label}</dt>
-            <dd className={`body min-w-0 ${strong ? "font-bold" : ""}`}>
-              <Tx>{value}</Tx>
+        {/* the two lines a person already knows: their name, and why they came */}
+        <div className="slip-row flex gap-3">
+          <dt className="label w-[92px] flex-none pt-1.5">{ui("slip.name", lang)}</dt>
+          <dd className="min-w-0 flex-1">
+            <span className="pad-blank" aria-hidden="true" />
+          </dd>
+        </div>
+        {disease ? (
+          <div className="slip-row flex gap-3">
+            <dt className="label w-[92px] flex-none pt-1.5">{ui("slip.disease", lang)}</dt>
+            <dd className="body min-w-0 font-bold">{disease}</dd>
+          </div>
+        ) : null}
+
+        {sealed.map((row, i) => (
+          <div key={row.label} className="slip-row flex gap-3" style={{ "--row": i + 2 } as React.CSSProperties}>
+            <dt className="label w-[92px] flex-none pt-1.5">{row.label}</dt>
+            <dd className="min-w-0 flex-1 pt-0.5">
+              <span className="sealed" style={{ width: row.width }} role="img" aria-label={ui("slip.locked", lang)}>
+                <LockIcon size={15} />
+              </span>
             </dd>
           </div>
         ))}
+
+        {/* the promise that is not a method, so it is not sealed */}
+        <div className="slip-row flex gap-3">
+          <dt className="label w-[92px] flex-none pt-1.5">{ui("slip.medicine", lang)}</dt>
+          <dd className="body min-w-0">{ui("slip.medicineLine", lang)}</dd>
+        </div>
+        <div className="slip-row flex gap-3">
+          <dt className="label w-[92px] flex-none pt-1.5">{ui("slip.review", lang)}</dt>
+          <dd className="body min-w-0">
+            <Tx>
+              {lang === "hi"
+                ? `${site.reviewDays} दिन बाद, अपनी रिपोर्ट के साथ`
+                : `After ${site.reviewDays} days, with your reports`}
+            </Tx>
+          </dd>
+        </div>
       </dl>
 
       <div className="flex items-end justify-between gap-4 px-4 pb-4 pt-2">

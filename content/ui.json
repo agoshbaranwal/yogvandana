@@ -181,12 +181,12 @@
       "en": "Your day, with yoga in it"
     },
     "slipTitle": {
-      "hi": "आप अपनी पर्ची लेकर जाते हैं",
-      "en": "You leave with your own slip"
+      "hi": "आपको क्या मिलेगा",
+      "en": "What you will get"
     },
     "slipLead": {
-      "hi": "डॉक्टर की पर्ची की तरह — आपकी बीमारी का रोज़ का अभ्यास, समय, और कब जाँच। फ़्रिज पर चिपकाइए।",
-      "en": "Like a doctor's slip: the daily practice for your disease, the time, and when to check. Stick it on the fridge."
+      "hi": "सबसे पहले आपकी अपनी पर्ची — डॉक्टर की पर्ची की तरह, पर आपके लिए लिखी हुई।",
+      "en": "First of all, your own slip: like a doctor's slip, but written for you."
     },
     "batchesTitle": {
       "hi": "बैच और फ़ीस",
@@ -317,12 +317,12 @@
       "en": "What the first class is like"
     },
     "slipTitle": {
-      "hi": "{x} की पर्ची",
-      "en": "The {x} slip"
+      "hi": "{x} के लिए आपकी पर्ची",
+      "en": "Your slip for {x}"
     },
     "slipNote": {
-      "hi": "नमूना। आपकी असली पर्ची पहली क्लास के बाद, आपकी हालत देखकर।",
-      "en": "A sample. Your real slip comes after the first class, once she has seen your condition."
+      "hi": "क्या खाना है, क्या सावधानी, दिनचर्या, कौन से प्राणायाम और आसन, और किस समय — सब आपकी हालत देखकर।",
+      "en": "What to eat, what to avoid, the routine, which pranayama and asanas, and at what time — all decided after she has seen your condition."
     },
     "classTitle": {
       "hi": "क्लास में क्या होता है",
@@ -374,22 +374,6 @@
     }
   },
   "slip": {
-    "practice": {
-      "hi": "अभ्यास",
-      "en": "Practice"
-    },
-    "time": {
-      "hi": "समय",
-      "en": "Time"
-    },
-    "batch": {
-      "hi": "बैच",
-      "en": "Batch"
-    },
-    "alongside": {
-      "hi": "साथ में",
-      "en": "Alongside"
-    },
     "review": {
       "hi": "जाँच",
       "en": "Review"
@@ -398,45 +382,17 @@
       "hi": "हस्ताक्षर",
       "en": "Signature"
     },
-    "print": {
-      "hi": "पर्ची प्रिंट करें",
-      "en": "Print this slip"
-    },
-    "title": {
-      "hi": "योग की पर्ची",
-      "en": "The yoga slip"
-    },
-    "lead": {
-      "hi": "पहली क्लास के बाद, आपकी हालत देखकर, वंदना जी की लिखी हुई। यह नमूना है।",
-      "en": "Written by Vandana after the first class, having seen your condition. This one is a sample."
-    },
     "word": {
       "hi": "पर्ची",
       "en": "Slip"
-    },
-    "no": {
-      "hi": "नं.",
-      "en": "No."
-    },
-    "date": {
-      "hi": "[तारीख़]",
-      "en": "[date]"
     },
     "name": {
       "hi": "नाम",
       "en": "Name"
     },
-    "sampleName": {
-      "hi": "[विद्यार्थी का नाम]",
-      "en": "[student's name]"
-    },
     "disease": {
       "hi": "बीमारी",
       "en": "Disease"
-    },
-    "home": {
-      "hi": "घर पर",
-      "en": "At home"
     },
     "medicine": {
       "hi": "दवा",
@@ -446,21 +402,41 @@
       "hi": "चलती रहे। डॉक्टर की सलाह से ही बदलाव।",
       "en": "Continues. Any change only on the doctor's advice."
     },
-    "printSample": {
-      "hi": "नमूना पर्ची प्रिंट करें",
-      "en": "Print the sample slip"
+    "blank": {
+      "hi": "खाली पर्ची",
+      "en": "A blank slip"
     },
-    "share": {
-      "hi": "परिवार को भेजें",
-      "en": "Send to family"
+    "diet": {
+      "hi": "खान-पान",
+      "en": "Food"
     },
-    "sample": {
-      "hi": "नमूना",
-      "en": "Sample"
+    "precautions": {
+      "hi": "सावधानी",
+      "en": "Precautions"
     },
-    "sampleNo": {
-      "hi": "[00124]",
-      "en": "[00124]"
+    "routine": {
+      "hi": "दिनचर्या",
+      "en": "Daily routine"
+    },
+    "pranayam": {
+      "hi": "प्राणायाम",
+      "en": "Pranayama"
+    },
+    "asana": {
+      "hi": "आसन",
+      "en": "Asanas"
+    },
+    "timeRow": {
+      "hi": "समय",
+      "en": "Timing"
+    },
+    "locked": {
+      "hi": "वंदना जी आपकी बात के बाद भरती हैं",
+      "en": "Vandana fills this in after your consultation"
+    },
+    "afterTalk": {
+      "hi": "हर पंक्ति आपकी अपनी होती है। दो लोगों की पर्ची एक जैसी नहीं होती।",
+      "en": "Every line is yours alone. No two people get the same slip."
     }
   },
   "batches": {
@@ -1097,6 +1073,64 @@
     "body": {
       "hi": "बंद नहीं। योग साथ-साथ चलता है। रिपोर्ट सुधरे तो दवा डॉक्टर ही घटाते हैं — और घटती है।",
       "en": "Not stopped. Yoga runs alongside. When the reports improve, the doctor reduces the medicine — and it does come down."
+    }
+  },
+  "get": {
+    "t1": {
+      "hi": "वंदना जी से बात",
+      "en": "A consultation with Vandana"
+    },
+    "t1sub": {
+      "hi": "आपकी बीमारी, आपकी रिपोर्ट, आपकी दवा — सब सुनकर।",
+      "en": "Your disease, your reports, your medicine — all of it heard."
+    },
+    "t2": {
+      "hi": "आपकी अपनी पर्ची",
+      "en": "Your own slip"
+    },
+    "t2sub": {
+      "hi": "क्या खाना है, क्या सावधानी, रोज़ की दिनचर्या, कौन से प्राणायाम और आसन, और किस समय।",
+      "en": "What to eat, what to avoid, your daily routine, which pranayama and asanas, and at what time."
+    },
+    "t3": {
+      "hi": "रोज़ की लाइव क्लास",
+      "en": "A live class every day"
+    },
+    "t3sub": {
+      "hi": "छोटा ग्रुप, ज़ूम पर, वंदना जी आपको देखती हुईं।",
+      "en": "A small group, on Zoom, with Vandana watching you."
+    },
+    "t4": {
+      "hi": "व्हाट्सऐप पर रोज़ साथ",
+      "en": "Daily support on WhatsApp"
+    },
+    "t4sub": {
+      "hi": "रोज़ की याद, और आपके सवालों के जवाब।",
+      "en": "A daily reminder, and answers to your questions."
+    },
+    "t5": {
+      "hi": "हर {d} दिन जाँच",
+      "en": "A review every {d} days"
+    },
+    "t5sub": {
+      "hi": "अपनी रिपोर्ट के साथ — क्या बदला, आगे क्या।",
+      "en": "With your reports — what changed, and what next."
+    },
+    "title": {
+      "hi": "आपको क्या मिलेगा",
+      "en": "What you will get"
+    },
+    "lead": {
+      "hi": "बात करने से लेकर हर दिन तक — यह सब आपका है।",
+      "en": "From the first conversation onwards, all of this is yours."
+    },
+    "free": {
+      "hi": "बात करने का कोई शुल्क नहीं।",
+      "en": "The conversation costs nothing."
+    },
+    "paid": {
+      "hi": "बात के लिए ₹{p}।",
+      "en": "The consultation is ₹{p}."
     }
   }
 }

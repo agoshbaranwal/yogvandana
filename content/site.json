@@ -63,6 +63,10 @@
   "classMinutes": "[50]",
   "homeMinutes": "[30]",
   "talkMinutes": "[10]",
+  "consultation": {
+    "price": "",
+    "minutes": "[10]"
+  },
   "groupSize": "[N]",
   "reviewDays": "[90]",
   "missedClass": {

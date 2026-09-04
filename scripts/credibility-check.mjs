@@ -136,6 +136,40 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
   add(6, "The medicine answer appears on home and, in its own terms, on every condition page", missing.length === 0 ? "pass" : "fail", missing.map(rel).join("; ") || `${should.length} pages carry it`);
 }
 
+/* 6b — the prescription is not published ---------------------------------- */
+{
+  /* What she writes on a student's slip — which pranayama, which asanas, in
+     what order — is the thing a person consults her for. Naming those
+     techniques for a disease on a public page gives away the consultation.
+     Category words (आसन, प्राणायाम, सूक्ष्म व्यायाम) describe what a class
+     contains and stay; a named technique is a prescription and does not.
+
+     This rule reads the built HTML, so it catches a name typed into a
+     component as readily as one left in a content file. */
+  const NAMED = [
+    "कपालभाति", "अनुलोम", "विलोम", "भ्रामरी", "उज्जायी", "भस्त्रिका", "अग्निसार", "नाड़ी शोधन",
+    "सूर्य नमस्कार", "मंडूकासन", "पश्चिमोत्तानासन", "शवासन", "वज्रासन", "ताड़ासन", "सेतुबंध",
+    "मकरासन", "भुजंगासन", "मार्जरी", "शलभासन", "बद्धकोणासन", "तितली आसन", "त्रिकोणासन",
+    "नौकासन", "बालासन", "योग निद्रा", "मत्स्यासन", "धनुरासन", "हलासन", "सर्वांगासन", "वक्रासन",
+    "kapalbhati", "anulom", "vilom", "bhramari", "ujjayi", "bhastrika", "agnisar",
+    "surya namaskar", "mandukasana", "paschimottanasana", "shavasana", "savasana",
+    "vajrasana", "tadasana", "setu bandha", "makarasana", "bhujangasana", "marjari",
+    "shalabhasana", "baddha konasana", "trikonasana", "naukasana", "balasana",
+    "yoga nidra", "matsyasana", "dhanurasana", "halasana", "sarvangasana",
+  ];
+  const found = [];
+  for (const f of pages) {
+    const body = text(read(f)).toLowerCase();
+    for (const n of NAMED) if (body.includes(n.toLowerCase())) found.push(`${rel(f)}: ${n}`);
+  }
+  add(
+    "6b",
+    "No named practice is published: the slip is written after the consultation, not before it",
+    found.length === 0 ? "pass" : "fail",
+    found.slice(0, 8).join("; ") || `${pages.length} pages carry no named asana or pranayama`,
+  );
+}
+
 /* 7 — the claim, word for word -------------------------------------------- */
 {
   const HI = "योग से हर बीमारी ठीक हो सकती है।";

@@ -129,6 +129,10 @@ const SiteSchema = z.object({
   classMinutes: z.string(),
   homeMinutes: z.string(),
   talkMinutes: z.string(),
+  /* The conversation that produces the slip. An empty price means it costs
+     nothing, which is what the site says today; put a number in and every
+     page says the price instead. */
+  consultation: z.object({ price: z.string(), minutes: z.string() }),
   groupSize: z.string(),
   reviewDays: z.string(),
   missedClass: Text,
@@ -220,13 +224,6 @@ const AilmentSchema = z.object({
   videoCount: z.string(),
   searchTerms: Text,
   metaDescription: Text,
-  slip: z.object({
-    practice: Text,
-    time: Text,
-    batch: Text,
-    alongside: Text,
-    review: Text,
-  }),
   /* The first class is a paid class: [10] + [30] + [10] minutes. The talk
      before it is what costs nothing. */
   firstClass: z.object({

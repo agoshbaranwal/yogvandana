@@ -1,4 +1,4 @@
-import { Baloo_2, Montserrat } from "next/font/google";
+import { Baloo_2 } from "next/font/google";
 
 /* Two faces, and only two: one for Devanagari, one for Latin.
 

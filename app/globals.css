@@ -681,6 +681,30 @@
     width: 100%;
     height: 12px;
   }
+  /* A line of the slip that is not written yet. There is no text behind this
+     — the values never reach the page — so it cannot be read, unblurred or
+     copied. It is the shape of what a person will be given. */
+  .sealed {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 40px;
+    height: 26px;
+    padding: 0 8px;
+    border-radius: 6px;
+    color: var(--color-muted);
+    background-image: repeating-linear-gradient(
+      -45deg,
+      var(--color-sandal) 0 5px,
+      #e7d9c0 5px 10px
+    );
+  }
+  .pad-blank {
+    display: block;
+    height: 26px;
+    border-bottom: 1px dashed var(--color-rule);
+  }
+
   /* a result on a story card */
   .result-pill {
     display: inline-flex;
@@ -898,25 +922,6 @@
 @media print {
   .no-print {
     display: none !important;
-  }
-  /* "Print this slip" prints the slip, not the page around it. */
-  body[data-print="slip"] * {
-    visibility: hidden;
-  }
-  body[data-print="slip"] .slip,
-  body[data-print="slip"] .slip * {
-    visibility: visible;
-  }
-  body[data-print="slip"] .slip {
-    position: absolute;
-    inset: 0 auto auto 0;
-    width: 100%;
-    animation: none !important;
-  }
-  body[data-print="slip"] .slip-row,
-  body[data-print="slip"] .slip-seal {
-    animation: none !important;
-    opacity: 1 !important;
   }
   body {
     background: #fff;
