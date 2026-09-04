@@ -9,7 +9,7 @@ import { WhatYouGet } from "@/components/WhatYouGet";
 import { ResultCard } from "@/components/StoryCard";
 import { MedicinePanel } from "@/components/Timeline";
 import { WhoTeaches } from "@/components/WhoTeaches";
-import { realStories, ui } from "@/lib/content";
+import { stories, ui } from "@/lib/content";
 import { picture } from "@/lib/media";
 import { site } from "@/lib/content";
 import { href, type Lang } from "@/lib/routes";
@@ -21,7 +21,7 @@ import { href, type Lang } from "@/lib/routes";
    phone, each one thing. */
 
 export default function Home({ lang }: { lang: Lang }) {
-  const shown = realStories.slice(0, 3);
+  const shown = stories.slice(0, 3);
 
   return (
     <SiteShell lang={lang} routeKey="home" overlay={Boolean(picture(site.photos.portrait))}>
@@ -32,7 +32,7 @@ export default function Home({ lang }: { lang: Lang }) {
 
       {/* 2 · which disease, and what happens next ------------------------- */}
       <section>
-        <div className="wrap wrap-wide flex flex-col gap-6 py-7 md:gap-10 md:py-16">
+        <div className="wrap flex flex-col gap-6 py-7 md:gap-10 md:py-16">
           <DiseaseRows lang={lang} />
           <MedicinePanel lang={lang} />
         </div>
@@ -40,7 +40,7 @@ export default function Home({ lang }: { lang: Lang }) {
 
       {/* 3 · the proof, in the report's own numbers ----------------------- */}
       <section style={{ background: "var(--color-sky)" }}>
-        <div className="wrap wrap-wide flex flex-col gap-3.5 section-pad">
+        <div className="wrap flex flex-col gap-3.5 section-pad">
           <div className="flex items-baseline justify-between gap-3">
             <h2 className="h2">{ui("home.resultsTitle", lang)}</h2>
             <Link href={href("stories", lang)} className="tap whitespace-nowrap font-bold cap">

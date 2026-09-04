@@ -4,12 +4,12 @@ import Filter from "@/components/Filter";
 import SiteShell from "@/components/SiteShell";
 import { StoryCard } from "@/components/StoryCard";
 import { GallerySection } from "./Gallery";
-import { absolute, ailments, realStories, site, t, ui } from "@/lib/content";
+import { absolute, ailments, stories, site, t, ui } from "@/lib/content";
 import { href, type Lang } from "@/lib/routes";
 
 export default function Stories({ lang }: { lang: Lang }) {
   const page = absolute(href("stories", lang));
-  const used = new Set(realStories.map((s) => s.ailmentSlug));
+  const used = new Set(stories.map((s) => s.ailmentSlug));
 
   return (
     <SiteShell lang={lang} routeKey="stories">
@@ -22,8 +22,8 @@ export default function Stories({ lang }: { lang: Lang }) {
         </div>
       </header>
 
-      {realStories.length > 0 ? (
-        <section className="wrap wrap-wide flex flex-col gap-4 pb-10 pt-2 md:pt-4">
+      {stories.length > 0 ? (
+        <section className="wrap flex flex-col gap-4 pb-10 pt-2 md:pt-4">
         <Filter
           event="stories_filter"
           allLabel={ui("stories.all", lang)}
@@ -31,7 +31,7 @@ export default function Stories({ lang }: { lang: Lang }) {
           chips={ailments
             .filter((a) => used.has(a.slug))
             .map((a) => ({ slug: a.slug, label: t(a.name, lang) }))}
-          items={realStories.map((s) => ({
+          items={stories.map((s) => ({
             key: s.id,
             slug: s.ailmentSlug,
             node: (

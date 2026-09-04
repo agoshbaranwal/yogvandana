@@ -66,7 +66,7 @@ export function FirstScreen({ lang }: { lang: Lang }) {
       </div>
 
       {/* the promise, on both --------------------------------------------- */}
-      <div className="wrap wrap-wide md:grid md:min-h-[560px] md:grid-cols-[1fr_380px] md:items-center md:gap-16">
+      <div className="wrap md:grid md:min-h-[560px] md:grid-cols-[1fr_320px] md:items-center md:gap-12">
         <div className="flex flex-col gap-3.5 pb-7 pt-5 md:gap-5 md:py-16">
           <p className={`font-bold body ${pic ? "hidden md:block" : "block"}`} style={{ color: "var(--color-deep)" }}>
             <Tx>{`${t(site.teacher, lang)} · ${t(site.credentialShort, lang)} · ${certified} · ${t(site.city, lang)}`}</Tx>
@@ -75,14 +75,14 @@ export function FirstScreen({ lang }: { lang: Lang }) {
           <p className="body" style={{ color: "var(--color-heroink)" }}>
             {ui("home.heroLead", lang)}
           </p>
-          <div className="mt-1 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:gap-3">
+          <div className="mt-1 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
             <a
               href={wa}
               target="_blank"
               rel="noopener noreferrer"
               data-ev="whatsapp_click"
               data-ev-source="first-screen"
-              className="btn btn-first"
+              className="btn btn-first sm:whitespace-nowrap"
             >
               <WhatsAppIcon size={22} />
               {ui("cta.whatsappTalk", lang)}
@@ -91,7 +91,7 @@ export function FirstScreen({ lang }: { lang: Lang }) {
               href={phone ? telHref(phone) : href("contact", lang)}
               data-ev="call_click"
               data-ev-source="first-screen"
-              className="btn btn-outline"
+              className="btn btn-outline sm:whitespace-nowrap"
             >
               <PhoneIcon size={20} />
               <Tx>{`${ui("cta.call", lang)} · ${number}`}</Tx>

@@ -354,7 +354,7 @@ export function storyHasSubstance(s: Story): boolean {
 export const realStories: Story[] = stories.filter(storyHasSubstance);
 
 export const storiesFor = (slug: string): Story[] =>
-  realStories.filter((s) => s.ailmentSlug === slug);
+  stories.filter((s) => s.ailmentSlug === slug);
 
 /* ------------------------ her record: about pages ------------------------ */
 

@@ -14,6 +14,7 @@ import {
   events,
   experience,
   gurus,
+  isTodo,
   journey,
   mediaClippings,
   mediaLogos,
@@ -133,7 +134,7 @@ export default function About({ lang }: { lang: Lang }) {
         </div>
 
         {/* the desktop: a framed portrait beside her name */}
-        <div className="wrap wrap-wide hidden md:grid md:min-h-[460px] md:grid-cols-[1fr_340px] md:items-center md:gap-16">
+        <div className="wrap hidden md:grid md:min-h-[460px] md:grid-cols-[1fr_340px] md:items-center md:gap-16">
           <div className="flex flex-col gap-3 py-14">
             <p className="label" style={{ color: "var(--color-deeper)" }}>
               {ui("about.eyebrow", lang)}
@@ -182,9 +183,13 @@ export default function About({ lang }: { lang: Lang }) {
             )}
             <p className="cap">{t(site.teacher, lang)}</p>
           </div>
-          <div className="pt-3">
-            <NumberCards lang={lang} />
-          </div>
+          {/* the numbers appear once at least one is real; four cards each
+              holding a single blank letter said nothing at all */}
+          {site.numbers.some((n) => !isTodo(n.value)) ? (
+            <div className="pt-3">
+              <NumberCards lang={lang} />
+            </div>
+          ) : null}
         </div>
       </section>
 
@@ -231,9 +236,9 @@ export default function About({ lang }: { lang: Lang }) {
                   src={c.image}
                   alt={`${t(c.name, lang)} — ${t(c.body, lang)}`}
                   label={ui("photo.certificate", lang)}
-                  compact
+                  ratio="3 / 4"
                   rounded="rounded-[12px]"
-                  className="h-[84px] w-[64px] flex-none border border-rule"
+                  className="w-[104px] flex-none md:w-[124px]"
                 />
                 <div className="flex min-w-0 flex-1 flex-col gap-0.5">
                   <p className="body font-bold leading-snug">
@@ -255,7 +260,7 @@ export default function About({ lang }: { lang: Lang }) {
               <ul className="flex flex-col border-b border-rule">
                 {teachers.shown.map((g) => (
                   <li key={g.id} className="flex items-center gap-3.5 border-t border-rule py-3">
-                    <Photo src={g.photo} alt={t(g.name, lang)} label={ui("photo.guru", lang)} compact rounded="rounded-full" className="h-14 w-14 flex-none" />
+                    <Photo src={g.photo} alt={t(g.name, lang)} label={ui("photo.guru", lang)} ratio="1 / 1" rounded="rounded-[12px]" className="w-[84px] flex-none" />
                     <div className="flex min-w-0 flex-col gap-0.5">
                       <p className="body font-bold leading-snug">
                         <Tx>{t(g.name, lang)}</Tx>
@@ -333,9 +338,9 @@ export default function About({ lang }: { lang: Lang }) {
       <section id="sammaan" style={{ background: "var(--color-sky)" }}>
         <div className="wrap flex flex-col gap-3.5 section-pad">
           <h2 className="h2">{ui("about.stageTitle", lang)}</h2>
-          <ul className="grid grid-cols-2 gap-2.5 md:grid-cols-4 md:gap-4">
+          <ul className="flex flex-wrap gap-2.5 md:gap-4">
             {stage.shown.map((tile) => (
-              <li key={tile.key} className="flex flex-col gap-1.5">
+              <li key={tile.key} className="flex w-[calc(50%-5px)] flex-col gap-1.5 md:w-[200px]">
                 <Photo src={tile.photo} alt={tile.title} label={ui("photo.event", lang)} ratio="4 / 3" rounded="rounded-[12px]" />
                 <p className="cap font-bold leading-snug" style={{ color: "var(--color-kohl)" }}>
                   <Tx>{tile.title}</Tx>
@@ -397,18 +402,18 @@ export default function About({ lang }: { lang: Lang }) {
         <div className="wrap flex flex-col gap-3.5 section-pad">
           <h2 className="h2">{ui("about.mediaTitle", lang)}</h2>
           {mediaLogos.length > 0 ? (
-            <ul className="grid grid-cols-3 gap-2.5">
+            <ul className="flex flex-wrap gap-2.5">
               {logos.shown.map((m) => (
-                <li key={m.id}>
-                  <Photo src={m.image} alt={t(m.name, lang)} label={ui("photo.logo", lang)} compact rounded="rounded-[12px]" className="h-16 w-full" />
+                <li key={m.id} className="w-[calc(50%-5px)] md:w-[190px]">
+                  <Photo src={m.image} alt={t(m.name, lang)} label={ui("photo.logo", lang)} ratio="5 / 2" rounded="rounded-[12px]" className="w-full" />
                 </li>
               ))}
             </ul>
           ) : null}
           <PendingNote lang={lang} n={logos.hidden} />
-          <ul className="grid grid-cols-3 gap-2.5 md:grid-cols-4">
+          <ul className="flex flex-wrap gap-2.5">
             {clippings.shown.map((m) => (
-              <li key={m.id} className="flex flex-col gap-1.5">
+              <li key={m.id} className="flex w-[calc(50%-5px)] flex-col gap-1.5 md:w-[170px]">
                 <Photo src={m.image} alt={t(m.name, lang)} label={ui("photo.clipping", lang)} ratio="3 / 4" rounded="rounded-[12px]" />
                 <p className="cap">
                   <Tx>{`${t(m.name, lang)} · ${t(m.date, lang)}`}</Tx>

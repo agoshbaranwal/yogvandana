@@ -202,7 +202,7 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
 
       {/* 5 · people with this, who felt the difference ---------------------- */}
       <section style={{ background: "var(--color-sky)" }}>
-        <div className="wrap wrap-wide flex flex-col gap-3 section-pad">
+        <div className="wrap flex flex-col gap-3 section-pad">
           <div className="flex items-baseline justify-between gap-3">
             <h2 className="h2">{ui("ailment.studentsTitle", lang).replace("{x}", name)}</h2>
             <Link href={href("stories", lang)} className="tap whitespace-nowrap font-bold cap">

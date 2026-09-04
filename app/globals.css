@@ -190,14 +190,19 @@
      past 75. Everything now sits in one 860 px column; the few things that
      genuinely need room — the first screen, a row of cards, the timetable —
      opt into .wrap-wide. */
+  /* One width, and therefore one left edge, everywhere.
+
+     It was 860 for prose and 1120 for anything wide, which put two different
+     left margins on the same page: the first screen began at one and every
+     heading below it at another, and the eye reads that as a page that does
+     not line up. 960 holds three cards across, two columns of disease rows,
+     and a paragraph still stops at a readable measure because .body and .cap
+     cap themselves. */
   .wrap {
     width: 100%;
-    max-width: 860px;
+    max-width: 960px;
     margin-inline: auto;
     padding-inline: 16px;
-  }
-  .wrap-wide {
-    max-width: 1120px;
   }
   @media (min-width: 768px) {
     .wrap {
@@ -286,22 +291,14 @@
   }
 
   /* a fact still to be filled in: reads as deliberate, not broken */
-  /* A fact still to be given sits in a soft chip at normal weight, so it
-     recedes behind the real words. It used to carry a dotted underline at the
-     same weight as its neighbours, which made a blank pull the eye harder
-     than a real name — all 240 of them. */
-  .todo {
-    background: var(--todo-fill, rgba(20, 18, 15, 0.06));
-    color: var(--todo-ink, var(--color-muted));
-    font-weight: 400;
-    border-radius: 999px;
-    /* tight, so a chip beside a comma does not open a gap before it */
-    padding: 0 5px;
-    margin-inline: -1px;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
-  }
-  /* a missing sentence: no chip, just the quieter ink */
+  /* A fact still to be given is set in the quieter ink and nothing else.
+     It has now been tried twice with a marker — a dotted underline, then a
+     tinted chip — and both times the marker became the page's texture,
+     because almost every value on this site is still unfilled. Agosh saw
+     grey lozenges over "a lot of content" and he was right. The reader gets
+     a sentence that reads; `npm run content:check` is what tells us what is
+     still missing, not the page. */
+  .todo,
   .todo-long {
     color: var(--todo-ink, var(--color-muted));
   }
@@ -487,11 +484,9 @@
   footer,
   .on-dark {
     --todo-ink: var(--color-todo-on-kohl);
-    --todo-fill: rgba(252, 252, 251, 0.12);
   }
   .on-bhagwa {
     --todo-ink: var(--color-todo-on-bhagwa);
-    --todo-fill: rgba(20, 18, 15, 0.12);
   }
 
   /* The old dawn hero — its sky, its sun disc and its horizon line — is

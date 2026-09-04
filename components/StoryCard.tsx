@@ -4,10 +4,13 @@ import { LongArrowIcon, PlayIcon } from "./Icons";
 import { Photo } from "./Photo";
 import { Tx } from "./Tx";
 
-/* A result card. The audience came to see what happened to the report and to
-   the medicine, so the result is the largest thing on the card: a number that
-   went from here to there, or in plain words what a person can do now that
-   they could not before. The face, the age and the city make it a person. */
+/* A student's result, led by their photograph.
+
+   The photograph is the first thing on the card and the largest, because a
+   face is what makes a claim believable to this audience — a number on its own
+   is a number. It used to be a 60 px circle with an icon in it and no label,
+   which is not a design for a photograph, it is somewhere a photograph was
+   forgotten. The frame now says whose picture belongs there. */
 
 export function ResultCard({
   story,
@@ -27,115 +30,93 @@ export function ResultCard({
   const change = t(story.change, lang).trim();
   const months = story.months.trim();
   const hasResult = before !== "" && after !== "";
-  const tail = [change, months ? ui("stories.months", lang).replace("{n}", months) : ""].filter(Boolean);
   const age = lang === "hi" ? `${story.age} साल` : story.age;
 
   return (
-    <article className="card flex h-full flex-col gap-3">
-      <div className="flex items-center gap-3">
-        <Photo
-          src={story.photo}
-          alt={`${t(story.name, lang)}, ${t(story.city, lang)}`}
-          label={ui("photo.student", lang)}
-          compact
-          rounded="rounded-full"
-          className="h-[60px] w-[60px] flex-none"
-        />
-        <div className="flex min-w-0 flex-col gap-0.5">
+    <article className="card flex h-full flex-col gap-3 p-0">
+      <Photo
+        src={story.photo}
+        alt={`${t(story.name, lang)}, ${t(story.city, lang)}`}
+        label={ui("photo.student", lang)}
+        ratio="4 / 3"
+        rounded="rounded-none"
+        className="w-full rounded-t-[12px]"
+        sizes="(min-width: 768px) 340px, 100vw"
+      />
+
+      <div className="flex flex-1 flex-col gap-3 px-4 pb-4">
+        <div className="flex flex-col gap-1">
           <p className="h3">
             <Tx>{`${t(story.name, lang)}, ${age}`}</Tx>
           </p>
           <p className="cap flex flex-wrap items-center gap-2">
             <Tx>{t(story.city, lang)}</Tx>
-            {ailment ? (
-              <span className="chip">
-                {t(ailment.name, lang)}
-              </span>
-            ) : null}
+            {ailment ? <span className="chip">{t(ailment.name, lang)}</span> : null}
           </p>
         </div>
-      </div>
 
-      {hasResult && metric ? (
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-[12px] px-3.5 py-3" style={{ background: "var(--color-ivory)" }}>
-          <div className="flex min-w-0 flex-col">
+        {/* the result, in the report's own terms */}
+        {hasResult && metric ? (
+          <div className="flex flex-col gap-1">
             <p className="label normal-case">{`${metric} ${ui("stories.before", lang)}`}</p>
-            <p className="num page-title" style={{ color: "var(--color-muted)" }}>
-              <Tx>{before}</Tx>
+            <p className="num page-title flex flex-wrap items-baseline gap-2.5">
+              <span style={{ color: "var(--color-muted)" }}>
+                <Tx>{before}</Tx>
+              </span>
+              <LongArrowIcon size={26} style={{ color: "var(--color-deep)" }} />
+              <span style={{ color: "var(--color-kohl)" }}>
+                <Tx>{after}</Tx>
+              </span>
             </p>
+            {change || months ? (
+              <p className="body font-bold">
+                <Tx>
+                  {[change, months ? ui("stories.months", lang).replace("{n}", months) : ""]
+                    .filter(Boolean)
+                    .join(", ")}
+                </Tx>
+              </p>
+            ) : null}
           </div>
-          <LongArrowIcon size={30} style={{ color: "var(--color-deep)" }} />
-          <div className="flex min-w-0 flex-col">
-            <p className="label" style={{ color: "var(--color-deeper)" }}>
-              {ui("stories.after", lang)}
+        ) : hasResult ? (
+          <div className="flex flex-col gap-1.5">
+            <p className="body">
+              <span className="label normal-case">{ui("stories.before", lang)}</span>{" "}
+              <span style={{ color: "var(--color-muted)" }}>
+                <Tx>{before}</Tx>
+              </span>
             </p>
-            <p className="num page-title" style={{ color: "var(--color-deeper)" }}>
+            <p className="h3">
+              <span className="label normal-case">{ui("stories.after", lang)}</span>{" "}
               <Tx>{after}</Tx>
             </p>
+            {months ? (
+              <p className="body font-bold">
+                <Tx>{ui("stories.months", lang).replace("{n}", months)}</Tx>
+              </p>
+            ) : null}
           </div>
-          {tail.length > 0 ? (
-            <div className="ml-auto flex flex-col items-end gap-1 text-right">
-              {/* wraps under the numbers when the card is narrow */}
-              {change ? (
-                <span className="result-pill">
-                  <Tx>{change}</Tx>
-                </span>
-              ) : null}
-              {months ? (
-                <span className="cap">
-                  <Tx>{ui("stories.months", lang).replace("{n}", months)}</Tx>
-                </span>
-              ) : null}
-            </div>
-          ) : null}
-        </div>
-      ) : hasResult ? (
-        <div className="flex flex-col gap-2">
-          <div className="grid grid-cols-2 gap-2.5">
-            <div className="flex flex-col gap-0.5 rounded-[12px] px-3.5 py-3" style={{ background: "var(--color-ivory)" }}>
-              <p className="label">{ui("stories.before", lang)}</p>
-              <p className="h3" style={{ color: "var(--color-muted)" }}>
-                <Tx>{before}</Tx>
-              </p>
-            </div>
-            <div className="flex flex-col gap-0.5 rounded-[12px] px-3.5 py-3" style={{ background: "var(--color-apricot)" }}>
-              <p className="label" style={{ color: "var(--color-deeper)" }}>
-                {ui("stories.after", lang)}
-              </p>
-              <p className="h3" style={{ color: "var(--color-deeper)" }}>
-                <Tx>{after}</Tx>
-              </p>
-            </div>
-          </div>
-          {tail.length > 0 ? (
-            <p className="cap font-bold" style={{ color: "var(--color-deeper)" }}>
-              <Tx>{tail.join(" · ")}</Tx>
-            </p>
-          ) : null}
-        </div>
-      ) : null}
-
-      <blockquote className="body" style={{ color: "var(--color-heroink)" }}>
-        “<Tx>{t(story.quote, lang)}</Tx>”
-      </blockquote>
-
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-        {/* a pill offering a video that does not exist yet is an affordance
-            for nothing; it appears the day the link is real */}
-        {showVideo && story.video && !isTodo(story.video) ? (
-          <span className="tap-pill" role="img" aria-label={ui("photo.video", lang)}>
-            <PlayIcon size={16} />
-            <Tx>{ui("stories.videoSeconds", lang)}</Tx>
-          </span>
         ) : null}
-        <span className="cap">
-          <Tx>{ui("stories.withSince", lang).replace("{y}", t(story.since, lang))}</Tx>
-        </span>
+
+        <blockquote className="body" style={{ color: "var(--color-heroink)" }}>
+          “<Tx>{t(story.quote, lang)}</Tx>”
+        </blockquote>
+
+        <div className="mt-auto flex flex-wrap items-center gap-x-3 gap-y-2">
+          {showVideo && story.video && !isTodo(story.video) ? (
+            <span className="tap-pill" role="img" aria-label={ui("photo.video", lang)}>
+              <PlayIcon size={16} />
+              <Tx>{ui("stories.videoSeconds", lang)}</Tx>
+            </span>
+          ) : null}
+          <span className="cap">
+            <Tx>{ui("stories.withSince", lang).replace("{y}", t(story.since, lang))}</Tx>
+          </span>
+        </div>
+        {share}
       </div>
-      {share}
     </article>
   );
 }
 
-/* The old name, so every page that asked for a story card gets the result card. */
 export const StoryCard = ResultCard;
