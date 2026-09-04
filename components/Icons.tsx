@@ -165,6 +165,17 @@ export const CloseIcon = (p: P) => (
     <path d="M6.2 6.2l11.6 11.6M17.8 6.2L6.2 17.8" />
   </U>
 );
+export const ChevronIcon = ({ size = 24, ...rest }: P) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...rest}>
+    <path d="M9 6l6 6-6 6" />
+  </svg>
+);
+export const LongArrowIcon = ({ size = 34, ...rest }: P) => (
+  <svg width={size} height={Math.round((size * 24) / 34)} viewBox="0 0 34 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...rest}>
+    <path d="M3 12h27" />
+    <path d="M21 4l9 8-9 8" />
+  </svg>
+);
 export const ArrowIcon = (p: P) => (
   <U {...p}>
     <path d="M4.5 12h14" />

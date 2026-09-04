@@ -8,6 +8,7 @@ import SiteShell from "@/components/SiteShell";
 import PrintSlip from "@/components/PrintSlip";
 import { Slip } from "@/components/Slip";
 import { StoryCard } from "@/components/StoryCard";
+import { MedicinePanel } from "@/components/Timeline";
 import { Tx } from "@/components/Tx";
 import { breadcrumbSchema, courseSchema, faqSchema, Jsonld } from "@/components/Jsonld";
 import {
@@ -146,7 +147,8 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
               <Tx>{t(ailment.firstClass.note, lang)}</Tx>
             </p>
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-4">
+            <MedicinePanel lang={lang} body={t(ailment.medicine, lang)} />
             <p className="label">{ui("ailment.classTitle", lang)}</p>
             <ul className="ml-5 flex list-disc flex-col gap-1.5 body">
               {ailment.classNotes.map((note, i) => (

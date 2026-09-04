@@ -28,7 +28,7 @@ export function waMessage(opts: {
   }
 
   if (kind === "talk") {
-    const when = time ? (hi ? `${time} के बैच` : `the ${time} batch`) : hi ? "क्लास" : "your classes";
+    const when = time ? (hi ? `${time} के बैच` : `the ${time} batch`) : hi ? "बैच" : "the batches";
     parts.push(
       hi
         ? `${when} के बारे में बात करनी है।`

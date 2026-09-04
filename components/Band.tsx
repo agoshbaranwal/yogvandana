@@ -1,21 +1,26 @@
-import { absolute, ailmentBySlug, ailments, site, t, ui } from "@/lib/content";
+import { absolute, ailmentBySlug, ailments, PHONE, phoneShown, site, t, ui } from "@/lib/content";
 import { href, type Lang, type RouteKey } from "@/lib/routes";
 import BookingBand from "./BookingBand";
 
 /** Server wrapper: pulls the strings and the ailment list, hands the client
- *  component only what it needs. */
+ *  component only what it needs. A condition page passes its own title and
+ *  lead, and asks which time. */
 export default function Band({
   lang,
   routeKey,
   slug,
   source,
   defaultSlug = "",
+  title,
+  lead,
 }: {
   lang: Lang;
   routeKey: RouteKey;
   slug?: string;
   source: string;
   defaultSlug?: string;
+  title?: string;
+  lead?: string;
 }) {
   /* The reader's preview names the page in words; the message she receives
      carries the address. */
@@ -31,23 +36,23 @@ export default function Band({
     <BookingBand
       pageLabel={pageLabel}
       lang={lang}
-      title={ui("band.title", lang)}
-      lead={ui("band.lead", lang)}
+      title={title ?? ui("band.title", lang)}
+      lead={lead ?? ui("band.lead", lang)}
       step1={ui("band.step1", lang)}
       step2={ui("band.step2", lang)}
       choices={ailments.map((a) => ({ slug: a.slug, name: t(a.name, lang) }))}
       otherLabel={ui("band.other", lang)}
       defaultSlug={defaultSlug}
+      showTime={Boolean(slug)}
       morningLabel={ui("band.morning", lang)}
       eveningLabel={ui("band.evening", lang)}
       whatsappNumber={site.contact.whatsapp}
       whatsappLabel={ui("cta.whatsappTalk", lang)}
-      phone={site.contact.phone}
+      phone={PHONE}
+      phoneShown={phoneShown(lang)}
       callLabel={ui("cta.call", lang)}
-      formHref={`${href("contact", lang)}#form`}
-      formLabel={ui("cta.form", lang)}
+      contactHref={href("contact", lang)}
       previewLabel={ui("band.preview", lang)}
-      replyLine={ui("band.reply", lang)}
       page={absolute(href(routeKey, lang, slug))}
       source={source}
     />

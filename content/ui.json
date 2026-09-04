@@ -123,12 +123,16 @@
       "en": "Talk on WhatsApp"
     },
     "more": {
-      "hi": "और भी: गर्दन, अस्थमा, साइनस, कब्ज़ — पूछिए",
-      "en": "Also: neck, asthma, sinus, constipation — ask"
+      "hi": "और भी: गर्दन, अस्थमा, साइनस, कब्ज़ —",
+      "en": "Also: neck, asthma, sinus, constipation —"
     },
     "see": {
       "hi": "देखें",
       "en": "See"
+    },
+    "ask": {
+      "hi": "पूछिए",
+      "en": "ask"
     }
   },
   "home": {
@@ -247,6 +251,10 @@
     "whoLine": {
       "hi": "{cred}, {uni}। {x} साल से {city} में और ऑनलाइन।",
       "en": "{cred}, {uni}. {x} years in {city} and online."
+    },
+    "sumLine": {
+      "hi": "यानी रोज़ ₹{r} से कम। {pay} {family}।",
+      "en": "That is under ₹{r} a day. {pay} {family}."
     }
   },
   "band": {
@@ -449,6 +457,10 @@
     "sample": {
       "hi": "नमूना",
       "en": "Sample"
+    },
+    "sampleNo": {
+      "hi": "[00124]",
+      "en": "[00124]"
     }
   },
   "batches": {
@@ -905,6 +917,10 @@
     "phonePlaceholder": {
       "hi": "[+91 98765 43210]",
       "en": "[+91 98765 43210]"
+    },
+    "phoneTodo": {
+      "hi": "[फ़ोन नंबर]",
+      "en": "[phone number]"
     }
   },
   "students": {
@@ -1021,6 +1037,10 @@
     "comingSoon": {
       "hi": "फ़ोटो जल्द",
       "en": "Photo soon"
+    },
+    "first": {
+      "hi": "फ़ोटो: वंदना, क्लास में",
+      "en": "Photo: Vandana, in class"
     }
   },
   "pay": {

@@ -47,7 +47,7 @@
     "hi": "प्रति माह",
     "en": "a month"
   },
-  "perDay": "[शुल्क÷30]",
+  "perDay": "[50]",
   "nextStart": {
     "hi": "[तारीख़]",
     "en": "[date]"

@@ -65,9 +65,9 @@
   --step-cap: 16px;
   --step-body: 18px;
   --step-sub: 20px;
-  --step-head: 24px;
+  --step-head: 26px;
   --step-title: 30px;
-  --step-display: clamp(36px, 9.4vw, 44px);
+  --step-display: 40px;
   /* room between sections on a phone: a thumb scans by gaps */
   --section-pad: 40px;
 }
@@ -75,7 +75,7 @@
   :root {
     --step-body: 19px;
     --step-sub: 21px;
-    --step-head: 28px;
+    --step-head: 30px;
     --step-title: 38px;
     --step-display: clamp(48px, 4.6vw, 64px);
     --section-pad: 64px;
@@ -250,11 +250,31 @@
     padding: 15px 24px;
     border-radius: 999px;
     font-size: var(--step-body);
-    font-weight: 700;
+    font-weight: 800;
     text-decoration: none;
     line-height: 1.25;
     transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
     text-align: center;
+  }
+  /* The first screen's main button: saffron on the ivory phone page, ink on
+     the desktop sky that ends in saffron. */
+  .btn-first {
+    background: var(--color-bhagwa);
+    color: var(--color-kohl);
+  }
+  .btn-first:hover {
+    background: #f08a1f;
+    color: var(--color-kohl);
+  }
+  @media (min-width: 768px) {
+    .btn-first {
+      background: var(--color-kohl);
+      color: var(--color-bhagwa);
+    }
+    .btn-first:hover {
+      background: #382a1c;
+      color: var(--color-bhagwa);
+    }
   }
   .btn-primary {
     background: var(--color-bhagwa);
@@ -467,6 +487,200 @@
     color: var(--color-deep);
     transform: rotate(-8deg);
     flex: none;
+  }
+
+
+  /* Round 6 ------------------------------------------------------------- */
+  /* a phone number a thumb can hit, in the header and the first screen */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 14px;
+    border-radius: 999px;
+    border: 1.5px solid var(--color-kohl);
+    color: var(--color-kohl);
+    font-size: var(--step-cap);
+    font-weight: 800;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .pill-solid {
+    background: var(--color-ivory);
+    border-color: transparent;
+  }
+  .pill-solid:hover {
+    background: var(--color-paper);
+    color: var(--color-kohl);
+  }
+  /* the disease list: rows, not tiles; the whole row is the target */
+  .rows {
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
+    border-top: 1px solid var(--color-rule);
+    text-decoration: none;
+    color: var(--color-kohl);
+  }
+  .row:hover {
+    background: rgba(35, 26, 18, 0.04);
+    color: var(--color-kohl);
+  }
+  @media (min-width: 768px) {
+    .row {
+      padding: 18px 20px;
+    }
+  }
+  .ico {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    flex: none;
+  }
+  /* full-bleed on a phone, back inside the column from tablet up */
+  .bleed {
+    margin-inline: -16px;
+  }
+  @media (min-width: 768px) {
+    .bleed {
+      margin-inline: 0;
+    }
+  }
+  /* the timeline: what happens, in order */
+  .tl-dot {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--color-kohl);
+    color: var(--color-bhagwa);
+    display: grid;
+    place-items: center;
+    font-size: var(--step-sub);
+    font-weight: 800;
+    flex: none;
+  }
+  .tl-line {
+    width: 2px;
+    flex: 1;
+    background: var(--color-rule);
+    margin-top: 6px;
+  }
+  /* the medicine panel: the one thing said in the dark */
+  .panel-dark {
+    background: var(--color-kohl);
+    color: var(--color-ivory);
+    border-radius: 14px;
+    padding: 16px 18px;
+  }
+  /* the first screen */
+  .first {
+    background: var(--color-ivory);
+  }
+  .first-frame {
+    background: linear-gradient(180deg, var(--color-dawn-top) 0%, var(--color-dawn-mid) 55%, #ffb866 100%);
+  }
+  .first-fade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(35, 26, 18, 0) 45%, rgba(35, 26, 18, 0.72) 100%);
+    pointer-events: none;
+  }
+  @media (min-width: 768px) {
+    .first {
+      background: linear-gradient(180deg, var(--color-dawn-top) 0%, var(--color-dawn-mid) 55%, #ffb866 100%);
+    }
+    .first-frame {
+      background: none;
+    }
+  }
+  /* the slip as a prescription pad: paper, letterhead, ruled lines, a torn edge */
+  .pad {
+    background: #fffdf7;
+    border: 1px solid var(--color-rule);
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 8px 24px rgba(35, 26, 18, 0.08);
+    overflow: hidden;
+  }
+  .pad-bar {
+    height: 8px;
+    background: var(--color-bhagwa);
+  }
+  .pad-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 16px 10px;
+    border-bottom: 1.5px solid var(--color-kohl);
+  }
+  .pad-rules {
+    padding: 14px 16px 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-image: repeating-linear-gradient(180deg, transparent 0 35px, #efe6d6 35px 36px);
+  }
+  .pad-sign {
+    width: 120px;
+    height: 34px;
+    border-bottom: 1px solid var(--color-kohl);
+  }
+  .pad-edge {
+    display: block;
+    width: 100%;
+    height: 12px;
+  }
+  /* a result on a story card */
+  .result-pill {
+    display: inline-flex;
+    align-items: center;
+    background: var(--color-apricot);
+    color: var(--color-deeper);
+    font-size: var(--step-cap);
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  /* a small outlined action beside text: play a video, print a slip */
+  .tap-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 16px;
+    border-radius: 999px;
+    border: 2px solid var(--color-kohl);
+    color: var(--color-kohl);
+    font-size: var(--step-cap);
+    font-weight: 800;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  /* the week on a batch card */
+  .day {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: var(--step-cap);
+    font-weight: 800;
+  }
+  .day.on {
+    background: var(--color-kohl);
+    color: var(--color-bhagwa);
+  }
+  .day.off {
+    background: var(--color-sandal);
+    color: var(--color-muted);
   }
 
   /* details/summary FAQ: works with no JavaScript ------------------------- */

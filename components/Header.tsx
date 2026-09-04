@@ -2,9 +2,15 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { CloseIcon, MenuIcon, WhatsAppIcon } from "./Icons";
+import { CloseIcon, MenuIcon, PhoneIcon, WhatsAppIcon } from "./Icons";
+import { Tx } from "./Tx";
 
 export type NavItem = { label: string; href: string; active: boolean };
+
+/* The header. On a phone it is the wordmark, a phone number in a pill and the
+   menu: an older reader looks for a number before anything else. On the home
+   page it sits on her photograph; everywhere else on its own ivory bar. The
+   language switch lives at the top of the menu and in the desktop bar. */
 
 export default function Header({
   brandHi,
@@ -24,7 +30,8 @@ export default function Header({
   whatsappHref,
   phoneHref,
   phoneLabel,
-  onDawn = false,
+  callLabel,
+  overlay = false,
 }: {
   brandHi: string;
   brandTail: string;
@@ -41,10 +48,11 @@ export default function Header({
   studentsHref: string;
   whatsappLabel: string;
   whatsappHref: string;
-  /* An older person looks for a number before a button. Shown once she has one. */
+  /* tel: link and the number as written; the label is a bracketed blank until she has one */
   phoneHref: string;
   phoneLabel: string;
-  onDawn?: boolean;
+  callLabel: string;
+  overlay?: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const panel = useRef<HTMLDivElement>(null);
@@ -92,27 +100,26 @@ export default function Header({
     }
   }, [open]);
 
+  const pill = overlay ? "pill pill-solid md:pill" : "pill";
+
   return (
     <header
       className={
-        onDawn
-          ? "absolute inset-x-0 top-0 z-30"
+        overlay
+          ? "absolute inset-x-0 top-0 z-30 md:relative md:border-b md:border-rule md:bg-ivory"
           : "relative z-30 border-b border-rule bg-ivory"
       }
     >
-      <div className="wrap flex items-center justify-between gap-4 py-2.5 md:py-3">
+      <div className="wrap flex items-center justify-between gap-3 py-2 md:py-3">
         <Link
           href={home}
           className="brand inline-block py-2 no-underline h2"
           style={{ color: "var(--color-kohl)" }}
         >
-          <span>
-            {brandHi}
-          </span>{" "}
-          {brandTail}
+          <span>{brandHi}</span> {brandTail}
         </Link>
 
-        <nav className="hidden items-center gap-5 lg:flex" aria-label={menuLabel}>
+        <nav className="hidden items-center gap-6 lg:flex" aria-label={menuLabel}>
           {nav.map((item) => (
             <Link
               key={item.href}
@@ -124,53 +131,33 @@ export default function Header({
               {item.label}
             </Link>
           ))}
-          {phoneHref ? (
-
-            <a href={phoneHref} className="tap body font-bold no-underline" style={{ color: "var(--color-kohl)" }} data-ev="call_click" data-ev-source="header">
-
-              {phoneLabel}
-
-            </a>
-
-          ) : null}
+          <a href={phoneHref || talkHref} className="pill" data-ev="call_click" data-ev-source="header" aria-label={`${callLabel}: ${phoneLabel}`}>
+            <PhoneIcon size={18} />
+            <Tx>{phoneLabel}</Tx>
+          </a>
           <Link
             href={switchHref}
             title={switchTitle}
             data-ev="language_switch"
             data-ev-to={switchLabel}
-            className="inline-flex min-h-[44px] items-center rounded-full border px-3.5 font-bold no-underline cap"
-            style={{ borderColor: "var(--color-kohl)", color: "var(--color-kohl)" }}
+            className="pill"
           >
             {switchLabel}
-          </Link>
-          <Link
-            href={talkHref}
-            data-ev="talk_cta"
-            data-ev-source="header"
-            className={`btn btn-sm ${onDawn ? "btn-dark" : "btn-primary"}`}
-          >
-            {talkLabel}
           </Link>
         </nav>
 
-        <div className="flex items-center gap-1.5 lg:hidden">
-          <Link
-            href={switchHref}
-            title={switchTitle}
-            data-ev="language_switch"
-            data-ev-to={switchLabel}
-            className="inline-flex min-h-[44px] items-center rounded-full border px-3 font-bold no-underline cap"
-            style={{ borderColor: "var(--color-kohl)", color: "var(--color-kohl)" }}
-          >
-            {switchLabel}
-          </Link>
+        <div className="flex items-center gap-2 lg:hidden">
+          <a href={phoneHref || talkHref} className={pill} data-ev="call_click" data-ev-source="header" aria-label={`${callLabel}: ${phoneLabel}`}>
+            <PhoneIcon size={18} />
+            <Tx>{phoneLabel}</Tx>
+          </a>
           <button
             type="button"
             ref={toggle}
             onClick={() => setOpen(true)}
             aria-label={menuLabel}
             aria-expanded={open}
-            className="-mr-2 flex h-11 w-11 items-center justify-center"
+            className={`flex h-11 w-11 items-center justify-center rounded-full ${overlay ? "bg-ivory" : ""}`}
             style={{ color: "var(--color-kohl)" }}
           >
             <MenuIcon size={24} />
@@ -186,18 +173,30 @@ export default function Header({
           aria-label={menuLabel}
           className="fixed inset-0 z-50 flex flex-col bg-ivory lg:hidden"
         >
-          <div className="wrap flex items-center justify-between gap-4 py-2.5">
+          <div className="wrap flex items-center justify-between gap-4 py-2">
             <span className="brand h2">
               <span>{brandHi}</span> {brandTail}
             </span>
-            <button
-              type="button"
-              onClick={() => setOpen(false)}
-              aria-label={closeLabel}
-              className="-mr-2 flex h-11 w-11 items-center justify-center"
-            >
-              <CloseIcon size={24} />
-            </button>
+            <div className="flex items-center gap-2">
+              <Link
+                href={switchHref}
+                title={switchTitle}
+                data-ev="language_switch"
+                data-ev-to={switchLabel}
+                className="pill"
+                onClick={() => setOpen(false)}
+              >
+                {switchLabel}
+              </Link>
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                aria-label={closeLabel}
+                className="-mr-2 flex h-11 w-11 items-center justify-center"
+              >
+                <CloseIcon size={24} />
+              </button>
+            </div>
           </div>
           <nav
             className="wrap flex flex-1 flex-col gap-1 overflow-y-auto pb-8"
@@ -224,26 +223,28 @@ export default function Header({
               {studentsLabel}
             </Link>
             <div className="mt-5 flex flex-col gap-2.5">
-              <Link
-                href={talkHref}
-                onClick={() => setOpen(false)}
-                data-ev="talk_cta"
-                data-ev-source="menu"
-                className="btn btn-primary w-full"
-              >
-                {talkLabel}
-              </Link>
               <a
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-ev="whatsapp_click"
                 data-ev-source="menu"
-                className="btn btn-outline w-full"
+                className="btn btn-primary w-full"
               >
-                <WhatsAppIcon size={18} />
+                <WhatsAppIcon size={20} />
                 {whatsappLabel}
               </a>
+              <a
+                href={phoneHref || talkHref}
+                onClick={() => setOpen(false)}
+                data-ev={phoneHref ? "call_click" : "talk_cta"}
+                data-ev-source="menu"
+                className="btn btn-outline w-full"
+              >
+                <PhoneIcon size={20} />
+                <Tx>{`${callLabel} · ${phoneLabel}`}</Tx>
+              </a>
+              <span className="sr-only">{talkLabel}</span>
             </div>
           </nav>
         </div>

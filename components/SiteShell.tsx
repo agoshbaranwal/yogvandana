@@ -1,4 +1,4 @@
-import { absolute, site, ui } from "@/lib/content";
+import { absolute, PHONE, phoneShown, site, ui } from "@/lib/content";
 import { href, type Lang, NAV, type RouteKey } from "@/lib/routes";
 import { telHref, waHref, waMessage } from "@/lib/whatsapp";
 import Analytics from "./Analytics";
@@ -13,7 +13,7 @@ export default function SiteShell({
   hasBand = true,
   quiet = false,
   slug,
-  onDawn = false,
+  overlay = false,
   ailmentName,
   children,
 }: {
@@ -26,7 +26,8 @@ export default function SiteShell({
   /* Policy pages and the 404 carry no sticky bar: nothing there is a decision. */
   quiet?: boolean;
   slug?: string;
-  onDawn?: boolean;
+  /* the home page: the header sits on her photograph */
+  overlay?: boolean;
   ailmentName?: string;
   children: React.ReactNode;
 }) {
@@ -66,10 +67,11 @@ export default function SiteShell({
         studentsLabel={ui("nav.students", lang)}
         studentsHref={href("students", lang)}
         whatsappLabel={ui("cta.whatsappTalk", lang)}
-        phoneHref={site.contact.phone ? telHref(site.contact.phone) : ""}
-        phoneLabel={site.contact.phoneDisplay || ""}
+        phoneHref={PHONE ? telHref(PHONE) : ""}
+        phoneLabel={phoneShown(lang)}
+        callLabel={ui("cta.call", lang)}
         whatsappHref={wa}
-        onDawn={onDawn}
+        overlay={overlay}
       />
       <main id="main" className="flex-1">
         {children}

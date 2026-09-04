@@ -8,9 +8,9 @@ import { Tx } from "./Tx";
 
 export type BandChoice = { slug: string; name: string };
 
-/* The free class, and the two questions she would ask anyway. The chips only
-   rewrite the message; with JavaScript switched off the buttons still work,
-   carrying whatever the page itself is about. */
+/* The one ask on every page: talk first, no charge. The chips only rewrite
+   the message; with JavaScript switched off the buttons still work, carrying
+   whatever the page itself is about. A condition page also asks which time. */
 
 export default function BookingBand({
   lang,
@@ -21,16 +21,16 @@ export default function BookingBand({
   choices,
   otherLabel,
   defaultSlug,
+  showTime = false,
   morningLabel,
   eveningLabel,
   whatsappNumber,
   whatsappLabel,
   phone,
+  phoneShown,
   callLabel,
-  formHref,
-  formLabel,
+  contactHref,
   previewLabel,
-  replyLine,
   page,
   pageLabel,
   source,
@@ -43,33 +43,32 @@ export default function BookingBand({
   choices: BandChoice[];
   otherLabel: string;
   defaultSlug: string;
+  showTime?: boolean;
   morningLabel: string;
   eveningLabel: string;
   whatsappNumber: string;
   whatsappLabel: string;
   phone: string;
+  phoneShown: string;
   callLabel: string;
-  formHref: string;
-  formLabel: string;
+  /* where the call button goes until she has a number: the contact page */
+  contactHref: string;
   previewLabel: string;
-  replyLine: string;
   page: string;
   pageLabel: string;
   source: string;
 }) {
   const all = [...choices, { slug: "other", name: otherLabel }];
-  // On a page that is not about one condition, nothing is picked for the
-  // visitor: the message then says only that they want the free class.
   const [slug, setSlug] = useState(defaultSlug || "other");
-  const [time, setTime] = useState<"morning" | "evening">("morning");
+  const [time, setTime] = useState<"" | "morning" | "evening">("");
 
   const chosen = all.find((c) => c.slug === slug) ?? all[0];
-  const timeLabel = time === "morning" ? morningLabel : eveningLabel;
+  const timeLabel = time === "morning" ? morningLabel : time === "evening" ? eveningLabel : undefined;
   const args = {
     lang,
     kind: "talk" as const,
     ailment: chosen.slug === "other" ? undefined : chosen.name,
-    time: timeLabel,
+    time: showTime ? timeLabel : undefined,
   };
   const message = waMessage({ ...args, page });
   const shown = waMessage({ ...args, pageLabel });
@@ -81,7 +80,7 @@ export default function BookingBand({
       style={{ background: "var(--color-bhagwa)" }}
       aria-labelledby="booking-band-title"
     >
-      <div className="wrap grid gap-6 py-8 md:grid-cols-2 md:items-center md:gap-12 md:py-11">
+      <div className="wrap flex flex-col gap-4 py-8 md:grid md:grid-cols-2 md:items-start md:gap-12 md:py-14">
         <div className="flex flex-col gap-3">
           <h2 id="booking-band-title" className="page-title">
             {title}
@@ -89,53 +88,48 @@ export default function BookingBand({
           <p className="body">
             <Tx>{lead}</Tx>
           </p>
-          <p className="hidden leading-relaxed md:block cap" style={{ color: "var(--color-deeper)" }}>
-            {previewLabel} “{shown}” <Tx>{replyLine}</Tx>
-          </p>
         </div>
 
-        <div
-          className="flex flex-col gap-2.5 rounded-[20px] p-4 md:p-5"
-          style={{ background: "rgba(251,248,241,0.58)" }}
-        >
-          <p className="label" style={{ color: "var(--color-deeper)" }}>
-            {step1}
-          </p>
-          <div className="flex flex-wrap gap-1.5">
-            {all.map((c) => (
-              <button
-                key={c.slug}
-                type="button"
-                className="tchip"
-                aria-pressed={c.slug === slug}
-                onClick={() => setSlug(c.slug)}
-              >
-                {c.name}
-              </button>
-            ))}
+        <div className="flex flex-col gap-3.5">
+          <div className="flex flex-col gap-2">
+            <p className="label" style={{ color: "var(--color-deeper)" }}>
+              {step1}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {all.map((c) => (
+                <button
+                  key={c.slug}
+                  type="button"
+                  className="tchip"
+                  aria-pressed={c.slug === slug}
+                  onClick={() => setSlug(c.slug)}
+                >
+                  {c.name}
+                </button>
+              ))}
+            </div>
           </div>
 
-          <p className="label mt-1" style={{ color: "var(--color-deeper)" }}>
-            {step2}
-          </p>
-          <div className="flex flex-wrap gap-1.5">
-            <button
-              type="button"
-              className="tchip"
-              aria-pressed={time === "morning"}
-              onClick={() => setTime("morning")}
-            >
-              {morningLabel}
-            </button>
-            <button
-              type="button"
-              className="tchip"
-              aria-pressed={time === "evening"}
-              onClick={() => setTime("evening")}
-            >
-              {eveningLabel}
-            </button>
-          </div>
+          {showTime ? (
+            <div className="flex flex-col gap-2">
+              <p className="label" style={{ color: "var(--color-deeper)" }}>
+                {step2}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {(["morning", "evening"] as const).map((k) => (
+                  <button
+                    key={k}
+                    type="button"
+                    className="tchip"
+                    aria-pressed={time === k}
+                    onClick={() => setTime(time === k ? "" : k)}
+                  >
+                    {k === "morning" ? morningLabel : eveningLabel}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : null}
 
           <a
             href={waHref(whatsappNumber, message)}
@@ -144,37 +138,23 @@ export default function BookingBand({
             data-ev="whatsapp_click"
             data-ev-source={source}
             data-ev-ailment={chosen.slug}
-            data-ev-time={time}
-            className="btn btn-dark mt-2 w-full"
+            data-ev-time={time || "any"}
+            className="btn btn-dark w-full"
           >
-            <WhatsAppIcon size={20} />
+            <WhatsAppIcon size={22} />
             {whatsappLabel}
           </a>
-
-          <div className="flex gap-2">
-            {phone ? (
-              <a
-                href={telHref(phone)}
-                data-ev="call_click"
-                data-ev-source={source}
-                className="btn btn-outline btn-sm flex-1"
-              >
-                <PhoneIcon size={18} />
-                {callLabel}
-              </a>
-            ) : null}
-            <a
-              href={formHref}
-              data-ev="form_open"
-              data-ev-source={source}
-              className="btn btn-outline btn-sm flex-1"
-            >
-              {formLabel}
-            </a>
-          </div>
-
-          <p className="leading-relaxed md:hidden cap" style={{ color: "var(--color-deeper)" }}>
-            {previewLabel} “{shown}” <Tx>{replyLine}</Tx>
+          <a
+            href={phone ? telHref(phone) : contactHref}
+            data-ev="call_click"
+            data-ev-source={source}
+            className="btn btn-outline w-full"
+          >
+            <PhoneIcon size={20} />
+            <Tx>{`${callLabel} · ${phoneShown}`}</Tx>
+          </a>
+          <p className="cap" style={{ color: "var(--color-deeper)" }}>
+            {previewLabel} “{shown}”
           </p>
         </div>
       </div>

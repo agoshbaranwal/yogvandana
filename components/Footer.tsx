@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { site, t, ui } from "@/lib/content";
+import { PHONE, phoneShown, site, t, ui } from "@/lib/content";
 import { href, type Lang } from "@/lib/routes";
 import { telHref, waHref, waMessage } from "@/lib/whatsapp";
 import { PhoneIcon, WhatsAppIcon } from "./Icons";
@@ -27,7 +27,7 @@ export default function Footer({ lang }: { lang: Lang }) {
     { key: "terms", label: ui("legal.terms", lang) },
     { key: "refund", label: ui("legal.refund", lang) },
   ];
-  const phone = site.contact.phone ? telHref(site.contact.phone) : "";
+  const phone = PHONE ? telHref(PHONE) : "";
   const wa = site.contact.whatsapp
     ? waHref(site.contact.whatsapp, waMessage({ lang, kind: "general" }))
     : "";
@@ -64,7 +64,7 @@ export default function Footer({ lang }: { lang: Lang }) {
                   data-ev-source="footer"
                 >
                   <PhoneIcon size={20} />
-                  {site.contact.phoneDisplay || site.contact.phone}
+                  {phoneShown(lang)}
                 </a>
               ) : null}
               {wa ? (

@@ -1,113 +1,137 @@
 import { ailmentBySlug, FAMILY_COLOUR, type Story, t, ui } from "@/lib/content";
 import type { Lang } from "@/lib/routes";
-import { PlayIcon } from "./Icons";
+import { LongArrowIcon, PlayIcon } from "./Icons";
 import { Photo } from "./Photo";
 import { Tx } from "./Tx";
 
-/* A result card always names the condition, so the proof matches the problem
-   the visitor arrived with. */
+/* A result card. The audience came to see what happened to the report and to
+   the medicine, so the result is the largest thing on the card: a number that
+   went from here to there, or in plain words what a person can do now that
+   they could not before. The face, the age and the city make it a person. */
 
-export function StoryCard({
+export function ResultCard({
   story,
   lang,
-  showBeforeAfter = true,
   showVideo = false,
   share,
 }: {
   story: Story;
   lang: Lang;
-  showBeforeAfter?: boolean;
   showVideo?: boolean;
   share?: React.ReactNode;
 }) {
   const ailment = ailmentBySlug(story.ailmentSlug);
   const colour = ailment ? FAMILY_COLOUR[ailment.family] : FAMILY_COLOUR.metabolic;
-  const hasBA = showBeforeAfter && t(story.before, lang).trim() !== "";
+  const metric = t(story.metric, lang).trim();
+  const before = t(story.before, lang).trim();
+  const after = t(story.after, lang).trim();
+  const change = t(story.change, lang).trim();
+  const months = story.months.trim();
+  const hasResult = before !== "" && after !== "";
+  const tail = [change, months ? ui("stories.months", lang).replace("{n}", months) : ""].filter(Boolean);
+  const age = lang === "hi" ? `${story.age} साल` : story.age;
 
   return (
-    <article className="card flex h-full gap-3">
-      <Photo
-        src={story.photo}
-        alt={`${t(story.name, lang)}, ${t(story.city, lang)}`}
-        rounded="rounded-full"
-        className="h-14 w-14 flex-none"
-      />
-      <div className="flex min-w-0 flex-col gap-1.5">
-        <p className="flex flex-wrap items-center gap-2">
-          <span className="font-bold">
-            {/* A 54-year-old trusts a 54-year-old: age sits between name and city. */}
-            <Tx>
-              {`${t(story.name, lang)}, ${lang === "hi" ? `${story.age} साल` : story.age}, ${t(story.city, lang)}`}
-            </Tx>
-          </span>
-          {ailment ? (
-            <span className="chip" style={{ background: colour.ink }}>
-              {t(ailment.name, lang)}
-            </span>
-          ) : null}
-        </p>
-        <blockquote className="body">
-          “<Tx>{t(story.quote, lang)}</Tx>”
-        </blockquote>
-
-        {/* The result is what this audience came to see: the report number,
-            the medicine that came down. It is the largest thing on the card. */}
-        {hasBA ? (
-          <div className="grid grid-cols-2 gap-2">
-            <div className="rounded-[10px] px-3 py-2" style={{ background: "var(--color-ivory)" }}>
-              <p className="cap">
-                <Tx>{[t(story.metric, lang), ui("stories.before", lang)].filter(Boolean).join(" ")}</Tx>
-              </p>
-              <p className="h3 leading-snug">
-                <Tx>{t(story.before, lang)}</Tx>
-              </p>
-            </div>
-            <div className="rounded-[10px] px-3 py-2" style={{ background: "var(--color-apricot)" }}>
-              <p className="cap" style={{ color: "var(--color-deeper)" }}>{ui("stories.after", lang)}</p>
-              <p className="h3 leading-snug" style={{ color: "var(--color-deeper)" }}>
-                <Tx>{t(story.after, lang)}</Tx>
-              </p>
-            </div>
-          </div>
-        ) : null}
-        {hasBA && (t(story.change, lang) || story.months) ? (
-          <p className="cap font-bold" style={{ color: "var(--color-deeper)" }}>
-            <Tx>
-              {[
-                t(story.change, lang),
-                story.months ? ui("stories.months", lang).replace("{n}", story.months) : "",
-              ]
-                .filter(Boolean)
-                .join(" · ")}
-            </Tx>
+    <article className="card flex h-full flex-col gap-3">
+      <div className="flex items-center gap-3">
+        <Photo
+          src={story.photo}
+          alt={`${t(story.name, lang)}, ${t(story.city, lang)}`}
+          rounded="rounded-full"
+          className="h-[60px] w-[60px] flex-none"
+        />
+        <div className="flex min-w-0 flex-col gap-0.5">
+          <p className="h3">
+            <Tx>{`${t(story.name, lang)}, ${age}`}</Tx>
           </p>
-        ) : null}
-
-        {story.video && showVideo ? (
-          <div className="flex flex-col gap-1.5">
-            <div
-              className="ph relative flex items-center justify-center rounded-[10px]"
-              style={{ aspectRatio: "16 / 9" }}
-              role="img"
-              aria-label={ui("photo.video", lang)}
-            >
-              <span
-                className="flex h-12 w-12 items-center justify-center rounded-full"
-                style={{ background: colour.ink, color: "var(--color-ivory)" }}
-                aria-hidden="true"
-              >
-                <PlayIcon size={20} />
+          <p className="cap flex flex-wrap items-center gap-2">
+            <Tx>{t(story.city, lang)}</Tx>
+            {ailment ? (
+              <span className="chip" style={{ background: colour.ink }}>
+                {t(ailment.name, lang)}
               </span>
-            </div>
-            <p className="cap">{ui("stories.videoSeconds", lang)}</p>
-          </div>
-        ) : null}
-
-        <p className="cap">
-          <Tx>{ui("stories.with", lang).replace("{y}", t(story.since, lang))}</Tx>
-        </p>
-        {share}
+            ) : null}
+          </p>
+        </div>
       </div>
+
+      {hasResult && metric ? (
+        <div className="flex items-center gap-3 rounded-[12px] px-3.5 py-3" style={{ background: "var(--color-ivory)" }}>
+          <div className="flex flex-col">
+            <p className="label normal-case">{`${metric} ${ui("stories.before", lang)}`}</p>
+            <p className="num page-title" style={{ color: "var(--color-muted)" }}>
+              <Tx>{before}</Tx>
+            </p>
+          </div>
+          <LongArrowIcon size={30} style={{ color: "var(--color-deep)" }} />
+          <div className="flex flex-col">
+            <p className="label" style={{ color: "var(--color-deeper)" }}>
+              {ui("stories.after", lang)}
+            </p>
+            <p className="num page-title" style={{ color: "var(--color-deeper)" }}>
+              <Tx>{after}</Tx>
+            </p>
+          </div>
+          {tail.length > 0 ? (
+            <div className="ml-auto flex flex-col items-end gap-1 text-right">
+              {change ? (
+                <span className="result-pill">
+                  <Tx>{change}</Tx>
+                </span>
+              ) : null}
+              {months ? (
+                <span className="cap">
+                  <Tx>{ui("stories.months", lang).replace("{n}", months)}</Tx>
+                </span>
+              ) : null}
+            </div>
+          ) : null}
+        </div>
+      ) : hasResult ? (
+        <div className="flex flex-col gap-2">
+          <div className="grid grid-cols-2 gap-2.5">
+            <div className="flex flex-col gap-0.5 rounded-[12px] px-3.5 py-3" style={{ background: "var(--color-ivory)" }}>
+              <p className="label">{ui("stories.before", lang)}</p>
+              <p className="h3" style={{ color: "var(--color-muted)" }}>
+                <Tx>{before}</Tx>
+              </p>
+            </div>
+            <div className="flex flex-col gap-0.5 rounded-[12px] px-3.5 py-3" style={{ background: "var(--color-apricot)" }}>
+              <p className="label" style={{ color: "var(--color-deeper)" }}>
+                {ui("stories.after", lang)}
+              </p>
+              <p className="h3" style={{ color: "var(--color-deeper)" }}>
+                <Tx>{after}</Tx>
+              </p>
+            </div>
+          </div>
+          {tail.length > 0 ? (
+            <p className="cap font-bold" style={{ color: "var(--color-deeper)" }}>
+              <Tx>{tail.join(" · ")}</Tx>
+            </p>
+          ) : null}
+        </div>
+      ) : null}
+
+      <blockquote className="body" style={{ color: "var(--color-heroink)" }}>
+        “<Tx>{t(story.quote, lang)}</Tx>”
+      </blockquote>
+
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+        {showVideo && story.video ? (
+          <span className="tap-pill" role="img" aria-label={ui("photo.video", lang)}>
+            <PlayIcon size={16} />
+            <Tx>{ui("stories.videoSeconds", lang)}</Tx>
+          </span>
+        ) : null}
+        <span className="cap">
+          <Tx>{ui("stories.withSince", lang).replace("{y}", t(story.since, lang))}</Tx>
+        </span>
+      </div>
+      {share}
     </article>
   );
 }
+
+/* The old name, so every page that asked for a story card gets the result card. */
+export const StoryCard = ResultCard;

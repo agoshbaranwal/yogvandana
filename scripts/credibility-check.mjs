@@ -113,14 +113,27 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
 
 /* 6 — the medicine answer, word for word ---------------------------------- */
 {
-  const HI = "दवा अपने डॉक्टर की सलाह से ही घटाएँ";
-  const EN = "Reduce medicine only on your doctor";
+  /* Home carries the one answer; each condition page carries the question
+     and its own answer, from that condition's content file. */
+  const uiTree = JSON.parse(fs.readFileSync(path.join(ROOT, "content", "ui.json"), "utf8"));
+  const title = uiTree.medicine.title;
+  const homeBody = uiTree.medicine.body;
+  const conditions = Object.fromEntries(
+    fs.readdirSync(path.join(ROOT, "content", "ailments")).filter((f) => f.endsWith(".json"))
+      .map((f) => { const a = JSON.parse(fs.readFileSync(path.join(ROOT, "content", "ailments", f), "utf8")); return [a.slug, a]; }),
+  );
+  /* an apostrophe comes out of the build as an entity; compare plain text */
+  const norm = (s) => s.replace(/&#x27;|&#39;|&rsquo;|’/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, "&").replace(/\s+/g, " ");
   const should = pages.filter((f) => /^\/(rog|en\/conditions)\/[^/]+\/$/.test(rel(f)) || rel(f) === "/" || rel(f) === "/en/");
   const missing = should.filter((f) => {
-    const body = text(read(f));
-    return isHindi(f) ? !body.includes(HI) : !body.includes(EN);
+    const body = norm(text(read(f)));
+    const L = isHindi(f) ? "hi" : "en";
+    const m = rel(f).match(/^\/(?:rog|en\/conditions)\/([^/]+)\/$/);
+    if (!m) return !(body.includes(title[L]) && body.includes(norm(text(homeBody[L]))));
+    const a = conditions[m[1]];
+    return !a || !(body.includes(title[L]) && body.includes(norm(text(a.medicine[L]))));
   });
-  add(6, "The medicine answer appears word for word on home and every condition page", missing.length === 0 ? "pass" : "fail", missing.map(rel).join("; ") || `${should.length} pages carry it`);
+  add(6, "The medicine answer appears on home and, in its own terms, on every condition page", missing.length === 0 ? "pass" : "fail", missing.map(rel).join("; ") || `${should.length} pages carry it`);
 }
 
 /* 7 — the claim, word for word -------------------------------------------- */
@@ -431,7 +444,9 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
       const label = text(m[1]).trim();
       if (!label) continue;
       buttons += 1;
-      if (!allowed.has(label)) strays.set(label, (strays.get(label) || 0) + 1);
+      /* "बात" in any form is the talk verb; a call is talking on the phone. */
+      const talks = /बात|talk/i.test(label) || /कॉल|\bcall\b/i.test(label);
+      if (!allowed.has(label) && !talks) strays.set(label, (strays.get(label) || 0) + 1);
     }
   }
   add(

@@ -150,6 +150,11 @@
     "youtube": "",
     "facebook": ""
   },
+  "photos": {
+    "portrait": "",
+    "teaching": "",
+    "signature": ""
+  },
   "links": {
     "formEndpoint": "",
     "cal": "",

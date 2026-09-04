@@ -45,6 +45,7 @@ export const SECTIONS = {
   register: { key: "about", hash: "#yogyata" },
   awards: { key: "about", hash: "#sammaan" },
   gallery: { key: "stories", hash: "#gallery" },
+  media: { key: "about", hash: "#media" },
 } as const satisfies Record<string, { key: RouteKey; hash: string }>;
 
 export function sectionHref(name: keyof typeof SECTIONS, lang: Lang): string {

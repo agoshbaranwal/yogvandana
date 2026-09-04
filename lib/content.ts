@@ -143,6 +143,9 @@ const SiteSchema = z.object({
     businessName: Text,
   }),
   socials: z.object({ instagram: z.string(), youtube: z.string(), facebook: z.string() }),
+  /* Her photographs, as media keys; empty until they exist, and every slot
+     then draws a plain frame rather than a stock picture. */
+  photos: z.object({ portrait: z.string(), teaching: z.string(), signature: z.string() }),
   links: z.object({
     formEndpoint: z.string(),
     cal: z.string(),
@@ -159,6 +162,16 @@ const SiteSchema = z.object({
 });
 export type Site = z.infer<typeof SiteSchema>;
 export const site: Site = one(SiteSchema, "site.json");
+
+/* A phone number still in brackets is not a number: no tel: link is made
+   from it, and the buttons say "[phone number]" in the reader's language. */
+export const PHONE: string =
+  site.contact.phone && !isTodo(site.contact.phone) ? site.contact.phone : "";
+export function phoneShown(lang: Lang): string {
+  if (!PHONE) return ui("contact.phoneTodo", lang);
+  const shown = site.contact.phoneDisplay;
+  return shown && !isTodo(shown) ? shown : PHONE;
+}
 
 /* ------------------------------- ui ------------------------------------- */
 
