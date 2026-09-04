@@ -984,24 +984,27 @@
     .row:hover .row-go {
       translate: 4px 0;
     }
-    /* a card that leads somewhere lifts a little and firms its edge */
-    .card:has(a):hover {
-      border-color: var(--color-field);
-      translate: 0 -2px;
-    }
+    /* Any card firms its edge under the cursor — it says "this is one thing"
+       and promises nothing. Only a card that actually leads somewhere lifts,
+       because a lift is a promise that it can be clicked, and most of these
+       cards are things to read rather than doors. */
     .card {
       transition:
         border-color 0.18s ease,
         translate 0.18s cubic-bezier(0.22, 0.61, 0.36, 1);
     }
-    /* a photo you can open says so by growing inside its frame */
-    a.ph:hover .ph-inner,
-    .card:has(a):hover .ph img,
+    .card:hover {
+      border-color: var(--color-field);
+    }
+    .card:has(a):hover {
+      translate: 0 -2px;
+    }
+    /* and its photograph leans in slightly, once there are photographs */
+    .card:hover img,
     a.ph:hover img {
       scale: 1.03;
     }
-    .ph img,
-    .ph-inner {
+    .ph img {
       transition: scale 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
     }
     /* A body link keeps its underline at rest — colour alone is not enough to
