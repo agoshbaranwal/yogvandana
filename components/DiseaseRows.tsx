@@ -1,12 +1,17 @@
 import { A as Link } from "./Nav";
-import { ailments, t, ui } from "@/lib/content";
+import { ailments, storiesFor, t, ui } from "@/lib/content";
 import { href, type Lang } from "@/lib/routes";
-import { AilmentIcon, ChevronIcon } from "./Icons";
+import { AilmentIcon } from "./Icons";
 import { Tx } from "./Tx";
 
-/* The front door: a list of diseases, one per row, the whole row a target.
-   Tiles made eight small boxes a thumb had to aim at; rows read top to bottom
-   the way a person reads a clinic's board. */
+/* The chooser, as eight tiles.
+
+   It was eight rows of a list. A row is a menu; a tile with an icon, a result
+   and a count is eight small proofs — picking your illness already tells you
+   it has worked for somebody who has it. The result shown is the strongest one
+   on record for that condition, so the tile is never inventing anything: when
+   no student with that condition has given a result yet, the line is simply
+   not there. */
 
 export function DiseaseRows({
   lang,
@@ -21,8 +26,11 @@ export function DiseaseRows({
   heading?: "h1" | "h2";
 }) {
   return (
-    <div id={id} className="flex flex-col gap-3 pt-2 md:pt-0">
+    <div id={id} className="flex flex-col gap-4">
       <div className="flex flex-col gap-1">
+        <span className="label" style={{ color: "var(--color-amber-deep)" }}>
+          {ui("home.chooserKick", lang)}
+        </span>
         {heading === "h1" ? (
           <h1 className="page-title">{ui("home.ailmentsTitle", lang)}</h1>
         ) : (
@@ -30,32 +38,45 @@ export function DiseaseRows({
         )}
         <p className="cap">{ui("home.ailmentsLead", lang)}</p>
       </div>
-      <ul className="rows bleed md:grid md:grid-cols-2 md:gap-x-6">
+
+      <ul className="agrid">
         {ailments.map((a) => {
+          /* a lab reading is meaningless without its name: "6.5" says nothing,
+             "HbA1c 6.5" says everything */
+          const best = storiesFor(a.slug)
+            .map((s) => {
+              const after = t(s.after, lang).trim();
+              const metric = t(s.metric, lang).trim();
+              return after ? (metric ? `${metric} ${after}` : after) : "";
+            })
+            .find(Boolean);
           return (
-            <li key={a.slug}>
+            <li key={a.slug} className="contents">
               <Link
                 href={href("ailment", lang, a.slug)}
                 data-ev="ailment_card_tap"
                 data-ev-slug={a.slug}
-                className="row"
+                className="acard"
               >
-                <span className="ico" aria-hidden="true">
-                  <AilmentIcon name={a.icon} size={30} />
+                <span className="ico iconbox" aria-hidden="true">
+                  <AilmentIcon name={a.icon} size={28} />
                 </span>
-                <span className="flex min-w-0 flex-1 flex-col gap-0.5">
-                  <span className="h3">{t(a.name, lang)}</span>
-                  <span className="cap">
-                    <Tx>{`${t(a.sub, lang)} · ${a.studentCount} ${ui("ailment.students", lang)}`}</Tx>
+                <span className="h3">{t(a.name, lang)}</span>
+                {best ? (
+                  <span className="rs">
+                    <Tx>{best}</Tx>
                   </span>
+                ) : null}
+                <span className="cap">
+                  <Tx>{`${a.studentCount} ${ui("ailment.students", lang)}`}</Tx>
                 </span>
-                <ChevronIcon size={24} className="row-go" style={{ color: "var(--color-deep)" }} />
               </Link>
             </li>
           );
         })}
       </ul>
-      <p className="body pt-1">
+
+      <p className="body">
         {ui("cta.more", lang)}{" "}
         <Link href={askHref} className="font-bold underline underline-offset-4">
           {ui("cta.ask", lang)}

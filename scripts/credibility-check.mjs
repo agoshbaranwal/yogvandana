@@ -128,7 +128,10 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
   /* Home carries the one answer; each condition page carries the question
      and its own answer, from that condition's content file. */
   const uiTree = JSON.parse(fs.readFileSync(path.join(ROOT, "content", "ui.json"), "utf8"));
-  const title = uiTree.medicine.title;
+  /* The panel used to be headed "डॉक्टर की दवा?" — a topic. It now asks the
+     question a reader is actually holding, "डॉक्टर की दवा बंद करनी पड़ेगी?",
+     so that is the string that has to be on the page. */
+  const title = uiTree.medicine.question;
   const homeBody = uiTree.medicine.body;
   const conditions = Object.fromEntries(
     fs.readdirSync(path.join(ROOT, "content", "ailments")).filter((f) => f.endsWith(".json"))
@@ -212,56 +215,82 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
   }
 }
 
-/* 6d — a page rests on three grounds, not seven ---------------------------- */
+/* 6d — the grounds a page paints come from the palette ---------------------- */
 {
-  /* A tint should mark a real change of subject. When every section gets its
-     own, the eye is re-oriented a dozen times on the way down and the page
-     reads as chaos. Three grounds: the page itself, one accent that carries
-     the proof, and the saffron the final ask sits on. */
+  /* The original rule capped a page at three grounds, because an audit found
+     the ground changing seven times on home with no meaning attached to any of
+     the changes, and the eye being re-oriented a dozen times on the way down.
+
+     The cap was the wrong guard. In the design Agosh chose, alternating ground
+     is how one section is told from the next — the warm wash under the first
+     screen, white behind the offer, the amber tint behind the videos, ink
+     behind the objection, saffron under the ask. What actually turns that into
+     chaos is grounds arriving from nowhere: a hex typed into a component, a
+     one-off tint that belongs to no palette. So the rule now asks where each
+     ground came from, and keeps a looser cap for the count. */
   const bad = [];
   for (const f of pages) {
     const html = read(f);
     const grounds = new Set();
-    /* the ground a section paints itself, however the build wrote it */
     for (const m of html.matchAll(/<section[^>]*style="[^"]*background:\s*([^;"]+)/g))
       grounds.add(m[1].trim().replace(/\s+/g, ""));
-    for (const m of html.matchAll(/<section[^>]*class="[^"]*\b(first|dawn)\b/g)) grounds.add(m[1]);
-    if (grounds.size > 3) bad.push(`${rel(f)}: ${grounds.size} (${[...grounds].join(", ")})`);
+    for (const m of html.matchAll(/<section[^>]*class="[^"]*\b(first|hero-warm)\b/g)) grounds.add(m[1]);
+    const untokened = [...grounds].filter((g) => !g.startsWith("var(--") && !/^(first|hero-warm)$/.test(g));
+    if (untokened.length) bad.push(`${rel(f)}: ground not from the palette — ${untokened.join(", ")}`);
+    else if (grounds.size > 5) bad.push(`${rel(f)}: ${grounds.size} grounds (${[...grounds].join(", ")})`);
   }
-  add("6d", "A page rests on at most three grounds: the page, one accent, and the ask",
+  add(
+    "6d",
+    "Every ground a page paints comes from the palette, and there are at most five",
     bad.length === 0 ? "pass" : "fail",
-    bad.slice(0, 6).join("; ") || `${pages.length} pages checked`);
+    bad.slice(0, 6).join("; ") || `${pages.length} pages checked`,
+  );
 }
 
 /* 6e — one design system, not six --------------------------------------- */
 {
-  /* Audited 4 September: the site was drawing seven corner radii, six border
-     treatments, two kinds of shadow, ten hatched diagonal gradients a page and
-     six near-identical creams. Nothing looked like it belonged to anything
-     else, which is most of what "chaotic" meant. The stylesheet is held to a
-     system now. */
-  /* our stylesheet, not the framework's resets and utilities */
+  /* The first version of this rule banned shadows outright and capped radii at
+     three, because an audit had found seven radii, six border treatments, two
+     stray shadows and ten hatched gradients a page — nothing belonging to
+     anything else, which was most of what "chaotic" meant.
+
+     Banning depth was the wrong lesson from that. The fault was the absence of
+     a system, not the presence of shadow. The rule now asks the question that
+     actually matters: is every radius and every shadow on this site drawn from
+     a named token, and is the set of tokens small? A literal box-shadow or a
+     literal border-radius outside the token block is what starts the drift. */
   const src = fs.readFileSync(path.join(ROOT, "app", "globals.css"), "utf8");
-  /* the focus ring is an accessibility affordance, not decoration */
   const own = src.replace(/:focus-visible\s*\{[^}]*\}/g, "");
-  const radii = new Set();
-  for (const m of own.matchAll(/border-radius:\s*([^;}]+)/g)) {
-    for (const v of m[1].trim().split(/\s+/)) {
-      if (v === "0" || v === "0px" || v.startsWith("var(")) continue;
-      radii.add(v);
-    }
-  }
-  const shadows = [...own.matchAll(/box-shadow:\s*([^;}]+)/g)]
+  const tokens = own.slice(0, own.indexOf("@layer"));
+  const use = own.slice(own.indexOf("@layer"));
+
+  const radiusTokens = [...tokens.matchAll(/--radius-[a-z]+:/g)].length;
+  const elevTokens = [...tokens.matchAll(/--elev-[a-z0-9]+:/g)].length;
+
+  const literalRadii = new Set();
+  for (const m of use.matchAll(/border-radius:\s*([^;}]+)/g))
+    for (const v of m[1].trim().split(/\s+/))
+      if (v !== "0" && v !== "0px" && !v.startsWith("var(")) literalRadii.add(v);
+
+  const literalShadows = [...use.matchAll(/box-shadow:\s*([^;}]+)/g)]
     .map((m) => m[1].trim())
-    .filter((v) => v !== "none");
+    .filter((v) => v !== "none" && !v.startsWith("var("));
+
   const hatch = [...own.matchAll(/repeating-linear-gradient/g)].length;
+
   const problems = [];
-  if (radii.size > 3) problems.push(`${radii.size} literal radii (${[...radii].slice(0, 8).join(" ")})`);
-  if (shadows.length > 0) problems.push(`${shadows.length} box-shadow`);
-  if (hatch > 0) problems.push(`${hatch} repeating gradient`);
-  add("6e", "One design system: at most three radii, no shadows, no hatching",
+  if (radiusTokens > 5) problems.push(`${radiusTokens} radius tokens — five is the system`);
+  if (elevTokens > 3) problems.push(`${elevTokens} elevation tokens — three is the system`);
+  if (literalRadii.size) problems.push(`radius written literally: ${[...literalRadii].slice(0, 6).join(" ")}`);
+  if (literalShadows.length) problems.push(`${literalShadows.length} shadow written literally`);
+  if (hatch) problems.push(`${hatch} repeating gradient`);
+
+  add(
+    "6e",
+    "Shape and depth come from tokens, and the set of tokens is small",
     problems.length === 0 ? "pass" : "fail",
-    problems.join("; ") || `radii ${[...radii].join(" ") || "all tokenised"}, no shadows, no hatching`);
+    problems.join("; ") || `${radiusTokens} radii, ${elevTokens} elevations, nothing literal, no hatching`,
+  );
 }
 
 /* 7 — the claim, word for word -------------------------------------------- */

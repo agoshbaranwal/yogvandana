@@ -1,118 +1,94 @@
 import { preload } from "react-dom";
 import { PhoneIcon, WhatsAppIcon } from "./Icons";
 import { Photo } from "./Photo";
+import { PhotoBadges, Trust } from "./Warm";
 import { Tx } from "./Tx";
 import { picture } from "@/lib/media";
 import { absolute, PHONE, phoneShown, site, t, ui } from "@/lib/content";
 import { href, type Lang } from "@/lib/routes";
 import { telHref, waHref, waMessage } from "@/lib/whatsapp";
 
-/* The first screen, built like a clinic's board: her face, her name, the body
-   that certified her, the promise, and a number to call.
+/* The first screen.
 
-   On a phone the photograph is the whole first screen and her name sits on it.
-   On a desktop it is a framed portrait beside the words — it used to bleed to
-   the left edge as a half-screen of empty gradient, which is what half of a
-   1,440 px first impression was: nothing. */
+   Her photograph is the page's hero, not a gap beside the words, and the two
+   things a stranger is checking — the rating and who certified her — float on
+   top of it. Under the ask sit the three reassurances that decide whether
+   somebody calls at all: the first conversation is free, nobody is asked to
+   stop their medicine, and it happens from their own house.
+
+   Everything here is conditional on being true. No rating, no rating badge. */
 
 export function FirstScreen({ lang }: { lang: Lang }) {
   const pic = picture(site.photos.portrait);
   if (pic) preload(pic.src, { as: "image", fetchPriority: "high", imageSrcSet: pic.srcSet || undefined });
-  const phone = PHONE;
   const number = phoneShown(lang);
-  const since = lang === "hi" ? `${t(site.sinceYear, lang)} से` : `since ${t(site.sinceYear, lang)}`;
-  const certified =
-    lang === "hi" ? `${t(site.certifyingBody, lang)} प्रमाणित` : `${t(site.certifyingBody, lang)} certified`;
   const wa = waHref(site.contact.whatsapp, waMessage({ lang, kind: "talk", page: absolute(href("home", lang)) }));
+  const years = site.numbers[0]?.value ?? "";
+  const students = site.numbers[1]?.value ?? "";
+
+  const eyebrow = ui("home.heroBadge", lang)
+    .replace("{y}", years)
+    .replace("{n}", students)
+    .replace("{city}", t(site.city, lang));
 
   return (
-    <section className="first">
-      {/* the phone: her photograph is the screen, her name reads off it. With
-          no photograph there is nothing to read off, so the block is not
-          rendered at all and her name moves into the words below. */}
-      <div className={`relative h-[340px] overflow-hidden md:hidden ${pic ? "" : "hidden"}`}>
-        {pic ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={pic.src}
-            srcSet={pic.srcSet || undefined}
-            sizes="100vw"
-            alt={t(site.teacher, lang)}
-            fetchPriority="high"
-            decoding="async"
-            className="absolute inset-0 h-full w-full object-cover object-top"
-          />
-        ) : (
-          <p className="cap absolute inset-x-6 top-1/2 -translate-y-1/2 text-center" style={{ color: "var(--color-deeper)" }}>
-            {ui("photo.first", lang)}
-          </p>
-        )}
-        {pic ? <div className="first-fade" aria-hidden="true" /> : null}
-        <div
-          className={`${pic ? "on-dark" : "on-bhagwa"} absolute inset-x-4 bottom-4 flex flex-col gap-1`}
-          style={{ color: pic ? "var(--color-ivory)" : "var(--color-kohl)" }}
-          data-on-photo={pic ? "" : undefined}
-        >
-          <p className="page-title">{t(site.teacher, lang)}</p>
-          <p className="cap" style={{ color: pic ? "var(--color-ivory)" : "var(--color-kohl)" }}>
-            <Tx>{`${t(site.credentialShort, lang)} · `}</Tx>
-            <strong>
-              <Tx>{certified}</Tx>
-            </strong>
-            <br />
-            <Tx>{`${t(site.city, lang)} · ${since}`}</Tx>
-          </p>
-        </div>
-      </div>
+    <section className="hero-warm first">
+      <div className="wrap grid gap-7 pb-11 pt-5 md:grid-cols-[1fr_400px] md:items-center md:gap-14 md:pb-20 md:pt-12">
+        <div className="flex flex-col items-start gap-4">
+          <span className="badge">
+            <Tx>{eyebrow}</Tx>
+          </span>
 
-      {/* the promise, on both --------------------------------------------- */}
-      <div className="wrap md:grid md:min-h-[560px] md:grid-cols-[1fr_320px] md:items-center md:gap-12">
-        <div className="flex flex-col gap-3.5 pb-7 pt-5 md:gap-5 md:py-16">
-          <p className={`font-bold body ${pic ? "hidden md:block" : "block"}`} style={{ color: "var(--color-deep)" }}>
-            <Tx>{`${t(site.teacher, lang)} · ${t(site.credentialShort, lang)} · ${certified} · ${t(site.city, lang)}`}</Tx>
-          </p>
-          <h1 className="claim md:max-w-[13ch]">{t(site.claim, lang)}</h1>
-          <p className="body" style={{ color: "var(--color-heroink)" }}>
+          <h1 className="claim">{t(site.claim, lang)}</h1>
+
+          <p className="body full" style={{ color: "var(--color-kohl)" }}>
             {ui("home.heroLead", lang)}
           </p>
-          <div className="mt-1 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
+
+          <div className="flex w-full flex-wrap gap-2.5 sm:flex-nowrap">
             <a
+              className="btn btn-wa sm:whitespace-nowrap"
               href={wa}
               target="_blank"
               rel="noopener noreferrer"
               data-ev="whatsapp_click"
-              data-ev-source="first-screen"
-              className="btn btn-first sm:whitespace-nowrap"
+              data-ev-source="hero"
             >
-              <WhatsAppIcon size={22} />
+              <WhatsAppIcon size={20} />
               {ui("cta.whatsappTalk", lang)}
             </a>
             <a
-              href={phone ? telHref(phone) : href("contact", lang)}
+              className="btn btn-white sm:whitespace-nowrap"
+              href={telHref(PHONE)}
               data-ev="call_click"
-              data-ev-source="first-screen"
-              className="btn btn-outline sm:whitespace-nowrap"
+              data-ev-source="hero"
             >
-              <PhoneIcon size={20} />
-              <Tx>{`${ui("cta.call", lang)} · ${number}`}</Tx>
+              <PhoneIcon size={18} />
+              {ui("cta.call", lang)}
+              {number ? (
+                <span className="hidden sm:inline">
+                  {" · "}
+                  <Tx>{number}</Tx>
+                </span>
+              ) : null}
             </a>
           </div>
-          <p className="cap text-center sm:text-left">{ui("home.heroNote", lang)}</p>
+
+          <Trust lang={lang} />
         </div>
 
-        {/* the portrait: a frame that says what belongs in it. On a phone it
-            appears only when there is no photograph to bleed off the top. */}
-        <div className={pic ? "hidden md:block" : "block"}>
+        <div className="relative">
           <Photo
             src={site.photos.portrait}
             alt={t(site.teacher, lang)}
             label={ui("photo.first", lang)}
-            ratio="4 / 5"
-            rounded="rounded-[12px]"
-            className="w-full max-h-[300px] md:max-h-none"
-            sizes="380px"
+            ratio="1 / 1"
+            rounded="rounded-[var(--radius-lg)]"
+            className="w-full shadow-[var(--elev-2)] md:aspect-[4/5]"
             priority
+            sizes="(min-width: 768px) 400px, 100vw"
           />
+          <PhotoBadges lang={lang} />
         </div>
       </div>
     </section>

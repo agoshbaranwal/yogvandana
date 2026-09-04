@@ -263,6 +263,74 @@
     "step4sub": {
       "hi": "[50] मिनट की क्लास रोज़ · छोटा ग्रुप · अपनी पर्ची के साथ",
       "en": "A [50] minute class daily · a small group · with your own slip"
+    },
+    "trustFree": {
+      "hi": "पहली बात मुफ़्त",
+      "en": "First conversation free"
+    },
+    "trustMedicine": {
+      "hi": "दवा बंद नहीं",
+      "en": "No stopping your medicine"
+    },
+    "trustHome": {
+      "hi": "घर से, ज़ूम पर",
+      "en": "From home, on Zoom"
+    },
+    "medicineCount": {
+      "hi": "जिनकी दवा घटी",
+      "en": "whose medicine came down"
+    },
+    "pressTitle": {
+      "hi": "अख़बार और टीवी में",
+      "en": "In the press and on TV"
+    },
+    "videosTitle": {
+      "hi": "वीडियो में सुनिए",
+      "en": "Hear it from them"
+    },
+    "videosLead": {
+      "hi": "हर वीडियो विद्यार्थी की अनुमति से, उनके नाम और शहर के साथ।",
+      "en": "Every video with the student's permission, with their name and city."
+    },
+    "videosPending": {
+      "hi": "पहले वीडियो जल्द — हर एक विद्यार्थी की अनुमति से।",
+      "en": "The first videos soon — each with the student's permission."
+    },
+    "schedTitle": {
+      "hi": "समय और बैच",
+      "en": "Times and batches"
+    },
+    "chooserKick": {
+      "hi": "आठ बीमारियाँ, आठ अलग क्रम",
+      "en": "Eight illnesses, eight different practices"
+    },
+    "resultsKick": {
+      "hi": "रिपोर्ट में क्या बदला",
+      "en": "What changed in the report"
+    },
+    "whoKick": {
+      "hi": "सिखाती कौन हैं",
+      "en": "Who teaches"
+    },
+    "stepsKick": {
+      "hi": "कैसे शुरू करें",
+      "en": "How to start"
+    },
+    "medicineKick": {
+      "hi": "सबसे पहले पूछा जाने वाला सवाल",
+      "en": "The first question everybody asks"
+    },
+    "closeTitle": {
+      "hi": "आज ही बात कीजिए।",
+      "en": "Talk to her today."
+    },
+    "closeLead": {
+      "hi": "अपनी तकलीफ़ बताइए — योग और प्राणायाम से क्या हल है, वंदना जी बताएँगी।",
+      "en": "Tell her what is troubling you — Vandana will tell you the remedy through yoga and pranayama."
+    },
+    "heroBadge": {
+      "hi": "{y} साल · {n} विद्यार्थी · {city}",
+      "en": "{y} years · {n} students · {city}"
     }
   },
   "band": {
@@ -1105,6 +1173,10 @@
     "body": {
       "hi": "बंद नहीं। योग साथ-साथ चलता है। रिपोर्ट सुधरे तो दवा डॉक्टर ही घटाते हैं — और घटती है।",
       "en": "Not stopped. Yoga runs alongside. When the reports improve, the doctor reduces the medicine — and it does come down."
+    },
+    "question": {
+      "hi": "डॉक्टर की दवा बंद करनी पड़ेगी?",
+      "en": "Will I have to stop my doctor's medicine?"
     }
   },
   "get": {

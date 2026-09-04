@@ -133,6 +133,21 @@
         "hi": "[परिचय पन्ने पर पूरी सूची]",
         "en": "[full list on the about page]"
       }
+    },
+    {
+      "value": "[M]",
+      "label": {
+        "hi": "जिनकी दवा घटी",
+        "en": "whose medicine came down"
+      },
+      "short": {
+        "hi": "दवा घटी",
+        "en": "medicine down"
+      },
+      "basis": {
+        "hi": "[कैसे गिना गया — डॉक्टर की सलाह से]",
+        "en": "[how this was counted — on their doctor's advice]"
+      }
     }
   ],
   "google": {

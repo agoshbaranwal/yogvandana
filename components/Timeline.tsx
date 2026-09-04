@@ -38,17 +38,22 @@ export function Timeline({ lang }: { lang: Lang }) {
 }
 
 export function MedicinePanel({ lang, body }: { lang: Lang; body?: string }) {
+  /* The one objection that stops this audience starting, given a whole panel
+     of its own rather than a line in a list — and moved high on the page,
+     because until it is answered nothing further is read properly. */
   return (
-    <div className="panel-dark on-dark flex flex-col gap-1 md:px-6 md:py-5">
-      <p className="h3" style={{ color: "var(--color-bhagwa)" }}>
-        {ui("medicine.title", lang)}
-      </p>
-      <p className="body">
+    <div className="obj on-dark">
+      <span className="label" style={{ color: "var(--color-bhagwa)" }}>
+        {ui("home.medicineKick", lang)}
+      </span>
+      <h2 className="h2 pt-1.5">{ui("medicine.question", lang)}</h2>
+      <p className="body full pt-2" style={{ maxWidth: "58ch" }}>
         <Tx>{body || ui("medicine.body", lang)}</Tx>
       </p>
     </div>
   );
 }
+
 
 /* The steps and the medicine panel together; on a phone they sit on their
    own apricot band, from a tablet up they take the right-hand column. */

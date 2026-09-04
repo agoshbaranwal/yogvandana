@@ -1,46 +1,80 @@
 import { A as Link } from "../components/Nav";
 import Band from "@/components/Band";
+import { Counters, PressStrip } from "@/components/Warm";
 import { DiseaseRows } from "@/components/DiseaseRows";
 import { FirstScreen } from "@/components/FirstScreen";
 import { Jsonld, personSchema, websiteSchema } from "@/components/Jsonld";
+import { Schedule } from "@/components/Schedule";
 import SiteShell from "@/components/SiteShell";
 import { SlipPad } from "@/components/SlipPad";
-import { WhatYouGet } from "@/components/WhatYouGet";
+import { Steps } from "@/components/Steps";
 import { ResultCard } from "@/components/StoryCard";
 import { MedicinePanel } from "@/components/Timeline";
+import { VideoWall } from "@/components/VideoWall";
 import { WhoTeaches } from "@/components/WhoTeaches";
 import { stories, ui } from "@/lib/content";
-import { picture } from "@/lib/media";
-import { site } from "@/lib/content";
 import { href, type Lang } from "@/lib/routes";
 
-/* The home page, in the order a person with a disease decides: her face and
-   the promise, which disease, what happens next and what about the medicine,
-   the proof in the report's own numbers, the slip they leave with, the
-   timetable and the fee, who teaches, and the one ask. Eight screens on a
-   phone, each one thing. */
+/* The home page, in the order a frightened person actually asks things.
+
+   Her face and the promise, then the four counts and the newspapers, so a
+   stranger knows within one screen that she is real. Then which illness —
+   eight tiles, each carrying a result. Then, third, the question that decides
+   everything: do I have to stop my medicine. Only after that the videos, the
+   records, the three prices, who she is, when the batches run, and the ask.
+
+   Nothing on the page says buy. It is full of the things somebody checks
+   before they will trust a stranger with their diabetes. */
 
 export default function Home({ lang }: { lang: Lang }) {
   const shown = stories.slice(0, 3);
 
   return (
-    <SiteShell lang={lang} routeKey="home" overlay={Boolean(picture(site.photos.portrait))}>
+    <SiteShell lang={lang} routeKey="home">
       <Jsonld data={[websiteSchema(lang), personSchema(lang)]} />
 
-      {/* 1 · her face, the promise, a number ------------------------------ */}
+      {/* 1 · her face, the promise, the ask ------------------------------- */}
       <FirstScreen lang={lang} />
 
-      {/* 2 · which disease, and what happens next ------------------------- */}
+      {/* 2 · the counts and the press, lifted onto the fold --------------- */}
+      <section className="relative z-[2] -mt-5">
+        <div className="wrap flex flex-col gap-7 pb-2">
+          <Counters lang={lang} />
+          <PressStrip lang={lang} />
+        </div>
+      </section>
+
+      {/* 3 · which illness — eight tiles, each with a result -------------- */}
       <section>
-        <div className="wrap flex flex-col gap-6 py-7 md:gap-10 md:py-16">
+        <div className="wrap section-pad">
           <DiseaseRows lang={lang} />
+        </div>
+      </section>
+
+      {/* 4 · the question that decides everything ------------------------- */}
+      <section>
+        <div className="wrap pb-8 md:pb-14">
           <MedicinePanel lang={lang} />
         </div>
       </section>
 
-      {/* 3 · the proof, in the report's own numbers ----------------------- */}
-      <section style={{ background: "var(--color-sky)" }}>
-        <div className="wrap flex flex-col gap-3.5 section-pad">
+      {/* 5 · students, on video ------------------------------------------- */}
+      <section style={{ background: "var(--color-amber-tint)" }}>
+        <div className="wrap flex flex-col gap-4 section-pad">
+          <div className="flex flex-col gap-1">
+            <span className="label" style={{ color: "var(--color-amber-deep)" }}>
+              {ui("home.resultsKick", lang)}
+            </span>
+            <h2 className="h2">{ui("home.videosTitle", lang)}</h2>
+            <p className="cap">{ui("home.videosLead", lang)}</p>
+          </div>
+          <VideoWall lang={lang} />
+        </div>
+      </section>
+
+      {/* 6 · what the report said ----------------------------------------- */}
+      <section>
+        <div className="wrap flex flex-col gap-4 section-pad">
           <div className="flex items-baseline justify-between gap-3">
             <h2 className="h2">{ui("home.resultsTitle", lang)}</h2>
             <Link href={href("stories", lang)} className="tap whitespace-nowrap font-bold cap">
@@ -52,7 +86,7 @@ export default function Home({ lang }: { lang: Lang }) {
               <ul className="grid gap-3 md:grid-cols-3 md:gap-5 [&>li]:min-w-0">
                 {shown.map((s, i) => (
                   <li key={s.id} className={i === 2 ? "hidden md:block" : ""}>
-                    <ResultCard story={s} lang={lang} showVideo={i === 0} />
+                    <ResultCard story={s} lang={lang} />
                   </li>
                 ))}
               </ul>
@@ -66,30 +100,50 @@ export default function Home({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      {/* 4 · what you get, and the slip at the head of it ---------------- */}
-      <section className="border-t border-rule">
-        <div className="wrap grid gap-6 section-pad md:grid-cols-2 md:items-start md:gap-14">
-          <div className="flex flex-col gap-5">
-            <WhatYouGet lang={lang} />
-            <Link href="#booking-band" data-ev="talk_cta" data-ev-source="what-you-get" className="btn btn-primary self-start">
-              {ui("cta.talk", lang)}
-            </Link>
+      {/* 7 · three steps, three prices ------------------------------------ */}
+      <section style={{ background: "var(--color-paper)" }}>
+        <div className="wrap flex flex-col gap-7 section-pad">
+          <div className="flex flex-col gap-1">
+            <span className="label" style={{ color: "var(--color-amber-deep)" }}>
+              {ui("home.stepsKick", lang)}
+            </span>
+            <h2 className="h2">{ui("home.stepsTitle", lang)}</h2>
           </div>
-          <div className="flex flex-col gap-2.5">
-            <SlipPad lang={lang} compact edge="var(--color-ivory)" />
-            <p className="cap">{ui("slip.afterTalk", lang)}</p>
+          <Steps lang={lang} />
+          <div className="grid gap-6 md:grid-cols-2 md:items-start md:gap-14">
+            <div className="flex flex-col gap-2">
+              <h3 className="h3">{ui("home.slipTitle", lang)}</h3>
+              <p className="body">{ui("home.slipLead", lang)}</p>
+            </div>
+            <div className="flex flex-col gap-2.5">
+              <SlipPad lang={lang} compact edge="var(--color-paper)" />
+              <p className="cap">{ui("slip.afterTalk", lang)}</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 5 · who teaches ---------------------------------------------------- */}
-      <section className="border-t border-rule">
+      {/* 8 · who teaches --------------------------------------------------- */}
+      <section>
         <div className="wrap section-pad">
           <WhoTeaches lang={lang} />
         </div>
       </section>
 
-      {/* 6 · the one ask ---------------------------------------------------- */}
+      {/* 9 · when it runs, and how many places are left ------------------- */}
+      <section style={{ background: "var(--color-paper)" }}>
+        <div className="wrap flex flex-col gap-4 section-pad">
+          <div className="flex flex-col gap-1">
+            <span className="label" style={{ color: "var(--color-amber-deep)" }}>
+              {ui("home.schedTitle", lang)}
+            </span>
+            <h2 className="h2">{ui("home.whichBatch", lang)}</h2>
+          </div>
+          <Schedule lang={lang} />
+        </div>
+      </section>
+
+      {/* 10 · the one ask -------------------------------------------------- */}
       <Band lang={lang} routeKey="home" source="home" />
     </SiteShell>
   );

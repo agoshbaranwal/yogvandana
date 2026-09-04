@@ -38,7 +38,7 @@ export function BatchesPage({ lang }: { lang: Lang }) {
   return (
     <SiteShell lang={lang} routeKey="batches">
       <Jsonld data={group.map((b) => courseSchema(lang, t(b.name, lang), t(b.note, lang)))} />
-      <header style={{ background: "linear-gradient(180deg, var(--color-sky) 0%, var(--color-ivory) 100%)" }}>
+      <header className="hero-warm">
         <div className="wrap flex flex-col gap-2 pb-5 pt-6 md:pb-8 md:pt-12">
           <h1 className="page-title">{ui("batches.title", lang)}</h1>
           <p className="body max-w-[52ch]" style={{ color: "var(--color-heroink)" }}>

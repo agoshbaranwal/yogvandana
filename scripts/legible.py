@@ -40,7 +40,31 @@ return (() => {
   };
   const ground = (el) => {                // the first ancestor that actually paints
     for (let n = el; n && n !== document.documentElement; n = n.parentElement) {
-      const c = parse(getComputedStyle(n).backgroundColor);
+      const cs = getComputedStyle(n);
+      /* A gradient paints too, and computedStyle reports backgroundColor as
+         transparent for it — which made a dark gradient panel measure as ivory
+         text on the ivory page behind it, i.e. 1.00:1, invisible. Take the
+         first colour stop of the gradient as the ground; for the panels this
+         site uses, the first stop is the lighter end, so this is the harder
+         of the two readings rather than the flattering one. */
+      const img = cs.backgroundImage;
+      if (img && img !== 'none') {
+        /* A background-image can be several gradient layers, listed front to
+           back — so the LAST layer is the one actually painting the ground
+           under everything else. Taking the first layer instead reported the
+           hero's top radial highlight as the ground for the whole screen and
+           failed text that sits on near-white. Split on layer boundaries, take
+           the last, and use its first opaque colour stop. */
+        const layers = img.split(/,(?![^(]*\))/);
+        for (let i = layers.length - 1; i >= 0; i--) {
+          for (const m of layers[i].matchAll(/rgba?\(([^)]+)\)/g)) {
+            const c = parse('rgb(' + m[1] + ')');
+            if (c.length > 3 && c[3] === 0) continue;
+            return c.slice(0, 3);
+          }
+        }
+      }
+      const c = parse(cs.backgroundColor);
       if (c.length > 3 && c[3] === 0) continue;
       return c.slice(0, 3);
     }

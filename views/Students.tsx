@@ -16,7 +16,7 @@ export default function Students({ lang }: { lang: Lang }) {
 
   return (
     <SiteShell lang={lang} routeKey="students" hasBand={false}>
-      <header style={{ background: "linear-gradient(180deg, var(--color-sky) 0%, var(--color-ivory) 100%)" }}>
+      <header className="hero-warm">
         <div className="wrap flex flex-col gap-2.5 section-pad">
           <p className="label" style={{ color: "var(--color-deep)" }}>
             {ui("students.eyebrow", lang)}

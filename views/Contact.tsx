@@ -32,7 +32,7 @@ export default function Contact({ lang }: { lang: Lang }) {
 
   return (
     <SiteShell lang={lang} routeKey="contact" hasBand={false}>
-      <section style={{ background: "linear-gradient(180deg, var(--color-sky) 0%, var(--color-ivory) 100%)" }}>
+      <section className="hero-warm">
         <div className="wrap flex flex-col gap-3.5 pb-7 pt-6 md:grid md:grid-cols-2 md:items-start md:gap-14 md:py-12">
           <div className="flex flex-col gap-3">
             <h1 className="page-title">{ui("contact.title", lang)}</h1>

@@ -88,13 +88,7 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
       />
 
       {/* 1 · the disease, the promise, what the practice does for it ------- */}
-      <section
-        className="border-t-[6px]"
-        style={{
-          borderColor: "var(--color-bhagwa)",
-          background: "linear-gradient(180deg, var(--color-sky) 0%, var(--color-ivory) 100%)",
-        }}
-      >
+      <section className="hero-warm border-t-[6px]" style={{ borderColor: "var(--color-bhagwa)" }}>
         <div className="wrap flex flex-col gap-3.5 pb-7 pt-5 md:grid md:grid-cols-[1.2fr_1fr] md:items-start md:gap-14 md:py-12">
           <div className="flex flex-col gap-3.5">
             <nav aria-label="breadcrumb" className="flex items-center gap-2 cap">
