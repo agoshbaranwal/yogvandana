@@ -38,6 +38,11 @@ return (() => {
     const a = fg.length > 3 ? fg[3] : 1;
     return [0, 1, 2].map((i) => fg[i] * a + bg[i] * (1 - a));
   };
+  /* Returns every colour the ground behind this text might actually be. A flat
+     background is one colour; a gradient is all of its stops, because text runs
+     across the whole sweep and is only as legible as its worst point. Checking
+     the first stop alone passed a strip whose dark end was 5.59:1 and a band
+     whose white text was 2.38:1 — Agosh caught both by looking. */
   const ground = (el) => {                // the first ancestor that actually paints
     for (let n = el; n && n !== document.documentElement; n = n.parentElement) {
       const cs = getComputedStyle(n);
@@ -57,18 +62,20 @@ return (() => {
            the last, and use its first opaque colour stop. */
         const layers = img.split(/,(?![^(]*\))/);
         for (let i = layers.length - 1; i >= 0; i--) {
+          const stops = [];
           for (const m of layers[i].matchAll(/rgba?\(([^)]+)\)/g)) {
             const c = parse('rgb(' + m[1] + ')');
             if (c.length > 3 && c[3] === 0) continue;
-            return c.slice(0, 3);
+            stops.push(c.slice(0, 3));
           }
+          if (stops.length) return stops;
         }
       }
       const c = parse(cs.backgroundColor);
       if (c.length > 3 && c[3] === 0) continue;
-      return c.slice(0, 3);
+      return [c.slice(0, 3)];
     }
-    return [255, 255, 255];
+    return [[255, 255, 255]];
   };
   const ratio = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); };
 
@@ -83,8 +90,14 @@ return (() => {
     if (cs.visibility === "hidden" || cs.display === "none" || Number(cs.opacity) === 0) continue;
     const r = el.getBoundingClientRect();
     if (!r.width || !r.height) continue;
-    const bg = ground(el);
-    const fg = over(parse(cs.color), bg);
+    const grounds = ground(el);
+    /* the worst point of the sweep is the one that decides legibility */
+    let bg = grounds[0], fg = over(parse(cs.color), bg), worst = Infinity;
+    for (const g of grounds) {
+      const f = over(parse(cs.color), g);
+      const r = ratio(f, g);
+      if (r < worst) { worst = r; bg = g; fg = f; }
+    }
     out.push({
       words: words.split(/\s+/).length,
       chars: words.length,
@@ -92,7 +105,7 @@ return (() => {
       weight: cs.fontWeight,
       fg: fg.map(Math.round).join(","),
       bg: bg.map(Math.round).join(","),
-      ratio: Math.round(ratio(fg, bg) * 100) / 100,
+      ratio: Math.round(worst * 100) / 100,
       sample: words.slice(0, 40),
       cls: (el.className && el.className.baseVal === undefined ? String(el.className) : "").split(" ")[0],
     });

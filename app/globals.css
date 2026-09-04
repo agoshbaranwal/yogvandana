@@ -83,8 +83,12 @@
   --elev-2: 0 2px 4px rgba(20, 18, 15, 0.06), 0 18px 48px rgba(20, 18, 15, 0.11);
   --elev-up: 0 -6px 24px rgba(20, 18, 15, 0.09);
 
-  --grad-action: linear-gradient(135deg, #f0913a, #d9700f);
-  --grad-close: linear-gradient(150deg, #f0913a, #c25e00);
+  /* Both amber sweeps carry INK, not white, and every stop clears 7:1 with it.
+     They used to run down to #d9700f and #c25e00, where ink measures 5.59:1
+     and white measures 2.38:1 — Agosh saw the first one and said black on dark
+     orange was hard to read. He was right, and the closing band was worse. */
+  --grad-action: linear-gradient(135deg, #ffb15c, #ee9036);
+  --grad-close: linear-gradient(150deg, #ffb15c, #ec8b2b);
   --grad-dark: linear-gradient(150deg, #211d18, #14120f);
   --grad-hero: radial-gradient(1100px 500px at 78% 8%, rgba(255, 178, 92, 0.42), transparent 62%),
     radial-gradient(760px 460px at 6% 96%, rgba(255, 205, 140, 0.36), transparent 60%),
@@ -95,6 +99,13 @@
      Agosh's "no green" ruling was about the palette, not about a logo. */
   --color-wa: #25d366;
   --color-amber-tint: #fff2e2;
+  /* Before and after, in the two colours every lab report already uses: the
+     reading that was out of range, and the one that is not. Both solved to
+     clear 7:1 on the card's two grounds. Colour is never the only signal —
+     the rows are labelled पहले and अब, and only "अब" is set bold — because
+     roughly one man in twelve cannot tell these two apart. */
+  --color-was: #942c21;
+  --color-now: #155d34;
   /* The ink for anything amber that is a WORD — a kicker, a count, a result on
      a tile, a price. #c25e00 was the gradient's dark end and it measured
      3.81-4.29:1 as text; this is the darkest that still reads as the same
@@ -1158,22 +1169,37 @@
   .ba .val.long {
     font-size: var(--step-head);
   }
-  .ba .was .lab {
-    color: var(--color-muted);
+  /* A value still to be filled in takes the row's own colour rather than the
+     muted grey, or a card reads half-coloured — "HbA1c" red and "8.2" grey —
+     which looks like a bug rather than a fact that has not arrived. */
+  .ba .was {
+    --quiet-ink: var(--color-was);
+    --todo-ink: var(--color-was);
   }
+  .ba .now {
+    --quiet-ink: var(--color-now);
+    --todo-ink: var(--color-now);
+  }
+  .ba .was .lab,
   .ba .was .val {
-    color: var(--color-muted);
+    color: var(--color-was);
   }
-  .ba .now .lab {
-    color: var(--color-deep);
+  .ba .now .lab,
+  .ba .now .val {
+    color: var(--color-now);
   }
   .ba .now .val {
     font-weight: 700;
-    color: var(--color-kohl);
   }
-  /* how long it took, across the full width, in the one action colour */
+  /* How long it took, across the full width.
+
+     This was flat #eb852b, where ink measures 7.05:1 — over the site's floor
+     by a hair, and Agosh still said black on dark orange was hard to read. He
+     is right: a bare pass on a saturated hue is not the same as comfortable.
+     The lighter sweep runs 10.4:1 down to 7.7:1, so the worst point of it is
+     still clearly better than the best point of what was there. */
   .took {
-    background: var(--color-bhagwa);
+    background: var(--grad-action);
     color: var(--color-kohl);
     font-size: var(--step-cap);
     font-weight: 700;
@@ -1481,7 +1507,7 @@
   }
   .btn-grad {
     background: var(--grad-action);
-    color: var(--color-paper);
+    color: var(--color-kohl);
     box-shadow: var(--elev-1);
   }
   .btn-white {
@@ -1493,7 +1519,7 @@
   /* the closing band */
   .close-band {
     background: var(--grad-close);
-    color: var(--color-paper);
+    color: var(--color-kohl);
   }
 
   /* horizontal strips ----------------------------------------------------- */

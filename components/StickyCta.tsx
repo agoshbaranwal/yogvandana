@@ -76,7 +76,7 @@ export default function StickyCta({
       <div
         className="flex items-center gap-3 border-t px-4 pt-2.5"
         style={{
-          background: "var(--color-bhagwa)",
+          background: "var(--grad-close)",
           borderColor: "rgba(35,26,18,0.15)",
           /* clears the home indicator on phones without a button */
           paddingBottom: "calc(10px + env(safe-area-inset-bottom, 0px))",

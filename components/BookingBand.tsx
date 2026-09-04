@@ -77,7 +77,7 @@ export default function BookingBand({
     <section
       id="booking-band"
       className="no-print on-bhagwa"
-      style={{ background: "var(--color-bhagwa)" }}
+      style={{ background: "var(--grad-close)" }}
       aria-labelledby="booking-band-title"
     >
       <div className="wrap flex flex-col gap-5 py-8 md:mx-auto md:max-w-[620px] md:py-16">
