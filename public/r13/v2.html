@@ -1,0 +1,390 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Version 2 — Shivir</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>
+/* ── board chrome ───────────────────────────────────────────────────────── */
+*{box-sizing:border-box}
+body{margin:0;background:#e5e3df;color:#14120f;font-family:ui-sans-serif,system-ui,sans-serif}
+.page{max-width:1420px;margin:0 auto;padding:34px 24px 80px}
+h1.bd{font:700 32px/1.22 ui-sans-serif;margin:0 0 8px}
+.sub{font:400 16px/1.62 ui-sans-serif;color:#54514c;margin:0 0 6px;max-width:84ch}
+.idea{font:400 16px/1.68 ui-sans-serif;background:#fff;border-left:4px solid #eb852b;padding:16px 20px;margin:20px 0 28px;max-width:94ch;border-radius:0 10px 10px 0}
+.idea b{font-weight:700}
+h2.lbl{font:700 13px/1.3 ui-sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#54514c;margin:36px 0 12px}
+.frames{display:flex;gap:30px;align-items:flex-start;flex-wrap:wrap}
+.frame{border:1px solid #cfcbc4;border-radius:16px;overflow:hidden;background:#fff}
+.frame.phone{width:390px;flex:none}
+.frame.desk{width:1120px;max-width:100%}
+.cap{font:400 13px/1.45 ui-sans-serif;color:#54514c;margin:8px 0 0}
+.note{font:400 15px/1.62 ui-sans-serif;background:#fff;border:1px solid #ddd9d2;border-radius:10px;padding:15px 19px;margin-top:16px;max-width:94ch}
+a.back{font:700 15px ui-sans-serif;color:#883a00;text-decoration:none}
+.pill{display:inline-block;font:700 12px/1 ui-sans-serif;letter-spacing:.09em;text-transform:uppercase;background:#14120f;color:#fcfcfb;padding:7px 11px;border-radius:999px}
+
+/* ── the site itself ─────────────────────────────────────────────────────── */
+.y{--amber:#EB852B;--amber-d:#C25E00;--amber-l:#FFF2E2;--ink:#14120f;--dim:#54514c;
+   --paper:#fff;--soft:#FBF8F3;--rule:#EAE5DC;--wa:#25D366;--gold:#B9821B;
+   --sh:0 1px 2px rgba(20,18,15,.05), 0 8px 24px rgba(20,18,15,.07);
+   --sh2:0 2px 4px rgba(20,18,15,.06), 0 18px 48px rgba(20,18,15,.11);
+   background:var(--soft);color:var(--ink);font-family:'Anek Devanagari',sans-serif;overflow-x:hidden}
+.y a{color:inherit;text-decoration:none}
+.y .w{max-width:1080px;margin:0 auto;padding:0 16px}
+.y.k .w{padding:0 40px}
+.y section{padding:34px 0}
+.y.k section{padding:64px 0}
+.y h2{font:700 30px/1.16 'Anek Devanagari';margin:0 0 8px;letter-spacing:-.015em}
+.y.k h2{font-size:44px}
+.y .kick{font:700 12.5px/1 'Anek Devanagari';letter-spacing:.18em;text-transform:uppercase;color:var(--amber-d);display:block;margin-bottom:11px}
+.y .lead{font:400 17px/1.55 'Anek Devanagari';color:var(--dim);margin:0 0 22px;max-width:56ch}
+.y.k .lead{font-size:19px}
+.y .bd2{font:400 16.5px/1.6 'Anek Devanagari';margin:0}
+
+/* buttons */
+.y .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:58px;padding:0 26px;
+        border-radius:999px;font:700 18px 'Anek Devanagari';box-shadow:var(--sh);transition:transform .15s}
+.y .btn-wa{background:var(--wa);color:#fff}
+.y .btn-am{background:linear-gradient(135deg,#F0913A,#D9700F);color:#fff}
+.y .btn-gh{background:#fff;color:var(--ink);border:1.5px solid #DCD6CC;box-shadow:none}
+.y .btn-ink{background:var(--ink);color:#fff}
+
+/* cards, badges, chrome */
+.y .card{background:var(--paper);border-radius:18px;box-shadow:var(--sh);overflow:hidden}
+.y .badge{display:inline-flex;align-items:center;gap:6px;background:#fff;border-radius:999px;padding:7px 13px;
+          font:700 14px 'Anek Devanagari';box-shadow:var(--sh)}
+.y .tick{display:inline-flex;align-items:center;gap:7px;font:600 15.5px 'Anek Devanagari';color:var(--dim)}
+.y .iconbox{width:52px;height:52px;border-radius:15px;display:flex;align-items:center;justify-content:center;
+            background:var(--amber-l);color:var(--amber-d);font:700 20px 'Anek Devanagari';flex:none}
+.y .ph{background:linear-gradient(160deg,#F3EDE3,#E7DFD1);display:flex;align-items:center;justify-content:center;
+       color:#A0968A;font:600 12.5px ui-sans-serif;text-align:center;padding:8px}
+.y .stars{color:#F0A22E;letter-spacing:1px;font-size:15px}
+
+/* hero */
+.y .hero{position:relative;background:
+   radial-gradient(1100px 500px at 78% 8%, rgba(255,178,92,.42), transparent 62%),
+   radial-gradient(760px 460px at 6% 96%, rgba(255,205,140,.36), transparent 60%),
+   linear-gradient(180deg,#FFF7EC 0%, #FBF8F3 100%)}
+.y .hero:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:30px;
+   background:var(--soft);border-radius:30px 30px 0 0;z-index:0}
+.y .hero .w{position:relative;z-index:1}
+.y .h1{font:700 38px/1.1 'Anek Devanagari';letter-spacing:-.025em;margin:0 0 12px}
+.y.k .h1{font-size:60px}
+.y .h1 em{font-style:normal;color:var(--amber-d)}
+
+/* counters */
+.y .counts{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);
+           border-radius:18px;overflow:hidden;box-shadow:var(--sh)}
+.y.k .counts{grid-template-columns:repeat(4,1fr)}
+.y .counts>div{background:#fff;padding:16px 14px;text-align:center}
+.y .counts .n{font:700 30px/1 'Anek Devanagari';display:block;color:var(--amber-d);letter-spacing:-.02em}
+.y.k .counts .n{font-size:40px}
+.y .counts .l{font:400 14px/1.35 'Anek Devanagari';color:var(--dim);display:block;margin-top:5px}
+
+/* press */
+.y .press{display:flex;gap:12px;align-items:center;overflow:hidden;flex-wrap:wrap;justify-content:center}
+.y .press .ph{width:104px;height:40px;border-radius:8px;font-size:10px;filter:grayscale(1);opacity:.75}
+
+/* grid of conditions */
+.y .agrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.y.k .agrid{grid-template-columns:repeat(4,1fr);gap:18px}
+.y .acard{background:#fff;border-radius:16px;padding:15px 14px 16px;box-shadow:var(--sh);display:flex;flex-direction:column;gap:9px}
+.y .acard .nm{font:700 18px/1.2 'Anek Devanagari'}
+.y .acard .rs{font:700 14.5px/1.3 'Anek Devanagari';color:var(--amber-d)}
+.y .acard .ct{font:400 13.5px 'Anek Devanagari';color:var(--dim)}
+
+/* steps */
+.y .steps{display:grid;gap:14px}
+.y.k .steps{grid-template-columns:repeat(3,1fr);gap:22px}
+.y .step{background:#fff;border-radius:18px;padding:20px 18px;box-shadow:var(--sh);position:relative}
+.y .step .no{position:absolute;top:-14px;left:18px;width:34px;height:34px;border-radius:50%;
+   background:linear-gradient(135deg,#F0913A,#D9700F);color:#fff;font:700 17px 'Anek Devanagari';
+   display:flex;align-items:center;justify-content:center;box-shadow:var(--sh)}
+.y .step h3{font:700 20px 'Anek Devanagari';margin:14px 0 5px}
+.y .step .pr{font:700 26px 'Anek Devanagari';color:var(--amber-d);float:right;margin-top:10px}
+
+/* video testimonials */
+.y .vids{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.y.k .vids{grid-template-columns:repeat(3,1fr);gap:20px}
+.y .vid{border-radius:16px;overflow:hidden;box-shadow:var(--sh);background:#fff}
+.y .vid .thumb{position:relative;aspect-ratio:4/3}
+.y .vid .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.y .vid .play span{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.94);
+   display:flex;align-items:center;justify-content:center;box-shadow:var(--sh2);color:var(--amber-d);font-size:19px;padding-left:4px}
+.y .vid .m{padding:12px 13px 14px}
+.y .vid .rb{display:inline-block;background:var(--amber-l);color:var(--amber-d);border-radius:999px;
+   padding:4px 10px;font:700 13px 'Anek Devanagari';margin-bottom:6px}
+
+/* before/after */
+.y .ba{border-radius:18px;overflow:hidden;box-shadow:var(--sh);background:#fff}
+.y .ba .two{display:grid;grid-template-columns:1fr 1fr}
+.y .ba .two>div{padding:15px 15px 17px}
+.y .ba .was{background:#F4F0EA}
+.y .ba .lab{font:700 12.5px/1 'Anek Devanagari';letter-spacing:.13em;color:var(--dim)}
+.y .ba .now .lab{color:var(--amber-d)}
+.y .ba .v{font:400 26px/1.2 'Anek Devanagari';margin-top:8px;color:var(--dim)}
+.y .ba .now .v{font-weight:700;color:var(--ink)}
+.y .ba .took{background:linear-gradient(135deg,#F0913A,#D9700F);color:#fff;font:700 15px 'Anek Devanagari';text-align:center;padding:9px}
+
+/* price */
+.y .plans{display:grid;gap:14px}
+.y.k .plans{grid-template-columns:repeat(3,1fr);gap:20px}
+.y .plan{background:#fff;border-radius:20px;padding:22px 20px;box-shadow:var(--sh);border:2px solid transparent;position:relative}
+.y .plan.hot{border-color:var(--amber);box-shadow:var(--sh2)}
+.y .plan .rib{position:absolute;top:-13px;left:20px;background:var(--ink);color:#fff;border-radius:999px;
+   padding:5px 13px;font:700 12.5px 'Anek Devanagari';letter-spacing:.05em}
+.y .plan .p{font:700 40px/1 'Anek Devanagari';letter-spacing:-.02em;margin:8px 0 3px}
+.y .plan .u{font:400 15px 'Anek Devanagari';color:var(--dim)}
+
+/* sticky bars */
+.y .top{position:sticky;top:0;z-index:20;background:rgba(251,248,243,.92);backdrop-filter:blur(10px);
+        border-bottom:1px solid var(--rule)}
+.y .bot{position:sticky;bottom:0;z-index:20;background:#fff;border-top:1px solid var(--rule);
+        box-shadow:0 -6px 24px rgba(20,18,15,.09);padding:10px 14px;display:flex;align-items:center;gap:12px}
+
+/* dark objection panel */
+.y .obj{background:linear-gradient(150deg,#211D18,#14120f);color:#fff;border-radius:22px;padding:24px 20px}
+.y.k .obj{padding:38px 40px}
+.y .obj h2{color:#fff}
+.y .obj .hl{color:#FFC077}
+
+/* schedule */
+.y .sched{background:#fff;border-radius:20px;box-shadow:var(--sh);overflow:hidden}
+.y .sched .r{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:15px 18px;border-top:1px solid var(--rule)}
+.y .sched .r:first-child{border-top:0}
+.y .dot{width:9px;height:9px;border-radius:50%;background:var(--wa);display:inline-block;margin-right:7px}
+
+/* variant B — the shivir skin, warmer and denser */
+.y.b{--amber:#E0620E;--amber-d:#A83C00;--amber-l:#FDEBD8;--soft:#FDF6EC;--gold:#A97A12;--rule:#EBDDC7}
+.y.b .hero{background:
+  radial-gradient(900px 460px at 82% 4%, rgba(224,98,14,.28), transparent 60%),
+  linear-gradient(180deg,#FFEFDA 0%, #FDF6EC 100%)}
+.y.b .btn-am{background:linear-gradient(135deg,#E77A22,#B84400)}
+.y.b .card,.y.b .acard,.y.b .step,.y.b .plan,.y.b .vid,.y.b .ba,.y.b .sched{border-radius:10px}
+.y.b .iconbox{border-radius:8px}
+.y.b h2{letter-spacing:-.005em}
+.y.b .band{background:repeating-linear-gradient(90deg,#E0620E 0 14px,#C95309 14px 28px);height:7px}
+.y.b .frame-orn{border:2px solid #E0620E;border-radius:10px;padding:6px}
+</style></head>
+<body><div class="page">
+<p><a class="back" href="./">&larr; both versions</a></p>
+<h1 class="bd">Version 2 — Shivir</h1>
+<p class="sub">A complete home page. Photographs, videos, press logos and figures are placeholders and
+examples &mdash; this layout is designed <i>around</i> real photography, which is what it will need.</p>
+<div class="idea"><b>How it looks:</b> The same architecture in a warmer, more traditional skin: deeper saffron, squarer 10px corners, a woven saffron rule between sections, and a denser, more printed feel — closer to a Patanjali page or a shivir poster than to an app.<br><br><b>The same page, wearing the clothes this audience already trusts.</b> Deeper saffron doing
+   more of the work, less rounding, tighter blocks, a repeating saffron band as a divider. It reads less
+   like a Bangalore startup and more like something from the world of shivirs and Patanjali — which for a
+   52-year-old in Lucknow deciding whether this woman is real, may be the more persuasive costume.</div>
+<h2 class="lbl">On a phone &mdash; 390px</h2>
+<div class="frames"><div><div class="frame phone"><div class="y b"><div class="top"><div class="w" style="display:flex;align-items:center;justify-content:space-between;padding-top:11px;padding-bottom:11px">
+      <span style="font:700 21px 'Anek Devanagari'"><span style="color:var(--amber-d)">योग</span> वंदना</span>
+      <span style="display:flex;gap:10px;align-items:center">
+        
+        <a class="btn btn-am" style="min-height:44px;font-size:15.5px;padding:0 17px" href="#">मुफ़्त बात करें</a></span></div></div><div class="hero"><div class="w" style="padding-top:26px;padding-bottom:46px;">
+      <div>
+        <span class="badge" style="margin-bottom:14px">🙏 12 साल · 900+ विद्यार्थी · लखनऊ</span>
+        <h1 class="h1">योग एवं प्राणायाम से<br><em>अपनी बीमारी का हल</em> पाइए।</h1>
+        <p class="lead" style="color:var(--ink)">रोज़ लाइव क्लास · कॉल पर सलाह · आपकी अपनी पर्ची</p>
+        <div style="display:flex;gap:11px;flex-wrap:wrap;margin-bottom:14px">
+          <a class="btn btn-wa" href="#"><svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.94 1.35-.5.05-1.13.07-1.82-.11a16.6 16.6 0 01-1.65-.61c-2.9-1.25-4.8-4.17-4.94-4.37-.15-.2-1.19-1.58-1.19-3.01s.75-2.14 1.02-2.43c.27-.29.58-.37.78-.37h.56c.18 0 .42-.7.66.5.24.58.81 1.99.88 2.13.07.15.12.32.02.51-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.35 1.46.29.15.46.12.63-.07.17-.2.73-.85.92-1.14.2-.29.39-.24.66-.15.27.1 1.7.8 1.99.95.29.15.49.22.56.34.07.12.07.68-.17 1.36z"/></svg> व्हाट्सऐप पर बात करें</a>
+          <a class="btn btn-gh" href="#">📞 कॉल करें</a></div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap">
+          <span class="tick">✅ पहली बात मुफ़्त</span><span class="tick">✅ दवा बंद नहीं</span><span class="tick">✅ घर से, ज़ूम पर</span></div>
+      </div>
+      <div style="margin-top:26px"><div style="position:relative">
+      <div class="ph" style="aspect-ratio:1/1;border-radius:22px;box-shadow:var(--sh2)">वंदना जी की फ़ोटो — क्लास लेते हुए</div>
+      <div class="badge" style="position:absolute;left:6px;bottom:14px"><span class="stars">★★★★★</span> 4.9 <span style="font-weight:400;color:var(--dim)">· 120 समीक्षाएँ</span></div>
+      <div class="badge" style="position:absolute;right:6px;top:14px;max-width:78%">🎓 [प्रमाणन संस्था] प्रमाणित</div></div></div></div></div><section style="padding-top:0;padding-bottom:0;position:relative;z-index:2;margin-top:-18px"><div class="w"><div class="counts">
+      <div><span class="n">900+</span><span class="l">विद्यार्थी</span></div>
+      <div><span class="n">12</span><span class="l">साल का अनुभव</span></div>
+      <div><span class="n">140</span><span class="l">जिनकी दवा घटी</span></div>
+      <div><span class="n">4.9★</span><span class="l">Google पर</span></div></div></div></section><section style="padding-top:26px;padding-bottom:8px"><div class="w"><p class="cap" style="text-align:center;font-family:Anek Devanagari;font-weight:700;color:var(--dim);letter-spacing:.14em;text-transform:uppercase;font-size:12.5px;margin-bottom:14px">अख़बार और टीवी में</p><div class="press"><div class="ph">अख़बार का लोगो</div><div class="ph">अख़बार का लोगो</div><div class="ph">अख़बार का लोगो</div><div class="ph">अख़बार का लोगो</div><div class="ph">अख़बार का लोगो</div></div></div></section><section><div class="w"><span class="kick">आठ बीमारियाँ, आठ अलग क्रम</span>
+      <h2>किस बीमारी का हल चाहिए?</h2>
+      <p class="lead">अपनी बीमारी चुनिए — उसका अभ्यास, उसकी पर्ची और उसी बीमारी वालों के नतीजे।</p>
+      <div class="agrid"><a class="acard" href="#"><span class="iconbox">शु</span>
+      <span class="nm">शुगर</span><span class="rs">HbA1c 8.2 → 6.5</span><span class="ct">40 विद्यार्थी</span></a><a class="acard" href="#"><span class="iconbox">बी</span>
+      <span class="nm">बीपी</span><span class="rs">160/100 → 130/85</span><span class="ct">31 विद्यार्थी</span></a><a class="acard" href="#"><span class="iconbox">क</span>
+      <span class="nm">कमर दर्द</span><span class="rs">रोज़ तीन मंज़िल</span><span class="ct">55 विद्यार्थी</span></a><a class="acard" href="#"><span class="iconbox">घु</span>
+      <span class="nm">घुटने का दर्द</span><span class="rs">बिना सहारे उठना</span><span class="ct">38 विद्यार्थी</span></a><a class="acard" href="#"><span class="iconbox">था</span>
+      <span class="nm">थायराइड</span><span class="rs">TSH 9.4 → 3.1</span><span class="ct">22 विद्यार्थी</span></a><a class="acard" href="#"><span class="iconbox">मो</span>
+      <span class="nm">मोटापा</span><span class="rs">11 किलो कम</span><span class="ct">46 विद्यार्थी</span></a><a class="acard" href="#"><span class="iconbox">नी</span>
+      <span class="nm">नींद और तनाव</span><span class="rs">ग्यारह बजे नींद</span><span class="ct">29 विद्यार्थी</span></a><a class="acard" href="#"><span class="iconbox">म</span>
+      <span class="nm">महिलाओं की समस्याएँ</span><span class="rs">हर महीने, समय पर</span><span class="ct">34 विद्यार्थी</span></a></div></div></section><section><div class="w"><div class="obj">
+      <span class="kick" style="color:#FFC077">सबसे पहले पूछा जाने वाला सवाल</span>
+      <h2>“डॉक्टर की दवा बंद करनी पड़ेगी?”</h2>
+      <p class="bd2" style="color:#F3EEE6;max-width:58ch">नहीं। वंदना जी कभी किसी से दवा बंद करने को नहीं कहतीं।
+      योग साथ-साथ चलता है। रिपोर्ट सुधरे तो दवा डॉक्टर ही घटाते हैं — <span class="hl" style="font-weight:700">यहाँ अब तक 140 लोगों की घटी है</span>,
+      हर बार उनके अपने डॉक्टर की सलाह से।</p></div></div></section><section style="background:var(--amber-l)"><div class="w"><span class="kick">उनकी अपनी ज़ुबानी</span>
+      <h2>वीडियो में सुनिए</h2>
+      <p class="lead">हर वीडियो विद्यार्थी की अनुमति से, उनके नाम और शहर के साथ।</p>
+      <div class="vids"><div class="vid"><div class="thumb"><div class="ph" style="height:100%">विद्यार्थी का वीडियो</div>
+      <div class="play"><span>▶</span></div></div>
+      <div class="m"><span class="rb">HbA1c 8.2 → 6.5</span><p style="font:700 16px 'Anek Devanagari';margin:0">शुगर · दवा आधी</p>
+      <p class="cap" style="font-family:Anek Devanagari">सुनीता वर्मा, 52 · लखनऊ</p></div></div><div class="vid"><div class="thumb"><div class="ph" style="height:100%">विद्यार्थी का वीडियो</div>
+      <div class="play"><span>▶</span></div></div>
+      <div class="m"><span class="rb">अब रोज़ तीन मंज़िल</span><p style="font:700 16px 'Anek Devanagari';margin:0">कमर दर्द · 4 महीने</p>
+      <p class="cap" style="font-family:Anek Devanagari">रामकिशोर सिंह, 61 · कानपुर</p></div></div><div class="vid"><div class="thumb"><div class="ph" style="height:100%">विद्यार्थी का वीडियो</div>
+      <div class="play"><span>▶</span></div></div>
+      <div class="m"><span class="rb">हर महीने, समय पर</span><p style="font:700 16px 'Anek Devanagari';margin:0">महिलाओं की समस्याएँ</p>
+      <p class="cap" style="font-family:Anek Devanagari">अनीता गुप्ता, 38 · प्रयागराज</p></div></div></div></div></section><section><div class="w"><span class="kick">रिपोर्ट में क्या बदला</span>
+      <h2>पहले और अब</h2><div style="display:grid;gap:14px"><div class="ba"><div class="two">
+      <div class="was"><div class="lab">पहले</div><div class="v">HbA1c 8.2</div></div>
+      <div class="now"><div class="lab">अब</div><div class="v">HbA1c 6.5</div></div></div>
+      <div class="took">7 महीनों में · दवा आधी</div>
+      <div style="padding:15px 16px 17px"><p class="bd2">“सात महीने में दवा आधी हो गई। सुबह उठते ही अब थकान नहीं रहती।”</p>
+      <p class="cap" style="font-family:Anek Devanagari;margin-top:8px">सुनीता वर्मा, 52 · लखनऊ</p></div></div><div class="ba"><div class="two">
+      <div class="was"><div class="lab">पहले</div><div class="v">सीढ़ियाँ नहीं चढ़ पाते थे</div></div>
+      <div class="now"><div class="lab">अब</div><div class="v">रोज़ तीन मंज़िल</div></div></div>
+      <div class="took">4 महीनों में</div>
+      <div style="padding:15px 16px 17px"><p class="bd2">“चार महीने पहले सीढ़ी चढ़ना मुश्किल था। अब रोज़ तीन मंज़िल चढ़ता हूँ।”</p>
+      <p class="cap" style="font-family:Anek Devanagari;margin-top:8px">रामकिशोर सिंह, 61 · कानपुर</p></div></div><div class="ba"><div class="two">
+      <div class="was"><div class="lab">पहले</div><div class="v">तीन महीने में एक बार</div></div>
+      <div class="now"><div class="lab">अब</div><div class="v">हर महीने, समय पर</div></div></div>
+      <div class="took">6 महीनों में</div>
+      <div style="padding:15px 16px 17px"><p class="bd2">“छह महीने में पीरियड समय पर आने लगे। रिपोर्ट भी अच्छी आई।”</p>
+      <p class="cap" style="font-family:Anek Devanagari;margin-top:8px">अनीता गुप्ता, 38 · प्रयागराज</p></div></div></div></div></section><section style="background:#fff"><div class="w"><span class="kick">कैसे शुरू करें</span>
+      <h2>तीन क़दम</h2>
+      <div class="steps" style="margin-top:26px">
+        <div class="step"><span class="no">1</span><span class="pr">मुफ़्त</span><h3>पहली बात</h3>
+          <p class="bd2" style="color:var(--dim)">अपनी तकलीफ़ बताइए। योग और प्राणायाम से क्या हल है, वे बताएँगी।</p></div>
+        <div class="step"><span class="no">2</span><span class="pr">₹200</span><h3>परामर्श और पर्ची</h3>
+          <p class="bd2" style="color:var(--dim)">रिपोर्ट, दवा और हालत देखकर — आपका अपना क्रम, व्हाट्सऐप पर।</p></div>
+        <div class="step"><span class="no">3</span><span class="pr">₹1,000</span><h3>रोज़ की क्लास</h3>
+          <p class="bd2" style="color:var(--dim)">छोटे ग्रुप में लाइव, हर 90 दिन पर रिपोर्ट देखी जाती है।</p></div></div></div></section><section><div class="w"><div style="">
+      <div class="ph" style="aspect-ratio:4/5;border-radius:20px;box-shadow:var(--sh2);margin-bottom:20px">वंदना जी की फ़ोटो</div>
+      <div><span class="kick">सिखाती कौन हैं</span><h2>वंदना बरनवाल</h2>
+        <p class="lead" style="color:var(--ink)">योग में एम.ए., [विश्वविद्यालय]। [प्रमाणन संस्था] प्रमाणित। 12 साल से लखनऊ में और ऑनलाइन।</p>
+        <div style="display:flex;gap:9px;flex-wrap:wrap;margin-bottom:16px">
+          <span class="badge">🎓 6 प्रमाणपत्र</span><span class="badge">🏅 9 सम्मान</span><span class="badge">📰 अख़बार और टीवी</span></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <div class="ph" style="width:84px;aspect-ratio:3/4;border-radius:10px">प्रमाणपत्र</div>
+          <div class="ph" style="width:84px;aspect-ratio:3/4;border-radius:10px">प्रमाणपत्र</div>
+          <div class="ph" style="width:120px;aspect-ratio:5/3;border-radius:10px">मंच की फ़ोटो</div></div></div></div></div></section><section style="background:#fff"><div class="w"><span class="kick">समय और बैच</span><h2>अगला बैच [तारीख़] से</h2>
+      <div class="sched" style="margin-top:18px">
+        <div class="r"><div><p style="font:700 19px 'Anek Devanagari';margin:0"><span class="dot"></span>सुबह का बैच</p>
+          <p class="cap" style="font-family:Anek Devanagari">6:30 · 50 मिनट · सोम–शनि</p></div>
+          <div style="text-align:right"><p style="font:700 24px 'Anek Devanagari';margin:0">₹1,000</p><p class="cap">[N] सीटें बची</p></div></div>
+        <div class="r"><div><p style="font:700 19px 'Anek Devanagari';margin:0"><span class="dot"></span>शाम का बैच</p>
+          <p class="cap" style="font-family:Anek Devanagari">6:00 · 50 मिनट · सोम–शनि</p></div>
+          <div style="text-align:right"><p style="font:700 24px 'Anek Devanagari';margin:0">₹1,000</p><p class="cap">[N] सीटें बची</p></div></div>
+        <div class="r" style="background:var(--amber-l)"><span class="tick" style="color:var(--amber-d)">🎁 एक घर के दो लोग तो [छूट]</span>
+          <a class="btn btn-am" style="min-height:46px;font-size:16px;padding:0 18px" href="#">जगह पक्की कीजिए</a></div></div></div></section><section><div class="w"><span class="kick">अक्सर पूछे जाने वाले सवाल</span><h2>लोग क्या पूछते हैं</h2><div class="card" style="padding:16px 18px;margin-top:11px">
+        <p style="font:700 18px 'Anek Devanagari';margin:0 0 5px">मुझे योग आता ही नहीं।</p>
+        <p class="bd2" style="color:var(--dim)">पहले दिन से सिखाया जाता है। कोई क़दम मुश्किल लगे तो उसका आसान रूप मिलता है।</p></div><div class="card" style="padding:16px 18px;margin-top:11px">
+        <p style="font:700 18px 'Anek Devanagari';margin:0 0 5px">घर पर क्या चाहिए?</p>
+        <p class="bd2" style="color:var(--dim)">एक चटाई, थोड़ी जगह और फ़ोन। बस।</p></div><div class="card" style="padding:16px 18px;margin-top:11px">
+        <p style="font:700 18px 'Anek Devanagari';margin:0 0 5px">उम्र ज़्यादा है, हो पाएगा?</p>
+        <p class="bd2" style="color:var(--dim)">सबसे पुराने विद्यार्थी 74 के हैं। बैठकर करने वाले क्रम भी हैं।</p></div><div class="card" style="padding:16px 18px;margin-top:11px">
+        <p style="font:700 18px 'Anek Devanagari';margin:0 0 5px">क्लास छूट जाए तो?</p>
+        <p class="bd2" style="color:var(--dim)">उस दिन दूसरे बैच में जुड़ सकते हैं।</p></div></div></section><section style="background:linear-gradient(150deg,#F0913A,#C25E00);color:#fff"><div class="w">
+      <h2 style="color:#fff">आज ही बात कीजिए।</h2>
+      <p class="bd2" style="color:#FFF0DE;max-width:46ch;margin-bottom:20px">अपनी तकलीफ़ बताइए — योग और प्राणायाम से क्या हल है, वंदना जी बताएँगी। पहली बात का कोई शुल्क नहीं।</p>
+      <div style="display:flex;gap:11px;flex-wrap:wrap">
+        <a class="btn btn-wa" href="#"><svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.94 1.35-.5.05-1.13.07-1.82-.11a16.6 16.6 0 01-1.65-.61c-2.9-1.25-4.8-4.17-4.94-4.37-.15-.2-1.19-1.58-1.19-3.01s.75-2.14 1.02-2.43c.27-.29.58-.37.78-.37h.56c.18 0 .42-.7.66.5.24.58.81 1.99.88 2.13.07.15.12.32.02.51-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.35 1.46.29.15.46.12.63-.07.17-.2.73-.85.92-1.14.2-.29.39-.24.66-.15.27.1 1.7.8 1.99.95.29.15.49.22.56.34.07.12.07.68-.17 1.36z"/></svg> व्हाट्सऐप पर बात करें</a>
+        <a class="btn" style="background:#fff;color:var(--amber-d)" href="#">📞 कॉल करें</a></div></div></section><div class="bot"><div style="flex:1">
+      <p style="font:700 15.5px/1.2 'Anek Devanagari';margin:0">पहली बात मुफ़्त</p>
+      <p class="cap" style="margin:1px 0 0">फिर ₹200 परामर्श · ₹1,000 माह</p></div>
+      <a class="btn btn-wa" style="min-height:48px;font-size:16px;padding:0 18px" href="#"><svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.94 1.35-.5.05-1.13.07-1.82-.11a16.6 16.6 0 01-1.65-.61c-2.9-1.25-4.8-4.17-4.94-4.37-.15-.2-1.19-1.58-1.19-3.01s.75-2.14 1.02-2.43c.27-.29.58-.37.78-.37h.56c.18 0 .42-.7.66.5.24.58.81 1.99.88 2.13.07.15.12.32.02.51-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.35 1.46.29.15.46.12.63-.07.17-.2.73-.85.92-1.14.2-.29.39-.24.66-.15.27.1 1.7.8 1.99.95.29.15.49.22.56.34.07.12.07.68-.17 1.36z"/></svg> बात करें</a></div></div></div><p class="cap">Phone, 390px. Scroll inside the frame.</p></div></div>
+<h2 class="lbl">On a computer</h2>
+<div class="frames"><div><div class="frame desk"><div class="y k b"><div class="top"><div class="w" style="display:flex;align-items:center;justify-content:space-between;padding-top:11px;padding-bottom:11px">
+      <span style="font:700 25px 'Anek Devanagari'"><span style="color:var(--amber-d)">योग</span> वंदना</span>
+      <span style="display:flex;gap:10px;align-items:center">
+        <span class="tick">बीमारी</span><span class="tick">बैच</span><span class="tick">नतीजे</span><span class="tick">परिचय</span>
+        <a class="btn btn-am" style="min-height:44px;font-size:15.5px;padding:0 17px" href="#">मुफ़्त बात करें</a></span></div></div><div class="hero"><div class="w" style="padding-top:52px;padding-bottom:78px;display:grid;grid-template-columns:1fr 400px;gap:60px;align-items:center">
+      <div>
+        <span class="badge" style="margin-bottom:14px">🙏 12 साल · 900+ विद्यार्थी · लखनऊ</span>
+        <h1 class="h1">योग एवं प्राणायाम से<br><em>अपनी बीमारी का हल</em> पाइए।</h1>
+        <p class="lead" style="color:var(--ink)">रोज़ लाइव क्लास · कॉल पर सलाह · आपकी अपनी पर्ची</p>
+        <div style="display:flex;gap:11px;flex-wrap:wrap;margin-bottom:14px">
+          <a class="btn btn-wa" href="#"><svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.94 1.35-.5.05-1.13.07-1.82-.11a16.6 16.6 0 01-1.65-.61c-2.9-1.25-4.8-4.17-4.94-4.37-.15-.2-1.19-1.58-1.19-3.01s.75-2.14 1.02-2.43c.27-.29.58-.37.78-.37h.56c.18 0 .42-.7.66.5.24.58.81 1.99.88 2.13.07.15.12.32.02.51-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.35 1.46.29.15.46.12.63-.07.17-.2.73-.85.92-1.14.2-.29.39-.24.66-.15.27.1 1.7.8 1.99.95.29.15.49.22.56.34.07.12.07.68-.17 1.36z"/></svg> व्हाट्सऐप पर बात करें</a>
+          <a class="btn btn-gh" href="#">📞 कॉल करें</a></div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap">
+          <span class="tick">✅ पहली बात मुफ़्त</span><span class="tick">✅ दवा बंद नहीं</span><span class="tick">✅ घर से, ज़ूम पर</span></div>
+      </div>
+      <div style=""><div style="position:relative">
+      <div class="ph" style="aspect-ratio:4/5;border-radius:26px;box-shadow:var(--sh2)">वंदना जी की फ़ोटो — क्लास लेते हुए</div>
+      <div class="badge" style="position:absolute;left:6px;bottom:14px"><span class="stars">★★★★★</span> 4.9 <span style="font-weight:400;color:var(--dim)">· 120 समीक्षाएँ</span></div>
+      <div class="badge" style="position:absolute;right:6px;top:14px;max-width:78%">🎓 [प्रमाणन संस्था] प्रमाणित</div></div></div></div></div><section style="padding-top:0;padding-bottom:0;position:relative;z-index:2;margin-top:-18px"><div class="w"><div class="counts">
+      <div><span class="n">900+</span><span class="l">विद्यार्थी</span></div>
+      <div><span class="n">12</span><span class="l">साल का अनुभव</span></div>
+      <div><span class="n">140</span><span class="l">जिनकी दवा घटी</span></div>
+      <div><span class="n">4.9★</span><span class="l">Google पर</span></div></div></div></section><section style="padding-top:26px;padding-bottom:8px"><div class="w"><p class="cap" style="text-align:center;font-family:Anek Devanagari;font-weight:700;color:var(--dim);letter-spacing:.14em;text-transform:uppercase;font-size:12.5px;margin-bottom:14px">अख़बार और टीवी में</p><div class="press"><div class="ph">अख़बार का लोगो</div><div class="ph">अख़बार का लोगो</div><div class="ph">अख़बार का लोगो</div><div class="ph">अख़बार का लोगो</div><div class="ph">अख़बार का लोगो</div></div></div></section><section><div class="w"><span class="kick">आठ बीमारियाँ, आठ अलग क्रम</span>
+      <h2>किस बीमारी का हल चाहिए?</h2>
+      <p class="lead">अपनी बीमारी चुनिए — उसका अभ्यास, उसकी पर्ची और उसी बीमारी वालों के नतीजे।</p>
+      <div class="agrid"><a class="acard" href="#"><span class="iconbox">शु</span>
+      <span class="nm">शुगर</span><span class="rs">HbA1c 8.2 → 6.5</span><span class="ct">40 विद्यार्थी</span></a><a class="acard" href="#"><span class="iconbox">बी</span>
+      <span class="nm">बीपी</span><span class="rs">160/100 → 130/85</span><span class="ct">31 विद्यार्थी</span></a><a class="acard" href="#"><span class="iconbox">क</span>
+      <span class="nm">कमर दर्द</span><span class="rs">रोज़ तीन मंज़िल</span><span class="ct">55 विद्यार्थी</span></a><a class="acard" href="#"><span class="iconbox">घु</span>
+      <span class="nm">घुटने का दर्द</span><span class="rs">बिना सहारे उठना</span><span class="ct">38 विद्यार्थी</span></a><a class="acard" href="#"><span class="iconbox">था</span>
+      <span class="nm">थायराइड</span><span class="rs">TSH 9.4 → 3.1</span><span class="ct">22 विद्यार्थी</span></a><a class="acard" href="#"><span class="iconbox">मो</span>
+      <span class="nm">मोटापा</span><span class="rs">11 किलो कम</span><span class="ct">46 विद्यार्थी</span></a><a class="acard" href="#"><span class="iconbox">नी</span>
+      <span class="nm">नींद और तनाव</span><span class="rs">ग्यारह बजे नींद</span><span class="ct">29 विद्यार्थी</span></a><a class="acard" href="#"><span class="iconbox">म</span>
+      <span class="nm">महिलाओं की समस्याएँ</span><span class="rs">हर महीने, समय पर</span><span class="ct">34 विद्यार्थी</span></a></div></div></section><section><div class="w"><div class="obj">
+      <span class="kick" style="color:#FFC077">सबसे पहले पूछा जाने वाला सवाल</span>
+      <h2>“डॉक्टर की दवा बंद करनी पड़ेगी?”</h2>
+      <p class="bd2" style="color:#F3EEE6;max-width:58ch">नहीं। वंदना जी कभी किसी से दवा बंद करने को नहीं कहतीं।
+      योग साथ-साथ चलता है। रिपोर्ट सुधरे तो दवा डॉक्टर ही घटाते हैं — <span class="hl" style="font-weight:700">यहाँ अब तक 140 लोगों की घटी है</span>,
+      हर बार उनके अपने डॉक्टर की सलाह से।</p></div></div></section><section style="background:var(--amber-l)"><div class="w"><span class="kick">उनकी अपनी ज़ुबानी</span>
+      <h2>वीडियो में सुनिए</h2>
+      <p class="lead">हर वीडियो विद्यार्थी की अनुमति से, उनके नाम और शहर के साथ।</p>
+      <div class="vids"><div class="vid"><div class="thumb"><div class="ph" style="height:100%">विद्यार्थी का वीडियो</div>
+      <div class="play"><span>▶</span></div></div>
+      <div class="m"><span class="rb">HbA1c 8.2 → 6.5</span><p style="font:700 16px 'Anek Devanagari';margin:0">शुगर · दवा आधी</p>
+      <p class="cap" style="font-family:Anek Devanagari">सुनीता वर्मा, 52 · लखनऊ</p></div></div><div class="vid"><div class="thumb"><div class="ph" style="height:100%">विद्यार्थी का वीडियो</div>
+      <div class="play"><span>▶</span></div></div>
+      <div class="m"><span class="rb">अब रोज़ तीन मंज़िल</span><p style="font:700 16px 'Anek Devanagari';margin:0">कमर दर्द · 4 महीने</p>
+      <p class="cap" style="font-family:Anek Devanagari">रामकिशोर सिंह, 61 · कानपुर</p></div></div><div class="vid"><div class="thumb"><div class="ph" style="height:100%">विद्यार्थी का वीडियो</div>
+      <div class="play"><span>▶</span></div></div>
+      <div class="m"><span class="rb">हर महीने, समय पर</span><p style="font:700 16px 'Anek Devanagari';margin:0">महिलाओं की समस्याएँ</p>
+      <p class="cap" style="font-family:Anek Devanagari">अनीता गुप्ता, 38 · प्रयागराज</p></div></div></div></div></section><section><div class="w"><span class="kick">रिपोर्ट में क्या बदला</span>
+      <h2>पहले और अब</h2><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px"><div class="ba"><div class="two">
+      <div class="was"><div class="lab">पहले</div><div class="v">HbA1c 8.2</div></div>
+      <div class="now"><div class="lab">अब</div><div class="v">HbA1c 6.5</div></div></div>
+      <div class="took">7 महीनों में · दवा आधी</div>
+      <div style="padding:15px 16px 17px"><p class="bd2">“सात महीने में दवा आधी हो गई। सुबह उठते ही अब थकान नहीं रहती।”</p>
+      <p class="cap" style="font-family:Anek Devanagari;margin-top:8px">सुनीता वर्मा, 52 · लखनऊ</p></div></div><div class="ba"><div class="two">
+      <div class="was"><div class="lab">पहले</div><div class="v">सीढ़ियाँ नहीं चढ़ पाते थे</div></div>
+      <div class="now"><div class="lab">अब</div><div class="v">रोज़ तीन मंज़िल</div></div></div>
+      <div class="took">4 महीनों में</div>
+      <div style="padding:15px 16px 17px"><p class="bd2">“चार महीने पहले सीढ़ी चढ़ना मुश्किल था। अब रोज़ तीन मंज़िल चढ़ता हूँ।”</p>
+      <p class="cap" style="font-family:Anek Devanagari;margin-top:8px">रामकिशोर सिंह, 61 · कानपुर</p></div></div><div class="ba"><div class="two">
+      <div class="was"><div class="lab">पहले</div><div class="v">तीन महीने में एक बार</div></div>
+      <div class="now"><div class="lab">अब</div><div class="v">हर महीने, समय पर</div></div></div>
+      <div class="took">6 महीनों में</div>
+      <div style="padding:15px 16px 17px"><p class="bd2">“छह महीने में पीरियड समय पर आने लगे। रिपोर्ट भी अच्छी आई।”</p>
+      <p class="cap" style="font-family:Anek Devanagari;margin-top:8px">अनीता गुप्ता, 38 · प्रयागराज</p></div></div></div></div></section><section style="background:#fff"><div class="w"><span class="kick">कैसे शुरू करें</span>
+      <h2>तीन क़दम</h2>
+      <div class="steps" style="margin-top:26px">
+        <div class="step"><span class="no">1</span><span class="pr">मुफ़्त</span><h3>पहली बात</h3>
+          <p class="bd2" style="color:var(--dim)">अपनी तकलीफ़ बताइए। योग और प्राणायाम से क्या हल है, वे बताएँगी।</p></div>
+        <div class="step"><span class="no">2</span><span class="pr">₹200</span><h3>परामर्श और पर्ची</h3>
+          <p class="bd2" style="color:var(--dim)">रिपोर्ट, दवा और हालत देखकर — आपका अपना क्रम, व्हाट्सऐप पर।</p></div>
+        <div class="step"><span class="no">3</span><span class="pr">₹1,000</span><h3>रोज़ की क्लास</h3>
+          <p class="bd2" style="color:var(--dim)">छोटे ग्रुप में लाइव, हर 90 दिन पर रिपोर्ट देखी जाती है।</p></div></div></div></section><section><div class="w"><div style="display:grid;grid-template-columns:320px 1fr;gap:48px;align-items:center">
+      <div class="ph" style="aspect-ratio:4/5;border-radius:20px;box-shadow:var(--sh2);">वंदना जी की फ़ोटो</div>
+      <div><span class="kick">सिखाती कौन हैं</span><h2>वंदना बरनवाल</h2>
+        <p class="lead" style="color:var(--ink)">योग में एम.ए., [विश्वविद्यालय]। [प्रमाणन संस्था] प्रमाणित। 12 साल से लखनऊ में और ऑनलाइन।</p>
+        <div style="display:flex;gap:9px;flex-wrap:wrap;margin-bottom:16px">
+          <span class="badge">🎓 6 प्रमाणपत्र</span><span class="badge">🏅 9 सम्मान</span><span class="badge">📰 अख़बार और टीवी</span></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <div class="ph" style="width:84px;aspect-ratio:3/4;border-radius:10px">प्रमाणपत्र</div>
+          <div class="ph" style="width:84px;aspect-ratio:3/4;border-radius:10px">प्रमाणपत्र</div>
+          <div class="ph" style="width:120px;aspect-ratio:5/3;border-radius:10px">मंच की फ़ोटो</div></div></div></div></div></section><section style="background:#fff"><div class="w"><span class="kick">समय और बैच</span><h2>अगला बैच [तारीख़] से</h2>
+      <div class="sched" style="margin-top:18px">
+        <div class="r"><div><p style="font:700 19px 'Anek Devanagari';margin:0"><span class="dot"></span>सुबह का बैच</p>
+          <p class="cap" style="font-family:Anek Devanagari">6:30 · 50 मिनट · सोम–शनि</p></div>
+          <div style="text-align:right"><p style="font:700 24px 'Anek Devanagari';margin:0">₹1,000</p><p class="cap">[N] सीटें बची</p></div></div>
+        <div class="r"><div><p style="font:700 19px 'Anek Devanagari';margin:0"><span class="dot"></span>शाम का बैच</p>
+          <p class="cap" style="font-family:Anek Devanagari">6:00 · 50 मिनट · सोम–शनि</p></div>
+          <div style="text-align:right"><p style="font:700 24px 'Anek Devanagari';margin:0">₹1,000</p><p class="cap">[N] सीटें बची</p></div></div>
+        <div class="r" style="background:var(--amber-l)"><span class="tick" style="color:var(--amber-d)">🎁 एक घर के दो लोग तो [छूट]</span>
+          <a class="btn btn-am" style="min-height:46px;font-size:16px;padding:0 18px" href="#">जगह पक्की कीजिए</a></div></div></div></section><section><div class="w"><span class="kick">अक्सर पूछे जाने वाले सवाल</span><h2>लोग क्या पूछते हैं</h2><div class="card" style="padding:16px 18px;margin-top:11px">
+        <p style="font:700 18px 'Anek Devanagari';margin:0 0 5px">मुझे योग आता ही नहीं।</p>
+        <p class="bd2" style="color:var(--dim)">पहले दिन से सिखाया जाता है। कोई क़दम मुश्किल लगे तो उसका आसान रूप मिलता है।</p></div><div class="card" style="padding:16px 18px;margin-top:11px">
+        <p style="font:700 18px 'Anek Devanagari';margin:0 0 5px">घर पर क्या चाहिए?</p>
+        <p class="bd2" style="color:var(--dim)">एक चटाई, थोड़ी जगह और फ़ोन। बस।</p></div><div class="card" style="padding:16px 18px;margin-top:11px">
+        <p style="font:700 18px 'Anek Devanagari';margin:0 0 5px">उम्र ज़्यादा है, हो पाएगा?</p>
+        <p class="bd2" style="color:var(--dim)">सबसे पुराने विद्यार्थी 74 के हैं। बैठकर करने वाले क्रम भी हैं।</p></div><div class="card" style="padding:16px 18px;margin-top:11px">
+        <p style="font:700 18px 'Anek Devanagari';margin:0 0 5px">क्लास छूट जाए तो?</p>
+        <p class="bd2" style="color:var(--dim)">उस दिन दूसरे बैच में जुड़ सकते हैं।</p></div></div></section><section style="background:linear-gradient(150deg,#F0913A,#C25E00);color:#fff"><div class="w">
+      <h2 style="color:#fff">आज ही बात कीजिए।</h2>
+      <p class="bd2" style="color:#FFF0DE;max-width:46ch;margin-bottom:20px">अपनी तकलीफ़ बताइए — योग और प्राणायाम से क्या हल है, वंदना जी बताएँगी। पहली बात का कोई शुल्क नहीं।</p>
+      <div style="display:flex;gap:11px;flex-wrap:wrap">
+        <a class="btn btn-wa" href="#"><svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.94 1.35-.5.05-1.13.07-1.82-.11a16.6 16.6 0 01-1.65-.61c-2.9-1.25-4.8-4.17-4.94-4.37-.15-.2-1.19-1.58-1.19-3.01s.75-2.14 1.02-2.43c.27-.29.58-.37.78-.37h.56c.18 0 .42-.7.66.5.24.58.81 1.99.88 2.13.07.15.12.32.02.51-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.35 1.46.29.15.46.12.63-.07.17-.2.73-.85.92-1.14.2-.29.39-.24.66-.15.27.1 1.7.8 1.99.95.29.15.49.22.56.34.07.12.07.68-.17 1.36z"/></svg> व्हाट्सऐप पर बात करें</a>
+        <a class="btn" style="background:#fff;color:var(--amber-d)" href="#">📞 कॉल करें</a></div></div></section></div></div><p class="cap">Desktop, shown at 1120px.</p></div></div>
+</div></body></html>
