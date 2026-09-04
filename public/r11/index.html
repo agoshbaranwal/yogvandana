@@ -1,0 +1,792 @@
+<!doctype html><html lang="en"><head><title>Making it sell — three concepts</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#e9e7e3;color:#14120f;font-family:'Anek Devanagari',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.page{max-width:1420px;margin:0 auto;padding:34px 24px 80px}
+.en{font-family:ui-sans-serif,system-ui,sans-serif}
+h1.en{font:700 32px/1.22 ui-sans-serif;margin:0 0 8px}
+.sub{font:400 16px/1.62 ui-sans-serif;color:#54514c;margin:0 0 6px;max-width:82ch}
+.idea{font:400 16px/1.68 ui-sans-serif;background:#fff;border-left:4px solid #eb852b;padding:16px 20px;margin:20px 0 28px;max-width:92ch;border-radius:0 10px 10px 0}
+.idea b{font-weight:700}
+h2.en{font:700 13px/1.3 ui-sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#54514c;margin:36px 0 12px}
+.frames{display:flex;gap:30px;align-items:flex-start;flex-wrap:wrap}
+.frame{background:#fcfcfb;border:1px solid #d5d1ca;border-radius:14px;overflow:hidden}
+.frame.phone{width:390px;flex:none}
+.frame.desk{width:1100px;max-width:100%}
+.cap{font:400 13px/1.45 ui-sans-serif;color:#54514c;margin:8px 0 0}
+.note{font:400 15px/1.62 ui-sans-serif;background:#fff;border:1px solid #e6e3de;border-radius:10px;padding:15px 19px;margin-top:16px;max-width:92ch}
+.note b{font-weight:700}
+a.back{font:700 15px ui-sans-serif;color:#883a00;text-decoration:none}
+.pill{display:inline-block;font:700 12px/1 ui-sans-serif;letter-spacing:.09em;text-transform:uppercase;background:#14120f;color:#fcfcfb;padding:7px 11px;border-radius:999px}
+table.audit{border-collapse:collapse;width:100%;max-width:1120px;background:#fff;border-radius:10px;overflow:hidden;font:400 14.5px/1.55 ui-sans-serif}
+table.audit th{background:#14120f;color:#fcfcfb;text-align:left;padding:11px 14px;font-weight:700;font-size:13px;letter-spacing:.05em;text-transform:uppercase}
+table.audit td{padding:11px 14px;border-top:1px solid #eceae6;vertical-align:top}
+table.audit td:first-child{font-weight:700;white-space:nowrap}
+table.audit tr:nth-child(even) td{background:#fbfaf8}
+.lever{background:#fff;border:1px solid #e6e3de;border-radius:11px;padding:15px 18px}
+.lever h4{font:700 15px ui-sans-serif;margin:0 0 5px}
+.lever p{font:400 14.5px/1.55 ui-sans-serif;color:#3a3630;margin:0}
+.levers{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px;max-width:1120px}
+
+/* the site's own tokens */
+.site{--ivory:#fcfcfb;--band:#f4f1ec;--kohl:#14120f;--muted:#54514c;--deep:#883a00;--amber:#eb852b;--rule:#e6e3de;--paper:#fff;
+      background:var(--ivory);color:var(--kohl);font-family:'Anek Devanagari',sans-serif}
+.site .w{max-width:1020px;margin:0 auto;padding:0 18px}
+.site.d .w{padding:0 40px}
+.sec{padding:30px 0 34px}
+.site.d .sec{padding:52px 0 56px}
+.sec.tint{background:var(--band)}
+.sec.dark{background:var(--kohl);color:var(--ivory)}
+.h2{font:700 30px/1.18 'Anek Devanagari';margin:0 0 6px}
+.site.d .h2{font-size:38px}
+.h1{font:700 40px/1.1 'Anek Devanagari';margin:0 0 10px;letter-spacing:-.01em}
+.site.d .h1{font-size:56px}
+.lead{font:400 17px/1.55 'Anek Devanagari';color:var(--muted);margin:0 0 20px;max-width:54ch}
+.site.d .lead{font-size:19px}
+.h3{font:700 20px/1.3 'Anek Devanagari';margin:0}
+.bd{font:400 17px/1.6 'Anek Devanagari';margin:0}
+.site.d .bd{font-size:18px}
+.cp{font:400 15px/1.5 'Anek Devanagari';color:var(--muted);margin:0}
+.point{font:700 40px/1.05 'Anek Devanagari';letter-spacing:-.01em}
+.site.d .point{font-size:52px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:56px;padding:0 26px;
+     border-radius:999px;font:700 18px 'Anek Devanagari';text-decoration:none;border:0;cursor:pointer}
+.btn-a{background:var(--amber);color:var(--kohl)}
+.btn-o{background:transparent;color:var(--kohl);border:1.5px solid var(--kohl)}
+.card{background:var(--paper);border:1px solid var(--rule);border-radius:14px;overflow:hidden}
+.ph{background:var(--band);display:flex;align-items:center;justify-content:center;color:#8b867e;font:400 13px ui-sans-serif;text-align:center}
+.chip{display:inline-block;background:var(--band);color:var(--kohl);font:700 14px 'Anek Devanagari';padding:6px 12px;border-radius:999px}
+.chip-d{background:var(--kohl);color:var(--ivory)}
+.rowlink{display:flex;align-items:center;gap:13px;padding:15px 2px;border-top:1px solid var(--rule);text-decoration:none;color:var(--kohl)}
+.ico{width:42px;height:42px;flex:none;border-radius:50%;background:var(--band);display:flex;align-items:center;justify-content:center;font:700 15px 'Anek Devanagari';color:var(--deep)}
+.ba{display:grid;grid-template-columns:1fr 1fr}
+.ba>div{padding:15px 15px 17px}
+.ba .was{background:var(--band);border-right:1px solid var(--rule)}
+.ba .lab{font:700 13px/1 'Anek Devanagari';letter-spacing:.12em}
+.ba .was .lab{color:var(--muted)}
+.ba .now .lab{color:var(--deep)}
+.ba .val{font:400 30px/1.18 'Anek Devanagari';margin-top:8px;color:var(--muted)}
+.ba .now .val{font-weight:700;color:var(--kohl)}
+.ba .val.long{font-size:26px}
+.took{background:var(--amber);color:var(--kohl);font:700 15px 'Anek Devanagari';text-align:center;padding:9px 14px}
+.strip{display:flex;gap:0;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--paper)}
+.strip>div{flex:1;padding:13px 14px;border-left:1px solid var(--rule)}
+.strip>div:first-child{border-left:0}
+.strip .n{font:700 24px/1.1 'Anek Devanagari';display:block}
+.strip .l{font:400 13.5px/1.35 'Anek Devanagari';color:var(--muted);display:block;margin-top:3px}
+</style></head><body><div class="page">
+<h1 class="en">Making the site sell, without saying so</h1>
+<p class="sub en">Agosh: <i>&ldquo;The whole website is inclined towards being more laid back and minimalistic.
+I want you to make it sell more. Not explicitly say it &mdash; do it by design, think from a product
+marketer&rsquo;s mind.&rdquo;</i></p>
+
+<div class="idea en"><b>The diagnosis.</b> The site is well made and it does not sell, and those two
+things are related: it was built to be <i>honest and calm</i>, and honesty was allowed to mean
+<i>quiet</i>. Concretely, three things are missing.
+<br><br><b>1. It states, it does not prove.</b> All the proof on the site is quarantined in one
+section. A visitor meets the promise, then eight diseases, then the method, then &mdash; eventually
+&mdash; evidence. Every claim is asked to be taken on trust at the moment it is made.
+<br><b>2. It answers fear too late.</b> The one thing standing between this audience and a first call
+is &ldquo;will I have to stop my medicine&rdquo;. That answer is the fourth thing on the page.
+<br><b>3. It hides its own ammunition.</b> The content files already hold the next batch date, seats
+left, a family discount, a first-month offer, per-disease student counts, a Google rating, her
+certificates and her press. Almost none of it reaches the home page. The site is being modest with
+facts a buyer needs.</div>
+
+<h2 class="en">Ten levers, before any layout</h2>
+<div class="levers"><div class="lever"><h4>Proof next to every ask, not in its own room</h4><p>One results section is a museum. A result placed beside the button — a line under the band, a number on the disease row — is the thing that converts. Every ask on the site currently stands alone.</p></div><div class="lever"><h4>Let the visitor sort themselves</h4><p>Eight disease rows already do this. What they do not do is reward the choice: a row should carry that disease's own result and its student count, so picking your illness is already proof it works for you.</p></div><div class="lever"><h4>Answer the fear before the offer</h4><p>The single biggest reason this audience does not start is “will I have to stop my medicine”. That answer currently sits below the fold on home. It belongs high, in her voice, with a number attached.</p></div><div class="lever"><h4>Make the intangible tangible</h4><p>“Online yoga classes” is easy to postpone. A prescription with your name on it, six rows, visibly locked until the consultation, is a thing you either have or do not. The slip is the strongest asset on this site and it is currently the fifth thing you meet.</p></div><div class="lever"><h4>Anchor the price against something they already pay</h4><p>₹1,000 a month alone is a number. ₹1,000 next to “under ₹35 a day” next to “less than one doctor's visit” is a decision. Content already stores the per-day figure and never frames it.</p></div><div class="lever"><h4>Honest urgency, from facts already in the content</h4><p>The batch files carry a start date, seats left, a family discount and a first-month offer. None of them appear on the home page. “Next batch from [date] · [N] seats left” is urgency you do not have to invent.</p></div><div class="lever"><h4>Authority where the doubt is, not on a separate page</h4><p>Her M.A., the certifying body, the certificate scans, the press cuttings and the awards all live on /parichay/. A visitor deciding on the home page never sees them. A thin credential line under the first ask does more than the whole About page.</p></div><div class="lever"><h4>Numbers instead of adjectives</h4><p>“छोटा ग्रुप” is an adjective. “12 लोगों का ग्रुप” is a fact. Every place the site describes rather than counts is a place a sceptic stops believing it.</p></div><div class="lever"><h4>One ask, everywhere, and make it free</h4><p>The free first call is the whole funnel and it is currently small print under a button. If the only thing the page ever asks for is a free conversation, the page stops feeling like it is selling — which is precisely what makes it sell.</p></div><div class="lever"><h4>Show the class, do not describe it</h4><p>Nobody knows what a live Zoom yoga class for a 55-year-old with knee pain looks like. One photograph of the actual grid of students answers more objections than the FAQ does.</p></div></div>
+
+<h2 class="en">Every page and section &mdash; what a marketer would change</h2>
+<table class="audit"><tr><th>Where</th><th>What it does now</th><th>What it should do</th></tr><tr><td>Home · first screen</td><td>Claim, offer line, two buttons, a portrait.</td><td>Add a credential line above the claim and a proof strip under the buttons. A stranger needs to know within one screen that she is qualified and that it has worked.</td></tr><tr><td>Home · disease rows</td><td>Eight rows: name, sub-line, student count.</td><td>Give each row its own result — “HbA1c 8.2 → 6.5 · 40 विद्यार्थी”. The chooser becomes eight proof points.</td></tr><tr><td>Home · medicine panel</td><td>Dark block, sits fourth.</td><td>Move it up to third and give it a number: “यहाँ 140 लोगों की घटी है”. It is the biggest single objection.</td></tr><tr><td>Home · what you get</td><td>Three tiers with prices.</td><td>Anchor it: per-day cost, and the fact that the first step is free. Put a “what it replaces” line beside ₹1,000.</td></tr><tr><td>Home · the slip</td><td>A pad with locked rows, fifth on the page.</td><td>This is the product. It should be visible in the first screen or immediately after it, with the lock as the paywall you asked for.</td></tr><tr><td>Home · results</td><td>Three before/after cards.</td><td>Keep, but move a single result up into the first screen, and put one testimonial line inside the final band.</td></tr><tr><td>Home · who teaches</td><td>Portrait, name, one line, three links.</td><td>Add the certificate scans and press logos as thumbnails. Credentials belong where the decision is made.</td></tr><tr><td>Home · the band</td><td>Ask, two buttons, price line.</td><td>Add one student quote beside the buttons. Proof at the point of action is worth more than proof anywhere else.</td></tr><tr><td>Home · missing entirely</td><td>—</td><td>The next batch date, seats left, the family discount, the Google rating, the WhatsApp group size — all already in content, none on the page.</td></tr><tr><td>Condition pages ×8</td><td>Title, three ‘works’ lines, medicine, slip, first class, results, batch, FAQ.</td><td>Lead with that disease's own result, not with the mechanism. Put the count of students with that disease beside the title. Add one photo slot — these eight pages have none.</td></tr><tr><td>Batches</td><td>Two cards, a session bar, five fee facts.</td><td>The fee facts are the objection handling and they read like a table. Turn “क्लास छूट जाए” and “रिफ़ंड” into a reassurance strip near the price.</td></tr><tr><td>Stories</td><td>Filter chips, a grid of results.</td><td>Add a summary line above the grid — “[N] विद्यार्थी, [N] बीमारियाँ, औसतन [N] महीनों में” — so the page makes a claim before you read a single card.</td></tr><tr><td>About</td><td>Register, experience, memberships, journey, stage, press.</td><td>It is a CV. Reorder to answer “why should I trust her with my diabetes” first: the certifying body and the scans at the top, the awards last.</td></tr><tr><td>Contact</td><td>Number first, form writes a WhatsApp message.</td><td>Add the reply time and one line of what happens on the call. A visitor who knows what the next 30 minutes look like is likelier to start them.</td></tr><tr><td>Students page</td><td>Fees, class link, holidays, rules, slip.</td><td>This is the only page a paying student sees monthly. Put the renewal and the class link at the top; everything else below.</td></tr></table>
+
+<h2 class="en">Three concepts for the home page</h2>
+<p class="sub en">Each is a complete home page, phone and desktop, built from the levers above. They are
+not three skins &mdash; they are three different bets about what makes this particular person pick up
+the phone. Most of the work below is on the home page, as you asked; the concept you choose then sets
+the pattern for the other pages in the table.</p>
+<div style="display:flex;gap:22px;flex-wrap:wrap;align-items:stretch"><a href="concept-a.html" style="text-decoration:none;color:inherit;flex:1;min-width:320px">
+  <div style="background:#fcfcfb;border:1px solid #d5d1ca;border-radius:14px;padding:20px;height:100%">
+    <span class="pill">Concept A</span>
+    <h3 class="en" style="font:700 21px/1.3 ui-sans-serif;margin:12px 0 4px">The clinic funnel</h3>
+    <p style="font:700 17px 'Anek Devanagari';color:#883a00;margin:0 0 10px">हर सवाल, उसी क्रम में</p>
+    <div style="transform:scale(.42);transform-origin:top left;width:238%;height:420px;overflow:hidden;border:1px solid #e6e3de;border-radius:10px"><div class="site"><div style="background:#fcfcfb;border-bottom:1px solid #e6e3de;padding:12px 18px;display:flex;align-items:center;justify-content:space-between">
+      <span style="font:700 22px 'Anek Devanagari'"><span style="color:#883a00">योग</span> वंदना</span>
+      <span style="display:flex;gap:10px;align-items:center">
+        
+        <span class="chip" style="border:1.5px solid #14120f;background:transparent">📞 [फ़ोन नंबर]</span><span style="font-size:22px">☰</span></span></div><div class="sec" style="padding-top:22px"><div class="w"><p class="cp" style="font-weight:700;color:#883a00;margin-bottom:8px">वंदना बरनवाल · योग में एम.ए. · [प्रमाणन संस्था] प्रमाणित · लखनऊ</p><h1 class="h1">योग एवं प्राणायाम से<br>अपनी बीमारियों का हल पाइए।</h1><p class="lead" style="color:#14120f">ऑनलाइन ग्रुप क्लास · कॉल पर सलाह · 1:1 क्लास</p><div style="display:flex;flex-direction:column;gap:11px;flex-wrap:wrap">
+  <a class="btn btn-a" href="#">व्हाट्सऐप पर बात करें</a>
+  <a class="btn btn-o" href="#">कॉल करें · [फ़ोन नंबर]</a>
+</div><p class="cp" style="margin-top:10px">पहली कॉल मुफ़्त। बात करके तय कीजिए।</p><div style="height:20px"></div><div class="strip"><div><span class="n">12</span><span class="l">साल का अनुभव</span></div><div><span class="n">900+</span><span class="l">विद्यार्थी</span></div><div><span class="n">4.9</span><span class="l">Google पर, 120 समीक्षाएँ</span></div></div><div style="height:20px"></div><div class="ph" style="width:100%;aspect-ratio:16/10;border-radius:14px;flex:none">वंदना जी की फ़ोटो, क्लास में</div></div></div><div class="sec tint"><div class="w">
+  <h2 class="h2">किस बीमारी का हल चाहिए?</h2>
+  <p class="lead">अपनी बीमारी चुनिए — उसका अभ्यास, उसकी पर्ची, और उसी बीमारी वालों के नतीजे।</p>
+  <div style=";border-bottom:1px solid #e6e3de"><a class="rowlink" href="#">
+        <span class="ico">श</span>
+        <span style="flex:1;min-width:0">
+          <span class="h3" style="display:block">शुगर</span>
+          <span class="cp">टाइप-2, प्री-डायबिटीज़</span>
+          <span style="display:block;font:700 15px 'Anek Devanagari';color:#883a00;margin-top:3px">HbA1c 8.2 → 6.5 · 40 विद्यार्थी</span>
+        </span>
+        <span style="color:#883a00;font-size:20px">›</span></a><a class="rowlink" href="#">
+        <span class="ico">ब</span>
+        <span style="flex:1;min-width:0">
+          <span class="h3" style="display:block">बीपी</span>
+          <span class="cp">हाई बीपी, दिल की सेहत</span>
+          <span style="display:block;font:700 15px 'Anek Devanagari';color:#883a00;margin-top:3px">160/100 → 130/85 · 31 विद्यार्थी</span>
+        </span>
+        <span style="color:#883a00;font-size:20px">›</span></a><a class="rowlink" href="#">
+        <span class="ico">क</span>
+        <span style="flex:1;min-width:0">
+          <span class="h3" style="display:block">कमर दर्द</span>
+          <span class="cp">स्लिप डिस्क, साइटिका</span>
+          <span style="display:block;font:700 15px 'Anek Devanagari';color:#883a00;margin-top:3px">रोज़ तीन मंज़िल · 55 विद्यार्थी</span>
+        </span>
+        <span style="color:#883a00;font-size:20px">›</span></a><a class="rowlink" href="#">
+        <span class="ico">घ</span>
+        <span style="flex:1;min-width:0">
+          <span class="h3" style="display:block">घुटने का दर्द</span>
+          <span class="cp">गठिया, सीढ़ियाँ</span>
+          <span style="display:block;font:700 15px 'Anek Devanagari';color:#883a00;margin-top:3px">बिना सहारे उठना-बैठना · 38 विद्यार्थी</span>
+        </span>
+        <span style="color:#883a00;font-size:20px">›</span></a><a class="rowlink" href="#">
+        <span class="ico">थ</span>
+        <span style="flex:1;min-width:0">
+          <span class="h3" style="display:block">थायराइड</span>
+          <span class="cp">हाइपो और हाइपर</span>
+          <span style="display:block;font:700 15px 'Anek Devanagari';color:#883a00;margin-top:3px">TSH 9.4 → 3.1 · 22 विद्यार्थी</span>
+        </span>
+        <span style="color:#883a00;font-size:20px">›</span></a><a class="rowlink" href="#">
+        <span class="ico">म</span>
+        <span style="flex:1;min-width:0">
+          <span class="h3" style="display:block">मोटापा</span>
+          <span class="cp">पेट, वज़न, पाचन</span>
+          <span style="display:block;font:700 15px 'Anek Devanagari';color:#883a00;margin-top:3px">11 किलो कम · 46 विद्यार्थी</span>
+        </span>
+        <span style="color:#883a00;font-size:20px">›</span></a><a class="rowlink" href="#">
+        <span class="ico">न</span>
+        <span style="flex:1;min-width:0">
+          <span class="h3" style="display:block">नींद और तनाव</span>
+          <span class="cp">अनिद्रा, माइग्रेन</span>
+          <span style="display:block;font:700 15px 'Anek Devanagari';color:#883a00;margin-top:3px">ग्यारह बजे नींद · 29 विद्यार्थी</span>
+        </span>
+        <span style="color:#883a00;font-size:20px">›</span></a><a class="rowlink" href="#">
+        <span class="ico">म</span>
+        <span style="flex:1;min-width:0">
+          <span class="h3" style="display:block">महिलाओं की समस्याएँ</span>
+          <span class="cp">पीसीओडी, पीरियड</span>
+          <span style="display:block;font:700 15px 'Anek Devanagari';color:#883a00;margin-top:3px">हर महीने, समय पर · 34 विद्यार्थी</span>
+        </span>
+        <span style="color:#883a00;font-size:20px">›</span></a></div>
+</div></div><div class="sec"><div class="w">
+  <div style="background:#14120f;color:#fcfcfb;border-radius:14px;padding:20px 18px">
+    <p style="font:700 22px 'Anek Devanagari';color:#eb852b;margin:0 0 7px">डॉक्टर की दवा बंद करनी पड़ेगी?</p>
+    <p class="bd" style="color:#fcfcfb;margin:0">नहीं। योग साथ-साथ चलता है। रिपोर्ट सुधरे तो दवा डॉक्टर ही घटाते हैं — यहाँ 140 लोगों की घटी है।</p>
+  </div></div></div><div class="sec tint"><div class="w" style="">
+  <div>
+    <h2 class="h2">आपको एक पर्ची मिलती है</h2>
+    <p class="lead" style="color:#14120f">डॉक्टर की पर्ची की तरह — पर आपके लिए लिखी हुई। क्या खाना है, क्या सावधानी, दिनचर्या, कौन से प्राणायाम और आसन, और किस समय।</p>
+    <div style="display:flex;gap:9px;flex-wrap:wrap"><span class="chip chip-d">आपकी रिपोर्ट देखकर</span><span class="chip">आपकी दवा के साथ</span><span class="chip">हर 90 दिन पर दोबारा</span></div>
+  </div>
+  <div style="margin-top:18px"><div class="card" style="background:#fff;padding:16px 18px 14px;">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #14120f;padding-bottom:8px;margin-bottom:10px">
+    <span style="font:700 19px 'Anek Devanagari'"><span style="color:#883a00">योग</span> वंदना</span>
+    <span class="cp" style="font-weight:700">पर्ची</span></div>
+  <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+    <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">बीमारी</span>
+    <span style="flex:1;font:400 15px 'Anek Devanagari'">आपकी अपनी</span></div>
+  <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+          <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">खान-पान</span>
+          <span style="flex:1;height:15px;border-radius:4px;background:#e6e3de"></span>
+          <span style="font-size:13px;color:#8b867e">🔒</span></div><div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+          <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">सावधानी</span>
+          <span style="flex:1;height:15px;border-radius:4px;background:#e6e3de"></span>
+          <span style="font-size:13px;color:#8b867e">🔒</span></div><div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+          <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">दिनचर्या</span>
+          <span style="flex:1;height:15px;border-radius:4px;background:#e6e3de"></span>
+          <span style="font-size:13px;color:#8b867e">🔒</span></div><div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+          <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">प्राणायाम</span>
+          <span style="flex:1;height:15px;border-radius:4px;background:#e6e3de"></span>
+          <span style="font-size:13px;color:#8b867e">🔒</span></div><div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+          <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">आसन</span>
+          <span style="flex:1;height:15px;border-radius:4px;background:#e6e3de"></span>
+          <span style="font-size:13px;color:#8b867e">🔒</span></div><div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+          <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">समय</span>
+          <span style="flex:1;height:15px;border-radius:4px;background:#e6e3de"></span>
+          <span style="font-size:13px;color:#8b867e">🔒</span></div>
+  <p class="cp" style="margin-top:11px">परामर्श के बाद वंदना जी भरती हैं, व्हाट्सऐप पर भेजी जाती है।</p>
+</div></div>
+</div></div><div class="sec tint"><div class="w">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:14px">
+    <h2 class="h2">स्वास्थ्य की ओर</h2><a href="#" style="font:700 16px 'Anek Devanagari';color:#883a00;text-decoration:none;white-space:nowrap">सभी नतीजे</a></div>
+  <p class="lead">जिन्होंने किया, उनकी रिपोर्ट में क्या बदला और कितने महीनों में।</p>
+  <div style="display:grid;gap:16px"><article class="card" style="display:flex;flex-direction:column">
+  <div class="ba">
+    <div class="was"><div class="lab">पहले</div><div class="val">HbA1c 8.2</div></div>
+    <div class="now"><div class="lab">अब</div><div class="val">HbA1c 6.5</div></div>
+  </div>
+  <div class="took">7 महीनों में · दवा आधी</div>
+  <div style="padding:16px;display:flex;flex-direction:column;gap:13px;flex:1">
+    <p class="bd">“सात महीने में दवा आधी हो गई। सुबह उठते ही अब थकान नहीं रहती।”</p>
+    <div style="margin-top:auto;display:flex;align-items:center;gap:11px">
+      <div class="ph" style="width:46px;height:46px;border-radius:50%;flex:none;font-size:10px">फ़ोटो</div>
+      <p class="cp"><b style="color:#14120f">सुनीता वर्मा, 52</b><br>लखनऊ · शुगर</p>
+    </div>
+  </div>
+</article><article class="card" style="display:flex;flex-direction:column">
+  <div class="ba">
+    <div class="was"><div class="lab">पहले</div><div class="val long">सीढ़ियाँ नहीं चढ़ पाते थे</div></div>
+    <div class="now"><div class="lab">अब</div><div class="val long">रोज़ तीन मंज़िल</div></div>
+  </div>
+  <div class="took">4 महीनों में</div>
+  <div style="padding:16px;display:flex;flex-direction:column;gap:13px;flex:1">
+    <p class="bd">“चार महीने पहले सीढ़ी चढ़ना मुश्किल था। अब रोज़ तीन मंज़िल चढ़ता हूँ।”</p>
+    <div style="margin-top:auto;display:flex;align-items:center;gap:11px">
+      <div class="ph" style="width:46px;height:46px;border-radius:50%;flex:none;font-size:10px">फ़ोटो</div>
+      <p class="cp"><b style="color:#14120f">रामकिशोर सिंह, 61</b><br>कानपुर · कमर दर्द</p>
+    </div>
+  </div>
+</article><article class="card" style="display:flex;flex-direction:column">
+  <div class="ba">
+    <div class="was"><div class="lab">पहले</div><div class="val long">तीन महीने में एक बार</div></div>
+    <div class="now"><div class="lab">अब</div><div class="val long">हर महीने, समय पर</div></div>
+  </div>
+  <div class="took">6 महीनों में</div>
+  <div style="padding:16px;display:flex;flex-direction:column;gap:13px;flex:1">
+    <p class="bd">“छह महीने में पीरियड समय पर आने लगे। रिपोर्ट भी अच्छी आई।”</p>
+    <div style="margin-top:auto;display:flex;align-items:center;gap:11px">
+      <div class="ph" style="width:46px;height:46px;border-radius:50%;flex:none;font-size:10px">फ़ोटो</div>
+      <p class="cp"><b style="color:#14120f">अनीता गुप्ता, 38</b><br>प्रयागराज · महिलाओं की समस्याएँ</p>
+    </div>
+  </div>
+</article></div>
+  <p class="cp" style="margin-top:16px">हर कहानी विद्यार्थी की अनुमति से, उनके नाम और शहर के साथ।</p>
+</div></div><div class="sec"><div class="w" style="">
+  <div class="ph" style="width:130px;aspect-ratio:4/5;border-radius:14px;float:left;margin:0 16px 10px 0">वंदना जी की फ़ोटो</div>
+  <div>
+    <h2 class="h2">सिखाती कौन हैं</h2>
+    <p class="point" style="font-size:30px;margin:2px 0 6px">वंदना बरनवाल</p>
+    <p class="bd" style="color:#3a3630">योग में एम.ए., [विश्वविद्यालय]। 12 साल से लखनऊ में और ऑनलाइन।</p>
+    <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:14px">
+      <span class="chip">[संस्था] प्रमाणित</span><span class="chip">6 प्रमाणपत्र, स्कैन के साथ</span><span class="chip">9 सम्मान</span><span class="chip">अख़बार और टीवी में</span></div>
+    <div style="display:flex;gap:9px;margin-top:14px">
+      <div class="ph" style="width:74px;aspect-ratio:3/4;border-radius:8px;font-size:10px">प्रमाणपत्र</div>
+      <div class="ph" style="width:74px;aspect-ratio:3/4;border-radius:8px;font-size:10px">प्रमाणपत्र</div>
+      <div class="ph" style="width:110px;aspect-ratio:5/2;border-radius:8px;font-size:10px">अख़बार</div></div>
+  </div></div></div><div class="sec"><div class="w">
+  <h2 class="h2">तीन क़दम, तीन क़ीमतें</h2>
+  <p class="lead">हर क़दम पर क्या मिलता है और क्या लगता है — साफ़-साफ़।</p>
+  <div style="display:grid;gap:14px"><div class="card" style="padding:17px 18px;display:flex;flex-direction:column;gap:7px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
+          <span class="h3">पहली कॉल</span>
+          <span class="point" style="font-size:30px;color:#883a00;white-space:nowrap">मुफ़्त</span></div>
+        <p class="bd" style="color:#3a3630">अपनी तकलीफ़ बताइए। योग और प्राणायाम से क्या हल है, वंदना जी बताएँगी।</p>
+        <span class="chip" style="align-self:flex-start;margin-top:3px">एक दिन में जवाब</span>
+      </div><div class="card" style="padding:17px 18px;display:flex;flex-direction:column;gap:7px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
+          <span class="h3">परामर्श और आपकी पर्ची</span>
+          <span class="point" style="font-size:30px;color:#883a00;white-space:nowrap">₹200</span></div>
+        <p class="bd" style="color:#3a3630">आपकी रिपोर्ट, दवा और हालत देखकर — आपका अपना हल, व्हाट्सऐप पर।</p>
+        <span class="chip" style="align-self:flex-start;margin-top:3px">30 मिनट</span>
+      </div><div class="card" style="padding:17px 18px;display:flex;flex-direction:column;gap:7px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
+          <span class="h3">रोज़ की क्लास</span>
+          <span class="point" style="font-size:30px;color:#883a00;white-space:nowrap">₹1,000</span></div>
+        <p class="bd" style="color:#3a3630">छोटे ग्रुप में लाइव, हर 90 दिन पर रिपोर्ट देखी जाती है।</p>
+        <span class="chip" style="align-self:flex-start;margin-top:3px">रोज़ ₹35 से कम</span>
+      </div></div>
+  <p class="cp" style="margin-top:14px">एक बार की डॉक्टर फ़ीस से कम, हर महीने। पहली कॉल का कोई शुल्क नहीं।</p>
+</div></div><div class="sec tint"><div class="w">
+  <div class="card" style="padding:18px;display:block;align-items:center;gap:28px">
+    <div style="flex:1">
+      <p class="cp" style="font-weight:700;color:#883a00;letter-spacing:.1em">अगला बैच</p>
+      <p class="point" style="font-size:30px;margin:4px 0 4px">[तारीख़] से</p>
+      <p class="cp">सुबह 6:30 · 50 मिनट · [N] सीटें बची · एक घर के दो लोग तो [छूट]</p>
+    </div>
+    <div style="margin-top:14px"><div style="display:flex;flex-direction:column;gap:11px;flex-wrap:wrap">
+  <a class="btn btn-a" href="#">व्हाट्सऐप पर बात करें</a>
+  <a class="btn btn-o" href="#">कॉल करें · [फ़ोन नंबर]</a>
+</div><p class="cp" style="margin-top:10px">पहली कॉल मुफ़्त। बैच कौन सा, वे बताएँगी।</p></div>
+  </div></div></div><div class="sec"><div class="w"><h2 class="h2">लोग अक्सर पूछते हैं</h2>
+      <div style="border-bottom:1px solid #e6e3de;margin-top:12px"><div style="border-top:1px solid #e6e3de;padding:15px 0">
+      <p class="h3" style="margin:0 0 5px">मुझे योग आता ही नहीं।</p><p class="bd" style="color:#3a3630">पहले दिन से सिखाया जाता है। कोई भी क़दम मुश्किल लगे तो उसका आसान रूप दिया जाता है।</p></div><div style="border-top:1px solid #e6e3de;padding:15px 0">
+      <p class="h3" style="margin:0 0 5px">घर पर क्या चाहिए?</p><p class="bd" style="color:#3a3630">एक चटाई, थोड़ी जगह और फ़ोन। बस।</p></div><div style="border-top:1px solid #e6e3de;padding:15px 0">
+      <p class="h3" style="margin:0 0 5px">क्लास छूट जाए तो?</p><p class="bd" style="color:#3a3630">उस दिन दूसरे बैच में जुड़ सकते हैं।</p></div><div style="border-top:1px solid #e6e3de;padding:15px 0">
+      <p class="h3" style="margin:0 0 5px">उम्र ज़्यादा है, हो पाएगा?</p><p class="bd" style="color:#3a3630">हमारे सबसे पुराने विद्यार्थी 74 के हैं। बैठकर करने वाले क्रम भी हैं।</p></div></div></div></div><div class="sec" style="background:#eb852b;color:#14120f"><div class="w">
+  <h2 class="h2" style="color:#14120f">कॉल पर अपनी तकलीफ़ बताइए।</h2>
+  <p class="bd" style="max-width:48ch;margin:0 0 18px">योग और प्राणायाम द्वारा हल बताया जाएगा।</p>
+  <div style="display:flex;gap:11px;flex-wrap:wrap">
+    <a class="btn" style="background:#14120f;color:#eb852b" href="#">व्हाट्सऐप पर बात करें</a>
+    <a class="btn" style="background:transparent;color:#14120f;border:1.5px solid #14120f" href="#">कॉल करें</a></div>
+  <p class="cp" style="color:#14120f;opacity:.85;margin-top:10px">पहली कॉल मुफ़्त · परामर्श और पर्ची ₹200 · बैच ₹1,000 प्रति माह</p>
+  <div style="border-left:3px solid rgba(20,18,15,.25);padding-left:15px;margin-top:18px"><p class="bd" style="margin:0">“सात महीने में दवा आधी हो गई।”</p><p class="cp" style="color:#14120f;opacity:.8;margin-top:4px">सुनीता वर्मा, 52 · लखनऊ</p></div></div></div><div style="position:sticky;bottom:0;background:#eb852b;border-top:1px solid rgba(20,18,15,.2);padding:10px 16px 14px;display:flex;align-items:center;gap:12px">
+      <span style="flex:1;font:700 15px/1.25 'Anek Devanagari';color:#14120f">पहली कॉल मुफ़्त</span>
+      <a class="btn" style="min-height:48px;font-size:16px;padding:0 18px;background:#14120f;color:#eb852b" href="#">बात करें</a></div></div></div>
+    <p class="cap en" style="margin-top:12px;color:#883a00;font-weight:700">Open the full home page &rarr;</p>
+  </div></a><a href="concept-b.html" style="text-decoration:none;color:inherit;flex:1;min-width:320px">
+  <div style="background:#fcfcfb;border:1px solid #d5d1ca;border-radius:14px;padding:20px;height:100%">
+    <span class="pill">Concept B</span>
+    <h3 class="en" style="font:700 21px/1.3 ui-sans-serif;margin:12px 0 4px">Proof first</h3>
+    <p style="font:700 17px 'Anek Devanagari';color:#883a00;margin:0 0 10px">नतीजे सबसे ऊपर</p>
+    <div style="transform:scale(.42);transform-origin:top left;width:238%;height:420px;overflow:hidden;border:1px solid #e6e3de;border-radius:10px"><div class="site"><div style="background:#fcfcfb;border-bottom:1px solid #e6e3de;padding:12px 18px;display:flex;align-items:center;justify-content:space-between">
+      <span style="font:700 22px 'Anek Devanagari'"><span style="color:#883a00">योग</span> वंदना</span>
+      <span style="display:flex;gap:10px;align-items:center">
+        
+        <span class="chip" style="border:1.5px solid #14120f;background:transparent">📞 [फ़ोन नंबर]</span><span style="font-size:22px">☰</span></span></div><div class="sec" style="padding-top:22px"><div class="w"><p class="cp" style="font-weight:700;color:#883a00;margin-bottom:8px">वंदना बरनवाल · योग में एम.ए. · [प्रमाणन संस्था] प्रमाणित · लखनऊ</p><h1 class="h1">योग एवं प्राणायाम से<br>अपनी बीमारियों का हल पाइए।</h1><p class="lead" style="color:#14120f">ऑनलाइन ग्रुप क्लास · कॉल पर सलाह · 1:1 क्लास</p><div style="display:flex;flex-direction:column;gap:11px;flex-wrap:wrap">
+  <a class="btn btn-a" href="#">व्हाट्सऐप पर बात करें</a>
+  <a class="btn btn-o" href="#">कॉल करें · [फ़ोन नंबर]</a>
+</div><p class="cp" style="margin-top:10px">पहली कॉल मुफ़्त। बात करके तय कीजिए।</p><div style="height:22px"></div><div class="strip"><div><span class="n">8.2 → 6.5</span><span class="l">शुगर · HbA1c, 7 महीने</span></div><div><span class="n">160/100 → 130/85</span><span class="l">बीपी, 5 महीने</span></div><div><span class="n">11 किलो</span><span class="l">वज़न, 6 महीने</span></div></div><p class="cp" style="margin-top:9px">उदाहरण — असली नाम और रिपोर्ट आने पर बदले जाएँगे।</p><div style="height:20px"></div><div class="ph" style="width:100%;aspect-ratio:16/10;border-radius:14px;flex:none">वंदना जी की फ़ोटो, क्लास में</div></div></div><div class="sec tint"><div class="w">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:14px">
+    <h2 class="h2">इन्हें क्या मिला</h2><a href="#" style="font:700 16px 'Anek Devanagari';color:#883a00;text-decoration:none;white-space:nowrap">सभी नतीजे</a></div>
+  <p class="lead">जिन्होंने किया, उनकी रिपोर्ट में क्या बदला और कितने महीनों में।</p>
+  <div style="display:grid;gap:16px"><article class="card" style="display:flex;flex-direction:column">
+  <div class="ba">
+    <div class="was"><div class="lab">पहले</div><div class="val">HbA1c 8.2</div></div>
+    <div class="now"><div class="lab">अब</div><div class="val">HbA1c 6.5</div></div>
+  </div>
+  <div class="took">7 महीनों में · दवा आधी</div>
+  <div style="padding:16px;display:flex;flex-direction:column;gap:13px;flex:1">
+    <p class="bd">“सात महीने में दवा आधी हो गई। सुबह उठते ही अब थकान नहीं रहती।”</p>
+    <div style="margin-top:auto;display:flex;align-items:center;gap:11px">
+      <div class="ph" style="width:46px;height:46px;border-radius:50%;flex:none;font-size:10px">फ़ोटो</div>
+      <p class="cp"><b style="color:#14120f">सुनीता वर्मा, 52</b><br>लखनऊ · शुगर</p>
+    </div>
+  </div>
+</article><article class="card" style="display:flex;flex-direction:column">
+  <div class="ba">
+    <div class="was"><div class="lab">पहले</div><div class="val long">सीढ़ियाँ नहीं चढ़ पाते थे</div></div>
+    <div class="now"><div class="lab">अब</div><div class="val long">रोज़ तीन मंज़िल</div></div>
+  </div>
+  <div class="took">4 महीनों में</div>
+  <div style="padding:16px;display:flex;flex-direction:column;gap:13px;flex:1">
+    <p class="bd">“चार महीने पहले सीढ़ी चढ़ना मुश्किल था। अब रोज़ तीन मंज़िल चढ़ता हूँ।”</p>
+    <div style="margin-top:auto;display:flex;align-items:center;gap:11px">
+      <div class="ph" style="width:46px;height:46px;border-radius:50%;flex:none;font-size:10px">फ़ोटो</div>
+      <p class="cp"><b style="color:#14120f">रामकिशोर सिंह, 61</b><br>कानपुर · कमर दर्द</p>
+    </div>
+  </div>
+</article><article class="card" style="display:flex;flex-direction:column">
+  <div class="ba">
+    <div class="was"><div class="lab">पहले</div><div class="val long">तीन महीने में एक बार</div></div>
+    <div class="now"><div class="lab">अब</div><div class="val long">हर महीने, समय पर</div></div>
+  </div>
+  <div class="took">6 महीनों में</div>
+  <div style="padding:16px;display:flex;flex-direction:column;gap:13px;flex:1">
+    <p class="bd">“छह महीने में पीरियड समय पर आने लगे। रिपोर्ट भी अच्छी आई।”</p>
+    <div style="margin-top:auto;display:flex;align-items:center;gap:11px">
+      <div class="ph" style="width:46px;height:46px;border-radius:50%;flex:none;font-size:10px">फ़ोटो</div>
+      <p class="cp"><b style="color:#14120f">अनीता गुप्ता, 38</b><br>प्रयागराज · महिलाओं की समस्याएँ</p>
+    </div>
+  </div>
+</article></div>
+  <p class="cp" style="margin-top:16px">हर कहानी विद्यार्थी की अनुमति से, उनके नाम और शहर के साथ।</p>
+</div></div><div class="sec tint"><div class="w">
+  <h2 class="h2">किस बीमारी का हल चाहिए?</h2>
+  <p class="lead">अपनी बीमारी चुनिए — उसका अभ्यास, उसकी पर्ची, और उसी बीमारी वालों के नतीजे।</p>
+  <div style=";border-bottom:1px solid #e6e3de"><a class="rowlink" href="#">
+        <span class="ico">श</span>
+        <span style="flex:1;min-width:0">
+          <span class="h3" style="display:block">शुगर</span>
+          <span class="cp">टाइप-2, प्री-डायबिटीज़</span>
+          <span style="display:block;font:700 15px 'Anek Devanagari';color:#883a00;margin-top:3px">HbA1c 8.2 → 6.5 · 40 विद्यार्थी</span>
+        </span>
+        <span style="color:#883a00;font-size:20px">›</span></a><a class="rowlink" href="#">
+        <span class="ico">ब</span>
+        <span style="flex:1;min-width:0">
+          <span class="h3" style="display:block">बीपी</span>
+          <span class="cp">हाई बीपी, दिल की सेहत</span>
+          <span style="display:block;font:700 15px 'Anek Devanagari';color:#883a00;margin-top:3px">160/100 → 130/85 · 31 विद्यार्थी</span>
+        </span>
+        <span style="color:#883a00;font-size:20px">›</span></a><a class="rowlink" href="#">
+        <span class="ico">क</span>
+        <span style="flex:1;min-width:0">
+          <span class="h3" style="display:block">कमर दर्द</span>
+          <span class="cp">स्लिप डिस्क, साइटिका</span>
+          <span style="display:block;font:700 15px 'Anek Devanagari';color:#883a00;margin-top:3px">रोज़ तीन मंज़िल · 55 विद्यार्थी</span>
+        </span>
+        <span style="color:#883a00;font-size:20px">›</span></a><a class="rowlink" href="#">
+        <span class="ico">घ</span>
+        <span style="flex:1;min-width:0">
+          <span class="h3" style="display:block">घुटने का दर्द</span>
+          <span class="cp">गठिया, सीढ़ियाँ</span>
+          <span style="display:block;font:700 15px 'Anek Devanagari';color:#883a00;margin-top:3px">बिना सहारे उठना-बैठना · 38 विद्यार्थी</span>
+        </span>
+        <span style="color:#883a00;font-size:20px">›</span></a><a class="rowlink" href="#">
+        <span class="ico">थ</span>
+        <span style="flex:1;min-width:0">
+          <span class="h3" style="display:block">थायराइड</span>
+          <span class="cp">हाइपो और हाइपर</span>
+          <span style="display:block;font:700 15px 'Anek Devanagari';color:#883a00;margin-top:3px">TSH 9.4 → 3.1 · 22 विद्यार्थी</span>
+        </span>
+        <span style="color:#883a00;font-size:20px">›</span></a><a class="rowlink" href="#">
+        <span class="ico">म</span>
+        <span style="flex:1;min-width:0">
+          <span class="h3" style="display:block">मोटापा</span>
+          <span class="cp">पेट, वज़न, पाचन</span>
+          <span style="display:block;font:700 15px 'Anek Devanagari';color:#883a00;margin-top:3px">11 किलो कम · 46 विद्यार्थी</span>
+        </span>
+        <span style="color:#883a00;font-size:20px">›</span></a><a class="rowlink" href="#">
+        <span class="ico">न</span>
+        <span style="flex:1;min-width:0">
+          <span class="h3" style="display:block">नींद और तनाव</span>
+          <span class="cp">अनिद्रा, माइग्रेन</span>
+          <span style="display:block;font:700 15px 'Anek Devanagari';color:#883a00;margin-top:3px">ग्यारह बजे नींद · 29 विद्यार्थी</span>
+        </span>
+        <span style="color:#883a00;font-size:20px">›</span></a><a class="rowlink" href="#">
+        <span class="ico">म</span>
+        <span style="flex:1;min-width:0">
+          <span class="h3" style="display:block">महिलाओं की समस्याएँ</span>
+          <span class="cp">पीसीओडी, पीरियड</span>
+          <span style="display:block;font:700 15px 'Anek Devanagari';color:#883a00;margin-top:3px">हर महीने, समय पर · 34 विद्यार्थी</span>
+        </span>
+        <span style="color:#883a00;font-size:20px">›</span></a></div>
+</div></div><div class="sec"><div class="w">
+  <div style="background:#14120f;color:#fcfcfb;border-radius:14px;padding:20px 18px">
+    <p style="font:700 22px 'Anek Devanagari';color:#eb852b;margin:0 0 7px">डॉक्टर की दवा बंद करनी पड़ेगी?</p>
+    <p class="bd" style="color:#fcfcfb;margin:0">नहीं। योग साथ-साथ चलता है। रिपोर्ट सुधरे तो दवा डॉक्टर ही घटाते हैं — यहाँ 140 लोगों की घटी है।</p>
+  </div></div></div><div class="sec"><div class="w">
+  <h2 class="h2">तीन क़दम, तीन क़ीमतें</h2>
+  <p class="lead">हर क़दम पर क्या मिलता है और क्या लगता है — साफ़-साफ़।</p>
+  <div style="display:grid;gap:14px"><div class="card" style="padding:17px 18px;display:flex;flex-direction:column;gap:7px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
+          <span class="h3">पहली कॉल</span>
+          <span class="point" style="font-size:30px;color:#883a00;white-space:nowrap">मुफ़्त</span></div>
+        <p class="bd" style="color:#3a3630">अपनी तकलीफ़ बताइए। योग और प्राणायाम से क्या हल है, वंदना जी बताएँगी।</p>
+        <span class="chip" style="align-self:flex-start;margin-top:3px">एक दिन में जवाब</span>
+      </div><div class="card" style="padding:17px 18px;display:flex;flex-direction:column;gap:7px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
+          <span class="h3">परामर्श और आपकी पर्ची</span>
+          <span class="point" style="font-size:30px;color:#883a00;white-space:nowrap">₹200</span></div>
+        <p class="bd" style="color:#3a3630">आपकी रिपोर्ट, दवा और हालत देखकर — आपका अपना हल, व्हाट्सऐप पर।</p>
+        <span class="chip" style="align-self:flex-start;margin-top:3px">30 मिनट</span>
+      </div><div class="card" style="padding:17px 18px;display:flex;flex-direction:column;gap:7px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
+          <span class="h3">रोज़ की क्लास</span>
+          <span class="point" style="font-size:30px;color:#883a00;white-space:nowrap">₹1,000</span></div>
+        <p class="bd" style="color:#3a3630">छोटे ग्रुप में लाइव, हर 90 दिन पर रिपोर्ट देखी जाती है।</p>
+        <span class="chip" style="align-self:flex-start;margin-top:3px">रोज़ ₹35 से कम</span>
+      </div></div>
+  <p class="cp" style="margin-top:14px">एक बार की डॉक्टर फ़ीस से कम, हर महीने। पहली कॉल का कोई शुल्क नहीं।</p>
+</div></div><div class="sec tint"><div class="w" style="">
+  <div>
+    <h2 class="h2">आपको एक पर्ची मिलती है</h2>
+    <p class="lead" style="color:#14120f">डॉक्टर की पर्ची की तरह — पर आपके लिए लिखी हुई। क्या खाना है, क्या सावधानी, दिनचर्या, कौन से प्राणायाम और आसन, और किस समय।</p>
+    <div style="display:flex;gap:9px;flex-wrap:wrap"><span class="chip chip-d">आपकी रिपोर्ट देखकर</span><span class="chip">आपकी दवा के साथ</span><span class="chip">हर 90 दिन पर दोबारा</span></div>
+  </div>
+  <div style="margin-top:18px"><div class="card" style="background:#fff;padding:16px 18px 14px;">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #14120f;padding-bottom:8px;margin-bottom:10px">
+    <span style="font:700 19px 'Anek Devanagari'"><span style="color:#883a00">योग</span> वंदना</span>
+    <span class="cp" style="font-weight:700">पर्ची</span></div>
+  <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+    <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">बीमारी</span>
+    <span style="flex:1;font:400 15px 'Anek Devanagari'">आपकी अपनी</span></div>
+  <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+          <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">खान-पान</span>
+          <span style="flex:1;height:15px;border-radius:4px;background:#e6e3de"></span>
+          <span style="font-size:13px;color:#8b867e">🔒</span></div><div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+          <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">सावधानी</span>
+          <span style="flex:1;height:15px;border-radius:4px;background:#e6e3de"></span>
+          <span style="font-size:13px;color:#8b867e">🔒</span></div><div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+          <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">दिनचर्या</span>
+          <span style="flex:1;height:15px;border-radius:4px;background:#e6e3de"></span>
+          <span style="font-size:13px;color:#8b867e">🔒</span></div><div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+          <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">प्राणायाम</span>
+          <span style="flex:1;height:15px;border-radius:4px;background:#e6e3de"></span>
+          <span style="font-size:13px;color:#8b867e">🔒</span></div><div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+          <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">आसन</span>
+          <span style="flex:1;height:15px;border-radius:4px;background:#e6e3de"></span>
+          <span style="font-size:13px;color:#8b867e">🔒</span></div><div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+          <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">समय</span>
+          <span style="flex:1;height:15px;border-radius:4px;background:#e6e3de"></span>
+          <span style="font-size:13px;color:#8b867e">🔒</span></div>
+  <p class="cp" style="margin-top:11px">परामर्श के बाद वंदना जी भरती हैं, व्हाट्सऐप पर भेजी जाती है।</p>
+</div></div>
+</div></div><div class="sec"><div class="w" style="">
+  <div class="ph" style="width:130px;aspect-ratio:4/5;border-radius:14px;float:left;margin:0 16px 10px 0">वंदना जी की फ़ोटो</div>
+  <div>
+    <h2 class="h2">सिखाती कौन हैं</h2>
+    <p class="point" style="font-size:30px;margin:2px 0 6px">वंदना बरनवाल</p>
+    <p class="bd" style="color:#3a3630">योग में एम.ए., [विश्वविद्यालय]। 12 साल से लखनऊ में और ऑनलाइन।</p>
+    <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:14px">
+      <span class="chip">[संस्था] प्रमाणित</span><span class="chip">6 प्रमाणपत्र, स्कैन के साथ</span><span class="chip">9 सम्मान</span><span class="chip">अख़बार और टीवी में</span></div>
+    <div style="display:flex;gap:9px;margin-top:14px">
+      <div class="ph" style="width:74px;aspect-ratio:3/4;border-radius:8px;font-size:10px">प्रमाणपत्र</div>
+      <div class="ph" style="width:74px;aspect-ratio:3/4;border-radius:8px;font-size:10px">प्रमाणपत्र</div>
+      <div class="ph" style="width:110px;aspect-ratio:5/2;border-radius:8px;font-size:10px">अख़बार</div></div>
+  </div></div></div><div class="sec tint"><div class="w">
+  <div class="card" style="padding:18px;display:block;align-items:center;gap:28px">
+    <div style="flex:1">
+      <p class="cp" style="font-weight:700;color:#883a00;letter-spacing:.1em">अगला बैच</p>
+      <p class="point" style="font-size:30px;margin:4px 0 4px">[तारीख़] से</p>
+      <p class="cp">सुबह 6:30 · 50 मिनट · [N] सीटें बची · एक घर के दो लोग तो [छूट]</p>
+    </div>
+    <div style="margin-top:14px"><div style="display:flex;flex-direction:column;gap:11px;flex-wrap:wrap">
+  <a class="btn btn-a" href="#">व्हाट्सऐप पर बात करें</a>
+  <a class="btn btn-o" href="#">कॉल करें · [फ़ोन नंबर]</a>
+</div><p class="cp" style="margin-top:10px">पहली कॉल मुफ़्त। बैच कौन सा, वे बताएँगी।</p></div>
+  </div></div></div><div class="sec"><div class="w"><h2 class="h2">लोग अक्सर पूछते हैं</h2>
+      <div style="border-bottom:1px solid #e6e3de;margin-top:12px"><div style="border-top:1px solid #e6e3de;padding:15px 0">
+      <p class="h3" style="margin:0 0 5px">मुझे योग आता ही नहीं।</p><p class="bd" style="color:#3a3630">पहले दिन से सिखाया जाता है। कोई भी क़दम मुश्किल लगे तो उसका आसान रूप दिया जाता है।</p></div><div style="border-top:1px solid #e6e3de;padding:15px 0">
+      <p class="h3" style="margin:0 0 5px">घर पर क्या चाहिए?</p><p class="bd" style="color:#3a3630">एक चटाई, थोड़ी जगह और फ़ोन। बस।</p></div><div style="border-top:1px solid #e6e3de;padding:15px 0">
+      <p class="h3" style="margin:0 0 5px">क्लास छूट जाए तो?</p><p class="bd" style="color:#3a3630">उस दिन दूसरे बैच में जुड़ सकते हैं।</p></div><div style="border-top:1px solid #e6e3de;padding:15px 0">
+      <p class="h3" style="margin:0 0 5px">उम्र ज़्यादा है, हो पाएगा?</p><p class="bd" style="color:#3a3630">हमारे सबसे पुराने विद्यार्थी 74 के हैं। बैठकर करने वाले क्रम भी हैं।</p></div></div></div></div><div class="sec" style="background:#eb852b;color:#14120f"><div class="w">
+  <h2 class="h2" style="color:#14120f">कॉल पर अपनी तकलीफ़ बताइए।</h2>
+  <p class="bd" style="max-width:48ch;margin:0 0 18px">योग और प्राणायाम द्वारा हल बताया जाएगा।</p>
+  <div style="display:flex;gap:11px;flex-wrap:wrap">
+    <a class="btn" style="background:#14120f;color:#eb852b" href="#">व्हाट्सऐप पर बात करें</a>
+    <a class="btn" style="background:transparent;color:#14120f;border:1.5px solid #14120f" href="#">कॉल करें</a></div>
+  <p class="cp" style="color:#14120f;opacity:.85;margin-top:10px">पहली कॉल मुफ़्त · परामर्श और पर्ची ₹200 · बैच ₹1,000 प्रति माह</p>
+  <div style="border-left:3px solid rgba(20,18,15,.25);padding-left:15px;margin-top:18px"><p class="bd" style="margin:0">“सात महीने में दवा आधी हो गई।”</p><p class="cp" style="color:#14120f;opacity:.8;margin-top:4px">सुनीता वर्मा, 52 · लखनऊ</p></div></div></div><div style="position:sticky;bottom:0;background:#eb852b;border-top:1px solid rgba(20,18,15,.2);padding:10px 16px 14px;display:flex;align-items:center;gap:12px">
+      <span style="flex:1;font:700 15px/1.25 'Anek Devanagari';color:#14120f">पहली कॉल मुफ़्त</span>
+      <a class="btn" style="min-height:48px;font-size:16px;padding:0 18px;background:#14120f;color:#eb852b" href="#">बात करें</a></div></div></div>
+    <p class="cap en" style="margin-top:12px;color:#883a00;font-weight:700">Open the full home page &rarr;</p>
+  </div></a><a href="concept-c.html" style="text-decoration:none;color:inherit;flex:1;min-width:320px">
+  <div style="background:#fcfcfb;border:1px solid #d5d1ca;border-radius:14px;padding:20px;height:100%">
+    <span class="pill">Concept C</span>
+    <h3 class="en" style="font:700 21px/1.3 ui-sans-serif;margin:12px 0 4px">The slip is the product</h3>
+    <p style="font:700 17px 'Anek Devanagari';color:#883a00;margin:0 0 10px">आपकी अपनी पर्ची</p>
+    <div style="transform:scale(.42);transform-origin:top left;width:238%;height:420px;overflow:hidden;border:1px solid #e6e3de;border-radius:10px"><div class="site"><div style="background:#fcfcfb;border-bottom:1px solid #e6e3de;padding:12px 18px;display:flex;align-items:center;justify-content:space-between">
+      <span style="font:700 22px 'Anek Devanagari'"><span style="color:#883a00">योग</span> वंदना</span>
+      <span style="display:flex;gap:10px;align-items:center">
+        
+        <span class="chip" style="border:1.5px solid #14120f;background:transparent">📞 [फ़ोन नंबर]</span><span style="font-size:22px">☰</span></span></div><div class="sec" style="padding-top:22px"><div class="w"><p class="cp" style="font-weight:700;color:#883a00;margin-bottom:8px">वंदना बरनवाल · योग में एम.ए. · [प्रमाणन संस्था] प्रमाणित · लखनऊ</p><h1 class="h1">योग एवं प्राणायाम से<br>अपनी बीमारियों का हल पाइए।</h1><p class="lead" style="color:#14120f">ऑनलाइन ग्रुप क्लास · कॉल पर सलाह · 1:1 क्लास</p><div style="display:flex;flex-direction:column;gap:11px;flex-wrap:wrap">
+  <a class="btn btn-a" href="#">व्हाट्सऐप पर बात करें</a>
+  <a class="btn btn-o" href="#">कॉल करें · [फ़ोन नंबर]</a>
+</div><p class="cp" style="margin-top:10px">पहली कॉल मुफ़्त। बात करके तय कीजिए।</p><div style="height:20px"></div><div class="card" style="background:#fff;padding:16px 18px 14px;">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #14120f;padding-bottom:8px;margin-bottom:10px">
+    <span style="font:700 19px 'Anek Devanagari'"><span style="color:#883a00">योग</span> वंदना</span>
+    <span class="cp" style="font-weight:700">पर्ची</span></div>
+  <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+    <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">बीमारी</span>
+    <span style="flex:1;font:400 15px 'Anek Devanagari'">आपकी अपनी</span></div>
+  <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+          <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">खान-पान</span>
+          <span style="flex:1;height:15px;border-radius:4px;background:#e6e3de"></span>
+          <span style="font-size:13px;color:#8b867e">🔒</span></div><div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+          <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">सावधानी</span>
+          <span style="flex:1;height:15px;border-radius:4px;background:#e6e3de"></span>
+          <span style="font-size:13px;color:#8b867e">🔒</span></div><div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+          <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">दिनचर्या</span>
+          <span style="flex:1;height:15px;border-radius:4px;background:#e6e3de"></span>
+          <span style="font-size:13px;color:#8b867e">🔒</span></div><div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+          <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">प्राणायाम</span>
+          <span style="flex:1;height:15px;border-radius:4px;background:#e6e3de"></span>
+          <span style="font-size:13px;color:#8b867e">🔒</span></div><div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+          <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">आसन</span>
+          <span style="flex:1;height:15px;border-radius:4px;background:#e6e3de"></span>
+          <span style="font-size:13px;color:#8b867e">🔒</span></div><div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+          <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">समय</span>
+          <span style="flex:1;height:15px;border-radius:4px;background:#e6e3de"></span>
+          <span style="font-size:13px;color:#8b867e">🔒</span></div>
+  <p class="cp" style="margin-top:11px">परामर्श के बाद वंदना जी भरती हैं, व्हाट्सऐप पर भेजी जाती है।</p>
+</div></div></div><div class="sec tint"><div class="w" style="">
+  <div>
+    <h2 class="h2">आपको एक पर्ची मिलती है</h2>
+    <p class="lead" style="color:#14120f">डॉक्टर की पर्ची की तरह — पर आपके लिए लिखी हुई। क्या खाना है, क्या सावधानी, दिनचर्या, कौन से प्राणायाम और आसन, और किस समय।</p>
+    <div style="display:flex;gap:9px;flex-wrap:wrap"><span class="chip chip-d">आपकी रिपोर्ट देखकर</span><span class="chip">आपकी दवा के साथ</span><span class="chip">हर 90 दिन पर दोबारा</span></div>
+  </div>
+  <div style="margin-top:18px"><div class="card" style="background:#fff;padding:16px 18px 14px;">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #14120f;padding-bottom:8px;margin-bottom:10px">
+    <span style="font:700 19px 'Anek Devanagari'"><span style="color:#883a00">योग</span> वंदना</span>
+    <span class="cp" style="font-weight:700">पर्ची</span></div>
+  <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+    <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">बीमारी</span>
+    <span style="flex:1;font:400 15px 'Anek Devanagari'">आपकी अपनी</span></div>
+  <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+          <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">खान-पान</span>
+          <span style="flex:1;height:15px;border-radius:4px;background:#e6e3de"></span>
+          <span style="font-size:13px;color:#8b867e">🔒</span></div><div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+          <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">सावधानी</span>
+          <span style="flex:1;height:15px;border-radius:4px;background:#e6e3de"></span>
+          <span style="font-size:13px;color:#8b867e">🔒</span></div><div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+          <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">दिनचर्या</span>
+          <span style="flex:1;height:15px;border-radius:4px;background:#e6e3de"></span>
+          <span style="font-size:13px;color:#8b867e">🔒</span></div><div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+          <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">प्राणायाम</span>
+          <span style="flex:1;height:15px;border-radius:4px;background:#e6e3de"></span>
+          <span style="font-size:13px;color:#8b867e">🔒</span></div><div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+          <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">आसन</span>
+          <span style="flex:1;height:15px;border-radius:4px;background:#e6e3de"></span>
+          <span style="font-size:13px;color:#8b867e">🔒</span></div><div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed #d8d4ce">
+          <span style="width:86px;flex:none;font:700 15px 'Anek Devanagari'">समय</span>
+          <span style="flex:1;height:15px;border-radius:4px;background:#e6e3de"></span>
+          <span style="font-size:13px;color:#8b867e">🔒</span></div>
+  <p class="cp" style="margin-top:11px">परामर्श के बाद वंदना जी भरती हैं, व्हाट्सऐप पर भेजी जाती है।</p>
+</div></div>
+</div></div><div class="sec tint"><div class="w">
+  <h2 class="h2">किस बीमारी का हल चाहिए?</h2>
+  <p class="lead">अपनी बीमारी चुनिए — उसका अभ्यास, उसकी पर्ची, और उसी बीमारी वालों के नतीजे।</p>
+  <div style=";border-bottom:1px solid #e6e3de"><a class="rowlink" href="#">
+        <span class="ico">श</span>
+        <span style="flex:1;min-width:0">
+          <span class="h3" style="display:block">शुगर</span>
+          <span class="cp">टाइप-2, प्री-डायबिटीज़</span>
+          <span style="display:block;font:700 15px 'Anek Devanagari';color:#883a00;margin-top:3px">HbA1c 8.2 → 6.5 · 40 विद्यार्थी</span>
+        </span>
+        <span style="color:#883a00;font-size:20px">›</span></a><a class="rowlink" href="#">
+        <span class="ico">ब</span>
+        <span style="flex:1;min-width:0">
+          <span class="h3" style="display:block">बीपी</span>
+          <span class="cp">हाई बीपी, दिल की सेहत</span>
+          <span style="display:block;font:700 15px 'Anek Devanagari';color:#883a00;margin-top:3px">160/100 → 130/85 · 31 विद्यार्थी</span>
+        </span>
+        <span style="color:#883a00;font-size:20px">›</span></a><a class="rowlink" href="#">
+        <span class="ico">क</span>
+        <span style="flex:1;min-width:0">
+          <span class="h3" style="display:block">कमर दर्द</span>
+          <span class="cp">स्लिप डिस्क, साइटिका</span>
+          <span style="display:block;font:700 15px 'Anek Devanagari';color:#883a00;margin-top:3px">रोज़ तीन मंज़िल · 55 विद्यार्थी</span>
+        </span>
+        <span style="color:#883a00;font-size:20px">›</span></a><a class="rowlink" href="#">
+        <span class="ico">घ</span>
+        <span style="flex:1;min-width:0">
+          <span class="h3" style="display:block">घुटने का दर्द</span>
+          <span class="cp">गठिया, सीढ़ियाँ</span>
+          <span style="display:block;font:700 15px 'Anek Devanagari';color:#883a00;margin-top:3px">बिना सहारे उठना-बैठना · 38 विद्यार्थी</span>
+        </span>
+        <span style="color:#883a00;font-size:20px">›</span></a><a class="rowlink" href="#">
+        <span class="ico">थ</span>
+        <span style="flex:1;min-width:0">
+          <span class="h3" style="display:block">थायराइड</span>
+          <span class="cp">हाइपो और हाइपर</span>
+          <span style="display:block;font:700 15px 'Anek Devanagari';color:#883a00;margin-top:3px">TSH 9.4 → 3.1 · 22 विद्यार्थी</span>
+        </span>
+        <span style="color:#883a00;font-size:20px">›</span></a><a class="rowlink" href="#">
+        <span class="ico">म</span>
+        <span style="flex:1;min-width:0">
+          <span class="h3" style="display:block">मोटापा</span>
+          <span class="cp">पेट, वज़न, पाचन</span>
+          <span style="display:block;font:700 15px 'Anek Devanagari';color:#883a00;margin-top:3px">11 किलो कम · 46 विद्यार्थी</span>
+        </span>
+        <span style="color:#883a00;font-size:20px">›</span></a><a class="rowlink" href="#">
+        <span class="ico">न</span>
+        <span style="flex:1;min-width:0">
+          <span class="h3" style="display:block">नींद और तनाव</span>
+          <span class="cp">अनिद्रा, माइग्रेन</span>
+          <span style="display:block;font:700 15px 'Anek Devanagari';color:#883a00;margin-top:3px">ग्यारह बजे नींद · 29 विद्यार्थी</span>
+        </span>
+        <span style="color:#883a00;font-size:20px">›</span></a><a class="rowlink" href="#">
+        <span class="ico">म</span>
+        <span style="flex:1;min-width:0">
+          <span class="h3" style="display:block">महिलाओं की समस्याएँ</span>
+          <span class="cp">पीसीओडी, पीरियड</span>
+          <span style="display:block;font:700 15px 'Anek Devanagari';color:#883a00;margin-top:3px">हर महीने, समय पर · 34 विद्यार्थी</span>
+        </span>
+        <span style="color:#883a00;font-size:20px">›</span></a></div>
+</div></div><div class="sec tint"><div class="w">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:14px">
+    <h2 class="h2">स्वास्थ्य की ओर</h2><a href="#" style="font:700 16px 'Anek Devanagari';color:#883a00;text-decoration:none;white-space:nowrap">सभी नतीजे</a></div>
+  <p class="lead">जिन्होंने किया, उनकी रिपोर्ट में क्या बदला और कितने महीनों में।</p>
+  <div style="display:grid;gap:16px"><article class="card" style="display:flex;flex-direction:column">
+  <div class="ba">
+    <div class="was"><div class="lab">पहले</div><div class="val">HbA1c 8.2</div></div>
+    <div class="now"><div class="lab">अब</div><div class="val">HbA1c 6.5</div></div>
+  </div>
+  <div class="took">7 महीनों में · दवा आधी</div>
+  <div style="padding:16px;display:flex;flex-direction:column;gap:13px;flex:1">
+    <p class="bd">“सात महीने में दवा आधी हो गई। सुबह उठते ही अब थकान नहीं रहती।”</p>
+    <div style="margin-top:auto;display:flex;align-items:center;gap:11px">
+      <div class="ph" style="width:46px;height:46px;border-radius:50%;flex:none;font-size:10px">फ़ोटो</div>
+      <p class="cp"><b style="color:#14120f">सुनीता वर्मा, 52</b><br>लखनऊ · शुगर</p>
+    </div>
+  </div>
+</article><article class="card" style="display:flex;flex-direction:column">
+  <div class="ba">
+    <div class="was"><div class="lab">पहले</div><div class="val long">सीढ़ियाँ नहीं चढ़ पाते थे</div></div>
+    <div class="now"><div class="lab">अब</div><div class="val long">रोज़ तीन मंज़िल</div></div>
+  </div>
+  <div class="took">4 महीनों में</div>
+  <div style="padding:16px;display:flex;flex-direction:column;gap:13px;flex:1">
+    <p class="bd">“चार महीने पहले सीढ़ी चढ़ना मुश्किल था। अब रोज़ तीन मंज़िल चढ़ता हूँ।”</p>
+    <div style="margin-top:auto;display:flex;align-items:center;gap:11px">
+      <div class="ph" style="width:46px;height:46px;border-radius:50%;flex:none;font-size:10px">फ़ोटो</div>
+      <p class="cp"><b style="color:#14120f">रामकिशोर सिंह, 61</b><br>कानपुर · कमर दर्द</p>
+    </div>
+  </div>
+</article><article class="card" style="display:flex;flex-direction:column">
+  <div class="ba">
+    <div class="was"><div class="lab">पहले</div><div class="val long">तीन महीने में एक बार</div></div>
+    <div class="now"><div class="lab">अब</div><div class="val long">हर महीने, समय पर</div></div>
+  </div>
+  <div class="took">6 महीनों में</div>
+  <div style="padding:16px;display:flex;flex-direction:column;gap:13px;flex:1">
+    <p class="bd">“छह महीने में पीरियड समय पर आने लगे। रिपोर्ट भी अच्छी आई।”</p>
+    <div style="margin-top:auto;display:flex;align-items:center;gap:11px">
+      <div class="ph" style="width:46px;height:46px;border-radius:50%;flex:none;font-size:10px">फ़ोटो</div>
+      <p class="cp"><b style="color:#14120f">अनीता गुप्ता, 38</b><br>प्रयागराज · महिलाओं की समस्याएँ</p>
+    </div>
+  </div>
+</article></div>
+  <p class="cp" style="margin-top:16px">हर कहानी विद्यार्थी की अनुमति से, उनके नाम और शहर के साथ।</p>
+</div></div><div class="sec"><div class="w">
+  <div style="background:#14120f;color:#fcfcfb;border-radius:14px;padding:20px 18px">
+    <p style="font:700 22px 'Anek Devanagari';color:#eb852b;margin:0 0 7px">डॉक्टर की दवा बंद करनी पड़ेगी?</p>
+    <p class="bd" style="color:#fcfcfb;margin:0">नहीं। योग साथ-साथ चलता है। रिपोर्ट सुधरे तो दवा डॉक्टर ही घटाते हैं — यहाँ 140 लोगों की घटी है।</p>
+  </div></div></div><div class="sec"><div class="w" style="">
+  <div class="ph" style="width:130px;aspect-ratio:4/5;border-radius:14px;float:left;margin:0 16px 10px 0">वंदना जी की फ़ोटो</div>
+  <div>
+    <h2 class="h2">सिखाती कौन हैं</h2>
+    <p class="point" style="font-size:30px;margin:2px 0 6px">वंदना बरनवाल</p>
+    <p class="bd" style="color:#3a3630">योग में एम.ए., [विश्वविद्यालय]। 12 साल से लखनऊ में और ऑनलाइन।</p>
+    <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:14px">
+      <span class="chip">[संस्था] प्रमाणित</span><span class="chip">6 प्रमाणपत्र, स्कैन के साथ</span><span class="chip">9 सम्मान</span><span class="chip">अख़बार और टीवी में</span></div>
+    <div style="display:flex;gap:9px;margin-top:14px">
+      <div class="ph" style="width:74px;aspect-ratio:3/4;border-radius:8px;font-size:10px">प्रमाणपत्र</div>
+      <div class="ph" style="width:74px;aspect-ratio:3/4;border-radius:8px;font-size:10px">प्रमाणपत्र</div>
+      <div class="ph" style="width:110px;aspect-ratio:5/2;border-radius:8px;font-size:10px">अख़बार</div></div>
+  </div></div></div><div class="sec"><div class="w">
+  <h2 class="h2">तीन क़दम, तीन क़ीमतें</h2>
+  <p class="lead">हर क़दम पर क्या मिलता है और क्या लगता है — साफ़-साफ़।</p>
+  <div style="display:grid;gap:14px"><div class="card" style="padding:17px 18px;display:flex;flex-direction:column;gap:7px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
+          <span class="h3">पहली कॉल</span>
+          <span class="point" style="font-size:30px;color:#883a00;white-space:nowrap">मुफ़्त</span></div>
+        <p class="bd" style="color:#3a3630">अपनी तकलीफ़ बताइए। योग और प्राणायाम से क्या हल है, वंदना जी बताएँगी।</p>
+        <span class="chip" style="align-self:flex-start;margin-top:3px">एक दिन में जवाब</span>
+      </div><div class="card" style="padding:17px 18px;display:flex;flex-direction:column;gap:7px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
+          <span class="h3">परामर्श और आपकी पर्ची</span>
+          <span class="point" style="font-size:30px;color:#883a00;white-space:nowrap">₹200</span></div>
+        <p class="bd" style="color:#3a3630">आपकी रिपोर्ट, दवा और हालत देखकर — आपका अपना हल, व्हाट्सऐप पर।</p>
+        <span class="chip" style="align-self:flex-start;margin-top:3px">30 मिनट</span>
+      </div><div class="card" style="padding:17px 18px;display:flex;flex-direction:column;gap:7px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
+          <span class="h3">रोज़ की क्लास</span>
+          <span class="point" style="font-size:30px;color:#883a00;white-space:nowrap">₹1,000</span></div>
+        <p class="bd" style="color:#3a3630">छोटे ग्रुप में लाइव, हर 90 दिन पर रिपोर्ट देखी जाती है।</p>
+        <span class="chip" style="align-self:flex-start;margin-top:3px">रोज़ ₹35 से कम</span>
+      </div></div>
+  <p class="cp" style="margin-top:14px">एक बार की डॉक्टर फ़ीस से कम, हर महीने। पहली कॉल का कोई शुल्क नहीं।</p>
+</div></div><div class="sec tint"><div class="w">
+  <div class="card" style="padding:18px;display:block;align-items:center;gap:28px">
+    <div style="flex:1">
+      <p class="cp" style="font-weight:700;color:#883a00;letter-spacing:.1em">अगला बैच</p>
+      <p class="point" style="font-size:30px;margin:4px 0 4px">[तारीख़] से</p>
+      <p class="cp">सुबह 6:30 · 50 मिनट · [N] सीटें बची · एक घर के दो लोग तो [छूट]</p>
+    </div>
+    <div style="margin-top:14px"><div style="display:flex;flex-direction:column;gap:11px;flex-wrap:wrap">
+  <a class="btn btn-a" href="#">व्हाट्सऐप पर बात करें</a>
+  <a class="btn btn-o" href="#">कॉल करें · [फ़ोन नंबर]</a>
+</div><p class="cp" style="margin-top:10px">पहली कॉल मुफ़्त। बैच कौन सा, वे बताएँगी।</p></div>
+  </div></div></div><div class="sec"><div class="w"><h2 class="h2">लोग अक्सर पूछते हैं</h2>
+      <div style="border-bottom:1px solid #e6e3de;margin-top:12px"><div style="border-top:1px solid #e6e3de;padding:15px 0">
+      <p class="h3" style="margin:0 0 5px">मुझे योग आता ही नहीं।</p><p class="bd" style="color:#3a3630">पहले दिन से सिखाया जाता है। कोई भी क़दम मुश्किल लगे तो उसका आसान रूप दिया जाता है।</p></div><div style="border-top:1px solid #e6e3de;padding:15px 0">
+      <p class="h3" style="margin:0 0 5px">घर पर क्या चाहिए?</p><p class="bd" style="color:#3a3630">एक चटाई, थोड़ी जगह और फ़ोन। बस।</p></div><div style="border-top:1px solid #e6e3de;padding:15px 0">
+      <p class="h3" style="margin:0 0 5px">क्लास छूट जाए तो?</p><p class="bd" style="color:#3a3630">उस दिन दूसरे बैच में जुड़ सकते हैं।</p></div><div style="border-top:1px solid #e6e3de;padding:15px 0">
+      <p class="h3" style="margin:0 0 5px">उम्र ज़्यादा है, हो पाएगा?</p><p class="bd" style="color:#3a3630">हमारे सबसे पुराने विद्यार्थी 74 के हैं। बैठकर करने वाले क्रम भी हैं।</p></div></div></div></div><div class="sec" style="background:#eb852b;color:#14120f"><div class="w">
+  <h2 class="h2" style="color:#14120f">कॉल पर अपनी तकलीफ़ बताइए।</h2>
+  <p class="bd" style="max-width:48ch;margin:0 0 18px">योग और प्राणायाम द्वारा हल बताया जाएगा।</p>
+  <div style="display:flex;gap:11px;flex-wrap:wrap">
+    <a class="btn" style="background:#14120f;color:#eb852b" href="#">व्हाट्सऐप पर बात करें</a>
+    <a class="btn" style="background:transparent;color:#14120f;border:1.5px solid #14120f" href="#">कॉल करें</a></div>
+  <p class="cp" style="color:#14120f;opacity:.85;margin-top:10px">पहली कॉल मुफ़्त · परामर्श और पर्ची ₹200 · बैच ₹1,000 प्रति माह</p>
+  <div style="border-left:3px solid rgba(20,18,15,.25);padding-left:15px;margin-top:18px"><p class="bd" style="margin:0">“सात महीने में दवा आधी हो गई।”</p><p class="cp" style="color:#14120f;opacity:.8;margin-top:4px">सुनीता वर्मा, 52 · लखनऊ</p></div></div></div><div style="position:sticky;bottom:0;background:#eb852b;border-top:1px solid rgba(20,18,15,.2);padding:10px 16px 14px;display:flex;align-items:center;gap:12px">
+      <span style="flex:1;font:700 15px/1.25 'Anek Devanagari';color:#14120f">पहली कॉल मुफ़्त</span>
+      <a class="btn" style="min-height:48px;font-size:16px;padding:0 18px;background:#14120f;color:#eb852b" href="#">बात करें</a></div></div></div>
+    <p class="cap en" style="margin-top:12px;color:#883a00;font-weight:700">Open the full home page &rarr;</p>
+  </div></a></div>
+
+<div class="note en" style="margin-top:32px"><b>Nothing on these boards says &ldquo;buy&rdquo;.</b>
+The selling is done by order, by proof placement, by making the free step the only thing ever asked
+for, and by putting facts the site already owns where the decision is actually made.</div>
+</div></body></html>
