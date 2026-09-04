@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { A as Link } from "../components/Nav";
 import { Routine } from "@/components/Credibility";
 import SiteShell from "@/components/SiteShell";
 import { Tx } from "@/components/Tx";

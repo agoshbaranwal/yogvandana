@@ -51,12 +51,12 @@
       }
     }
   ],
-  "price": "[शुल्क]",
+  "price": "1,000",
   "priceUnit": {
     "hi": "प्रति माह",
     "en": "a month"
   },
-  "perDay": "[50]",
+  "perDay": "35",
   "nextStart": {
     "hi": "[तारीख़]",
     "en": "[date]"

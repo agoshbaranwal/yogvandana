@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { A as Link } from "./Nav";
 import { ailments, t, ui } from "@/lib/content";
 import { href, type Lang } from "@/lib/routes";
 import { AilmentIcon, ChevronIcon } from "./Icons";
@@ -49,7 +49,7 @@ export function DiseaseRows({
                     <Tx>{`${t(a.sub, lang)} · ${a.studentCount} ${ui("ailment.students", lang)}`}</Tx>
                   </span>
                 </span>
-                <ChevronIcon size={24} style={{ color: "var(--color-deep)" }} />
+                <ChevronIcon size={24} className="row-go" style={{ color: "var(--color-deep)" }} />
               </Link>
             </li>
           );

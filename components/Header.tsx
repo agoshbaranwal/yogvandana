@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { A as Link } from "./Nav";
 import { useEffect, useRef, useState } from "react";
 import { CloseIcon, MenuIcon, PhoneIcon, WhatsAppIcon } from "./Icons";
 import { Tx } from "./Tx";

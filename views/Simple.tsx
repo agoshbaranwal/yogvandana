@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { A as Link } from "../components/Nav";
 import { DiseaseRows } from "@/components/DiseaseRows";
 import Band from "@/components/Band";
 import { FeeFacts, GroupBatchCard, SessionBar, SmallBatchCard } from "@/components/Batches";

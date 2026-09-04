@@ -93,8 +93,32 @@ for (const f of ["app/(hi)/layout.tsx", "app/(en)/layout.tsx"]) {
 if (/content-visibility:\s*auto/.test(css))
   problems.push("app/globals.css  content-visibility: auto — sections render as empty coloured slabs until scrolled into view");
 
+/* 8 — a hover only happens where there is a cursor --------------------------- */
+/* A touch screen reports a hover on tap and then keeps reporting it, so an
+   unguarded :hover leaves the tapped row lit until something else is tapped —
+   which reads as a stuck page. Every hover rule belongs inside
+   @media (hover: hover) and (pointer: fine). */
+{
+  /* strip the guarded blocks, then look for what is left */
+  let rest = css, cut = 0;
+  for (;;) {
+    const i = rest.indexOf("@media (hover: hover)");
+    if (i < 0) break;
+    let j = rest.indexOf("{", i), depth = 0, k = j;
+    for (; k < rest.length; k++) {
+      if (rest[k] === "{") depth++;
+      else if (rest[k] === "}" && --depth === 0) break;
+    }
+    rest = rest.slice(0, i) + rest.slice(k + 1);
+    cut++;
+  }
+  for (const m of rest.matchAll(/^\s*([^{}\n]*:hover[^{}\n]*)[,{]\s*$/gm))
+    problems.push(`app/globals.css  ${m[1].trim()} — put it inside @media (hover: hover) and (pointer: fine), or a phone will stick in this state after a tap`);
+  if (!cut) problems.push("app/globals.css  no @media (hover: hover) block at all — the hover rules are unguarded");
+}
+
 if (problems.length) {
   console.error(`mobile: ${problems.length} problem(s)\n  ` + problems.join("\n  "));
   process.exit(1);
 }
-console.log(`mobile: ${files.length} files clean · no width over 360, fields at 16 px, safe-area bar, edge-to-edge viewport, 56 px buttons, no section paints late`);
+console.log(`mobile: ${files.length} files clean · no width over 360, fields at 16 px, safe-area bar, edge-to-edge viewport, 56 px buttons, no section paints late, hover only where there is a cursor`);

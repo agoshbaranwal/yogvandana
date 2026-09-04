@@ -72,6 +72,31 @@ const families = [...css.replace(/@font-face\s*\{[^}]*\}/g, "").matchAll(/font-f
 const strayFamily = families.find((f) => !/var\(--font-(hindi|english)\)/.test(f));
 if (strayFamily) problems.push(`app/globals.css  font-family: ${strayFamily} — Anek Devanagari is the only face`);
 
+/* — the stylesheet may only name a weight the site actually ships ---------- */
+/* Two files go down the wire, 400 and 700. A `font-weight: 600` still parses
+   and still looks like a decision, but the browser rounds it to 700, so the
+   stylesheet quietly stops describing the page. Fail instead. */
+{
+  const shipped = new Set(["400", "700", "normal", "bold", "inherit"]);
+  for (const m of css.matchAll(/font-weight:\s*([a-z0-9]+)/g)) {
+    if (!shipped.has(m[1]))
+      problems.push(`app/globals.css  font-weight: ${m[1]} — only 400 and 700 are shipped; the browser rounds anything else`);
+  }
+}
+
+/* — links do not prefetch ------------------------------------------------- */
+/* next/link fetches the payload of every link that scrolls into view. Eight
+   links on a page is eight downloads the reader did not ask for, on a metered
+   connection. components/Nav.tsx is the same Link with that turned off. */
+{
+  for (const file of files) {
+    const rel = path.relative(ROOT, file);
+    if (rel === "components/Nav.tsx") continue;
+    if (/from "next\/link"/.test(fs.readFileSync(file, "utf8")))
+      problems.push(`${rel}  imports next/link — import { A as Link } from Nav instead, so the page does not prefetch every link in view`);
+  }
+}
+
 if (problems.length) {
   console.error(`type: ${problems.length} problem(s)\n  ` + problems.join("\n  "));
   process.exit(1);

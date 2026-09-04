@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { A as Link } from "../components/Nav";
 import Band from "@/components/Band";
 import { DiseaseRows } from "@/components/DiseaseRows";
 import { FirstScreen } from "@/components/FirstScreen";

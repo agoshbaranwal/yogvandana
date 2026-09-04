@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { A as Link } from "./Nav";
 import { type Batch, batches, t, ui } from "@/lib/content";
 import type { Lang } from "@/lib/routes";
 import { Tx } from "./Tx";

@@ -47,11 +47,26 @@ export default function Motion() {
       requestAnimationFrame(tick);
     };
 
+    /* A grid of cards that all appear together lands like a slab. Marking the
+       repeated children lets the CSS bring them in one after another — no
+       markup anywhere carries this, so a new list gets it for free. The cap is
+       there so a long list does not keep a reader waiting for its last row. */
+    const stagger = (el: HTMLElement) => {
+      const kids = el.querySelectorAll<HTMLElement>(".card, .rows > li, .strip > *");
+      if (kids.length < 2) return;
+      kids.forEach((kid, i) => {
+        if (i > 7) return;
+        kid.dataset.stagger = "";
+        kid.style.setProperty("--i", String(i));
+      });
+    };
+
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
           if (!e.isIntersecting) continue;
           const el = e.target as HTMLElement;
+          stagger(el);
           el.classList.add("in");
           el.classList.remove("reveal");
           io.unobserve(el);

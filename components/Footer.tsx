@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { A as Link } from "./Nav";
 import { PHONE, phoneShown, site, t, ui } from "@/lib/content";
 import { href, type Lang } from "@/lib/routes";
 import { telHref, waHref, waMessage } from "@/lib/whatsapp";

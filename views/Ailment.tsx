@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { A as Link } from "../components/Nav";
 import Band from "@/components/Band";
 import { ShareLink } from "@/components/Blocks";
 import { FaqList } from "@/components/Faq";
