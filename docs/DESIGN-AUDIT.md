@@ -509,6 +509,15 @@ Agosh answered four questions before Phase 1 began:
   the rating line, and the About page's forty frames until they are photographs — and the font
   weight above.
 
+- **Round 6 — done, 4 September, later the same day.** Agosh's verdict on the rebuild above was that
+  it was not deep or big enough, so the site was redesigned rather than repaired: boards first
+  (`design/R6*.dc.html`, reviewed as real pages), his four decisions taken, then built phase by
+  phase to a mobile-first plan (`docs/ROUND6-PLAN.md`). Every page changed shape: the clinic-board
+  first screen, disease rows, the timeline with the medicine answer in the dark, result cards in
+  the report's numbers, the prescription pad, the timetable, certificate-first About, number-first
+  Contact. The mobile audit is `docs/MOBILE-AUDIT.md`. The scores in Parts 4 and 5 describe the
+  site before Round 6 and are kept as the record of why it was redone.
+
 ### What this audit did not check, and says so
 
 Real photographs and real numbers change how every card reads; this audit scored the frames, not

@@ -116,7 +116,8 @@ export default function About({ lang }: { lang: Lang }) {
                 {ui("about.eyebrow", lang)}
               </p>
               <h1 className="page-title">{t(site.teacher, lang)}</h1>
-              <p className="cap" style={{ color: "var(--color-ivory)", opacity: 0.94 }}>
+              {/* three lines of room, so the name holds still while the font loads */}
+              <p className="cap min-h-[75px]" style={{ color: "var(--color-ivory)", opacity: 0.94 }}>
                 <Tx>{`${t(site.credentialShort, lang)} · `}</Tx>
                 <strong>
                   <Tx>{certified}</Tx>

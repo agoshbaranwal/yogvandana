@@ -46,6 +46,29 @@ optimised for phones.** The audience sees it on a ₹10–15,000 Android, almost
 Roughly six to eight working sessions. Phases 3 to 7 are independent once 0–2 land and can go in any
 order; each is a page Agosh can react to on its own.
 
+## Delivered — 4 September 2026, one session, ten deploys
+
+| Phase | Landed as | Deployed |
+|---|---|---|
+| 0 | `scripts/mobile-check.mjs` (six rules, all red the day they were written, all green by the first commit); `measure.py --slow` and `--live` | d2abc92 |
+| 1 | Conditions: `works`, `medicine`, paid `firstClass` rows, `bestBatch` + why. Stories: `metric / before / after / change / months`. Batches: `start`, `minutes`, `daysOn`, session as minutes + text. Site: `certifyingBody`, `university`, `homeMinutes`, `missedClass`, `photos`, `about`, `primaryCredential`. Guide updated. | 981295c |
+| 2–3 | Tokens (display 40, head 26/30, buttons 56/800); FirstScreen, DiseaseRows, Timeline + MedicinePanel, ResultCard, SlipPad + ShareSlip, Timetable + DayChips, WhoTeaches, the band and header redone; home live | 5009076 |
+| 4 | All eight condition pages, the index and the 404 on the rows | 097b806 |
+| 5 | Batches as a timetable; routine on the students' page; dead blocks removed | 669e5ae |
+| 6–7 | About certificate-first; Contact number-first with a form that writes the WhatsApp message; stories tightened; the 149 px overflow found by measurement and fixed | cd50cd2 |
+| 8 | Label step 16; sticky bar hides while typing; portrait preload; Montserrat off Hindi pages; deeper fade; overflow in the gate | bd485bb |
+| 9–10 | `docs/MOBILE-AUDIT.md`; 66 screenshots retaken; `/r6/` removed; memory and docs | this commit |
+
+**Targets, honestly.** Nothing under 16 px that is read: met (the remaining 14 px text is the seal
+and the captions inside empty photo frames). Every tap ≥ 44: met. CLS 0: met on every page but the
+policy pages, where it was already under 0.07. Sideways overflow: 0 on every route at 360, now a
+gate. **Fonts ≤ 120 KB: not met.** Baloo 2's Devanagari file is 113 KB on its own and it is a
+variable font that already covers both weights; the 35 KB Montserrat that Hindi pages used to fetch
+is gone, so a Hindi page now carries about 145 KB of font. Going lower means subsetting Devanagari
+glyphs, which breaks conjuncts in words she has not written yet — not done, on purpose. **First
+paint ≤ 2.2 s on the slow profile:** see the live numbers in `docs/MOBILE-AUDIT.md`; the page is
+lighter than before, but the floor is the font plus the Next runtime, not the design.
+
 ## What this plan does not do
 
 Real photographs and her facts still gate the last mile; the build carries drawn placeholders and

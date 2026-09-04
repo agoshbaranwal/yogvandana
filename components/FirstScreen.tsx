@@ -66,7 +66,9 @@ export function FirstScreen({ lang }: { lang: Lang }) {
           {/* her name on the picture, the way a clinic board reads */}
           <div className="on-dark absolute inset-x-4 bottom-4 flex flex-col gap-1 md:hidden" style={{ color: "var(--color-ivory)" }} data-on-photo="">
             <p className="page-title">{t(site.teacher, lang)}</p>
-            <p className="cap" style={{ color: "var(--color-ivory)", opacity: 0.92 }}>
+            {/* Two lines of room whatever the font: the bottom-anchored block
+                used to jump 25 px when Baloo 2 arrived and the line re-wrapped. */}
+            <p className="cap min-h-[50px]" style={{ color: "var(--color-ivory)", opacity: 0.92 }}>
               <Tx>{`${t(site.credentialShort, lang)} · `}</Tx>
               <strong>
                 <Tx>{certified}</Tx>
