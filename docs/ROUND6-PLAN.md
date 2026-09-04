@@ -151,3 +151,42 @@ to; the empty gallery became one sentence; each batch button names its own batch
 
 Text under 16 px, contrast failures, tap failures and sideways overflow all stayed at their
 post-Round-6 values, so none of this was bought with legibility.
+
+## The design audit — the one Agosh actually asked for (4 September 2026)
+
+The pass before this one moved spacing and section counts and called itself a design audit. Agosh
+was right to reject it: *"you just managed spacings. I am talking about design, UI, UX, transitions,
+animations, boxes, gradients, colours, structure, elements, graphics, illustrations."*
+
+### The bug he was actually looking at
+
+He sent two screenshots of large empty coloured regions. They were real, and mine. Phase 8 had put
+`content-visibility: auto` with `contain-intrinsic-size: auto 720px` on every section past the
+second, as a speculative saving on a slow phone. Measured: **three sections on home and three on
+every condition page rendered as empty 720 px slabs of their own background colour** until scrolled
+into view, with a reserved height that did not match the content, so the page jumped as you moved.
+A visitor's first impression was empty coloured bands. Removed. `mobile-check` rule 6 used to
+*require* it; it now forbids it.
+
+### What the design system was, measured
+
+| | Before | After |
+|---|---|---|
+| Near-identical creams | 6 (#fff, ivory, #fffdf7, apricot, sandal, a translucent one) | **3** |
+| Corner radii | 7 (6, 8, 10, 12, 14, 50%, pill) | **3** |
+| Edge treatments | 6 borders + 24 inset rings + 2 shadows | **1 hairline, 0 shadows** |
+| Hatched diagonal gradients | 10 a page | **0** |
+| Icon tile hues on the disease list | 4 — a rainbow strip | **1** |
+| Dead CSS | the whole `.dawn` hero, its sun disc and its sunrise animation | removed |
+
+Also: the grey figure standing in for her photograph — a lump with a head, the first thing anyone
+saw of her — is gone; the frame is the morning sky with a note saying the photograph is coming, and
+the dark fade only appears when there is actually a picture to lift white words off. **Rule 6e**
+holds the stylesheet to three radii, no shadows and no hatching.
+
+### One thing worth remembering
+
+The contrast tool reported 1.00 on the hero caption. My first instinct was that the tool was blind
+to gradients and I started "fixing" it. It was not blind: the caption really was ivory text on a
+light gradient, because an earlier edit of mine had silently failed to apply. Had I patched the
+instrument I would have hidden a genuine failure. Check the artefact before you doubt the meter.

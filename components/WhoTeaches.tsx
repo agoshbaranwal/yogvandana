@@ -28,7 +28,7 @@ export function WhoTeaches({ lang }: { lang: Lang }) {
             src={site.photos.portrait}
             alt={t(site.teacher, lang)}
             ratio="4 / 5"
-            rounded="rounded-[14px]"
+            rounded="rounded-[12px]"
             className="w-[112px] flex-none md:w-[200px]"
             sizes="(min-width: 768px) 200px, 112px"
           />

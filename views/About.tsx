@@ -54,13 +54,11 @@ function Verify({ credential, lang, pill = false }: { credential: Credential; la
   );
 }
 
-function Silhouette() {
+function PhotoNote({ lang }: { lang: Lang }) {
   return (
-    <svg viewBox="0 0 390 440" preserveAspectRatio="xMidYMax slice" aria-hidden="true" className="absolute inset-0 h-full w-full">
-      <circle cx="290" cy="170" r="120" fill="var(--color-sun)" />
-      <path d="M105 440 C105 340 145 300 195 292 C245 300 285 340 285 440 Z" fill="#B5A08A" />
-      <circle cx="195" cy="232" r="58" fill="#B5A08A" />
-    </svg>
+    <p className="cap absolute right-4 top-16 md:bottom-4 md:left-6 md:top-auto" style={{ color: "var(--color-deeper)" }}>
+      {ui("photo.portrait", lang)}
+    </p>
   );
 }
 
@@ -118,15 +116,19 @@ export default function About({ lang }: { lang: Lang }) {
                 className="absolute inset-0 h-full w-full object-cover object-top"
               />
             ) : (
-              <Silhouette />
+              <PhotoNote lang={lang} />
             )}
-            <div className="first-fade md:hidden" aria-hidden="true" />
-            <div className="on-dark absolute inset-x-4 bottom-5 flex h-[150px] flex-col gap-1.5 overflow-hidden md:hidden" style={{ color: "var(--color-ivory)" }} data-on-photo="">
-              <p className="label" style={{ color: "var(--color-bhagwa)" }}>
+            {pic ? <div className="first-fade md:hidden" aria-hidden="true" /> : null}
+            <div
+              className={`${pic ? "on-dark" : "on-bhagwa"} absolute inset-x-4 bottom-5 flex h-[150px] flex-col gap-1.5 overflow-hidden md:hidden`}
+              style={{ color: pic ? "var(--color-ivory)" : "var(--color-kohl)" }}
+              data-on-photo={pic ? "" : undefined}
+            >
+              <p className="label" style={{ color: pic ? "var(--color-bhagwa)" : "var(--color-deep)" }}>
                 {ui("about.eyebrow", lang)}
               </p>
               <h1 className="page-title">{t(site.teacher, lang)}</h1>
-              <p className="cap" style={{ color: "var(--color-ivory)", opacity: 0.94 }}>
+              <p className="cap" style={{ color: pic ? "var(--color-ivory)" : "var(--color-kohl)", opacity: pic ? 0.94 : 1 }}>
                 <Tx>{`${t(site.credentialShort, lang)} · `}</Tx>
                 <strong>
                   <Tx>{certified}</Tx>
@@ -135,11 +137,7 @@ export default function About({ lang }: { lang: Lang }) {
                 <Tx>{`${t(site.city, lang)} · ${ui("about.teachingSince", lang).replace("{y}", t(site.sinceYear, lang))}`}</Tx>
               </p>
             </div>
-            {!pic ? (
-              <p className="cap absolute bottom-3 left-6 hidden md:block" style={{ color: "var(--color-deeper)" }}>
-                {ui("photo.portrait", lang)}
-              </p>
-            ) : null}
+
           </div>
           <div className="hidden flex-col justify-end gap-3 md:flex md:px-12 md:py-14 lg:px-16">
             <p className="label" style={{ color: "var(--color-deeper)" }}>
@@ -173,7 +171,7 @@ export default function About({ lang }: { lang: Lang }) {
           </p>
           <div className="flex items-end gap-3 pt-1">
             {site.photos.signature ? (
-              <Photo src={site.photos.signature} alt={ui("photo.signature", lang)} className="h-11 w-[140px]" rounded="rounded-[6px]" />
+              <Photo src={site.photos.signature} alt={ui("photo.signature", lang)} className="h-11 w-[140px]" rounded="rounded-[12px]" />
             ) : (
               <span className="pad-sign !w-[140px] !h-11" aria-hidden="true" />
             )}
@@ -228,7 +226,7 @@ export default function About({ lang }: { lang: Lang }) {
                   src={c.image}
                   alt={`${t(c.name, lang)} — ${t(c.body, lang)}`}
                   label=""
-                  rounded="rounded-[6px]"
+                  rounded="rounded-[12px]"
                   className="h-[84px] w-[64px] flex-none border border-rule"
                 />
                 <div className="flex min-w-0 flex-1 flex-col gap-0.5">
@@ -316,7 +314,7 @@ export default function About({ lang }: { lang: Lang }) {
                     <Tx>{t(j.text, lang)}</Tx>
                   </span>
                   {t(j.photoAlt, lang) && j.photo ? (
-                    <Photo src={j.photo} alt={t(j.photoAlt, lang)} ratio="3 / 2" rounded="rounded-[10px]" className="col-span-2 md:col-span-1" />
+                    <Photo src={j.photo} alt={t(j.photoAlt, lang)} ratio="3 / 2" rounded="rounded-[12px]" className="col-span-2 md:col-span-1" />
                   ) : null}
                 </li>
               ))}
@@ -396,7 +394,7 @@ export default function About({ lang }: { lang: Lang }) {
             <ul className="grid grid-cols-3 gap-2.5">
               {logos.shown.map((m) => (
                 <li key={m.id}>
-                  <Photo src={m.image} alt={t(m.name, lang)} label={ui("photo.logo", lang)} rounded="rounded-[10px]" className="h-14 w-full" />
+                  <Photo src={m.image} alt={t(m.name, lang)} label={ui("photo.logo", lang)} rounded="rounded-[12px]" className="h-14 w-full" />
                 </li>
               ))}
             </ul>
@@ -405,7 +403,7 @@ export default function About({ lang }: { lang: Lang }) {
           <ul className="grid grid-cols-3 gap-2.5 md:grid-cols-4">
             {clippings.shown.map((m) => (
               <li key={m.id} className="flex flex-col gap-1.5">
-                <Photo src={m.image} alt={t(m.name, lang)} label={ui("photo.clipping", lang)} ratio="3 / 4" rounded="rounded-[8px]" />
+                <Photo src={m.image} alt={t(m.name, lang)} label={ui("photo.clipping", lang)} ratio="3 / 4" rounded="rounded-[12px]" />
                 <p className="cap">
                   <Tx>{`${t(m.name, lang)} · ${t(m.date, lang)}`}</Tx>
                 </p>

@@ -42,7 +42,7 @@ export function Timetable({ lang, talkHref = "#booking-band" }: { lang: Lang; ta
   const cols = "grid grid-cols-[1.1fr_1fr_1fr] items-center gap-2 px-4";
   return (
     <div className="card overflow-hidden p-0">
-      <div className={`${cols} py-2.5`} style={{ background: "var(--color-sandal)" }} aria-hidden="true">
+      <div className={`${cols} py-2.5`} style={{ background: "var(--color-sky)" }} aria-hidden="true">
         <p className="label">{ui("batches.colBatch", lang)}</p>
         <p className="label">{ui("batches.colDays", lang)}</p>
         <p className="label text-right">{ui("batches.colFee", lang)}</p>

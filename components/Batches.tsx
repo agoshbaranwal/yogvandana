@@ -132,7 +132,7 @@ export function SessionBar({ rows, lang }: { rows: Batch["session"]; lang: Lang 
   if (rows.length === 0) return null;
   const weight = (m: string) => Math.max(1, Number(m.replace(/[^\d]/g, "")) || 1);
   return (
-    <ol className="flex items-stretch overflow-hidden rounded-[14px] border border-rule">
+    <ol className="flex items-stretch overflow-hidden rounded-[12px] border border-rule">
       {rows.map((r, i) => {
         const main = i === Math.floor(rows.length / 2);
         return (

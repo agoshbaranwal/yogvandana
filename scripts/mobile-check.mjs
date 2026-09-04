@@ -63,12 +63,15 @@ for (const f of ["app/(hi)/layout.tsx", "app/(en)/layout.tsx"]) {
   if (px < 56) problems.push(`app/globals.css  .btn min-height is ${px}px — 56 on a phone`);
 }
 
-/* 6 — a slow phone does not paint what is off screen ---------------------- */
-if (!/content-visibility:\s*auto/.test(css))
-  problems.push("app/globals.css  no content-visibility: auto — a 7,000 px page lays out in full before the first paint on a slow phone");
+/* 6 — no section is allowed to paint late ---------------------------------- */
+/* This rule used to demand content-visibility: auto. It shipped a bug: every
+   section past the second rendered as an empty coloured slab until scrolled
+   into. The rule now forbids what it once required. */
+if (/content-visibility:\s*auto/.test(css))
+  problems.push("app/globals.css  content-visibility: auto — sections render as empty coloured slabs until scrolled into view");
 
 if (problems.length) {
   console.error(`mobile: ${problems.length} problem(s)\n  ` + problems.join("\n  "));
   process.exit(1);
 }
-console.log(`mobile: ${files.length} files clean · no width over 360, fields at 16 px, safe-area bar, edge-to-edge viewport, 56 px buttons, off-screen sections deferred`);
+console.log(`mobile: ${files.length} files clean · no width over 360, fields at 16 px, safe-area bar, edge-to-edge viewport, 56 px buttons, no section paints late`);

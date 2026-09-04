@@ -133,7 +133,7 @@ export default function GalleryGrid({
             <li key={s.id}>
               <button
                 type="button"
-                className="block w-full overflow-hidden rounded-[8px]"
+                className="block w-full overflow-hidden rounded-[12px]"
                 style={{ aspectRatio: "1 / 1" }}
                 onClick={(e) => {
                   trigger.current = e.currentTarget;
@@ -196,11 +196,11 @@ export default function GalleryGrid({
               <img
                 src={current.img.src}
                 alt={current.alt}
-                className="max-h-[70vh] w-auto max-w-full rounded-[10px] object-contain"
+                className="max-h-[70vh] w-auto max-w-full rounded-[12px] object-contain"
               />
             ) : (
               <div
-                className="ph flex w-full md:max-w-[560px] items-end justify-start rounded-[10px] p-4"
+                className="ph flex w-full md:max-w-[560px] items-end justify-start rounded-[12px] p-4"
                 style={{ aspectRatio: "4 / 3" }}
               >
                 <span className="cap">{photoLabel}</span>

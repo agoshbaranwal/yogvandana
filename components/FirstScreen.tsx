@@ -11,20 +11,16 @@ import { telHref, waHref, waMessage } from "@/lib/whatsapp";
    photograph is the whole first screen and the header sits on it; from a
    tablet up the photograph takes the left column and the words the right. */
 
-function Silhouette() {
-  /* Until her photograph exists: a plain figure on the dawn sky, never a
-     stock picture and never hatching. */
+/* Until her photograph exists the frame is the morning sky and nothing else.
+   It used to hold a grey figure — a lump with a head — which was the first
+   thing anyone saw of her and read as broken rather than as coming. With no
+   photograph there is also no dark fade: a fade exists to lift white words
+   off a picture, and darkening an empty gradient only makes it look soiled. */
+function PhotoNote({ lang }: { lang: Lang }) {
   return (
-    <svg
-      viewBox="0 0 390 380"
-      preserveAspectRatio="xMidYMax slice"
-      aria-hidden="true"
-      className="absolute inset-0 h-full w-full"
-    >
-      <circle cx="300" cy="150" r="110" fill="var(--color-sun)" />
-      <path d="M115 380 C115 300 150 268 195 262 C240 268 275 300 275 380 Z" fill="#B5A08A" />
-      <circle cx="195" cy="205" r="52" fill="#B5A08A" />
-    </svg>
+    <p className="cap absolute right-4 top-16 md:top-auto md:bottom-4 md:left-6" style={{ color: "var(--color-deeper)" }}>
+      {ui("photo.first", lang)}
+    </p>
   );
 }
 
@@ -60,16 +56,20 @@ export function FirstScreen({ lang }: { lang: Lang }) {
               className="absolute inset-0 h-full w-full object-cover object-top"
             />
           ) : (
-            <Silhouette />
+            <PhotoNote lang={lang} />
           )}
-          <div className="first-fade md:hidden" aria-hidden="true" />
+          {pic ? <div className="first-fade md:hidden" aria-hidden="true" /> : null}
           {/* her name on the picture, the way a clinic board reads */}
-          <div className="on-dark absolute inset-x-4 bottom-4 flex h-[116px] flex-col gap-1 overflow-hidden md:hidden" style={{ color: "var(--color-ivory)" }} data-on-photo="">
+          <div
+            className={`${pic ? "on-dark" : "on-bhagwa"} absolute inset-x-4 bottom-4 flex h-[116px] flex-col gap-1 overflow-hidden md:hidden`}
+            style={{ color: pic ? "var(--color-ivory)" : "var(--color-kohl)" }}
+            data-on-photo={pic ? "" : undefined}
+          >
             <p className="page-title">{t(site.teacher, lang)}</p>
             {/* The block has a fixed height and the name sits at its top; the
                 caption is two short lines that each fit whatever font is
                 showing, so nothing re-wraps or moves when Baloo 2 arrives. */}
-            <p className="cap" style={{ color: "var(--color-ivory)", opacity: 0.92 }}>
+            <p className="cap" style={{ color: pic ? "var(--color-ivory)" : "var(--color-kohl)", opacity: pic ? 0.92 : 1 }}>
               <Tx>{`${t(site.credentialShort, lang)} · `}</Tx>
               <strong>
                 <Tx>{certified}</Tx>
@@ -78,11 +78,7 @@ export function FirstScreen({ lang }: { lang: Lang }) {
               <Tx>{`${t(site.city, lang)} · ${since}`}</Tx>
             </p>
           </div>
-          {!pic ? (
-            <p className="cap absolute bottom-3 left-6 hidden md:block" style={{ color: "var(--color-deeper)" }}>
-              {ui("photo.first", lang)}
-            </p>
-          ) : null}
+
         </div>
 
         {/* the promise ---------------------------------------------------- */}

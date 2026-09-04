@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ailments, FAMILY_COLOUR, t, ui } from "@/lib/content";
+import { ailments, t, ui } from "@/lib/content";
 import { href, type Lang } from "@/lib/routes";
 import { AilmentIcon, ChevronIcon } from "./Icons";
 import { Tx } from "./Tx";
@@ -32,7 +32,6 @@ export function DiseaseRows({
       </div>
       <ul className="rows bleed md:grid md:grid-cols-2 md:gap-x-6">
         {ailments.map((a) => {
-          const colour = FAMILY_COLOUR[a.family];
           return (
             <li key={a.slug}>
               <Link
@@ -41,7 +40,7 @@ export function DiseaseRows({
                 data-ev-slug={a.slug}
                 className="row"
               >
-                <span className="ico" style={{ background: colour.tint, color: colour.ink }} aria-hidden="true">
+                <span className="ico" aria-hidden="true">
                   <AilmentIcon name={a.icon} size={30} />
                 </span>
                 <span className="flex min-w-0 flex-1 flex-col gap-0.5">

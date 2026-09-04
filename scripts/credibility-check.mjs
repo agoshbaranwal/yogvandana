@@ -223,6 +223,37 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
     bad.slice(0, 6).join("; ") || `${pages.length} pages checked`);
 }
 
+/* 6e — one design system, not six --------------------------------------- */
+{
+  /* Audited 4 September: the site was drawing seven corner radii, six border
+     treatments, two kinds of shadow, ten hatched diagonal gradients a page and
+     six near-identical creams. Nothing looked like it belonged to anything
+     else, which is most of what "chaotic" meant. The stylesheet is held to a
+     system now. */
+  /* our stylesheet, not the framework's resets and utilities */
+  const src = fs.readFileSync(path.join(ROOT, "app", "globals.css"), "utf8");
+  /* the focus ring is an accessibility affordance, not decoration */
+  const own = src.replace(/:focus-visible\s*\{[^}]*\}/g, "");
+  const radii = new Set();
+  for (const m of own.matchAll(/border-radius:\s*([^;}]+)/g)) {
+    for (const v of m[1].trim().split(/\s+/)) {
+      if (v === "0" || v === "0px" || v.startsWith("var(")) continue;
+      radii.add(v);
+    }
+  }
+  const shadows = [...own.matchAll(/box-shadow:\s*([^;}]+)/g)]
+    .map((m) => m[1].trim())
+    .filter((v) => v !== "none");
+  const hatch = [...own.matchAll(/repeating-linear-gradient/g)].length;
+  const problems = [];
+  if (radii.size > 3) problems.push(`${radii.size} literal radii (${[...radii].slice(0, 8).join(" ")})`);
+  if (shadows.length > 0) problems.push(`${shadows.length} box-shadow`);
+  if (hatch > 0) problems.push(`${hatch} repeating gradient`);
+  add("6e", "One design system: at most three radii, no shadows, no hatching",
+    problems.length === 0 ? "pass" : "fail",
+    problems.join("; ") || `radii ${[...radii].join(" ") || "all tokenised"}, no shadows, no hatching`);
+}
+
 /* 7 — the claim, word for word -------------------------------------------- */
 {
   const HI = "योग से हर बीमारी ठीक हो सकती है।";
@@ -361,7 +392,6 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
     ["body text", "kohl", "ivory"],
     ["captions", "muted", "ivory"],
     ["links", "deep", "ivory"],
-    ["links on the sandal bands", "deep", "sandal"],
     ["links on the apricot bands", "deep", "apricot"],
     ["the free band", "kohl", "bhagwa"],
     ["the band's small print", "deeper", "bhagwa"],

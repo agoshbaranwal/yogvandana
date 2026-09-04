@@ -10,12 +10,14 @@
   --color-ivory: #fbf8f1; /* page background */
   --color-sky: #eaf2f8; /* calm bands: results, inner-page headers */
   --color-apricot: #fff3e3; /* the class row, highlights */
-  --color-sandal: #f1e7d6; /* credibility block, batches band, placeholders */
+  /* Sandal and the sun disc are gone: five near-identical creams on one
+     page is why it read as smudged rather than warm. What is left is the
+     page, the card, and one warm highlight. */
   --color-bhagwa: #ff9933; /* buttons (dark text on it), the mark, the free band */
   --color-deep: #a05000; /* links, small labels, the ailment claim line */
-  --color-deeper: #6b3500; /* link hover, eyebrow on the dawn hero, band captions */
+  --color-deeper: #6b3500; /* link hover, eyebrow on the first screen, band captions */
   --color-kohl: #231a12; /* text, footer, the hero's primary button */
-  --color-heroink: #4a3a2a; /* body text on the dawn hero */
+  --color-heroink: #4a3a2a; /* body text on the first screen */
   --color-muted: #6e5f4e; /* captions, dates, second lines */
   --color-rule: #e4d9c7; /* hairlines, card borders */
   /* The wordmark's योग on a light ground. Bhagwa itself is 2:1 on ivory, so
@@ -28,10 +30,9 @@
   --color-todo-on-kohl: #d9cfbf;
   --color-paper: #ffffff; /* cards */
 
-  /* dawn sky */
+  /* the first screen's sky */
   --color-dawn-top: #ddebf5;
   --color-dawn-mid: #fbe7cf;
-  --color-sun: #ffe3b8;
 
   /* ailment families: chips and icon tints only */
   --color-joint: #b0304b;
@@ -48,8 +49,10 @@
   --font-hindi: var(--font-hi), "Baloo 2 Devanagari Fallback", "Noto Sans Devanagari", sans-serif;
   --font-english: var(--font-en), var(--font-hi), "Baloo 2 Devanagari Fallback", "Helvetica Neue", Arial, sans-serif;
 
+  /* Three radii on the whole site: a container, a pill, a circle. There
+     were seven — 6, 8, 10, 12, 14, 50% and the pill — which is why nothing
+     looked like it belonged to anything else. */
   --radius-card: 12px;
-  --radius-panel: 20px;
 }
 
 /* ---------------------------------------------------------------------------
@@ -408,26 +411,20 @@
     color: var(--color-bhagwa);
   }
 
-  /* the photo placeholder: hatched sandalwood with a label ----------------- */
+  /* the photo placeholder ------------------------------------------------- */
   /* A frame waiting for a photograph. It used to be filled with diagonal
      hatching, which on a page with a dozen of them read as static and drowned
      out the words. A hairline and a small caption say the same thing quietly. */
+  /* A frame waiting for a photograph, drawn the way every other edge on the
+     site is drawn: one hairline. It used to carry an inset ring and a little
+     centre line of its own, so twenty-four of them each said "edge" in a
+     third dialect. */
   .ph {
     position: relative;
-    /* Pale enough to stay behind the words, solid enough to read as a frame
-       on the dawn gradient as well as on ivory. */
-    background-color: rgba(255, 253, 248, 0.66);
-    box-shadow: inset 0 0 0 1px rgba(35, 26, 18, 0.14);
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-rule);
     color: var(--color-muted);
     overflow: hidden;
-  }
-  .ph::before {
-    content: "";
-    position: absolute;
-    inset: 50% 0 auto 0;
-    height: 1px;
-    background: var(--color-rule);
-    transform: scaleX(0.36);
   }
   .ph-label {
     position: absolute;
@@ -451,43 +448,9 @@
     --todo-ink: var(--color-todo-on-bhagwa);
   }
 
-  /* the dawn sky ---------------------------------------------------------- */
-  .dawn {
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(
-      180deg,
-      var(--color-dawn-top) 0%,
-      var(--color-dawn-mid) 52%,
-      var(--color-bhagwa) 100%
-    );
-  }
-  @media (min-width: 768px) {
-    .dawn {
-      background: linear-gradient(
-        180deg,
-        var(--color-dawn-top) 0%,
-        var(--color-dawn-mid) 55%,
-        var(--color-bhagwa) 100%
-      );
-    }
-  }
-  .dawn-sun {
-    position: absolute;
-    border-radius: 50%;
-    background: var(--color-sun);
-    opacity: 0.62;
-    pointer-events: none;
-  }
-  .dawn-horizon {
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: rgba(35, 26, 18, 0.25);
-    pointer-events: none;
-  }
-
+  /* The old dawn hero — its sky, its sun disc and its horizon line — is
+     gone; the first screen is .first now. Its rules stayed behind as dead
+     colour long after nothing used them. */
   /* the slip · योग की पर्ची ------------------------------------------------ */
   .slip {
     background: var(--color-paper);
@@ -566,13 +529,18 @@
       padding: 18px 20px;
     }
   }
+  /* Eight rows in four different hues read as a rainbow strip, not as a
+     list. The tile is one neutral now; a condition keeps its own colour on
+     the chip beside a student's name, where the colour tells you something. */
   .ico {
     width: 52px;
     height: 52px;
-    border-radius: 14px;
+    border-radius: var(--radius-card);
     display: grid;
     place-items: center;
     flex: none;
+    background: var(--color-sky);
+    color: var(--color-deep);
   }
   /* full-bleed on a phone, back inside the column from tablet up */
   .bleed {
@@ -620,7 +588,7 @@
   .panel-dark {
     background: var(--color-kohl);
     color: var(--color-ivory);
-    border-radius: 14px;
+    border-radius: var(--radius-card);
     padding: 16px 18px;
   }
   /* the first screen */
@@ -646,10 +614,9 @@
   }
   /* the slip as a prescription pad: paper, letterhead, ruled lines, a torn edge */
   .pad {
-    background: #fffdf7;
+    background: var(--color-paper);
     border: 1px solid var(--color-rule);
-    border-radius: 10px 10px 0 0;
-    box-shadow: 0 8px 24px rgba(35, 26, 18, 0.08);
+    border-radius: var(--radius-card) var(--radius-card) 0 0;
     overflow: hidden;
   }
   .pad-bar {
@@ -664,12 +631,20 @@
     padding: 14px 16px 10px;
     border-bottom: 1.5px solid var(--color-kohl);
   }
+  /* The rows are separated by the site's hairline. They used to be printed
+     over a repeating gradient of ruled lines, which fought every row it ran
+     behind. */
   .pad-rules {
-    padding: 14px 16px 6px;
+    padding: 4px 16px 6px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    background-image: repeating-linear-gradient(180deg, transparent 0 35px, #efe6d6 35px 36px);
+  }
+  .pad-rules > * {
+    padding: 10px 0;
+    border-top: 1px solid var(--color-rule);
+  }
+  .pad-rules > *:first-child {
+    border-top: 0;
   }
   .pad-sign {
     width: 120px;
@@ -691,13 +666,9 @@
     min-width: 40px;
     height: 26px;
     padding: 0 8px;
-    border-radius: 6px;
+    border-radius: var(--radius-card);
     color: var(--color-muted);
-    background-image: repeating-linear-gradient(
-      -45deg,
-      var(--color-sandal) 0 5px,
-      #e7d9c0 5px 10px
-    );
+    background: var(--color-rule);
   }
   .pad-blank {
     display: block;
@@ -747,8 +718,8 @@
     color: var(--color-bhagwa);
   }
   .day.off {
-    background: var(--color-sandal);
-    color: var(--color-muted);
+    background: var(--color-rule);
+    color: var(--color-heroink);
   }
 
   /* details/summary FAQ: works with no JavaScript ------------------------- */
@@ -803,19 +774,13 @@
   /* A section below the fold starts a little low and faded; the observer in
      components/Motion.tsx lifts it once. Nothing here runs if the reader has
      asked for less motion — the base layer switches every duration off. */
-  /* A slow phone lays out only what is near the screen. The first two
-     sections of a page are on screen at load; the rest wait for the scroll.
-     Anchors inside them still work: the browser renders a section it is
-     asked to scroll to. */
-  main > section:nth-child(n + 3) {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 720px;
-  }
-  @media print {
-    main > section {
-      content-visibility: visible;
-    }
-  }
+  /* No content-visibility here, deliberately. It was added to save layout
+     work on a slow phone and it cost far more than it saved: every section
+     past the second rendered as an empty 720 px slab of its own background
+     colour until it was scrolled into view, the reserved height was wrong so
+     the page jumped as you moved, and a visitor's first impression of the
+     page was three empty coloured bands. Agosh saw it and called the site
+     chaotic. A page that paints late is worse than a page that paints. */
   .reveal {
     opacity: 0;
     translate: 0 14px;
@@ -829,21 +794,6 @@
     from {
       opacity: 0;
       translate: 0 14px;
-    }
-    to {
-      opacity: 1;
-      translate: 0 0;
-    }
-  }
-
-  /* the sun comes up once, when the page opens */
-  .dawn-sun {
-    animation: sunrise 1.8s cubic-bezier(0.22, 0.61, 0.36, 1) both;
-  }
-  @keyframes sunrise {
-    from {
-      opacity: 0;
-      translate: 0 54px;
     }
     to {
       opacity: 1;
