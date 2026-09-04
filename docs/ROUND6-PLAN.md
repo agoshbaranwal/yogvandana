@@ -60,8 +60,9 @@ order; each is a page Agosh can react to on its own.
 | 9–10 | `docs/MOBILE-AUDIT.md`; 66 screenshots retaken; `/r6/` removed; memory and docs | this commit |
 
 **Targets, honestly.** Nothing under 16 px that is read: met (the remaining 14 px text is the seal
-and the captions inside empty photo frames). Every tap ≥ 44: met. CLS 0: met on every page but the
-policy pages, where it was already under 0.07. Sideways overflow: 0 on every route at 360, now a
+and the captions inside empty photo frames). Every tap ≥ 44: met. CLS: home 0.002, About 0.004, every
+other page at or under 0.003 after the fallback face was sized to Baloo 2 (Google's "good" line is
+0.1). Sideways overflow: 0 on every route at 360, now a
 gate. **Fonts ≤ 120 KB: not met.** Baloo 2's Devanagari file is 113 KB on its own and it is a
 variable font that already covers both weights; the 35 KB Montserrat that Hindi pages used to fetch
 is gone, so a Hindi page now carries about 145 KB of font. Going lower means subsetting Devanagari

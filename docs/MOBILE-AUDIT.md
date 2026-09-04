@@ -19,24 +19,26 @@ before Round 6; "after" is the live site after the tenth deploy. Structure numbe
 
 | Page | under 16 px before → after | contrast | taps | over | paint before → after | shift | KB before → after | fonts before → after |
 |---|---|---|---|---|---|---|---|---|
-| Home | 3% → **1%** | 0 | 0 | 0 | 2.68 s → **2.58 s** | 0.095 | 440 → **367** | 208 → **173** |
+| Home | 3% → **1%** | 0 | 0 | 0 | 2.68 s → **2.52 s** | 0.002 | 440 → **367** | 208 → **173** |
 | Conditions | 3% → **0%** | 0 | 0 | 0 | 2.66 s → **2.54 s** | 0.002 | 386 → **389** | 180 → **145** |
 | शुगर | 6% → **1%** | 0 | 0 | 0 | 2.67 s → **2.56 s** | 0.001 | 423 → **353** | 208 → **145** |
 | Batches | 7% → **0%** | 0 | 0 | 0 | 2.60 s → **2.54 s** | 0.001 | 399 → **360** | 208 → **173** |
 | Stories | 11% → **0%** | 0 | 0 | 0 | 2.67 s → **2.54 s** | 0.003 | 374 → **335** | 180 → **145** |
-| About | 16% → **6%** | 0 | 0 | 0 | 2.59 s → **2.48 s** | 0.096 | 385 → **333** | 180 → **145** |
+| About | 16% → **6%** | 0 | 0 | 0 | 2.59 s → **2.46 s** | 0.004 | 385 → **333** | 180 → **145** |
 | Contact | 0% → **0%** | 0 | 0 | 0 | 2.68 s → **2.49 s** | 0.002 | 368 → **329** | 180 → **145** |
 | Students | 2% → **0%** | 0 | 0 | 0 | 2.57 s → **2.48 s** | 0.001 | 402 → **355** | 208 → **173** |
-| Privacy | 0% → **0%** | 0 | 0 | 0 | 2.63 s → **2.62 s** | 0.056 | 364 → **328** | 180 → **145** |
+| Privacy | 0% → **0%** | 0 | 0 | 0 | 2.63 s → **2.62 s** | 0.003 | 364 → **328** | 180 → **145** |
 | 404 | 0% → **0%** | 0 | 0 | 0 | 2.44 s → **2.57 s** | 0.002 | 370 → **396** | 180 → **145** |
 
-**The shift on home and About (0.095 / 0.096).** Traced with the layout-shift sources: the
-caption under her name on the photograph re-wrapped from two lines to one when Baloo 2 replaced
-the fallback font, and back to two when the Latin file brought its brackets — and because the
-block is anchored to the bottom of the photograph, the name jumped 25 px each time. Fixed in the
-closing commit by giving the caption two lines of room whatever the font (three on About); the
-re-measured value is in the note under the table. Sugar, batches, stories and contact sit at
-0.001–0.003. The policy pages' 0.056 was there before Round 6 and is the font swap on long text.
+**The shift on home and About (was 0.095 / 0.096).** Traced with the layout-shift sources: text
+re-wrapped when Baloo 2 replaced the phone's own Devanagari face, and on the photograph the
+bottom-anchored name jumped with it. Two fixes, both measured live: a fallback face sized to
+Baloo 2 per platform (Noto Sans Devanagari 101.4%, Kohinoor 93.9%, Devanagari Sangam 98.8%,
+measured on the same sentence), so line breaks hold when the font swaps in — About went from
+0.096 to 0.004 and the privacy page from 0.056 to 0.003 on that alone; and the name on the
+photograph pinned at the top of a fixed box with the caption as two short lines — home from 0.095
+to 0.002. What remains on home is the bracketed placeholders' Latin glyphs arriving after the
+Devanagari file; it shrinks as real facts replace the brackets.
 
 **Fonts: 145 KB, and 173 on three pages.** Home, batches and students fetch one more 27 KB file:
 Google's Latin-extended subset, which is where the browser finds the rupee sign (its range is
