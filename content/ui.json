@@ -137,16 +137,16 @@
   },
   "home": {
     "ailmentsTitle": {
-      "hi": "आपको कौन सी बीमारी है?",
-      "en": "Which disease do you have?"
+      "hi": "किस बीमारी का हल चाहिए?",
+      "en": "Which illness do you need a remedy for?"
     },
     "ailmentsLead": {
-      "hi": "हर एक का अपना अभ्यास, अपनी पर्ची, और उसी बीमारी वाले लोगों की कहानियाँ।",
-      "en": "Each has its own practice, its own slip, and the stories of people with the same disease."
+      "hi": "अपनी बीमारी चुनिए — उसका अभ्यास, उसकी पर्ची, और उसी बीमारी वालों के नतीजे।",
+      "en": "Choose your illness — its practice, its slip, and results from people who have it."
     },
     "stepsTitle": {
-      "hi": "आगे क्या होगा",
-      "en": "What happens next"
+      "hi": "शुरुआत कैसे करें",
+      "en": "How to start"
     },
     "step1": {
       "hi": "व्हाट्सऐप पर लिखिए",
@@ -154,27 +154,27 @@
     },
     "step1sub": {
       "hi": "अपनी बीमारी लिखिए। जवाब [एक दिन] में।",
-      "en": "Write your disease. A reply within [a day]."
+      "en": "Write your illness. A reply within [a day]."
     },
     "step2": {
-      "hi": "पहली बात — मुफ़्त",
-      "en": "The first conversation — free"
+      "hi": "पहली कॉल — मुफ़्त",
+      "en": "The first call — free"
     },
     "step2sub": {
-      "hi": "आपकी तकलीफ़ क्या है, और योग से इसमें क्या हो सकता है।",
-      "en": "What is wrong, and what yoga can do about it."
+      "hi": "अपनी तकलीफ़ बताइए। योग और प्राणायाम से क्या हल है, वंदना जी बताएँगी।",
+      "en": "Tell her what is troubling you. Vandana will tell you the remedy through yoga and pranayama."
     },
     "step3": {
       "hi": "परामर्श और आपकी पर्ची",
       "en": "The consultation, and your slip"
     },
     "step3sub": {
-      "hi": "आपकी रिपोर्ट और दवा देखकर, आपकी अपनी पर्ची — व्हाट्सऐप पर।",
-      "en": "Your reports and medicine looked at, and your own slip — on WhatsApp."
+      "hi": "आपकी रिपोर्ट और दवा देखकर, आपका अपना हल — व्हाट्सऐप पर।",
+      "en": "Your own remedy, from your reports and your medicine — on WhatsApp."
     },
     "resultsTitle": {
-      "hi": "इन्हें फ़र्क पड़ा",
-      "en": "These people felt the difference"
+      "hi": "स्वास्थ्य की ओर",
+      "en": "Towards health"
     },
     "routineTitle": {
       "hi": "आपकी दिनचर्या, योग के साथ",
@@ -185,8 +185,8 @@
       "en": "What you will get"
     },
     "slipLead": {
-      "hi": "सबसे पहले आपकी अपनी पर्ची — डॉक्टर की पर्ची की तरह, पर आपके लिए लिखी हुई।",
-      "en": "First of all, your own slip: like a doctor's slip, but written for you."
+      "hi": "सबसे पहले आपका अपना हल — पर्ची पर लिखा हुआ, आपके लिए।",
+      "en": "First your own remedy — written on a slip, for you."
     },
     "batchesTitle": {
       "hi": "बैच और फ़ीस",
@@ -197,8 +197,8 @@
       "en": "People often ask"
     },
     "heroLead": {
-      "hi": "रोज़ सुबह या शाम, वंदना जी के सामने, अपने घर से। छोटा ग्रुप, ज़ूम पर। दवा डॉक्टर की सलाह से ही घटती है।",
-      "en": "Every morning or evening, in front of Vandana, from your own home. A small group, on Zoom. Medicine comes down only on your doctor's advice."
+      "hi": "ऑनलाइन ग्रुप क्लास · कॉल पर सलाह · 1:1 क्लास",
+      "en": "Online group classes · advice on a call · 1:1 classes"
     },
     "googleLine": {
       "hi": "Google पर",
@@ -233,16 +233,16 @@
       "en": "Who teaches you"
     },
     "stepsNote": {
-      "hi": "पहली बात का कोई शुल्क नहीं।",
-      "en": "The first conversation costs nothing."
+      "hi": "पहली कॉल मुफ़्त।",
+      "en": "The first call is free."
     },
     "heroNote": {
-      "hi": "पहली बात का कोई शुल्क नहीं।",
-      "en": "The first conversation costs nothing."
+      "hi": "पहली कॉल मुफ़्त।",
+      "en": "The first call is free."
     },
     "whichBatch": {
-      "hi": "सुबह या शाम — पहले बात कीजिए",
-      "en": "Morning or evening: talk first"
+      "hi": "सुबह या शाम — कॉल पर तय कीजिए",
+      "en": "Morning or evening — decide on a call"
     },
     "fullDetail": {
       "hi": "पूरा विवरण",
@@ -261,18 +261,18 @@
       "en": "Join a batch"
     },
     "step4sub": {
-      "hi": "[50] मिनट की क्लास रोज़, छोटा ग्रुप, अपनी पर्ची के साथ।",
-      "en": "A [50] minute class every day, a small group, your own slip."
+      "hi": "[50] मिनट की क्लास रोज़ · छोटा ग्रुप · अपनी पर्ची के साथ",
+      "en": "A [50] minute class daily · a small group · with your own slip"
     }
   },
   "band": {
     "title": {
-      "hi": "पहले बात कीजिए। पहली बात मुफ़्त।",
-      "en": "Talk to her first. The first conversation is free."
+      "hi": "कॉल पर अपनी तकलीफ़ बताइए।",
+      "en": "Tell her what is troubling you, on a call."
     },
     "lead": {
-      "hi": "वंदना जी से बात: आपकी तकलीफ़ क्या है, और योग से इसमें क्या हो सकता है।",
-      "en": "A conversation with Vandana: what is wrong, and what yoga can do about it."
+      "hi": "योग और प्राणायाम द्वारा हल बताया जाएगा।",
+      "en": "The remedy through yoga and pranayama will be explained to you."
     },
     "step1": {
       "hi": "आपकी बीमारी",
@@ -337,8 +337,8 @@
       "en": "What happens in class"
     },
     "studentsTitle": {
-      "hi": "{x} वाले, जिन्हें फ़र्क पड़ा",
-      "en": "People with {x} who felt the difference"
+      "hi": "{x} में स्वास्थ्य की ओर",
+      "en": "Towards health with {x}"
     },
     "batchTitle": {
       "hi": "{x} के लिए {batch}",
@@ -349,8 +349,8 @@
       "en": "People often ask"
     },
     "noStories": {
-      "hi": "इस बीमारी की कहानियाँ जल्द ही जोड़ी जाएँगी।",
-      "en": "Stories for this condition will be added soon."
+      "hi": "इस बीमारी के नतीजे जल्द ही।",
+      "en": "Results for this illness, soon."
     },
     "min": {
       "hi": "मि.",
@@ -369,16 +369,16 @@
       "en": "Talk about {x}"
     },
     "anyBatch": {
-      "hi": "सुबह या शाम, दोनों चलते हैं — बात करके तय होगा।",
-      "en": "Morning or evening, both work — decided when you talk."
+      "hi": "सुबह या शाम, दोनों चलते हैं — कॉल पर तय होगा।",
+      "en": "Morning or evening, both work — decided on a call."
     },
     "bandTitle": {
-      "hi": "{x} के बारे में बात कीजिए। पहली बात मुफ़्त।",
-      "en": "Talk about {x}. The first conversation is free."
+      "hi": "{x} की तकलीफ़ कॉल पर बताइए।",
+      "en": "Tell her about your {x}, on a call."
     },
     "bandLead": {
-      "hi": "वंदना जी से बात: {x} में योग से क्या हो सकता है, और आगे क्या।",
-      "en": "A conversation with Vandana: what yoga can do about {x}, and what comes next."
+      "hi": "योग और प्राणायाम द्वारा {x} का हल बताया जाएगा।",
+      "en": "The remedy for {x} through yoga and pranayama will be explained to you."
     }
   },
   "slip": {
@@ -453,8 +453,8 @@
       "en": "Batches and fees"
     },
     "lead": {
-      "hi": "ज़ूम पर लाइव, {n} लोगों के ग्रुप में। घर पर बस एक चटाई, थोड़ी जगह और फ़ोन।",
-      "en": "Live on Zoom, in a group of {n}. At home you need a mat, a little space and a phone."
+      "hi": "ज़ूम पर लाइव · {n} लोगों का ग्रुप · घर पर चटाई और फ़ोन",
+      "en": "Live on Zoom · a group of {n} · a mat and a phone at home"
     },
     "group": {
       "hi": "ग्रुप बैच",
@@ -561,12 +561,12 @@
       "en": "Refund"
     },
     "whichTitle": {
-      "hi": "कौन सा बैच? पहले बात कीजिए।",
-      "en": "Which batch? Talk first."
+      "hi": "कौन सा बैच? कॉल पर तय होगा।",
+      "en": "Which batch? Decided on a call."
     },
     "whichLead": {
-      "hi": "बीमारी के हिसाब से वंदना जी बताती हैं — सुबह या शाम। पहली बात मुफ़्त।",
-      "en": "Vandana tells you by your disease: morning or evening. The first conversation is free."
+      "hi": "बीमारी के हिसाब से वंदना जी बताती हैं — सुबह या शाम। पहली कॉल मुफ़्त।",
+      "en": "Vandana decides from your illness — morning or evening. The first call is free."
     },
     "youChoose": {
       "hi": "समय आप तय करते हैं।",
@@ -582,17 +582,17 @@
     },
     "talkAboutNamed": {
       "hi": "{x} के बारे में बात करें",
-      "en": "Talk about the {x}"
+      "en": "Talk about {x}"
     }
   },
   "stories": {
     "title": {
-      "hi": "इन्हें फ़र्क पड़ा",
-      "en": "These people felt the difference"
+      "hi": "स्वास्थ्य की ओर",
+      "en": "Towards health"
     },
     "lead": {
-      "hi": "विद्यार्थियों के अपने शब्द, अपना नाम और शहर। बीमारी के हिसाब से छाँटिए।",
-      "en": "Students in their own words, with their name and city. Filter by condition."
+      "hi": "विद्यार्थियों के अपने शब्दों में, अपने नाम और शहर के साथ। बीमारी चुनकर देखिए।",
+      "en": "Students in their own words, with their name and city. Choose an illness to see."
     },
     "all": {
       "hi": "सभी",
@@ -619,8 +619,8 @@
       "en": "A [60] second video"
     },
     "empty": {
-      "hi": "इस बीमारी की कहानियाँ जल्द ही।",
-      "en": "Stories for this condition, soon."
+      "hi": "इस बीमारी के नतीजे जल्द ही।",
+      "en": "Results for this illness, soon."
     },
     "months": {
       "hi": "{n} महीनों में",
@@ -631,8 +631,16 @@
       "en": "With Vandana since {y}"
     },
     "pending": {
-      "hi": "पहली कहानियाँ जल्द — हर एक विद्यार्थी की अनुमति से, उनके नाम और शहर के साथ।",
-      "en": "The first stories are coming — each one with the student's permission, with their name and city."
+      "hi": "पहले नतीजे जल्द — हर एक विद्यार्थी की अनुमति से, उनके नाम और शहर के साथ।",
+      "en": "The first results soon — each with the student's permission, name and city."
+    },
+    "timeLabel": {
+      "hi": "समय",
+      "en": "Time"
+    },
+    "alsoLabel": {
+      "hi": "और",
+      "en": "Also"
     }
   },
   "about": {
@@ -843,12 +851,12 @@
   },
   "contact": {
     "title": {
-      "hi": "वंदना जी से बात कीजिए",
-      "en": "Talk to Vandana"
+      "hi": "अपनी तकलीफ़ बताइए",
+      "en": "Tell her what is troubling you"
     },
     "lead": {
-      "hi": "अपनी बीमारी बताइए। पहली बात का कोई शुल्क नहीं।",
-      "en": "Tell her what is wrong. The first conversation costs nothing."
+      "hi": "कॉल पर अपनी तकलीफ़ बताइए। पहली कॉल मुफ़्त।",
+      "en": "Tell her what is troubling you, on a call. The first call is free."
     },
     "formTitle": {
       "hi": "या यहाँ लिखिए",
@@ -1101,16 +1109,16 @@
   },
   "get": {
     "t1": {
-      "hi": "वंदना जी से बात",
-      "en": "A consultation with Vandana"
+      "hi": "वंदना जी से कॉल",
+      "en": "A call with Vandana"
     },
     "t1sub": {
       "hi": "आपकी बीमारी, आपकी रिपोर्ट, आपकी दवा — सब सुनकर।",
       "en": "Your disease, your reports, your medicine — all of it heard."
     },
     "t2": {
-      "hi": "आपकी अपनी पर्ची",
-      "en": "Your own slip"
+      "hi": "आपका अपना हल, पर्ची पर",
+      "en": "Your own remedy, on a slip"
     },
     "t2sub": {
       "hi": "क्या खाना है, क्या सावधानी, रोज़ की दिनचर्या, कौन से प्राणायाम और आसन, और किस समय।",
@@ -1145,12 +1153,12 @@
       "en": "What you will get"
     },
     "lead": {
-      "hi": "तीन क़दम। हर क़दम पर क्या मिलता है और क्या लगता है — साफ़-साफ़।",
-      "en": "Three steps. What you get at each, and what it costs, said plainly."
+      "hi": "तीन क़दम। हर क़दम पर क्या मिलता है और क्या लगता है।",
+      "en": "Three steps. What you get at each, and what it costs."
     },
     "s1title": {
-      "hi": "पहली बात",
-      "en": "The first conversation"
+      "hi": "पहली कॉल",
+      "en": "The first call"
     },
     "s1price": {
       "hi": "मुफ़्त",
@@ -1161,8 +1169,8 @@
       "en": "Write on WhatsApp — a reply within [a day]."
     },
     "s1b": {
-      "hi": "अपनी तकलीफ़ बताइए। योग से इसमें क्या हो सकता है, वंदना जी बताएँगी।",
-      "en": "Tell her what is wrong. She tells you what yoga can do about it."
+      "hi": "अपनी तकलीफ़ बताइए। योग और प्राणायाम से क्या हल है, वंदना जी बताएँगी।",
+      "en": "Tell her what is troubling you. Vandana will tell you the remedy through yoga and pranayama."
     },
     "s2title": {
       "hi": "परामर्श और आपकी पर्ची",
@@ -1173,8 +1181,8 @@
       "en": "Your reports, your medicine, your whole condition — all of it looked at."
     },
     "s2b": {
-      "hi": "आपकी अपनी पर्ची: खान-पान, सावधानी, दिनचर्या, प्राणायाम, आसन, और समय।",
-      "en": "Your own slip: food, precautions, daily routine, pranayama, asanas, and timing."
+      "hi": "आपका अपना हल: खान-पान, सावधानी, दिनचर्या, प्राणायाम, आसन, और समय।",
+      "en": "Your own remedy: food, precautions, routine, pranayama, asana, and timing."
     },
     "s2c": {
       "hi": "व्हाट्सऐप पर आपके पास भेज दी जाती है।",
@@ -1205,8 +1213,8 @@
       "en": "Nothing else is charged."
     },
     "line": {
-      "hi": "पहली बात मुफ़्त · परामर्श और पर्ची ₹{p} · बैच ₹{f} {u}",
-      "en": "First conversation free · Consultation and slip ₹{p} · Batch ₹{f} {u}"
+      "hi": "पहली कॉल मुफ़्त · परामर्श और पर्ची ₹{p} · बैच ₹{f} {u}",
+      "en": "First call free · consultation and slip ₹{p} · batch ₹{f} {u}"
     }
   },
   "pending": {

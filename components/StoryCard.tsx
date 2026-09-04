@@ -1,16 +1,35 @@
 import { ailmentBySlug, isTodo, type Story, t, ui } from "@/lib/content";
 import type { Lang } from "@/lib/routes";
-import { LongArrowIcon, PlayIcon } from "./Icons";
+import { PlayIcon } from "./Icons";
 import { Photo } from "./Photo";
 import { Tx } from "./Tx";
 
-/* A student's result, led by their photograph.
+/* A student's result, led by their photograph and read as a record.
 
-   The photograph is the first thing on the card and the largest, because a
-   face is what makes a claim believable to this audience — a number on its own
-   is a number. It used to be a 60 px circle with an icon in it and no label,
-   which is not a design for a photograph, it is somewhere a photograph was
-   forgotten. The frame now says whose picture belongs there. */
+   The photograph is first and largest, because a face is what makes a claim
+   believable to this audience — a number on its own is a number.
+
+   Under it the facts are LABELLED ROWS, not a run of sentences. The card used
+   to print "HbA1c पहले" over "8.2 → 6.5" and then a bolded fragment, so a
+   reader met every number before being told what it meant, and three different
+   bold things competed for the eye. Now every line is the same shape — the
+   word on the left says what the value on the right is — and only one line,
+   "अब", carries the payoff. A result with a measurement and a result told in
+   plain words take the same shape, so the column reads as one thing. */
+
+function Row({ label, value, strong = false }: { label: string; value: string; strong?: boolean }) {
+  if (!value) return null;
+  return (
+    <>
+      <dt className="cap" style={{ color: "var(--color-muted)" }}>
+        {label}
+      </dt>
+      <dd className={strong ? "h3" : "body"}>
+        <Tx>{value}</Tx>
+      </dd>
+    </>
+  );
+}
 
 export function ResultCard({
   story,
@@ -29,8 +48,18 @@ export function ResultCard({
   const after = t(story.after, lang).trim();
   const change = t(story.change, lang).trim();
   const months = story.months.trim();
-  const hasResult = before !== "" && after !== "";
-  const age = lang === "hi" ? `${story.age} साल` : story.age;
+  /* the unit goes INSIDE the blank while the age is still missing, or the card
+     reads "उम्र साल" — a muted word followed by a bold one, which looks like a
+     broken sentence rather than a fact not filled in yet */
+  const age = isTodo(story.age)
+    ? story.age.replace(/\]$/, lang === "hi" ? " साल]" : " years]")
+    : lang === "hi"
+      ? `${story.age} साल`
+      : story.age;
+
+  /* a measurement names itself on the value, so the label column stays the
+     same four words on every card in the row */
+  const withMetric = (v: string) => (v && metric ? `${metric} ${v}` : v);
 
   return (
     <article className="card flex h-full flex-col gap-3 p-0">
@@ -55,47 +84,16 @@ export function ResultCard({
           </p>
         </div>
 
-        {/* the result, in the report's own terms */}
-        {hasResult && metric ? (
-          <div className="flex flex-col gap-1">
-            <p className="label normal-case">{`${metric} ${ui("stories.before", lang)}`}</p>
-            <p className="num page-title flex flex-wrap items-baseline gap-2.5">
-              <span style={{ color: "var(--color-muted)" }}>
-                <Tx>{before}</Tx>
-              </span>
-              <LongArrowIcon size={26} style={{ color: "var(--color-deep)" }} />
-              <span style={{ color: "var(--color-kohl)" }}>
-                <Tx>{after}</Tx>
-              </span>
-            </p>
-            {change || months ? (
-              <p className="body font-bold">
-                <Tx>
-                  {[change, months ? ui("stories.months", lang).replace("{n}", months) : ""]
-                    .filter(Boolean)
-                    .join(", ")}
-                </Tx>
-              </p>
-            ) : null}
-          </div>
-        ) : hasResult ? (
-          <div className="flex flex-col gap-1.5">
-            <p className="body">
-              <span className="label normal-case">{ui("stories.before", lang)}</span>{" "}
-              <span style={{ color: "var(--color-muted)" }}>
-                <Tx>{before}</Tx>
-              </span>
-            </p>
-            <p className="h3">
-              <span className="label normal-case">{ui("stories.after", lang)}</span>{" "}
-              <Tx>{after}</Tx>
-            </p>
-            {months ? (
-              <p className="body font-bold">
-                <Tx>{ui("stories.months", lang).replace("{n}", months)}</Tx>
-              </p>
-            ) : null}
-          </div>
+        {before || after || months || change ? (
+          <dl className="rec grid grid-cols-[auto_1fr] items-baseline gap-y-2">
+            <Row label={ui("stories.before", lang)} value={withMetric(before)} />
+            <Row label={ui("stories.after", lang)} value={withMetric(after)} strong />
+            <Row
+              label={ui("stories.timeLabel", lang)}
+              value={months ? ui("stories.months", lang).replace("{n}", months) : ""}
+            />
+            <Row label={ui("stories.alsoLabel", lang)} value={change} />
+          </dl>
         ) : null}
 
         <blockquote className="body" style={{ color: "var(--color-heroink)" }}>

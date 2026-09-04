@@ -15,7 +15,7 @@ Last run: 2026-09-04 · 38 pages.
 | 6c | The consultation's price is named wherever the consultation is | pass | ₹200 on home, every condition page, and every page that names it |
 | 6d | A page rests on at most three grounds: the page, one accent, and the ask | pass | 38 pages checked |
 | 6e | One design system: at most three radii, no shadows, no hatching | pass | radii 999px 50% 12px, no shadows, no hatching |
-| 7 | The claim appears word for word on home and on every condition page | pass | 2 home pages, 16 condition pages |
+| 7 | The claim appears word for word on its page, and still promises a remedy through yoga | pass | 2 home pages, 16 condition pages, 9 claims |
 | 8 | Every image has alt text; every placeholder block is labelled for a screen reader | pass | 169 labelled blocks; 0 images without alt |
 | 9 | The page that carries her record shows when it was last updated | pass | 2 pages |
 | 10 | The menu uses the same plain words on every page, in both languages | pass | 38 pages |

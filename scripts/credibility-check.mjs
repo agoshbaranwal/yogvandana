@@ -51,6 +51,18 @@ const text = (html) =>
 const results = [];
 const add = (n, title, status, detail) => results.push({ n, title, status, detail });
 
+/* An apostrophe comes out of the build as an entity, and a fact still to be
+   filled in is written "[like this]" in the content but rendered without its
+   brackets — so a rule that compares content against the built page compares
+   the words alone. One definition, shared: rules 6 and 7 both need it. */
+const norm = (s) =>
+  s
+    .replace(/&#x27;|&#39;|&rsquo;|’/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&amp;/g, "&")
+    .replace(/[[\]]/g, "")
+    .replace(/\s+/g, " ");
+
 /* 1 — no superlative without a source ------------------------------------ */
 const BANNED = [
   "विश्व प्रसिद्ध",
@@ -122,16 +134,6 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
     fs.readdirSync(path.join(ROOT, "content", "ailments")).filter((f) => f.endsWith(".json"))
       .map((f) => { const a = JSON.parse(fs.readFileSync(path.join(ROOT, "content", "ailments", f), "utf8")); return [a.slug, a]; }),
   );
-  /* An apostrophe comes out of the build as an entity, and a fact still to be
-     filled in is written "[like this]" in the content but rendered as a chip
-     without its brackets — so both sides are compared on the words alone. */
-  const norm = (s) =>
-    s
-      .replace(/&#x27;|&#39;|&rsquo;|’/g, "'")
-      .replace(/&quot;/g, '"')
-      .replace(/&amp;/g, "&")
-      .replace(/[[\]]/g, "")
-      .replace(/\s+/g, " ");
   const should = pages.filter((f) => /^\/(rog|en\/conditions)\/[^/]+\/$/.test(rel(f)) || rel(f) === "/" || rel(f) === "/en/");
   const missing = should.filter((f) => {
     const body = norm(text(read(f)));
@@ -263,19 +265,61 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
 }
 
 /* 7 — the claim, word for word -------------------------------------------- */
+/* The site has one headline claim and it must appear intact wherever it is
+   made — home and every condition page — so it cannot be quietly softened on
+   one page and left standing on another. The wording is READ FROM
+   content/site.json, not copied here: a rule that carries its own copy of the
+   text fails the day the text legitimately changes, which teaches whoever hit
+   it to edit the rule instead of the page.
+
+   But reading the wording from content is not enough on its own: it makes both
+   sides of the comparison move together, so a claim softened to "yoga can help
+   a bit" would sail through. The claim is the reason the site exists. So the
+   second half of this rule pins what a claim must SAY — that yoga offers a
+   remedy — without pinning the sentence it says it in. */
 {
-  const HI = "योग से हर बीमारी ठीक हो सकती है।";
-  const EN = "Yoga can cure any disease.";
+  const claim = JSON.parse(fs.readFileSync(path.join(ROOT, "content", "site.json"), "utf8")).claim;
+  const byslug = Object.fromEntries(
+    fs
+      .readdirSync(path.join(ROOT, "content", "ailments"))
+      .filter((f) => f.endsWith(".json"))
+      .map((f) => {
+        const a = JSON.parse(fs.readFileSync(path.join(ROOT, "content", "ailments", f), "utf8"));
+        return [a.slug, a];
+      }),
+  );
   const homes = pages.filter((f) => rel(f) === "/" || rel(f) === "/en/");
-  const missing = homes.filter((f) => !text(read(f)).includes(isHindi(f) ? HI : EN));
   const ailmentPages = pages.filter((f) => /^\/(rog|en\/conditions)\/[^/]+\/$/.test(rel(f)));
-  const noClaimLine = ailmentPages.filter((f) => {
-    const body = text(read(f));
-    return isHindi(f) ? !/योग से .* ठीक हो सकत/.test(body) : !/Yoga can cure/.test(body);
-  });
-  const bad = [...missing, ...noClaimLine];
-  add(7, "The claim appears word for word on home and on every condition page", bad.length === 0 ? "pass" : "fail", bad.map(rel).join("; ") || `${homes.length} home pages, ${ailmentPages.length} condition pages`);
+  const wanted = (f) => {
+    const m = rel(f).match(/^\/(?:rog|en\/conditions)\/([^/]+)\/$/);
+    const want = m ? byslug[m[1]].claimLine : claim;
+    return norm(isHindi(f) ? want.hi : want.en);
+  };
+  const bad = [...homes, ...ailmentPages].filter((f) => !norm(text(read(f))).includes(wanted(f)));
+
+  /* every claim on the site, home and per condition, must promise a remedy
+     through yoga — in either language */
+  const MUST = { hi: [/योग/, /हल|ठीक/], en: [/yoga/i, /remedy|cure/i] };
+  const claims = [
+    ["site.claim", claim],
+    ...Object.entries(byslug).map(([slug, a]) => [`${slug}.claimLine`, a.claimLine]),
+  ];
+  const weak = claims.filter(([, c]) =>
+    MUST.hi.some((re) => !re.test(c.hi)) || MUST.en.some((re) => !re.test(c.en)),
+  );
+
+  add(
+    7,
+    "The claim appears word for word on its page, and still promises a remedy through yoga",
+    bad.length === 0 && weak.length === 0 ? "pass" : "fail",
+    [
+      ...bad.map((f) => `${rel(f)} does not carry its claim`),
+      ...weak.map(([k]) => `${k} no longer promises a remedy through yoga`),
+    ].join("; ") ||
+      `${homes.length} home pages, ${ailmentPages.length} condition pages, ${claims.length} claims`,
+  );
 }
+
 
 /* 8 — every image has alt text -------------------------------------------- */
 {

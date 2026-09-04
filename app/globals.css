@@ -1048,6 +1048,19 @@
   }
 
 
+  /* a record: label on the left, value on the right, one shape a line ------ */
+  /* No rules between the rows. They were tried and removed: four hairlines a
+     card times six cards is a page of lines, on a site whose repeated fault
+     has been looking crowded, and the labels already tell a reader where one
+     fact ends and the next begins. Spacing does it with nothing drawn. */
+  .rec > dt {
+    white-space: nowrap;
+    align-self: baseline;
+  }
+  .rec > dd {
+    padding-left: 18px;
+  }
+
   /* horizontal strips ----------------------------------------------------- */
   .strip {
     display: flex;
