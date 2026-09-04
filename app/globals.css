@@ -101,24 +101,29 @@
    number in the CSS would stop describing the page. scripts/type-check.mjs
    fails on any other value. ----------------------------------------------- */
 
-/* ---------------------- the Devanagari fallback ------------------------- */
-/* Until Anek arrives the phone draws its own Devanagari. Sized to Anek so the
-   text keeps its line breaks when the real font swaps in and the page does not
-   jump. The last rule whose local font exists wins, so Android's sits last. */
+/* ---------------------- the Devanagari fallback -------------------------- */
+/* The page must be readable before 177 KB of Devanagari has arrived, and it
+   must not jump when it does. Each of these draws the same line at a different
+   width, so each gets its own correction, measured rather than guessed: one
+   line of the site's own Hindi set at 100px in Anek and in each fallback, the
+   ratio taken from the rendered widths. Anek 2173px; Sangam 2094, Kohinoor
+   2150, Noto 2021. Noto is the one that matters — it is what an Android has.
+
+   The last rule whose local font exists wins, so Android's sits last. */
 @font-face {
   font-family: "Anek Fallback";
   src: local("Devanagari Sangam MN");
-  size-adjust: 106%;
+  size-adjust: 103.8%;
 }
 @font-face {
   font-family: "Anek Fallback";
   src: local("Kohinoor Devanagari");
-  size-adjust: 101%;
+  size-adjust: 101.1%;
 }
 @font-face {
   font-family: "Anek Fallback";
   src: local("Noto Sans Devanagari");
-  size-adjust: 109%;
+  size-adjust: 107.5%;
 }
 
 /* ------------------------------- base ----------------------------------- */
