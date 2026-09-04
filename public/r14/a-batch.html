@@ -1,0 +1,182 @@
+<!doctype html><html lang="hi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>बैच — मॉकअप A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F7F9F8;color:#0F1B17;font-family:'Anek Devanagari',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+.blk{padding:32px 0}
+.live{display:inline-flex;align-items:center;gap:7px;background:#0F1B17;color:#fff;border-radius:999px;padding:7px 14px;font-weight:700;font-size:14px}
+.blip{width:8px;height:8px;border-radius:50%;background:#3CD070;box-shadow:0 0 0 0 rgba(60,208,112,.7);animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(60,208,112,0)}100%{box-shadow:0 0 0 0 rgba(60,208,112,0)}}
+.top{position:sticky;top:0;z-index:9;background:rgba(247,249,248,.94);backdrop-filter:blur(8px);border-bottom:1px solid #E1E8E5}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:11px;padding-bottom:11px}
+.mark{font-weight:800;font-size:21px;letter-spacing:-.02em}
+.mark i{font-style:normal;color:#E8730D}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:54px;padding:0 24px;border-radius:14px;font-weight:700;font-size:17px}
+.cta-g{background:#25D366;color:#fff;box-shadow:0 8px 22px rgba(37,211,102,.32)}
+.cta-d{background:#0F1B17;color:#fff}
+.cta-o{background:#fff;color:#0F1B17;border:1.5px solid #D5DEDA}
+.cta-sm{min-height:44px;padding:0 16px;font-size:15px;border-radius:11px}
+.hero{background:linear-gradient(180deg,#E9F6EF 0%,#F7F9F8 100%);padding:26px 0 34px}
+.h1{font-size:36px;line-height:1.08;font-weight:800;letter-spacing:-.03em;margin:14px 0 10px}
+.h1 i{font-style:normal;color:#0B7A46}
+.sub{font-size:17px;line-height:1.5;color:#3B4A44;margin:0 0 20px}
+.gridshot{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;border-radius:16px;overflow:hidden;box-shadow:0 18px 44px rgba(15,27,23,.14)}
+.gridshot div{aspect-ratio:4/3;background:linear-gradient(150deg,#DCE9E3,#C9DCD3);display:flex;align-items:center;justify-content:center;font-size:10.5px;color:#6C7F78;text-align:center;padding:4px}
+.countdown{display:flex;gap:8px;margin:18px 0 6px}
+.countdown div{flex:1;background:#fff;border-radius:12px;padding:11px 4px;text-align:center;box-shadow:0 2px 10px rgba(15,27,23,.07)}
+.countdown b{display:block;font-size:26px;font-weight:800;letter-spacing:-.02em}
+.countdown span{font-size:12.5px;color:#6C7F78}
+.day{background:#0F1B17;color:#fff;border-radius:20px;padding:22px 20px}
+.day h2{color:#fff}
+.tl{list-style:none;margin:18px 0 0;padding:0}
+.tl li{display:flex;gap:14px;padding:11px 0;border-top:1px solid rgba(255,255,255,.14)}
+.tl b{flex:none;width:64px;font-size:19px;font-weight:800;color:#7BE3AB}
+.tl span{font-size:16px;color:#D8E3DE;line-height:1.45}
+h2{font-size:29px;line-height:1.14;font-weight:800;letter-spacing:-.025em;margin:0 0 8px}
+.kick{font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#0B7A46;margin:0 0 9px}
+.lead{font-size:17px;line-height:1.55;color:#3B4A44;margin:0 0 20px}
+.wall{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.wall figure{margin:0;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 2px 12px rgba(15,27,23,.08)}
+.wall .th{position:relative;aspect-ratio:9/13;background:linear-gradient(160deg,#E4EDE9,#CFDDD7);display:flex;align-items:center;justify-content:center;font-size:11px;color:#6C7F78}
+.wall .pl{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;color:#0B7A46;box-shadow:0 6px 18px rgba(15,27,23,.2)}
+.wall figcaption{padding:9px 11px 12px;font-size:13.5px;color:#3B4A44}
+.wall figcaption b{display:block;font-size:15px;color:#0F1B17}
+.streak{background:#fff;border-radius:18px;padding:18px;box-shadow:0 2px 14px rgba(15,27,23,.08)}
+.dots{display:flex;gap:5px;margin-top:12px;flex-wrap:wrap}
+.dots i{width:26px;height:26px;border-radius:8px;background:#25D366;display:inline-block}
+.dots i.off{background:#E4EDE9}
+.batch{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 2px 16px rgba(15,27,23,.09)}
+.batch .r{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;border-top:1px solid #EDF2F0}
+.batch .r:first-child{border-top:0}
+.seat{font-size:13px;font-weight:700;color:#B24A00;background:#FFF0E0;border-radius:999px;padding:4px 10px}
+.faq{background:#fff;border-radius:14px;padding:15px 17px;margin-top:10px;box-shadow:0 2px 10px rgba(15,27,23,.06)}
+.faq p{margin:0}
+.faq .q{font-weight:700;font-size:17px;margin-bottom:4px}
+.faq .a{font-size:16px;color:#3B4A44;line-height:1.5}
+.end{background:linear-gradient(150deg,#0B7A46,#075C35);color:#fff;padding:36px 0 40px}
+.end h2{color:#fff}
+.bar{position:sticky;bottom:0;background:#fff;border-top:1px solid #E1E8E5;box-shadow:0 -6px 20px rgba(15,27,23,.1);padding:9px 14px;display:flex;gap:11px;align-items:center}
+@media(min-width:900px){
+ .h1{font-size:56px}.h2big{font-size:40px}h2{font-size:38px}
+ .blk{padding:56px 0}.wrap{padding:0 40px}
+ .split{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+ .wall{grid-template-columns:repeat(4,1fr);gap:16px}
+ .bar{display:none}
+}
+</style></head><body>
+
+<div class="top"><div class="wrap">
+  <span class="mark"><i>योग</i> वंदना</span>
+  <a class="cta cta-d cta-sm" href="#">कल की क्लास में जुड़िए</a>
+</div></div>
+
+<div class="hero"><div class="wrap split">
+  <div>
+    <span class="live"><span class="blip"></span> अभी 47 लोग क्लास में हैं</span>
+    <h1 class="h1">कल सुबह <i>6:30</i> से<br>नया बैच शुरू।</h1>
+    <p class="sub">रोज़ 50 मिनट, ज़ूम पर, वंदना जी आपको देखती हुईं। घर पर बस एक चटाई चाहिए।</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a class="cta cta-g" href="#">व्हाट्सऐप पर जुड़िए</a>
+      <a class="cta cta-o" href="#">पहले एक क्लास देखिए</a>
+    </div>
+    <div class="countdown">
+      <div><b>02</b><span>दिन</span></div><div><b>14</b><span>घंटे</span></div>
+      <div><b>36</b><span>मिनट</span></div><div><b>9</b><span>जगह बची</span></div>
+    </div>
+    <p style="font-size:14.5px;color:#6C7F78;margin:8px 0 0">पहली क्लास देखने का कोई शुल्क नहीं।</p>
+  </div>
+  <div style="margin-top:24px">
+    <div class="gridshot">
+      <div>विद्यार्थी</div><div>वंदना जी</div><div>विद्यार्थी</div>
+      <div>विद्यार्थी</div><div>विद्यार्थी</div><div>विद्यार्थी</div>
+      <div>विद्यार्थी</div><div>विद्यार्थी</div><div>विद्यार्थी</div>
+    </div>
+    <p style="font-size:13.5px;color:#6C7F78;text-align:center;margin:9px 0 0">कल की क्लास — [12] लोगों का ग्रुप</p>
+  </div>
+</div></div>
+
+<div class="blk"><div class="wrap">
+  <div class="day">
+    <p class="kick" style="color:#7BE3AB">क्लास में क्या होता है</p>
+    <h2 class="h2big">रोज़ के 50 मिनट</h2>
+    <ul class="tl">
+      <li><b>10 मि.</b><span>सूक्ष्म व्यायाम और साँस — शरीर खुलता है, कोई ज़ोर नहीं।</span></li>
+      <li><b>25 मि.</b><span>आपकी बीमारी के हिसाब से क्रम। जो न हो सके, उसका आसान रूप।</span></li>
+      <li><b>10 मि.</b><span>प्राणायाम। यहीं से नींद और तनाव पर असर शुरू होता है।</span></li>
+      <li><b>05 मि.</b><span>शांत लेटना, और उस दिन का एक सवाल।</span></li>
+    </ul>
+  </div>
+</div></div>
+
+<div class="blk"><div class="wrap">
+  <p class="kick">छूटने मत दीजिए</p>
+  <h2>रोज़ याद दिलाई जाती है</h2>
+  <p class="lead">क्लास से पंद्रह मिनट पहले व्हाट्सऐप पर लिंक आ जाता है। छूट जाए तो उस दिन दूसरे बैच में जुड़ जाइए।</p>
+  <div class="streak">
+    <p style="margin:0;font-weight:700;font-size:17px">सुनीता जी — लगातार 46 दिन</p>
+    <p style="margin:3px 0 0;font-size:15px;color:#6C7F78">पिछले 30 दिनों में 28 क्लास</p>
+    <div class="dots">
+      <i></i><i></i><i></i><i></i><i></i><i></i><i class="off"></i><i></i><i></i><i></i>
+      <i></i><i></i><i></i><i></i><i></i><i class="off"></i><i></i><i></i><i></i><i></i>
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
+  </div>
+</div></div>
+
+<div class="blk"><div class="wrap">
+  <p class="kick">ग्रुप के लोग</p>
+  <h2>जो रोज़ आते हैं</h2>
+  <p class="lead">हर वीडियो उनकी अनुमति से।</p>
+  <div class="wall">
+    <figure><div class="th">विद्यार्थी का वीडियो<div class="pl">▶</div></div><figcaption><b>सुनीता वर्मा, 52</b>लखनऊ · 46 दिन</figcaption></figure>
+    <figure><div class="th">विद्यार्थी का वीडियो<div class="pl">▶</div></div><figcaption><b>रामकिशोर सिंह, 61</b>कानपुर · 120 दिन</figcaption></figure>
+    <figure><div class="th">विद्यार्थी का वीडियो<div class="pl">▶</div></div><figcaption><b>अनीता गुप्ता, 38</b>प्रयागराज · 90 दिन</figcaption></figure>
+    <figure><div class="th">विद्यार्थी का वीडियो<div class="pl">▶</div></div><figcaption><b>मोहन लाल, 74</b>बाराबंकी · 200 दिन</figcaption></figure>
+  </div>
+</div></div>
+
+<div class="blk"><div class="wrap">
+  <p class="kick">कौन सा बैच</p>
+  <h2>सुबह या शाम</h2>
+  <div class="batch" style="margin-top:16px">
+    <div class="r"><div><p style="margin:0;font-weight:700;font-size:19px">सुबह 6:30</p>
+      <p style="margin:2px 0 0;font-size:15px;color:#6C7F78">सोम–शनि · 50 मिनट · खाली पेट</p></div>
+      <div style="text-align:right"><p style="margin:0;font-weight:800;font-size:23px">₹1,000</p><span class="seat">9 जगह बची</span></div></div>
+    <div class="r"><div><p style="margin:0;font-weight:700;font-size:19px">शाम 6:00</p>
+      <p style="margin:2px 0 0;font-size:15px;color:#6C7F78">सोम–शनि · 50 मिनट · काम के बाद</p></div>
+      <div style="text-align:right"><p style="margin:0;font-weight:800;font-size:23px">₹1,000</p><span class="seat">4 जगह बची</span></div></div>
+    <div class="r" style="background:#E9F6EF"><span style="font-weight:700;font-size:15.5px;color:#0B7A46">🎁 एक घर के दो लोग तो [छूट]</span>
+      <a class="cta cta-d cta-sm" href="#">जगह पक्की कीजिए</a></div>
+  </div>
+  <p style="font-size:15px;color:#6C7F78;margin:12px 0 0">यानी रोज़ ₹35 से कम। जुड़ने से पहले एक क्लास देख लीजिए।</p>
+</div></div>
+
+<div class="blk"><div class="wrap">
+  <p class="kick">जुड़ने से पहले</p>
+  <h2>लोग क्या पूछते हैं</h2>
+  <div class="faq"><p class="q">मुझे योग आता ही नहीं।</p><p class="a">पहले दिन से सिखाया जाता है। जो न हो सके, उसका आसान रूप मिलता है।</p></div>
+  <div class="faq"><p class="q">कैमरा चालू रखना ज़रूरी है?</p><p class="a">हाँ — वंदना जी देखकर ही ठीक कराती हैं। ग्रुप छोटा होता है।</p></div>
+  <div class="faq"><p class="q">एक क्लास छूट जाए तो?</p><p class="a">उस दिन दूसरे बैच में जुड़ जाइए। बताना भी नहीं पड़ता।</p></div>
+  <div class="faq"><p class="q">उम्र 70 से ऊपर है।</p><p class="a">बैठकर करने वाले क्रम भी हैं। सबसे पुराने विद्यार्थी 74 के हैं।</p></div>
+</div></div>
+
+<div class="end"><div class="wrap">
+  <span class="live" style="background:#fff;color:#0F1B17"><span class="blip"></span> अगला बैच [तारीख़] से</span>
+  <h2 style="margin-top:14px">कल सुबह मिलते हैं।</h2>
+  <p style="font-size:17.5px;line-height:1.5;color:#D5EFE1;max-width:44ch;margin:0 0 20px">
+    एक क्लास देखिए, फिर तय कीजिए। देखने का कोई शुल्क नहीं।</p>
+  <div style="display:flex;gap:11px;flex-wrap:wrap">
+    <a class="cta cta-g" href="#">व्हाट्सऐप पर जुड़िए</a>
+    <a class="cta" style="background:#fff;color:#0B7A46" href="#">कॉल कीजिए</a></div>
+</div></div>
+
+<div class="bar">
+  <div style="flex:1"><p style="margin:0;font-weight:700;font-size:15px">कल 6:30 · 9 जगह बची</p>
+  <p style="margin:1px 0 0;font-size:13px;color:#6C7F78">पहली क्लास देखना मुफ़्त</p></div>
+  <a class="cta cta-g cta-sm" href="#">जुड़िए</a>
+</div>
+</body></html>

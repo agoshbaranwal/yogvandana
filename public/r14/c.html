@@ -1,0 +1,163 @@
+<!doctype html><html lang="hi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>योग वंदना कार्यक्रम</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0C0C0D;--dim:#6E6E73;--line:#E4E4E7;--acc:#B4531A;--soft:#FAFAFA;--tint:#FBF3EC}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--ink);font-family:'Anek Devanagari',sans-serif;font-size:16px}
+a{color:inherit;text-decoration:none}
+.w{max-width:900px;margin:0 auto;padding:0 20px}
+nav{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);z-index:9}
+nav .w{display:flex;justify-content:space-between;align-items:center;padding-top:13px;padding-bottom:13px;max-width:1120px}
+.logo{font:700 18px 'Anek Devanagari';letter-spacing:.02em}
+.enrol{border:1.5px solid var(--ink);border-radius:4px;padding:9px 17px;font:600 14.5px 'Anek Devanagari'}
+.hero{border-bottom:1px solid var(--line);padding:44px 0 40px;text-align:center}
+.hero .name{font:600 12.5px 'Anek Devanagari';letter-spacing:.28em;text-transform:uppercase;color:var(--acc)}
+.hero h1{font:600 32px/1.22 'Anek Devanagari';margin:14px 0 12px;letter-spacing:-.01em}
+.hero .count{font:400 16px 'Anek Devanagari';color:var(--dim)}
+.hero .count b{color:var(--ink);font-weight:700}
+section{padding:38px 0;border-bottom:1px solid var(--line)}
+h2{font:600 23px/1.3 'Anek Devanagari';margin:0 0 14px}
+p{font:400 16.5px/1.72 'Anek Devanagari';margin:0 0 14px;color:#2A2A2E}
+.bul{list-style:none;margin:0;padding:0}
+.bul li{padding:11px 0 11px 27px;position:relative;border-top:1px solid var(--line);font:400 16.5px/1.55 'Anek Devanagari'}
+.bul li:first-child{border-top:0}
+.bul li:before{content:"";position:absolute;left:2px;top:19px;width:7px;height:7px;border-radius:50%;background:var(--acc)}
+.steps{counter-reset:s;margin:0;padding:0;list-style:none}
+.steps li{counter-increment:s;border:1px solid var(--line);border-radius:8px;padding:17px 18px 17px 56px;position:relative;margin-bottom:10px}
+.steps li:before{content:counter(s);position:absolute;left:17px;top:17px;width:26px;height:26px;border-radius:50%;
+  background:var(--ink);color:#fff;font:700 14px 'Anek Devanagari';display:flex;align-items:center;justify-content:center}
+.steps b{display:block;font:700 18px 'Anek Devanagari';margin-bottom:3px}
+.steps span{font:400 15.5px/1.6 'Anek Devanagari';color:var(--dim)}
+.steps .t{display:inline-block;margin-top:8px;font:600 13.5px 'Anek Devanagari';background:var(--tint);color:var(--acc);border-radius:999px;padding:4px 11px}
+.spec{display:grid;gap:0;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.spec div{display:flex;justify-content:space-between;gap:14px;padding:13px 16px;border-top:1px solid var(--line);font:400 16px 'Anek Devanagari'}
+.spec div:first-child{border-top:0}
+.spec b{font-weight:700}
+.res{display:grid;gap:12px}
+.res div{background:var(--soft);border-radius:8px;padding:15px 16px}
+.res b{display:block;font:700 27px/1 'Anek Devanagari';color:var(--acc)}
+.res span{font:400 15px 'Anek Devanagari';color:var(--dim)}
+.voice{border-left:2px solid var(--acc);padding:2px 0 2px 18px;margin-bottom:20px}
+.voice p{font:400 17px/1.7 'Anek Devanagari';margin:0 0 7px}
+.voice cite{font:600 14.5px 'Anek Devanagari';color:var(--dim);font-style:normal}
+.fee{border:1.5px solid var(--ink);border-radius:10px;padding:22px 20px}
+.fee .row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:11px 0;border-top:1px solid var(--line)}
+.fee .row:first-of-type{border-top:0}
+.fee .amt{font:700 26px 'Anek Devanagari'}
+.fee .free{color:var(--acc)}
+.btn{display:block;text-align:center;background:var(--ink);color:#fff;border-radius:6px;padding:17px;font:700 17px 'Anek Devanagari';margin-top:18px}
+.ph{background:#F1F1F3;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#A1A1A6;font:500 12px system-ui;text-align:center;padding:6px}
+footer{padding:26px 0;color:var(--dim);font:400 14.5px/1.7 'Anek Devanagari';text-align:center}
+@media(min-width:820px){
+ .hero{padding:74px 0 62px}.hero h1{font-size:48px;max-width:20ch;margin-inline:auto}
+ section{padding:64px 0}h2{font-size:30px}
+ .res{grid-template-columns:repeat(4,1fr)}
+ .two{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+}
+</style></head><body>
+
+<nav><div class="w"><span class="logo">योग वंदना</span><a class="enrol" href="#">नाम लिखवाइए</a></div></nav>
+
+<div class="hero"><div class="w">
+  <span class="name">योग वंदना कार्यक्रम</span>
+  <h1>अपनी बीमारी के लिए बना हुआ रोज़ का अभ्यास</h1>
+  <p class="count"><b>900+</b> लोग यह कार्यक्रम कर चुके हैं</p>
+</div></div>
+
+<section><div class="w">
+  <h2>यह कार्यक्रम क्या है</h2>
+  <p>यह सामान्य योग क्लास नहीं है। पहले आपकी बीमारी, आपकी रिपोर्ट और आपकी दवा देखी जाती है, फिर आपके लिए
+  एक क्रम लिखा जाता है — और उसी क्रम का अभ्यास आप रोज़, वंदना जी के सामने, अपने घर से करते हैं।</p>
+  <p>नियमित अभ्यास से जो बदलाव विद्यार्थी सबसे पहले बताते हैं:</p>
+  <ul class="bul">
+    <li>रिपोर्ट के आँकड़े सुधरते हैं — और दवा डॉक्टर की सलाह से घटती है</li>
+    <li>कमर, घुटने और जोड़ों की जकड़न कम होती है</li>
+    <li>नींद समय पर आती है, दिनभर की थकान घटती है</li>
+    <li>पेट और वज़न पर असर दिखता है</li>
+    <li>अभ्यास की आदत बनती है, छूटती नहीं</li>
+  </ul>
+</div></section>
+
+<section><div class="w">
+  <h2>कार्यक्रम की संरचना</h2>
+  <ol class="steps">
+    <li><b>पहली बात</b><span>आप अपनी तकलीफ़ बताते हैं। योग और प्राणायाम से उसमें क्या हो सकता है और क्या नहीं, वंदना जी साफ़ बताती हैं।</span><span class="t">लगभग 15 मिनट · कोई शुल्क नहीं</span></li>
+    <li><b>परामर्श और आपकी पर्ची</b><span>आपकी रिपोर्ट, दवा और पूरी हालत देखकर आपका अपना क्रम लिखा जाता है — खान-पान, सावधानी, दिनचर्या, प्राणायाम, आसन और समय। व्हाट्सऐप पर भेज दी जाती है।</span><span class="t">लगभग 30 मिनट · ₹200</span></li>
+    <li><b>रोज़ का अभ्यास</b><span>छोटे ग्रुप में लाइव क्लास, सुबह या शाम। हर 90 दिन पर आपकी नई रिपोर्ट के साथ पर्ची दोबारा देखी जाती है।</span><span class="t">रोज़ 50 मिनट · ₹1,000 प्रति माह</span></li>
+  </ol>
+</div></section>
+
+<section><div class="w">
+  <h2>कार्यक्रम के बाद भी साथ</h2>
+  <ul class="bul">
+    <li>व्हाट्सऐप ग्रुप में रोज़ की याद और सवालों के जवाब</li>
+    <li>हर 90 दिन पर रिपोर्ट देखकर पर्ची में बदलाव</li>
+    <li>क्लास छूट जाए तो उसी दिन दूसरे बैच में जगह</li>
+    <li>बैच के पुराने विद्यार्थियों के लिए अलग पन्ना — फ़ीस, छुट्टियाँ, क्लास का लिंक</li>
+  </ul>
+</div></section>
+
+<section><div class="w two">
+  <div>
+    <h2>किनके लिए है</h2>
+    <ul class="bul">
+      <li>किसी भी उम्र के लिए — सबसे पुराने विद्यार्थी 74 के हैं</li>
+      <li>शरीर लचीला होने की कोई ज़रूरत नहीं</li>
+      <li>पहले कभी योग न किया हो तो भी चलेगा</li>
+      <li>दवा चल रही हो तो भी — दवा बंद नहीं करनी पड़ती</li>
+    </ul>
+  </div>
+  <div>
+    <h2>शुरू करने के लिए क्या चाहिए</h2>
+    <div class="spec">
+      <div><span>जगह</span><b>लगभग 6 × 3 फ़ुट</b></div>
+      <div><span>सामान</span><b>एक चटाई</b></div>
+      <div><span>उपकरण</span><b>फ़ोन या लैपटॉप</b></div>
+      <div><span>ऐप</span><b>ज़ूम और व्हाट्सऐप</b></div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="w">
+  <h2>अब तक के नतीजे</h2>
+  <p style="color:var(--dim)">विद्यार्थियों की अपनी रिपोर्ट से, उनकी अनुमति के साथ।</p>
+  <div class="res">
+    <div><b>140</b><span>जिनकी दवा घटी</span></div>
+    <div><b>900+</b><span>विद्यार्थी</span></div>
+    <div><b>8</b><span>बीमारियाँ</span></div>
+    <div><b>12</b><span>साल</span></div>
+  </div>
+</div></section>
+
+<section><div class="w">
+  <h2>जिन्होंने किया</h2>
+  <div class="voice"><p>“सात महीने में HbA1c 8.2 से 6.5 पर आ गया और डॉक्टर ने दवा आधी कर दी।”</p>
+    <cite>सुनीता वर्मा, 52 · लखनऊ · शुगर</cite></div>
+  <div class="voice"><p>“चार महीने पहले एक मंज़िल चढ़ना मुश्किल था। अब रोज़ तीन मंज़िल चढ़ता हूँ।”</p>
+    <cite>रामकिशोर सिंह, 61 · कानपुर · कमर दर्द</cite></div>
+  <div class="voice"><p>“छह महीने में पीरियड समय पर आने लगे। रिपोर्ट भी अच्छी आई।”</p>
+    <cite>अनीता गुप्ता, 38 · प्रयागराज · महिलाओं की समस्याएँ</cite></div>
+  <div style="display:flex;gap:10px;margin-top:16px">
+    <div class="ph" style="flex:1;aspect-ratio:4/3">विद्यार्थी का वीडियो</div>
+    <div class="ph" style="flex:1;aspect-ratio:4/3">विद्यार्थी का वीडियो</div>
+    <div class="ph" style="flex:1;aspect-ratio:4/3">विद्यार्थी का वीडियो</div>
+  </div>
+</div></section>
+
+<section><div class="w">
+  <h2>शुल्क</h2>
+  <div class="fee">
+    <div class="row"><span>पहली बात</span><span class="amt free">मुफ़्त</span></div>
+    <div class="row"><span>परामर्श और आपकी पर्ची</span><span class="amt">₹200</span></div>
+    <div class="row"><span>बैच · प्रति माह</span><span class="amt">₹1,000</span></div>
+    <p style="font-size:15px;color:var(--dim);margin:14px 0 0">यानी रोज़ ₹35 से कम। एक घर के दो लोग जुड़ें तो छूट।
+    अगला बैच [तारीख़] से, [N] जगह बची हैं।</p>
+    <a class="btn" href="#">पहली बात के लिए नाम लिखवाइए</a>
+  </div>
+</div></section>
+
+<footer><div class="w">योग वंदना · वंदना बरनवाल, योग में एम.ए. · लखनऊ · [फ़ोन नंबर]</div></footer>
+</body></html>

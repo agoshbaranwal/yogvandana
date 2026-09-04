@@ -1,0 +1,175 @@
+<!doctype html><html lang="hi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>परामर्श — मॉकअप B</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Anek+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#FFFBF4;color:#241609;font-family:'Noto Serif Devanagari',serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.c{max-width:1060px;margin:0 auto;padding:0 16px}
+.ui{font-family:'Anek Devanagari',sans-serif}
+.rule{height:6px;background:repeating-linear-gradient(90deg,#A81E15 0 18px,#D4841C 18px 36px)}
+.masthead{background:#241609;color:#FFE9C7;padding:12px 0}
+.masthead .c{display:flex;align-items:center;justify-content:space-between}
+.name{font-weight:700;font-size:22px;letter-spacing:.01em}
+.name i{font-style:normal;color:#E9A63B}
+.tag{font-family:'Anek Devanagari',sans-serif;font-size:13px;opacity:.82}
+.top{background:linear-gradient(178deg,#FFF1DA 0%,#FFFBF4 100%);padding:26px 0 8px}
+.port{position:relative;border:8px solid #fff;box-shadow:0 14px 40px rgba(36,22,9,.2);background:linear-gradient(160deg,#EDDFC6,#DCC9A6);
+  aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;color:#8A7550;font-family:'Anek Devanagari',sans-serif;font-size:12.5px}
+.seal{position:absolute;right:-14px;bottom:22px;width:92px;height:92px;border-radius:50%;background:#A81E15;color:#FFE9C7;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:'Anek Devanagari',sans-serif;
+  font-size:11.5px;font-weight:700;line-height:1.25;box-shadow:0 10px 26px rgba(168,30,21,.35);border:3px double #E9A63B}
+h1{font-size:34px;line-height:1.22;font-weight:700;margin:16px 0 6px;letter-spacing:-.005em}
+.desig{font-family:'Anek Devanagari',sans-serif;font-size:15.5px;color:#7A5A2A;font-weight:600;margin:0 0 14px}
+.said{font-size:18.5px;line-height:1.78;margin:0 0 18px}
+.creds{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.creds span{font-family:'Anek Devanagari',sans-serif;font-size:13.5px;font-weight:600;background:#fff;border:1px solid #E7D6B6;
+  border-radius:4px;padding:7px 11px;color:#5A3E15}
+.act{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:54px;padding:0 24px;border-radius:4px;
+  font-family:'Anek Devanagari',sans-serif;font-weight:700;font-size:17px}
+.act-p{background:#A81E15;color:#fff}
+.act-s{background:#fff;color:#241609;border:1.5px solid #241609}
+.act-w{background:#1E7A3E;color:#fff}
+.sec{padding:34px 0}
+h2{font-size:28px;line-height:1.26;font-weight:700;margin:0 0 10px}
+.eyebrow{font-family:'Anek Devanagari',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.19em;text-transform:uppercase;color:#A81E15;margin:0 0 10px}
+p.body{font-size:18px;line-height:1.8;margin:0 0 16px}
+.paper{background:#fff;border:1px solid #EADCC0;box-shadow:0 3px 16px rgba(36,22,9,.07)}
+.rx{padding:20px 20px 18px}
+.rx .hd{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #241609;padding-bottom:9px;margin-bottom:12px}
+.rx .hd b{font-size:19px}
+.rx dl{display:grid;grid-template-columns:104px 1fr;gap:0;margin:0;font-family:'Anek Devanagari',sans-serif}
+.rx dt{font-weight:700;font-size:15px;padding:10px 0;border-bottom:1px dashed #DFCDA8}
+.rx dd{margin:0;padding:10px 0;border-bottom:1px dashed #DFCDA8;font-size:15.5px;color:#5A4425}
+.rx .lock{display:inline-block;width:100%;height:13px;border-radius:2px;background:repeating-linear-gradient(45deg,#EFE3CC 0 6px,#E6D6B8 6px 12px)}
+.sign{display:flex;justify-content:space-between;align-items:flex-end;margin-top:14px;font-family:'Anek Devanagari',sans-serif;font-size:13.5px;color:#7A5A2A}
+.steps3{counter-reset:s;margin:16px 0 0;padding:0;list-style:none}
+.steps3 li{counter-increment:s;display:flex;gap:15px;padding:15px 0;border-top:1px solid #EADCC0}
+.steps3 li:before{content:counter(s);flex:none;width:38px;height:38px;border-radius:50%;background:#241609;color:#E9A63B;
+  font-family:'Anek Devanagari',sans-serif;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center}
+.steps3 b{display:block;font-size:19px;margin-bottom:3px}
+.steps3 span{font-size:16.5px;line-height:1.6;color:#4A3A22}
+.fee{font-family:'Anek Devanagari',sans-serif;font-weight:700;font-size:22px;color:#A81E15;white-space:nowrap}
+.records{width:100%;border-collapse:collapse;font-family:'Anek Devanagari',sans-serif}
+.records th{text-align:left;font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:#7A5A2A;padding:0 10px 8px 0;border-bottom:2px solid #241609}
+.records td{padding:13px 10px 13px 0;border-bottom:1px solid #EADCC0;font-size:16px;vertical-align:top}
+.records .was{color:#8A7550}
+.records .now{font-weight:700}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gal div{aspect-ratio:3/4;background:linear-gradient(160deg,#F0E5D0,#DFCDA8);border:5px solid #fff;box-shadow:0 5px 18px rgba(36,22,9,.12);
+  display:flex;align-items:center;justify-content:center;font-family:'Anek Devanagari',sans-serif;font-size:11px;color:#8A7550;text-align:center;padding:6px}
+.press{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+.press div{width:112px;height:42px;background:#F3EAD8;border:1px solid #E7D6B6;display:flex;align-items:center;justify-content:center;
+  font-family:'Anek Devanagari',sans-serif;font-size:10.5px;color:#8A7550}
+.dark{background:#241609;color:#FFF3DF;padding:30px 0 32px}
+.dark h2{color:#fff}
+.dark p.body{color:#E8D9BF}
+.hl{color:#E9A63B;font-weight:700}
+.ask{background:#A81E15;color:#fff;padding:34px 0 38px}
+.ask h2{color:#fff}
+@media(min-width:900px){
+ .top{padding:52px 0 20px}
+ .hero2{display:grid;grid-template-columns:380px 1fr;gap:56px;align-items:center}
+ h1{font-size:50px}h2{font-size:38px}.sec{padding:60px 0}
+ .c{padding:0 40px}
+ .two{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+ .gal{grid-template-columns:repeat(6,1fr)}
+}
+</style></head><body>
+
+<div class="rule"></div>
+<div class="masthead"><div class="c">
+  <span class="name"><i>योग</i> वंदना</span>
+  <span class="tag ui">परामर्श · लखनऊ · [फ़ोन नंबर]</span>
+</div></div>
+
+<div class="top"><div class="c hero2">
+  <div><div class="port">वंदना जी का चित्र
+    <div class="seal">[संस्था]<br>प्रमाणित</div></div></div>
+  <div>
+    <p class="eyebrow">व्यक्तिगत परामर्श</p>
+    <h1>आपकी रिपोर्ट देखकर,<br>आपका अपना योग।</h1>
+    <p class="desig ui">वंदना बरनवाल · योग में एम.ए., [विश्वविद्यालय] · 12 वर्ष</p>
+    <p class="said">मैं आपकी जाँच रिपोर्ट, आपकी चल रही दवा और आपकी दिनचर्या देखती हूँ — और उसके बाद आपके लिए एक पर्ची लिखती हूँ। वह पर्ची किसी और की नहीं होती।</p>
+    <div class="creds ui">
+      <span>6 प्रमाणपत्र · स्कैन सहित</span><span>9 सम्मान</span><span>900+ विद्यार्थी</span><span>Google 4.9</span>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a class="act act-p" href="#">परामर्श का समय लीजिए</a>
+      <a class="act act-s" href="#">पहले बात कीजिए · नि:शुल्क</a>
+    </div>
+  </div>
+</div></div>
+
+<div class="sec"><div class="c two">
+  <div>
+    <p class="eyebrow">परामर्श में क्या होता है</p>
+    <h2>तीन बातें, तीस मिनट</h2>
+    <ul class="steps3">
+      <li><div><b>आपकी रिपोर्ट</b><span>जो जाँच हुई है — शुगर, थायराइड, बीपी, एक्स-रे — सब देखी जाती है।</span></div></li>
+      <li><div><b>आपकी दवा</b><span>कौन सी चल रही है और कितनी। कोई दवा बंद नहीं कराई जाती।</span></div></li>
+      <li><div><b>आपकी पर्ची</b><span>उसी दिन लिखकर, व्हाट्सऐप पर आपके पास।</span></div></li>
+    </ul>
+    <p class="body" style="margin-top:18px">शुल्क <span class="fee">₹200</span> — एक बार। नब्बे दिन बाद नई रिपोर्ट के साथ दोबारा देखी जाती है।</p>
+  </div>
+  <div class="paper rx">
+    <div class="hd"><b>योग वंदना · पर्ची</b><span class="ui" style="font-size:13px;color:#7A5A2A">दिनांक ____</span></div>
+    <dl>
+      <dt>नाम</dt><dd>____________</dd>
+      <dt>बीमारी</dt><dd>आपकी अपनी</dd>
+      <dt>खान-पान</dt><dd><span class="lock"></span></dd>
+      <dt>सावधानी</dt><dd><span class="lock"></span></dd>
+      <dt>दिनचर्या</dt><dd><span class="lock"></span></dd>
+      <dt>प्राणायाम</dt><dd><span class="lock"></span></dd>
+      <dt>आसन</dt><dd><span class="lock"></span></dd>
+      <dt>समय</dt><dd><span class="lock"></span></dd>
+      <dt>दवा</dt><dd>चलती रहे — डॉक्टर की सलाह से ही बदलाव</dd>
+    </dl>
+    <div class="sign"><span>परामर्श के बाद भरी जाती है</span><span>हस्ताक्षर ________</span></div>
+  </div>
+</div></div>
+
+<div class="dark"><div class="c">
+  <p class="eyebrow" style="color:#E9A63B">जो सबसे पहले पूछा जाता है</p>
+  <h2>“दवा छोड़नी पड़ेगी?”</h2>
+  <p class="body" style="max-width:58ch">नहीं। मैं किसी को दवा छोड़ने की सलाह नहीं देती। रिपोर्ट सुधरने पर आपके डॉक्टर स्वयं घटाते हैं।
+  <span class="hl">अब तक 140 विद्यार्थियों की दवा घटी है</span> — हर बार उनके अपने चिकित्सक के कहने पर।</p>
+</div></div>
+
+<div class="sec"><div class="c">
+  <p class="eyebrow">रिपोर्ट का रिकॉर्ड</p>
+  <h2>किसकी जाँच में क्या बदला</h2>
+  <p class="body">हर पंक्ति एक विद्यार्थी, उनकी अनुमति से।</p>
+  <table class="records">
+    <tr><th>विद्यार्थी</th><th>बीमारी</th><th>पहले</th><th>अब</th><th>अवधि</th></tr>
+    <tr><td>सुनीता वर्मा, 52 · लखनऊ</td><td>शुगर</td><td class="was">HbA1c 8.2</td><td class="now">6.5</td><td>7 माह</td></tr>
+    <tr><td>रामकिशोर सिंह, 61 · कानपुर</td><td>कमर</td><td class="was">सीढ़ी नहीं</td><td class="now">तीन मंज़िल</td><td>4 माह</td></tr>
+    <tr><td>अनीता गुप्ता, 38 · प्रयागराज</td><td>पीसीओडी</td><td class="was">तीन माह में एक बार</td><td class="now">हर माह</td><td>6 माह</td></tr>
+    <tr><td>मोहन लाल, 74 · बाराबंकी</td><td>बीपी</td><td class="was">160/100</td><td class="now">130/85</td><td>5 माह</td></tr>
+  </table>
+</div></div>
+
+<div class="sec" style="background:#FFF6E8"><div class="c">
+  <p class="eyebrow">जाँची जा सकने वाली योग्यता</p>
+  <h2>प्रमाणपत्र और सम्मान</h2>
+  <p class="body">हर प्रमाणपत्र का स्कैन नीचे है। जहाँ संस्था का सार्वजनिक रजिस्टर है, वहाँ प्रविष्टि का लिंक भी।</p>
+  <div class="gal">
+    <div>प्रमाणपत्र</div><div>प्रमाणपत्र</div><div>प्रमाणपत्र</div>
+    <div>सम्मान</div><div>मंच का चित्र</div><div>अख़बार की कतरन</div>
+  </div>
+  <p class="eyebrow" style="text-align:center;margin:26px 0 0">अख़बार और दूरदर्शन में</p>
+  <div class="press"><div>समाचार-पत्र</div><div>समाचार-पत्र</div><div>चैनल</div><div>पत्रिका</div></div>
+</div></div>
+
+<div class="ask"><div class="c">
+  <h2>पहले बात कर लीजिए।</h2>
+  <p class="body" style="color:#FFE3D8;max-width:46ch">बात का कोई शुल्क नहीं। मैं साफ़ बता दूँगी कि आपकी बीमारी में योग से क्या हो सकता है — और क्या नहीं।</p>
+  <div style="display:flex;gap:11px;flex-wrap:wrap">
+    <a class="act act-w" href="#">व्हाट्सऐप पर लिखिए</a>
+    <a class="act" style="background:#fff;color:#A81E15" href="#">दूरभाष · [फ़ोन नंबर]</a>
+  </div>
+  <p class="ui" style="font-size:14.5px;color:#FFD9CC;margin:16px 0 0">— वंदना बरनवाल, लखनऊ · योग में एम.ए. · [संस्था] प्रमाणित</p>
+</div></div>
+<div class="rule"></div>
+</body></html>
