@@ -11,6 +11,7 @@ export function Timeline({ lang }: { lang: Lang }) {
     { title: ui("home.step1", lang), sub: ui("home.step1sub", lang) },
     { title: ui("home.step2", lang), sub: ui("home.step2sub", lang) },
     { title: ui("home.step3", lang), sub: ui("home.step3sub", lang) },
+    { title: ui("home.step4", lang), sub: ui("home.step4sub", lang) },
   ];
   return (
     <ol className="flex flex-col">

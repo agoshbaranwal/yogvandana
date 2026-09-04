@@ -153,24 +153,24 @@
       "en": "Write on WhatsApp"
     },
     "step1sub": {
-      "hi": "अपनी बीमारी और दवा लिखिए। जवाब [एक दिन] में।",
-      "en": "Write your disease and your medicine. A reply within [a day]."
+      "hi": "अपनी बीमारी लिखिए। जवाब [एक दिन] में।",
+      "en": "Write your disease. A reply within [a day]."
     },
     "step2": {
-      "hi": "वंदना जी से [10] मिनट बात",
-      "en": "[10] minutes with Vandana"
+      "hi": "पहली बात — मुफ़्त",
+      "en": "The first conversation — free"
     },
     "step2sub": {
-      "hi": "आपकी रिपोर्ट, आपकी दवा, कौन सा बैच। इसका कोई शुल्क नहीं।",
-      "en": "Your reports, your medicine, which batch. No charge for this."
+      "hi": "आपकी तकलीफ़ क्या है, और योग से इसमें क्या हो सकता है।",
+      "en": "What is wrong, and what yoga can do about it."
     },
     "step3": {
-      "hi": "बैच में जुड़िए",
-      "en": "Join a batch"
+      "hi": "परामर्श और आपकी पर्ची",
+      "en": "The consultation, and your slip"
     },
     "step3sub": {
-      "hi": "[50] मिनट की क्लास रोज़, छोटा ग्रुप, अपनी पर्ची के साथ। फ़ीस ₹[शुल्क] प्रति माह।",
-      "en": "A [50] minute class every day, a small group, your own slip. Fee ₹[fee] a month."
+      "hi": "आपकी रिपोर्ट और दवा देखकर, आपकी अपनी पर्ची — व्हाट्सऐप पर।",
+      "en": "Your reports and medicine looked at, and your own slip — on WhatsApp."
     },
     "resultsTitle": {
       "hi": "इन्हें फ़र्क पड़ा",
@@ -233,12 +233,12 @@
       "en": "Who teaches you"
     },
     "stepsNote": {
-      "hi": "बात करने का कोई शुल्क नहीं। फ़ीस बैच में जुड़ने पर।",
-      "en": "Talking costs nothing. The fee is only when you join a batch."
+      "hi": "पहली बात का कोई शुल्क नहीं।",
+      "en": "The first conversation costs nothing."
     },
     "heroNote": {
-      "hi": "बात करने का कोई शुल्क नहीं। फ़ीस बैच में जुड़ने पर।",
-      "en": "Talking costs nothing. The fee is only when you join a batch."
+      "hi": "पहली बात का कोई शुल्क नहीं।",
+      "en": "The first conversation costs nothing."
     },
     "whichBatch": {
       "hi": "सुबह या शाम — पहले बात कीजिए",
@@ -255,16 +255,24 @@
     "sumLine": {
       "hi": "यानी रोज़ ₹{r} से कम। {pay} {family}।",
       "en": "That is under ₹{r} a day. {pay} {family}."
+    },
+    "step4": {
+      "hi": "बैच में जुड़िए",
+      "en": "Join a batch"
+    },
+    "step4sub": {
+      "hi": "[50] मिनट की क्लास रोज़, छोटा ग्रुप, अपनी पर्ची के साथ।",
+      "en": "A [50] minute class every day, a small group, your own slip."
     }
   },
   "band": {
     "title": {
-      "hi": "पहले बात कीजिए। बिना शुल्क।",
-      "en": "Talk to her first. No fee for that."
+      "hi": "पहले बात कीजिए। पहली बात मुफ़्त।",
+      "en": "Talk to her first. The first conversation is free."
     },
     "lead": {
-      "hi": "वंदना जी से [10] मिनट: आपकी बीमारी, आपकी दवा, कौन सा बैच। फ़ीस बैच में जुड़ने पर।",
-      "en": "[10] minutes with Vandana: your disease, your medicine, which batch. The fee is only when you join a batch."
+      "hi": "वंदना जी से बात: आपकी तकलीफ़ क्या है, और योग से इसमें क्या हो सकता है।",
+      "en": "A conversation with Vandana: what is wrong, and what yoga can do about it."
     },
     "step1": {
       "hi": "आपकी बीमारी",
@@ -321,8 +329,8 @@
       "en": "Your slip for {x}"
     },
     "slipNote": {
-      "hi": "क्या खाना है, क्या सावधानी, दिनचर्या, कौन से प्राणायाम और आसन, और किस समय — सब आपकी हालत देखकर।",
-      "en": "What to eat, what to avoid, the routine, which pranayama and asanas, and at what time — all decided after she has seen your condition."
+      "hi": "क्या खाना है, क्या सावधानी, दिनचर्या, कौन से प्राणायाम और आसन, और किस समय — परामर्श के बाद, आपकी हालत देखकर।",
+      "en": "What to eat, what to avoid, the routine, which pranayama and asanas, and at what time — after the consultation, once she has seen your condition."
     },
     "classTitle": {
       "hi": "क्लास में क्या होता है",
@@ -365,12 +373,12 @@
       "en": "Morning or evening, both work — decided when you talk."
     },
     "bandTitle": {
-      "hi": "{x} के बारे में बात कीजिए। बिना शुल्क।",
-      "en": "Talk about {x}. No charge."
+      "hi": "{x} के बारे में बात कीजिए। पहली बात मुफ़्त।",
+      "en": "Talk about {x}. The first conversation is free."
     },
     "bandLead": {
-      "hi": "वंदना जी से [10] मिनट: आपकी रिपोर्ट, आपकी दवा, कौन सा बैच।",
-      "en": "[10] minutes with Vandana: your reports, your medicine, which batch."
+      "hi": "वंदना जी से बात: {x} में योग से क्या हो सकता है, और आगे क्या।",
+      "en": "A conversation with Vandana: what yoga can do about {x}, and what comes next."
     }
   },
   "slip": {
@@ -435,8 +443,8 @@
       "en": "Vandana fills this in after your consultation"
     },
     "afterTalk": {
-      "hi": "हर पंक्ति आपकी अपनी होती है। दो लोगों की पर्ची एक जैसी नहीं होती।",
-      "en": "Every line is yours alone. No two people get the same slip."
+      "hi": "हर पंक्ति आपकी अपनी होती है। परामर्श के बाद व्हाट्सऐप पर भेज दी जाती है।",
+      "en": "Every line is yours alone. It is sent to you on WhatsApp after the consultation."
     }
   },
   "batches": {
@@ -557,8 +565,8 @@
       "en": "Which batch? Talk first."
     },
     "whichLead": {
-      "hi": "बीमारी के हिसाब से वंदना जी बताती हैं — सुबह या शाम। बिना शुल्क।",
-      "en": "Vandana tells you by your disease: morning or evening. No charge."
+      "hi": "बीमारी के हिसाब से वंदना जी बताती हैं — सुबह या शाम। पहली बात मुफ़्त।",
+      "en": "Vandana tells you by your disease: morning or evening. The first conversation is free."
     },
     "youChoose": {
       "hi": "समय आप तय करते हैं।",
@@ -831,8 +839,8 @@
       "en": "Talk to Vandana"
     },
     "lead": {
-      "hi": "अपनी बीमारी और दवा बताइए। [10] मिनट की बात का कोई शुल्क नहीं।",
-      "en": "Tell her your disease and your medicine. The [10] minute talk costs nothing."
+      "hi": "अपनी बीमारी बताइए। पहली बात का कोई शुल्क नहीं।",
+      "en": "Tell her what is wrong. The first conversation costs nothing."
     },
     "formTitle": {
       "hi": "या यहाँ लिखिए",
@@ -1121,16 +1129,64 @@
       "en": "What you will get"
     },
     "lead": {
-      "hi": "बात करने से लेकर हर दिन तक — यह सब आपका है।",
-      "en": "From the first conversation onwards, all of this is yours."
+      "hi": "तीन क़दम। हर क़दम पर क्या मिलता है और क्या लगता है — साफ़-साफ़।",
+      "en": "Three steps. What you get at each, and what it costs, said plainly."
     },
-    "free": {
-      "hi": "बात करने का कोई शुल्क नहीं।",
-      "en": "The conversation costs nothing."
+    "s1title": {
+      "hi": "पहली बात",
+      "en": "The first conversation"
     },
-    "paid": {
-      "hi": "बात के लिए ₹{p}।",
-      "en": "The consultation is ₹{p}."
+    "s1price": {
+      "hi": "मुफ़्त",
+      "en": "Free"
+    },
+    "s1a": {
+      "hi": "अपनी तकलीफ़ बताइए, वंदना जी सुनेंगी।",
+      "en": "Tell her what is wrong, and she listens."
+    },
+    "s1b": {
+      "hi": "योग से इसमें क्या हो सकता है, वे बताएँगी।",
+      "en": "She tells you what yoga can do about it."
+    },
+    "s2title": {
+      "hi": "परामर्श और आपकी पर्ची",
+      "en": "The consultation, and your slip"
+    },
+    "s2a": {
+      "hi": "आपकी रिपोर्ट, आपकी दवा, आपकी पूरी हालत — सब देखकर।",
+      "en": "Your reports, your medicine, your whole condition — all of it looked at."
+    },
+    "s2b": {
+      "hi": "आपकी अपनी पर्ची: खान-पान, सावधानी, दिनचर्या, प्राणायाम, आसन, और समय।",
+      "en": "Your own slip: food, precautions, daily routine, pranayama, asanas, and timing."
+    },
+    "s2c": {
+      "hi": "व्हाट्सऐप पर आपके पास भेज दी जाती है।",
+      "en": "Sent to you on WhatsApp."
+    },
+    "s3title": {
+      "hi": "बैच",
+      "en": "The batch"
+    },
+    "s3a": {
+      "hi": "रोज़ की लाइव क्लास, छोटे ग्रुप में।",
+      "en": "A live class every day, in a small group."
+    },
+    "s3b": {
+      "hi": "व्हाट्सऐप पर रोज़ साथ।",
+      "en": "Daily support on WhatsApp."
+    },
+    "s3c": {
+      "hi": "हर {d} दिन जाँच, आपकी रिपोर्ट के साथ।",
+      "en": "A review every {d} days, with your reports."
+    },
+    "perMonth": {
+      "hi": "प्रति माह",
+      "en": "a month"
+    },
+    "onlyThis": {
+      "hi": "इसके अलावा कुछ नहीं लगता।",
+      "en": "Nothing else is charged."
     }
   }
 }

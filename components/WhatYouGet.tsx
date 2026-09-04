@@ -1,20 +1,40 @@
-import { site, ui } from "@/lib/content";
+import { batches, site, t, ui } from "@/lib/content";
 import type { Lang } from "@/lib/routes";
 import { Tx } from "./Tx";
 
-/* The site's first job, said in one place and without hedging: what she does
-   for you, and what you walk away holding. The slip is first among them,
-   because it is the thing nobody else on the internet will write for you. */
+/* The offer, as three steps with three prices, because the one thing this
+   audience must never be surprised by is money. The first conversation is
+   free; the consultation and the slip are paid; the batch is monthly. The
+   middle step carries the tint, because the slip is the thing she is selling
+   and the thing nobody else will write for them. */
 
-export function WhatYouGet({ lang, columns = false }: { lang: Lang; columns?: boolean }) {
-  const items = ["t1", "t2", "t3", "t4", "t5"].map((k) => ({
-    title: ui(`get.${k}`, lang).replace("{d}", site.reviewDays),
-    sub: ui(`get.${k}sub`, lang),
-  }));
-  const price = site.consultation.price.trim();
-  const note = price
-    ? ui("get.paid", lang).replace("{p}", price)
-    : ui("get.free", lang);
+export function WhatYouGet({ lang }: { lang: Lang }) {
+  const group = batches.find((b) => b.type === "group");
+  const steps = [
+    {
+      title: ui("get.s1title", lang),
+      price: ui("get.s1price", lang),
+      lines: [ui("get.s1a", lang), ui("get.s1b", lang)],
+      tint: false,
+    },
+    {
+      title: ui("get.s2title", lang),
+      price: `₹${site.consultation.price}`,
+      lines: [ui("get.s2a", lang), ui("get.s2b", lang), ui("get.s2c", lang)],
+      tint: true,
+    },
+    {
+      title: ui("get.s3title", lang),
+      price: group ? `₹${group.price}` : "",
+      unit: group ? t(group.priceUnit, lang) : "",
+      lines: [
+        ui("get.s3a", lang),
+        ui("get.s3b", lang),
+        ui("get.s3c", lang).replace("{d}", site.reviewDays),
+      ],
+      tint: false,
+    },
+  ];
 
   return (
     <div className="flex flex-col gap-3.5">
@@ -22,26 +42,38 @@ export function WhatYouGet({ lang, columns = false }: { lang: Lang; columns?: bo
         <h2 className="h2">{ui("get.title", lang)}</h2>
         <p className="cap">{ui("get.lead", lang)}</p>
       </div>
-      <ol className={`flex flex-col border-b border-rule ${columns ? "md:grid md:grid-cols-2 md:gap-x-8" : ""}`}>
-        {items.map((item, i) => (
-          <li key={i} className="flex items-start gap-3.5 border-t border-rule py-3.5">
-            <span className="n-dot num" aria-hidden="true">
-              {i + 1}
-            </span>
-            <span className="flex min-w-0 flex-col gap-0.5">
-              <span className="h3">
-                <Tx>{item.title}</Tx>
-              </span>
-              <span className="body" style={{ color: "var(--color-heroink)" }}>
-                <Tx>{item.sub}</Tx>
-              </span>
-            </span>
+      <ol className="flex flex-col gap-2.5">
+        {steps.map((step, i) => (
+          <li
+            key={i}
+            className="card flex flex-col gap-2 p-0"
+            style={step.tint ? { background: "var(--color-apricot)", borderColor: "var(--color-bhagwa)" } : undefined}
+          >
+            <div className="flex items-start justify-between gap-3 px-4 pt-3.5">
+              <div className="flex min-w-0 items-start gap-3">
+                <span className="n-dot num" aria-hidden="true">
+                  {i + 1}
+                </span>
+                <span className="h3 pt-0.5">{step.title}</span>
+              </div>
+              <div className="flex-none text-right">
+                <p className="num h3">
+                  <Tx>{step.price}</Tx>
+                </p>
+                {step.unit ? <p className="cap">{step.unit}</p> : null}
+              </div>
+            </div>
+            <ul className="flex flex-col gap-1 px-4 pb-3.5 pl-[60px]">
+              {step.lines.map((line, j) => (
+                <li key={j} className="body" style={{ color: "var(--color-heroink)" }}>
+                  <Tx>{line}</Tx>
+                </li>
+              ))}
+            </ul>
           </li>
         ))}
       </ol>
-      <p className="body font-bold">
-        <Tx>{note}</Tx>
-      </p>
+      <p className="body font-bold">{ui("get.onlyThis", lang)}</p>
     </div>
   );
 }

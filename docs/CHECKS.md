@@ -12,6 +12,7 @@ Last run: 2026-09-04 · 38 pages.
 | 5 | Every number traces to a content file | waiting on content | Numbers are still [X], [Y], [N], [A] in content/site.json; nothing is hard-coded in the pages. |
 | 6 | The medicine answer appears on home and, in its own terms, on every condition page | pass | 18 pages carry it |
 | 6b | No named practice is published: the slip is written after the consultation, not before it | pass | 38 pages carry no named asana or pranayama |
+| 6c | The consultation's price is named wherever the consultation is | pass | ₹200 on home, every condition page, and every page that names it |
 | 7 | The claim appears word for word on home and on every condition page | pass | 2 home pages, 16 condition pages |
 | 8 | Every image has alt text; every placeholder block is labelled for a screen reader | pass | 184 labelled blocks; 0 images without alt |
 | 9 | The page that carries her record shows when it was last updated | pass | 2 pages |
@@ -26,4 +27,4 @@ Last run: 2026-09-04 · 38 pages.
 | 18 | The sticky bar is absent on policy and 404 pages and can never cover a dialog | pass | absent on 8 quiet pages · viewer z-50 above bar z-40 · reveal leaves no transform behind |
 | 19 | Every button says one of two things: talk to her, or pay | pass | 138 buttons, every one from the allowed set |
 
-18 passed, 0 failed, 2 waiting on her material.
+19 passed, 0 failed, 2 waiting on her material.

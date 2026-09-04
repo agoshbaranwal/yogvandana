@@ -64,7 +64,7 @@
   "homeMinutes": "[30]",
   "talkMinutes": "[10]",
   "consultation": {
-    "price": "",
+    "price": "200",
     "minutes": "[10]"
   },
   "groupSize": "[N]",

@@ -170,6 +170,33 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
   );
 }
 
+/* 6c — the price of the consultation is never a surprise ------------------ */
+{
+  /* The first conversation is free; the consultation that reads your reports
+     and produces your slip is paid. A page that names the consultation and
+     does not name its price is how a person gets surprised at the moment they
+     are asked for money, so the build refuses it. */
+  const cfg = JSON.parse(fs.readFileSync(path.join(ROOT, "content", "site.json"), "utf8"));
+  const price = (cfg.consultation?.price ?? "").trim();
+  if (price === "") {
+    add("6c", "The consultation's price is named wherever the consultation is", "waiting",
+      "site.consultation.price is empty, so nothing is charged for it and there is no price to name.");
+  } else {
+    const shown = `₹${price}`;
+    const names = (body) => /परामर्श|consultation/i.test(body);
+    const must = pages.filter((f) => /^\/(rog|en\/conditions)\/[^/]+\/$/.test(rel(f)) || rel(f) === "/" || rel(f) === "/en/");
+    const bad = [];
+    for (const f of pages) {
+      const body = text(read(f));
+      const needs = must.includes(f) || names(body);
+      if (needs && !body.includes(shown)) bad.push(rel(f));
+    }
+    add("6c", "The consultation's price is named wherever the consultation is",
+      bad.length === 0 ? "pass" : "fail",
+      bad.join("; ") || `${shown} on home, every condition page, and every page that names it`);
+  }
+}
+
 /* 7 — the claim, word for word -------------------------------------------- */
 {
   const HI = "योग से हर बीमारी ठीक हो सकती है।";

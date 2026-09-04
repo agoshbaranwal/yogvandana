@@ -161,10 +161,14 @@ talking to a student is the thing students come to her for, and it is not publis
 on the site. Category words — आसन, प्राणायाम, सूक्ष्म व्यायाम — describe what a class contains and
 are fine. A named technique attached to a disease is a prescription and is not.
 
-**If you want the consultation to be paid**, put the amount in `content/site.json` under
-`consultation.price` — say **"the consultation is ₹500"**. Leave it empty and every page keeps
-saying the conversation costs nothing, which is what it says today. That is the only field that
-decides it.
+**The money, in three steps.** The first conversation is free. The consultation — where she reads
+your reports and your medicine and writes your slip — is **₹200**, in `content/site.json` under
+`consultation.price`. The batch is the monthly fee on the batch cards. Change the ₹200 by saying
+**"the consultation is ₹300"**; every page that names the consultation updates with it.
+
+`credibility:check` rule 6c fails the build if any page names the consultation without naming its
+price, so nobody can be surprised at the moment they are asked for money. Rule 6b still forbids
+publishing a named asana or pranayama.
 
 ## New since Round 6 — the fields the redesign reads
 

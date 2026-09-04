@@ -96,3 +96,21 @@ disease, on a public page, free. That is the thing a student consults her for.
 The order the site now argues in: what she can do → what you get → talk to her → she writes your
 slip → you join a batch. The conversation still costs nothing; `site.consultation.price` is the
 single field that changes that if he wants it paid.
+
+### The price, settled (4 September 2026)
+
+Agosh: *"speaking first time free. understanding problems and consultation and sending materials
+is paid. 200"*
+
+| Step | What it is | Price |
+|---|---|---|
+| 1 | The first conversation — what is wrong, and what yoga can do about it | Free |
+| 2 | The consultation — your reports, your medicine, your whole condition, and your own slip sent on WhatsApp | **₹200** |
+| 3 | The batch — the daily live class, WhatsApp support, a review every [90] days | Monthly |
+
+Eight condition pages had been saying the consultation was free ("क्लास से पहले वंदना जी से बात
+होती है — आपकी रिपोर्ट, आपकी दवा। उसका कोई शुल्क नहीं।"), which described the ₹200 step exactly.
+That, and every other "बिना शुल्क" attached to the consultation, now says **पहली बात मुफ़्त** — the
+first conversation is free — so nothing promises away what is being charged for. `WhatYouGet` is a
+three-tier ladder carrying all three prices; the home timeline is four steps, not three. Rule 6c
+makes the price mandatory on any page that names the consultation (proven red, then green).
