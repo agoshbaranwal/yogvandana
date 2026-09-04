@@ -1,0 +1,230 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Direction 3 — The letter</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@400;500;600;700;800&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" rel="stylesheet"><style>
+*{box-sizing:border-box}
+body{margin:0;background:#e5e3df;color:#14120f;font-family:ui-sans-serif,system-ui,sans-serif}
+.page{max-width:1420px;margin:0 auto;padding:34px 24px 80px}
+h1{font:700 32px/1.22 ui-sans-serif;margin:0 0 8px}
+.sub{font:400 16px/1.62 ui-sans-serif;color:#54514c;margin:0 0 6px;max-width:82ch}
+.idea{font:400 16px/1.68 ui-sans-serif;background:#fff;border-left:4px solid #eb852b;padding:16px 20px;margin:20px 0 28px;max-width:92ch;border-radius:0 10px 10px 0}
+.idea b{font-weight:700}
+h2.lbl{font:700 13px/1.3 ui-sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#54514c;margin:36px 0 12px}
+.frames{display:flex;gap:30px;align-items:flex-start;flex-wrap:wrap}
+.frame{border:1px solid #cfcbc4;border-radius:14px;overflow:hidden;background:#fff}
+.frame.phone{width:390px;flex:none}
+.frame.desk{width:1100px;max-width:100%}
+.cap{font:400 13px/1.45 ui-sans-serif;color:#54514c;margin:8px 0 0}
+.note{font:400 15px/1.62 ui-sans-serif;background:#fff;border:1px solid #ddd9d2;border-radius:10px;padding:15px 19px;margin-top:16px;max-width:92ch}
+.note b{font-weight:700}
+a.back{font:700 15px ui-sans-serif;color:#883a00;text-decoration:none}
+.pill{display:inline-block;font:700 12px/1 ui-sans-serif;letter-spacing:.09em;text-transform:uppercase;background:#14120f;color:#fcfcfb;padding:7px 11px;border-radius:999px}
+table.cmp{border-collapse:collapse;width:100%;max-width:1120px;background:#fff;border-radius:10px;overflow:hidden;font:400 14.5px/1.55 ui-sans-serif}
+table.cmp th{background:#14120f;color:#fcfcfb;text-align:left;padding:11px 14px;font:700 13px ui-sans-serif;letter-spacing:.05em;text-transform:uppercase}
+table.cmp td{padding:11px 14px;border-top:1px solid #eceae6;vertical-align:top}
+table.cmp td:first-child{font-weight:700;white-space:nowrap;background:#fbfaf8}
+
+.d1{--ink:#14120f;--dim:#54514c;--rule:#d9d5ce;--acc:#883a00;--amber:#eb852b;
+    background:#fff;color:var(--ink);font-family:'Anek Devanagari',sans-serif}
+.d1 .w{max-width:960px;margin:0 auto;padding:0 16px}
+.d1.k .w{padding:0 40px;max-width:1040px}
+.d1 .sec{border-top:2px solid var(--ink);padding:14px 0 26px}
+.d1 .sec:first-of-type{border-top:0}
+.d1 .num{font:700 12px/1 'Anek Devanagari';letter-spacing:.18em;color:var(--dim);display:block;margin-bottom:7px}
+.d1 h2{font:700 24px/1.2 'Anek Devanagari';margin:0 0 3px;letter-spacing:-.005em}
+.d1.k h2{font-size:27px}
+.d1 .lead{font:400 15.5px/1.5 'Anek Devanagari';color:var(--dim);margin:0 0 14px;max-width:62ch}
+.d1 .bd{font:400 16px/1.55 'Anek Devanagari';margin:0}
+.d1 .fig{font-variant-numeric:tabular-nums;font-weight:700;letter-spacing:-.01em}
+.d1 table{width:100%;border-collapse:collapse;font:400 15.5px/1.4 'Anek Devanagari'}
+.d1 th{text-align:left;font:700 11.5px/1 'Anek Devanagari';letter-spacing:.14em;color:var(--dim);
+       text-transform:uppercase;padding:0 8px 7px 0;border-bottom:1px solid var(--rule)}
+.d1 td{padding:11px 8px 11px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.d1 td.r{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.d1 .arrow{color:var(--amber);font-weight:700}
+.d1 a{color:inherit}
+.d1 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;
+         font:700 16px 'Anek Devanagari';text-decoration:none;border-radius:2px}
+.d1 .b1{background:var(--ink);color:#fff}
+.d1 .b2{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
+.d1 .mast{border-bottom:2px solid var(--ink);padding:12px 0}
+.d1 .kv{display:grid;grid-template-columns:118px 1fr;gap:4px 14px;font:400 15.5px/1.5 'Anek Devanagari'}
+.d1 .kv dt{font-weight:700;color:var(--dim);font-size:13px;letter-spacing:.04em;text-transform:uppercase;padding-top:2px}
+.d1 .stamp{border:1.5px solid var(--ink);padding:9px 12px;font:700 14px 'Anek Devanagari';display:inline-block}
+.d1 .ph{background:#f2f0ec;border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;
+        color:#8b867e;font:400 12px ui-sans-serif;text-align:center}
+
+.d2{--ink:#14120f;--ivory:#fcfcfb;--amber:#eb852b;--deep:#883a00;
+    background:var(--ivory);color:var(--ink);font-family:'Anek Devanagari',sans-serif}
+.d2 .p{padding:44px 20px 48px}
+.d2.k .p{padding:88px 64px 92px}
+.d2 .in{max-width:1080px;margin:0 auto}
+.d2 .amber{background:var(--amber);color:var(--ink)}
+.d2 .dark{background:var(--ink);color:var(--ivory)}
+.d2 .paper{background:var(--ivory);color:var(--ink)}
+.d2 .huge{font:800 46px/1.02 'Anek Devanagari';letter-spacing:-.025em;margin:0}
+.d2.k .huge{font-size:86px}
+.d2 .big{font:800 34px/1.08 'Anek Devanagari';letter-spacing:-.02em;margin:0}
+.d2.k .big{font-size:58px}
+.d2 .mega{font:800 76px/.94 'Anek Devanagari';letter-spacing:-.035em;display:block}
+.d2.k .mega{font-size:132px}
+.d2 .say{font:400 19px/1.45 'Anek Devanagari';margin:14px 0 0;max-width:30ch}
+.d2.k .say{font-size:24px;max-width:36ch}
+.d2 .tag{font:700 12.5px/1 'Anek Devanagari';letter-spacing:.22em;text-transform:uppercase;opacity:.72;display:block;margin-bottom:14px}
+.d2 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:62px;padding:0 30px;
+         border-radius:999px;font:700 19px 'Anek Devanagari';text-decoration:none}
+.d2 .on-amber{background:var(--ink);color:var(--amber)}
+.d2 .on-dark{background:var(--amber);color:var(--ink)}
+.d2 .on-paper{background:var(--ink);color:var(--amber)}
+.d2 a{color:inherit}
+.d2 .ghost{background:transparent;border:2px solid currentColor;color:inherit}
+.d2 .split{display:grid;gap:0}
+.d2.k .split{grid-template-columns:1fr 1fr}
+.d2 .half{padding:34px 20px 38px}
+.d2.k .half{padding:74px 56px 78px}
+.d2 .list{list-style:none;margin:22px 0 0;padding:0}
+.d2 .list li{border-top:2px solid currentColor;padding:15px 0;font:700 26px/1.15 'Anek Devanagari';
+             display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.d2.k .list li{font-size:36px;padding:20px 0}
+.d2 .list small{font:400 15px/1.2 'Anek Devanagari';opacity:.72;white-space:nowrap}
+.d2.k .list small{font-size:18px}
+.d2 .ph{background:rgba(20,18,15,.08);display:flex;align-items:center;justify-content:center;color:#8b867e;font:400 12px ui-sans-serif}
+
+.d3{--paper:#faf7f1;--ink:#1c1a17;--dim:#5b564e;--rule:#ddd6c8;--acc:#883a00;--amber:#eb852b;
+    background:var(--paper);color:var(--ink);font-family:'Noto Serif Devanagari','Anek Devanagari',serif}
+.d3 .col{max-width:640px;margin:0 auto;padding:0 22px}
+.d3.k .col{max-width:680px}
+.d3 .s{padding:30px 0}
+.d3.k .s{padding:46px 0}
+.d3 p{font:400 18.5px/1.85 'Noto Serif Devanagari',serif;margin:0 0 17px}
+.d3.k p{font-size:20px;line-height:1.9}
+.d3 h2{font:700 27px/1.32 'Noto Serif Devanagari',serif;margin:0 0 14px;letter-spacing:-.005em}
+.d3.k h2{font-size:33px}
+.d3 .open{font:700 30px/1.42 'Noto Serif Devanagari',serif;margin:0 0 20px}
+.d3.k .open{font-size:40px;line-height:1.36}
+.d3 .kicker{font:600 12.5px/1 'Anek Devanagari',sans-serif;letter-spacing:.2em;text-transform:uppercase;
+            color:var(--acc);display:block;margin-bottom:15px}
+.d3 .pull{border-left:3px solid var(--amber);padding:4px 0 4px 20px;margin:26px 0}
+.d3 .pull p{font:400 22px/1.6 'Noto Serif Devanagari',serif;margin:0 0 7px}
+.d3.k .pull p{font-size:25px}
+.d3 .by{font:600 14.5px/1.4 'Anek Devanagari',sans-serif;color:var(--dim);margin:0}
+.d3 .bleed{margin:30px 0}
+.d3 .ph{background:#efe9dd;border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;
+        color:#9a9184;font:400 12px ui-sans-serif;text-align:center}
+.d3 .rule{border:0;border-top:1px solid var(--rule);margin:34px 0}
+.d3 .orn{text-align:center;color:var(--amber);font-size:19px;letter-spacing:.7em;margin:32px 0}
+.d3 ul.plain{list-style:none;margin:0 0 18px;padding:0}
+.d3 ul.plain li{border-bottom:1px solid var(--rule);padding:13px 0;display:flex;justify-content:space-between;
+                gap:16px;font:400 18px/1.5 'Noto Serif Devanagari',serif}
+.d3 ul.plain li b{font-weight:700}
+.d3 ul.plain li span{font:600 15.5px 'Anek Devanagari',sans-serif;color:var(--dim);white-space:nowrap;text-align:right}
+.d3 a{color:inherit}
+.d3 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 26px;
+         border-radius:4px;font:600 17px 'Anek Devanagari',sans-serif;text-decoration:none}
+.d3 .b1{background:var(--ink);color:var(--paper)}
+.d3 .b2{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.d3 .sig{font:400 15px/1.5 'Anek Devanagari',sans-serif;color:var(--dim)}
+</style></head><body><div class="page">
+<p><a class="back" href="./">&larr; all three directions, side by side</a></p>
+<h1>Direction 3 — The letter</h1>
+<p class="sub">A complete home page. Names, figures and results are examples so the layout can be judged.</p>
+<div class="idea"><b>How it looks:</b> A serif Devanagari face, one narrow column, 18–20px body at wide leading, warm paper. Photographs break the margin. Quotes are pull-quotes with a rule, not cards. Signed at the bottom.<br><br><b>She writes to you in the first person and never sells anything.</b> “मैं कभी किसी से दवा
+   बंद करने को नहीं कहती.” The results are woven into the writing as pull-quotes rather than gridded,
+   the slip is described as something she writes by hand, and the page ends with her signature and her
+   qualification. The selling is done by <b>trust</b> — the page reads as a person, and a person is
+   what someone frightened about their diabetes is actually shopping for.</div>
+<h2 class="lbl">On a phone &mdash; 390px</h2>
+<div class="frames"><div><div class="frame phone"><div class="d3"><div style="border-bottom:1px solid #ddd6c8;padding:15px 0">
+      <div class="col" style="display:flex;justify-content:space-between;align-items:center">
+        <span style="font:700 20px 'Noto Serif Devanagari',serif">योग वंदना</span>
+        <span style="font:600 14px 'Anek Devanagari',sans-serif;color:#5b564e">[फ़ोन नंबर]</span></div></div><div class="col"><div class="s"><span class="kicker">वंदना बरनवाल · योग में एम.ए. · लखनऊ</span>
+      <p class="open">योग एवं प्राणायाम से अपनी बीमारियों का हल पाइए।</p>
+      <p>मैं बारह साल से लोगों को उनकी बीमारी के हिसाब से योग सिखा रही हूँ — शुगर, बीपी, थायराइड, कमर और घुटने का दर्द,
+      नींद, और महिलाओं की समस्याएँ। क्लास ऑनलाइन होती है, छोटे ग्रुप में, रोज़ सुबह या शाम।</p>
+      <p>शुरुआत एक कॉल से होती है, जिसका कोई शुल्क नहीं। आप अपनी तकलीफ़ बताइए, और मैं बताऊँगी कि योग और
+      प्राणायाम से उसमें क्या हो सकता है — और क्या नहीं।</p>
+      <div style="display:flex;gap:11px;flex-wrap:wrap;margin-top:24px">
+        <a class="btn b1" href="#">व्हाट्सऐप पर बात करें</a><a class="btn b2" href="#">कॉल करें</a></div></div></div><div class="bleed"><div class="ph" style="aspect-ratio:4/3;max-width:100%;margin:0 auto">वंदना जी की फ़ोटो, क्लास लेते हुए</div>
+      <p class="col sig" style="margin-top:9px;text-align:center">रोज़ की क्लास, ज़ूम पर — [12] लोगों के ग्रुप में।</p></div><div class="col"><div class="s"><span class="kicker">जो सबसे पहले पूछा जाता है</span>
+      <h2>“दवा बंद करनी पड़ेगी?”</h2>
+      <p>नहीं। मैं कभी किसी से दवा बंद करने को नहीं कहती। योग साथ-साथ चलता है। रिपोर्ट सुधरती है तो
+      दवा आपके डॉक्टर ही घटाते हैं — और घटती है। मेरे यहाँ अब तक <b>140 लोगों की दवा घटी है</b>,
+      हर बार उनके अपने डॉक्टर की सलाह से।</p></div></div><div class="orn">॥ ॐ ॥</div><div class="col"><div class="s"><span class="kicker">जिन्होंने किया</span>
+      <h2>कुछ लोग, और उनकी रिपोर्ट</h2>
+      <p>नीचे तीन लोग हैं जिन्होंने अपनी बात कहने की अनुमति दी। हर किसी का अनुभव अलग होता है — इसलिए
+      संख्याएँ वैसी ही लिखी हैं जैसी उनकी रिपोर्ट में थीं।</p>
+      <div class="pull"><p>“सात महीने में दवा आधी हो गई। सुबह उठते ही अब थकान नहीं रहती।”</p>
+        <p class="by">सुनीता वर्मा, 52 · लखनऊ · शुगर · HbA1c 8.2 → 6.5</p></div>
+      <div class="pull"><p>“चार महीने पहले सीढ़ी चढ़ना मुश्किल था। अब रोज़ तीन मंज़िल चढ़ता हूँ।”</p>
+        <p class="by">रामकिशोर सिंह, 61 · कानपुर · कमर दर्द</p></div>
+      <div class="pull"><p>“छह महीने में पीरियड समय पर आने लगे। रिपोर्ट भी अच्छी आई।”</p>
+        <p class="by">अनीता गुप्ता, 38 · प्रयागराज · महिलाओं की समस्याएँ</p></div></div></div><div class="col"><div class="s"><span class="kicker">किसके लिए</span>
+      <h2>आपकी बीमारी कौन सी है?</h2>
+      <p>हर बीमारी का अपना क्रम होता है। अपनी चुनिए — उसका अभ्यास, उसकी पर्ची और उसी बीमारी वालों के नतीजे
+      अलग पन्ने पर हैं।</p><ul class="plain"><li><b>शुगर</b><span>HbA1c 8.2 → 6.5</span></li><li><b>बीपी</b><span>160/100 → 130/85</span></li><li><b>कमर दर्द</b><span>रोज़ तीन मंज़िल</span></li><li><b>घुटने का दर्द</b><span>बिना सहारे उठना-बैठना</span></li><li><b>थायराइड</b><span>TSH 9.4 → 3.1</span></li><li><b>मोटापा</b><span>11 किलो कम</span></li><li><b>नींद और तनाव</b><span>ग्यारह बजे नींद</span></li><li><b>महिलाओं की समस्याएँ</b><span>हर महीने, समय पर</span></li></ul></div></div><div class="col"><div class="s"><span class="kicker">जो मैं आपको लिखकर देती हूँ</span>
+      <h2>आपकी अपनी पर्ची</h2>
+      <p>कॉल के बाद, अगर आप आगे बढ़ना चाहें, तो मैं आपकी रिपोर्ट, आपकी दवा और आपकी हालत देखती हूँ — और
+      एक पर्ची लिखती हूँ। उसमें होता है: क्या खाना है, किन बातों की सावधानी, दिन कैसे बाँटना है,
+      कौन से प्राणायाम और कौन से आसन, और किस समय।</p>
+      <p>वह पर्ची आपके नाम से बनती है और व्हाट्सऐप पर आपके पास आ जाती है। हर नब्बे दिन पर हम उसे
+      आपकी नई रिपोर्ट के साथ दोबारा देखते हैं।</p></div></div><div class="col"><div class="s"><span class="kicker">क्या लगेगा</span><h2>तीन क़दम</h2>
+      <ul class="plain">
+        <li><b>पहली कॉल</b><span>कोई शुल्क नहीं</span></li>
+        <li><b>परामर्श और पर्ची</b><span>₹200</span></li>
+        <li><b>बैच</b><span>₹1,000 प्रति माह</span></li></ul>
+      <p>यानी रोज़ ₹35 से कम। अगला बैच [तारीख़] से शुरू हो रहा है, [N] जगह बची हैं।</p></div></div><div class="col"><div class="s" style="padding-bottom:44px"><hr class="rule">
+      <p>अगर आपको लगता है कि आपकी तकलीफ़ में इससे कुछ हो सकता है, तो एक बार बात कर लीजिए। कॉल का कोई
+      शुल्क नहीं, और मैं साफ़ बता दूँगी कि क्या हो सकता है और क्या नहीं।</p>
+      <div style="display:flex;gap:11px;flex-wrap:wrap;margin:22px 0 16px">
+        <a class="btn b1" href="#">व्हाट्सऐप पर बात करें</a><a class="btn b2" href="#">कॉल करें · [फ़ोन नंबर]</a></div>
+      <p class="sig">— वंदना बरनवाल, लखनऊ<br>योग में एम.ए. · [प्रमाणन संस्था] प्रमाणित</p></div></div></div></div><p class="cap">Phone, 390px. Scroll inside the frame.</p></div></div>
+<h2 class="lbl">On a computer</h2>
+<div class="frames"><div><div class="frame desk"><div class="d3 k"><div style="border-bottom:1px solid #ddd6c8;padding:20px 0">
+      <div class="col" style="display:flex;justify-content:space-between;align-items:center">
+        <span style="font:700 23px 'Noto Serif Devanagari',serif">योग वंदना</span>
+        <span style="font:600 14px 'Anek Devanagari',sans-serif;color:#5b564e">[फ़ोन नंबर]</span></div></div><div class="col"><div class="s"><span class="kicker">वंदना बरनवाल · योग में एम.ए. · लखनऊ</span>
+      <p class="open">योग एवं प्राणायाम से अपनी बीमारियों का हल पाइए।</p>
+      <p>मैं बारह साल से लोगों को उनकी बीमारी के हिसाब से योग सिखा रही हूँ — शुगर, बीपी, थायराइड, कमर और घुटने का दर्द,
+      नींद, और महिलाओं की समस्याएँ। क्लास ऑनलाइन होती है, छोटे ग्रुप में, रोज़ सुबह या शाम।</p>
+      <p>शुरुआत एक कॉल से होती है, जिसका कोई शुल्क नहीं। आप अपनी तकलीफ़ बताइए, और मैं बताऊँगी कि योग और
+      प्राणायाम से उसमें क्या हो सकता है — और क्या नहीं।</p>
+      <div style="display:flex;gap:11px;flex-wrap:wrap;margin-top:24px">
+        <a class="btn b1" href="#">व्हाट्सऐप पर बात करें</a><a class="btn b2" href="#">कॉल करें</a></div></div></div><div class="bleed"><div class="ph" style="aspect-ratio:3/2;max-width:860px;margin:0 auto">वंदना जी की फ़ोटो, क्लास लेते हुए</div>
+      <p class="col sig" style="margin-top:9px;text-align:center">रोज़ की क्लास, ज़ूम पर — [12] लोगों के ग्रुप में।</p></div><div class="col"><div class="s"><span class="kicker">जो सबसे पहले पूछा जाता है</span>
+      <h2>“दवा बंद करनी पड़ेगी?”</h2>
+      <p>नहीं। मैं कभी किसी से दवा बंद करने को नहीं कहती। योग साथ-साथ चलता है। रिपोर्ट सुधरती है तो
+      दवा आपके डॉक्टर ही घटाते हैं — और घटती है। मेरे यहाँ अब तक <b>140 लोगों की दवा घटी है</b>,
+      हर बार उनके अपने डॉक्टर की सलाह से।</p></div></div><div class="orn">॥ ॐ ॥</div><div class="col"><div class="s"><span class="kicker">जिन्होंने किया</span>
+      <h2>कुछ लोग, और उनकी रिपोर्ट</h2>
+      <p>नीचे तीन लोग हैं जिन्होंने अपनी बात कहने की अनुमति दी। हर किसी का अनुभव अलग होता है — इसलिए
+      संख्याएँ वैसी ही लिखी हैं जैसी उनकी रिपोर्ट में थीं।</p>
+      <div class="pull"><p>“सात महीने में दवा आधी हो गई। सुबह उठते ही अब थकान नहीं रहती।”</p>
+        <p class="by">सुनीता वर्मा, 52 · लखनऊ · शुगर · HbA1c 8.2 → 6.5</p></div>
+      <div class="pull"><p>“चार महीने पहले सीढ़ी चढ़ना मुश्किल था। अब रोज़ तीन मंज़िल चढ़ता हूँ।”</p>
+        <p class="by">रामकिशोर सिंह, 61 · कानपुर · कमर दर्द</p></div>
+      <div class="pull"><p>“छह महीने में पीरियड समय पर आने लगे। रिपोर्ट भी अच्छी आई।”</p>
+        <p class="by">अनीता गुप्ता, 38 · प्रयागराज · महिलाओं की समस्याएँ</p></div></div></div><div class="col"><div class="s"><span class="kicker">किसके लिए</span>
+      <h2>आपकी बीमारी कौन सी है?</h2>
+      <p>हर बीमारी का अपना क्रम होता है। अपनी चुनिए — उसका अभ्यास, उसकी पर्ची और उसी बीमारी वालों के नतीजे
+      अलग पन्ने पर हैं।</p><ul class="plain"><li><b>शुगर</b><span>HbA1c 8.2 → 6.5</span></li><li><b>बीपी</b><span>160/100 → 130/85</span></li><li><b>कमर दर्द</b><span>रोज़ तीन मंज़िल</span></li><li><b>घुटने का दर्द</b><span>बिना सहारे उठना-बैठना</span></li><li><b>थायराइड</b><span>TSH 9.4 → 3.1</span></li><li><b>मोटापा</b><span>11 किलो कम</span></li><li><b>नींद और तनाव</b><span>ग्यारह बजे नींद</span></li><li><b>महिलाओं की समस्याएँ</b><span>हर महीने, समय पर</span></li></ul></div></div><div class="col"><div class="s"><span class="kicker">जो मैं आपको लिखकर देती हूँ</span>
+      <h2>आपकी अपनी पर्ची</h2>
+      <p>कॉल के बाद, अगर आप आगे बढ़ना चाहें, तो मैं आपकी रिपोर्ट, आपकी दवा और आपकी हालत देखती हूँ — और
+      एक पर्ची लिखती हूँ। उसमें होता है: क्या खाना है, किन बातों की सावधानी, दिन कैसे बाँटना है,
+      कौन से प्राणायाम और कौन से आसन, और किस समय।</p>
+      <p>वह पर्ची आपके नाम से बनती है और व्हाट्सऐप पर आपके पास आ जाती है। हर नब्बे दिन पर हम उसे
+      आपकी नई रिपोर्ट के साथ दोबारा देखते हैं।</p></div></div><div class="col"><div class="s"><span class="kicker">क्या लगेगा</span><h2>तीन क़दम</h2>
+      <ul class="plain">
+        <li><b>पहली कॉल</b><span>कोई शुल्क नहीं</span></li>
+        <li><b>परामर्श और पर्ची</b><span>₹200</span></li>
+        <li><b>बैच</b><span>₹1,000 प्रति माह</span></li></ul>
+      <p>यानी रोज़ ₹35 से कम। अगला बैच [तारीख़] से शुरू हो रहा है, [N] जगह बची हैं।</p></div></div><div class="col"><div class="s" style="padding-bottom:44px"><hr class="rule">
+      <p>अगर आपको लगता है कि आपकी तकलीफ़ में इससे कुछ हो सकता है, तो एक बार बात कर लीजिए। कॉल का कोई
+      शुल्क नहीं, और मैं साफ़ बता दूँगी कि क्या हो सकता है और क्या नहीं।</p>
+      <div style="display:flex;gap:11px;flex-wrap:wrap;margin:22px 0 16px">
+        <a class="btn b1" href="#">व्हाट्सऐप पर बात करें</a><a class="btn b2" href="#">कॉल करें · [फ़ोन नंबर]</a></div>
+      <p class="sig">— वंदना बरनवाल, लखनऊ<br>योग में एम.ए. · [प्रमाणन संस्था] प्रमाणित</p></div></div></div></div><p class="cap">Desktop, shown at 1100px.</p></div></div>
+<div class="note"><b>Strongest for:</b> the ₹200 consultation and the 1:1, which are bought from a person, not
+   from a service. It is also the only one of the three that gets <i>better</i> as she adds her own
+   words, rather than needing numbers she may not have.<br>
+   <b>Weakest at:</b> scanning. Someone who wants the price and the timings has to read; and a serif
+   Devanagari at 18px is a heavier ask on a ₹10,000 screen than the other two.</div>
+</div></body></html>
