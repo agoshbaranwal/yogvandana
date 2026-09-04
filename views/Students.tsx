@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Routine } from "@/components/Credibility";
 import SiteShell from "@/components/SiteShell";
 import { Tx } from "@/components/Tx";
 import { absolute, type Batch, batches, site, students, t, ui } from "@/lib/content";
@@ -34,15 +35,15 @@ export default function Students({ lang }: { lang: Lang }) {
           {batches
             .filter((b) => b.type !== "workshop")
             .map((b) => (
-              <li key={b.id} className="card flex items-center justify-between gap-3">
-                <div className="flex flex-col gap-0.5">
-                  <p className="body font-bold">{t(b.name, lang)}</p>
-                  <p className="num h3">
-                    <Tx>{`₹${b.price}`}</Tx>{" "}
-                    <span className="cap font-bold" style={{ color: "var(--color-muted)" }}>
-                      {t(b.priceUnit, lang)}
-                    </span>
-                  </p>
+              <li key={b.id} className="card flex flex-col gap-3">
+                <div className="flex items-start justify-between gap-3">
+                  <p className="h3">{t(b.name, lang)}</p>
+                  <div className="text-right">
+                    <p className="num h2">
+                      <Tx>{`₹${b.price}`}</Tx>
+                    </p>
+                    <p className="cap">{t(b.priceUnit, lang)}</p>
+                  </div>
                 </div>
                 <PayOrWrite batch={b} lang={lang} wa={wa} />
               </li>
@@ -52,9 +53,7 @@ export default function Students({ lang }: { lang: Lang }) {
           <Tx>{t(students.payNote, lang)}</Tx>
         </p>
         {/* Said where the money is asked for, not buried in a policy page. */}
-        <p className="cap max-w-[70ch]" style={{ color: "var(--color-kohl)" }}>
-          {ui("pay.safety", lang)}
-        </p>
+        <p className="cap max-w-[70ch]">{ui("pay.safety", lang)}</p>
       </section>
 
       <div className="wrap grid gap-8 pb-8 md:grid-cols-2 md:gap-14 md:pb-12">
@@ -96,6 +95,8 @@ export default function Students({ lang }: { lang: Lang }) {
         </section>
       </div>
 
+      <Routine lang={lang} />
+
       <section className="wrap flex flex-col gap-2.5 pb-10 md:pb-14">
         <h2 className="h2">{ui("students.rulesTitle", lang)}</h2>
         <ul className="ml-5 flex list-disc flex-col gap-1.5 leading-relaxed md:max-w-[70ch] body">
@@ -121,7 +122,7 @@ function PayOrWrite({ batch, lang, wa }: { batch: Batch; lang: Lang; wa: string 
       data-ev={pay ? "pay_click" : "fee_write_click"}
       data-ev-batch={batch.id}
       data-ev-source="students"
-      className="btn btn-sm btn-primary whitespace-nowrap"
+      className="btn btn-primary w-full"
     >
       {pay
         ? batch.type === "group"

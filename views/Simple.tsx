@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { DiseaseRows } from "@/components/DiseaseRows";
 import Band from "@/components/Band";
-import { BatchCard, SharedSession, sharedSession } from "@/components/Batches";
+import { FeeFacts, GroupBatchCard, SessionBar, SmallBatchCard } from "@/components/Batches";
 import { FaqList } from "@/components/Faq";
 import SiteShell from "@/components/SiteShell";
 import { Tx } from "@/components/Tx";
@@ -26,55 +26,62 @@ export function AilmentsIndex({ lang }: { lang: Lang }) {
 
 /* ------------------------------ batches ---------------------------------- */
 
+/* The week, two times, one fee. Then one class as a bar, the money said
+   once, and the ask: which batch is a question she answers, by the disease. */
 export function BatchesPage({ lang }: { lang: Lang }) {
   const page = absolute(href("batches", lang));
-  const groups = { group: ui("batches.group", lang), private: ui("batches.private", lang), workshop: ui("batches.workshop", lang) };
+  const group = batches.filter((b) => b.type === "group");
+  const others = batches.filter((b) => b.type !== "group");
+  const first = group[0];
 
   return (
     <SiteShell lang={lang} routeKey="batches">
-      <Jsonld
-        data={batches
-          .filter((b) => b.type === "group")
-          .map((b) => courseSchema(lang, t(b.name, lang), t(b.note, lang)))}
-      />
+      <Jsonld data={group.map((b) => courseSchema(lang, t(b.name, lang), t(b.note, lang)))} />
       <header style={{ background: "linear-gradient(180deg, var(--color-sky) 0%, var(--color-ivory) 100%)" }}>
-        <div className="wrap flex flex-col gap-2.5 section-pad">
+        <div className="wrap flex flex-col gap-2 pb-5 pt-6 md:pb-8 md:pt-12">
           <h1 className="page-title">{ui("batches.title", lang)}</h1>
-          <p className="body max-w-[62ch]" style={{ color: "var(--color-heroink)" }}>
-            <Tx>{ui("batches.lead", lang)}</Tx>
+          <p className="body max-w-[52ch]" style={{ color: "var(--color-heroink)" }}>
+            <Tx>{ui("batches.lead", lang).replace("{n}", site.groupSize)}</Tx>
           </p>
         </div>
       </header>
 
-      {(["group", "private", "workshop"] as const).map((type) => {
-        const list = batches.filter((b) => b.type === type);
-        if (list.length === 0) return null;
-        const shared = sharedSession(list, lang);
-        return (
-          <section key={type} className="wrap flex flex-col gap-4 section-pad">
-            <h2 className="h2">{groups[type]}</h2>
-            {shared ? <SharedSession rows={shared} lang={lang} /> : null}
-            <ul className={`grid gap-2.5 md:gap-5 ${type === "group" ? "md:grid-cols-2" : ""}`}>
-              {list.map((b) => (
-                <li key={b.id}>
-                  <BatchCard batch={b} lang={lang} page={page} hideSession={Boolean(shared)} />
-                </li>
-              ))}
-            </ul>
-          </section>
-        );
-      })}
-
-      <section className="wrap flex flex-col gap-3 section-pad">
-        <h2 className="h2">{ui("home.faqTitle", lang)}</h2>
-        <FaqList items={faq} lang={lang} columns />
-        {/* Said on the page where money is decided, not buried in a policy. */}
-        <p className="cap mt-2 max-w-[70ch]" style={{ color: "var(--color-kohl)" }}>
-          {ui("pay.safety", lang)}
-        </p>
+      <section>
+        <div className="wrap flex flex-col gap-3 pb-2 pt-2 md:grid md:grid-cols-2 md:gap-5 md:pt-4">
+          {group.map((b, i) => (
+            <GroupBatchCard key={b.id} batch={b} lang={lang} page={page} first={i === 0} />
+          ))}
+          {others.map((b) => (
+            <SmallBatchCard key={b.id} batch={b} lang={lang} page={page} />
+          ))}
+        </div>
       </section>
 
-      <Band lang={lang} routeKey="batches" source="batches" />
+      {first ? (
+        <section>
+          <div className="wrap flex flex-col gap-3 section-pad md:max-w-[880px]">
+            <h2 className="h2">{ui("batches.inSession", lang)}</h2>
+            <SessionBar rows={first.session} lang={lang} />
+            <FeeFacts batch={first} lang={lang} />
+            <p className="cap">{ui("pay.safetyShort", lang)}</p>
+          </div>
+        </section>
+      ) : null}
+
+      <section>
+        <div className="wrap flex flex-col gap-2 pb-10 md:max-w-[880px]">
+          <h2 className="h2 pb-2">{ui("home.faqTitle", lang)}</h2>
+          <FaqList items={faq} lang={lang} />
+        </div>
+      </section>
+
+      <Band
+        lang={lang}
+        routeKey="batches"
+        source="batches"
+        title={ui("batches.whichTitle", lang)}
+        lead={ui("batches.whichLead", lang)}
+      />
     </SiteShell>
   );
 }

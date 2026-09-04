@@ -1,76 +1,8 @@
-import Link from "next/link";
 import { site, t, ui } from "@/lib/content";
-import { href, type Lang } from "@/lib/routes";
+import type { Lang } from "@/lib/routes";
 import { shareHref } from "@/lib/whatsapp";
 import { PlayIcon, ShareIcon, StarIcon } from "./Icons";
-import { Photo } from "./Photo";
 import { Tx } from "./Tx";
-
-/* ---------------------------- section heading ---------------------------- */
-
-export function SectionHead({
-  title,
-  lead,
-  link,
-  id,
-}: {
-  title: string;
-  lead?: string;
-  link?: { label: string; href: string };
-  id?: string;
-}) {
-  return (
-    <div className="flex flex-col gap-1.5">
-      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-        <h2 className="h2" id={id}>
-          {title}
-        </h2>
-        {link ? (
-          <Link href={link.href} className="tap font-bold body">
-            {link.label}
-          </Link>
-        ) : null}
-      </div>
-      {lead ? (
-        <p className="max-w-[68ch] body" style={{ color: "var(--color-muted)" }}>
-          <Tx>{lead}</Tx>
-        </p>
-      ) : null}
-    </div>
-  );
-}
-
-/* ------------------------------ teacher line ----------------------------- */
-
-export function TeacherLine({ lang }: { lang: Lang }) {
-  return (
-    <div className="border-b border-rule">
-      <div className="wrap flex items-center gap-3 py-3.5 md:gap-4">
-        <Photo
-          src=""
-          alt={t(site.teacher, lang)}
-          rounded="rounded-full"
-          className="h-14 w-14 flex-none md:h-16 md:w-16"
-        />
-        <div className="flex min-w-0 flex-col">
-          <span className="font-bold leading-tight body">
-            {t(site.teacher, lang)}
-          </span>
-          <span className="cap">
-            {t(site.credential, lang)} · {t(site.city, lang)} ·{" "}
-            <Tx>{t(site.sinceYear, lang)}</Tx> {lang === "hi" ? "से" : "onwards"}
-          </span>
-        </div>
-        <Link
-          href={href("about", lang)}
-          className="tap ml-auto whitespace-nowrap font-bold cap"
-        >
-          {ui("cta.aboutShort", lang)}
-        </Link>
-      </div>
-    </div>
-  );
-}
 
 /* ------------------------------ numbers strip ---------------------------- */
 
@@ -127,40 +59,6 @@ export function NumbersStrip({ lang, long = false }: { lang: Lang; long?: boolea
         ) : null}
       </div>
     </div>
-  );
-}
-
-/* -------------------------------- steps ---------------------------------- */
-
-export function Steps({ lang }: { lang: Lang }) {
-  const steps = [
-    { n: "1", title: ui("home.step1", lang), sub: ui("home.step1sub", lang) },
-    { n: "2", title: ui("home.step2", lang), sub: ui("home.step2sub", lang) },
-    { n: "3", title: ui("home.step3", lang), sub: ui("home.step3sub", lang) },
-  ];
-  return (
-    <section className="wrap flex flex-col gap-4 section-pad">
-      <h2 className="h2">{ui("home.stepsTitle", lang)}</h2>
-      {/* Three columns on a phone squeezed every step into four wrapped
-         lines. One per row until there is room for three. */}
-      <ol className="grid gap-2 md:grid-cols-3 md:gap-5">
-        {steps.map((s) => (
-          <li key={s.n} className="card flex items-start gap-3.5 p-3.5 md:gap-4 md:p-5">
-            <span className="num h2" style={{ color: "var(--color-deep)" }}>
-              {s.n}
-            </span>
-            <span className="flex flex-col gap-0.5">
-              <span className="body font-bold leading-tight">{s.title}</span>
-              <span className="cap">
-                <Tx>{s.sub}</Tx>
-              </span>
-            </span>
-          </li>
-        ))}
-      </ol>
-      {/* The one place the site says what money is involved. */}
-      <p className="body font-bold">{ui("home.stepsNote", lang)}</p>
-    </section>
   );
 }
 
@@ -228,19 +126,3 @@ export function ShareLink({
   );
 }
 
-/* ------------------------------ motto line ------------------------------- */
-
-export function MottoLine({ lang }: { lang: Lang }) {
-  return (
-    <div className="border-b border-rule">
-      <div className="wrap flex flex-col gap-1 py-5 md:flex-row md:items-baseline md:gap-5">
-        <p className="quote h3" style={{ color: "var(--color-deep)" }} lang="sa">
-          {site.motto}
-        </p>
-        <p className="cap" style={{ color: "var(--color-muted)" }}>
-          {t(site.mottoGloss, lang)}
-        </p>
-      </div>
-    </div>
-  );
-}

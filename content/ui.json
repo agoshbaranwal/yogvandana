@@ -587,6 +587,14 @@
     "youChoose": {
       "hi": "समय आप तय करते हैं।",
       "en": "You choose the time."
+    },
+    "workshopSeats": {
+      "hi": "{n} सीटें",
+      "en": "{n} seats"
+    },
+    "routineTitle": {
+      "hi": "आपकी दिनचर्या, योग के साथ",
+      "en": "Your day, with yoga in it"
     }
   },
   "stories": {

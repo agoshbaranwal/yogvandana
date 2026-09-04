@@ -30,16 +30,25 @@
   },
   "session": [
     {
-      "hi": "[10] मिनट सूक्ष्म व्यायाम और जोड़ों की गति",
-      "en": "[10] minutes gentle warm-up and joint movement"
+      "minutes": "[10]",
+      "text": {
+        "hi": "मिनट सूक्ष्म व्यायाम",
+        "en": "minutes gentle warm-up"
+      }
     },
     {
-      "hi": "[30] मिनट आसन, आपके स्तर पर",
-      "en": "[30] minutes asanas, at your level"
+      "minutes": "[30]",
+      "text": {
+        "hi": "मिनट आसन, आपके स्तर पर",
+        "en": "minutes asanas, at your level"
+      }
     },
     {
-      "hi": "[10] मिनट प्राणायाम और विश्राम",
-      "en": "[10] minutes pranayama and relaxation"
+      "minutes": "[10]",
+      "text": {
+        "hi": "मिनट प्राणायाम, विश्राम",
+        "en": "minutes pranayama, relaxation"
+      }
     }
   ],
   "price": "[शुल्क]",

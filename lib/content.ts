@@ -260,7 +260,8 @@ const BatchSchema = z.object({
   daysOn: z.array(z.number().int().min(0).max(6)),
   level: Text,
   note: Text,
-  session: z.array(Text),
+  /* one class, in minutes: [10] + [30] + [10]; drawn as a bar on the batches page */
+  session: z.array(z.object({ minutes: z.string(), text: Text })),
   price: z.string(),
   priceUnit: Text,
   perDay: z.string(),
