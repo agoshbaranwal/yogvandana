@@ -164,21 +164,23 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
 
       {/* 3 · what you get for this disease, and the slip at the head ----- */}
       <section className="border-t border-rule">
-        <div className="wrap grid gap-5 section-pad md:grid-cols-2 md:items-center md:gap-14">
+        <div className="wrap flex flex-col gap-5 section-pad">
           <div className="flex flex-col gap-3">
             <h2 className="h2">{ui("ailment.slipTitle", lang).replace("{x}", name)}</h2>
-            <p className="body max-w-[44ch]" style={{ color: "var(--color-heroink)" }}>
+            <p className="body" style={{ color: "var(--color-heroink)" }}>
               {ui("ailment.slipNote", lang)}
             </p>
             <PriceLine lang={lang} />
           </div>
-          <SlipPad lang={lang} disease={`${name} · ${t(ailment.sub, lang)}`} edge="var(--color-ivory)" />
+          <div className="w-full md:max-w-[560px]">
+            <SlipPad lang={lang} disease={`${name} · ${t(ailment.sub, lang)}`} edge="var(--color-ivory)" />
+          </div>
         </div>
       </section>
 
       {/* 4 · the first class, as a clock ------------------------------------ */}
       <section className="border-t border-rule">
-        <div className="wrap flex flex-col gap-3 section-pad md:max-w-[880px]">
+        <div className="wrap flex flex-col gap-3 section-pad">
           <h2 className="h2">{ui("ailment.firstClassTitle", lang)}</h2>
           <ol className="flex flex-col border-t border-rule">
             {ailment.firstClass.rows.map((row, i) => (
@@ -200,7 +202,7 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
 
       {/* 5 · people with this, who felt the difference ---------------------- */}
       <section style={{ background: "var(--color-sky)" }}>
-        <div className="wrap flex flex-col gap-3 section-pad">
+        <div className="wrap wrap-wide flex flex-col gap-3 section-pad">
           <div className="flex items-baseline justify-between gap-3">
             <h2 className="h2">{ui("ailment.studentsTitle", lang).replace("{x}", name)}</h2>
             <Link href={href("stories", lang)} className="tap whitespace-nowrap font-bold cap">
@@ -226,7 +228,7 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
 
       {/* 6 · which batch, in one line --------------------------------------- */}
       <section className="border-t border-rule">
-        <div className="wrap flex flex-col gap-3 section-pad md:max-w-[880px]">
+        <div className="wrap flex flex-col gap-3 section-pad">
           <h2 className="h2">
             {ui("ailment.batchTitle", lang)
               .replace("{x}", name)
@@ -257,7 +259,7 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
 
       {/* 7 · questions ------------------------------------------------------ */}
       <section className="border-t border-rule">
-        <div className="wrap flex flex-col gap-2 pb-10 md:max-w-[880px]">
+        <div className="wrap flex flex-col gap-2 pb-10">
           <h2 className="h2 pb-2">{ui("ailment.faqTitle", lang)}</h2>
           <FaqList items={ailment.faq} lang={lang} openFirst />
         </div>

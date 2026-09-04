@@ -80,7 +80,7 @@ export default function BookingBand({
       style={{ background: "var(--color-bhagwa)" }}
       aria-labelledby="booking-band-title"
     >
-      <div className="wrap flex flex-col gap-4 py-8 md:grid md:grid-cols-2 md:items-start md:gap-12 md:py-14">
+      <div className="wrap flex flex-col gap-5 py-8 md:mx-auto md:max-w-[620px] md:py-16">
         <div className="flex flex-col gap-3">
           <h2 id="booking-band-title" className="page-title">
             {title}

@@ -59,7 +59,7 @@ export default function Contact({ lang }: { lang: Lang }) {
       </section>
 
       <section>
-        <div className="wrap flex flex-col gap-4 section-pad md:max-w-[640px] md:!mx-auto">
+        <div className="wrap flex flex-col gap-4 section-pad">
           <h2 className="h2">{ui("contact.formTitle", lang)}</h2>
           <ContactForm
             lang={lang}
@@ -87,7 +87,7 @@ export default function Contact({ lang }: { lang: Lang }) {
       </section>
 
       <section className="border-t border-rule">
-        <div className="wrap flex flex-col gap-1.5 py-7 md:max-w-[640px] md:!mx-auto md:py-10">
+        <div className="wrap flex flex-col gap-1.5 py-7 md:py-10">
           <h2 className="h2">{ui("contact.addressTitle", lang)}</h2>
           <p className="body">
             <Tx>{t(site.contact.address, lang)}</Tx>

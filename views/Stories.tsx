@@ -22,7 +22,7 @@ export default function Stories({ lang }: { lang: Lang }) {
         </div>
       </header>
 
-      <section className="wrap flex flex-col gap-4 pb-10 pt-2 md:pt-4">
+      <section className="wrap wrap-wide flex flex-col gap-4 pb-10 pt-2 md:pt-4">
         <Filter
           event="stories_filter"
           allLabel={ui("stories.all", lang)}

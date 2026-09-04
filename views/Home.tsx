@@ -30,17 +30,15 @@ export default function Home({ lang }: { lang: Lang }) {
 
       {/* 2 · which disease, and what happens next ------------------------- */}
       <section>
-        <div className="wrap flex flex-col gap-2 py-6 md:grid md:grid-cols-[1.3fr_1fr] md:gap-14 md:py-16">
+        <div className="wrap wrap-wide flex flex-col gap-6 py-7 md:gap-10 md:py-16">
           <DiseaseRows lang={lang} />
-          <div className="pt-2 md:pt-12">
-            <MedicinePanel lang={lang} />
-          </div>
+          <MedicinePanel lang={lang} />
         </div>
       </section>
 
       {/* 3 · the proof, in the report's own numbers ----------------------- */}
       <section style={{ background: "var(--color-sky)" }}>
-        <div className="wrap flex flex-col gap-3.5 section-pad">
+        <div className="wrap wrap-wide flex flex-col gap-3.5 section-pad">
           <div className="flex items-baseline justify-between gap-3">
             <h2 className="h2">{ui("home.resultsTitle", lang)}</h2>
             <Link href={href("stories", lang)} className="tap whitespace-nowrap font-bold cap">

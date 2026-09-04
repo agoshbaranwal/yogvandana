@@ -1,4 +1,4 @@
-import { ailmentBySlug, FAMILY_COLOUR, type Story, t, ui } from "@/lib/content";
+import { ailmentBySlug, FAMILY_COLOUR, isTodo, type Story, t, ui } from "@/lib/content";
 import type { Lang } from "@/lib/routes";
 import { LongArrowIcon, PlayIcon } from "./Icons";
 import { Photo } from "./Photo";
@@ -37,6 +37,8 @@ export function ResultCard({
         <Photo
           src={story.photo}
           alt={`${t(story.name, lang)}, ${t(story.city, lang)}`}
+          label={ui("photo.student", lang)}
+          compact
           rounded="rounded-full"
           className="h-[60px] w-[60px] flex-none"
         />
@@ -119,7 +121,9 @@ export function ResultCard({
       </blockquote>
 
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-        {showVideo && story.video ? (
+        {/* a pill offering a video that does not exist yet is an affordance
+            for nothing; it appears the day the link is real */}
+        {showVideo && story.video && !isTodo(story.video) ? (
           <span className="tap-pill" role="img" aria-label={ui("photo.video", lang)}>
             <PlayIcon size={16} />
             <Tx>{ui("stories.videoSeconds", lang)}</Tx>

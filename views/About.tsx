@@ -54,13 +54,6 @@ function Verify({ credential, lang, pill = false }: { credential: Credential; la
   );
 }
 
-function PhotoNote({ lang }: { lang: Lang }) {
-  return (
-    <p className="cap absolute right-4 top-16 md:bottom-4 md:left-6 md:top-auto" style={{ color: "var(--color-deeper)" }}>
-      {ui("photo.portrait", lang)}
-    </p>
-  );
-}
 
 export default function About({ lang }: { lang: Lang }) {
   const page = absolute(href("about", lang));
@@ -98,48 +91,50 @@ export default function About({ lang }: { lang: Lang }) {
     <SiteShell lang={lang} routeKey="about" hasBand={false}>
       <Jsonld data={personSchema(lang)} />
 
-      {/* 1 · who: a big portrait, the name, the certifying body ---------- */}
+      {/* 1 · who: her portrait, her name, the body that certified her ----- */}
       <section className="first">
-        <div className="md:grid md:min-h-[560px] md:grid-cols-[420px_1fr] lg:grid-cols-[520px_1fr]">
-          <div className="first-frame relative h-[440px] overflow-hidden md:h-auto">
-            {pic ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={pic.src}
-                srcSet={pic.srcSet || undefined}
-                sizes="(min-width: 1024px) 520px, (min-width: 768px) 420px, 100vw"
-                width={pic.width || undefined}
-                height={pic.height || undefined}
-                alt={t(site.teacher, lang)}
-                fetchPriority="high"
-                decoding="async"
-                className="absolute inset-0 h-full w-full object-cover object-top"
-              />
-            ) : (
-              <PhotoNote lang={lang} />
-            )}
-            {pic ? <div className="first-fade md:hidden" aria-hidden="true" /> : null}
-            <div
-              className={`${pic ? "on-dark" : "on-bhagwa"} absolute inset-x-4 bottom-5 flex h-[150px] flex-col gap-1.5 overflow-hidden md:hidden`}
-              style={{ color: pic ? "var(--color-ivory)" : "var(--color-kohl)" }}
-              data-on-photo={pic ? "" : undefined}
-            >
-              <p className="label" style={{ color: pic ? "var(--color-bhagwa)" : "var(--color-deep)" }}>
-                {ui("about.eyebrow", lang)}
-              </p>
-              <h1 className="page-title">{t(site.teacher, lang)}</h1>
-              <p className="cap" style={{ color: pic ? "var(--color-ivory)" : "var(--color-kohl)", opacity: pic ? 0.94 : 1 }}>
-                <Tx>{`${t(site.credentialShort, lang)} · `}</Tx>
-                <strong>
-                  <Tx>{certified}</Tx>
-                </strong>
-                <br />
-                <Tx>{`${t(site.city, lang)} · ${ui("about.teachingSince", lang).replace("{y}", t(site.sinceYear, lang))}`}</Tx>
-              </p>
-            </div>
-
+        {/* the phone: the photograph is the screen */}
+        <div className="relative h-[360px] overflow-hidden md:hidden">
+          {pic ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={pic.src}
+              srcSet={pic.srcSet || undefined}
+              sizes="100vw"
+              alt={t(site.teacher, lang)}
+              fetchPriority="high"
+              decoding="async"
+              className="absolute inset-0 h-full w-full object-cover object-top"
+            />
+          ) : (
+            <p className="cap absolute inset-x-6 top-1/2 -translate-y-1/2 text-center" style={{ color: "var(--color-deeper)" }}>
+              {ui("photo.portrait", lang)}
+            </p>
+          )}
+          {pic ? <div className="first-fade" aria-hidden="true" /> : null}
+          <div
+            className={`${pic ? "on-dark" : "on-bhagwa"} absolute inset-x-4 bottom-4 flex flex-col gap-1.5`}
+            style={{ color: pic ? "var(--color-ivory)" : "var(--color-kohl)" }}
+            data-on-photo={pic ? "" : undefined}
+          >
+            <p className="label" style={{ color: pic ? "var(--color-bhagwa)" : "var(--color-deep)" }}>
+              {ui("about.eyebrow", lang)}
+            </p>
+            <h1 className="page-title">{t(site.teacher, lang)}</h1>
+            <p className="cap" style={{ color: pic ? "var(--color-ivory)" : "var(--color-kohl)" }}>
+              <Tx>{`${t(site.credentialShort, lang)} · `}</Tx>
+              <strong>
+                <Tx>{certified}</Tx>
+              </strong>
+              <br />
+              <Tx>{`${t(site.city, lang)} · ${ui("about.teachingSince", lang).replace("{y}", t(site.sinceYear, lang))}`}</Tx>
+            </p>
           </div>
-          <div className="hidden flex-col justify-end gap-3 md:flex md:px-12 md:py-14 lg:px-16">
+        </div>
+
+        {/* the desktop: a framed portrait beside her name */}
+        <div className="wrap wrap-wide hidden md:grid md:min-h-[460px] md:grid-cols-[1fr_340px] md:items-center md:gap-16">
+          <div className="flex flex-col gap-3 py-14">
             <p className="label" style={{ color: "var(--color-deeper)" }}>
               {ui("about.eyebrow", lang)}
             </p>
@@ -151,12 +146,22 @@ export default function About({ lang }: { lang: Lang }) {
               <Tx>{`${t(site.city, lang)} · ${ui("about.teachingSince", lang).replace("{y}", t(site.sinceYear, lang))}`}</Tx>
             </p>
           </div>
+          <Photo
+            src={site.photos.portrait}
+            alt={t(site.teacher, lang)}
+            label={ui("photo.portrait", lang)}
+            ratio="4 / 5"
+            rounded="rounded-[12px]"
+            className="w-full"
+            sizes="340px"
+            priority
+          />
         </div>
       </section>
 
       {/* 2 · her own words, and the motto --------------------------------- */}
       <section>
-        <div className="wrap flex flex-col gap-3 pb-2 pt-6 md:max-w-[880px] md:pt-12">
+        <div className="wrap flex flex-col gap-3 pb-2 pt-6 md:pt-12">
           <p className="h3" lang="sa" style={{ color: "var(--color-deep)" }}>
             {site.motto}{" "}
             <span className="body font-normal" style={{ color: "var(--color-muted)" }} lang={lang}>
@@ -186,7 +191,7 @@ export default function About({ lang }: { lang: Lang }) {
       {/* 3 · her record: the certificate that proves it, then the rest ----- */}
       {primary ? (
         <section id="yogyata" className="border-t border-rule">
-          <div className="wrap flex flex-col gap-3 pb-2 pt-6 md:max-w-[880px] md:pt-10">
+          <div className="wrap flex flex-col gap-3 pb-2 pt-6 md:pt-10">
             <h2 className="h2">{ui("about.studyTitle", lang)}</h2>
             <div className="card overflow-hidden p-0 md:grid md:grid-cols-[300px_1fr]">
               <Photo
@@ -218,14 +223,15 @@ export default function About({ lang }: { lang: Lang }) {
 
       {/* the rest of the register: the same idea, so not a new section */}
       <div>
-        <div className="wrap flex flex-col gap-1 pb-4 md:max-w-[880px]">
+        <div className="wrap flex flex-col gap-1 pb-4">
           <ul className="flex flex-col border-b border-rule">
             {rest.shown.map((c) => (
               <li key={c.id} className="flex items-center gap-3.5 border-t border-rule py-3.5">
                 <Photo
                   src={c.image}
                   alt={`${t(c.name, lang)} — ${t(c.body, lang)}`}
-                  label=""
+                  label={ui("photo.certificate", lang)}
+                  compact
                   rounded="rounded-[12px]"
                   className="h-[84px] w-[64px] flex-none border border-rule"
                 />
@@ -249,7 +255,7 @@ export default function About({ lang }: { lang: Lang }) {
               <ul className="flex flex-col border-b border-rule">
                 {teachers.shown.map((g) => (
                   <li key={g.id} className="flex items-center gap-3.5 border-t border-rule py-3">
-                    <Photo src={g.photo} alt={t(g.name, lang)} rounded="rounded-full" className="h-14 w-14 flex-none" />
+                    <Photo src={g.photo} alt={t(g.name, lang)} label={ui("photo.guru", lang)} compact rounded="rounded-full" className="h-14 w-14 flex-none" />
                     <div className="flex min-w-0 flex-col gap-0.5">
                       <p className="body font-bold leading-snug">
                         <Tx>{t(g.name, lang)}</Tx>
@@ -302,7 +308,7 @@ export default function About({ lang }: { lang: Lang }) {
       {/* 6 · the journey ---------------------------------------------------- */}
       {journey.length > 0 ? (
         <section className="border-t border-rule">
-          <div className="wrap flex flex-col gap-3 section-pad md:max-w-[880px]">
+          <div className="wrap flex flex-col gap-3 section-pad">
             <h2 className="h2">{ui("about.journeyTitle", lang)}</h2>
             <ol className="flex flex-col border-b border-rule">
               {journey.map((j) => (
@@ -314,7 +320,7 @@ export default function About({ lang }: { lang: Lang }) {
                     <Tx>{t(j.text, lang)}</Tx>
                   </span>
                   {t(j.photoAlt, lang) && j.photo ? (
-                    <Photo src={j.photo} alt={t(j.photoAlt, lang)} ratio="3 / 2" rounded="rounded-[12px]" className="col-span-2 md:col-span-1" />
+                    <Photo src={j.photo} alt={t(j.photoAlt, lang)} label={t(j.photoAlt, lang)} ratio="3 / 2" rounded="rounded-[12px]" className="col-span-2 md:col-span-1" />
                   ) : null}
                 </li>
               ))}
@@ -325,7 +331,7 @@ export default function About({ lang }: { lang: Lang }) {
 
       {/* 7 · the stage: honours and events, in four photographs ----------- */}
       <section id="sammaan" style={{ background: "var(--color-sky)" }}>
-        <div className="wrap flex flex-col gap-3.5 section-pad md:max-w-[880px]">
+        <div className="wrap flex flex-col gap-3.5 section-pad">
           <h2 className="h2">{ui("about.stageTitle", lang)}</h2>
           <ul className="grid grid-cols-2 gap-2.5 md:grid-cols-4 md:gap-4">
             {stage.shown.map((tile) => (
@@ -388,13 +394,13 @@ export default function About({ lang }: { lang: Lang }) {
 
       {/* 8 · in the papers -------------------------------------------------- */}
       <section id="media">
-        <div className="wrap flex flex-col gap-3.5 section-pad md:max-w-[880px]">
+        <div className="wrap flex flex-col gap-3.5 section-pad">
           <h2 className="h2">{ui("about.mediaTitle", lang)}</h2>
           {mediaLogos.length > 0 ? (
             <ul className="grid grid-cols-3 gap-2.5">
               {logos.shown.map((m) => (
                 <li key={m.id}>
-                  <Photo src={m.image} alt={t(m.name, lang)} label={ui("photo.logo", lang)} rounded="rounded-[12px]" className="h-14 w-full" />
+                  <Photo src={m.image} alt={t(m.name, lang)} label={ui("photo.logo", lang)} compact rounded="rounded-[12px]" className="h-16 w-full" />
                 </li>
               ))}
             </ul>

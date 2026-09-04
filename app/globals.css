@@ -182,16 +182,35 @@
     padding-top: var(--section-pad);
     padding-bottom: var(--section-pad);
   }
+  /* One content width for the whole site.
+     It used to be 1200 px, with individual sections overriding to 880, which
+     is why the left edge wandered down the page and why a paragraph could run
+     1,120 px — about 115 characters — on a desktop. Prose is unreadable much
+     past 75. Everything now sits in one 860 px column; the few things that
+     genuinely need room — the first screen, a row of cards, the timetable —
+     opt into .wrap-wide. */
   .wrap {
     width: 100%;
-    max-width: 1200px;
+    max-width: 860px;
     margin-inline: auto;
     padding-inline: 16px;
+  }
+  .wrap-wide {
+    max-width: 1120px;
   }
   @media (min-width: 768px) {
     .wrap {
       padding-inline: 40px;
     }
+  }
+  /* no line of prose runs past a comfortable measure, whatever contains it */
+  .body,
+  .cap {
+    max-width: 68ch;
+  }
+  .body.full,
+  .cap.full {
+    max-width: none;
   }
 
   /* type ------------------------------------------------------------------ */
@@ -426,16 +445,23 @@
     color: var(--color-muted);
     overflow: hidden;
   }
-  .ph-label {
+  /* the frame's contents: an icon and the words for what goes here */
+  .ph-inner {
     position: absolute;
-    left: 8px;
-    right: 8px;
-    bottom: 8px;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px;
     color: var(--color-muted);
-    padding: 0 1px;
-    font-size: var(--step-fine); /* a frame's caption, gone when the photograph arrives */
+    text-align: center;
+  }
+  .ph-label {
+    font-size: var(--step-cap);
     line-height: 1.35;
-    max-height: calc(100% - 16px);
+    max-width: 22ch;
     overflow: hidden;
   }
 

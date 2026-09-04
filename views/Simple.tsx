@@ -16,7 +16,7 @@ export function AilmentsIndex({ lang }: { lang: Lang }) {
   return (
     <SiteShell lang={lang} routeKey="ailments">
       <section>
-        <div className="wrap py-6 md:max-w-[960px] md:py-14">
+        <div className="wrap py-6 md:py-14">
           <DiseaseRows lang={lang} heading="h1" />
         </div>
       </section>
@@ -61,7 +61,7 @@ export function BatchesPage({ lang }: { lang: Lang }) {
 
       {first ? (
         <section>
-          <div className="wrap flex flex-col gap-3 section-pad md:max-w-[880px]">
+          <div className="wrap flex flex-col gap-3 section-pad">
             <h2 className="h2">{ui("batches.inSession", lang)}</h2>
             <SessionBar rows={first.session} lang={lang} />
             <FeeFacts batch={first} lang={lang} />
@@ -71,7 +71,7 @@ export function BatchesPage({ lang }: { lang: Lang }) {
       ) : null}
 
       <section>
-        <div className="wrap flex flex-col gap-2 pb-10 md:max-w-[880px]">
+        <div className="wrap flex flex-col gap-2 pb-10">
           <h2 className="h2 pb-2">{ui("home.faqTitle", lang)}</h2>
           <FaqList items={faq} lang={lang} />
         </div>

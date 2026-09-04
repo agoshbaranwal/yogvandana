@@ -1023,44 +1023,52 @@
   },
   "photo": {
     "teaching": {
-      "hi": "फ़ोटो: वंदना, क्लास में, विद्यार्थियों के साथ",
-      "en": "Photo: Vandana teaching, students in frame"
+      "hi": "वंदना जी की फ़ोटो, विद्यार्थियों के साथ",
+      "en": "Photo of Vandana with her students"
     },
     "portrait": {
-      "hi": "फ़ोटो: वंदना का पोर्ट्रेट",
-      "en": "Photo: Vandana's portrait"
+      "hi": "वंदना जी की फ़ोटो",
+      "en": "Photo of Vandana"
     },
     "certificate": {
-      "hi": "प्रमाणपत्र",
-      "en": "Certificate"
+      "hi": "प्रमाणपत्र का स्कैन",
+      "en": "Scan of the certificate"
     },
     "event": {
       "hi": "कार्यक्रम की फ़ोटो",
-      "en": "Event photo"
+      "en": "Photo from the event"
     },
     "signature": {
-      "hi": "हस्ताक्षर",
-      "en": "Signature"
+      "hi": "वंदना जी के हस्ताक्षर",
+      "en": "Vandana's signature"
     },
     "logo": {
-      "hi": "लोगो",
-      "en": "Logo"
+      "hi": "अख़बार या चैनल का लोगो",
+      "en": "Newspaper or channel logo"
     },
     "clipping": {
       "hi": "अख़बार की कतरन",
-      "en": "Press clipping"
+      "en": "Newspaper clipping"
     },
     "video": {
       "hi": "वीडियो",
       "en": "Video"
     },
     "comingSoon": {
-      "hi": "फ़ोटो जल्द",
-      "en": "Photo soon"
+      "hi": "तस्वीर आने पर यहाँ लगेगी",
+      "en": "The photograph goes here when it arrives"
     },
     "first": {
-      "hi": "फ़ोटो: वंदना, क्लास में",
-      "en": "Photo: Vandana, in class"
+      "hi": "वंदना जी की फ़ोटो, क्लास में",
+      "en": "Photo of Vandana, teaching"
+    },
+    "student": {
+      "hi": "विद्यार्थी की फ़ोटो",
+      "en": "Photo of the student"
+    },
+    "guru": {
+      "hi": "गुरु की फ़ोटो",
+      "en": "Photo of the teacher"
     }
   },
   "pay": {

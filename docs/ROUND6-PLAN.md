@@ -190,3 +190,36 @@ The contrast tool reported 1.00 on the hero caption. My first instinct was that 
 to gradients and I started "fixing" it. It was not blind: the caption really was ivory text on a
 light gradient, because an earlier edit of mine had silently failed to apply. Had I patched the
 instrument I would have hidden a genuine failure. Check the artefact before you doubt the meter.
+
+## The layout overhaul — the desktop composition (4 September 2026)
+
+Agosh sent screenshots of large empty regions beside content and said the last pass only managed
+spacing. Both true. The site was designed at 360 px and desktop was bolted on with breakpoint
+classes that were never composed for. Measured at 1440 px with `scripts/…/cols.py`, which reports
+the height difference between the columns of every grid and the longest line of prose:
+
+| | Before | After |
+|---|---|---|
+| Longest line of prose | **1120 px** — about 115 characters | **634–780 px**, 65–75 characters |
+| Dead column space, home | 411 px | **168 px** |
+| Dead column space, शुगर | **1073 px** | **235 px** |
+| batches / stories / contact / students | 217 / 217 / 0 / 0 | **0** |
+| Sub-16 px text, worst page | 9% | **1%** |
+
+**What was wrong.** `.wrap` was 1200 px and individual sections overrode it to 880, so the left edge
+wandered down the page and a paragraph could run 115 characters. Two-column grids were used to fill
+width rather than to hold two real things: on home, eight disease rows beside a short dark panel; on
+a condition page, 157 px of words beside a 731 px slip. Both heroes split the screen in half and put
+an empty gradient in one side.
+
+**What shipped.** One content width — `.wrap` is 860 px, with `.wrap-wide` (1120) opted into by the
+few things that need room: the first screen, the disease rows, a row of result cards. Prose is
+capped at 68 characters wherever it sits. The medicine panel runs full width under the rows. The
+slip section is one column with the pad at 560. The ask is a single centred column. Both heroes now
+show a **framed, labelled portrait** on desktop instead of bleeding an empty gradient to the edge.
+
+**Placeholders, as he asked.** Every photograph frame now says what belongs in it — an icon and the
+words, at 16 px: "वंदना जी की फ़ोटो, क्लास में", "प्रमाणपत्र का स्कैन", "अख़बार की कतरन". Frames too
+small for words (avatars, logos) show the icon and keep the words for a screen reader. And an
+affordance is never drawn for something that does not exist: the "[60] सेकंड का वीडियो" pill on a
+story card only appears once the video link is real.

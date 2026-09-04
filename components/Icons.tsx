@@ -165,6 +165,13 @@ export const CloseIcon = (p: P) => (
     <path d="M6.2 6.2l11.6 11.6M17.8 6.2L6.2 17.8" />
   </U>
 );
+export const FrameIcon = ({ size = 22, ...rest }: P) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...rest}>
+    <rect x="3" y="5" width="18" height="14" rx="2.4" />
+    <circle cx="8.6" cy="10.2" r="1.6" />
+    <path d="M3.6 17.2l4.6-4.2 3.3 3 3-2.6 5.9 5" />
+  </svg>
+);
 export const LockIcon = ({ size = 16, ...rest }: P) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...rest}>
     <rect x="4.5" y="10.5" width="15" height="9.5" rx="2.2" />
