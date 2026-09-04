@@ -932,47 +932,62 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* what a press feels like: a small, quick give */
+  /* What a press feels like.
+
+     Keyed off the elements, not off a list of classes: the first version of
+     this named .btn, .chip, .pill and so on, and left 254 tappable things a
+     page — the whole mobile menu, the hamburger, every FAQ heading, every
+     inline link — with no answer at all, which is worse than the grey block
+     it replaced.
+
+     Two shapes of answer, because one does not fit both. A compact control
+     gives under the thumb. Anything wide or inline cannot be scaled without
+     looking like the page slipped, so it takes a tint instead — which is what
+     the browser was doing, in the right colour and faster. */
+  a,
+  button,
+  summary,
+  label[for],
+  [role="button"] {
+    -webkit-tap-highlight-color: transparent;
+  }
   .btn,
   .tchip,
   .chip,
   .pill,
-  .row,
-  .card a,
   .ico,
-  .faq-item > summary,
-  a.ph,
+  button,
   [role="button"] {
-    -webkit-tap-highlight-color: transparent;
     transition:
       scale 0.12s ease,
       background-color 0.15s ease,
       border-color 0.15s ease,
-      color 0.15s ease,
-      translate 0.15s ease;
+      color 0.15s ease;
   }
   .btn:active,
   .tchip:active,
   .chip:active,
   .pill:active,
   .ico:active,
+  button:active,
   [role="button"]:active {
     scale: 0.97;
   }
-  /* a row is wide; scaling it looks like the page slipped, so it presses in
-     with colour and the chevron slides instead */
+  a:active:not(.btn):not(.tchip):not(.chip):not(.pill):not(.ico):not([role="button"]),
+  summary:active,
   .row:active {
-    background: rgba(35, 26, 18, 0.07);
+    background-color: rgba(35, 26, 18, 0.07);
   }
   .row:active .row-go {
     translate: 3px 0;
   }
-  .faq-item > summary:active {
-    background: rgba(35, 26, 18, 0.05);
-  }
-
-  .ph {
-    overflow: hidden;
+  .row,
+  a,
+  summary {
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease,
+      translate 0.15s ease;
   }
 
   /* what a cursor finds */
