@@ -20,7 +20,7 @@ Last run: 2026-09-04 · 38 pages.
 | 13 | Every WhatsApp link opens with the message already written | pass | 264 links, 0 without a message |
 | 14 | Light theme only; analytics load only once an id is set | pass | 38 KB of CSS read from 1 file(s): no colour-scheme query · analytics on 0 pages, id empty |
 | 15 | Every text colour clears 4.5:1 on its background | pass | 17 pairs measured, the closest being the band's small print at 4.62:1 |
-| 16 | Every internal link and anchor goes somewhere | pass | 1092 links across 38 pages, and every same-page anchor has its target |
+| 16 | Every internal link and anchor goes somewhere | pass | 1054 links across 38 pages, and every same-page anchor has its target |
 | 17 | Every link that takes money is https, on a payment provider's domain, and says which batch | waiting on content | No payment page in content/site.json yet, so every button still opens WhatsApp. |
 | 18 | The sticky bar is absent on policy and 404 pages and can never cover a dialog | pass | absent on 8 quiet pages · viewer z-50 above bar z-40 · reveal leaves no transform behind |
 | 19 | Every button says one of two things: talk to her, or pay | pass | 120 buttons, every one from the allowed set |

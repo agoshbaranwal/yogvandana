@@ -111,7 +111,7 @@ export default function About({ lang }: { lang: Lang }) {
               <Silhouette />
             )}
             <div className="first-fade md:hidden" aria-hidden="true" />
-            <div className="on-dark absolute inset-x-4 bottom-5 flex flex-col gap-1.5 md:hidden" style={{ color: "var(--color-ivory)" }}>
+            <div className="on-dark absolute inset-x-4 bottom-5 flex flex-col gap-1.5 md:hidden" style={{ color: "var(--color-ivory)" }} data-on-photo="">
               <p className="label" style={{ color: "var(--color-bhagwa)" }}>
                 {ui("about.eyebrow", lang)}
               </p>

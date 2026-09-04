@@ -61,8 +61,14 @@
    fails the build if a raw pixel size appears in a component again.
 --------------------------------------------------------------------------- */
 :root {
-  --step-label: 14px;
+  /* The smallest thing a person reads: the key of a slip row, "पहले" over
+     a number, a column head. 14 px Devanagari is glanced past at arm's
+     length; the label and the caption share a size and differ in weight. */
+  --step-label: 16px;
   --step-cap: 16px;
+  /* the one size under the floor: a stamp and a frame's caption, never a
+     line a person has to read */
+  --step-fine: 14px;
   --step-body: 18px;
   --step-sub: 20px;
   --step-head: 26px;
@@ -199,7 +205,8 @@
   .label {
     font-size: var(--step-label);
     font-weight: 800;
-    letter-spacing: 0.06em;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     color: var(--color-muted);
   }
@@ -406,7 +413,7 @@
     bottom: 8px;
     color: var(--color-muted);
     padding: 0 1px;
-    font-size: var(--step-label);
+    font-size: var(--step-fine); /* a frame's caption, gone when the photograph arrives */
     line-height: 1.35;
     max-height: calc(100% - 16px);
     overflow: hidden;
@@ -480,7 +487,7 @@
     border: 2px solid var(--color-bhagwa);
     display: grid;
     place-items: center;
-    font-size: var(--step-label);
+    font-size: var(--step-fine); /* a stamp, not a line of text */
     font-weight: 800;
     line-height: 1.15;
     text-align: center;
@@ -603,7 +610,7 @@
   .first-fade {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(35, 26, 18, 0) 45%, rgba(35, 26, 18, 0.72) 100%);
+    background: linear-gradient(180deg, rgba(35, 26, 18, 0) 38%, rgba(35, 26, 18, 0.55) 68%, rgba(35, 26, 18, 0.84) 100%);
     pointer-events: none;
   }
   @media (min-width: 768px) {

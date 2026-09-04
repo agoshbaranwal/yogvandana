@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "../globals.css";
-import { fontClass } from "@/lib/fonts";
+import { englishFontClass } from "@/lib/fonts-en";
 import { absolute, site, t } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export const viewport: Viewport = {
 
 export default function EnglishLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={fontClass}>
+    <html lang="en" className={englishFontClass}>
       <body className="flex min-h-screen flex-col">{children}</body>
     </html>
   );

@@ -137,7 +137,7 @@ export function SessionBar({ rows, lang }: { rows: Batch["session"]; lang: Lang 
         return (
           <li
             key={i}
-            className="flex min-w-0 flex-col gap-0.5 px-2.5 py-3"
+            className={`flex min-w-0 flex-col gap-0.5 px-2.5 py-3 ${main ? "on-bhagwa" : ""}`}
             style={{ flex: weight(r.minutes), background: main ? "var(--color-bhagwa)" : "var(--color-apricot)" }}
           >
             <span className="num h2" style={main ? { color: "var(--color-deeper)" } : undefined}>

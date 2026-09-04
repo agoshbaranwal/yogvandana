@@ -1,3 +1,4 @@
+import { preload } from "react-dom";
 import { PhoneIcon, WhatsAppIcon } from "./Icons";
 import { Tx } from "./Tx";
 import { picture } from "@/lib/media";
@@ -29,6 +30,8 @@ function Silhouette() {
 
 export function FirstScreen({ lang }: { lang: Lang }) {
   const pic = picture(site.photos.portrait);
+  /* the largest thing on the first screen: fetched before the stylesheet finishes */
+  if (pic) preload(pic.src, { as: "image", fetchPriority: "high", imageSrcSet: pic.srcSet || undefined });
   const phone = PHONE;
   const number = phoneShown(lang);
   const since = lang === "hi" ? `${t(site.sinceYear, lang)} से` : `since ${t(site.sinceYear, lang)}`;
@@ -61,7 +64,7 @@ export function FirstScreen({ lang }: { lang: Lang }) {
           )}
           <div className="first-fade md:hidden" aria-hidden="true" />
           {/* her name on the picture, the way a clinic board reads */}
-          <div className="on-dark absolute inset-x-4 bottom-4 flex flex-col gap-1 md:hidden" style={{ color: "var(--color-ivory)" }}>
+          <div className="on-dark absolute inset-x-4 bottom-4 flex flex-col gap-1 md:hidden" style={{ color: "var(--color-ivory)" }} data-on-photo="">
             <p className="page-title">{t(site.teacher, lang)}</p>
             <p className="cap" style={{ color: "var(--color-ivory)", opacity: 0.92 }}>
               <Tx>{`${t(site.credentialShort, lang)} · `}</Tx>

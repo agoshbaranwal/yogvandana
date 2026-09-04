@@ -40,14 +40,15 @@ document.querySelectorAll('main *, header *, footer *').forEach(el=>{
   const own=[...el.childNodes].some(n=>n.nodeType===3&&n.textContent.trim().length>1);
   if(!own)return;
   textNodes++;
+  const onPhoto=!!el.closest('[data-on-photo]'); // ink on a photograph's dark fade: the walk up finds the page, not the fade
   const cs=getComputedStyle(el);const fs=parseFloat(cs.fontSize);sizes[fs]=(sizes[fs]||0)+1;
   const txt=el.textContent.trim().slice(0,40);
   if(fs<16)small.push(fs+'px '+txt);
-  const r=ratio(cs.color,bgOf(el));
+  const r=onPhoto?21:ratio(cs.color,bgOf(el));
   const big=fs>=24||(fs>=18.66&&parseInt(cs.fontWeight)>=700);
   if(r<(big?3:4.5))lowContrast.push(r.toFixed(2)+' '+fs+'px "'+txt+'" on '+bgOf(el));
 });
-out.textNodes=textNodes;out.sizes=sizes;out.under16=small.length;out.under16Sample=small.slice(0,8);out.lowContrast=lowContrast;
+out.textNodes=textNodes;out.sizes=sizes;out.under16=small.length;out.under16Sample=small.slice(0,40);out.lowContrast=lowContrast;
 const taps=[];document.querySelectorAll('a,button,input,select,textarea,summary,[role=button]').forEach(el=>{
   if(!vis(el))return;const r=el.getBoundingClientRect();
   if(r.height<44||r.width<24){const inline=el.tagName==='A'&&el.parentElement&&/^(P|LI|SPAN|DD|TD)$/.test(el.parentElement.tagName)&&el.parentElement.textContent.trim().length>el.textContent.trim().length+8;
@@ -58,6 +59,8 @@ out.headings=[...document.querySelectorAll('h1,h2,h3')].filter(vis).map(h=>h.tag
 const ctas=[...document.querySelectorAll('a.btn, button.btn')].filter(vis);
 out.ctaCount=ctas.length; out.ctaLabels=[...new Set(ctas.map(a=>a.textContent.trim()))];
 out.height=document.documentElement.scrollHeight;
+out.overflowX=Math.max(0,document.documentElement.scrollWidth-document.documentElement.clientWidth);
+out.wideSample=[...document.querySelectorAll('main *')].filter(el=>{const r=el.getBoundingClientRect();return r.right>document.documentElement.clientWidth+1&&r.width>0}).slice(0,3).map(el=>'<'+el.tagName.toLowerCase()+' class="'+(typeof el.className==='string'?el.className:'')+'">');
 out.placeholders=document.querySelectorAll('.ph').length;
 const fields=[...document.querySelectorAll('input:not([type=hidden]),textarea,select')].filter(vis);
 out.fields=fields.length;out.unlabelled=fields.filter(f=>!f.id||!document.querySelector('label[for="'+f.id+'"]')).length;
@@ -118,6 +121,8 @@ new PerformanceObserver(l=>{for(const e of l.getEntries()) if(e.name==='first-co
         tail = f" · paint {perf['lcp']/1000:.2f}s cls {perf['cls']} {perf['kb']}KB fonts {perf['fontKb']}KB" if perf else ""
         print(f"{name:11} h={v['height']:5} text nodes={v['textNodes']:4} under 16px={v['under16']:3} ({share}%) "
               f"low-contrast={len(v['lowContrast']):2} taps<size={len(v['tapsUnderSize']):2} ctas={v['ctaCount']} labels={len(v['ctaLabels'])}{tail}")
+        if v.get("overflowX"):
+            print(f"    !! page is {v['overflowX']}px wider than the phone:", "; ".join(v.get("wideSample", [])))
         for l in v["lowContrast"][:6]:
             print("    !! contrast", l)
         for t in v["tapsUnderSize"][:6]:

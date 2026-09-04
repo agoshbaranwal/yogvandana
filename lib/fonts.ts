@@ -21,11 +21,7 @@ export const baloo = Baloo_2({
   display: "swap",
 });
 
-export const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["400", "800"],
-  variable: "--font-en",
-  display: "swap",
-});
-
-export const fontClass = `${baloo.variable} ${montserrat.variable}`;
+/* Montserrat lives in lib/fonts-en.ts. next/font preloads every face a
+   module declares, so the English face must not be declared here: a Hindi
+   page imports this module and would otherwise fetch Montserrat for nothing. */
+export const hindiFontClass = baloo.variable;

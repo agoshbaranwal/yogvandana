@@ -46,7 +46,8 @@ const stepNames = new Set([...css.matchAll(/--step-([a-z]+):/g)].map((m) => m[1]
 /* The floors. Hindi needs 16 px for anything a person has to read, and this
    audience reads it on a 720p screen; 18 for body, 1.7 line height so the
    matras have room. The first value of each token is the phone value. */
-const FLOOR = { label: 14, cap: 16, body: 18 };
+const FLOOR = { label: 16, cap: 16, body: 18 };
+// --step-fine (14) is the stamp and a placeholder caption: not text a person reads, and never on a component
 for (const [name, min] of Object.entries(FLOOR)) {
   const m = css.match(new RegExp(`--step-${name}:\\s*([\\d.]+)px`));
   const px = m ? parseFloat(m[1]) : NaN;

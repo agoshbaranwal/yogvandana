@@ -17,6 +17,22 @@ export default function StickyCta({
   noteLabel: string;
 }) {
   const [show, setShow] = useState(false);
+  const [typing, setTyping] = useState(false);
+
+  /* On a phone a fixed bar rides up on the keyboard and sits over the field
+     being typed in. While a field has focus the bar is gone. */
+  useEffect(() => {
+    const isField = (el: EventTarget | null) =>
+      el instanceof HTMLElement && /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName);
+    const onIn = (e: FocusEvent) => { if (isField(e.target)) setTyping(true); };
+    const onOut = () => setTyping(false);
+    document.addEventListener("focusin", onIn);
+    document.addEventListener("focusout", onOut);
+    return () => {
+      document.removeEventListener("focusin", onIn);
+      document.removeEventListener("focusout", onOut);
+    };
+  }, []);
 
   useEffect(() => {
     const band = document.getElementById("booking-band");
@@ -53,9 +69,9 @@ export default function StickyCta({
       data-sticky-cta=""
       data-ground="bhagwa"
       className={`no-print on-bhagwa fixed inset-x-0 bottom-0 z-40 lg:hidden ${
-        show ? "translate-y-0" : "translate-y-full"
+        show && !typing ? "translate-y-0" : "translate-y-full"
       } transition-transform duration-200`}
-      aria-hidden={!show}
+      aria-hidden={!(show && !typing)}
     >
       <div
         className="flex items-center gap-3 border-t px-4 pt-2.5"
@@ -71,7 +87,7 @@ export default function StickyCta({
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          tabIndex={show ? 0 : -1}
+          tabIndex={show && !typing ? 0 : -1}
           data-ev="whatsapp_click"
           data-ev-source="sticky"
           className="btn btn-dark btn-sm"
