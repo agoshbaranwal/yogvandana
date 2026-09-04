@@ -13,18 +13,29 @@
   /* Sandal and the sun disc are gone: five near-identical creams on one
      page is why it read as smudged rather than warm. What is left is the
      page, the card, and one warm highlight. */
-  --color-bhagwa: #e8730d; /* the one action. Deeper than the old neon saffron so a large area stops shouting */
-  --color-deep: #b04e00; /* links and accents */
-  --color-deeper: #8a3b00; /* link hover, the "after" state, band captions */
+  /* The one action. Deeper than the old neon saffron so a large area stops
+     shouting — and lifted from #e8730d, which no ink on earth could read on:
+     even pure black measured 6.94:1 against it, so the whole band and every
+     button sat under the floor with nothing to be done about it. This is the
+     smallest lift that lets the reading ink clear 7:1. */
+  --color-bhagwa: #eb852b;
+  /* Links and accents. Was #b04e00, which measured 4.74:1 on the support band
+     — Agosh said a lot of the text was hard to read and he was right. Every
+     ink on this page now clears 7:1 on every ground it is used on. */
+  --color-deep: #883a00;
+  --color-deeper: #883a00; /* link hover, the "after" state, band captions */
   --color-kohl: #14120f; /* reading ink, and the dark panels */
   --color-heroink: #3a3630; /* body text that sits a shade back */
-  --color-muted: #6e6a64; /* metadata only: dates, counts, consent lines */
+  /* Metadata only: dates, counts, consent lines. Was #6e6a64 and carried
+     nearly five thousand characters at 4.8-5.4:1, which was the single
+     biggest reason the site read as washed out. */
+  --color-muted: #54514c;
   --color-rule: #e6e3de; /* hairlines and card borders */
   --color-field: #d6d2ca; /* the edge of an input, a shade stronger than a hairline */
   /* The wordmark's योग on a light ground. Bhagwa itself is 2:1 on ivory, so
      the mark uses the deep saffron here and keeps full bhagwa only on the
      icon, the footer and the saffron band, where it passes. Agosh's call. */
-  --color-mark: #b04e00;
+  --color-mark: #883a00;
   /* What a still-to-be-filled fact is painted in on the two grounds where
      the muted ink fails: the saffron band and the dark footer. */
   --color-todo-on-bhagwa: #14120f;
@@ -264,7 +275,7 @@
   .cap {
     font-size: var(--step-cap);
     line-height: 1.55;
-    color: var(--color-muted);
+    color: var(--quiet-ink, var(--color-muted));
   }
   .label {
     font-size: var(--step-label);
@@ -272,7 +283,7 @@
     line-height: 1.4;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: var(--color-muted);
+    color: var(--quiet-ink, var(--color-muted));
   }
   /* The wordmark. It sets no size: pair it with a step, `brand page-title` in
      the header, `brand h3` on the slip. */
@@ -313,7 +324,7 @@
      still missing, not the page. */
   .todo,
   .todo-long {
-    color: var(--todo-ink, var(--color-muted));
+    color: var(--todo-ink, var(--quiet-ink, var(--color-muted)));
   }
 
   /* buttons --------------------------------------------------------------- */
@@ -484,7 +495,7 @@
     position: relative;
     background-color: var(--color-paper);
     border: 1px solid var(--color-rule);
-    color: var(--color-muted);
+    color: var(--quiet-ink, var(--color-muted));
     overflow: hidden;
   }
   /* the frame's contents: an icon and the words for what goes here */
@@ -497,7 +508,7 @@
     justify-content: center;
     gap: 6px;
     padding: 10px;
-    color: var(--color-muted);
+    color: var(--quiet-ink, var(--color-muted));
     text-align: center;
   }
   .ph-label {
@@ -507,13 +518,21 @@
     overflow: hidden;
   }
 
-  /* placeholder ink follows the ground it sits on */
+  /* Quiet ink and placeholder ink both follow the ground they sit on.
+
+     They used to be separate ideas and only the placeholder one existed, so
+     the sticky bar — a .cap on the saffron ground — painted the muted grey
+     straight onto saffron at 2.59:1, which is barely there. Every secondary
+     colour on the site now reads --quiet-ink, so putting a caption on a
+     painted ground can no longer produce that. */
   footer,
   .on-dark {
     --todo-ink: var(--color-todo-on-kohl);
+    --quiet-ink: rgba(251, 248, 241, 0.86);
   }
   .on-bhagwa {
     --todo-ink: var(--color-todo-on-bhagwa);
+    --quiet-ink: var(--color-kohl);
   }
 
   /* The old dawn hero — its sky, its sun disc and its horizon line — is
@@ -741,7 +760,7 @@
     height: 26px;
     padding: 0 8px;
     border-radius: var(--radius-card);
-    color: var(--color-muted);
+    color: var(--quiet-ink, var(--color-muted));
     background: var(--color-rule);
   }
   .pad-blank {

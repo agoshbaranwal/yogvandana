@@ -409,7 +409,13 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
   );
 }
 
-/* 15 — text stands off its background (WCAG AA) --------------------------- */
+/* 15 — text stands off its background ------------------------------------- */
+/* The floor here is 7:1, not WCAG AA's 4.5:1. AA is written for young eyes on
+   good screens; this site is read by 25-55 year olds on ₹10-15,000 Androids,
+   often outdoors. Agosh said twice that a lot of the text was hard to read and
+   the measurement agreed: three quarters of the stories page sat between 4.7
+   and 5.4:1, all of it passing AA. Every pair below is body or label size.
+   scripts/legible.py measures the rendered page the same way. */
 {
   // Read the tokens from the built stylesheet, so a later palette edit is
   // caught here rather than in someone's eyes.
@@ -449,26 +455,44 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
     ["the band's small print", "kohl", "bhagwa"],
     ["the hero eyebrow", "deeper", "apricot"],
     ["body on the hero", "heroink", "sky"],
-    ["condition chips", "joint", "ivory"],
-    ["condition chips", "metabolic", "ivory"],
-    ["condition chips", "mind", "ivory"],
-    ["condition chips", "women", "ivory"],
     /* Pairs the site paints today that the palette list missed. Found by
        measuring the rendered page, not the tokens. */
     ["placeholders on the saffron band", "todo-on-bhagwa", "bhagwa"],
     ["placeholders in the footer", "todo-on-kohl", "kohl"],
     ["the wordmark on ivory", "mark", "ivory"],
     ["the wordmark on white", "mark", "paper"],
+    /* added after the legibility pass: every ground a caption can land on */
+    ["captions on white", "muted", "paper"],
+    ["captions on the support band", "muted", "apricot"],
+    ["links on white", "deep", "paper"],
+    ["the amber band's body text", "kohl", "bhagwa"],
   ];
   const measured = pairs
     .map(([what, fg, bg]) => ({ what, fg, bg, a: token(fg), b: token(bg) }))
     .filter((p) => p.a && p.b)
     .map((p) => ({ ...p, r: ratio(p.a, p.b) }));
-  const low = measured.filter((p) => p.r < 4.5);
+  /* The four condition-family colours are not on this list. They paint an
+     icon — aria-hidden, drawn with currentColor — and not a word, so the bar
+     for them is the 3:1 that applies to a graphical object, checked below.
+     Holding a picture to a reading-text floor would have meant repainting the
+     one place the family colours survive for no gain to any reader. */
+  const NONTEXT = [
+    ["the condition icon", "joint", "paper"],
+    ["the condition icon", "metabolic", "paper"],
+    ["the condition icon", "mind", "paper"],
+    ["the condition icon", "women", "paper"],
+  ]
+    .map(([what, fg, bg]) => ({ what, fg, bg, a: token(fg), b: token(bg) }))
+    .filter((p) => p.a && p.b)
+    .map((p) => ({ ...p, r: ratio(p.a, p.b) }))
+    .filter((p) => p.r < 3);
+
+  const FLOOR = 7;
+  const low = [...measured.filter((p) => p.r < FLOOR), ...NONTEXT];
   const worst = measured.slice().sort((x, y) => x.r - y.r)[0];
   add(
     15,
-    "Every text colour clears 4.5:1 on its background",
+    "Every text colour clears 7:1 on its background, every icon 3:1",
     measured.length === pairs.length && low.length === 0 ? "pass" : "fail",
     measured.length !== pairs.length
       ? `only ${measured.length} of ${pairs.length} pairs could be read from the stylesheet`
