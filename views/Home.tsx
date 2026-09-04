@@ -1,5 +1,8 @@
 import { A as Link } from "../components/Nav";
 import Band from "@/components/Band";
+import { AskRow } from "@/components/AskRow";
+import { TickIcon } from "@/components/Icons";
+import { Tx } from "@/components/Tx";
 import { Counters, PressStrip } from "@/components/Warm";
 import { DiseaseRows } from "@/components/DiseaseRows";
 import { FirstScreen } from "@/components/FirstScreen";
@@ -12,7 +15,7 @@ import { ResultCard } from "@/components/StoryCard";
 import { MedicinePanel } from "@/components/Timeline";
 import { VideoWall } from "@/components/VideoWall";
 import { WhoTeaches } from "@/components/WhoTeaches";
-import { stories, ui } from "@/lib/content";
+import { site, stories, ui } from "@/lib/content";
 import { href, type Lang } from "@/lib/routes";
 
 /* The home page, in the order a frightened person actually asks things.
@@ -46,15 +49,17 @@ export default function Home({ lang }: { lang: Lang }) {
 
       {/* 3 · which illness — eight tiles, each with a result -------------- */}
       <section>
-        <div className="wrap section-pad">
+        <div className="wrap flex flex-col gap-7 section-pad">
           <DiseaseRows lang={lang} />
+          <AskRow lang={lang} note={ui("home.askAfterChooser", lang)} source="after-chooser" proof={false} />
         </div>
       </section>
 
       {/* 4 · the question that decides everything ------------------------- */}
       <section>
-        <div className="wrap pb-8 md:pb-14">
+        <div className="wrap flex flex-col gap-6 pb-8 md:pb-14">
           <MedicinePanel lang={lang} />
+          <AskRow lang={lang} note={ui("home.askAfterMedicine", lang)} source="after-medicine" />
         </div>
       </section>
 
@@ -83,7 +88,7 @@ export default function Home({ lang }: { lang: Lang }) {
           </div>
           {shown.length > 0 ? (
             <>
-              <ul className="grid gap-3 md:grid-cols-3 md:gap-5 [&>li]:min-w-0">
+              <ul className="cardgrid grid gap-3 md:grid-cols-3 md:gap-5 [&>li]:min-w-0">
                 {shown.map((s, i) => (
                   <li key={s.id} className={i === 2 ? "hidden md:block" : ""}>
                     <ResultCard story={s} lang={lang} />
@@ -91,6 +96,7 @@ export default function Home({ lang }: { lang: Lang }) {
                 ))}
               </ul>
               <p className="cap">{ui("stories.consent", lang)}</p>
+              <AskRow lang={lang} note={ui("home.askAfterResults", lang)} source="after-results" proof={false} />
             </>
           ) : (
             <p className="body" style={{ color: "var(--color-heroink)" }}>
@@ -110,12 +116,35 @@ export default function Home({ lang }: { lang: Lang }) {
             <h2 className="h2">{ui("home.stepsTitle", lang)}</h2>
           </div>
           <Steps lang={lang} />
-          <div className="grid gap-6 md:grid-cols-2 md:items-start md:gap-14">
-            <div className="flex flex-col gap-2">
-              <h3 className="h3">{ui("home.slipTitle", lang)}</h3>
-              <p className="body">{ui("home.slipLead", lang)}</p>
+          <AskRow lang={lang} note={ui("home.askAfterSteps", lang)} source="after-steps" />
+          {/* The left column used to hold a heading and one line beside a tall
+              slip, which left most of a screen empty. It now carries the five
+              things a month actually includes — strings that already existed
+              in the content and had never been put on a page. */}
+          <div className="grid gap-7 md:grid-cols-2 md:items-start md:gap-14">
+            <div className="flex flex-col gap-4">
+              <h3 className="h3">{ui("home.getTitle", lang)}</h3>
+              <ul className="flex flex-col gap-4">
+                {["1", "2", "3", "4", "5"].map((n) => (
+                  <li key={n} className="flex items-start gap-3.5">
+                    <span className="iconbox flex-none" aria-hidden="true">
+                      <TickIcon size={24} />
+                    </span>
+                    <span className="flex min-w-0 flex-col gap-0.5">
+                      <span className="h3">
+                        <Tx>{ui(`get.t${n}`, lang).replace("{d}", site.reviewDays)}</Tx>
+                      </span>
+                      <span className="cap">
+                        <Tx>{ui(`get.t${n}sub`, lang).replace("{d}", site.reviewDays)}</Tx>
+                      </span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
             <div className="flex flex-col gap-2.5">
+              <h3 className="h3">{ui("home.slipTitle", lang)}</h3>
+              <p className="body">{ui("home.slipLead", lang)}</p>
               <SlipPad lang={lang} compact edge="var(--color-paper)" />
               <p className="cap">{ui("slip.afterTalk", lang)}</p>
             </div>
@@ -143,6 +172,7 @@ export default function Home({ lang }: { lang: Lang }) {
             <p className="cap">{ui("batches.rollingLead", lang)}</p>
           </div>
           <Schedule lang={lang} />
+          <AskRow lang={lang} note={ui("home.askAfterSchedule", lang)} source="after-schedule" proof={false} />
         </div>
       </section>
 

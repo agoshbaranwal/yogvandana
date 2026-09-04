@@ -1147,6 +1147,8 @@
   }
   .ba > div {
     padding: 16px 16px 18px;
+    /* A floor for browsers without subgrid; the real alignment is below. */
+    min-height: 124px;
   }
   .ba .was {
     background: var(--color-apricot);
@@ -1191,16 +1193,24 @@
   .ba .now .val {
     font-weight: 700;
   }
-  /* How long it took, across the full width.
+  /* How long it took.
 
-     This was flat #eb852b, where ink measures 7.05:1 — over the site's floor
-     by a hair, and Agosh still said black on dark orange was hard to read. He
-     is right: a bare pass on a saturated hue is not the same as comfortable.
-     The lighter sweep runs 10.4:1 down to 7.7:1, so the worst point of it is
-     still clearly better than the best point of what was there. */
+     This was a saturated amber field with black on it. It measured over the
+     floor twice and Agosh said three separate times that he could not read it
+     comfortably — so the number was not the problem. Dark text on a strong
+     warm hue is hard work whatever the ratio says, and a gradient across a
+     narrow strip also rendered a visibly different shade on each card in a
+     row, which is what he meant by "different shade of orange left and right".
+
+     The rule that came out of it, and now holds everywhere: saturated amber is
+     for buttons and small accents. It never carries a field of reading text. */
   .took {
-    background: var(--grad-action);
-    color: var(--color-kohl);
+    background: var(--color-amber-tint);
+    color: var(--color-amber-deep);
+    --quiet-ink: var(--color-amber-deep);
+    --todo-ink: var(--color-amber-deep);
+    border-top: 1px solid var(--color-rule);
+    border-bottom: 1px solid var(--color-rule);
     font-size: var(--step-cap);
     font-weight: 700;
     text-align: center;
@@ -1515,11 +1525,103 @@
     color: var(--color-kohl);
     border: 1.5px solid var(--color-field);
   }
+  /* the secondary action when the ground is ink */
+  .btn-onink {
+    background: transparent;
+    color: var(--color-ivory);
+    border: 1.5px solid rgba(251, 248, 241, 0.55);
+  }
 
-  /* the closing band */
-  .close-band {
-    background: var(--grad-close);
+  /* The closing band.
+
+     It was a full saffron field with dark text on it — the largest block of
+     unreadable colour on the site, and the third thing Agosh flagged. It is
+     ink now: light text on dark is the most comfortable pairing there is, the
+     amber button on top of it is the loudest thing on the page, and the band
+     stops competing with the ask it exists to carry. */
+  /* the chips inside it are outlined in the light ink of the band */
+  .close-band .tchip {
+    background: transparent;
+    color: var(--color-ivory);
+    border-color: rgba(251, 248, 241, 0.5);
+  }
+  .close-band .tchip[aria-pressed="true"],
+  .close-band .tchip.is-on {
+    background: var(--color-ivory);
     color: var(--color-kohl);
+    border-color: var(--color-ivory);
+  }
+  .close-band {
+    background: var(--grad-dark);
+    color: var(--color-ivory);
+    --quiet-ink: rgba(251, 248, 241, 0.86);
+    --todo-ink: var(--color-todo-on-kohl);
+  }
+
+  /* Cards in a row line up, band for band.
+
+     A card whose result is three words is shorter than one whose result is a
+     sentence, so the tinted strips sat at different heights down a row and the
+     grid read as sloppy. Each card is now a three-row grid — the before/after
+     block, the strip, the words — that inherits its row sizes from the list
+     around it, so every card's strip is on the same line as its neighbours'
+     whatever is written inside them. */
+  .storycard {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .storycard-body {
+    flex: 1;
+  }
+  .cardgrid {
+    display: grid;
+    grid-template-rows: auto;
+  }
+  @supports (grid-template-rows: subgrid) {
+    .cardgrid > li {
+      display: grid;
+      grid-row: span 3;
+      grid-template-rows: subgrid;
+    }
+    .cardgrid .storycard {
+      display: grid;
+      grid-row: span 3;
+      grid-template-rows: subgrid;
+      height: auto;
+    }
+    .cardgrid .ba > div {
+      min-height: 0;
+    }
+  }
+
+  /* the repeated ask ----------------------------------------------------- */
+  .askrow {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: var(--color-paper);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-card);
+    padding: 18px;
+    box-shadow: var(--elev-1);
+  }
+  .askrow-proof {
+    border-top: 1px solid var(--color-rule);
+    padding-top: 12px;
+  }
+  @media (min-width: 768px) {
+    .askrow {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 26px;
+      padding: 22px 26px;
+      flex-wrap: wrap;
+    }
+    .askrow-proof {
+      flex-basis: 100%;
+    }
   }
 
   /* horizontal strips ----------------------------------------------------- */

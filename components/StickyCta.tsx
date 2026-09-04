@@ -68,7 +68,7 @@ export default function StickyCta({
     <div
       data-sticky-cta=""
       data-ground="bhagwa"
-      className={`no-print on-bhagwa fixed inset-x-0 bottom-0 z-40 lg:hidden ${
+      className={`no-print fixed inset-x-0 bottom-0 z-40 lg:hidden ${
         show && !typing ? "translate-y-0" : "translate-y-full"
       } transition-transform duration-200`}
       aria-hidden={!(show && !typing)}
@@ -76,8 +76,8 @@ export default function StickyCta({
       <div
         className="flex items-center gap-3 border-t px-4 pt-2.5"
         style={{
-          background: "var(--grad-close)",
-          borderColor: "rgba(35,26,18,0.15)",
+          background: "var(--color-paper)",
+          borderColor: "var(--color-rule)",
           /* clears the home indicator on phones without a button */
           paddingBottom: "calc(10px + env(safe-area-inset-bottom, 0px))",
         }}
@@ -90,7 +90,7 @@ export default function StickyCta({
           tabIndex={show && !typing ? 0 : -1}
           data-ev="whatsapp_click"
           data-ev-source="sticky"
-          className="btn btn-dark btn-sm"
+          className="btn btn-wa btn-sm"
         >
           <WhatsAppIcon size={18} />
           {label}

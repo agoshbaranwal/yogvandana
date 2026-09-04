@@ -331,6 +331,30 @@
     "heroBadge": {
       "hi": "{y} साल · {n} विद्यार्थी · {city}",
       "en": "{y} years · {n} students · {city}"
+    },
+    "askAfterChooser": {
+      "hi": "अपनी बीमारी नहीं मिली? पूछ लीजिए।",
+      "en": "Didn't find your illness? Just ask."
+    },
+    "askAfterMedicine": {
+      "hi": "अपनी रिपोर्ट और दवा के बारे में बात कीजिए।",
+      "en": "Talk to her about your reports and your medicine."
+    },
+    "askAfterResults": {
+      "hi": "अपनी बीमारी में क्या हो सकता है, पूछिए।",
+      "en": "Ask what could change in your case."
+    },
+    "askAfterSteps": {
+      "hi": "कौन सा क़दम आपके लिए ठीक है, वे बताएँगी।",
+      "en": "She will tell you which step is right for you."
+    },
+    "askAfterSchedule": {
+      "hi": "सुबह या शाम — कॉल पर तय कर लीजिए।",
+      "en": "Morning or evening — settle it on a call."
+    },
+    "getTitle": {
+      "hi": "बैच में क्या-क्या मिलता है",
+      "en": "What the batch includes"
     }
   },
   "band": {

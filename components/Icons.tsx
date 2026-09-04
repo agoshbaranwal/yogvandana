@@ -228,3 +228,10 @@ export const PlayIcon = ({ size = 22, ...rest }: P) => (
     <path d="M8.5 5.4a.7.7 0 0 1 1.06-.6l9.1 6.6a.7.7 0 0 1 0 1.2l-9.1 6.6a.7.7 0 0 1-1.06-.6z" />
   </svg>
 );
+
+/* A tick, for a list of things somebody actually receives. */
+export const TickIcon = ({ size = 24, ...rest }: P) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...rest}>
+    <path d="M4 12.5l5 5L20 6.5" />
+  </svg>
+);

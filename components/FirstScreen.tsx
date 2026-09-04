@@ -33,7 +33,7 @@ export function FirstScreen({ lang }: { lang: Lang }) {
 
   return (
     <section className="hero-warm first">
-      <div className="wrap grid gap-7 pb-11 pt-5 md:grid-cols-[1fr_400px] md:items-center md:gap-14 md:pb-20 md:pt-12">
+      <div className="wrap grid gap-7 pb-11 pt-5 md:grid-cols-[minmax(0,1fr)_minmax(0,360px)] md:items-center md:gap-10 md:pb-20 md:pt-12 lg:gap-14">
         <div className="flex flex-col items-start gap-4">
           <span className="badge">
             <Tx>{eyebrow}</Tx>
@@ -86,7 +86,7 @@ export function FirstScreen({ lang }: { lang: Lang }) {
             rounded="rounded-[var(--radius-lg)]"
             className="w-full shadow-[var(--elev-2)] md:aspect-[4/5]"
             priority
-            sizes="(min-width: 768px) 400px, 100vw"
+            sizes="(min-width: 768px) 360px, 100vw"
           />
           <PhotoBadges lang={lang} />
         </div>

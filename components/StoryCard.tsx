@@ -61,7 +61,7 @@ export function ResultCard({
     .join(" · ");
 
   return (
-    <article className="card flex h-full flex-col overflow-hidden p-0">
+    <article className="card storycard overflow-hidden p-0">
       {before || after ? (
         <div className="ba">
           <div className="was">
@@ -85,7 +85,7 @@ export function ResultCard({
         </p>
       ) : null}
 
-      <div className="flex flex-1 flex-col gap-4 p-4 md:p-5">
+      <div className="storycard-body flex flex-col gap-4 p-4 md:p-5">
         <blockquote className="body">
           “<Tx>{t(story.quote, lang)}</Tx>”
         </blockquote>

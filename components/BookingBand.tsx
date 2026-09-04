@@ -76,8 +76,8 @@ export default function BookingBand({
   return (
     <section
       id="booking-band"
-      className="no-print on-bhagwa"
-      style={{ background: "var(--grad-close)" }}
+      className="no-print close-band on-dark"
+      
       aria-labelledby="booking-band-title"
     >
       <div className="wrap flex flex-col gap-5 py-8 md:mx-auto md:max-w-[620px] md:py-16">
@@ -92,7 +92,7 @@ export default function BookingBand({
 
         <div className="flex flex-col gap-3.5">
           <div className="flex flex-col gap-2">
-            <p className="label" style={{ color: "var(--color-kohl)" }}>
+            <p className="label">
               {step1}
             </p>
             <div className="flex flex-wrap gap-2">
@@ -112,7 +112,7 @@ export default function BookingBand({
 
           {showTime ? (
             <div className="flex flex-col gap-2">
-              <p className="label" style={{ color: "var(--color-kohl)" }}>
+              <p className="label">
                 {step2}
               </p>
               <div className="flex flex-wrap gap-2">
@@ -139,7 +139,7 @@ export default function BookingBand({
             data-ev-source={source}
             data-ev-ailment={chosen.slug}
             data-ev-time={time || "any"}
-            className="btn btn-dark w-full"
+            className="btn btn-wa w-full"
           >
             <WhatsAppIcon size={22} />
             {whatsappLabel}
@@ -148,12 +148,12 @@ export default function BookingBand({
             href={phone ? telHref(phone) : contactHref}
             data-ev="call_click"
             data-ev-source={source}
-            className="btn btn-outline w-full"
+            className="btn btn-onink w-full"
           >
             <PhoneIcon size={20} />
             <Tx>{`${callLabel} · ${phoneShown}`}</Tx>
           </a>
-          <p className="cap" style={{ color: "var(--color-kohl)" }}>
+          <p className="cap">
             {previewLabel} “{shown}”
           </p>
         </div>

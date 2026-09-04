@@ -31,6 +31,7 @@ export default function Stories({ lang }: { lang: Lang }) {
           chips={ailments
             .filter((a) => used.has(a.slug))
             .map((a) => ({ slug: a.slug, label: t(a.name, lang) }))}
+          className="cardgrid grid gap-2.5 md:grid-cols-2 md:gap-5 [&>li]:min-w-0"
           items={stories.map((s) => ({
             key: s.id,
             slug: s.ailmentSlug,
