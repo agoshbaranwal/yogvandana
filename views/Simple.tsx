@@ -42,7 +42,7 @@ export function BatchesPage({ lang }: { lang: Lang }) {
         <div className="wrap flex flex-col gap-2 pb-5 pt-6 md:pb-8 md:pt-12">
           <h1 className="page-title">{ui("batches.title", lang)}</h1>
           <p className="body max-w-[52ch]" style={{ color: "var(--color-heroink)" }}>
-            <Tx>{ui("batches.lead", lang).replace("{n}", site.groupSize)}</Tx>
+            <Tx>{ui("batches.lead", lang)}</Tx>
           </p>
           <PriceLine lang={lang} />
         </div>

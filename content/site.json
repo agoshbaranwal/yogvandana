@@ -10,16 +10,16 @@
     "en": "Vandana Baranwal"
   },
   "credential": {
-    "hi": "योग में एम.ए. · [प्रमाणन संस्था] प्रमाणित योग शिक्षिका",
-    "en": "MA in Yoga · Certified Yoga Teacher ([certifying body])"
+    "hi": "योग में एम.ए., लखनऊ विश्वविद्यालय · पतंजलि योगपीठ से योग शिक्षिका प्रमाणन",
+    "en": "MA in Yoga, Lucknow University · Yoga teacher certified by Patanjali Yogpeeth"
   },
   "certifyingBody": {
-    "hi": "[प्रमाणन संस्था]",
-    "en": "[certifying body]"
+    "hi": "पतंजलि योगपीठ",
+    "en": "Patanjali Yogpeeth"
   },
   "university": {
-    "hi": "[विश्वविद्यालय]",
-    "en": "[university]"
+    "hi": "लखनऊ विश्वविद्यालय",
+    "en": "Lucknow University"
   },
   "credentialShort": {
     "hi": "योग में एम.ए.",
@@ -49,8 +49,8 @@
     "en": "Find the remedy for your illnesses through yoga and pranayama."
   },
   "sinceYear": {
-    "hi": "[वर्ष]",
-    "en": "[year]"
+    "hi": "2007",
+    "en": "2007"
   },
   "morningTime": {
     "hi": "[समय]",
@@ -60,110 +60,110 @@
     "hi": "[समय]",
     "en": "[time]"
   },
-  "classMinutes": "[50]",
+  "classMinutes": "60",
   "homeMinutes": "[30]",
-  "talkMinutes": "[10]",
+  "talkMinutes": "20",
   "consultation": {
     "price": "200",
-    "minutes": "[10]"
+    "minutes": "20"
   },
-  "groupSize": "[N]",
-  "reviewDays": "[90]",
+  "groupSize": "",
+  "reviewDays": "60",
   "missedClass": {
     "hi": "[उस दिन दूसरे बैच में]",
     "en": "[join the other batch that day]"
   },
   "numbers": [
     {
-      "value": "[X]",
+      "value": "19",
       "label": {
         "hi": "साल का अनुभव",
         "en": "years of teaching"
       },
       "short": {
-        "hi": "साल का अनुभव",
+        "hi": "साल",
         "en": "years"
       },
       "basis": {
-        "hi": "[किस वर्ष से गिना गया]",
-        "en": "[counted from which year]"
+        "hi": "2007 से, लखनऊ में और ऑनलाइन",
+        "en": "since 2007, in Lucknow and online"
       }
     },
     {
-      "value": "[Y]",
+      "value": "50,000+",
       "label": {
-        "hi": "विद्यार्थी, [वर्ष] से",
-        "en": "students since [year]"
+        "hi": "विद्यार्थी, 2007 से",
+        "en": "students since 2007"
       },
       "short": {
         "hi": "विद्यार्थी",
         "en": "students"
       },
       "basis": {
-        "hi": "[कैसे गिना गया]",
-        "en": "[how this was counted]"
+        "hi": "क्लास, शिविर और ऑनलाइन बैच, सब मिलाकर",
+        "en": "classes, camps and online batches together"
       }
     },
     {
-      "value": "[N]",
+      "value": "10+",
       "label": {
         "hi": "प्रमाणपत्र, स्कैन के साथ",
         "en": "certificates, with scans"
       },
       "short": {
         "hi": "प्रमाणपत्र",
-        "en": "certifications"
+        "en": "certificates"
       },
       "basis": {
-        "hi": "[परिचय पन्ने पर पूरी सूची]",
-        "en": "[full list on the about page]"
+        "hi": "पूरी सूची परिचय पन्ने पर",
+        "en": "the full list is on the about page"
       }
     },
     {
-      "value": "[A]",
+      "value": "10+",
       "label": {
-        "hi": "सम्मान और पुरस्कार",
-        "en": "awards and honours"
+        "hi": "सम्मान और मुख्य अतिथि के कार्यक्रम",
+        "en": "awards and chief-guest events"
       },
       "short": {
         "hi": "सम्मान",
         "en": "awards"
       },
       "basis": {
-        "hi": "[परिचय पन्ने पर पूरी सूची]",
-        "en": "[full list on the about page]"
+        "hi": "पूरी सूची परिचय पन्ने पर",
+        "en": "the full list is on the about page"
       }
     },
     {
-      "value": "[M]",
+      "value": "1,000+",
       "label": {
-        "hi": "जिनकी दवा घटी",
-        "en": "whose medicine came down"
+        "hi": "जिनकी दवा डॉक्टर ने घटाई",
+        "en": "whose doctor reduced their medicine"
       },
       "short": {
         "hi": "दवा घटी",
         "en": "medicine down"
       },
       "basis": {
-        "hi": "[कैसे गिना गया — डॉक्टर की सलाह से]",
-        "en": "[how this was counted — on their doctor's advice]"
+        "hi": "विद्यार्थियों के अपने बताए अनुसार, उनके डॉक्टर की सलाह से",
+        "en": "as reported by students themselves, on their own doctor's advice"
       }
     }
   ],
   "google": {
-    "rating": "",
-    "reviews": "",
+    "rating": "4.2",
+    "reviews": "100+",
     "url": ""
   },
   "whatsappGroupCount": "",
   "contact": {
-    "whatsapp": "",
-    "phone": "",
-    "phoneDisplay": "[फ़ोन नंबर]",
+    "whatsapp": "918953256111",
+    "phone": "+918953256111",
+    "phoneDisplay": "+91 89532 56111",
     "email": "[ईमेल]",
     "replyHours": {
-      "hi": "जवाब [सुबह] से [रात] तक",
-      "en": "Replies [morning] to [night]"
+      "hi": "जवाब सुबह 7 से शाम 7 तक",
+      "en": "Replies 7am to 7pm"
     },
     "address": {
       "hi": "[पता], लखनऊ, उत्तर प्रदेश [पिन]",

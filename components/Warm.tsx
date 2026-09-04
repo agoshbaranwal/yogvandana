@@ -111,8 +111,12 @@ export function PhotoBadges({ lang }: { lang: Lang }) {
     <>
       {rating ? (
         <span className="badge absolute bottom-3.5 left-3">
+          {/* One star, not five. Five filled stars beside "4.2" reads as five
+              out of five and overstates her rating — on a site whose whole
+              argument is that its numbers can be checked, that is the last
+              place to round anything up. */}
           <span className="stars" aria-hidden="true">
-            ★★★★★
+            ★
           </span>
           {rating}
           {reviews ? (

@@ -138,6 +138,9 @@ export default function Home({ lang }: { lang: Lang }) {
               {ui("home.schedTitle", lang)}
             </span>
             <h2 className="h2">{ui("home.whichBatch", lang)}</h2>
+            {/* rolling admission is the honest version of urgency: there is no
+                date to wait for, so a reader who decides today starts this week */}
+            <p className="cap">{ui("batches.rollingLead", lang)}</p>
           </div>
           <Schedule lang={lang} />
         </div>

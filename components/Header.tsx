@@ -132,8 +132,15 @@ export default function Header({
             </Link>
           ))}
           <a href={phoneHref || talkHref} className="pill" data-ev="call_click" data-ev-source="header" aria-label={`${callLabel}: ${phoneLabel}`}>
+            {/* A real phone number is eleven digits plus a country code, and
+                beside the wordmark and the menu that is wider than a 360px
+                phone. The number shows from 400px up; below it the pill is the
+                icon and the word, which is what a thumb is aiming at anyway. */}
             <PhoneIcon size={18} />
-            <Tx>{phoneLabel}</Tx>
+            <span className="hidden min-[400px]:inline">
+              <Tx>{phoneLabel}</Tx>
+            </span>
+            <span className="min-[400px]:hidden">{callLabel}</span>
           </a>
           <Link
             href={switchHref}
@@ -148,8 +155,15 @@ export default function Header({
 
         <div className="flex items-center gap-2 lg:hidden">
           <a href={phoneHref || talkHref} className={pill} data-ev="call_click" data-ev-source="header" aria-label={`${callLabel}: ${phoneLabel}`}>
+            {/* A real phone number is eleven digits plus a country code, and
+                beside the wordmark and the menu that is wider than a 360px
+                phone. The number shows from 400px up; below it the pill is the
+                icon and the word, which is what a thumb is aiming at anyway. */}
             <PhoneIcon size={18} />
-            <Tx>{phoneLabel}</Tx>
+            <span className="hidden min-[400px]:inline">
+              <Tx>{phoneLabel}</Tx>
+            </span>
+            <span className="min-[400px]:hidden">{callLabel}</span>
           </a>
           <button
             type="button"

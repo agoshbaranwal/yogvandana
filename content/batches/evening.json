@@ -7,19 +7,25 @@
     "en": "Evening batch"
   },
   "when": {
-    "hi": "शाम [समय]",
-    "en": "Evening [time]"
+    "hi": "शाम 4 बजे",
+    "en": "4 pm"
   },
   "start": {
     "hi": "[6:30]",
     "en": "[6:30]"
   },
-  "minutes": "[50]",
+  "minutes": "60",
   "days": {
-    "hi": "[सोम–शनि]",
-    "en": "[Mon–Sat]"
+    "hi": "सोमवार से शुक्रवार",
+    "en": "Monday to Friday"
   },
-  "daysOn": [],
+  "daysOn": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
   "level": {
     "hi": "सभी स्तर · दफ़्तर के बाद",
     "en": "All levels, after work"
@@ -58,8 +64,8 @@
   },
   "perDay": "35",
   "nextStart": {
-    "hi": "[तारीख़]",
-    "en": "[date]"
+    "hi": "",
+    "en": ""
   },
   "seats": "",
   "date": {
@@ -69,12 +75,12 @@
   "joinLink": "",
   "feeLink": "",
   "familyDiscount": {
-    "hi": "एक घर के दो लोग: [छूट]",
-    "en": "Two from one home: [discount]"
+    "hi": "एक घर के दो लोग: दूसरे की फ़ीस आधी",
+    "en": "Two from one home: half price for the second"
   },
   "firstMonthOffer": {
-    "hi": "",
-    "en": ""
+    "hi": "तीन महीने एक साथ: ₹500 कम",
+    "en": "Three months together: ₹500 less"
   },
   "refundLine": {
     "hi": "[रिफ़ंड का नियम एक पंक्ति में।]",

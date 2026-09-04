@@ -521,8 +521,8 @@
       "en": "Batches and fees"
     },
     "lead": {
-      "hi": "ज़ूम पर लाइव · {n} लोगों का ग्रुप · घर पर चटाई और फ़ोन",
-      "en": "Live on Zoom · a group of {n} · a mat and a phone at home"
+      "hi": "ज़ूम पर लाइव · घर पर चटाई और फ़ोन · सोमवार से शुक्रवार",
+      "en": "Live on Zoom · a mat and a phone at home · Monday to Friday"
     },
     "group": {
       "hi": "ग्रुप बैच",
@@ -651,6 +651,18 @@
     "talkAboutNamed": {
       "hi": "{x} के बारे में बात करें",
       "en": "Talk about {x}"
+    },
+    "rolling": {
+      "hi": "कभी भी जुड़ सकते हैं",
+      "en": "Join any day"
+    },
+    "rollingLead": {
+      "hi": "बैच रोज़ चलता है — किसी तारीख़ का इंतज़ार नहीं। जिस दिन तय करें, उसी हफ़्ते शुरू।",
+      "en": "The batch runs every day — there is no date to wait for. Start the week you decide."
+    },
+    "threeMonths": {
+      "hi": "तीन महीने एक साथ",
+      "en": "Three months together"
     }
   },
   "stories": {
