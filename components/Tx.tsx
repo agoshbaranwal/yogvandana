@@ -10,9 +10,11 @@ export function Tx({ children }: { children: string }) {
     <>
       {parts.map((part, i) =>
         part.startsWith("[") && part.endsWith("]") ? (
-          /* the chip itself says "not filled in yet", so the brackets that
-             mark it in the content file are not repeated on screen */
-          <span className="todo" key={i}>
+          /* A chip marks a short missing value inside a real sentence — a
+             date, a number, a name. A whole missing sentence in a chip wraps
+             into broken grey rectangles and takes over the page, so past a
+             few words it is simply set in the muted ink instead. */
+          <span className={part.length > 26 ? "todo-long" : "todo"} key={i}>
             {part.slice(1, -1)}
           </span>
         ) : (

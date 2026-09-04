@@ -629,6 +629,10 @@
     "withSince": {
       "hi": "{y} से वंदना जी के साथ",
       "en": "With Vandana since {y}"
+    },
+    "pending": {
+      "hi": "पहली कहानियाँ जल्द — हर एक विद्यार्थी की अनुमति से, उनके नाम और शहर के साथ।",
+      "en": "The first stories are coming — each one with the student's permission, with their name and city."
     }
   },
   "about": {

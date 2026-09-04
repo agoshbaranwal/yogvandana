@@ -295,7 +295,15 @@
     color: var(--todo-ink, var(--color-muted));
     font-weight: 400;
     border-radius: 999px;
-    padding: 0 6px;
+    /* tight, so a chip beside a comma does not open a gap before it */
+    padding: 0 5px;
+    margin-inline: -1px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+  /* a missing sentence: no chip, just the quieter ink */
+  .todo-long {
+    color: var(--todo-ink, var(--color-muted));
   }
 
   /* buttons --------------------------------------------------------------- */

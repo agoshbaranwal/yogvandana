@@ -218,8 +218,8 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
               ))}
             </ul>
           ) : (
-            <p className="body" style={{ color: "var(--color-muted)" }}>
-              {ui("ailment.noStories", lang)}
+            <p className="body" style={{ color: "var(--color-heroink)" }}>
+              {ui("stories.pending", lang)}
             </p>
           )}
           <p className="cap">{ui("stories.consent", lang)}</p>

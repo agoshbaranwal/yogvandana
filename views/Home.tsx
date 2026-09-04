@@ -9,7 +9,7 @@ import { WhatYouGet } from "@/components/WhatYouGet";
 import { ResultCard } from "@/components/StoryCard";
 import { MedicinePanel } from "@/components/Timeline";
 import { WhoTeaches } from "@/components/WhoTeaches";
-import { stories, ui } from "@/lib/content";
+import { realStories, ui } from "@/lib/content";
 import { picture } from "@/lib/media";
 import { site } from "@/lib/content";
 import { href, type Lang } from "@/lib/routes";
@@ -21,7 +21,7 @@ import { href, type Lang } from "@/lib/routes";
    phone, each one thing. */
 
 export default function Home({ lang }: { lang: Lang }) {
-  const shown = stories.slice(0, 3);
+  const shown = realStories.slice(0, 3);
 
   return (
     <SiteShell lang={lang} routeKey="home" overlay={Boolean(picture(site.photos.portrait))}>
@@ -47,14 +47,22 @@ export default function Home({ lang }: { lang: Lang }) {
               {ui("cta.allStories", lang)}
             </Link>
           </div>
-          <ul className="grid gap-3 md:grid-cols-3 md:gap-5 [&>li]:min-w-0">
-            {shown.map((s, i) => (
-              <li key={s.id} className={i === 2 ? "hidden md:block" : ""}>
-                <ResultCard story={s} lang={lang} showVideo={i === 0} />
-              </li>
-            ))}
-          </ul>
-          <p className="cap">{ui("stories.consent", lang)}</p>
+          {shown.length > 0 ? (
+            <>
+              <ul className="grid gap-3 md:grid-cols-3 md:gap-5 [&>li]:min-w-0">
+                {shown.map((s, i) => (
+                  <li key={s.id} className={i === 2 ? "hidden md:block" : ""}>
+                    <ResultCard story={s} lang={lang} showVideo={i === 0} />
+                  </li>
+                ))}
+              </ul>
+              <p className="cap">{ui("stories.consent", lang)}</p>
+            </>
+          ) : (
+            <p className="body" style={{ color: "var(--color-heroink)" }}>
+              {ui("stories.pending", lang)}
+            </p>
+          )}
         </div>
       </section>
 

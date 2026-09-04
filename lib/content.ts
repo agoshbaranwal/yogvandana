@@ -342,8 +342,19 @@ export type Story = z.infer<typeof StorySchema>;
 export const stories: Story[] = many(StorySchema, "stories")
   .filter((s) => s.consent)
   .sort((a, b) => a.order - b.order);
+/** A story with nothing real in it is not proof of anything. Three cards of
+ *  grey blanks — a blank name, a blank city, a blank quote — say less than one
+ *  sentence saying the stories are coming, and they look like a broken page.
+ *  A card earns its place once it carries either the student's own words or a
+ *  real before and after. They all come back the moment she sends them. */
+export function storyHasSubstance(s: Story): boolean {
+  const real = (v: Text) => v.hi.trim() !== "" && !isTodo(v.hi);
+  return real(s.quote) || (real(s.before) && real(s.after));
+}
+export const realStories: Story[] = stories.filter(storyHasSubstance);
+
 export const storiesFor = (slug: string): Story[] =>
-  stories.filter((s) => s.ailmentSlug === slug);
+  realStories.filter((s) => s.ailmentSlug === slug);
 
 /* ------------------------ her record: about pages ------------------------ */
 
