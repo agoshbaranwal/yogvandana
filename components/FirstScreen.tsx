@@ -56,7 +56,7 @@ export function FirstScreen({ lang }: { lang: Lang }) {
             {ui("home.heroLead", lang)}
           </p>
 
-          <div className="flex w-full flex-wrap gap-2.5">
+          <div className="btn-col w-full">
             <a
               className="btn btn-wa"
               href={wa}

@@ -146,7 +146,7 @@ export function Join({ lang, source = "join" }: { lang: Lang; source?: string })
 
       <div className="flex flex-col gap-2.5 border-t border-rule pt-4">
         <p className="label">{ui("pay.talkFirst", lang)}</p>
-        <div className="flex flex-wrap gap-2.5">
+        <div className="btn-col">
           <a
             className="btn btn-wa"
             href={wa}

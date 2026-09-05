@@ -54,7 +54,7 @@ export function AskRow({
         <p className="cap">{ui("home.trustFree", lang)}</p>
       </div>
 
-      <div className="flex flex-none flex-wrap gap-2.5">
+      <div className="btn-col flex-none">
         <a
           className="btn btn-wa"
           href={wa}

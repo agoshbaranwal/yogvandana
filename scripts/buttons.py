@@ -16,6 +16,12 @@ For every .btn this reports:
            was broken. A leading mark belongs beside what it leads.
   drift  · the icon's centre against the label's, vertically
   wrap   · a label broken across two lines inside a pill
+  stack  · buttons that sit one above another must be the same width, with
+           their marks in one vertical line and their labels beginning at one
+           x. Two pills shrink-wrapped to their own labels sat 87 to 115px
+           apart in width with a ragged right edge, and where the widths did
+           match the marks still drifted 20 to 35px, because each button
+           centred its own content. Agosh called both misalignment.
 
     python3 scripts/buttons.py [url ...]
 """
@@ -57,6 +63,10 @@ JS = """return (() => {
       lines: Math.round((tb.bottom - tb.top) / (parseFloat(cs.lineHeight) || 1)),
       block: b.classList.contains('btn-block') ||
              bb.width >= (b.parentElement ? b.parentElement.getBoundingClientRect().width - 1 : 1e9),
+      // a button in a column is judged by the stack rule below — its content
+      // is left-aligned on purpose so the marks line up, and asking it to be
+      // centred as well is asking for two contradictory things
+      inCol: !!(b.parentElement && b.parentElement.classList.contains('btn-col')),
       groupOff: +(((gl + gr) / 2) - mid).toFixed(2),
     };
     if (sb) {
@@ -71,6 +81,45 @@ JS = """return (() => {
 })()"""
 
 
+STACK_JS = """return (() => {
+  const out = [];
+  const seen = new Set();
+  document.querySelectorAll('a.btn, button.btn').forEach((b) => {
+    const p = b.parentElement; if (!p || seen.has(p)) return;
+    const sibs = [...p.children].filter((c) => c.classList && c.classList.contains('btn'));
+    if (sibs.length < 2) return;
+    seen.add(p);
+    const rows = sibs.map((s) => {
+      const r = s.getBoundingClientRect();
+      const svg = s.querySelector('svg');
+      const rg = document.createRange(); let tl = null;
+      s.childNodes.forEach((n) => {
+        const has = n.nodeType === 3 ? n.textContent.trim() : (n.nodeType === 1 && n.tagName.toLowerCase() !== 'svg' && n.textContent.trim());
+        if (!has) return;
+        let x;
+        if (n.nodeType === 3) { rg.selectNodeContents(n); x = rg.getBoundingClientRect(); }
+        else x = n.getBoundingClientRect();
+        if (x.width > 1) tl = tl === null ? x.left : Math.min(tl, x.left);
+      });
+      return { top: r.top, h: r.height, w: r.width,
+               iconL: svg ? svg.getBoundingClientRect().left : null, textL: tl };
+    });
+    const tops = rows.map((r) => r.top);
+    const h = Math.max(...rows.map((r) => r.h));
+    if (Math.max(...tops) - Math.min(...tops) < h * 0.5) return;   // side by side, not stacked
+    const span = (xs) => { const v = xs.filter((x) => x !== null); return v.length ? Math.max(...v) - Math.min(...v) : 0; };
+    out.push({
+      where: (p.className || p.tagName).toString().split(' ').slice(0, 2).join(' '),
+      n: rows.length,
+      width: +span(rows.map((r) => r.w)).toFixed(1),
+      icon: +span(rows.map((r) => r.iconL)).toFixed(1),
+      text: +span(rows.map((r) => r.textL)).toFixed(1),
+    });
+  });
+  return out;
+})()"""
+
+
 def run(pages, width):
     c = Chrome(width=width, height=900)
     bad = 0
@@ -79,9 +128,18 @@ def run(pages, width):
             c.goto(BASE + p, settle=1.1)
             rows = c.eval(JS)
             print(f"\n  {p}   ({len(rows)} buttons at {width}px)")
+            for g in c.eval(STACK_JS):
+                off = []
+                if g["width"] > 2: off.append(f"widths differ by {g['width']:.0f}px")
+                if g["icon"] > 2: off.append(f"marks {g['icon']:.0f}px apart")
+                if g["text"] > 2: off.append(f"labels start {g['text']:.0f}px apart")
+                if off:
+                    bad += 1
+                    print(f"      ✗ stack of {g['n']} in .{g['where'][:30]}")
+                    print(f"          {' · '.join(off)}")
             for r in rows:
                 flags = []
-                if abs(r["groupOff"]) > 1.5:
+                if not r.get("inCol") and abs(r["groupOff"]) > 1.5:
                     flags.append(f"content {r['groupOff']:+.1f}px off the button's centre")
                 # 16px is the site's own gap plus a little; 146px was the bug
                 if r.get("reach") is not None and not (0 <= r["reach"] <= 16):

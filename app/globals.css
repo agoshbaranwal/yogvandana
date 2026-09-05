@@ -443,6 +443,48 @@
     outline-offset: 3px;
   }
 
+  /* A COLUMN of buttons is a list, and a list lines up.
+
+     Stacked, each pill shrink-wrapped to its own label, so a green
+     "व्हाट्सऐप पर बात करें" sat above a white "कॉल करें · +91 89532 56111"
+     between 87 and 115px narrower than it, with a ragged right edge. That is
+     the picture Agosh sent (5 Sep). And where the widths already matched — the
+     closing band — each button still centred its own content on its own, which
+     put the two marks 20 to 35px apart down the column. Both are the same
+     complaint and both were real.
+
+     Stacked: one width, marks in a single vertical line, labels beginning at
+     one x. Side by side, where none of that applies, they centre as before. */
+  .btn-col {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  /* `flex: 1 1 <basis>` is what makes the widths equal in BOTH states: side by
+     side the pair shares the row evenly, and when it wraps each takes the
+     whole line. There is no third state, so there is no width to go ragged.
+     The content is left-aligned rather than centred for the same reason — two
+     centred pills of equal width still put their marks at different x, which
+     is the 20-to-35px drift the closing band had. */
+  .btn-col > .btn {
+    /* 280px is the widest label the site has ("कॉल करें · +91 89532 56111").
+       Below a basis that fits it, a squeezed pair broke that label onto two
+       lines inside the pill; at this basis the pair simply wraps into the
+       column instead, where each button has the whole width. */
+    flex: 1 1 280px;
+    justify-content: flex-start;
+    padding-inline-start: 22px;
+    /* .btn centres its text, and a label whose flex item ends up wider than
+       its words then sits centred INSIDE that item — which put "कॉल करें"
+       8.7px further right than "व्हाट्सऐप पर बात करें" even after both
+       marks lined up. In a column the words start where the item starts. */
+    text-align: start;
+  }
+  /* the closing band asks its two questions one under the other, always */
+  .btn-col-stack {
+    flex-direction: column;
+  }
+
   /* A full-width button is still one object: the mark travels with the words.
 
      This was tried the other way on 5 Sep — the mark pinned into the left

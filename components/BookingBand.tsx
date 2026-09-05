@@ -90,7 +90,7 @@ export default function BookingBand({
           </p>
         </div>
 
-        <div className="flex flex-col gap-3.5">
+        <div className="btn-col btn-col-stack">
           <div className="flex flex-col gap-2">
             <p className="label">
               {step1}
