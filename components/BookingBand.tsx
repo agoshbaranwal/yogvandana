@@ -141,7 +141,7 @@ export default function BookingBand({
             data-ev-time={time || "any"}
             className="btn btn-wa btn-block"
           >
-            <WhatsAppIcon size={22} />
+            <WhatsAppIcon size={20} />
             {whatsappLabel}
           </a>
           <a

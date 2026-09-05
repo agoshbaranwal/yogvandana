@@ -150,7 +150,7 @@ export function Join({ lang, source = "join" }: { lang: Lang; source?: string })
             data-ev="call_click"
             data-ev-source={source}
           >
-            <PhoneIcon size={18} />
+            <PhoneIcon size={20} />
             {ui("cta.call", lang)}
           </a>
         </div>

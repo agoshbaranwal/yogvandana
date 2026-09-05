@@ -74,7 +74,7 @@ export function FirstScreen({ lang }: { lang: Lang }) {
               data-ev="call_click"
               data-ev-source="hero"
             >
-              <PhoneIcon size={18} />
+              <PhoneIcon size={20} />
               {ui("cta.call", lang)}
               {number ? (
                 <span className="hidden sm:inline">

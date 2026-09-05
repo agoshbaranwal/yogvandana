@@ -145,10 +145,26 @@ export const WhatsAppIcon = ({ size = 20, ...rest }: P) => (
   </svg>
 );
 
-export const PhoneIcon = (p: P) => (
-  <U {...p}>
-    <path d="M6.4 3.5h2.9l1.6 4-2 1.3a10.6 10.6 0 0 0 4.8 4.8l1.3-2 4 1.6v2.9a1.9 1.9 0 0 1-2.1 1.9A14.9 14.9 0 0 1 4.5 5.6a1.9 1.9 0 0 1 1.9-2.1z" />
-  </U>
+/* Solid, because it is never seen alone.
+
+   The phone and the WhatsApp mark sit side by side on the same buttons, and
+   this one was drawn with the 1.9px stroke every small UI icon here uses. Next
+   to a filled bubble and bold Devanagari it read as a lighter, unfinished
+   thing — visible in the buttons Agosh sent back on 5 Sep. The stroked `U`
+   wrapper still serves every other icon on the site; this pair matches each
+   other. */
+export const PhoneIcon = ({ size = 20, ...rest }: P) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    aria-hidden="true"
+    focusable="false"
+    {...rest}
+  >
+    <path d="M6.62 10.79a15.1 15.1 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1c-9.39 0-17-7.61-17-17a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z" />
+  </svg>
 );
 export const ShareIcon = (p: P) => (
   <U {...p}>

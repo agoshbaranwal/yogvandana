@@ -443,29 +443,19 @@
     outline-offset: 3px;
   }
 
-  /* A full-width button centres its LABEL, not the icon-and-label pair.
+  /* A full-width button is still one object: the mark travels with the words.
 
-     Left in the flex row, the mark plus its gap shifts the words to the right
-     of the pill's middle — measured at 28 to 32px of ink on every one of the
-     site's icon buttons, which is what Agosh kept seeing as "misaligned"
-     (5 Sep 2026). The mark now sits in the left padding, out of the flow, and
-     the words are centred on the button. Padding is symmetric so they stay
-     centred, and it clears the mark so a long Hindi label cannot reach it. */
+     This was tried the other way on 5 Sep — the mark pinned into the left
+     padding, the label centred on the pill — because centring the pair leaves
+     the words about 15px right of the middle. The maths got better and the
+     button got worse: on the closing band's 540px pill it left the icon 146px
+     from its own label, stranded in the corner with the words floating in the
+     middle, and Agosh sent it straight back. A leading mark belongs beside
+     what it leads. Measured by scripts/buttons.py, which now asserts the
+     distance rather than the centring. */
   .btn-block {
     display: flex;
     width: 100%;
-  }
-  /* only a block button WITH a mark needs room reserved for it: the padding
-     that keeps a label clear of the icon squeezed icon-less buttons into two
-     lines in a narrow column */
-  .btn-block:has(> svg:first-child) {
-    padding-inline: 56px;
-  }
-  .btn-block > svg:first-child {
-    position: absolute;
-    inset-inline-start: 22px;
-    top: 50%;
-    translate: 0 -50%;
   }
   /* The first screen's main button: saffron on the ivory phone page, ink on
      the desktop sky that ends in saffron. */
