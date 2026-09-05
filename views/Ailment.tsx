@@ -49,7 +49,7 @@ function BatchLine({ batch, lang }: { batch: Batch; lang: Lang }) {
     <div className="card flex items-center gap-3.5">
       <div className="flex min-w-0 flex-1 flex-col gap-0.5">
         <p className="h3">
-          <Tx>{`${when} ${t(batch.start, lang)}`}</Tx>
+          <Tx>{`${when} ${t(batch.when, lang)}`}</Tx>
         </p>
         <p className="cap">
           <Tx>{`${t(batch.note, lang)} · ${t(batch.days, lang)}`}</Tx>

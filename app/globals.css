@@ -480,9 +480,18 @@
        marks lined up. In a column the words start where the item starts. */
     text-align: start;
   }
-  /* the closing band asks its two questions one under the other, always */
+  /* The closing band asks its two questions one under the other, always.
+
+     In a column the main axis is vertical, so the `flex: 1 1 280px` above
+     stops meaning "280px wide" and starts meaning "280px TALL, then grow" —
+     which shipped two buttons 600px high on every page's closing band, for
+     about three hours on 5 Sep, until I looked at the page instead of the
+     numbers. In a column a button is as tall as a button. */
   .btn-col-stack {
     flex-direction: column;
+  }
+  .btn-col-stack > .btn {
+    flex: 0 0 auto;
   }
 
   /* A full-width button is still one object: the mark travels with the words.

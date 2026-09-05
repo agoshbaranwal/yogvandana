@@ -2,7 +2,7 @@ import { A as Link } from "../components/Nav";
 import { Routine } from "@/components/Credibility";
 import SiteShell from "@/components/SiteShell";
 import { Tx } from "@/components/Tx";
-import { absolute, type Batch, batches, site, students, t, ui } from "@/lib/content";
+import { absolute, type Batch, batches, site, students, t, ui, isTodo } from "@/lib/content";
 import { payHref } from "@/lib/pay";
 import { href, type Lang } from "@/lib/routes";
 import { waHref, waMessage } from "@/lib/whatsapp";
@@ -40,7 +40,7 @@ export default function Students({ lang }: { lang: Lang }) {
                   <p className="h3">{t(b.name, lang)}</p>
                   <div className="text-right">
                     <p className="num h2">
-                      <Tx>{`₹${b.price}`}</Tx>
+                      <Tx>{isTodo(b.price) ? ui("batches.feeTodo", lang) : `₹${b.price}`}</Tx>
                     </p>
                     <p className="cap">{t(b.priceUnit, lang)}</p>
                   </div>
