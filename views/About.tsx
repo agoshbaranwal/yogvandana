@@ -1,5 +1,5 @@
 import { NumberCards } from "@/components/Blocks";
-import { ChevronIcon, WhatsAppIcon } from "@/components/Icons";
+import { ChevronIcon, LinkIcon, WhatsAppIcon } from "@/components/Icons";
 import { Jsonld, personSchema } from "@/components/Jsonld";
 import { Photo } from "@/components/Photo";
 import SiteShell from "@/components/SiteShell";
@@ -48,8 +48,12 @@ function Verify({ credential, lang, pill = false }: { credential: Credential; la
   if (credential.verifyUrl === "none") {
     return <span className="cap">{ui("about.noRegister", lang)}</span>;
   }
+  /* Not yet filled in. It holds the same box the link will, so the row does
+     not change height the day the URL is pasted in, and it says what is
+     missing rather than showing a link that goes nowhere. */
   return (
-    <span className="cap">
+    <span className="slot">
+      <LinkIcon size={15} />
       <Tx>{ui("credentials.verifyTodo", lang)}</Tx>
     </span>
   );
@@ -178,11 +182,17 @@ export default function About({ lang }: { lang: Lang }) {
             <Tx>{t(site.about.words, lang)}</Tx>
           </p>
           <div className="flex items-end gap-3 pt-1">
-            {site.photos.signature ? (
-              <Photo src={site.photos.signature} alt={ui("photo.signature", lang)} className="h-11 w-[140px]" rounded="rounded-[12px]" />
-            ) : (
-              <span className="pad-sign !w-[140px] !h-11" aria-hidden="true" />
-            )}
+            {/* the same 140x44 box whether or not her signature has arrived */}
+            <Photo
+              src={site.photos.signature}
+              alt={ui("photo.signature", lang)}
+              label={ui("photo.signature", lang)}
+              ratio="140 / 44"
+              className="w-[140px] flex-none"
+              rounded="rounded-[var(--radius-sm)]"
+              compact
+              sizes="140px"
+            />
             <p className="cap">{t(site.teacher, lang)}</p>
           </div>
           {/* the numbers appear once at least one is real; four cards each

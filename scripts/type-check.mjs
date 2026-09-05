@@ -128,6 +128,27 @@ if (strayFamily) problems.push(`app/globals.css  font-family: ${strayFamily} —
   }
 }
 
+/* — every placeholder reserves the box its picture will fill --------------- */
+/* A frame without an aspect ratio collapses to whatever is inside it and then
+   jumps the day a photograph is uploaded. TypeScript already requires the
+   prop; this catches a `ratio` that is present but empty, and a frame with no
+   caption, because a hole nobody can label is a hole nobody will fill. */
+{
+  for (const file of files) {
+    const rel = path.relative(ROOT, file);
+    if (rel === "components/Photo.tsx") continue;
+    const src = fs.readFileSync(file, "utf8");
+    for (const m of src.matchAll(/<Photo\b([\s\S]*?)\/>/g)) {
+      const a = m[1];
+      const ratio = /ratio="([^"]*)"/.exec(a);
+      if (!ratio || !ratio[1].trim())
+        problems.push(`${rel}  a <Photo> with no ratio — its box will jump when the picture arrives`);
+      if (!/\blabel=/.test(a))
+        problems.push(`${rel}  a <Photo> with no label — nothing says what belongs in that frame`);
+    }
+  }
+}
+
 if (problems.length) {
   console.error(`type: ${problems.length} problem(s)\n  ` + problems.join("\n  "));
   process.exit(1);
