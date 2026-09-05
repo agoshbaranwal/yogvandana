@@ -23,6 +23,10 @@ export function FirstScreen({ lang }: { lang: Lang }) {
   if (pic) preload(pic.src, { as: "image", fetchPriority: "high", imageSrcSet: pic.srcSet || undefined });
   const number = phoneShown(lang);
   const wa = waHref(site.contact.whatsapp, waMessage({ lang, kind: "talk", page: absolute(href("home", lang)) }));
+  const certified =
+    lang === "hi"
+      ? `${t(site.certifyingBody, lang)} प्रमाणित`
+      : `Certified by ${t(site.certifyingBody, lang)}`;
   const years = site.numbers[0]?.value ?? "";
   const students = site.numbers[1]?.value ?? "";
 
@@ -35,9 +39,16 @@ export function FirstScreen({ lang }: { lang: Lang }) {
     <section className="hero-warm first">
       <div className="wrap grid gap-7 pb-11 pt-5 md:grid-cols-[minmax(0,1fr)_minmax(0,360px)] md:items-center md:gap-14 md:pb-20 md:pt-12 lg:gap-20">
         <div className="flex flex-col items-start gap-4">
-          <span className="badge">
-            <Tx>{eyebrow}</Tx>
-          </span>
+          <div className="flex flex-wrap gap-2">
+            <span className="badge">
+              <Tx>{eyebrow}</Tx>
+            </span>
+            {/* her credential, in the words rather than floated on her
+                photograph, where it read as a label for the picture */}
+            <span className="badge">
+              <Tx>{certified}</Tx>
+            </span>
+          </div>
 
           <h1 className="claim">{t(site.claim, lang)}</h1>
 

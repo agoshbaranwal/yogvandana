@@ -7,7 +7,7 @@ Last run: 2026-09-05 · 38 pages.
 |---|---|---|---|
 | 1 | No superlative or scarcity language | pass | 14 words checked across 38 pages |
 | 2 | Every certificate either links to a register, says there is none, or shows a blank still to be filled | pass | 0 credentials pages |
-| 3 | No stock or generated images; empty slots are labelled blocks | pass | 0 images, 0 from other sites, 265 labelled placeholder blocks |
+| 3 | No stock or generated images; empty slots are labelled blocks | pass | 0 images, 0 from other sites, 193 labelled placeholder blocks |
 | 4 | No countdown, no fake scarcity, no pop-up | pass | checked every page |
 | 5 | Every number traces to a content file | waiting on content | Numbers are still [X], [Y], [N], [A] in content/site.json; nothing is hard-coded in the pages. |
 | 6 | The medicine answer appears on home and, in its own terms, on every condition page | pass | 18 pages carry it |

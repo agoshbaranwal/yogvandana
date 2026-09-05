@@ -39,7 +39,7 @@ export function Photo({
   sizes?: string;
   priority?: boolean;
   rounded?: string;
-  /* a frame too small to hold its own caption: it goes underneath */
+  /* too small to hold words: shows the icon alone, never a caption outside */
   compact?: boolean;
 }) {
   const pic = picture(src);
@@ -87,7 +87,7 @@ export function Photo({
 
   const frame = (
     <span
-      className={`ph block ${rounded} ${compact ? "w-full" : className}`}
+      className={`ph block ${rounded} ${className}`}
       style={style}
       role="img"
       aria-label={label || alt || ""}
@@ -103,17 +103,5 @@ export function Photo({
     </span>
   );
 
-  if (!compact) return frame;
-
-  /* too small for words inside, so they go under it */
-  return (
-    <span className={`ph-stack ${className}`}>
-      {frame}
-      {label ? (
-        <span className="ph-note">
-          <Tx>{label}</Tx>
-        </span>
-      ) : null}
-    </span>
-  );
+  return frame;
 }

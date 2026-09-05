@@ -1,4 +1,4 @@
-import { isTodo, site, t, ui } from "@/lib/content";
+import { site, t, ui } from "@/lib/content";
 import { mediaLogos } from "@/lib/content";
 import type { Lang } from "@/lib/routes";
 import { Photo } from "./Photo";
@@ -58,11 +58,10 @@ export function PressStrip({ lang }: { lang: Lang }) {
             src={m.image}
             alt={t(m.name, lang)}
             label={ui("photo.logo", lang)}
-            ratio="5 / 2"
+            ratio="5 / 3"
             rounded="rounded-[var(--radius-sm)]"
-            className="w-[104px] opacity-80 grayscale"
-            compact
-            sizes="104px"
+            className="w-[150px] grayscale md:w-[172px]"
+            sizes="(min-width: 768px) 172px, 150px"
           />
         ))}
       </div>
@@ -100,13 +99,18 @@ function CheckMark() {
   );
 }
 
-/* Her rating and her certifying body, floated on the photograph rather than
-   listed beside it — the badge is read before the picture is, which is the
-   point of putting it there. */
+/* Her rating, floated on the photograph.
+
+   The certifying body used to float there too, worded "पतंजलि योगपीठ का
+   प्रमाणपत्र" — which on a frame reads as a caption for what the frame holds,
+   so the box looked as though it might contain a certificate. That frame holds
+   one thing: her photograph. The credential moved into the words beside it,
+   where credentials belong. A star rating is different: it is a fact about
+   her that happens to sit on the picture, and every service this audience
+   uses puts it exactly there. */
 export function PhotoBadges({ lang }: { lang: Lang }) {
   const rating = site.google.rating.trim();
   const reviews = site.google.reviews.trim();
-  const body = t(site.certifyingBody, lang);
   return (
     <>
       {/* Both badges hug the photograph's outer edge. The rating used to sit
@@ -130,11 +134,6 @@ export function PhotoBadges({ lang }: { lang: Lang }) {
               {reviews} {ui("home.googleReviews", lang)}
             </span>
           ) : null}
-        </span>
-      ) : null}
-      {body && !isTodo(body) ? (
-        <span className="badge absolute right-3 top-3.5 max-w-[78%]">
-          <Tx>{ui("about.certTitle", lang).replace("{body}", body)}</Tx>
         </span>
       ) : null}
     </>

@@ -588,6 +588,26 @@
     color: var(--quiet-ink, var(--color-muted));
   }
 
+  /* A slot where a LINK will go.
+
+     The filled state is a pill you can tap; the empty state used to be a line
+     of plain text, so the row was a different height and a different shape
+     before and after the link arrived. This holds the pill's box — same
+     height, same rounding, same padding — outlined rather than filled, and
+     says what belongs in it. */
+  .slot {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 44px;
+    padding: 0 14px;
+    border: 1.5px dashed var(--color-field);
+    border-radius: var(--radius-pill);
+    font-size: var(--step-fine);
+    line-height: 1.25;
+    color: var(--quiet-ink, var(--color-muted));
+  }
+
   /* a frame too small to hold its caption keeps it underneath, in the
      smallest step the site has */
   .ph-stack {
