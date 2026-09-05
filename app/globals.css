@@ -443,6 +443,60 @@
     outline-offset: 3px;
   }
 
+  /* THE LABEL IS WHAT GETS CENTRED.
+
+     Three times today Agosh sent a button back as "not centre aligned", and
+     three times I measured the boxes, found the icon-and-label GROUP within a
+     pixel of centre, and called it fixed. He was reading the ink. With a
+     leading mark, centring the pair puts the words 15 to 20px right of the
+     middle on a pill and — after this afternoon's stack rule left-aligned
+     them — 100px off on a 440px desktop button. He was right every time.
+
+     So: a three-column grid. The label sits in the middle column and is
+     centred on the button whatever the button's width; the mark sits in the
+     left column, pushed against the label at a fixed gap, so it is never
+     stranded in a corner; the right column is at least as wide as the mark
+     and gap, so a shrink-wrapped pill stays symmetric around its words. This
+     is how a "Sign in with Google" button is built, and for the same reason. */
+  .btn:has(> svg:first-child),
+  .pill:has(> svg:first-child) {
+    display: grid;
+    grid-template-columns: minmax(var(--mark-col), 1fr) auto minmax(var(--mark-col), 1fr);
+    align-items: center;
+    justify-items: center;
+    column-gap: 0;
+    --mark-col: 30px;
+  }
+  .btn:has(> svg:first-child) > svg:first-child,
+  .pill:has(> svg:first-child) > svg:first-child {
+    grid-column: 1;
+    justify-self: end;
+    margin-inline-end: 10px;
+  }
+  .btn:has(> svg:first-child) > .lbl,
+  .pill:has(> svg:first-child) > .lbl {
+    grid-column: 2;
+    min-width: 0;
+    text-align: center;
+  }
+  /* Devanagari's ink is top-heavy: the headline and the matras above it, and
+     few descenders below. Measured on the hero buttons, the label's ink
+     centre sits 2 to 6px above the line-box centre the mark is aligned to,
+     so the mark reads as sitting low. Latin digits — the header pill — centre
+     on their x-height and measured level to the pixel, so this applies to
+     Hindi pages only. */
+  html[lang="hi"] .btn:has(> svg:first-child) > svg:first-child,
+  html[lang="hi"] .pill:has(> svg:first-child) > svg:first-child {
+    translate: 0 -3px;
+  }
+
+  .pill:has(> svg:first-child) {
+    --mark-col: 26px;
+  }
+  .pill:has(> svg:first-child) > svg:first-child {
+    margin-inline-end: 8px;
+  }
+
   /* A COLUMN of buttons is a list, and a list lines up.
 
      Stacked, each pill shrink-wrapped to its own label, so a green
@@ -466,19 +520,18 @@
      The content is left-aligned rather than centred for the same reason — two
      centred pills of equal width still put their marks at different x, which
      is the 20-to-35px drift the closing band had. */
+  /* Equal widths in a stack still hold — that was the 87px he photographed.
+     280px is the widest label the site has; below that basis a squeezed pair
+     broke "कॉल करें · +91 89532 56111" onto two lines, above it the pair
+     simply wraps into the column where each button has the whole width.
+
+     The left-alignment that used to live here is gone. On a phone it cost
+     nothing — the button was barely wider than its words — but on a 440px
+     desktop button it put the words in the left third with 227px of empty
+     pill to their right, which is what Agosh saw on his PC. Centring is now
+     the label rule above, and it applies to a stack as much as anywhere. */
   .btn-col > .btn {
-    /* 280px is the widest label the site has ("कॉल करें · +91 89532 56111").
-       Below a basis that fits it, a squeezed pair broke that label onto two
-       lines inside the pill; at this basis the pair simply wraps into the
-       column instead, where each button has the whole width. */
     flex: 1 1 280px;
-    justify-content: flex-start;
-    padding-inline-start: 22px;
-    /* .btn centres its text, and a label whose flex item ends up wider than
-       its words then sits centred INSIDE that item — which put "कॉल करें"
-       8.7px further right than "व्हाट्सऐप पर बात करें" even after both
-       marks lined up. In a column the words start where the item starts. */
-    text-align: start;
   }
   /* The closing band asks its two questions one under the other, always.
 

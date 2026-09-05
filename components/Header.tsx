@@ -140,11 +140,15 @@ export default function Header({
                 shows only from 1280px, where there is room for it, and below
                 that the pill is the icon and the word, which is what a thumb
                 is aiming at anyway. */}
-            <PhoneIcon size={18} />
-            <span className="hidden xl:inline">
+            {/* On a wide screen the pill shows the number itself, and a number
+                does not need a telephone drawn beside it — the drawing was what
+                pushed the digits 20px off centre in the pill Agosh sent back.
+                Below 1280px the pill says "कॉल करें" and keeps the mark. */}
+            <PhoneIcon size={18} className="xl:hidden" />
+            <span className="lbl hidden xl:inline">
               <Tx>{phoneLabel}</Tx>
             </span>
-            <span className="xl:hidden">{callLabel}</span>
+            <span className="lbl xl:hidden">{callLabel}</span>
           </a>
           <Link
             href={switchHref}
@@ -164,10 +168,10 @@ export default function Header({
                 phone. The number shows from 400px up; below it the pill is the
                 icon and the word, which is what a thumb is aiming at anyway. */}
             <PhoneIcon size={18} />
-            <span className="hidden min-[400px]:inline">
+            <span className="lbl hidden min-[400px]:inline">
               <Tx>{phoneLabel}</Tx>
             </span>
-            <span className="min-[400px]:hidden">{callLabel}</span>
+            <span className="lbl min-[400px]:hidden">{callLabel}</span>
           </a>
           <button
             type="button"
@@ -250,7 +254,7 @@ export default function Header({
                 className="btn btn-primary btn-block"
               >
                 <WhatsAppIcon size={20} />
-                {whatsappLabel}
+                <span className="lbl">{whatsappLabel}</span>
               </a>
               <a
                 href={phoneHref || talkHref}
@@ -260,7 +264,7 @@ export default function Header({
                 className="btn btn-outline btn-block"
               >
                 <PhoneIcon size={20} />
-                <Tx>{`${callLabel} · ${phoneLabel}`}</Tx>
+                <span className="lbl"><Tx>{`${callLabel} · ${phoneLabel}`}</Tx></span>
               </a>
               <span className="sr-only">{talkLabel}</span>
             </div>

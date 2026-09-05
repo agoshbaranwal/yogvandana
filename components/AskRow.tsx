@@ -64,11 +64,11 @@ export function AskRow({
           data-ev-source={source}
         >
           <WhatsAppIcon size={20} />
-          {ui("cta.whatsappTalk", lang)}
+          <span className="lbl">{ui("cta.whatsappTalk", lang)}</span>
         </a>
         <a className="btn btn-white" href={telHref(PHONE)} data-ev="call_click" data-ev-source={source}>
           <PhoneIcon size={18} />
-          {ui("cta.call", lang)}
+          <span className="lbl">{ui("cta.call", lang)}</span>
           {number ? (
             <span className="hidden sm:inline">
               {" · "}

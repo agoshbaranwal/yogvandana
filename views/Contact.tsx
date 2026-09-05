@@ -51,7 +51,7 @@ export default function Contact({ lang }: { lang: Lang }) {
             )}
             <a href={wa} target="_blank" rel="noopener noreferrer" data-ev="whatsapp_click" data-ev-source="contact-header" className="btn btn-primary btn-block md:!w-auto">
               <WhatsAppIcon size={20} />
-              {ui("cta.whatsappTalk", lang)}
+              <span className="lbl">{ui("cta.whatsappTalk", lang)}</span>
             </a>
             <p className="cap text-center md:text-left">{ui("contact.prewritten", lang)}</p>
           </div>

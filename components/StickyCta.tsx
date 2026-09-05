@@ -93,7 +93,7 @@ export default function StickyCta({
           className="btn btn-wa btn-sm"
         >
           <WhatsAppIcon size={18} />
-          {label}
+          <span className="lbl">{label}</span>
         </a>
       </div>
     </div>

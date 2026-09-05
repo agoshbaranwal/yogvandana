@@ -178,7 +178,7 @@ export function Join({ lang, source = "join" }: { lang: Lang; source?: string })
             data-ev-source={source}
           >
             <WhatsAppIcon size={20} />
-            {ui("cta.whatsappTalk", lang)}
+            <span className="lbl">{ui("cta.whatsappTalk", lang)}</span>
           </a>
           <a
             className="btn btn-white"
@@ -187,7 +187,7 @@ export function Join({ lang, source = "join" }: { lang: Lang; source?: string })
             data-ev-source={source}
           >
             <PhoneIcon size={20} />
-            {ui("cta.call", lang)}
+            <span className="lbl">{ui("cta.call", lang)}</span>
           </a>
         </div>
       </div>

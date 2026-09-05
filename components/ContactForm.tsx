@@ -162,7 +162,7 @@ export default function ContactForm({
           className="btn btn-dark btn-block"
         >
           <WhatsAppIcon size={22} />
-          {labels.whatsapp}
+          <span className="lbl">{labels.whatsapp}</span>
         </a>
       )}
 

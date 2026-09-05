@@ -142,7 +142,7 @@ export default function BookingBand({
             className="btn btn-wa btn-block"
           >
             <WhatsAppIcon size={20} />
-            {whatsappLabel}
+            <span className="lbl">{whatsappLabel}</span>
           </a>
           <a
             href={phone ? telHref(phone) : contactHref}
@@ -151,7 +151,7 @@ export default function BookingBand({
             className="btn btn-onink btn-block"
           >
             <PhoneIcon size={20} />
-            <Tx>{`${callLabel} · ${phoneShown}`}</Tx>
+            <span className="lbl"><Tx>{`${callLabel} · ${phoneShown}`}</Tx></span>
           </a>
           {/* the "your message will read: …" line was a developer's sentence — a
               reader who presses the button sees the message in WhatsApp anyway */}

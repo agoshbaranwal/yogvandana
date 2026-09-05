@@ -66,7 +66,7 @@ export function FirstScreen({ lang }: { lang: Lang }) {
               data-ev-source="hero"
             >
               <WhatsAppIcon size={20} />
-              {ui("cta.whatsappTalk", lang)}
+              <span className="lbl">{ui("cta.whatsappTalk", lang)}</span>
             </a>
             <a
               className="btn btn-white"
@@ -75,13 +75,15 @@ export function FirstScreen({ lang }: { lang: Lang }) {
               data-ev-source="hero"
             >
               <PhoneIcon size={20} />
-              {ui("cta.call", lang)}
-              {number ? (
-                <span className="hidden sm:inline">
-                  {" · "}
-                  <Tx>{number}</Tx>
-                </span>
-              ) : null}
+              <span className="lbl">
+                {ui("cta.call", lang)}
+                {number ? (
+                  <span className="hidden sm:inline">
+                    {" · "}
+                    <Tx>{number}</Tx>
+                  </span>
+                ) : null}
+              </span>
             </a>
           </div>
 

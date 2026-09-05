@@ -452,7 +452,7 @@ export default function About({ lang }: { lang: Lang }) {
           <div className="flex flex-col gap-2.5">
             <a href={wa} target="_blank" rel="noopener noreferrer" data-ev="whatsapp_click" data-ev-source="about-invite" className="btn btn-dark btn-block md:!w-auto">
               <WhatsAppIcon size={22} />
-              {ui("cta.whatsappTalk", lang)}
+              <span className="lbl">{ui("cta.whatsappTalk", lang)}</span>
             </a>
             {site.links.profilePdf ? (
               <a href={site.links.profilePdf} className="link-strong body self-start" style={{ color: "var(--color-kohl)" }} data-ev="profile_download" data-ev-source="about">
