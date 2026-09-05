@@ -1,1 +1,10 @@
-{}
+{
+  "portrait/vandana.jpg": {
+    "width": 249,
+    "height": 312,
+    "widths": [
+      249
+    ],
+    "ext": "webp"
+  }
+}
