@@ -701,50 +701,54 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
   );
 }
 
-/* 23 — a button that takes money goes somewhere that can take money ------- */
+/* 23 — there is always a way to pay, and it always goes somewhere ---------- */
 {
-  /* The one field on this site where a typo costs a stranger ₹1,000. This
-     rule is deliberately independent of lib/pay.ts: it reads the built HTML
-     and asks what a reader's thumb would actually reach.
+  /* This rule used to say the opposite, and it passed the bug.
 
-     It has teeth in BOTH states, which matters, because for most of this
-     site's life there will be no payment account at all and a rule that only
-     says "0 bad links found" out of 0 links is not evidence of anything. So:
-     with a channel configured, every pay link must be a real one; with none
-     configured, there must be no pay link AND the reserved box must be on
-     the page in its place. */
+     It read: with a payment account, check every destination; with none,
+     check that there are no pay buttons and that a reserved box stands in
+     their place. So a home page selling a ₹1,000 class with not one clickable
+     way to pay anywhere on it scored 25/25, twice, and Agosh had to say "I
+     still don't see any place where I can click and pay" (5 Sep 2026).
+
+     A grey box is not a call to action. What matters is that the reader can
+     always press something and end up somewhere that takes the money — a
+     gateway, a UPI app, or WhatsApp, which is how most teachers in this
+     country actually collect a fee. So: at least one, and every one real. */
   const HOSTS = ["razorpay.com", "rzp.io", "cashfree.com", "cf-pg.com", "phonepe.com",
                  "paytm.in", "paytm.com", "instamojo.com", "payu.in"];
   const okDest = (h) => {
     if (h.startsWith("upi://pay?")) return /[?&]pa=[^&]+/.test(h);
     try {
       const u = new URL(h);
+      if (u.hostname === "wa.me" || u.hostname.endsWith("whatsapp.com")) return /\/\d{8,}/.test(u.pathname + u.search);
       return u.protocol === "https:" && HOSTS.some((d) => u.hostname === d || u.hostname.endsWith(`.${d}`));
     } catch { return false; }
   };
-  const links = [], boxes = [];
+  const links = [];
+  const homes = [];
   for (const f of pages) {
     const html = read(f);
     for (const m of html.matchAll(/<a\b[^>]*data-ev="pay_click"[^>]*>/g)) {
       const href = (m[0].match(/href="([^"]*)"/) || [])[1] ?? "";
       links.push({ page: rel(f), href });
+      if (rel(f) === "/" || rel(f) === "/en/") homes.push(rel(f));
     }
-    for (let i = (html.match(/class="[^"]*\bpaysoon\b/g) || []).length; i > 0; i--) boxes.push(rel(f));
   }
   const bad = links.filter((l) => !okDest(l.href));
-  const live = links.length > 0;
-  const ok = live ? bad.length === 0 : boxes.length > 0;
+  const bothHomes = new Set(homes).size === 2;
+  const ok = links.length > 0 && bad.length === 0 && bothHomes;
   add(
     23,
-    "Every button that takes money reaches a real payment channel",
+    "A reader can always press something and end up somewhere that takes the money",
     ok ? "pass" : "fail",
-    live
-      ? `${links.length} pay button(s) across the site` +
-        (bad.length ? `; ${bad.length} bad: ${bad.slice(0, 3).map((b) => `${b.page} → ${b.href || "(empty)"}`).join(", ")}`
-                    : `, every destination https on a payment host or a upi: link carrying a payee`)
-      : boxes.length
-        ? `no payment account yet: 0 pay buttons and ${boxes.length} reserved box(es) standing in their place`
-        : "no payment account, no pay buttons — and no reserved box either, so the card silently lost its call to action",
+    links.length === 0
+      ? "no pay button anywhere on the site — nothing to press"
+      : !bothHomes
+        ? `pay buttons exist but not on both home pages (found on ${[...new Set(homes)].join(", ") || "neither"})`
+        : bad.length
+          ? `${bad.length} of ${links.length} go nowhere real: ${bad.slice(0, 3).map((b) => `${b.page} → ${b.href || "(empty)"}`).join(", ")}`
+          : `${links.length} pay button(s), every one to a gateway, a UPI app or WhatsApp`,
   );
 }
 

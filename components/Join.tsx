@@ -1,4 +1,4 @@
-import { groupBatches, site, t, ui } from "@/lib/content";
+import { absolute, groupBatches, site, t, ui } from "@/lib/content";
 import { payHref, payWays, upiHref } from "@/lib/pay";
 import { href, type Lang } from "@/lib/routes";
 import { telHref, waHref, waMessage } from "@/lib/whatsapp";
@@ -23,18 +23,37 @@ import { Tx } from "./Tx";
    · A hosted payment page takes cards and netbanking and issues a receipt,
      and needs her to finish KYC first.
 
-   Whichever exists is what the button does. If neither exists yet the button
-   does not become a dead link — the box keeps its exact size and says, inside
-   itself, that online payment is being set up, and WhatsApp carries the
-   reader in the meantime. */
+   · WhatsApp, which is how most teachers in this country actually take a fee
+     today: the reader asks to join, she sends a UPI number back.
 
-function payFor(batch: (typeof groupBatches)[number]) {
+   THE BUTTON ALWAYS DOES SOMETHING. The first version of this block rendered
+   a grey box reading "online payment is being set up" when neither account
+   existed — which is what shipped, and it meant that on a page selling a
+   ₹1,000 class there was not one clickable way to pay anywhere on the site.
+   Agosh said so plainly. A button that cannot be pressed is worse than no
+   section at all: it advertises that you cannot buy. The order below is
+   gateway, then UPI, then WhatsApp, and the line under the cards says which
+   of the three the reader is about to get, so nothing is promised that the
+   next screen does not deliver. */
+
+function payFor(batch: (typeof groupBatches)[number], lang: Lang, page: string) {
   const gateway = payHref({ batchId: batch.id, own: batch.joinLink, kind: "join" });
-  if (gateway) return { href: gateway, method: "gateway" as const };
+  if (gateway) return { href: gateway, method: "gateway" as const, offsite: false };
   /* The note is what she will read in her passbook at the end of the month,
      so it carries the batch, in Latin, which every UPI app renders. */
   const upi = upiHref({ amount: batch.price, note: `Yog Vandana ${batch.id}` });
-  return upi ? { href: upi, method: "upi" as const } : null;
+  if (upi) return { href: upi, method: "upi" as const, offsite: false };
+  /* No account yet — so the button starts the same errand by hand. The
+     message already names the batch, so her reply is a UPI number and not a
+     question. */
+  return {
+    href: waHref(
+      site.contact.whatsapp,
+      waMessage({ lang, kind: "join", batch: t(batch.name, lang), page }),
+    ),
+    method: "whatsapp" as const,
+    offsite: true,
+  };
 }
 
 export function Join({ lang, source = "join" }: { lang: Lang; source?: string }) {
@@ -42,16 +61,16 @@ export function Join({ lang, source = "join" }: { lang: Lang; source?: string })
   const shown = groupBatches.slice(0, 2);
   if (shown.length === 0) return null;
 
-  const wa = waHref(
-    site.contact.whatsapp,
-    waMessage({ lang, kind: "talk", page: href("home", lang) }),
-  );
+  /* the full address, not "/", so the link in her WhatsApp opens */
+  const page = absolute(href("home", lang));
+  const wa = waHref(site.contact.whatsapp, waMessage({ lang, kind: "talk", page }));
+  const howLine = ways.gateway ? "pay.note" : ways.upi ? "pay.upiWay" : "pay.viaWhatsapp";
 
   return (
     <div className="flex flex-col gap-5">
       <div className="grid gap-3 md:grid-cols-2 md:gap-5">
         {shown.map((b, i) => {
-          const pay = payFor(b);
+          const pay = payFor(b, lang, page);
           return (
             <article key={b.id} className="card flex flex-col gap-3.5">
               <div className="flex items-start justify-between gap-3">
@@ -77,24 +96,18 @@ export function Join({ lang, source = "join" }: { lang: Lang; source?: string })
                 </div>
               </div>
 
-              {pay ? (
-                <a
-                  href={pay.href}
-                  className={`btn btn-block ${i === 0 ? "btn-primary" : "btn-outline"}`}
-                  data-ev="pay_click"
-                  data-ev-method={pay.method}
-                  data-ev-batch={b.id}
-                  data-ev-source={source}
-                >
-                  {ui("cta.payJoin", lang)}
-                </a>
-              ) : (
-                /* the same height the button will be, so nothing on the page
-                   moves on the day she pastes a payment link in */
-                <span className="paysoon" aria-live="off">
-                  <Tx>{ui("pay.todo", lang)}</Tx>
-                </span>
-              )}
+              <a
+                href={pay.href}
+                target={pay.offsite ? "_blank" : undefined}
+                rel={pay.offsite ? "noopener noreferrer" : undefined}
+                className={`btn btn-block ${i === 0 ? "btn-primary" : "btn-outline"}`}
+                data-ev="pay_click"
+                data-ev-method={pay.method}
+                data-ev-batch={b.id}
+                data-ev-source={source}
+              >
+                {ui("cta.payJoin", lang)}
+              </a>
 
               {b.perDay ? (
                 <p className="cap">
@@ -107,8 +120,9 @@ export function Join({ lang, source = "join" }: { lang: Lang; source?: string })
       </div>
 
       <div className="flex flex-col gap-2.5">
+        {/* what the button is about to do, said before it is pressed */}
         <p className="cap">
-          <Tx>{ways.any ? ui(ways.gateway ? "pay.note" : "pay.upiWay", lang) : ui("pay.todoNote", lang)}</Tx>
+          <Tx>{ui(howLine, lang)}</Tx>
         </p>
 
         {/* A upi:// link opens nothing at all on a desktop, so her id is also

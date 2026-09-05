@@ -1,5 +1,5 @@
 import { type Batch, isTodo, site, t, ui } from "@/lib/content";
-import { payHref } from "@/lib/pay";
+import { payHref, payWays, upiHref } from "@/lib/pay";
 import type { Lang } from "@/lib/routes";
 import { waHref, waMessage } from "@/lib/whatsapp";
 import { DayChips } from "./Timetable";
@@ -8,34 +8,43 @@ import { Tx } from "./Tx";
 /* The payment page if she has one, and WhatsApp until she does. `pays` tells
    the button which of the two it turned out to be, because a link that takes
    money should not look like a link that opens a chat. */
-export function joinHref(batch: Batch, lang: Lang, page: string): { href: string; pays: boolean } {
+/* The three ways to start paying, in the order of who can use them: her
+   payment page, her UPI id, and — until either exists — WhatsApp, carrying a
+   message that already names the batch and asks the fee question, so her
+   reply is a number rather than another question.
+
+   This page is called "बैच और शुल्क" and it is the one in the navigation, so
+   it is where somebody who has decided goes looking. It used to offer them
+   "वंदना जी से बात करें" and nothing else. */
+export function joinHref(batch: Batch, lang: Lang, page: string): { href: string; onsite: boolean } {
   const pay = payHref({ batchId: batch.id, own: batch.joinLink, kind: "join" });
-  if (pay) return { href: pay, pays: true };
-  const kind = batch.type === "workshop" ? "workshop" : batch.type === "private" ? "private" : "batch";
+  if (pay) return { href: pay, onsite: true };
+  const upi = upiHref({ amount: batch.price, note: `Yog Vandana ${batch.id}` });
+  if (upi) return { href: upi, onsite: true };
+  const kind = batch.type === "workshop" ? "workshop" : batch.type === "private" ? "private" : "join";
   return {
     href: waHref(site.contact.whatsapp, waMessage({ lang, kind, batch: t(batch.name, lang), page })),
-    pays: false,
+    onsite: false,
   };
 }
 
 function JoinButton({ batch, lang, page, outline = false }: { batch: Batch; lang: Lang; page: string; outline?: boolean }) {
   const join = joinHref(batch, lang, page);
-  /* "सुबह का बैच के बारे में बात करें" broke onto two lines inside the pill,
-     and it repeated the card's own heading back at the reader. The batch
-     still travels in the WhatsApp message; the button just says the thing
-     every other button on the site says. */
-  const talk = ui("cta.talk", lang);
+  /* A one-to-one class has no fixed fee to pay yet, so that card still asks
+     for a conversation; a group batch has a price on it and offers to take
+     it. Either way the button leads somewhere. */
+  const buys = batch.type !== "private";
   return (
     <a
       href={join.href}
-      target={join.pays ? undefined : "_blank"}
-      rel={join.pays ? "noopener" : "noopener noreferrer"}
-      data-ev={join.pays ? "pay_click" : "batch_join_click"}
+      target={join.onsite ? undefined : "_blank"}
+      rel={join.onsite ? "noopener" : "noopener noreferrer"}
+      data-ev={buys ? "pay_click" : "batch_join_click"}
       data-ev-batch={batch.id}
       data-ev-source="batches"
       className={`btn btn-block ${outline ? "btn-outline" : "btn-primary"}`}
     >
-      {join.pays ? ui("cta.payJoin", lang) : talk}
+      {buys ? ui("cta.payJoin", lang) : ui("cta.talk", lang)}
     </a>
   );
 }
@@ -105,9 +114,11 @@ export function GroupBatchCard({ batch, lang, page, first = false }: { batch: Ba
       <div className="px-4 pb-4">
         <JoinButton batch={batch} lang={lang} page={page} outline={!first} />
       </div>
-      {payHref({ batchId: batch.id, own: batch.joinLink, kind: "join" }) ? (
-        <p className="cap px-4 pb-4 -mt-2">{ui("pay.note", lang)}</p>
-      ) : null}
+      {/* what pressing it does, said before it is pressed — the same three
+          states the home page's block uses */}
+      <p className="cap px-4 pb-4 -mt-2">
+        <Tx>{ui(payWays().gateway ? "pay.note" : payWays().upi ? "pay.upiWay" : "pay.viaWhatsapp", lang)}</Tx>
+      </p>
     </article>
   );
 }

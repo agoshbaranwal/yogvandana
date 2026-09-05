@@ -653,25 +653,6 @@
   }
 
 
-  /* The box a pay button will occupy, holding its own explanation until she
-     has somewhere for the money to land. Same 56px min-height as .btn, so
-     the day a payment link is pasted in, nothing on the page moves. */
-  .paysoon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 56px;
-    padding: 12px 18px;
-    border-radius: var(--radius-pill);
-    border: 1.5px dashed var(--color-field);
-    background: var(--color-amber-tint);
-    color: var(--color-amber-deep);
-    font-size: var(--step-fine);
-    font-weight: 700;
-    line-height: 1.25;
-    text-align: center;
-  }
-
   /* Her UPI id: the one string on this site somebody will copy by hand,
      because a upi:// link opens nothing on a desktop. One tap selects the
      whole of it rather than a word of it. */

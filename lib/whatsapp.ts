@@ -4,7 +4,7 @@ import type { Lang } from "./routes";
    naming the page the visitor came from and, where the page has one, the
    ailment. She then knows why they are writing before she says hello. */
 
-export type MsgKind = "talk" | "batch" | "private" | "workshop" | "general" | "students";
+export type MsgKind = "talk" | "batch" | "join" | "private" | "workshop" | "general" | "students";
 
 export function waMessage(opts: {
   lang: Lang;
@@ -43,6 +43,15 @@ export function waMessage(opts: {
       hi
         ? `मैं ${batch ?? "बैच"} में जुड़ना चाहता/चाहती हूँ।`
         : `I would like to join the ${batch ?? "batch"}.`,
+    );
+  } else if (kind === "join") {
+    /* Pressed "जुड़ें और भुगतान करें" while there is no payment account yet.
+       The message has to ask the fee question too, or her reply is "which
+       batch?" and the reader waits another round for a UPI number. */
+    parts.push(
+      hi
+        ? `मुझे ${batch ?? "बैच"} में जुड़ना है। फ़ीस कैसे भरूँ?`
+        : `I want to join the ${batch ?? "batch"}. How do I pay the fee?`,
     );
   } else if (kind === "private") {
     parts.push(

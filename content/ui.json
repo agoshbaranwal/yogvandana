@@ -1236,17 +1236,13 @@
       "hi": "दिन के ₹{n}",
       "en": "₹{n} a day"
     },
-    "todo": {
-      "hi": "ऑनलाइन भुगतान चालू हो रहा है",
-      "en": "Online payment is being set up"
-    },
-    "todoNote": {
-      "hi": "तब तक व्हाट्सऐप पर फ़ीस की जानकारी लीजिए।",
-      "en": "Until then, ask about the fee on WhatsApp."
-    },
     "refundLink": {
       "hi": "फ़ीस वापसी का नियम",
       "en": "The refund rule"
+    },
+    "viaWhatsapp": {
+      "hi": "बटन दबाइए — व्हाट्सऐप पर फ़ीस और यूपीआई नंबर मिल जाएगा।",
+      "en": "Press the button — the fee and the UPI number come on WhatsApp."
     }
   },
   "medicine": {
