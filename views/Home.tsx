@@ -1,8 +1,6 @@
 import { A as Link } from "../components/Nav";
 import Band from "@/components/Band";
 import { AskRow } from "@/components/AskRow";
-import { TickIcon } from "@/components/Icons";
-import { Tx } from "@/components/Tx";
 import { Counters, PressStrip } from "@/components/Warm";
 import { DiseaseRows } from "@/components/DiseaseRows";
 import { FirstScreen } from "@/components/FirstScreen";
@@ -16,7 +14,7 @@ import { ResultCard } from "@/components/StoryCard";
 import { MedicinePanel } from "@/components/Timeline";
 import { VideoWall } from "@/components/VideoWall";
 import { WhoTeaches } from "@/components/WhoTeaches";
-import { site, stories, ui } from "@/lib/content";
+import { stories, ui } from "@/lib/content";
 import { href, type Lang } from "@/lib/routes";
 
 /* The home page, in the order a frightened person actually asks things.
@@ -116,37 +114,26 @@ export default function Home({ lang }: { lang: Lang }) {
             <h2 className="h2">{ui("home.stepsTitle", lang)}</h2>
           </div>
           <Steps lang={lang} />
-          {/* The left column used to hold a heading and one line beside a tall
-              slip, which left most of a screen empty. It now carries the five
-              things a month actually includes — strings that already existed
-              in the content and had never been put on a page. */}
-          <div className="grid gap-7 md:grid-cols-2 md:items-start md:gap-14">
-            <div className="flex flex-col gap-4">
-              <h3 className="h3">{ui("home.getTitle", lang)}</h3>
-              <ul className="flex flex-col gap-4">
-                {["1", "2", "3", "4", "5"].map((n) => (
-                  <li key={n} className="flex items-start gap-3.5">
-                    <span className="iconbox flex-none" aria-hidden="true">
-                      <TickIcon size={24} />
-                    </span>
-                    <span className="flex min-w-0 flex-col gap-0.5">
-                      <span className="h3">
-                        <Tx>{ui(`get.t${n}`, lang).replace("{d}", site.reviewDays)}</Tx>
-                      </span>
-                      <span className="cap">
-                        <Tx>{ui(`get.t${n}sub`, lang).replace("{d}", site.reviewDays)}</Tx>
-                      </span>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="flex flex-col gap-2.5">
-              <h3 className="h3">{ui("home.slipTitle", lang)}</h3>
-              <p className="body">{ui("home.slipLead", lang)}</p>
+          {/* The five things this used to list beside the slip are gone.
+
+              Every one of them was already in the three steps above — three
+              of them word for word ("रोज़ की लाइव क्लास", "व्हाट्सऐप पर रोज़
+              साथ", "हर 60 दिन जाँच") — and step 2's contents were then drawn
+              a third time on the slip itself. 198 words in this one section,
+              a fifth of the whole page, saying one thing three ways.
+
+              They were put here in the first place to fill the empty half of
+              a two-column grid, which was the right problem and the wrong
+              answer: the fix for an empty column is not more words, it is
+              not having the column. The slip stands on its own now, which is
+              what it was always the strongest version of. */}
+          <div className="flex flex-col items-center gap-2.5 text-center">
+            <h3 className="h3">{ui("home.slipTitle", lang)}</h3>
+            <p className="body max-w-[46ch]">{ui("home.slipLead", lang)}</p>
+            <div className="w-full pt-1 md:max-w-[420px]">
               <SlipPad lang={lang} compact edge="var(--color-paper)" />
-              <p className="cap">{ui("slip.afterTalk", lang)}</p>
             </div>
+            <p className="cap max-w-[52ch]">{ui("slip.afterTalk", lang)}</p>
           </div>
         </div>
       </section>

@@ -1260,46 +1260,6 @@
     }
   },
   "get": {
-    "t1": {
-      "hi": "वंदना जी से कॉल",
-      "en": "A call with Vandana"
-    },
-    "t1sub": {
-      "hi": "आपकी बीमारी, आपकी रिपोर्ट, आपकी दवा — सब सुनकर।",
-      "en": "Your disease, your reports, your medicine — all of it heard."
-    },
-    "t2": {
-      "hi": "आपका अपना हल, पर्ची पर",
-      "en": "Your own remedy, on a slip"
-    },
-    "t2sub": {
-      "hi": "क्या खाना है, क्या सावधानी, रोज़ की दिनचर्या, कौन से प्राणायाम और आसन, और किस समय।",
-      "en": "What to eat, what to avoid, your daily routine, which pranayama and asanas, and at what time."
-    },
-    "t3": {
-      "hi": "रोज़ की लाइव क्लास",
-      "en": "A live class every day"
-    },
-    "t3sub": {
-      "hi": "छोटा ग्रुप, ज़ूम पर, वंदना जी आपको देखती हुईं।",
-      "en": "A small group, on Zoom, with Vandana watching you."
-    },
-    "t4": {
-      "hi": "व्हाट्सऐप पर रोज़ साथ",
-      "en": "Daily support on WhatsApp"
-    },
-    "t4sub": {
-      "hi": "रोज़ की याद, और आपके सवालों के जवाब।",
-      "en": "A daily reminder, and answers to your questions."
-    },
-    "t5": {
-      "hi": "हर {d} दिन जाँच",
-      "en": "A review every {d} days"
-    },
-    "t5sub": {
-      "hi": "अपनी रिपोर्ट के साथ — क्या बदला, आगे क्या।",
-      "en": "With your reports — what changed, and what next."
-    },
     "title": {
       "hi": "आपको क्या मिलेगा",
       "en": "What you will get"

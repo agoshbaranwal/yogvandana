@@ -126,3 +126,101 @@ Ten of the drawings were placeholders in all but name: the knee did not read as 
 had a line through the whole figure, and — the expensive one — the WhatsApp mark was a plain speech
 bubble, on a site whose entire funnel is WhatsApp. All redrawn on one grid, with one stroke weight,
 and the WhatsApp glyph is the real one people recognise.
+
+---
+
+# Second audit — 5 September 2026
+
+Agosh: *"The website has too much content in some places… Check if all content is important and
+plays an important role. Basically a full audit."*
+
+Measured rather than eyeballed: rendered words per page and per section at 390px, repeated
+sentences within a page, boilerplate shared between pages, and every UI string that is never
+rendered. `/tmp` scripts did the counting; the numbers below are what they returned.
+
+## What the site actually weighs
+
+| page | words |
+|---|---|
+| home (hi / en) | **831 / 837** |
+| each of 16 condition pages | 451–520 |
+| stories | 362 | 
+| about | 378 |
+| batches | 314 |
+| students | 272 |
+| contact | 120 |
+
+Home was **11 sections and 9,432px** on a 390px phone — about **24 phone screens**.
+
+## Finding 1 — one section said the same thing three times · FIXED
+
+"कैसे शुरू करें" was **198 words and 1,893px**: a fifth of the page's words and a fifth of its
+height. Inside it:
+
+- the **three steps** — call, consultation and slip, batch — with what each gives you
+- a list of **five things the batch includes**
+- the **slip** itself, drawn
+
+Every one of the five was already in the three steps, three of them word for word:
+
+| the list said | the step above already said |
+|---|---|
+| रोज़ की लाइव क्लास | रोज़ की लाइव क्लास, छोटे ग्रुप में। |
+| व्हाट्सऐप पर रोज़ साथ | व्हाट्सऐप पर रोज़ साथ। |
+| हर 60 दिन जाँच | हर 60 दिन जाँच, आपकी रिपोर्ट के साथ। |
+| क्या खाना है, क्या सावधानी, दिनचर्या, कौन से प्राणायाम और आसन, और किस समय | आपका अपना हल: खान-पान, सावधानी, दिनचर्या, प्राणायाम, आसन, और समय। |
+
+And that last line is drawn a **third** time on the slip below it, as खान-पान / प्राणायाम / आसन /
+समय.
+
+The list was put there on 4 Sep to fill the empty half of a two-column grid — the right problem and
+the wrong answer. The fix for an empty column is not more words, it is not having the column. The
+list is gone and the slip stands on its own, centred.
+
+**198 → 121 words. 1,893 → 1,450px. No dead space: the section's content now fills its height
+exactly (measured, 0px).** Home: **831 → 754 words.**
+
+## Finding 2 — 61% of every condition page is boilerplate · NOT FIXED, needs a decision
+
+Comparing `/rog/sugar/` with `/rog/bp/` line by line: **304 of 493 words are identical**. Only 39%
+of a condition page is about the condition. Multiplied by sixteen pages, that is the largest block
+of repeated words on the site.
+
+Some of it should repeat — the medicine question is the first thing everybody asks, and a reader
+landing from Google sees only one page. But three blocks are candidates:
+
+- **the slip** appears in full on all 16, and in full on the home page
+- **"पहली क्लास कैसी होगी"** (67 words) is identical on all 16
+- **the price line** appears in the header of all 16 and again in the closing band
+
+Cutting the first-class block to a line and letting the slip be a link on condition pages would
+take roughly **120 words off each of sixteen pages** without removing a single fact from the site.
+It is a real design change, so it is a decision for Agosh rather than something to do quietly.
+
+## Finding 3 — 79 written strings were never on any page
+
+`content/ui.json` held **335 strings; 79 appeared nowhere in the source.** Ten of those I orphaned
+with Finding 1 and have deleted, since they were duplicates by definition. The other **69 are
+written Hindi and English copy that has simply never been wired to a page** — a credentials table
+(12 strings), interest options for the contact form (9), alternative headings for home (14).
+
+They are not deleted. They cost nothing at runtime — `ui.json` is read at build time and never
+shipped to a browser — and they are Agosh's copy, not mine to throw away. The list is in the commit
+message; the choice is delete or wire up.
+
+## Finding 4 — the WhatsApp button appears five times on the home page
+
+Hero, after the medicine panel, after the results, in the join block, in the closing band, plus the
+sticky bar: **six ways to reach one action.** This is not an accident — Agosh asked for it on 4 Sep
+("marketing managers say that the action button must be there at multiple points"). Recording it
+because it is the largest remaining repetition on the page and the two requests pull against each
+other. Five is defensible; if it should be four, the one after the results is the weakest, since
+the results section already ends with a card that leads somewhere.
+
+## What was left alone, and why
+
+- **The stories page's 268-word block** is four student stories. That is the page.
+- **The eight condition tiles** (82 words) each carry a result. Cutting them would cut evidence.
+- **The four press placeholders** repeat "अख़बार या चैनल का लोगो" four times, which reads as noise
+  — but the rule that a frame says what goes in it is Agosh's, and it stops mattering the day the
+  logos arrive.
