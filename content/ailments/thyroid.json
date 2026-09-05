@@ -38,8 +38,8 @@
     }
   ],
   "medicine": {
-    "hi": "बंद नहीं। थायराइड की गोली डॉक्टर की जाँच के हिसाब से ही बदलती है। हर [90] दिन पर रिपोर्ट।",
-    "en": "Not stopped. The thyroid tablet changes only with the doctor's tests. A report every [90] days."
+    "hi": "बंद नहीं। थायराइड की गोली डॉक्टर की जाँच के हिसाब से ही बदलती है। हर {d} दिन पर रिपोर्ट।",
+    "en": "Not stopped. The thyroid tablet changes only with the doctor's tests. A report every {d} days."
   },
   "studentCount": "[N]",
   "storyCount": "[N]",
@@ -91,8 +91,8 @@
       "en": "The practice starts at your level. On a chair, if that is what you need."
     },
     {
-      "hi": "ग्रुप छोटा है, [N] लोग, ताकि हर किसी को देखा जा सके।",
-      "en": "The group is small, [N] people, so everyone can be seen."
+      "hi": "ग्रुप छोटा है, ताकि हर किसी को देखा जा सके।",
+      "en": "The group is small, so everyone can be seen."
     },
     {
       "hi": "हाइपो और हाइपर, दोनों के लिए अभ्यास अलग रखा जाता है।",
@@ -116,8 +116,8 @@
     },
     {
       "q": {
-        "hi": "मेरी उम्र [60] से ऊपर है, घुटने भी दुखते हैं।",
-        "en": "I am over [60] and my knees hurt."
+        "hi": "मेरी उम्र 60 से ऊपर है, घुटने भी दुखते हैं।",
+        "en": "I am over 60 and my knees hurt."
       },
       "a": {
         "hi": "ज़्यादातर अभ्यास कुर्सी पर बैठकर हो सकता है। पहली क्लास में बताइए, वंदना जी उसी हिसाब से शुरू करेंगी।",

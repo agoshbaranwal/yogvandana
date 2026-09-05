@@ -133,6 +133,12 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
      so that is the string that has to be on the page. */
   const title = uiTree.medicine.question;
   const homeBody = uiTree.medicine.body;
+  /* The review interval lives in one place — site.reviewDays — and content
+     files say {d} where it belongs. The renderer fills it; so must the rule,
+     or the one condition whose answer mentions the interval fails a
+     word-for-word comparison against its own rendered page. */
+  const reviewDays = JSON.parse(fs.readFileSync(path.join(ROOT, "content", "site.json"), "utf8")).reviewDays;
+  const fill = (v) => String(v).replace(/\{d\}/g, reviewDays);
   const conditions = Object.fromEntries(
     fs.readdirSync(path.join(ROOT, "content", "ailments")).filter((f) => f.endsWith(".json"))
       .map((f) => { const a = JSON.parse(fs.readFileSync(path.join(ROOT, "content", "ailments", f), "utf8")); return [a.slug, a]; }),
@@ -142,9 +148,9 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
     const body = norm(text(read(f)));
     const L = isHindi(f) ? "hi" : "en";
     const m = rel(f).match(/^\/(?:rog|en\/conditions)\/([^/]+)\/$/);
-    if (!m) return !(body.includes(title[L]) && body.includes(norm(text(homeBody[L]))));
+    if (!m) return !(body.includes(title[L]) && body.includes(norm(text(fill(homeBody[L])))));
     const a = conditions[m[1]];
-    return !a || !(body.includes(title[L]) && body.includes(norm(text(a.medicine[L]))));
+    return !a || !(body.includes(title[L]) && body.includes(norm(text(fill(a.medicine[L])))));
   });
   add(6, "The medicine answer appears on home and, in its own terms, on every condition page", missing.length === 0 ? "pass" : "fail", missing.map(rel).join("; ") || `${should.length} pages carry it`);
 }

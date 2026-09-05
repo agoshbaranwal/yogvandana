@@ -749,6 +749,10 @@
     "alsoLabel": {
       "hi": "और",
       "en": "Also"
+    },
+    "sample": {
+      "hi": "नमूना",
+      "en": "sample"
     }
   },
   "about": {

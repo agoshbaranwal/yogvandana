@@ -2,18 +2,18 @@
   "id": "s1",
   "order": 1,
   "name": {
-    "hi": "[पूरा नाम]",
-    "en": "[full name]"
+    "hi": "[सुनीता वर्मा]",
+    "en": "[Sunita Verma]"
   },
   "city": {
-    "hi": "[शहर]",
-    "en": "[city]"
+    "hi": "[कानपुर]",
+    "en": "[Kanpur]"
   },
-  "age": "[उम्र]",
+  "age": "[52]",
   "ailmentSlug": "sugar",
   "quote": {
-    "hi": "[रिपोर्ट में क्या बदला, दवा कितनी घटी, कितने महीनों में। उनके शब्दों में।]",
-    "en": "[what changed in the report, how much medicine came down, over how many months, in their words]"
+    "hi": "[तीन महीने में सुबह की शुगर 180 से 130 पर आ गई। डॉक्टर ने सुबह की दवा आधी कर दी। अब उठते ही थकान नहीं लगती।]",
+    "en": "[In three months my morning sugar came from 180 to 130. The doctor halved the morning tablet. I no longer wake up tired.]"
   },
   "metric": {
     "hi": "HbA1c",
@@ -33,12 +33,12 @@
   },
   "months": "[7]",
   "since": {
-    "hi": "[वर्ष]",
-    "en": "[year]"
+    "hi": "[2024]",
+    "en": "[2024]"
   },
   "written": {
-    "hi": "[महीना वर्ष]",
-    "en": "[month year]"
+    "hi": "[अगस्त 2026]",
+    "en": "[August 2026]"
   },
   "photo": "",
   "video": "[वीडियो लिंक]",

@@ -1,12 +1,10 @@
 import { A as Link } from "../components/Nav";
 import Band from "@/components/Band";
-import { AskRow } from "@/components/AskRow";
 import { Counters, PressStrip } from "@/components/Warm";
 import { DiseaseRows } from "@/components/DiseaseRows";
 import { FirstScreen } from "@/components/FirstScreen";
 import { Join } from "@/components/Join";
-import { Jsonld, personSchema, websiteSchema } from "@/components/Jsonld";
-import { Schedule } from "@/components/Schedule";
+import { Jsonld, localBusinessSchema, personSchema, websiteSchema } from "@/components/Jsonld";
 import SiteShell from "@/components/SiteShell";
 import { SlipPad } from "@/components/SlipPad";
 import { Steps } from "@/components/Steps";
@@ -33,7 +31,7 @@ export default function Home({ lang }: { lang: Lang }) {
 
   return (
     <SiteShell lang={lang} routeKey="home">
-      <Jsonld data={[websiteSchema(lang), personSchema(lang)]} />
+      <Jsonld data={[websiteSchema(lang), personSchema(lang), localBusinessSchema(lang)]} />
 
       {/* 1 · her face, the promise, the ask ------------------------------- */}
       <FirstScreen lang={lang} />
@@ -57,7 +55,6 @@ export default function Home({ lang }: { lang: Lang }) {
       <section>
         <div className="wrap flex flex-col gap-6 pb-8 md:pb-14">
           <MedicinePanel lang={lang} />
-          <AskRow lang={lang} note={ui("home.askAfterMedicine", lang)} source="after-medicine" />
         </div>
       </section>
 
@@ -94,7 +91,6 @@ export default function Home({ lang }: { lang: Lang }) {
                 ))}
               </ul>
               <p className="cap">{ui("stories.consent", lang)}</p>
-              <AskRow lang={lang} note={ui("home.askAfterResults", lang)} source="after-results" proof={false} />
             </>
           ) : (
             <p className="body" style={{ color: "var(--color-heroink)" }}>
@@ -145,22 +141,6 @@ export default function Home({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      {/* 9 · when it runs, and how many places are left ------------------- */}
-      <section style={{ background: "var(--color-paper)" }}>
-        <div className="wrap flex flex-col gap-4 section-pad">
-          <div className="flex flex-col gap-1">
-            <span className="label" style={{ color: "var(--color-amber-deep)" }}>
-              {ui("home.schedTitle", lang)}
-            </span>
-            <h2 className="h2">{ui("home.whichBatch", lang)}</h2>
-            {/* rolling admission is the honest version of urgency: there is no
-                date to wait for, so a reader who decides today starts this week */}
-            <p className="cap">{ui("batches.rollingLead", lang)}</p>
-          </div>
-          <Schedule lang={lang} />
-        </div>
-      </section>
-
       {/* 10 · for the reader who has already decided ---------------------- */}
       {/* Everything above this asks for a conversation, because almost
           everybody who arrives is frightened and needs to hear they can keep
@@ -171,13 +151,16 @@ export default function Home({ lang }: { lang: Lang }) {
       {/* #join is a real address: a link she pastes into a WhatsApp reply
           lands the reader on the payment block rather than the top of a
           page they have already read. */}
-      <section id="join" style={{ scrollMarginTop: "84px" }}>
+      <section id="join" style={{ scrollMarginTop: "84px", background: "var(--color-paper)" }}>
         <div className="wrap flex flex-col gap-5 section-pad">
           <div className="flex flex-col gap-1">
             <span className="label" style={{ color: "var(--color-amber-deep)" }}>
-              {ui("pay.lead", lang)}
+              {ui("home.schedTitle", lang)}
             </span>
             <h2 className="h2">{ui("pay.title", lang)}</h2>
+            {/* rolling admission is the honest version of urgency: there is no
+                date to wait for, so a reader who decides today starts this week */}
+            <p className="cap">{ui("batches.rollingLead", lang)}</p>
           </div>
           <Join lang={lang} source="home-join" />
         </div>

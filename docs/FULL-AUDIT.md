@@ -12,38 +12,42 @@ matter.
 
 ---
 
-## The finding that outranks every other
+## The finding that outranks every other — and what Agosh said about it
 
-**The site is publishing its own scaffolding.**
+**The site is showing its own scaffolding.**
 
 Every surface that is supposed to be *proof* — the stories, the press logos, the photographs,
-the videos, the certificates, the student counts, her timeline — is a labelled blank. What a
-stranger sees, on a public site, deciding whether to trust this woman with their diabetes:
+the videos, the certificates, the student counts, her timeline — is a labelled blank. Over 150
+placeholder strings render: *N विद्यार्थी* on every tile, four identical empty press boxes, story
+cards whose "quote" is the author's note to herself, an About page that is ~90% blank, a refund
+page that opens *"यह मसौदा है, वंदना जी की जाँच बाकी है"*.
 
-| where | what is showing |
-|---|---|
-| home, 8 disease tiles | **N विद्यार्थी** on every one |
-| home, press strip | four identical empty boxes: *अख़बार या चैनल का लोगो* ×4 |
-| home, results | three cards whose quote is the author's instruction to herself: *"रिपोर्ट में क्या बदला, दवा कितनी घटी, कितने महीनों में। उनके शब्दों में।"* — under **पूरा नाम, उम्र साल · शहर** |
-| home, videos | an entire tinted section whose content is *पहले वीडियो जल्द* |
-| every condition page ×16 | **N** three times, a placeholder story, **[60]** in the FAQ |
-| stories page | four cards, all five fields blank; then a section that says photos will go here |
-| about page | roughly **90% blank** — certificates, gurus, memberships, an 8-row timeline reading *वर्ष … जगह … N विद्यार्थी … Z शहरों*, events, press. A template with her name and one paragraph filled in |
-| refund page | *"यह मसौदा है, वंदना जी की जाँच बाकी है"* — **"this is a draft, pending review"** — printed at the top of a public page |
+I first wrote this up as the site publishing blanks to strangers. **Agosh corrected the premise:**
 
-Over 150 placeholder strings are live. The rule that produced them — *"every placeholder is the
-size it would be, and says what goes in it"* (Agosh, 4 Sep) — was the right rule **for reviewing
-the layout**. It is the wrong thing to ship. To a reader, a blank that says *"guru's photo goes
-here"* does not read as honest; it reads as fake, or abandoned.
+> *"There are no visitors, only testers until all the content is filled. You can make the
+> placeholders such that it is easy for me to understand what goes where and I should be able
+> to imagine what the website should look like after the placeholders are filled."*
 
-**A site with six sections that are all real beats a site with fourteen that are half blank.**
-This is the single change that would most improve how the site reads, and it needs no new
-content at all: hide what is not there yet. Everything below is secondary to it.
+So the fault is not that the blanks are visible; it is that they are the wrong kind of blank.
+*"पूरा नाम, उम्र साल"* and *"रिपोर्ट में क्या बदला… उनके शब्दों में"* are notes to the author. They
+tell him what to write; they do not show him what the page will look like once he has. A
+placeholder for a reviewer should be a **rehearsal of the finished thing** — a story card that
+reads like a story, a logo row that reads like a logo row — marked as a sample so a tester is
+not misled, and replaced by the real item with no code change the day it arrives.
 
-The design itself is mostly good. That is worth saying plainly, because it changes what the fix
-is: this is not a redesign problem, it is a *what is shown* problem.
+And everything he listed *is* arriving, within two weeks: a real portrait, one to three real
+stories with names, the certificate scans, the press cuttings. The job is to build the slots
+those land in and to make the rehearsal convincing until they do.
 
----
+**Three more answers that shape everything below:**
+
+- **Google search is the front door**, word of mouth second, Google Maps third. The sixteen
+  condition pages are where most readers will land — not home. They must each stand alone as a
+  complete pitch, and the search snippet, structured data and local-business signals matter.
+  (The first thing this turned up: the meta description on every condition page reads *"[90] दिन
+  पर जाँच"* — a bracketed placeholder, and the wrong number, in the line Google shows.)
+- **Talk and pay lead equally.** Both stay; repetition comes down.
+- **All four kinds of content are coming.** Design for what will exist, not for what might.
 
 ## Page by page, section by section
 
@@ -174,45 +178,68 @@ the price line said twice on every condition page.
 
 ---
 
-## The plan, in order
+## The plan, decided
 
-**A · Stop publishing blanks.** *No new content needed.* A build rule: any element whose value is
-still `[bracketed]`, `N`, or empty does not render in production, and a section with nothing real
-in it collapses. Agosh's review rule survives in a preview build. This alone removes 150+
-placeholder strings from the public site and is the single biggest improvement available.
+Agosh's answers are in. Nothing below waits on a decision.
 
-**B · Home.** Merge Schedule into Join. Drop the two ask rows. Hide press, videos and results
-until each has one real item. Make the eight tiles consistent. Remove the links to blank About
-sections.
+**A · Placeholders that rehearse the finished page.** Every blank becomes a sample of the real
+thing — a story card with a story-shaped sample quote, a press row with logo-shaped marks, an
+About credential card with a credential-shaped entry — each carrying one small **नमूना** pill, all
+driven by the existing `[bracketed]` convention so a real item replaces its sample with no code
+change. Author notes (*"उनके शब्दों में"*, *"दो-तीन पंक्तियाँ"*) stop appearing as content. Facts
+that are not coming — a per-disease student count, which he has said not to mention — are
+removed rather than rehearsed.
 
-**C · About.** Rebuild as the short, real page above.
+**B · Condition pages first, because Google lands there.** Fix the *[90]* in every meta
+description. Add LocalBusiness structured data (address, phone, hours, Lucknow) for Maps. Compact
+the 1,100px slip to the rows that differ by disease. Fix *[60]* in the FAQ. Make each page a
+complete pitch on its own.
 
-**D · Condition pages.** The compact slip. Fix the `[60]`. Remove the *N*s (covered by A).
+**C · Home.** Merge Schedule into Join (one block, both batches, both ways to act). Drop the two
+ask rows: hero, sticky, join and band keep talk and pay at equal weight without nine buttons.
+Make the eight tiles carry one result each or none. Remove the *who teaches* links that point at
+blank About sections until those sections are real.
 
-**E · Students and Refund.** Fee cards to the pay flow; hide the blank rows; strip the draft
-notice.
+**D · About.** Keep the structure — certificates, press and a portrait are two weeks away — but
+every section rehearses its finished state, and the author instruction in the body goes.
 
-**F · The band and the sticky bar.** Halve the band; drop the preview line; consider the sticky
-bar only below the fold of long pages.
+**E · Students and Refund.** Fee cards to the pay flow; the draft notice and the author notes
+off the refund page (the rule itself is his to write).
 
-**G · The photograph.** When he has one.
+**F · The band and the sticky bar.** Halve the band; drop the developer's preview line.
 
-Each of A–F is a day or less. A is first because everything else is nicer with it and nothing
-depends on it.
+**G · The photograph.** The day it arrives, it goes into three places with no code change.
 
 ---
 
-## What I need from Agosh before B–F
+## Done in the first pass — 5 September, after the answers
 
-Four decisions. Everything in A can go ahead without them.
+**A · Placeholders that rehearse.** The four story files now hold story-shaped sample content
+(name, age, city, a quote that reads like a testimonial, a year), still in brackets so the
+machinery treats them as blanks, and every such card carries a small **नमूना** pill that vanishes
+the day a real story replaces the file. Her paragraph on About is a sample in her voice instead
+of a note to the author. Facts already given are filled in — Lucknow University, Patanjali
+Yogpeeth, first class 2007 in Lucknow. The per-disease student count is gone from every tile,
+header, medicine answer, FAQ, journey row and class note — 32 `[N]`s that had nothing coming to
+replace them.
 
-1. **Blanks in public** — hide until real (my strong recommendation), or keep visible?
-   *This reverses the 4 Sep rule, so it is his to reverse.*
-2. **How readers arrive** — Google search for an illness · a WhatsApp link she sends · word of
-   mouth. Google means the condition pages are the front door and home matters less; WhatsApp
-   means home is everything.
-3. **The primary action** — get them talking (free call) · get them paying (join) · both equally.
-   Decides whether the join block or the talk block leads, and how many of each.
-4. **What will exist in two weeks** — a real portrait · one to three real stories with names ·
-   certificate scans · press cuttings · none of these yet. The rebuild should be shaped around
-   what is coming, not what might.
+**B · Google front door.** `[90]` was in the Google snippet of two condition pages and in the
+student slip; the interval now lives in one place (`site.reviewDays`, 60) and content says `{d}`.
+LocalBusiness structured data on home: name, real address, phone, hours 7–7, price range,
+Lucknow. The FAQ's `[60]` is plain 60.
+
+**C · Home.** Schedule merged into Join — one block with both batches, both offers, the fees link,
+both ways to act. Both ask rows removed. **831 → 659 words, 11 → 10 sections, 9,665 → 8,198px on a
+phone, WhatsApp buttons 5 → 4** (hero, join, band, sticky).
+
+**E · Refund.** *"यह मसौदा है, वंदना जी की जाँच बाकी है"* is off the page; a paragraph that is
+nothing but a note to the author is held back until it is written. The date stays.
+
+**F · The band.** The developer's *"संदेश पहले से लिखा होगा…"* line is gone.
+
+**Bugs found by looking, fixed:** the band's 600px buttons (mine, from the morning); *सुबह 6:30* on
+sixteen condition pages; *₹शुल्क* on Students.
+
+**Still to do:** D (About's blank sections as rehearsals — needs the certificate scans and press
+cuttings that are two weeks out, so the shape can be built around real items), the compact slip
+on condition pages, the band's height, and the photograph.

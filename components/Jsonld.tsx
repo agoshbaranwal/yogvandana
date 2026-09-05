@@ -43,6 +43,47 @@ export function personSchema(lang: Lang) {
   });
 }
 
+/* The record Google Maps and local search read. Agosh said Maps is the third
+   way people will find her, after search and word of mouth (5 Sep 2026), and
+   until now the site handed Google a Person and a WebSite but no business at
+   an address. The address, phone and hours are the real ones. Nothing still
+   in brackets goes in — same rule as everything else in this file. */
+export function localBusinessSchema(lang: Lang) {
+  const hours = real(t(site.contact.replyHours, lang));
+  return clean({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": absolute("/") + "#business",
+    name: t(site.brand, lang),
+    alternateName: t(site.teacher, lang),
+    description: t(site.claim, lang),
+    url: absolute(href("home", lang)),
+    telephone: real(site.contact.phone),
+    image: absolute(`/og/home-${lang}.png`),
+    priceRange: "₹200–₹1,000",
+    address: clean({
+      "@type": "PostalAddress",
+      streetAddress: real(t(site.contact.address, lang)),
+      addressLocality: t(site.city, lang),
+      addressRegion: "Uttar Pradesh",
+      postalCode: "226012",
+      addressCountry: "IN",
+    }),
+    areaServed: ["Lucknow", "Uttar Pradesh", "India"],
+    /* replies 7 to 7, every day: the hours a reader can expect a person */
+    openingHoursSpecification: hours
+      ? {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          opens: "07:00",
+          closes: "19:00",
+        }
+      : undefined,
+    founder: { "@type": "Person", name: t(site.teacher, lang) },
+    knowsLanguage: ["hi", "en"],
+  });
+}
+
 export function websiteSchema(lang: Lang) {
   return clean({
     "@context": "https://schema.org",

@@ -20,8 +20,8 @@
     "en": "Find the remedy for sugar through yoga and pranayama."
   },
   "intro": {
-    "hi": "टाइप-2 शुगर में रोज़ का योग तीन चीज़ों पर एक साथ काम करता है: शुगर लेवल, वज़न और तनाव। वंदना जी की क्लास में शुगर वाले विद्यार्थियों के लिए अभ्यास अलग रखा जाता है, और हर [90] दिन पर रिपोर्ट देखी जाती है।",
-    "en": "In type 2 sugar, a daily practice works on three things at once: the sugar level, weight, and stress. In her class the practice for students with sugar is kept separate, and the reports are looked at every [90] days."
+    "hi": "टाइप-2 शुगर में रोज़ का योग तीन चीज़ों पर एक साथ काम करता है: शुगर लेवल, वज़न और तनाव। वंदना जी की क्लास में शुगर वाले विद्यार्थियों के लिए अभ्यास अलग रखा जाता है, और हर {d} दिन पर रिपोर्ट देखी जाती है।",
+    "en": "In type 2 sugar, a daily practice works on three things at once: the sugar level, weight, and stress. In her class the practice for students with sugar is kept separate, and the reports are looked at every {d} days."
   },
   "works": [
     {
@@ -38,8 +38,8 @@
     }
   ],
   "medicine": {
-    "hi": "बंद नहीं। पहली क्लास में वंदना जी आपकी रिपोर्ट और दवा पूछती हैं। रिपोर्ट सुधरे तो दवा डॉक्टर ही घटाते हैं — यहाँ [N] लोगों की घटी है।",
-    "en": "Not stopped. In the first class Vandana asks about your reports and your medicine. When the reports improve the doctor reduces it — here it has come down for [N] people."
+    "hi": "बंद नहीं। पहली क्लास में वंदना जी आपकी रिपोर्ट और दवा पूछती हैं। रिपोर्ट सुधरे तो दवा डॉक्टर ही घटाते हैं",
+    "en": "Not stopped. In the first class Vandana asks about your reports and your medicine. When the reports improve the doctor reduces it"
   },
   "studentCount": "[N]",
   "storyCount": "[N]",
@@ -49,8 +49,8 @@
     "en": "yoga for diabetes, type 2 yoga"
   },
   "metaDescription": {
-    "hi": "शुगर के लिए लाइव ऑनलाइन योग क्लास, वंदना बरनवाल के साथ। खाली पेट सुबह का बैच, [90] दिन पर जाँच।",
-    "en": "Live online yoga for type 2 sugar with Vandana Baranwal. Morning batch on an empty stomach, review every [90] days."
+    "hi": "शुगर के लिए लाइव ऑनलाइन योग क्लास, वंदना बरनवाल के साथ। खाली पेट सुबह का बैच, {d} दिन पर जाँच।",
+    "en": "Live online yoga for type 2 sugar with Vandana Baranwal. Morning batch on an empty stomach, review every {d} days."
   },
   "firstClass": {
     "rows": [
@@ -91,8 +91,8 @@
       "en": "The practice starts at your level. On a chair, if that is what you need."
     },
     {
-      "hi": "ग्रुप छोटा है, [N] लोग, ताकि हर किसी को देखा जा सके।",
-      "en": "The group is small, [N] people, so everyone can be seen."
+      "hi": "ग्रुप छोटा है, ताकि हर किसी को देखा जा सके।",
+      "en": "The group is small, so everyone can be seen."
     },
     {
       "hi": "सुबह का बैच खाली पेट होता है, जो शुगर वालों के लिए बेहतर है।",

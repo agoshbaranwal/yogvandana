@@ -60,8 +60,15 @@ export function ResultCard({
     .filter(Boolean)
     .join(" · ");
 
+  /* A card whose name is still in brackets is a rehearsal of the finished
+     card, not a claim: story-shaped sample words so the layout can be judged
+     as it will look, marked as a sample so nobody mistakes it for a person.
+     The day a real story replaces the file the pill disappears by itself. */
+  const sample = isTodo(t(story.name, lang));
+
   return (
-    <article className="card storycard overflow-hidden p-0">
+    <article className="card storycard relative overflow-hidden p-0">
+      {sample ? <span className="sample">{ui("stories.sample", lang)}</span> : null}
       {before || after ? (
         <div className="ba">
           <div className="was">

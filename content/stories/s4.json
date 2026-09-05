@@ -2,18 +2,18 @@
   "id": "s4",
   "order": 4,
   "name": {
-    "hi": "[पूरा नाम]",
-    "en": "[full name]"
+    "hi": "[शकुंतला देवी]",
+    "en": "[Shakuntala Devi]"
   },
   "city": {
-    "hi": "[शहर]",
-    "en": "[city]"
+    "hi": "[गोरखपुर]",
+    "en": "[Gorakhpur]"
   },
-  "age": "[उम्र]",
+  "age": "[58]",
   "ailmentSlug": "neend-tanav",
   "quote": {
-    "hi": "[नींद कैसी थी और अब कैसी है। उनके शब्दों में।]",
-    "en": "[how sleep was and how it is now, in their words]"
+    "hi": "[घुटने के दर्द से बाज़ार तक जाना छूट गया था। पाँच महीने में बिना सहारे पैदल जाती हूँ। ऑपरेशन की बात टल गई।]",
+    "en": "[Knee pain had stopped me going to the market. In five months I walk there without support. The operation talk is off.]"
   },
   "metric": {
     "hi": "",
@@ -33,12 +33,12 @@
   },
   "months": "[3]",
   "since": {
-    "hi": "[वर्ष]",
-    "en": "[year]"
+    "hi": "[2025]",
+    "en": "[2025]"
   },
   "written": {
-    "hi": "[महीना वर्ष]",
-    "en": "[month year]"
+    "hi": "[मई 2026]",
+    "en": "[May 2026]"
   },
   "photo": "",
   "video": "",

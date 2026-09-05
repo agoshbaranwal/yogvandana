@@ -112,8 +112,11 @@ export function LegalPage({
       <header className="border-b border-rule">
         <div className="wrap flex flex-col gap-2 section-pad">
           <h1 className="page-title">{title}</h1>
+          {/* "यह मसौदा है, वंदना जी की जाँच बाकी है" used to print here — a note
+              about the document's status, on the document. The date stays; a
+              reader can use a date. */}
           <p className="cap">
-            {ui("legal.reviewNote", lang)} · {ui("about.updated", lang)} {site.updated}
+            {ui("about.updated", lang)} {site.updated}
           </p>
         </div>
       </header>
@@ -121,11 +124,18 @@ export function LegalPage({
         {sections.map((s, i) => (
           <section key={i} className="flex flex-col gap-2">
             <h2 className="h3">{s.heading}</h2>
-            {s.body.map((p, j) => (
-              <p key={j} className="body">
-                <Tx>{p}</Tx>
-              </p>
-            ))}
+            {/* A paragraph that is nothing but a note to the author — "[the
+                refund rule: within how many days, how much comes back]" — is
+                an instruction, not a policy. It waits in the source for the
+                rule to be written; it does not stand in for it on the page. A
+                real sentence with one blank inside it still shows. */}
+            {s.body
+              .filter((p) => !/^\s*\[[^\]]*\]\s*$/.test(p))
+              .map((p, j) => (
+                <p key={j} className="body">
+                  <Tx>{p}</Tx>
+                </p>
+              ))}
           </section>
         ))}
         <p className="cap">

@@ -2,18 +2,18 @@
   "id": "s2",
   "order": 2,
   "name": {
-    "hi": "[पूरा नाम]",
-    "en": "[full name]"
+    "hi": "[रमेश गुप्ता]",
+    "en": "[Ramesh Gupta]"
   },
   "city": {
-    "hi": "[शहर]",
-    "en": "[city]"
+    "hi": "[लखनऊ]",
+    "en": "[Lucknow]"
   },
-  "age": "[उम्र]",
+  "age": "[61]",
   "ailmentSlug": "kamar-dard",
   "quote": {
-    "hi": "[क्या कर पाते हैं जो पहले नहीं कर पाते थे। उनके शब्दों में।]",
-    "en": "[what they can do now that they could not before, in their words]"
+    "hi": "[पहले दो मंज़िल चढ़ने में रुकना पड़ता था। चार महीने में रोज़ तीन मंज़िल बिना रुके। कमर की पट्टी उतर गई।]",
+    "en": "[I used to stop halfway up two floors. In four months, three floors a day without stopping. The back belt came off.]"
   },
   "metric": {
     "hi": "",
@@ -33,12 +33,12 @@
   },
   "months": "[4]",
   "since": {
-    "hi": "[वर्ष]",
-    "en": "[year]"
+    "hi": "[2025]",
+    "en": "[2025]"
   },
   "written": {
-    "hi": "[महीना वर्ष]",
-    "en": "[month year]"
+    "hi": "[जुलाई 2026]",
+    "en": "[July 2026]"
   },
   "photo": "",
   "video": "[वीडियो लिंक]",

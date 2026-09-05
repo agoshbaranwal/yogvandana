@@ -38,8 +38,8 @@
     }
   ],
   "medicine": {
-    "hi": "बंद नहीं। बीपी की दवा अचानक छोड़ना ख़तरनाक है। रीडिंग सुधरे तो डॉक्टर ही घटाते हैं — यहाँ [N] लोगों की घटी है।",
-    "en": "Not stopped. Dropping BP medicine suddenly is dangerous. When the readings improve the doctor reduces it — here it has come down for [N] people."
+    "hi": "बंद नहीं। बीपी की दवा अचानक छोड़ना ख़तरनाक है। रीडिंग सुधरे तो डॉक्टर ही घटाते हैं",
+    "en": "Not stopped. Dropping BP medicine suddenly is dangerous. When the readings improve the doctor reduces it"
   },
   "studentCount": "[N]",
   "storyCount": "[N]",
@@ -91,8 +91,8 @@
       "en": "The practice starts at your level. On a chair, if that is what you need."
     },
     {
-      "hi": "ग्रुप छोटा है, [N] लोग, ताकि हर किसी को देखा जा सके।",
-      "en": "The group is small, [N] people, so everyone can be seen."
+      "hi": "ग्रुप छोटा है, ताकि हर किसी को देखा जा सके।",
+      "en": "The group is small, so everyone can be seen."
     },
     {
       "hi": "सिर नीचे करने वाले और साँस रोकने वाले अभ्यास नहीं दिए जाते।",

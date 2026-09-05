@@ -2,18 +2,18 @@
   "id": "s3",
   "order": 3,
   "name": {
-    "hi": "[पूरा नाम]",
-    "en": "[full name]"
+    "hi": "[प्रिया सिंह]",
+    "en": "[Priya Singh]"
   },
   "city": {
-    "hi": "[शहर]",
-    "en": "[city]"
+    "hi": "[बरेली]",
+    "en": "[Bareilly]"
   },
-  "age": "[उम्र]",
+  "age": "[34]",
   "ailmentSlug": "mahila",
   "quote": {
-    "hi": "[क्या बदला, कितने महीनों में। उनके शब्दों में।]",
-    "en": "[what changed and over how many months, in their words]"
+    "hi": "[पीरियड तीन-तीन महीने में आता था। छह महीने के अभ्यास के बाद हर महीने, समय पर। दवा नहीं लेनी पड़ी।]",
+    "en": "[My periods came once in three months. After six months of practice, every month, on time. No medicine needed.]"
   },
   "metric": {
     "hi": "",
@@ -33,12 +33,12 @@
   },
   "months": "[6]",
   "since": {
-    "hi": "[वर्ष]",
-    "en": "[year]"
+    "hi": "[2025]",
+    "en": "[2025]"
   },
   "written": {
-    "hi": "[महीना वर्ष]",
-    "en": "[month year]"
+    "hi": "[जून 2026]",
+    "en": "[June 2026]"
   },
   "photo": "",
   "video": "",

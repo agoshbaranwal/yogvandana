@@ -63,6 +63,12 @@ export function Join({ lang, source = "join" }: { lang: Lang; source?: string })
 
   /* the full address, not "/", so the link in her WhatsApp opens */
   const page = absolute(href("home", lang));
+  const offers = [
+    t(shown.find((b) => t(b.familyDiscount, lang))?.familyDiscount, lang),
+    t(shown.find((b) => t(b.firstMonthOffer, lang))?.firstMonthOffer, lang),
+  ]
+    .filter(Boolean)
+    .join(" · ");
   const wa = waHref(site.contact.whatsapp, waMessage({ lang, kind: "talk", page }));
   const howLine = ways.gateway ? "pay.note" : ways.upi ? "pay.upiWay" : "pay.viaWhatsapp";
 
@@ -118,6 +124,22 @@ export function Join({ lang, source = "join" }: { lang: Lang; source?: string })
           );
         })}
       </div>
+
+      {/* the two offers, and the way to the full fees page — these lived in a
+          separate Schedule block directly above this one, which listed the same
+          two batches at the same fee a second time */}
+      {(
+        <div className="flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-sm)] px-4 py-3" style={{ background: "var(--color-amber-tint)" }}>
+          {offers ? (
+            <p className="cap" style={{ color: "var(--color-amber-deep)", fontWeight: 700 }}>
+              <Tx>{offers}</Tx>
+            </p>
+          ) : null}
+          <Link href={href("batches", lang)} className="tap flex-none font-bold underline underline-offset-4 cap">
+            {ui("cta.seeBatches", lang)}
+          </Link>
+        </div>
+      )}
 
       <div className="flex flex-col gap-2.5">
         {/* what the button is about to do, said before it is pressed */}

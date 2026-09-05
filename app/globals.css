@@ -704,6 +704,26 @@
   }
 
 
+  /* The word on a rehearsal card. Agosh wants to look at the site and see what
+     it will look like when the stories and photographs are in, so a blank
+     card is drawn as a finished one with sample words — and carries this so a
+     tester cannot mistake the sample for a person. Small, top-right, gone the
+     day the real story lands. */
+  .sample {
+    position: absolute;
+    top: 10px;
+    inset-inline-end: 10px;
+    z-index: 1;
+    padding: 2px 8px;
+    border-radius: var(--radius-pill);
+    background: var(--color-kohl);
+    color: var(--color-bhagwa);
+    font-size: var(--step-fine);
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.03em;
+  }
+
   /* Her UPI id: the one string on this site somebody will copy by hand,
      because a upi:// link opens nothing on a desktop. One tap selects the
      whole of it rather than a word of it. */

@@ -153,9 +153,8 @@ export default function BookingBand({
             <PhoneIcon size={20} />
             <Tx>{`${callLabel} · ${phoneShown}`}</Tx>
           </a>
-          <p className="cap">
-            {previewLabel} “{shown}”
-          </p>
+          {/* the "your message will read: …" line was a developer's sentence — a
+              reader who presses the button sees the message in WhatsApp anyway */}
         </div>
       </div>
     </section>

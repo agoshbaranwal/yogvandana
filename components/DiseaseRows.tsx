@@ -1,5 +1,5 @@
 import { A as Link } from "./Nav";
-import { ailments, storiesFor, t, ui } from "@/lib/content";
+import { ailments, storiesFor, t, ui, isTodo } from "@/lib/content";
 import { href, type Lang } from "@/lib/routes";
 import { AilmentIcon } from "./Icons";
 import { Tx } from "./Tx";
@@ -67,9 +67,15 @@ export function DiseaseRows({
                     <Tx>{best}</Tx>
                   </span>
                 ) : null}
-                <span className="cap">
-                  <Tx>{`${a.studentCount} ${ui("ailment.students", lang)}`}</Tx>
-                </span>
+                {/* "N विद्यार्थी" stood here on all eight tiles. Agosh has said the
+                    group size is not to be mentioned, so there is no real number
+                    coming to replace the N — and a blank that will never be filled
+                    is not a placeholder, it is a hole. */}
+                {!isTodo(a.studentCount) ? (
+                  <span className="cap">
+                    <Tx>{`${a.studentCount} ${ui("ailment.students", lang)}`}</Tx>
+                  </span>
+                ) : null}
               </Link>
             </li>
           );

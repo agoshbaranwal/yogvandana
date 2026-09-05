@@ -20,6 +20,7 @@ import {
   storiesFor,
   t,
   ui,
+  isTodo,
 } from "@/lib/content";
 import { href, type Lang } from "@/lib/routes";
 
@@ -82,7 +83,7 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
             { name: ui("nav.ailments", lang), url: absolute(href("ailments", lang)) },
             { name, url: page },
           ]),
-          courseSchema(lang, t(ailment.titleFull, lang), t(ailment.metaDescription, lang)),
+          courseSchema(lang, t(ailment.titleFull, lang), t(ailment.metaDescription, lang).replace("{d}", site.reviewDays)),
           ...(ailmentFaq ? [ailmentFaq] : []),
         ]}
       />
@@ -127,7 +128,12 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
             </ol>
             <p className="cap">
               <Tx>
-                {`${ui("ailment.reviewEvery", lang).replace("{d}", site.reviewDays)} ${ui("ailment.sameDisease", lang).replace("{n}", ailment.studentCount)}`}
+                {[
+                  ui("ailment.reviewEvery", lang).replace("{d}", site.reviewDays),
+                  isTodo(ailment.studentCount) ? "" : ui("ailment.sameDisease", lang).replace("{n}", ailment.studentCount),
+                ]
+                  .filter(Boolean)
+                  .join(" ")}
               </Tx>
             </p>
             <div className="flex flex-col items-start gap-2">
@@ -151,7 +157,7 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
 
           {/* 2 · the medicine, in the same breath as the promise ----------- */}
           <div className="md:pt-14">
-            <MedicinePanel lang={lang} body={t(ailment.medicine, lang)} />
+            <MedicinePanel lang={lang} body={t(ailment.medicine, lang).replace("{d}", site.reviewDays)} />
           </div>
         </div>
       </section>

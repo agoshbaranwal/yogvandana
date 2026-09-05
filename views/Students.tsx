@@ -68,7 +68,7 @@ export default function Students({ lang }: { lang: Lang }) {
 
           <h2 className="h2 mt-4">{ui("students.slipTitle", lang)}</h2>
           <p className="body">
-            <Tx>{t(students.slipNote, lang)}</Tx>{" "}
+            <Tx>{t(students.slipNote, lang).replace("{d}", site.reviewDays)}</Tx>{" "}
             <a href={wa} target="_blank" rel="noopener noreferrer" data-ev="whatsapp_click" data-ev-source="students-slip">
               {ui("students.askAgain", lang)}
             </a>

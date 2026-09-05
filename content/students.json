@@ -58,8 +58,8 @@
     "en": "The daily Zoom link comes into your batch's WhatsApp group [15] minutes before class."
   },
   "slipNote": {
-    "hi": "आपकी पर्ची व्हाट्सऐप पर भेजी गई थी। हर [90] दिन पर रिपोर्ट के साथ जाँच।",
-    "en": "Your slip was sent on WhatsApp. A review with your report every [90] days."
+    "hi": "आपकी पर्ची व्हाट्सऐप पर भेजी गई थी। हर {d} दिन पर रिपोर्ट के साथ जाँच।",
+    "en": "Your slip was sent on WhatsApp. A review with your report every {d} days."
   },
   "payNote": {
     "hi": "यूपीआई, कार्ड या नेट बैंकिंग। रसीद व्हाट्सऐप पर आती है।",

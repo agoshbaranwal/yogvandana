@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import AilmentView from "@/views/Ailment";
-import { ailmentBySlug, ailments, t } from "@/lib/content";
+import { ailmentBySlug, ailments, t, site } from "@/lib/content";
 import { pageMeta } from "@/lib/meta";
 
 export function generateStaticParams() {
@@ -22,7 +22,7 @@ export async function generateMetadata({
     slug,
     title: t(ailment.titleFull, "en"),
     keywords: t(ailment.searchTerms, "en"),
-    description: t(ailment.metaDescription, "en"),
+    description: t(ailment.metaDescription, "en").replace("{d}", site.reviewDays),
     ogKey: `ailment-${slug}`,
   });
 }
