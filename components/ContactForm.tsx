@@ -147,7 +147,7 @@ export default function ContactForm({
       </div>
 
       {endpoint ? (
-        <button type="submit" data-ev="form_submit" data-ev-source="contact" className="btn btn-dark">
+        <button type="submit" data-ev="form_submit" data-ev-source="contact" className="btn btn-dark btn-block">
           {labels.send}
         </button>
       ) : (
@@ -159,7 +159,7 @@ export default function ContactForm({
           rel="noopener noreferrer"
           data-ev="whatsapp_click"
           data-ev-source="contact-form"
-          className="btn btn-dark"
+          className="btn btn-dark btn-block"
         >
           <WhatsAppIcon size={22} />
           {labels.whatsapp}

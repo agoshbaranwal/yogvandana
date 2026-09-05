@@ -29,6 +29,7 @@ export function WhoTeaches({ lang }: { lang: Lang }) {
             alt={t(site.teacher, lang)}
             label={ui("photo.teaching", lang)}
             ratio="4 / 5"
+            focus="face"
             rounded="rounded-[12px]"
             className="w-[112px] flex-none md:w-[200px]"
             sizes="(min-width: 768px) 200px, 112px"

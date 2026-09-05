@@ -139,7 +139,7 @@ export default function BookingBand({
             data-ev-source={source}
             data-ev-ailment={chosen.slug}
             data-ev-time={time || "any"}
-            className="btn btn-wa w-full"
+            className="btn btn-wa btn-block"
           >
             <WhatsAppIcon size={22} />
             {whatsappLabel}
@@ -148,7 +148,7 @@ export default function BookingBand({
             href={phone ? telHref(phone) : contactHref}
             data-ev="call_click"
             data-ev-source={source}
-            className="btn btn-onink w-full"
+            className="btn btn-onink btn-block"
           >
             <PhoneIcon size={20} />
             <Tx>{`${callLabel} · ${phoneShown}`}</Tx>

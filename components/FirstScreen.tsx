@@ -94,6 +94,7 @@ export function FirstScreen({ lang }: { lang: Lang }) {
             alt={t(site.teacher, lang)}
             label={ui("photo.first", lang)}
             ratio="1 / 1"
+            focus="face"
             rounded="rounded-[var(--radius-lg)]"
             className="w-full shadow-[var(--elev-2)] md:aspect-[4/5]"
             priority

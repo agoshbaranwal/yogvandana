@@ -1,4 +1,4 @@
-import { type Batch, site, t, ui } from "@/lib/content";
+import { type Batch, isTodo, site, t, ui } from "@/lib/content";
 import { payHref } from "@/lib/pay";
 import type { Lang } from "@/lib/routes";
 import { waHref, waMessage } from "@/lib/whatsapp";
@@ -20,7 +20,11 @@ export function joinHref(batch: Batch, lang: Lang, page: string): { href: string
 
 function JoinButton({ batch, lang, page, outline = false }: { batch: Batch; lang: Lang; page: string; outline?: boolean }) {
   const join = joinHref(batch, lang, page);
-  const talk = ui("batches.talkAboutNamed", lang).replace("{x}", t(batch.name, lang));
+  /* "सुबह का बैच के बारे में बात करें" broke onto two lines inside the pill,
+     and it repeated the card's own heading back at the reader. The batch
+     still travels in the WhatsApp message; the button just says the thing
+     every other button on the site says. */
+  const talk = ui("cta.talk", lang);
   return (
     <a
       href={join.href}
@@ -29,10 +33,28 @@ function JoinButton({ batch, lang, page, outline = false }: { batch: Batch; lang
       data-ev={join.pays ? "pay_click" : "batch_join_click"}
       data-ev-batch={batch.id}
       data-ev-source="batches"
-      className={`btn w-full ${outline ? "btn-outline" : "btn-primary"}`}
+      className={`btn btn-block ${outline ? "btn-outline" : "btn-primary"}`}
     >
       {join.pays ? ui("cta.payJoin", lang) : talk}
     </a>
+  );
+}
+
+/* A fee still to be decided is not a fee. `₹${price}` printed "₹शुल्क" on the
+   one-to-one card — a rupee sign in front of the word "fee" — which reads as
+   a bug to anybody who can read Hindi. A blank price says so in words. */
+function Fee({ batch, lang, unit = false }: { batch: Batch; lang: Lang; unit?: boolean }) {
+  if (isTodo(batch.price) || !batch.price.trim()) {
+    return <p className="cap todo whitespace-nowrap text-right">{ui("batches.feeTodo", lang)}</p>;
+  }
+  const shown = t(batch.priceUnit, lang);
+  return (
+    <div className="text-right">
+      <p className="num point-sm whitespace-nowrap">
+        <Tx>{`₹${batch.price}`}</Tx>
+      </p>
+      {unit && shown ? <p className="cap">{shown}</p> : null}
+    </div>
   );
 }
 
@@ -46,22 +68,21 @@ export function GroupBatchCard({ batch, lang, page, first = false }: { batch: Ba
   ].filter(Boolean);
   return (
     <article className="card overflow-hidden p-0">
+      {/* The name and the fee used to sit side by side at two different
+          display sizes, and on a 1,280px screen "सुबह का बैच" ran straight
+          into "₹1,000". They are the same two facts, so they are set as two
+          aligned rows: what it is against what it costs, then when it runs
+          against how often you pay. */}
       <div
-        className="flex items-start justify-between gap-3 px-4 pb-3 pt-4"
+        className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4 gap-y-1 px-4 pb-3.5 pt-4"
         style={{ background: first ? "var(--color-apricot)" : "var(--color-sky)" }}
       >
-        <div className="flex min-w-0 flex-col gap-0.5">
-          <h2 className="h2">{t(batch.name, lang)}</h2>
-          <p className="num h3" style={{ color: "var(--color-deep)" }}>
-            <Tx>{`${t(batch.start, lang)} · ${ui("batches.minutes", lang).replace("{m}", batch.minutes)}`}</Tx>
-          </p>
-        </div>
-        <div className="flex-none text-right">
-          <p className="num point">
-            <Tx>{`₹${batch.price}`}</Tx>
-          </p>
-          <p className="cap">{t(batch.priceUnit, lang)}</p>
-        </div>
+        <h2 className="h2 min-w-0">{t(batch.name, lang)}</h2>
+        <Fee batch={batch} lang={lang} />
+        <p className="cap num" style={{ color: "var(--color-deep)", fontWeight: 700 }}>
+          <Tx>{`${t(batch.when, lang)} · ${ui("batches.minutes", lang).replace("{m}", batch.minutes)}`}</Tx>
+        </p>
+        <p className="cap text-right">{t(batch.priceUnit, lang)}</p>
       </div>
       <div className="border-t border-rule px-4 py-3">
         <DayChips daysOn={batch.daysOn} lang={lang} />
@@ -97,60 +118,71 @@ export function SmallBatchCard({ batch, lang, page }: { batch: Batch; lang: Lang
     batch.type === "workshop"
       ? [t(batch.date, lang), t(batch.when, lang)].filter((x) => x.trim()).join(" · ")
       : "";
+  const seats =
+    !t(batch.priceUnit, lang) && batch.seats.trim() && !isTodo(batch.seats)
+      ? ui("batches.workshopSeats", lang).replace("{n}", batch.seats)
+      : "";
+  /* One to one is a different kind of offer from the two group batches, so it
+     takes a row of its own and reads ACROSS it: what it is on the left, what
+     it costs and how to ask on the right. Sitting in half of a two-column grid
+     it left an empty half beside it — the shape Agosh objected to on 4 Sep. */
   return (
-    <article className="card flex flex-col gap-2.5">
-      <div className="flex items-start justify-between gap-3">
-        <div className="flex min-w-0 flex-col gap-0.5">
-          {head ? (
-            <p className="cap">
-              <Tx>{head}</Tx>
-            </p>
-          ) : null}
-          <h2 className="h2">
-            <Tx>{t(batch.name, lang)}</Tx>
-          </h2>
-        </div>
-        <div className="flex-none text-right">
-          <p className="num point-sm">
-            <Tx>{`₹${batch.price}`}</Tx>
+    <article className="card flex flex-col gap-3 md:flex-row md:items-center md:gap-8">
+      <div className="flex min-w-0 flex-col gap-1 md:flex-1">
+        {head ? (
+          <p className="cap">
+            <Tx>{head}</Tx>
           </p>
-          <p className="cap">{t(batch.priceUnit, lang) || (batch.seats ? ui("batches.workshopSeats", lang).replace("{n}", batch.seats) : "")}</p>
-        </div>
+        ) : null}
+        <h2 className="h2">
+          <Tx>{t(batch.name, lang)}</Tx>
+        </h2>
+        {t(batch.note, lang).trim() ? (
+          <p className="body">
+            <Tx>{t(batch.note, lang)}</Tx>
+          </p>
+        ) : null}
       </div>
-      {t(batch.note, lang).trim() ? (
-        <p className="body">
-          <Tx>{t(batch.note, lang)}</Tx>
-        </p>
-      ) : null}
-      <JoinButton batch={batch} lang={lang} page={page} outline />
+      <div className="flex flex-none flex-col gap-2.5 md:w-[268px]">
+        <div className="flex items-baseline justify-between gap-3 md:justify-end">
+          <Fee batch={batch} lang={lang} unit />
+          {seats ? <p className="cap">{seats}</p> : null}
+        </div>
+        <JoinButton batch={batch} lang={lang} page={page} outline />
+      </div>
     </article>
   );
 }
 
-/* One class as a bar: ten, thirty, ten. The widths follow the minutes. */
+/* One class, drawn as a proportion of the hour: a track whose segments follow
+   the minutes, and the words underneath it where they have room to be read. */
 export function SessionBar({ rows, lang }: { rows: Batch["session"]; lang: Lang }) {
   if (rows.length === 0) return null;
   const weight = (m: string) => Math.max(1, Number(m.replace(/[^\d]/g, "")) || 1);
+  const main = Math.floor(rows.length / 2);
   return (
-    <ol className="flex items-stretch overflow-hidden rounded-[12px] border border-rule">
-      {rows.map((r, i) => {
-        const main = i === Math.floor(rows.length / 2);
-        return (
-          <li
-            key={i}
-            className={`flex min-w-0 flex-col gap-0.5 px-2.5 py-3 ${main ? "on-bhagwa" : ""}`}
-            style={{ flex: weight(r.minutes), background: main ? "var(--color-bhagwa)" : "var(--color-apricot)" }}
-          >
-            <span className="num h2" style={main ? { color: "var(--color-kohl)" } : undefined}>
+    <div className="flex flex-col gap-3">
+      <div className="track" aria-hidden="true">
+        {rows.map((r, i) => (
+          <span key={i} className={i === main ? "main" : ""} style={{ flex: weight(r.minutes) }} />
+        ))}
+      </div>
+      <ol className="legend">
+        {rows.map((r, i) => (
+          <li key={i} className={i === main ? "main" : ""}>
+            {/* the row's own text already begins "मिनट …", so the number
+                stands alone above it — ui.batches.minutes here would print
+                "10 मिनट" over "मिनट सूक्ष्म व्यायाम" */}
+            <span className="m num">
               <Tx>{r.minutes}</Tx>
             </span>
-            <span className="cap" style={main ? { color: "var(--color-kohl)" } : undefined}>
+            <span className="cap">
               <Tx>{t(r.text, lang)}</Tx>
             </span>
           </li>
-        );
-      })}
-    </ol>
+        ))}
+      </ol>
+    </div>
   );
 }
 
@@ -164,11 +196,11 @@ export function FeeFacts({ batch, lang }: { batch: Batch; lang: Lang }) {
     [ui("batches.refundRow", lang), t(batch.refundLine, lang)],
   ];
   return (
-    <dl className="flex flex-col border-t border-rule">
+    <dl className="facts flex flex-col">
       {rows
         .filter(([, v]) => v.trim() !== "")
         .map(([k, v]) => (
-          <div key={k} className="flex items-baseline justify-between gap-3 border-b border-rule py-3">
+          <div key={k} className="flex items-baseline justify-between gap-3 py-3">
             <dt className="body">{k}</dt>
             <dd className="body text-right font-bold">
               <Tx>{v}</Tx>

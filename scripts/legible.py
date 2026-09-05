@@ -48,14 +48,27 @@ return (() => {
      the first stop alone passed a strip whose dark end was 5.59:1 and a band
      whose white text was 2.38:1 — Agosh caught both by looking. */
   const ground = (el) => {                // the first ancestor that actually paints
+    /* Layers between the text and the first OPAQUE ground, nearest first.
+
+       A translucent background used to be treated as if it were opaque: only
+       alpha exactly 0 was skipped, so `rgba(251,248,241,0.08)` — an 8% ivory
+       tint painted on a near-black band to lift a button off it — was read as
+       solid ivory, and the ivory label on top came back at 1.03:1 on four
+       pages. The design was right and the instrument was wrong, which is the
+       worse way round: it would have argued me out of a good button. Anything
+       between 0 and 1 is now remembered and composited over whatever turns
+       out to be behind it. */
+    const veils = [];
+    const under = (base) => {
+      let out = base;
+      for (let i = veils.length - 1; i >= 0; i--) out = over(veils[i], out);
+      return out.map((x) => Math.round(x));
+    };
     for (let n = el; n && n !== document.documentElement; n = n.parentElement) {
       const cs = getComputedStyle(n);
       /* A gradient paints too, and computedStyle reports backgroundColor as
          transparent for it — which made a dark gradient panel measure as ivory
-         text on the ivory page behind it, i.e. 1.00:1, invisible. Take the
-         first colour stop of the gradient as the ground; for the panels this
-         site uses, the first stop is the lighter end, so this is the harder
-         of the two readings rather than the flattering one. */
+         text on the ivory page behind it, i.e. 1.00:1, invisible. */
       const img = cs.backgroundImage;
       if (img && img !== 'none') {
         /* A background-image can be several gradient layers, listed front to
@@ -63,23 +76,26 @@ return (() => {
            under everything else. Taking the first layer instead reported the
            hero's top radial highlight as the ground for the whole screen and
            failed text that sits on near-white. Split on layer boundaries, take
-           the last, and use its first opaque colour stop. */
+           the last, and use its colour stops: text runs across the whole sweep
+           and is only as legible as its worst point. */
         const layers = img.split(/,(?![^(]*\))/);
         for (let i = layers.length - 1; i >= 0; i--) {
           const stops = [];
           for (const m of layers[i].matchAll(/rgba?\(([^)]+)\)/g)) {
             const c = parse('rgb(' + m[1] + ')');
             if (c.length > 3 && c[3] === 0) continue;
-            stops.push(c.slice(0, 3));
+            stops.push(under(c.slice(0, 3)));
           }
           if (stops.length) return stops;
         }
       }
       const c = parse(cs.backgroundColor);
-      if (c.length > 3 && c[3] === 0) continue;
-      return [c.slice(0, 3)];
+      const a = c.length > 3 ? c[3] : 1;
+      if (a === 0) continue;              // paints nothing at all
+      if (a < 1) { veils.push(c); continue; }   // a tint: keep looking for what is under it
+      return [under(c.slice(0, 3))];
     }
-    return [[255, 255, 255]];
+    return [under([255, 255, 255])];
   };
   const ratio = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); };
 

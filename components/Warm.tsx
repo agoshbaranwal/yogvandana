@@ -14,12 +14,12 @@ import { Tx } from "./Tx";
 export function Counters({ lang }: { lang: Lang }) {
   const n = site.numbers;
   const rating = site.google.rating.trim();
-  const cells: { value: string; label: string }[] = [
+  const cells: { value: string; label: string; star?: boolean }[] = [
     { value: n[1]?.value ?? "", label: t(n[1]?.short, lang) },
     { value: n[0]?.value ?? "", label: t(n[0]?.short, lang) },
     { value: n[4]?.value ?? "", label: ui("home.medicineCount", lang) },
     rating
-      ? { value: `${rating}★`, label: ui("home.googleLine", lang) }
+      ? { value: rating, star: true, label: ui("home.googleLine", lang) }
       : { value: n[2]?.value ?? "", label: t(n[2]?.short, lang) },
   ].filter((c) => c.value);
 
@@ -30,6 +30,7 @@ export function Counters({ lang }: { lang: Lang }) {
         <div key={c.label}>
           <span className="n">
             <Tx>{c.value}</Tx>
+            {c.star ? <span className="star" aria-hidden="true">★</span> : null}
           </span>
           <span className="l">
             <Tx>{c.label}</Tx>

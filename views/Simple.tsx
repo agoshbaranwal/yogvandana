@@ -7,7 +7,7 @@ import { FaqList } from "@/components/Faq";
 import SiteShell from "@/components/SiteShell";
 import { Tx } from "@/components/Tx";
 import { courseSchema, Jsonld } from "@/components/Jsonld";
-import { absolute, batches, faq, site, t, ui } from "@/lib/content";
+import { absolute, faq, liveBatches, site, t, ui } from "@/lib/content";
 import { href, type Lang } from "@/lib/routes";
 
 /* ------------------------- all conditions -------------------------------- */
@@ -31,8 +31,8 @@ export function AilmentsIndex({ lang }: { lang: Lang }) {
    once, and the ask: which batch is a question she answers, by the disease. */
 export function BatchesPage({ lang }: { lang: Lang }) {
   const page = absolute(href("batches", lang));
-  const group = batches.filter((b) => b.type === "group");
-  const others = batches.filter((b) => b.type !== "group");
+  const group = liveBatches.filter((b) => b.type === "group");
+  const others = liveBatches.filter((b) => b.type !== "group");
   const first = group[0];
 
   return (
@@ -49,13 +49,19 @@ export function BatchesPage({ lang }: { lang: Lang }) {
       </header>
 
       <section>
-        <div className="wrap flex flex-col gap-3 pb-2 pt-2 md:grid md:grid-cols-2 md:gap-5 md:pt-4">
-          {group.map((b, i) => (
-            <GroupBatchCard key={b.id} batch={b} lang={lang} page={page} first={i === 0} />
-          ))}
-          {others.map((b) => (
-            <SmallBatchCard key={b.id} batch={b} lang={lang} page={page} />
-          ))}
+        <div className="wrap flex flex-col gap-3 pb-2 pt-2 md:gap-5 md:pt-4">
+          <div className="flex flex-col gap-3 md:grid md:grid-cols-2 md:gap-5">
+            {group.map((b, i) => (
+              <GroupBatchCard key={b.id} batch={b} lang={lang} page={page} first={i === 0} />
+            ))}
+          </div>
+          {others.length > 0 ? (
+            <div className="flex flex-col gap-3 md:gap-5">
+              {others.map((b) => (
+                <SmallBatchCard key={b.id} batch={b} lang={lang} page={page} />
+              ))}
+            </div>
+          ) : null}
         </div>
       </section>
 

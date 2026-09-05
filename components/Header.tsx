@@ -113,13 +113,13 @@ export default function Header({
       <div className="wrap flex items-center justify-between gap-3 py-2 md:py-3">
         <Link
           href={home}
-          className="brand inline-block py-2 no-underline h2"
+          className="brand inline-block whitespace-nowrap py-2 no-underline h2"
           style={{ color: "var(--color-kohl)" }}
         >
           <span>{brandHi}</span> {brandTail}
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex" aria-label={menuLabel}>
+        <nav className="hidden items-center gap-5 lg:flex" aria-label={menuLabel}>
           {nav.map((item) => (
             <Link
               key={item.href}
@@ -132,15 +132,19 @@ export default function Header({
             </Link>
           ))}
           <a href={phoneHref || talkHref} className="pill" data-ev="call_click" data-ev-source="header" aria-label={`${callLabel}: ${phoneLabel}`}>
-            {/* A real phone number is eleven digits plus a country code, and
-                beside the wordmark and the menu that is wider than a 360px
-                phone. The number shows from 400px up; below it the pill is the
-                icon and the word, which is what a thumb is aiming at anyway. */}
+            {/* A real phone number is eleven digits plus a country code, which
+                is wide. The header row is 960px whatever the window; the
+                English navigation is 718px of it and the wordmark 155px, so
+                the two were left 12px apart and read as touching — measured,
+                5 Sep 2026. Hindi has 87px and is fine. The number therefore
+                shows only from 1280px, where there is room for it, and below
+                that the pill is the icon and the word, which is what a thumb
+                is aiming at anyway. */}
             <PhoneIcon size={18} />
-            <span className="hidden min-[400px]:inline">
+            <span className="hidden xl:inline">
               <Tx>{phoneLabel}</Tx>
             </span>
-            <span className="min-[400px]:hidden">{callLabel}</span>
+            <span className="xl:hidden">{callLabel}</span>
           </a>
           <Link
             href={switchHref}
@@ -243,7 +247,7 @@ export default function Header({
                 rel="noopener noreferrer"
                 data-ev="whatsapp_click"
                 data-ev-source="menu"
-                className="btn btn-primary w-full"
+                className="btn btn-primary btn-block"
               >
                 <WhatsAppIcon size={20} />
                 {whatsappLabel}
@@ -253,7 +257,7 @@ export default function Header({
                 onClick={() => setOpen(false)}
                 data-ev={phoneHref ? "call_click" : "talk_cta"}
                 data-ev-source="menu"
-                className="btn btn-outline w-full"
+                className="btn btn-outline btn-block"
               >
                 <PhoneIcon size={20} />
                 <Tx>{`${callLabel} · ${phoneLabel}`}</Tx>

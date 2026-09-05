@@ -28,6 +28,7 @@ export function Photo({
   priority = false,
   rounded = "rounded-[var(--radius-card)]",
   compact = false,
+  focus = "center",
 }: {
   src: string;
   alt: string;
@@ -41,9 +42,15 @@ export function Photo({
   rounded?: string;
   /* too small to hold words: shows the icon alone, never a caption outside */
   compact?: boolean;
+  /* Where the crop keeps its detail when the frame is a different shape from
+     the file. A portrait of a person is cropped from the BELOW: centring it
+     takes the same bite out of the top and the bottom, and the bite out of
+     the top is her head. It cost us exactly that — her forehead cut off in
+     the hero, which Agosh had to point out (5 Sep 2026). */
+  focus?: "center" | "face";
 }) {
   const pic = picture(src);
-  const style = { aspectRatio: ratio };
+  const style = { aspectRatio: ratio, objectPosition: focus === "face" ? "50% 18%" : undefined };
 
   /* The width and height attributes describe THE BOX, not the file.
 

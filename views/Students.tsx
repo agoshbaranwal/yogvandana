@@ -122,7 +122,7 @@ function PayOrWrite({ batch, lang, wa }: { batch: Batch; lang: Lang; wa: string 
       data-ev={pay ? "pay_click" : "fee_write_click"}
       data-ev-batch={batch.id}
       data-ev-source="students"
-      className="btn btn-outline w-full"
+      className="btn btn-outline btn-block"
     >
       {pay
         ? batch.type === "group"

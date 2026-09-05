@@ -1,5 +1,5 @@
 import { A as Link } from "./Nav";
-import { type Batch, batches, t, ui } from "@/lib/content";
+import { type Batch, liveBatches, t, ui } from "@/lib/content";
 import type { Lang } from "@/lib/routes";
 import { Tx } from "./Tx";
 
@@ -11,7 +11,12 @@ export function DayChips({ daysOn, lang }: { daysOn: number[]; lang: Lang }) {
   return (
     <ul className="flex items-center justify-between" aria-label={ui("batches.colDays", lang)}>
       {letters.map((l, i) => {
-        const on = daysOn.includes(i);
+        /* The letters read सो मं बु गु शु श र — Monday first, as a
+           timetable is read. daysOn is the ordinary JS week where 0 is
+           Sunday. Nothing converted between them, so [1,2,3,4,5] — written
+           to mean Monday to Friday — lit Tuesday to Saturday on every card,
+           beside a line that said सोमवार से शुक्रवार. */
+        const on = daysOn.includes((i + 1) % 7);
         return (
           <li key={i} className={`day ${on ? "on" : "off"}`} aria-label={names[i]} title={names[i]}>
             {l}
@@ -31,7 +36,7 @@ function shortName(b: Batch, lang: Lang): string {
 /* The home page's timetable: two times, the days, one fee, and the money
    said once underneath. */
 export function Timetable({ lang, talkHref = "#booking-band" }: { lang: Lang; talkHref?: string }) {
-  const group = batches.filter((b) => b.type === "group");
+  const group = liveBatches.filter((b) => b.type === "group");
   const first = group[0];
   const sum = first
     ? ui("home.sumLine", lang)
@@ -52,7 +57,7 @@ export function Timetable({ lang, talkHref = "#booking-band" }: { lang: Lang; ta
           <div className="flex min-w-0 flex-col">
             <p className="h3">{shortName(b, lang)}</p>
             <p className="cap num font-normal">
-              <Tx>{`${ui("batches.atTime", lang).replace("{t}", t(b.start, lang))} · ${ui("batches.minutes", lang).replace("{m}", b.minutes)}`}</Tx>
+              <Tx>{`${t(b.when, lang)} · ${ui("batches.minutes", lang).replace("{m}", b.minutes)}`}</Tx>
             </p>
           </div>
           <p className="body">

@@ -136,7 +136,7 @@ export default function Ailment({ lang, ailment }: { lang: Lang; ailment: Ailmen
                 data-ev="talk_cta"
                 data-ev-source="ailment-header"
                 data-ev-slug={ailment.slug}
-                className="btn btn-primary w-full md:w-auto"
+                className="btn btn-primary btn-block md:!w-auto"
               >
                 {ui("ailment.talkAbout", lang).replace("{x}", name)}
               </Link>

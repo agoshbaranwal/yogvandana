@@ -49,7 +49,7 @@ export default function Contact({ lang }: { lang: Lang }) {
             ) : (
               <div className="card flex flex-col gap-0.5">{callCard}</div>
             )}
-            <a href={wa} target="_blank" rel="noopener noreferrer" data-ev="whatsapp_click" data-ev-source="contact-header" className="btn btn-primary">
+            <a href={wa} target="_blank" rel="noopener noreferrer" data-ev="whatsapp_click" data-ev-source="contact-header" className="btn btn-primary btn-block md:!w-auto">
               <WhatsAppIcon size={22} />
               {ui("cta.whatsappTalk", lang)}
             </a>

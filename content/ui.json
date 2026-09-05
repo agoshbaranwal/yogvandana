@@ -687,6 +687,10 @@
     "threeMonths": {
       "hi": "तीन महीने एक साथ",
       "en": "Three months together"
+    },
+    "feeTodo": {
+      "hi": "फ़ीस तय होनी है",
+      "en": "Fee to be set"
     }
   },
   "stories": {

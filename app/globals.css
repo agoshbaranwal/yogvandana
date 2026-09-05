@@ -293,6 +293,37 @@
   /* type ------------------------------------------------------------------ */
   /* Seven classes, one per step of the scale. A component picks one of these
      and never sets a pixel size of its own. */
+
+  /* How lines break.
+
+     `h1,h2,h3 { text-wrap: balance }` was already set, but almost every
+     heading on this site is one of these CLASSES on a <p> or a <span>, so it
+     never applied to them. And nothing at all governed body text, which is
+     where it shows: "रिपोर्ट सुधरे तो दवा डॉक्टर ही घटाते हैं — और घटती है।"
+     dropped its last two characters onto a line of their own (Agosh, 5 Sep).
+
+     balance evens out a heading's lines; pretty keeps a paragraph from ending
+     on a single short word. Both are ignored by an old browser, which simply
+     gets today's behaviour. */
+  .claim,
+  .page-title,
+  .h2,
+  .h3,
+  .point,
+  .point-sm {
+    text-wrap: balance;
+  }
+  /* `pretty` only tidies the rag of the last line and left all nine of the
+     site's stranded tails in place; `balance` redistributes the words, which
+     is what a two-line paragraph ending in "है।" actually needs. Browsers cap
+     balancing at a few lines and simply ignore it beyond that, so long
+     passages keep their ordinary rag. */
+  .body,
+  .cap,
+  .label,
+  .faq-answer {
+    text-wrap: balance;
+  }
   .claim {
     font-weight: 700;
     line-height: 1.12;
@@ -380,19 +411,61 @@
 
   /* buttons --------------------------------------------------------------- */
   .btn {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     min-height: 56px;
-    padding: 15px 24px;
+    padding: 15px 26px;
     border-radius: var(--radius-pill);
     font-size: var(--step-body);
     font-weight: 700;
     text-decoration: none;
     line-height: 1.25;
-    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    letter-spacing: 0.004em;
+    box-shadow: var(--elev-1);
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease,
+      border-color 0.15s ease,
+      box-shadow 0.15s ease,
+      translate 0.1s ease;
     text-align: center;
+  }
+  /* a button should feel like it went down when it was pressed */
+  .btn:active {
+    translate: 0 1px;
+    box-shadow: none;
+  }
+  .btn:focus-visible {
+    outline: 3px solid var(--color-bhagwa);
+    outline-offset: 3px;
+  }
+
+  /* A full-width button centres its LABEL, not the icon-and-label pair.
+
+     Left in the flex row, the mark plus its gap shifts the words to the right
+     of the pill's middle — measured at 28 to 32px of ink on every one of the
+     site's icon buttons, which is what Agosh kept seeing as "misaligned"
+     (5 Sep 2026). The mark now sits in the left padding, out of the flow, and
+     the words are centred on the button. Padding is symmetric so they stay
+     centred, and it clears the mark so a long Hindi label cannot reach it. */
+  .btn-block {
+    display: flex;
+    width: 100%;
+  }
+  /* only a block button WITH a mark needs room reserved for it: the padding
+     that keeps a label clear of the icon squeezed icon-less buttons into two
+     lines in a narrow column */
+  .btn-block:has(> svg:first-child) {
+    padding-inline: 56px;
+  }
+  .btn-block > svg:first-child {
+    position: absolute;
+    inset-inline-start: 22px;
+    top: 50%;
+    translate: 0 -50%;
   }
   /* The first screen's main button: saffron on the ivory phone page, ink on
      the desktop sky that ends in saffron. */
@@ -419,7 +492,7 @@
     }
   }
   .btn-primary {
-    background: var(--color-bhagwa);
+    background: var(--grad-action);
     color: var(--color-kohl);
   }
   @media (hover: hover) and (pointer: fine) {
@@ -439,9 +512,10 @@
     }
   }
   .btn-outline {
-    background: transparent;
+    background: var(--color-paper);
     color: var(--color-kohl);
     border: 1.5px solid var(--color-kohl);
+    box-shadow: none;
   }
   @media (hover: hover) and (pointer: fine) {
     .btn-outline:hover {
@@ -949,13 +1023,75 @@
     font-size: var(--step-cap);
     font-weight: 700;
   }
+  /* Saffron for a day the class runs, a ghost for one it does not. Filled
+     black circles with saffron letters read as seven heavy dots and gave the
+     card its blunt look; the eye should be able to see the working week at a
+     glance without reading a single letter. */
   .day.on {
-    background: var(--color-kohl);
-    color: var(--color-bhagwa);
+    background: var(--grad-action);
+    color: var(--color-kohl);
+    box-shadow: var(--elev-1);
   }
   .day.off {
+    background: transparent;
+    color: var(--quiet-ink, var(--color-muted));
+    border: 1.5px dashed var(--color-rule);
+  }
+
+  /* One class, as a proportion of an hour.
+
+     It was three slabs of colour with the minutes and a caption crammed
+     inside each, and the middle slab was a flat saffron rectangle with black
+     text on it — the piece Agosh singled out as needing a design upgrade
+     (5 Sep 2026). A bar should be read as a bar: the track shows the shape of
+     the hour, and the words sit underneath where there is room for them. */
+  .track {
+    display: flex;
+    height: 14px;
+    border-radius: var(--radius-pill);
+    overflow: hidden;
     background: var(--color-rule);
-    color: var(--color-heroink);
+  }
+  .track > span {
+    display: block;
+    background: var(--color-apricot);
+    border-inline-end: 2px solid var(--color-paper);
+  }
+  .track > span:last-child {
+    border-inline-end: 0;
+  }
+  .track > span.main {
+    background: var(--grad-action);
+  }
+  .legend {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .legend > li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-top: 11px;
+    border-top: 3px solid var(--color-apricot);
+  }
+  .legend > li.main {
+    border-top-color: var(--color-bhagwa);
+  }
+  .legend .m {
+    font-size: var(--step-sub);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--color-kohl);
+  }
+
+  /* the fee rows: a quiet stripe so the eye can run along a line */
+  .facts > div:nth-child(odd) {
+    background: var(--color-amber-tint);
+  }
+  .facts > div {
+    padding-inline: 12px;
+    border-radius: var(--radius-sm);
   }
 
   /* details/summary FAQ: works with no JavaScript ------------------------- */
@@ -1404,32 +1540,66 @@
     color: var(--color-amber-deep);
   }
 
-  /* the counter strip: four facts, hairline-separated, lifted off the page */
+  /* The counter strip: the four facts a stranger checks before anything else.
+
+     It was four numbers in white boxes separated by hairlines — correct, and
+     completely inert, which is what Agosh meant by asking for something more
+     polished (5 Sep 2026). Three things changed. The strip sits on warm paper
+     with real elevation instead of reading as a table. Each number carries a
+     short saffron rule under it, which gives the eye a baseline to run along
+     and makes four separate facts read as one row. And the dividers fade out
+     at top and bottom rather than butting into the edges, so the card reads
+     as one object rather than four cells. */
   .counts {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1px;
-    background: var(--color-rule);
-    border-radius: var(--radius-card);
+    background: linear-gradient(180deg, #fffdfa, var(--color-paper));
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: var(--elev-1);
+    box-shadow: var(--elev-2);
   }
   .counts > div {
-    background: var(--color-paper);
-    padding: 16px 14px;
+    position: relative;
+    padding: 20px 14px 18px;
     text-align: center;
   }
+  /* a divider that fades at both ends, drawn on the cell rather than as a gap */
+  .counts > div + div::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    top: 14%;
+    bottom: 14%;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, var(--color-rule) 22%, var(--color-rule) 78%, transparent);
+  }
+  /* on two columns the third and fourth cells start a second row, and the
+     one that begins that row must not carry a divider */
+  .counts > div:nth-child(3)::before {
+    display: none;
+  }
+  .counts > div:nth-child(n + 3) {
+    border-top: 1px solid var(--color-rule);
+  }
   .counts .n {
-    display: block;
+    display: inline-block;
     font-size: var(--step-title);
     font-weight: 700;
     line-height: 1;
-    color: var(--color-amber-deep);
+    /* the number in the page's darkest ink and the rule in saffron: four
+       brown numbers over four brown rules read as one muddy block */
+    color: var(--color-kohl);
     letter-spacing: -0.02em;
+    padding-bottom: 9px;
+    border-bottom: 3px solid var(--color-bhagwa);
+  }
+  .counts .n .star {
+    color: var(--color-bhagwa);
   }
   .counts .l {
     display: block;
-    margin-top: 5px;
+    margin-top: 9px;
     font-size: var(--step-cap);
     color: var(--color-muted);
     line-height: 1.35;
@@ -1437,6 +1607,12 @@
   @media (min-width: 768px) {
     .counts {
       grid-template-columns: repeat(4, 1fr);
+    }
+    .counts > div:nth-child(3)::before {
+      display: block;
+    }
+    .counts > div:nth-child(n + 3) {
+      border-top: 0;
     }
     .counts .n {
       font-size: var(--step-display);
@@ -1614,9 +1790,13 @@
      white on this green is 1.98:1, which is a famously bad button. Ink on it
      is 9.43:1 and still unmistakably the WhatsApp cue. */
   .btn-wa {
-    background: var(--color-wa);
-    color: var(--color-kohl);
-    box-shadow: var(--elev-1);
+    background: linear-gradient(180deg, #2ee06f, var(--color-wa));
+    color: #05310f;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-wa:hover {
+      background: linear-gradient(180deg, #35e878, #23c95e);
+    }
   }
   .btn-grad {
     background: var(--grad-action);
@@ -1630,9 +1810,16 @@
   }
   /* the secondary action when the ground is ink */
   .btn-onink {
-    background: transparent;
+    background: rgba(251, 248, 241, 0.08);
     color: var(--color-ivory);
     border: 1.5px solid rgba(251, 248, 241, 0.55);
+    box-shadow: none;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-onink:hover {
+      background: rgba(251, 248, 241, 0.16);
+      border-color: rgba(251, 248, 241, 0.8);
+    }
   }
 
   /* The closing band.

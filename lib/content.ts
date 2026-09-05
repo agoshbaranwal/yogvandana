@@ -328,7 +328,19 @@ export type Batch = z.infer<typeof BatchSchema>;
 export const batches: Batch[] = many(BatchSchema, "batches").sort(
   (a, b) => a.order - b.order,
 );
-export const groupBatches = batches.filter((b) => b.type === "group");
+/* A batch nobody has written yet is not a batch.
+
+   The workshop file ships as a shape to be filled in, and every one of its
+   fields is still a blank: [योग शिविर का नाम], [शुल्क], [समय], [सीटें]. The
+   page rendered it anyway, so a stranger deciding whether to trust her with
+   their diabetes met a card headed "[योग शिविर का नाम]", priced "₹शुल्क",
+   with a button reading "[योग शिविर का नाम] के बारे में बात करें".
+
+   Placeholders are for us; the site is for them. A batch goes on a public
+   page once it has a name. */
+export const named = (b: Batch): boolean => !isTodo(b.name.hi) && !isTodo(b.name.en);
+export const liveBatches = batches.filter(named);
+export const groupBatches = liveBatches.filter((b) => b.type === "group");
 
 /* ------------------------------ stories --------------------------------- */
 

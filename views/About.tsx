@@ -109,7 +109,7 @@ export default function About({ lang }: { lang: Lang }) {
               alt={t(site.teacher, lang)}
               fetchPriority="high"
               decoding="async"
-              className="absolute inset-0 h-full w-full object-cover object-top"
+              className="absolute inset-0 h-full w-full object-cover" style={{ objectPosition: "50% 18%" }}
             />
           ) : (
             <p className="cap absolute inset-x-6 top-1/2 -translate-y-1/2 text-center" style={{ color: "var(--color-deeper)" }}>
@@ -159,6 +159,7 @@ export default function About({ lang }: { lang: Lang }) {
             alt={t(site.teacher, lang)}
             label={ui("photo.portrait", lang)}
             ratio="4 / 5"
+            focus="face"
             rounded="rounded-[12px]"
             className="w-full"
             sizes="340px"
@@ -449,7 +450,7 @@ export default function About({ lang }: { lang: Lang }) {
             <p className="body">{ui("about.inviteLead", lang)}</p>
           </div>
           <div className="flex flex-col gap-2.5">
-            <a href={wa} target="_blank" rel="noopener noreferrer" data-ev="whatsapp_click" data-ev-source="about-invite" className="btn btn-dark">
+            <a href={wa} target="_blank" rel="noopener noreferrer" data-ev="whatsapp_click" data-ev-source="about-invite" className="btn btn-dark btn-block md:!w-auto">
               <WhatsAppIcon size={22} />
               {ui("cta.whatsappTalk", lang)}
             </a>

@@ -1,12 +1,15 @@
 import localFont from "next/font/local";
 
-/* Anek Devanagari, cut down and self-hosted.
+/* Two families, one per script, cut down and self-hosted.
 
-   Google serves it as a variable font carrying every weight from 100 to 800.
-   The Devanagari cut of that alone was 252 KB, on a site whose audience is on
-   mobile data. This site sets text in exactly two weights, so `scripts/fonts.py`
-   instances those two out of the variable font and subsets each to its script:
-   Devanagari 88 KB a weight, Latin 17 KB.
+   Devanagari is Anek Devanagari. Everything in Latin letters — the English
+   site, and the digits and loanwords inside Hindi — is Montserrat, which
+   Agosh chose on 5 Sep 2026.
+
+   Google serves both as variable fonts carrying every weight there is. This
+   site sets text in exactly two, so `scripts/fonts.py` instances those two
+   and subsets each to its own script: Devanagari 88 KB a weight, Montserrat
+   13 KB — 4 KB a weight less than the Anek Latin it replaced.
 
    Two families rather than one, each with its own unicode-range: a Devanagari
    character takes the Devanagari file, everything else falls through to the
@@ -29,8 +32,8 @@ const dev = localFont({
 
 const lat = localFont({
   src: [
-    { path: "../assets/fonts/anek-lat-400.woff2", weight: "400", style: "normal" },
-    { path: "../assets/fonts/anek-lat-700.woff2", weight: "700", style: "normal" },
+    { path: "../assets/fonts/mont-lat-400.woff2", weight: "400", style: "normal" },
+    { path: "../assets/fonts/mont-lat-700.woff2", weight: "700", style: "normal" },
   ],
   variable: "--font-lat",
   display: "swap",

@@ -80,7 +80,7 @@ export function Join({ lang, source = "join" }: { lang: Lang; source?: string })
               {pay ? (
                 <a
                   href={pay.href}
-                  className={`btn w-full ${i === 0 ? "btn-primary" : "btn-outline"}`}
+                  className={`btn btn-block ${i === 0 ? "btn-primary" : "btn-outline"}`}
                   data-ev="pay_click"
                   data-ev-method={pay.method}
                   data-ev-batch={b.id}
