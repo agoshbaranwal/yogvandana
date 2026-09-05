@@ -701,6 +701,117 @@ add(5, "Every number traces to a content file", "waiting", "Numbers are still [X
   );
 }
 
+/* 23 — a button that takes money goes somewhere that can take money ------- */
+{
+  /* The one field on this site where a typo costs a stranger ₹1,000. This
+     rule is deliberately independent of lib/pay.ts: it reads the built HTML
+     and asks what a reader's thumb would actually reach.
+
+     It has teeth in BOTH states, which matters, because for most of this
+     site's life there will be no payment account at all and a rule that only
+     says "0 bad links found" out of 0 links is not evidence of anything. So:
+     with a channel configured, every pay link must be a real one; with none
+     configured, there must be no pay link AND the reserved box must be on
+     the page in its place. */
+  const HOSTS = ["razorpay.com", "rzp.io", "cashfree.com", "cf-pg.com", "phonepe.com",
+                 "paytm.in", "paytm.com", "instamojo.com", "payu.in"];
+  const okDest = (h) => {
+    if (h.startsWith("upi://pay?")) return /[?&]pa=[^&]+/.test(h);
+    try {
+      const u = new URL(h);
+      return u.protocol === "https:" && HOSTS.some((d) => u.hostname === d || u.hostname.endsWith(`.${d}`));
+    } catch { return false; }
+  };
+  const links = [], boxes = [];
+  for (const f of pages) {
+    const html = read(f);
+    for (const m of html.matchAll(/<a\b[^>]*data-ev="pay_click"[^>]*>/g)) {
+      const href = (m[0].match(/href="([^"]*)"/) || [])[1] ?? "";
+      links.push({ page: rel(f), href });
+    }
+    for (let i = (html.match(/class="[^"]*\bpaysoon\b/g) || []).length; i > 0; i--) boxes.push(rel(f));
+  }
+  const bad = links.filter((l) => !okDest(l.href));
+  const live = links.length > 0;
+  const ok = live ? bad.length === 0 : boxes.length > 0;
+  add(
+    23,
+    "Every button that takes money reaches a real payment channel",
+    ok ? "pass" : "fail",
+    live
+      ? `${links.length} pay button(s) across the site` +
+        (bad.length ? `; ${bad.length} bad: ${bad.slice(0, 3).map((b) => `${b.page} → ${b.href || "(empty)"}`).join(", ")}`
+                    : `, every destination https on a payment host or a upi: link carrying a payee`)
+      : boxes.length
+        ? `no payment account yet: 0 pay buttons and ${boxes.length} reserved box(es) standing in their place`
+        : "no payment account, no pay buttons — and no reserved box either, so the card silently lost its call to action",
+  );
+}
+
+/* 24 — nobody is asked for money without being warned about the fraud ----- */
+{
+  /* The commonest way this audience loses money is a stranger phoning to say
+     "I am from Vandana's office, read me the OTP". Every page that asks for a
+     fee carries the sentence that says she will never do that. */
+  const ui = JSON.parse(fs.readFileSync(path.join(ROOT, "content", "ui.json"), "utf8"));
+  const line = { hi: ui.pay.safetyShort.hi, en: ui.pay.safetyShort.en };
+  const missing = [];
+  let asked = 0;
+  for (const f of pages) {
+    const html = read(f);
+    if (!/data-ev="pay_click"|class="[^"]*\bpaysoon\b/.test(html)) continue;
+    asked += 1;
+    const want = norm(isHindi(f) ? line.hi : line.en);
+    if (!norm(text(html)).includes(want)) missing.push(rel(f));
+  }
+  add(
+    24,
+    "Every page that asks for a fee carries the PIN and OTP warning",
+    missing.length === 0 ? "pass" : "fail",
+    missing.length ? `missing on ${missing.join(", ")}` : `${asked} page(s) ask for money, all ${asked} carry it`,
+  );
+}
+
+/* 25 — no image is told two different widths ------------------------------ */
+{
+  /* Tailwind resolves two width utilities by their order in the built
+     stylesheet, not their order in the class attribute, so `w-full w-[112px]`
+     does not mean 112px — it means whichever the stylesheet happens to put
+     last, silently, with no warning anywhere.
+
+     It cost us a shipped bug: <Photo> hardcoded `w-full` on the img and every
+     caller that asked for a fixed thumbnail was quietly overruled. Nothing
+     showed while every frame was a grey placeholder. The day a real
+     photograph arrived, a 112px portrait rendered at 328px inside a 320px row
+     and burst the home page at 360px, in both languages.
+
+     Two width utilities at the same breakpoint on one element is the defect
+     itself, and it is visible in the built HTML without a browser. */
+  const clashes = [];
+  for (const f of pages) {
+    for (const m of read(f).matchAll(/<img\b[^>]*\bclass="([^"]*)"/g)) {
+      const byPrefix = new Map();
+      for (const tok of m[1].split(/\s+/).filter(Boolean)) {
+        const hit = /^((?:[a-z]{2,6}:)*)(w|max-w)-/.exec(tok);
+        if (!hit) continue;
+        const key = hit[1] + hit[2];
+        byPrefix.set(key, [...(byPrefix.get(key) || []), tok]);
+      }
+      for (const [key, toks] of byPrefix)
+        if (toks.length > 1) clashes.push(`${rel(f)} ${key}: ${toks.join(" vs ")}`);
+    }
+  }
+  const imgs = pages.reduce((n, f) => n + (read(f).match(/<img\b/g) || []).length, 0);
+  add(
+    25,
+    "No image carries two width utilities that silently fight each other",
+    clashes.length === 0 ? "pass" : "fail",
+    clashes.length
+      ? `${clashes.length}: ${[...new Set(clashes)].slice(0, 4).join("; ")}`
+      : `${imgs} image tag(s) across ${pages.length} pages, each told its width once`,
+  );
+}
+
 /* ------------------------------- report ---------------------------------- */
 const pass = results.filter((r) => r.status === "pass").length;
 const fail = results.filter((r) => r.status === "fail");

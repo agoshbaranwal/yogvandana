@@ -36,8 +36,8 @@
   },
   "about": {
     "intro": {
-      "hi": "यही मेरी वंदना है, और यही इस नाम का मतलब। [X] साल से मैं यही देख रही हूँ: रोज़, सही तरीके से, किसी की नज़र के सामने किया गया योग और प्राणायाम हर बीमारी में हल देता है।",
-      "en": "That is my prayer, and that is what this name means. For [X] years I have seen the same thing: yoga and pranayama done properly, every day, with someone watching, give a remedy for any illness."
+      "hi": "यही मेरी वंदना है, और यही इस नाम का मतलब। {y} साल से मैं यही देख रही हूँ: रोज़, सही तरीके से, किसी की नज़र के सामने किया गया योग और प्राणायाम हर बीमारी में हल देता है।",
+      "en": "That is my prayer, and that is what this name means. For {y} years I have seen the same thing: yoga and pranayama done properly, every day, with someone watching, give a remedy for any illness."
     },
     "words": {
       "hi": "[उनके अपने शब्दों में दो-तीन पंक्तियाँ: वे क्यों सिखाती हैं, और किस तरह के लोगों के साथ काम करना उन्हें सबसे अच्छा लगता है।]",
@@ -190,6 +190,10 @@
     "introVideo": "",
     "profilePdf": "",
     "paymentPage": ""
+  },
+  "pay": {
+    "upiId": "",
+    "upiName": ""
   },
   "analyticsId": "",
   "searchConsole": "",

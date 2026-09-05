@@ -1199,6 +1199,50 @@
     "safetyShort": {
       "hi": "वंदना जी कभी आपका यूपीआई पिन या ओटीपी नहीं माँगेंगी। पैसे लेने के लिए पिन कभी नहीं लगता।",
       "en": "Vandana will never ask for your UPI PIN or an OTP. Receiving money never needs a PIN."
+    },
+    "title": {
+      "hi": "अभी जुड़ें",
+      "en": "Join now"
+    },
+    "lead": {
+      "hi": "बैच चुनिए और फ़ीस भरिए।",
+      "en": "Pick a batch and pay the fee."
+    },
+    "upiWay": {
+      "hi": "यूपीआई से — गूगल पे, फ़ोनपे, पेटीएम",
+      "en": "By UPI — GPay, PhonePe, Paytm"
+    },
+    "upiIdLabel": {
+      "hi": "या इस यूपीआई आईडी पर भेजिए",
+      "en": "Or send to this UPI id"
+    },
+    "upiDesktop": {
+      "hi": "कंप्यूटर पर हैं? आईडी कॉपी करके फ़ोन के ऐप में भेजिए।",
+      "en": "On a computer? Copy the id and send from your phone."
+    },
+    "after": {
+      "hi": "भुगतान के बाद व्हाट्सऐप पर ज़ूम लिंक और समय आ जाएगा।",
+      "en": "After paying, the Zoom link and timing come on WhatsApp."
+    },
+    "talkFirst": {
+      "hi": "पहले बात करनी है?",
+      "en": "Want to talk first?"
+    },
+    "perDay": {
+      "hi": "दिन के ₹{n}",
+      "en": "₹{n} a day"
+    },
+    "todo": {
+      "hi": "ऑनलाइन भुगतान चालू हो रहा है",
+      "en": "Online payment is being set up"
+    },
+    "todoNote": {
+      "hi": "तब तक व्हाट्सऐप पर फ़ीस की जानकारी लीजिए।",
+      "en": "Until then, ask about the fee on WhatsApp."
+    },
+    "refundLink": {
+      "hi": "फ़ीस वापसी का नियम",
+      "en": "The refund rule"
     }
   },
   "medicine": {

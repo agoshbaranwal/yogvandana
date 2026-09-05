@@ -6,6 +6,7 @@ import { Tx } from "@/components/Tx";
 import { Counters, PressStrip } from "@/components/Warm";
 import { DiseaseRows } from "@/components/DiseaseRows";
 import { FirstScreen } from "@/components/FirstScreen";
+import { Join } from "@/components/Join";
 import { Jsonld, personSchema, websiteSchema } from "@/components/Jsonld";
 import { Schedule } from "@/components/Schedule";
 import SiteShell from "@/components/SiteShell";
@@ -173,7 +174,29 @@ export default function Home({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      {/* 10 · the one ask -------------------------------------------------- */}
+      {/* 10 · for the reader who has already decided ---------------------- */}
+      {/* Everything above this asks for a conversation, because almost
+          everybody who arrives is frightened and needs to hear they can keep
+          their medicine. A few have decided already — a neighbour sent them,
+          or they have watched her for a month — and for those people another
+          "message her and wait" is a wall. This is the one block that takes
+          money in a tap, and it still carries the two ways to talk. */}
+      {/* #join is a real address: a link she pastes into a WhatsApp reply
+          lands the reader on the payment block rather than the top of a
+          page they have already read. */}
+      <section id="join" style={{ scrollMarginTop: "84px" }}>
+        <div className="wrap flex flex-col gap-5 section-pad">
+          <div className="flex flex-col gap-1">
+            <span className="label" style={{ color: "var(--color-amber-deep)" }}>
+              {ui("pay.lead", lang)}
+            </span>
+            <h2 className="h2">{ui("pay.title", lang)}</h2>
+          </div>
+          <Join lang={lang} source="home-join" />
+        </div>
+      </section>
+
+      {/* 11 · the one ask -------------------------------------------------- */}
       <Band lang={lang} routeKey="home" source="home" />
     </SiteShell>
   );

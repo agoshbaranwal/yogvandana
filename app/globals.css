@@ -588,40 +588,48 @@
     color: var(--quiet-ink, var(--color-muted));
   }
 
-  /* A slot where a LINK will go.
 
-     The filled state is a pill you can tap; the empty state used to be a line
-     of plain text, so the row was a different height and a different shape
-     before and after the link arrived. This holds the pill's box — same
-     height, same rounding, same padding — outlined rather than filled, and
-     says what belongs in it. */
-  .slot {
-    display: inline-flex;
+  /* The box a pay button will occupy, holding its own explanation until she
+     has somewhere for the money to land. Same 56px min-height as .btn, so
+     the day a payment link is pasted in, nothing on the page moves. */
+  .paysoon {
+    display: flex;
     align-items: center;
-    gap: 7px;
-    min-height: 44px;
-    padding: 0 14px;
-    border: 1.5px dashed var(--color-field);
+    justify-content: center;
+    min-height: 56px;
+    padding: 12px 18px;
     border-radius: var(--radius-pill);
+    border: 1.5px dashed var(--color-field);
+    background: var(--color-amber-tint);
+    color: var(--color-amber-deep);
     font-size: var(--step-fine);
-    line-height: 1.25;
-    color: var(--quiet-ink, var(--color-muted));
-  }
-
-  /* a frame too small to hold its caption keeps it underneath, in the
-     smallest step the site has */
-  .ph-stack {
-    display: inline-flex;
-    flex-direction: column;
-    gap: 5px;
-    align-items: center;
-  }
-  .ph-note {
-    font-size: var(--step-fine);
+    font-weight: 700;
     line-height: 1.25;
     text-align: center;
-    color: var(--quiet-ink, var(--color-muted));
-    max-width: 15ch;
+  }
+
+  /* Her UPI id: the one string on this site somebody will copy by hand,
+     because a upi:// link opens nothing on a desktop. One tap selects the
+     whole of it rather than a word of it. */
+  .upi-id {
+    display: inline-block;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-deep);
+    background: var(--color-amber-tint);
+    border-radius: var(--radius-sm);
+    padding: 1px 7px;
+    white-space: nowrap;
+    user-select: all;
+    -webkit-user-select: all;
+  }
+
+  /* The fraud line. It is only a caption, but it is the caption that stops
+     somebody reading an OTP aloud to a stranger who says they are her, so it
+     is the one caption on the site with a rule beside it. */
+  .paysafe {
+    border-inline-start: 3px solid var(--color-bhagwa);
+    padding-inline-start: 12px;
   }
 
   /* Quiet ink and placeholder ink both follow the ground they sit on.
@@ -798,10 +806,38 @@
   .first-frame {
     background: var(--color-sky);
   }
+  /* A panel behind overlay text, so its contrast does not depend on which
+     photograph turned up.
+
+     Tuning .first-fade's gradient stops against her stage shot got two of
+     three lines over the floor and left the eyebrow at 5.77:1 — and the whole
+     tuning would have to be redone the day a lighter photograph arrives. This
+     is the general form: the text block carries its own ground, so any
+     picture underneath is irrelevant to whether the words can be read. */
+  .on-photo {
+    background: linear-gradient(180deg, rgba(20, 15, 10, 0.62), rgba(20, 15, 10, 0.9));
+    padding: 14px 16px 16px;
+    border-radius: var(--radius-card);
+    backdrop-filter: saturate(0.9) blur(1.5px);
+    -webkit-backdrop-filter: saturate(0.9) blur(1.5px);
+  }
+
   .first-fade {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(35, 26, 18, 0) 38%, rgba(35, 26, 18, 0.55) 68%, rgba(35, 26, 18, 0.84) 100%);
+    /* The first photograph to arrive is a stage shot: she is in a white
+       kurta and the backdrop goes pale at the bottom, which is exactly the
+       band this overlay's text sits in. The old stops (0.55 at 68%) were
+       tuned against nothing and left white type on a white sleeve. These are
+       measured — scripts/onphoto.py samples the real pixels behind each line
+       of the built page and reports the contrast. */
+    background: linear-gradient(
+      180deg,
+      rgba(28, 21, 14, 0) 26%,
+      rgba(28, 21, 14, 0.42) 50%,
+      rgba(28, 21, 14, 0.76) 72%,
+      rgba(28, 21, 14, 0.93) 100%
+    );
     pointer-events: none;
   }
   @media (min-width: 768px) {

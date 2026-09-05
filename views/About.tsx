@@ -118,11 +118,14 @@ export default function About({ lang }: { lang: Lang }) {
           )}
           {pic ? <div className="first-fade" aria-hidden="true" /> : null}
           <div
-            className={`${pic ? "on-dark" : "on-bhagwa"} absolute inset-x-4 bottom-4 flex flex-col gap-1.5`}
+            className={`${pic ? "on-dark on-photo" : "on-bhagwa"} absolute inset-x-4 bottom-4 flex flex-col gap-1.5`}
             style={{ color: pic ? "var(--color-ivory)" : "var(--color-kohl)" }}
             data-on-photo={pic ? "" : undefined}
           >
-            <p className="label" style={{ color: pic ? "var(--color-bhagwa)" : "var(--color-deep)" }}>
+            {/* saffron on a photograph measured 2.58:1. Over a scrim this
+                dark, plain ivory is the legible choice and the eyebrow does
+                not need a colour to read as an eyebrow. */}
+            <p className="label" style={{ color: pic ? "var(--color-ivory)" : "var(--color-deep)" }}>
               {ui("about.eyebrow", lang)}
             </p>
             <h1 className="page-title">{t(site.teacher, lang)}</h1>
@@ -176,7 +179,8 @@ export default function About({ lang }: { lang: Lang }) {
             — {t(site.mottoGloss, lang)}
           </p>
           <p className="body">
-            <Tx>{t(site.about.intro, lang)}</Tx>
+            {/* the same count the four counters show, from one source */}
+            <Tx>{t(site.about.intro, lang).replace("{y}", site.numbers[0]?.value ?? "")}</Tx>
           </p>
           <p className="body">
             <Tx>{t(site.about.words, lang)}</Tx>

@@ -138,6 +138,16 @@ const payUrl = z
       "a payment URL must be https and on a payment provider's domain (or her own pay. subdomain)",
   });
 
+/* A UPI id is the other field on this site where a typo costs money, and it
+   costs it in the worst way: a valid-but-wrong id belongs to a real stranger,
+   the money leaves, and there is nobody to appeal to. It must be empty, or
+   name@handle, and nothing else. The build fails otherwise. */
+const UPI_VPA = /^[a-zA-Z0-9][a-zA-Z0-9.\-_]{1,255}@[a-zA-Z][a-zA-Z0-9.\-]{1,63}$/;
+export const upiOk = (v: string): boolean => UPI_VPA.test(v);
+const upiVpa = z.string().refine((v) => v === "" || upiOk(v), {
+  message: "a UPI id must look like name@bank",
+});
+
 const SiteSchema = z.object({
   url: z.string(),
   live: z.boolean(),
@@ -194,6 +204,12 @@ const SiteSchema = z.object({
        until then. A batch can override it with its own joinLink. */
     paymentPage: payUrl,
   }),
+  /* Money can also arrive without a gateway. A UPI id is an account she
+     already has: no KYC, no percentage taken, and every phone in the country
+     can send to it, which makes it the channel that works on day one. The
+     hosted page above is the one that takes cards and issues a receipt.
+     Either may be empty; the buttons show whichever exists. */
+  pay: z.object({ upiId: upiVpa, upiName: z.string() }),
   /* the id of the certificate the certifying body issued: shown large on the about page */
   primaryCredential: z.string(),
   analyticsId: z.string(),

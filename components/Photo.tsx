@@ -54,6 +54,14 @@ export function Photo({
      photograph is cropped into it. Parsing the ratio here keeps the two from
      disagreeing, and still gives the browser a size to reserve before the
      image loads. */
+  /* Tailwind picks between two width utilities by their order in the built
+     stylesheet, not their order in this string, so a hardcoded `w-full` here
+     quietly beat a caller's `w-[112px]`. Nothing showed it while every frame
+     was a placeholder; the day a real photograph arrived, her thumbnail on
+     the home page rendered at 328px inside a 320px row and burst it. The
+     image fills its box only when the caller has not said how wide the box
+     is. Credibility rule 25 fails the build if the two ever collide again. */
+  const setsWidth = /(?:^|\s)(?:[a-z]{2,6}:)?(?:w|max-w)-/.test(className);
   const [rw, rh] = ratio.split("/").map((n) => Number(n.trim()));
   const box =
     Number.isFinite(rw) && Number.isFinite(rh) && rh > 0
@@ -78,7 +86,7 @@ export function Photo({
            that had a min-height — the About portrait went 425px → 460px the
            moment a picture arrived, while the placeholder beside it stayed at
            425. The two must behave identically or the box moves. */
-        className={`${rounded} block w-full object-cover ${compact ? "" : className}`}
+        className={`${rounded} block ${setsWidth ? "" : "w-full"} object-cover ${compact ? "" : className}`}
         style={style}
       />
     );
